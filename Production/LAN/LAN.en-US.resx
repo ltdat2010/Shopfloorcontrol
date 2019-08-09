@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BaocaosudungNVL" xml:space="preserve">
+    <value>Report Raw Material using</value>
+  </data>
+  <data name="Ca1" xml:space="preserve">
+    <value>Shift 1</value>
+  </data>
+  <data name="Ca2" xml:space="preserve">
+    <value>Shift 2</value>
+  </data>
+  <data name="Ca3" xml:space="preserve">
+    <value>Shift 3</value>
+  </data>
+  <data name="Dai" xml:space="preserve">
+    <value>Lenght (m)</value>
+  </data>
+  <data name="Dangnhap" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Dong" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Ghichutrongquatrinhsanxuat" xml:space="preserve">
+    <value>Production Notes</value>
+  </data>
+  <data name="Ghichuvechatluong" xml:space="preserve">
+    <value>Quanlity Note</value>
+  </data>
+  <data name="Inbaocao" xml:space="preserve">
+    <value>Print Report</value>
+  </data>
+  <data name="Jobchuahoantat" xml:space="preserve">
+    <value>Job not complete</value>
+  </data>
+  <data name="Jobhoantat" xml:space="preserve">
+    <value>Job complete</value>
+  </data>
+  <data name="Khongluu" xml:space="preserve">
+    <value>Not Save</value>
+  </data>
+  <data name="Langhep" xml:space="preserve">
+    <value>Times</value>
+  </data>
+  <data name="Loi" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Lotno" xml:space="preserve">
+    <value>Lot No./ Roll No.</value>
+  </data>
+  <data name="Luu" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Matkhau" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Machine</value>
+  </data>
+  <data name="Nang" xml:space="preserve">
+    <value>Weight (kgs)</value>
+  </data>
+  <data name="Ngay" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Nguyenlieu" xml:space="preserve">
+    <value>Raw material</value>
+  </data>
+  <data name="Nhacungcap" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="Quicachghep" xml:space="preserve">
+    <value>Lamnination Type</value>
+  </data>
+  <data name="Quản lý user" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="Rong" xml:space="preserve">
+    <value>Width (m)</value>
+  </data>
+  <data name="Soluong" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Soluongconlai" xml:space="preserve">
+    <value>Total sum return</value>
+  </data>
+  <data name="Sua" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="Ten" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="Tensanpham" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="Them" xml:space="preserve">
+    <value>Add </value>
+  </data>
+  <data name="Themdong" xml:space="preserve">
+    <value>Add row</value>
+  </data>
+  <data name="Thoat" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Tong" xml:space="preserve">
+    <value>Sum</value>
+  </data>
+  <data name="Tonginput" xml:space="preserve">
+    <value>Total sum input :</value>
+  </data>
+  <data name="Tongphelieu" xml:space="preserve">
+    <value>Total sum waste ( Sys Calculate ) :</value>
+  </data>
+  <data name="Tongphelieudai" xml:space="preserve">
+    <value>Total sum waste (Lenght) :</value>
+  </data>
+  <data name="Tongphelieunang" xml:space="preserve">
+    <value>Total sum waste (Weight) :</value>
+  </data>
+  <data name="Tongphelieunhap" xml:space="preserve">
+    <value>Total sum Waste ( User input )</value>
+  </data>
+  <data name="Xoa" xml:space="preserve">
+    <value>Delete </value>
+  </data>
+  <data name="Xoadong" xml:space="preserve">
+    <value>Del row </value>
+  </data>
+</root>

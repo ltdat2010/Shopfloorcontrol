@@ -1,0 +1,451 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <ID>40</ID>
+    <OA_x0020_BATCH>BG001GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>BG001</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>Bag Wisium 20kg</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>Bag Wisium 20kg</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note>BG001GMR114181</Note>
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>41</ID>
+    <OA_x0020_BATCH>LBP01GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LBP01</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>Label P1010</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>Label P1010</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042028</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>42</ID>
+    <OA_x0020_BATCH>LBP02GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LBP02</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>Label P1012</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>Label P1012</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>43</ID>
+    <OA_x0020_BATCH>LBS01GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LBS01</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>Label S1016</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>Label S1016</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>44</ID>
+    <OA_x0020_BATCH>LBL01GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LBL01</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>Label L4020</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>Label L4020</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>45</ID>
+    <OA_x0020_BATCH>RIHULGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>RIHUL</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>RICE HULLS</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP026 TRAÁU NGHIEÀN</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note>NOT LOT, MANUFACTURING DATE &amp; Expiry date o1 year form import date</Note>
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>46</ID>
+    <OA_x0020_BATCH>DCP01GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>DCP01</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>DCP</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP080 DCP</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>01011811</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-01-01T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2021-01-01T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>47</ID>
+    <OA_x0020_BATCH>LMSTNGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LMSTN</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>LIMESTONE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP083 BOÄT CANXI</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note>NOT LOT, MANUFACTURING DATE &amp; Expiry date</Note>
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>48</ID>
+    <OA_x0020_BATCH>SALT1GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>SALT1</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>SALT</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP088 MUOÁI</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-04T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-04T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>49</ID>
+    <OA_x0020_BATCH>SDBCNGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>SDBCN</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>SODIUM BICARBONATE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP090 SODIUM BICARBONATE</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>4300FA02318076</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-28T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2020-02-28T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>50</ID>
+    <OA_x0020_BATCH>AMCLRGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>AMCLR</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>AMMONIUM CHLORIDE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP125 MUOÁI LAÏNH</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>201801</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-01-01T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-01-01T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>51</ID>
+    <OA_x0020_BATCH>LLSULGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LLSUL</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>L-LYSINE SULFATE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP096 L-LYSINE SULPHATE 70%</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>2180209</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-28T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2020-02-28T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>52</ID>
+    <OA_x0020_BATCH>DLMTNGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>DLMTN</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>DL METHIONINE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP093 METHIONIN</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>1802061045</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-06T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2021-02-05T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>53</ID>
+    <OA_x0020_BATCH>LTHRNGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>LTHRN</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>L-THREONINE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP094 THREONIN</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>180218</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-28T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2021-02-28T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>54</ID>
+    <OA_x0020_BATCH>CCL60GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>CCL60</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>CHOLINE CHLORINE 60%</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP143 CHOLINE CHORIDE 60%</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>JJ60V1801019</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-01-03T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2020-01-02T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>55</ID>
+    <OA_x0020_BATCH>SDF01GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>SDF01</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>SULFATE DE FER MONOHYDRATE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP201 SUNFAT SAÉT</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>20170905</Lot_x0020_number>
+    <Manufacturing_x0020_date>2017-09-05T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-09-05T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>56</ID>
+    <OA_x0020_BATCH>CHPCLGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>CHPCL</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>CHROME PICOLINATE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP126 GELAIMEI</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>2017121501</Lot_x0020_number>
+    <Manufacturing_x0020_date>2017-12-15T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-12-14T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>57</ID>
+    <OA_x0020_BATCH>RE25TGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>RE25T</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>ROVABIO EXCEL AP 25 T-FLEX</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP181B ROVABIO T-FLEX 25</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>4909</Lot_x0020_number>
+    <Manufacturing_x0020_date>2017-11-01T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2018-11-01T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>58</ID>
+    <OA_x0020_BATCH>RHP10GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>RHP10</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>RONOZYME HIPHOS GT 10000</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP180 PHYTASE</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>HK920400</Lot_x0020_number>
+    <Manufacturing_x0020_date>2017-08-25T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-08-25T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>59</ID>
+    <OA_x0020_BATCH>YLPM2GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>YLPM2</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>YELLOW PIGMENT 2%</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP192A SAÉC TOÁ VAØNG</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>18022601</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-26T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2020-02-26T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>60</ID>
+    <OA_x0020_BATCH>RDPM1GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>RDPM1</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>RED PIGMENT 1%</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP500 HH TROÄN SAÉC TOÁ ÑOÛ 1%</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>24042018</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-24T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-24T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note>NOT LOT, MANUFACTURING DATE &amp; Expiry date</Note>
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>61</ID>
+    <OA_x0020_BATCH>ARCV1GMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>ARCV1</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>AROME COVOTEK 570</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP146 HUONG VANI</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>FR002806</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-26T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-08-28T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>62</ID>
+    <OA_x0020_BATCH>BENTNGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>BENTN</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>BENTONITE</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP140B BENTONITE CHO HEO</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>13430</Lot_x0020_number>
+    <Manufacturing_x0020_date>2017-12-19T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-12-19T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>63</ID>
+    <OA_x0020_BATCH>PVLAYGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>PVLAY</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>PV LAYER</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP155 PREMIX VITAMIN GAØ ÑEÛ</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>VN10065685</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-04-12T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-04-12T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>64</ID>
+    <OA_x0020_BATCH>PMPIGGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>PMPIG</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>PM PIG</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP169 PREMIX KHOAÙNG HEO VERB</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>17122901230001</Lot_x0020_number>
+    <Manufacturing_x0020_date>2017-12-27T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2018-12-27T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>65</ID>
+    <OA_x0020_BATCH>PCPIGGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>PCPIG</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>PV PIG</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP161 PREMIX VITAMIN HEO</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>18020501410001</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-10T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-02-10T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>66</ID>
+    <OA_x0020_BATCH>PMVSWGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>PMVSW</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>PMV SOW</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP168 PREMIX VITAMIN KHOAÙNG H</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>18020501420001</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-03-30T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-03-30T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+  <Table>
+    <ID>67</ID>
+    <OA_x0020_BATCH>PMBROGMR114181</OA_x0020_BATCH>
+    <Received_x0020_date>2018-04-24T00:00:00+07:00</Received_x0020_date>
+    <Times_x0020_of_x0020_receiving_x0020_in_x0020_day>1</Times_x0020_of_x0020_receiving_x0020_in_x0020_day>
+    <Item_x0020_Code>PMBRO</Item_x0020_Code>
+    <Name_x0020_of_x0020_Raw_x0020_material>PM BROILER</Name_x0020_of_x0020_Raw_x0020_material>
+    <Note_x0020_on_x0020_name>MP153 PREMIX KHOAÙNG GIA CAÀM</Note_x0020_on_x0020_name>
+    <Lot_x0020_number>18020501170001</Lot_x0020_number>
+    <Manufacturing_x0020_date>2018-02-10T00:00:00+07:00</Manufacturing_x0020_date>
+    <Expiry_x0020_date>2019-02-10T00:00:00+07:00</Expiry_x0020_date>
+    <Supplier_x0020_code>GMR</Supplier_x0020_code>
+    <Name_x0020_of_x0020_supplier>CÔNG TY TNHH GUYOMARC’H VI?T NAM</Name_x0020_of_x0020_supplier>
+    <Note />
+    <Quantity>0</Quantity>
+  </Table>
+</NewDataSet>

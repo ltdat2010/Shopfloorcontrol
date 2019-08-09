@@ -1,0 +1,2120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B734789F-77C5-4355-9B5B-233D8AD11EB3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Production</RootNamespace>
+    <AssemblyName>ShopFloorControl</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Xml.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_archive_16601.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Xml.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Xml.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Dashboard.v18.1.Win, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Extensions, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Simple.Data, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Data.Core.0.19.0.0\lib\net40\Simple.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Simple.Data.Ado, Version=0.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Data.Ado.0.19.0.0\lib\net40\Simple.Data.Ado.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Simple.Data.Oracle.ManagedDataAccess, Version=0.18.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple.Data.Oracle.ManagedDataAccess.0.19.0.0\lib\net40\Simple.Data.Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASIALANDDataSet.cs">
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ASIALANDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Class\_LAB\LOAIMAUBUS.cs" />
+    <Compile Include="Class\_LAB\LOAIMAUDAO.cs" />
+    <Compile Include="Class\_LAB\LOAIMAU.cs" />
+    <Compile Include="Class\_LAB\LOAIDV.cs" />
+    <Compile Include="Class\_LAB\LOAIDVBUS.cs" />
+    <Compile Include="Class\_LAB\LOAIDVDAO.cs" />
+    <Compile Include="Class\_QC\ControlBUS.cs" />
+    <Compile Include="Class\_QC\ControlDAO.cs" />
+    <Compile Include="Class\_GEN\Email.cs" />
+    <Compile Include="Class\_GEN\Pdf.cs" />
+    <Compile Include="Class\_LAB\KHMau_CTXN_RESULT_DETAILS_LABBUS.cs" />
+    <Compile Include="Class\_LAB\KHMau_CTXN_RESULT_DETAILS_LABDAO.cs" />
+    <Compile Include="Class\_LAB\KHMau_CTXN_RESULT_DETAILS_LAB.cs" />
+    <Compile Include="Class\_LAB\KHMau_CTXN_LAB.cs" />
+    <Compile Include="Class\_LAB\KHMau_CTXN_LABBUS.cs" />
+    <Compile Include="Class\_LAB\KHMau_CTXN_LABDAO.cs" />
+    <Compile Include="Class\_LAB\PhuongPhapBaoQuan.cs" />
+    <Compile Include="Class\_LAB\CHITIEUXETNGHIEM.cs" />
+    <Compile Include="Class\_LAB\NHOMCHITIEUXETNGHIEMBUS.cs" />
+    <Compile Include="Class\_LAB\PRICELIST.cs" />
+    <Compile Include="Class\_LAB\PRICELISTBUS.cs" />
+    <Compile Include="Class\_LAB\PRICELIST_DetailsBUS.cs" />
+    <Compile Include="Class\_LAB\PRICELISTDAO.cs" />
+    <Compile Include="Class\_LAB\PRICELIST_DetailsDAO.cs" />
+    <Compile Include="Class\_LAB\NHOMCHITIEUXETNGHIEMDAO.cs" />
+    <Compile Include="Class\_LAB\PhuongPhapXetNghiem.cs" />
+    <Compile Include="Class\_LAB\PhuongPhapXetNghiemBUS.cs" />
+    <Compile Include="Class\_LAB\PhuongPhapXetNghiemDAO.cs" />
+    <Compile Include="Class\_LAB\KHMau_LAB.cs" />
+    <Compile Include="Class\_LAB\KHMau_LABDAO.cs" />
+    <Compile Include="Class\_LAB\KHMau_LABBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_ResultBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_ResultDAO.cs" />
+    <Compile Include="Class\_LAB\PXN_Result.cs" />
+    <Compile Include="Class\_LAB\PXN_Details.cs" />
+    <Compile Include="Class\_LAB\PXN_DetailsBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_GENBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_H2OBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_GENDAO.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_H2ODAO.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_HTHBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_DetailsDAO.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_HTHDAO.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_GEN.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_H2O.cs" />
+    <Compile Include="Class\_LAB\PXN_Header_SUB_HTH.cs" />
+    <Compile Include="Class\_LAB\PXN_Header.cs" />
+    <Compile Include="Class\_LAB\PXN_HeaderBUS.cs" />
+    <Compile Include="Class\_LAB\PXN_HeaderDAO.cs" />
+    <Compile Include="Class\_GEN\ResourcesBUS.cs" />
+    <Compile Include="Class\_QC\Result_COA_KQ.cs" />
+    <Compile Include="Class\_QC\COA_Template_DetailsBUS.cs" />
+    <Compile Include="Class\_QC\Result_COA_KQBUS.cs" />
+    <Compile Include="Class\_QC\Result_COA_TD.cs" />
+    <Compile Include="Class\_QC\COA_Template_HeaderBUS.cs" />
+    <Compile Include="Class\_QC\COA_Template_DetailsDAO.cs" />
+    <Compile Include="Class\_QC\COA_Template_HeaderDAO.cs" />
+    <Compile Include="Class\_QC\Result_COA_TDBUS.cs" />
+    <Compile Include="Class\_QC\Result_COA_KQDAO.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_KLBUS.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_KQTTBUS.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_TDBUS.cs" />
+    <Compile Include="Class\_QC\COA_Template_Details.cs" />
+    <Compile Include="Class\_QC\KQCOA.cs" />
+    <Compile Include="Class\_QC\Result_COA_TDDAO.cs" />
+    <Compile Include="Class\_QC\TDCOA.cs" />
+    <Compile Include="Class\_QC\COA_Template_Header.cs" />
+    <Compile Include="Class\_QC\KQKN_Template_Details_Row.cs" />
+    <Compile Include="Class\_QC\KQKN_Template_Header.cs" />
+    <Compile Include="Class\_QC\HangMucKiemTraBUS.cs" />
+    <Compile Include="Class\_QC\KQKN_Template_Details_RowBUS.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_KL.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_KQTT.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_TD.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_KLDAO.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_KQTTDAO.cs" />
+    <Compile Include="Class\_QC\Result_KQKN_TDDAO.cs" />
+    <Compile Include="Class\_QC\KQKN_Template_Details_RowDAO.cs" />
+    <Compile Include="Class\_QC\KQKN_Template_HeaderDAO.cs" />
+    <Compile Include="Class\_QC\KQKN_Template_HeaderBUS.cs" />
+    <Compile Include="Class\_QC\HangMucKiemTraDAO.cs" />
+    <Compile Include="Class\_QC\HangMucKiemTra.cs" />
+    <Compile Include="Class\_QC\ChiTieuPhanTich.cs" />
+    <Compile Include="Class\_LAB\CHITIEUXETNGHIEMBUS.cs" />
+    <Compile Include="Class\_LAB\CHITIEUXETNGHIEMDAO.cs" />
+    <Compile Include="Class\_LAB\PRICELIST_Details.cs" />
+    <Compile Include="Class\_LAB\NHOMCHITIEUXETNGHIEM.cs" />
+    <Compile Include="Class\_LAB\CUSTOMER.cs" />
+    <Compile Include="Class\_LAB\CUSTOMERBUS.cs" />
+    <Compile Include="Class\_LAB\CUSTOMERDAO.cs" />
+    <Compile Include="Class\_LAB\EMPLOYEEBUS.cs" />
+    <Compile Include="Class\_LAB\EMPLOYEEDAO.cs" />
+    <Compile Include="Class\_PRO\InternalTransfer_Detail.cs" />
+    <Compile Include="Class\_GEN\ItemBUS.cs" />
+    <Compile Include="Class\_LAB\EMPLOYEE.cs" />
+    <Compile Include="Class\_LAB\CUSTOMERTYPE.cs" />
+    <Compile Include="Class\_LAB\CUSTOMERTYPEBUS.cs" />
+    <Compile Include="Class\_LAB\LOCATIONBUS.cs" />
+    <Compile Include="Class\_LAB\CUSTOMERTYPEDAO.cs" />
+    <Compile Include="Class\_QC\OABatchDAO.cs" />
+    <Compile Include="Class\_QC\OABatchBUS.cs" />
+    <Compile Include="Class\_QC\ChiTieuPhanTichBUS.cs" />
+    <Compile Include="Class\_QC\COABUS.cs" />
+    <Compile Include="Class\_QC\COADAO.cs" />
+    <Compile Include="Class\_PRO\InternalTransfer.cs" />
+    <Compile Include="Class\_LAB\LOCATION.cs" />
+    <Compile Include="Class\_LAB\LOCATIONDAO.cs" />
+    <Compile Include="Class\_GEN\ResourcesDAO.cs" />
+    <Compile Include="Class\_QC\QuiCachDongGoiBUS.cs" />
+    <Compile Include="Class\_QC\ChiTieuPhanTichDAO.cs" />
+    <Compile Include="Class\_QC\QuiCachDongGoiDAO.cs" />
+    <Compile Include="Class\_GEN\LabTesting.cs" />
+    <Compile Include="Class\_GEN\Resources.cs" />
+    <Compile Include="Class\_QC\TieuChuan.cs" />
+    <Compile Include="Class\_QC\PhuongPhapThuBUS.cs" />
+    <Compile Include="Class\_QC\TieuChuanBUS.cs" />
+    <Compile Include="Class\_PRO\PKNBUS.cs" />
+    <Compile Include="Class\_QC\PhuongPhapThuDAO.cs" />
+    <Compile Include="Class\_GEN\LabTestingDAO.cs" />
+    <Compile Include="Class\_QC\TieuChuanDAO.cs" />
+    <Compile Include="Class\_PRO\PKNDAO.cs" />
+    <Compile Include="Class\_PRO\SUPPLIER.cs" />
+    <Compile Include="Class\_PRO\PRBUS.cs" />
+    <Compile Include="Class\_GEN\ItemDAO.cs" />
+    <Compile Include="Class\_PRO\PRDAO.cs" />
+    <Compile Include="Class\_PRO\RMUSEDBUS .cs" />
+    <Compile Include="Class\_PRO\BATCHDAO.cs" />
+    <Compile Include="Class\_GEN\Conn.cs" />
+    <Compile Include="Class\_GEN\CSVFromToDataTable.cs" />
+    <Compile Include="Class\_PRO\RMUSEDDAO.cs" />
+    <Compile Include="Class\_PRO\BATCHBUS.cs" />
+    <Compile Include="Class\_PRO\RECEIPTBUS.cs" />
+    <Compile Include="Class\_PRO\RECEIPTDAO.cs" />
+    <Compile Include="Class\_PRO\RECEIPT.cs" />
+    <Compile Include="Class\_PRO\OFDAO.cs" />
+    <Compile Include="Class\_PRO\OF.cs" />
+    <Compile Include="Class\_GEN\Enum.cs" />
+    <Compile Include="Class\_GEN\ORACLE.cs" />
+    <Compile Include="Class\_GEN\SQL.cs" />
+    <Compile Include="Class\_GEN\Str.cs" />
+    <Compile Include="Class\_GEN\User.cs" />
+    <Compile Include="Class\_QC\PhuongPhapThu.cs" />
+    <Compile Include="Class\_QC\QuiCachDongGoi.cs" />
+    <Compile Include="CustomAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomAppointmentForm.Designer.cs">
+      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\QC\Pro_Db_COAThisMonth_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\QC\Pro_Db_COAThisMonth_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_COAThisMonth_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisMonth_Grantt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisMonth_Grantt.Designer.cs">
+      <DependentUpon>Pro_Db_OFThisMonth_Grantt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\QC\Pro_Db_PKNThisMonth_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\QC\Pro_Db_PKNThisMonth_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_PKNThisMonth_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\QC\Pro_Db_PKNMonthly_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\QC\Pro_Db_PKNMonthly_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_PKNMonthly_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\LAB\Pro_Db_PXN_Finished_Today.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\LAB\Pro_Db_PXN_Finished_Today.Designer.cs">
+      <DependentUpon>Pro_Db_PXN_Finished_Today.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\Pro_Db_RMNUT_OnHand_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\Pro_Db_RMNUT_OnHand_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_RMNUT_OnHand_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_FGThisMonth_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_FGThisMonth_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_FGThisMonth_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisMonth_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisMonth_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_OFThisMonth_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisWeek_Pie.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisWeek_Pie.Designer.cs">
+      <DependentUpon>Pro_Db_OFThisWeek_Pie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisWeek_Chart.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\PRO\Pro_Db_OFThisWeek_Chart.Designer.cs">
+      <DependentUpon>Pro_Db_OFThisWeek_Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\Action_EndForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\Action_EndForm.designer.cs">
+      <DependentUpon>Action_EndForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\Action_BK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\Action_BK.designer.cs">
+      <DependentUpon>Action_BK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\ActionMini.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\ActionMini.designer.cs">
+      <DependentUpon>ActionMini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_LAB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_LAB.Designer.cs">
+      <DependentUpon>F_DashBoard_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_QC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_QC.Designer.cs">
+      <DependentUpon>F_DashBoard_QC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_Pro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_Pro.Designer.cs">
+      <DependentUpon>F_DashBoard_Pro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_FC_IMP_EXCEL.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_FC_IMP_EXCEL.Designer.cs">
+      <DependentUpon>F_FC_IMP_EXCEL.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\F_InternalTranferRM_List .cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_InternalTranferRM_List .Designer.cs">
+      <DependentUpon>F_InternalTranferRM_List .cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_InternalTranfer_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_InternalTranfer_List.Designer.cs">
+      <DependentUpon>F_InternalTranfer_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_BOM_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_BOM_List.Designer.cs">
+      <DependentUpon>F_BOM_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.Designer.cs">
+      <DependentUpon>F_BaocaoDichTeDan_EXCEL.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_MDW_Result.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_MDW_Result.Designer.cs">
+      <DependentUpon>F_MDW_Result.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PO_LAB_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PO_LAB_Details.Designer.cs">
+      <DependentUpon>F_PO_LAB_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PO_LAB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PO_LAB.Designer.cs">
+      <DependentUpon>F_PO_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CHITIEUXETNGHIEM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CHITIEUXETNGHIEM.Designer.cs">
+      <DependentUpon>F_CHITIEUXETNGHIEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_BaocaoPXN_EXCEL.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_BaocaoPXN_EXCEL.Designer.cs">
+      <DependentUpon>F_BaocaoPXN_EXCEL.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_CTXN_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_CTXN_Details.Designer.cs">
+      <DependentUpon>F_KHMau_CTXN_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_Details_BK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_Details_BK.Designer.cs">
+      <DependentUpon>F_KHMau_Details_BK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_Details.Designer.cs">
+      <DependentUpon>F_KHMau_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LoaiDV_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LoaiDV_Details.Designer.cs">
+      <DependentUpon>F_LoaiDV_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LoaiMauGoi_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LoaiMauGoi_Details.Designer.cs">
+      <DependentUpon>F_LoaiMauGoi_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Result.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Result.Designer.cs">
+      <DependentUpon>F_PXN_Result.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Scheduling_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Scheduling_LAB.Designer.cs">
+      <DependentUpon>F_PXN_Scheduling_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Details_Added_Row.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Details_Added_Row.Designer.cs">
+      <DependentUpon>F_PXN_Details_Added_Row.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Details .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Details .Designer.cs">
+      <DependentUpon>F_PXN_Details .cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PRICELIST_Details_Added_Row.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PRICELIST_Details_Added_Row.Designer.cs">
+      <DependentUpon>F_PRICELIST_Details_Added_Row.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PRICELIST_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PRICELIST_Details.Designer.cs">
+      <DependentUpon>F_PRICELIST_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMER.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMER.Designer.cs">
+      <DependentUpon>F_CUSTOMER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CHITIEUXETNGHIEM_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CHITIEUXETNGHIEM_Details.Designer.cs">
+      <DependentUpon>F_CHITIEUXETNGHIEM_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_EMPLOYEE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_EMPLOYEE.Designer.cs">
+      <DependentUpon>F_EMPLOYEE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMER_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMER_Details.Designer.cs">
+      <DependentUpon>F_CUSTOMER_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMERTYPE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMERTYPE.Designer.cs">
+      <DependentUpon>F_CUSTOMERTYPE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LOCATION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LOCATION.Designer.cs">
+      <DependentUpon>F_LOCATION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_EMPLOYEE_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_EMPLOYEE_Details.Designer.cs">
+      <DependentUpon>F_EMPLOYEE_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMERTYPE_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_CUSTOMERTYPE_Details.Designer.cs">
+      <DependentUpon>F_CUSTOMERTYPE_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LOCATION_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_LOCATION_Details.Designer.cs">
+      <DependentUpon>F_LOCATION_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_NCTXN_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_NCTXN_Details.Designer.cs">
+      <DependentUpon>F_NCTXN_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PPXN_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PPXN_Details.Designer.cs">
+      <DependentUpon>F_PPXN_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_NCTXN_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_NCTXN_List.Designer.cs">
+      <DependentUpon>F_NCTXN_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_List.Designer.cs">
+      <DependentUpon>F_PXN_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PRICELIST_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PRICELIST_List.Designer.cs">
+      <DependentUpon>F_PRICELIST_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PPXN_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PPXN_List.Designer.cs">
+      <DependentUpon>F_PPXN_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\OutlookAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\OutlookAppointmentForm.Designer.cs">
+      <DependentUpon>OutlookAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_Scheduling_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_Scheduling_Details.Designer.cs">
+      <DependentUpon>F_Scheduling_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_Header.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_Header.Designer.cs">
+      <DependentUpon>F_COA_Template_Header.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_List.Designer.cs">
+      <DependentUpon>F_COA_Template_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Result_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Result_Details.Designer.cs">
+      <DependentUpon>F_COA_Result_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Result_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Result_Details.Designer.cs">
+      <DependentUpon>F_KQKN_Result_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Result_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Result_List.Designer.cs">
+      <DependentUpon>F_COA_Result_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Result_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Result_List.Designer.cs">
+      <DependentUpon>F_KQKN_Result_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_Details_Added_Row.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_Details_Added_Row.Designer.cs">
+      <DependentUpon>F_COA_Template_Details_Added_Row.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Template_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Template_List.Designer.cs">
+      <DependentUpon>F_KQKN_Template_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Template_Details_Added_Row.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Template_Details_Added_Row.Designer.cs">
+      <DependentUpon>F_KQKN_Template_Details_Added_Row.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Template_Header.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_KQKN_Template_Header.Designer.cs">
+      <DependentUpon>F_KQKN_Template_Header.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_HMKT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_HMKT_List.Designer.cs">
+      <DependentUpon>F_HMKT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_HMKT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_HMKT_Details.Designer.cs">
+      <DependentUpon>F_HMKT_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_Tracerbility.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_Tracerbility.Designer.cs">
+      <DependentUpon>F_Tracerbility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_QCDG_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_QCDG_Details.Designer.cs">
+      <DependentUpon>F_QCDG_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_QCDG_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_QCDG_List.Designer.cs">
+      <DependentUpon>F_QCDG_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_PPT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_PPT_List.Designer.cs">
+      <DependentUpon>F_PPT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_PPT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_PPT_Details.Designer.cs">
+      <DependentUpon>F_PPT_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_TC_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_TC_Details.Designer.cs">
+      <DependentUpon>F_TC_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_CTPT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_CTPT_Details.Designer.cs">
+      <DependentUpon>F_CTPT_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_TC_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_TC_List.Designer.cs">
+      <DependentUpon>F_TC_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Rpt_BaoCaoCongNo_LAB.cs">
+      <DependentUpon>Rpt_BaoCaoCongNo_LAB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_BaoCaoDoanhSo_Thang_LAB.cs">
+      <DependentUpon>Rpt_BaoCaoDoanhSo_Thang_LAB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_COA_VN.cs">
+      <DependentUpon>Rpt_COA_VN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_BaoCaoPXN_Nhan_LAB.cs">
+      <DependentUpon>Rpt_BaoCaoPXN_Nhan_LAB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_InternalTransfer.cs">
+      <DependentUpon>Rpt_InternalTransfer.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF1_BK_20190320.cs">
+      <DependentUpon>Rpt_OF1_BK_20190320.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF1.cs">
+      <DependentUpon>Rpt_OF1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF1_BK.cs">
+      <DependentUpon>Rpt_OF1_BK.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF1_Sub2.cs">
+      <DependentUpon>Rpt_OF1_Sub2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF1_Sub1.cs">
+      <DependentUpon>Rpt_OF1_Sub1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF_Summary_20190320.cs">
+      <DependentUpon>Rpt_OF_Summary_20190320.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF_Summary_Sub2.cs">
+      <DependentUpon>Rpt_OF_Summary_Sub2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF_Summary_Sub1.cs">
+      <DependentUpon>Rpt_OF_Summary_Sub1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_PGM_LAB.cs">
+      <DependentUpon>Rpt_PGM_LAB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_PXN_LAB_Received_Sub.cs">
+      <DependentUpon>Rpt_PXN_LAB_Received_Sub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_PXN_LAB_STORAGE_Sub.cs">
+      <DependentUpon>Rpt_PXN_LAB_STORAGE_Sub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_PXN_LAB_DETROY_Sub.cs">
+      <DependentUpon>Rpt_PXN_LAB_DETROY_Sub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_PXN_LAB_Details_Sub.cs">
+      <DependentUpon>Rpt_PXN_LAB_Details_Sub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_PXN_LAB.cs">
+      <DependentUpon>Rpt_PXN_LAB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\Rpt_RMUsed_Simple.cs">
+      <DependentUpon>Rpt_RMUsed_Simple.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_RMUsed.cs">
+      <DependentUpon>Rpt_RMUsed.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF_Summary.cs">
+      <DependentUpon>Rpt_OF_Summary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="F_OFScheduling_Pro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_OFScheduling_Pro.Designer.cs">
+      <DependentUpon>F_OFScheduling_Pro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_BaoCaoCongNo_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_BaoCaoCongNo_LAB.Designer.cs">
+      <DependentUpon>R_BaoCaoCongNo_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_BaoCaoDoanhSo_Thang_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_BaoCaoDoanhSo_Thang_LAB.Designer.cs">
+      <DependentUpon>R_BaoCaoDoanhSo_Thang_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_BaoCaoPXN_Nhan_TrongTuan_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_BaoCaoPXN_Nhan_TrongTuan_LAB.Designer.cs">
+      <DependentUpon>R_BaoCaoPXN_Nhan_TrongTuan_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoCongNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoCongNo.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoCongNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoDoanhSo_Thang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoDoanhSo_Thang.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoDoanhSo_Thang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoPXN_ChuaTra_LAB .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoPXN_ChuaTra_LAB .Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoPXN_ChuaTra_LAB .cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoPXN_Nhan_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_BaoCaoPXN_Nhan_LAB.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoPXN_Nhan_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_InternalTransfer_FN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_InternalTransfer_FN.Designer.cs">
+      <DependentUpon>R_InternalTransfer_FN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PriceList_CTXN_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PriceList_CTXN_LAB.Designer.cs">
+      <DependentUpon>R_PriceList_CTXN_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PGM_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PGM_LAB.Designer.cs">
+      <DependentUpon>R_PGM_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PXN_LAB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PXN_LAB.Designer.cs">
+      <DependentUpon>R_PXN_LAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_OF_Summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_OF_Summary.Designer.cs">
+      <DependentUpon>R_OF_Summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_RMUsed_SelectPrefixRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_RMUsed_SelectPrefixRM.Designer.cs">
+      <DependentUpon>R_RMUsed_SelectPrefixRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_COA_SelectLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_COA_SelectLanguage.Designer.cs">
+      <DependentUpon>R_COA_SelectLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Main.Designer.cs">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ChangePass.Designer.cs">
+      <DependentUpon>frm_ChangePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Base.Designer.cs">
+      <DependentUpon>frm_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Loading.Designer.cs">
+      <DependentUpon>frm_Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_COA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_COA.Designer.cs">
+      <DependentUpon>frm_COA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\Action_Function.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\Action_Function.designer.cs">
+      <DependentUpon>Action_Function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\Action.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\Action.designer.cs">
+      <DependentUpon>Action.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_BATCH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_BATCH.Designer.cs">
+      <DependentUpon>F_BATCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_IV_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_IV_List.Designer.cs">
+      <DependentUpon>F_IV_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_OABatch_Issued.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_OABatch_Issued.Designer.cs">
+      <DependentUpon>F_OABatch_Issued.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_CTPT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_CTPT_List.Designer.cs">
+      <DependentUpon>F_CTPT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_List.Designer.cs">
+      <DependentUpon>F_COA_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_List_BK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_QC\F_COA_Template_List_BK.Designer.cs">
+      <DependentUpon>F_COA_Template_List_BK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_Control_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_Control_List.Designer.cs">
+      <DependentUpon>F_Control_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_PR_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_PR_List.Designer.cs">
+      <DependentUpon>F_PR_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_PKN_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_PKN_List.Designer.cs">
+      <DependentUpon>F_PKN_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_RECEIPT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_RECEIPT_List.Designer.cs">
+      <DependentUpon>F_RECEIPT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_OF_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_OF_List.Designer.cs">
+      <DependentUpon>F_OF_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\_PRO\OFBUS.cs" />
+    <Compile Include="LAN\F_RECEIPT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAN\F_RECEIPT_Details.Designer.cs">
+      <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAN\F_OF_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAN\F_OF_Details.Designer.cs">
+      <DependentUpon>F_OF_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAN\LAN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAN.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mail.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\Rpt_FG_by_Batch.cs">
+      <DependentUpon>Rpt_FG_by_Batch.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_FG_by_FG.cs">
+      <DependentUpon>Rpt_FG_by_FG.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_FG_by_Date.cs">
+      <DependentUpon>Rpt_FG_by_Date.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_OABatch_byDate.cs">
+      <DependentUpon>Rpt_OABatch_byDate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_COA_EN.cs">
+      <DependentUpon>Rpt_COA_EN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_PKN.cs">
+      <DependentUpon>Rpt_PKN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_Tracebility.cs">
+      <DependentUpon>Rpt_Tracebility.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_Production_Item.cs">
+      <DependentUpon>Rpt_Production_Item.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_PR.cs">
+      <DependentUpon>Rpt_PR.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_by_FG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_by_FG.Designer.cs">
+      <DependentUpon>R_by_FG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_Item_Date_OABatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_Item_Date_OABatch.Designer.cs">
+      <DependentUpon>R_Item_Date_OABatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FG_FG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FG_FG.Designer.cs">
+      <DependentUpon>R_FG_FG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_OABatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_OABatch.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_OABatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_IV_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_IV_List.Designer.cs">
+      <DependentUpon>R_IV_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_RM_Used.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_RM_Used.Designer.cs">
+      <DependentUpon>R_RM_Used.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_OF_Tracebility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_OF_Tracebility.Designer.cs">
+      <DependentUpon>R_OF_Tracebility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_PKN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PKN.Designer.cs">
+      <DependentUpon>frm_PKN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_COA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_COA.Designer.cs">
+      <DependentUpon>R_COA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PKN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PKN.Designer.cs">
+      <DependentUpon>R_PKN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_Production_Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_Production_Item.Designer.cs">
+      <DependentUpon>R_Production_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PR.Designer.cs">
+      <DependentUpon>R_PR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FG_Date_Batch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FG_Date_Batch.Designer.cs">
+      <DependentUpon>R_FG_Date_Batch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_Batch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_Batch.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_Batch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FG_Date.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FG_Date.Designer.cs">
+      <DependentUpon>R_FG_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_OF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_OF.Designer.cs">
+      <DependentUpon>R_OF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SYNC_NUTRICIELDataSet.cs">
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SYNC_NUTRICIELDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UC_Base.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Base.Designer.cs">
+      <DependentUpon>UC_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIPHAVETDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VIPHAVETDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomAppointmentForm.resx">
+      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\QC\Pro_Db_COAThisMonth_Chart.resx">
+      <DependentUpon>Pro_Db_COAThisMonth_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\PRO\Pro_Db_OFThisMonth_Grantt.resx">
+      <DependentUpon>Pro_Db_OFThisMonth_Grantt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\QC\Pro_Db_PKNThisMonth_Chart.resx">
+      <DependentUpon>Pro_Db_PKNThisMonth_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\QC\Pro_Db_PKNMonthly_Chart.resx">
+      <DependentUpon>Pro_Db_PKNMonthly_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\LAB\Pro_Db_PXN_Finished_Today.resx">
+      <DependentUpon>Pro_Db_PXN_Finished_Today.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\Pro_Db_RMNUT_OnHand_Chart.resx">
+      <DependentUpon>Pro_Db_RMNUT_OnHand_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\PRO\Pro_Db_FGThisMonth_Chart.resx">
+      <DependentUpon>Pro_Db_FGThisMonth_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\PRO\Pro_Db_OFThisMonth_Chart.resx">
+      <DependentUpon>Pro_Db_OFThisMonth_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\PRO\Pro_Db_OFThisWeek_Pie.resx">
+      <DependentUpon>Pro_Db_OFThisWeek_Pie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\PRO\Pro_Db_OFThisWeek_Chart.resx">
+      <DependentUpon>Pro_Db_OFThisWeek_Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\Action_EndForm.resx">
+      <DependentUpon>Action_EndForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\Action_BK.resx">
+      <DependentUpon>Action_BK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\ActionMini.resx">
+      <DependentUpon>ActionMini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_LAB.resx">
+      <DependentUpon>F_DashBoard_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_QC.resx">
+      <DependentUpon>F_DashBoard_QC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\MAIN_DASHBOARD\F_DashBoard_Pro.resx">
+      <DependentUpon>F_DashBoard_Pro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_FC_IMP_EXCEL.resx">
+      <DependentUpon>F_FC_IMP_EXCEL.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_InternalTranferRM_List .resx">
+      <DependentUpon>F_InternalTranferRM_List .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_InternalTranfer_List.resx">
+      <DependentUpon>F_InternalTranfer_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_BOM_List.resx">
+      <DependentUpon>F_BOM_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.resx">
+      <DependentUpon>F_BaocaoDichTeDan_EXCEL.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_MDW_Result.resx">
+      <DependentUpon>F_MDW_Result.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PO_LAB_Details.resx">
+      <DependentUpon>F_PO_LAB_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PO_LAB.resx">
+      <DependentUpon>F_PO_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_CHITIEUXETNGHIEM.resx">
+      <DependentUpon>F_CHITIEUXETNGHIEM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_BaocaoPXN_EXCEL.resx">
+      <DependentUpon>F_BaocaoPXN_EXCEL.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_KHMau_CTXN_Details.resx">
+      <DependentUpon>F_KHMau_CTXN_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_KHMau_Details_BK.resx">
+      <DependentUpon>F_KHMau_Details_BK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_KHMau_Details.resx">
+      <DependentUpon>F_KHMau_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_LoaiDV_Details.resx">
+      <DependentUpon>F_LoaiDV_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_LoaiMauGoi_Details.resx">
+      <DependentUpon>F_LoaiMauGoi_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Result.resx">
+      <DependentUpon>F_PXN_Result.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Scheduling_LAB.resx">
+      <DependentUpon>F_PXN_Scheduling_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Details_Added_Row.resx">
+      <DependentUpon>F_PXN_Details_Added_Row.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Details .resx">
+      <DependentUpon>F_PXN_Details .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PRICELIST_Details_Added_Row.resx">
+      <DependentUpon>F_PRICELIST_Details_Added_Row.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PRICELIST_Details.resx">
+      <DependentUpon>F_PRICELIST_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_CUSTOMER.resx">
+      <DependentUpon>F_CUSTOMER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_CHITIEUXETNGHIEM_Details.resx">
+      <DependentUpon>F_CHITIEUXETNGHIEM_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_EMPLOYEE.resx">
+      <DependentUpon>F_EMPLOYEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_CUSTOMER_Details.resx">
+      <DependentUpon>F_CUSTOMER_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_CUSTOMERTYPE.resx">
+      <DependentUpon>F_CUSTOMERTYPE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_LOCATION.resx">
+      <DependentUpon>F_LOCATION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_EMPLOYEE_Details.resx">
+      <DependentUpon>F_EMPLOYEE_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_CUSTOMERTYPE_Details.resx">
+      <DependentUpon>F_CUSTOMERTYPE_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_LOCATION_Details.resx">
+      <DependentUpon>F_LOCATION_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_NCTXN_Details.resx">
+      <DependentUpon>F_NCTXN_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PPXN_Details.resx">
+      <DependentUpon>F_PPXN_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_NCTXN_List.resx">
+      <DependentUpon>F_NCTXN_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_List.resx">
+      <DependentUpon>F_PXN_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PRICELIST_List.resx">
+      <DependentUpon>F_PRICELIST_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PPXN_List.resx">
+      <DependentUpon>F_PPXN_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\OutlookAppointmentForm.de.resx">
+      <DependentUpon>OutlookAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\OutlookAppointmentForm.es.resx">
+      <DependentUpon>OutlookAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\OutlookAppointmentForm.ja.resx">
+      <DependentUpon>OutlookAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\OutlookAppointmentForm.resx">
+      <DependentUpon>OutlookAppointmentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\OutlookAppointmentForm.ru.resx">
+      <DependentUpon>OutlookAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_Scheduling_Details.resx">
+      <DependentUpon>F_Scheduling_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_Template_Header.resx">
+      <DependentUpon>F_COA_Template_Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_Template_List.resx">
+      <DependentUpon>F_COA_Template_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_Result_Details.resx">
+      <DependentUpon>F_COA_Result_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_KQKN_Result_Details.resx">
+      <DependentUpon>F_KQKN_Result_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_Result_List.resx">
+      <DependentUpon>F_COA_Result_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_KQKN_Result_List.resx">
+      <DependentUpon>F_KQKN_Result_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_Template_Details_Added_Row.resx">
+      <DependentUpon>F_COA_Template_Details_Added_Row.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_KQKN_Template_List.resx">
+      <DependentUpon>F_KQKN_Template_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_KQKN_Template_Details_Added_Row.resx">
+      <DependentUpon>F_KQKN_Template_Details_Added_Row.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_KQKN_Template_Header.resx">
+      <DependentUpon>F_KQKN_Template_Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_HMKT_List.resx">
+      <DependentUpon>F_HMKT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_HMKT_Details.resx">
+      <DependentUpon>F_HMKT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_Tracerbility.resx">
+      <DependentUpon>F_Tracerbility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_QCDG_Details.resx">
+      <DependentUpon>F_QCDG_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_QCDG_List.resx">
+      <DependentUpon>F_QCDG_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_PPT_List.resx">
+      <DependentUpon>F_PPT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_PPT_Details.resx">
+      <DependentUpon>F_PPT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_TC_Details.resx">
+      <DependentUpon>F_TC_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_CTPT_Details.resx">
+      <DependentUpon>F_CTPT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_TC_List.resx">
+      <DependentUpon>F_TC_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\F_RECEIPT_Details.fr-FR.resx">
+      <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_BaoCaoCongNo_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_BaoCaoCongNo_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_BaoCaoDoanhSo_Thang_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_BaoCaoDoanhSo_Thang_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_COA_VN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_COA_VN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_BaoCaoPXN_Nhan_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_BaoCaoPXN_Nhan_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_InternalTransfer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InternalTransfer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF1_BK_20190320.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF1_BK_20190320.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF1_BK.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF1_BK.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF1_Sub2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF1_Sub2.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF1_Sub1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF1_Sub1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF_Summary_20190320.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF_Summary_20190320.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF_Summary_Sub2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF_Summary_Sub2.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF_Summary_Sub1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF_Summary_Sub1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PGM_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PGM_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_Received_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_Received_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_STORAGE_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_STORAGE_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_DETROY_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_DETROY_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_Details_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_Details_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PXN_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_RMUsed_Simple.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_RMUsed_Simple.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_RMUsed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_RMUsed.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF_Summary.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_OFScheduling_Pro.resx">
+      <DependentUpon>F_OFScheduling_Pro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_BaoCaoCongNo_LAB.resx">
+      <DependentUpon>R_BaoCaoCongNo_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_BaoCaoDoanhSo_Thang_LAB.resx">
+      <DependentUpon>R_BaoCaoDoanhSo_Thang_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_BaoCaoPXN_Nhan_TrongTuan_LAB.resx">
+      <DependentUpon>R_BaoCaoPXN_Nhan_TrongTuan_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_BaoCaoCongNo.resx">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoCongNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_BaoCaoDoanhSo_Thang.resx">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoDoanhSo_Thang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_BaoCaoPXN_ChuaTra_LAB .resx">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoPXN_ChuaTra_LAB .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_BaoCaoPXN_Nhan_LAB.resx">
+      <DependentUpon>R_FrDate_ToDate_BaoCaoPXN_Nhan_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_InternalTransfer_FN.resx">
+      <DependentUpon>R_InternalTransfer_FN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PriceList_CTXN_LAB.resx">
+      <DependentUpon>R_PriceList_CTXN_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PGM_LAB.resx">
+      <DependentUpon>R_PGM_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PXN_LAB.resx">
+      <DependentUpon>R_PXN_LAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OF_Summary.resx">
+      <DependentUpon>R_OF_Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_RMUsed_SelectPrefixRM.resx">
+      <DependentUpon>R_RMUsed_SelectPrefixRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_COA_SelectLanguage.resx">
+      <DependentUpon>R_COA_SelectLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ChangePass.resx">
+      <DependentUpon>frm_ChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Base.resx">
+      <DependentUpon>frm_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Loading.resx">
+      <DependentUpon>frm_Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_COA.resx">
+      <DependentUpon>frm_COA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\Action_Function.resx">
+      <DependentUpon>Action_Function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\Action.resx">
+      <DependentUpon>Action.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_BATCH.resx">
+      <DependentUpon>F_BATCH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_IV_List.resx">
+      <DependentUpon>F_IV_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_OABatch_Issued.resx">
+      <DependentUpon>F_OABatch_Issued.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_CTPT_List.resx">
+      <DependentUpon>F_CTPT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_List.resx">
+      <DependentUpon>F_COA_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_QC\F_COA_Template_List_BK.resx">
+      <DependentUpon>F_COA_Template_List_BK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_Control_List.resx">
+      <DependentUpon>F_Control_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_PR_List.resx">
+      <DependentUpon>F_PR_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_PKN_List.resx">
+      <DependentUpon>F_PKN_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_RECEIPT_List.resx">
+      <DependentUpon>F_RECEIPT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_OF_List.resx">
+      <DependentUpon>F_OF_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\F_RECEIPT_Details.resx">
+      <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\F_OF_Details.resx">
+      <DependentUpon>F_OF_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\LAN.en-US.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\LAN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LAN.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\LAN.vi-VN.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_FG_by_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_FG_by_Batch.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_FG_by_FG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_FG_by_FG.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_FG_by_Date.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_FG_by_Date.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OABatch_byDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OABatch_byDate.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_COA_EN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_COA_EN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PKN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PKN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_Tracebility.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Tracebility.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_Production_Item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Production_Item.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PR.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_by_FG.resx">
+      <DependentUpon>R_by_FG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_Item_Date_OABatch.resx">
+      <DependentUpon>R_Item_Date_OABatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FG_FG.resx">
+      <DependentUpon>R_FG_FG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_OABatch.resx">
+      <DependentUpon>R_FrDate_ToDate_OABatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_IV_List.resx">
+      <DependentUpon>R_IV_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_RM_Used.resx">
+      <DependentUpon>R_RM_Used.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OF_Tracebility.resx">
+      <DependentUpon>R_OF_Tracebility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PKN.resx">
+      <DependentUpon>frm_PKN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_COA.resx">
+      <DependentUpon>R_COA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PKN.resx">
+      <DependentUpon>R_PKN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_Production_Item.resx">
+      <DependentUpon>R_Production_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PR.resx">
+      <DependentUpon>R_PR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FG_Date_Batch.resx">
+      <DependentUpon>R_FG_Date_Batch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_Batch.resx">
+      <DependentUpon>R_FrDate_ToDate_Batch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate.resx">
+      <DependentUpon>R_FrDate_ToDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FG_Date.resx">
+      <DependentUpon>R_FG_Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OF.resx">
+      <DependentUpon>R_OF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Base.resx">
+      <DependentUpon>UC_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ASIALANDDataSet.xsc">
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ASIALANDDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASIALANDDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ASIALANDDataSet.xss">
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SYNC_NUTRICIELDataSet.xsc">
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SYNC_NUTRICIELDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>SYNC_NUTRICIELDataSet.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SYNC_NUTRICIELDataSet.xss">
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="VIPHAVETDataset.xsc">
+      <DependentUpon>VIPHAVETDataset.xsd</DependentUpon>
+    </None>
+    <None Include="VIPHAVETDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VIPHAVETDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="VIPHAVETDataset.xss">
+      <DependentUpon>VIPHAVETDataset.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Huhtamaki Logo.ico" />
+    <Content Include="if_archive_16601.ico" />
+    <None Include="Resources\defaultimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AUT\" />
+    <Folder Include="LAMINATION\_GEN\" />
+    <Folder Include="LAMINATION\_PRO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

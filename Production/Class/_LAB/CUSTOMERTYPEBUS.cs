@@ -1,0 +1,26 @@
+﻿namespace Production.Class
+{
+    public class CUSTOMERTYPEBUS
+    {
+        CUSTOMERTYPEDAO CUSTTYPEDAO = new CUSTOMERTYPEDAO();
+        public void CUSTOMERTYPE_INSERT(CUSTOMERTYPE CUSTTYPE)
+        {
+            CUSTTYPEDAO.CUSTOMERTYPE_INSERT(CUSTTYPE);
+        }
+
+        public void CUSTOMERTYPE_UPDATE(CUSTOMERTYPE CUSTTYPE)
+        {
+            CUSTTYPEDAO.CUSTOMERTYPE_UPDATE(CUSTTYPE);
+        }
+
+        public void CUSTOMERTYPE_DELETE(CUSTOMERTYPE CUSTTYPE)
+        {
+            CUSTTYPEDAO.CUSTOMERTYPE_DELETE(CUSTTYPE);
+        }
+
+
+    }
+
+}
+
+

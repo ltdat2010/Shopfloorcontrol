@@ -1,0 +1,3127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B734789F-77C5-4355-9B5B-233D8AD11EB3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Production</RootNamespace>
+    <AssemblyName>ShopFloorControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Xml.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>if_archive_16601.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Xml.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\Xml.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Shared.13.0.3501\lib\net20\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.TreeMap.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Dashboard.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <HintPath>..\packages\CrystalReports.FlashControlV71.13.0.3501\lib\net20\FlashControlV71.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.FlashControlV71.13.0.3501\lib\net20\ShockwaveFlashObjects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.OracleClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASIALANDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ControlBUS.cs" />
+    <Compile Include="Class\ControlDAO.cs" />
+    <Compile Include="Class\ItemBUS.cs" />
+    <Compile Include="Class\OABatchDAO.cs" />
+    <Compile Include="Class\OABatchBUS.cs" />
+    <Compile Include="Class\ChiTieuPhanTichBUS.cs" />
+    <Compile Include="Class\COABUS.cs" />
+    <Compile Include="Class\COADAO.cs" />
+    <Compile Include="Class\QuiCachDongGoiBUS.cs" />
+    <Compile Include="Class\ChiTieuPhanTichDAO.cs" />
+    <Compile Include="Class\QuiCachDongGoiDAO.cs" />
+    <Compile Include="Class\TieuChuan.cs" />
+    <Compile Include="Class\PhuongPhapThuBUS.cs" />
+    <Compile Include="Class\TieuChuanBUS.cs" />
+    <Compile Include="Class\PKNBUS.cs" />
+    <Compile Include="Class\PhuongPhapThuDAO.cs" />
+    <Compile Include="Class\TieuChuanDAO.cs" />
+    <Compile Include="Class\PKNDAO.cs" />
+    <Compile Include="Class\SUPPLIER.cs" />
+    <Compile Include="Class\PRBUS.cs" />
+    <Compile Include="Class\ItemDAO.cs" />
+    <Compile Include="Class\PRDAO.cs" />
+    <Compile Include="Class\RMUSEDBUS .cs" />
+    <Compile Include="Class\BATCHDAO.cs" />
+    <Compile Include="Class\Conn.cs" />
+    <Compile Include="Class\CSVFromToDataTable.cs" />
+    <Compile Include="Class\RMUSEDDAO.cs" />
+    <Compile Include="Class\BATCHBUS.cs" />
+    <Compile Include="Class\RECEIPTBUS.cs" />
+    <Compile Include="Class\RECEIPTDAO.cs" />
+    <Compile Include="Class\RECEIPT.cs" />
+    <Compile Include="Class\OFDAO.cs" />
+    <Compile Include="Class\OF.cs" />
+    <Compile Include="Class\Enum.cs" />
+    <Compile Include="Class\ORACLE.cs" />
+    <Compile Include="Class\SQL.cs" />
+    <Compile Include="Class\Str.cs" />
+    <Compile Include="Class\User.cs" />
+    <Compile Include="LAMINATION\UC_DBD_OVERVIEW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\UC_DBD_OVERVIEW.Designer.cs">
+      <DependentUpon>UC_DBD_OVERVIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oracle.cs">
+      <DependentUpon>Oracle.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Oracle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oracle.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Rpt_COA_VN.cs">
+      <DependentUpon>Rpt_COA_VN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_RMUsed_Simple.cs">
+      <DependentUpon>Rpt_RMUsed_Simple.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_RMUsed.cs">
+      <DependentUpon>Rpt_RMUsed.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF_Summary.cs">
+      <DependentUpon>Rpt_OF_Summary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_OF_Summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_OF_Summary.Designer.cs">
+      <DependentUpon>R_OF_Summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_RMUsed_SelectPrefixRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_RMUsed_SelectPrefixRM.Designer.cs">
+      <DependentUpon>R_RMUsed_SelectPrefixRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_COA_SelectLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_COA_SelectLanguage.Designer.cs">
+      <DependentUpon>R_COA_SelectLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Main.Designer.cs">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ChangePass.Designer.cs">
+      <DependentUpon>frm_ChangePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Base.Designer.cs">
+      <DependentUpon>frm_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Loading.Designer.cs">
+      <DependentUpon>frm_Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_COA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_COA.Designer.cs">
+      <DependentUpon>frm_COA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\Action_Function.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\Action_Function.designer.cs">
+      <DependentUpon>Action_Function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\Action.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\Action.designer.cs">
+      <DependentUpon>Action.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_BATCH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_BATCH.Designer.cs">
+      <DependentUpon>F_BATCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_IV_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_IV_List.Designer.cs">
+      <DependentUpon>F_IV_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_OABatch_Issued.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\F_OABatch_Issued.Designer.cs">
+      <DependentUpon>F_OABatch_Issued.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\F_CTPT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_CTPT_List.Designer.cs">
+      <DependentUpon>F_CTPT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_COA_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_COA_List.Designer.cs">
+      <DependentUpon>F_COA_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_COA_Template_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_COA_Template_List.Designer.cs">
+      <DependentUpon>F_COA_Template_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_PKN_Template_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_PKN_Template_List.Designer.cs">
+      <DependentUpon>F_PKN_Template_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_QCDG_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_QCDG_List.Designer.cs">
+      <DependentUpon>F_QCDG_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_PPT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_PPT_List.Designer.cs">
+      <DependentUpon>F_PPT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_Control_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_Control_List.Designer.cs">
+      <DependentUpon>F_Control_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_TC_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_TC_List.Designer.cs">
+      <DependentUpon>F_TC_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_PR_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_PR_List.Designer.cs">
+      <DependentUpon>F_PR_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_PKN_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_PKN_List.Designer.cs">
+      <DependentUpon>F_PKN_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_RECEIPT_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_RECEIPT_List.Designer.cs">
+      <DependentUpon>F_RECEIPT_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\F_OF_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\F_OF_List.Designer.cs">
+      <DependentUpon>F_OF_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\OFBUS.cs" />
+    <Compile Include="LAN\F_RECEIPT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAN\F_RECEIPT_Details.Designer.cs">
+      <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAN\F_OF_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAN\F_OF_Details.Designer.cs">
+      <DependentUpon>F_OF_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAN\LAN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAN.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Mail.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RPT\Rpt_FG_by_Batch.cs">
+      <DependentUpon>Rpt_FG_by_Batch.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_FG_by_FG.cs">
+      <DependentUpon>Rpt_FG_by_FG.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_FG_by_Date.cs">
+      <DependentUpon>Rpt_FG_by_Date.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_OABatch_byDate.cs">
+      <DependentUpon>Rpt_OABatch_byDate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_COA_EN.cs">
+      <DependentUpon>Rpt_COA_EN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_PKN.cs">
+      <DependentUpon>Rpt_PKN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_Tracebility.cs">
+      <DependentUpon>Rpt_Tracebility.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_OF1.cs">
+      <DependentUpon>Rpt_OF1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_Production_Item.cs">
+      <DependentUpon>Rpt_Production_Item.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\Rpt_PR.cs">
+      <DependentUpon>Rpt_PR.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="R_by_FG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_by_FG.Designer.cs">
+      <DependentUpon>R_by_FG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_Item_Date_OABatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_Item_Date_OABatch.Designer.cs">
+      <DependentUpon>R_Item_Date_OABatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FG_FG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FG_FG.Designer.cs">
+      <DependentUpon>R_FG_FG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_OABatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_OABatch.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_OABatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_IV_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_IV_List.Designer.cs">
+      <DependentUpon>R_IV_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_RM_Used.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_RM_Used.Designer.cs">
+      <DependentUpon>R_RM_Used.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_OF_Tracebility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_OF_Tracebility.Designer.cs">
+      <DependentUpon>R_OF_Tracebility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_PKN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PKN.Designer.cs">
+      <DependentUpon>frm_PKN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_COA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_COA.Designer.cs">
+      <DependentUpon>R_COA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PKN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PKN.Designer.cs">
+      <DependentUpon>R_PKN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_Production_Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_Production_Item.Designer.cs">
+      <DependentUpon>R_Production_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_PR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_PR.Designer.cs">
+      <DependentUpon>R_PR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FG_Date_Batch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FG_Date_Batch.Designer.cs">
+      <DependentUpon>R_FG_Date_Batch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_Batch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate_Batch.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate_Batch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FrDate_ToDate.Designer.cs">
+      <DependentUpon>R_FrDate_ToDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_FG_Date.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_FG_Date.Designer.cs">
+      <DependentUpon>R_FG_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_OF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_OF.Designer.cs">
+      <DependentUpon>R_OF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SYNC_NUTRICIELDataSet.cs">
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SYNC_NUTRICIELDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Base.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Base.Designer.cs">
+      <DependentUpon>UC_Base.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LAMINATION\UC_DBD_OVERVIEW.resx">
+      <DependentUpon>UC_DBD_OVERVIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\F_RECEIPT_Details.fr-FR.resx">
+      <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_COA_VN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_COA_VN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_RMUsed_Simple.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_RMUsed_Simple.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_RMUsed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_RMUsed.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF_Summary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF_Summary.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OF_Summary.resx">
+      <DependentUpon>R_OF_Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_RMUsed_SelectPrefixRM.resx">
+      <DependentUpon>R_RMUsed_SelectPrefixRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_COA_SelectLanguage.resx">
+      <DependentUpon>R_COA_SelectLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ChangePass.resx">
+      <DependentUpon>frm_ChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Base.resx">
+      <DependentUpon>frm_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Loading.resx">
+      <DependentUpon>frm_Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_COA.resx">
+      <DependentUpon>frm_COA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\Action_Function.resx">
+      <DependentUpon>Action_Function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\Action.resx">
+      <DependentUpon>Action.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_BATCH.resx">
+      <DependentUpon>F_BATCH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_IV_List.resx">
+      <DependentUpon>F_IV_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_OABatch_Issued.resx">
+      <DependentUpon>F_OABatch_Issued.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_CTPT_List.resx">
+      <DependentUpon>F_CTPT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_COA_List.resx">
+      <DependentUpon>F_COA_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_COA_Template_List.resx">
+      <DependentUpon>F_COA_Template_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_PKN_Template_List.resx">
+      <DependentUpon>F_PKN_Template_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_QCDG_List.resx">
+      <DependentUpon>F_QCDG_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_PPT_List.resx">
+      <DependentUpon>F_PPT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_Control_List.resx">
+      <DependentUpon>F_Control_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_TC_List.resx">
+      <DependentUpon>F_TC_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_PR_List.resx">
+      <DependentUpon>F_PR_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_PKN_List.resx">
+      <DependentUpon>F_PKN_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_RECEIPT_List.resx">
+      <DependentUpon>F_RECEIPT_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\F_OF_List.resx">
+      <DependentUpon>F_OF_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\F_RECEIPT_Details.resx">
+      <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\F_OF_Details.resx">
+      <DependentUpon>F_OF_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\LAN.en-US.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\LAN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LAN.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAN\LAN.vi-VN.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_FG_by_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_FG_by_Batch.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_FG_by_FG.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_FG_by_FG.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_FG_by_Date.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_FG_by_Date.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OABatch_byDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OABatch_byDate.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_COA_EN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_COA_EN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PKN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PKN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_Tracebility.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Tracebility.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_OF1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_OF1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_Production_Item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Production_Item.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\Rpt_PR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PR.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_by_FG.resx">
+      <DependentUpon>R_by_FG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_Item_Date_OABatch.resx">
+      <DependentUpon>R_Item_Date_OABatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FG_FG.resx">
+      <DependentUpon>R_FG_FG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_OABatch.resx">
+      <DependentUpon>R_FrDate_ToDate_OABatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_IV_List.resx">
+      <DependentUpon>R_IV_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_RM_Used.resx">
+      <DependentUpon>R_RM_Used.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OF_Tracebility.resx">
+      <DependentUpon>R_OF_Tracebility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PKN.resx">
+      <DependentUpon>frm_PKN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_COA.resx">
+      <DependentUpon>R_COA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PKN.resx">
+      <DependentUpon>R_PKN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_Production_Item.resx">
+      <DependentUpon>R_Production_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_PR.resx">
+      <DependentUpon>R_PR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FG_Date_Batch.resx">
+      <DependentUpon>R_FG_Date_Batch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate_Batch.resx">
+      <DependentUpon>R_FrDate_ToDate_Batch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FrDate_ToDate.resx">
+      <DependentUpon>R_FrDate_ToDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_FG_Date.resx">
+      <DependentUpon>R_FG_Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_OF.resx">
+      <DependentUpon>R_OF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Base.resx">
+      <DependentUpon>UC_Base.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ASIALANDDataSet.xsc">
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ASIALANDDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASIALANDDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ASIALANDDataSet.xss">
+      <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Oracle.xsc">
+      <DependentUpon>Oracle.xsd</DependentUpon>
+    </None>
+    <None Include="Oracle.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Oracle.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Oracle.xss">
+      <DependentUpon>Oracle.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SYNC_NUTRICIELDataSet.xsc">
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SYNC_NUTRICIELDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SYNC_NUTRICIELDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SYNC_NUTRICIELDataSet.xss">
+      <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\address-book--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock-select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\alarm-clock-select-remain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-blog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-dialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-dock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-dock-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-dock-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-dock-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-dock-tab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-resize-actual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-resize-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\applications-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-search-result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-sidebar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-sidebar-collapse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-sidebar-expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-sidebar-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-small-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-small-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-small-list-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-split-tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-split-vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\applications-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-task.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-terminal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-text-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-tile-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-tile-vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\application-wave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-000-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-000-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-045-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-045-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-090-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-090-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-135-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-135-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-180-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-180-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-225.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-225-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-225-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-270-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-270-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-315.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-315-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-315-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-000-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-090-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-180-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-branch-270-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-045-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-135-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-225.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-225-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-315.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-315-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-circle-double-135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-000-top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-090-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-180-top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-continue-270-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-000-double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-000-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-090-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-180-double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-180-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-curve-270-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-join.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-join-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-join-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-join-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-000-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-090-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-180-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-merge-270-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-repeat-once.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-resize-045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-resize-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-resize-135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-000-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-090-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-180-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-return-270-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-retweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-skip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-skip-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-skip-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-skip-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-split-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-split-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-split-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-step.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-step-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-step-over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-stop-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-stop-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-stop-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-switch-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-switch-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-switch-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-transition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-transition-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-transition-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-transition-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-000-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-090-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-180-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\arrow-turn-270-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\asterisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\asterisk-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\asterisk-small-yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\asterisk-yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer-gavel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\auction-hammer--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balance-unbalance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-buzz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-buzz-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-ellipsis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-facebook-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-quotation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons-box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons-facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons-facebook-box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-small-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-smiley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons-twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons-twitter-box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloons-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-twitter-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-twitter-retweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\balloon-white-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bamboo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bamboos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bandaid-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bank--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bank--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bank--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bank--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bank--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\barcode-2d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery-charge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery-low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery-plug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\battery--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beaker--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean-green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bean-small-green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\beer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bell-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin-metal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin-metal-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\binocular-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bin--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\block-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blog--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blogs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blogs-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-access.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-f.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-i.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-j.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-l.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-m.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-u.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-y.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-attribute-z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-binary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-broken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-convert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-excel-csv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-excel-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-film.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-flash-movie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-globe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf-delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf-delete-footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf-insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf-insert-footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf-select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-hf-select-footer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-horizontal-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-illustrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-music-playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-node.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-number.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-office-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-outlook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-page-last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-page-next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-page-previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-pdf-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-photoshop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-photoshop-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-php.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-powerpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-resize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-resize-actual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-search-result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-shred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-small-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-snippet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-documents-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-stamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-stand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-documents-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-sticky-note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-sub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-task.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-template.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-text-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-view-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-view-thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-visual-studio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-word-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-xaml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-document-zipper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-broken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-horizontal-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-document-music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-document-music-playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-document-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-film.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-slide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-open-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-search-result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-shred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-small-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folders-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-stamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-stand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-sticky-note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blue-folder-zipper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprint--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\blueprints.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bluetooth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark-import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmarks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bookmark-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open-bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open-next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open-previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-open-text-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\books.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\books-brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\book-small-brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\books-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-bottom-double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-bottom-thick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-horizontal-all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-inside.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-outside.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-outside-thick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-top-bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-top-bottom-double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-top-bottom-thick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-vertical-all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\border-weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box-label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box-search-result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box-share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\briefcase-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\brightness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\brightness-control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\brightness-control-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\brightness-low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\brightness-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\brightness-small-low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom-code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\broom--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bug--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bug--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bug--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bug--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\bug--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building-low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building-medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building-network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building-old.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\building-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn--exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn--plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\burn-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\clock-history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Hourglass_rotates.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Hourglass_rotates_s.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\wrench-screwdriver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\disk--minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Iconhutamaki.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Huhtamaki Logo.ico" />
+    <Content Include="if_archive_16601.ico" />
+    <Content Include="Properties\Resources\block.ico" />
+    <Content Include="Properties\Resources\clipboard.ico" />
+    <Content Include="Properties\Resources\delete.ico" />
+    <Content Include="Properties\Resources\delete_16.png" />
+    <None Include="Properties\Resources\delete_161.png" />
+    <Content Include="Properties\Resources\pencil.ico" />
+    <Content Include="Properties\Resources\plus.ico" />
+    <Content Include="Properties\Resources\print.ico" />
+    <Content Include="Properties\Resources\save.ico" />
+    <Content Include="Properties\Resources\search.ico" />
+    <Content Include="Properties\Resources\trash.ico" />
+    <None Include="Properties\Resources\run.bmp" />
+    <None Include="Properties\Resources\removesm.png" />
+    <None Include="Properties\Resources\acceptsm.png" />
+    <None Include="Properties\Resources\user_remove.png" />
+    <None Include="Properties\Resources\user_accept.png" />
+    <None Include="Properties\Resources\Knob Valid Green.png" />
+    <None Include="Properties\Resources\Knob Valid Blue.png" />
+    <None Include="Properties\Resources\Knob Smart.png" />
+    <None Include="Properties\Resources\Knob Search.png" />
+    <None Include="Properties\Resources\Knob Remove.png" />
+    <None Include="Properties\Resources\Knob Remove Red.png" />
+    <None Include="Properties\Resources\Knob Cancel.png" />
+    <None Include="Properties\Resources\Knob Add.png" />
+    <None Include="Properties\Resources\zoom_out_32x32.png" />
+    <None Include="Properties\Resources\zoom_in_32x32.png" />
+    <None Include="Properties\Resources\wrench_32x32.png" />
+    <None Include="Properties\Resources\workflow_32x32.png" />
+    <None Include="Properties\Resources\warning_32x32.png" />
+    <None Include="Properties\Resources\user_32x32.png" />
+    <None Include="Properties\Resources\up_arrow_32x32.png" />
+    <None Include="Properties\Resources\unlock_32x32.png" />
+    <None Include="Properties\Resources\undo_32x32.png" />
+    <None Include="Properties\Resources\tune_32x32.png" />
+    <None Include="Properties\Resources\trash_32x32.png" />
+    <None Include="Properties\Resources\trackback_32x32.png" />
+    <None Include="Properties\Resources\toolbox_32x32.png" />
+    <None Include="Properties\Resources\text_32x32.png" />
+    <None Include="Properties\Resources\tag_32x32.png" />
+    <None Include="Properties\Resources\table_32x32.png" />
+    <None Include="Properties\Resources\tab_32x32.png" />
+    <None Include="Properties\Resources\stop_32x32.png" />
+    <None Include="Properties\Resources\star_32x32.png" />
+    <None Include="Properties\Resources\sound_32x32.png" />
+    <None Include="Properties\Resources\signs_woman_32x32.png" />
+    <None Include="Properties\Resources\signs_man_32x32.png" />
+    <None Include="Properties\Resources\shield_32x32.png" />
+    <None Include="Properties\Resources\server_32x32.png" />
+    <None Include="Properties\Resources\script_32x32.png" />
+    <None Include="Properties\Resources\scissors_32x32.png" />
+    <None Include="Properties\Resources\save_32x32.png" />
+    <None Include="Properties\Resources\rss_32x32.png" />
+    <None Include="Properties\Resources\round_up_arrow_32x32.png" />
+    <None Include="Properties\Resources\round_right_arrow_32x32.png" />
+    <None Include="Properties\Resources\round_remove_32x32.png" />
+    <None Include="Properties\Resources\round_ok_32x32.png" />
+    <None Include="Properties\Resources\round_left_arrow_32x32.png" />
+    <None Include="Properties\Resources\round_down_arrow_32x32.png" />
+    <None Include="Properties\Resources\round_add_32x32.png" />
+    <None Include="Properties\Resources\right_arrow_32x32.png" />
+    <None Include="Properties\Resources\remove_favourite_32x32.png" />
+    <None Include="Properties\Resources\remove_32x32.png" />
+    <None Include="Properties\Resources\redo_32x32.png" />
+    <None Include="Properties\Resources\puzzle_32x32.png" />
+    <None Include="Properties\Resources\push_pin_32x32.png" />
+    <None Include="Properties\Resources\print_32x32.png" />
+    <None Include="Properties\Resources\pill_32x32.png" />
+    <None Include="Properties\Resources\picture_32x32.png" />
+    <None Include="Properties\Resources\notebook_32x32.png" />
+    <None Include="Properties\Resources\note_32x32.png" />
+    <None Include="Properties\Resources\no_sound_32x32.png" />
+    <None Include="Properties\Resources\newspaper_32x32.png" />
+    <None Include="Properties\Resources\network_32x32.png" />
+    <None Include="Properties\Resources\music_32x32.png" />
+    <None Include="Properties\Resources\move_32x32.png" />
+    <None Include="Properties\Resources\mouse_pointer_32x32.png" />
+    <None Include="Properties\Resources\monitor_32x32.png" />
+    <None Include="Properties\Resources\mobile_phone_32x32.png" />
+    <None Include="Properties\Resources\mail_32x32.png" />
+    <None Include="Properties\Resources\magic_wand_32x32.png" />
+    <None Include="Properties\Resources\lock_32x32.png" />
+    <None Include="Properties\Resources\link_32x32.png" />
+    <None Include="Properties\Resources\line_graph_32x32.png" />
+    <None Include="Properties\Resources\line_chart_32x32.png" />
+    <None Include="Properties\Resources\lens_32x32.png" />
+    <None Include="Properties\Resources\left_arrow_32x32.png" />
+    <None Include="Properties\Resources\layout_32x32.png" />
+    <None Include="Properties\Resources\keyboard_32x32.png" />
+    <None Include="Properties\Resources\key_32x32.png" />
+    <None Include="Properties\Resources\key_2_32x32.png" />
+    <None Include="Properties\Resources\ipod_32x32.png" />
+    <None Include="Properties\Resources\iphone_32x32.png" />
+    <None Include="Properties\Resources\info_32x32.png" />
+    <None Include="Properties\Resources\house_32x32.png" />
+    <None Include="Properties\Resources\help_32x32.png" />
+    <None Include="Properties\Resources\heart_32x32.png" />
+    <None Include="Properties\Resources\hard_disk_32x32.png" />
+    <None Include="Properties\Resources\globe_32x32.png" />
+    <None Include="Properties\Resources\gear_wheel_32x32.png" />
+    <None Include="Properties\Resources\folder_32x32.png" />
+    <None Include="Properties\Resources\flash_32x32.png" />
+    <None Include="Properties\Resources\flag_32x32.png" />
+    <None Include="Properties\Resources\filter_32x32.png" />
+    <None Include="Properties\Resources\film_32x32.png" />
+    <None Include="Properties\Resources\file_32x32.png" />
+    <None Include="Properties\Resources\expand_32x32.png" />
+    <None Include="Properties\Resources\error_32x32.png" />
+    <None Include="Properties\Resources\edit_32x32.png" />
+    <None Include="Properties\Resources\downloads_folder_32x32.png" />
+    <None Include="Properties\Resources\download_32x32.png" />
+    <None Include="Properties\Resources\down_arrow_32x32.png" />
+    <None Include="Properties\Resources\door_32x32.png" />
+    <None Include="Properties\Resources\document_32x32.png" />
+    <None Include="Properties\Resources\delete_32x32.png" />
+    <None Include="Properties\Resources\database_32x32.png" />
+    <None Include="Properties\Resources\contrast_32x32.png" />
+    <None Include="Properties\Resources\compress_32x32.png" />
+    <None Include="Properties\Resources\comment_32x32.png" />
+    <None Include="Properties\Resources\clock_32x32.png" />
+    <None Include="Properties\Resources\clipboard_32x32.png" />
+    <None Include="Properties\Resources\check_mark_32x32.png" />
+    <None Include="Properties\Resources\cd_32x32.png" />
+    <None Include="Properties\Resources\cart_32x32.png" />
+    <None Include="Properties\Resources\cardfile_32x32.png" />
+    <None Include="Properties\Resources\card_32x32.png" />
+    <None Include="Properties\Resources\cancel_32x32.png" />
+    <None Include="Properties\Resources\camera_32x32.png" />
+    <None Include="Properties\Resources\calculator_32x32.png" />
+    <None Include="Properties\Resources\cal_32x32.png" />
+    <None Include="Properties\Resources\buildings_32x32.png" />
+    <None Include="Properties\Resources\browser_window_32x32.png" />
+    <None Include="Properties\Resources\briefcase_32x32.png" />
+    <None Include="Properties\Resources\bookmark_32x32.png" />
+    <None Include="Properties\Resources\basket_32x32.png" />
+    <None Include="Properties\Resources\attach_32x32.png" />
+    <None Include="Properties\Resources\asterisk_32x32.png" />
+    <None Include="Properties\Resources\anchor_32x32.png" />
+    <None Include="Properties\Resources\alert_32x32.png" />
+    <None Include="Properties\Resources\address_book_32x32.png" />
+    <None Include="Properties\Resources\add_32x32.png" />
+    <None Include="Properties\Resources\print_accept.png" />
+    <None Include="Properties\Resources\printer.png" />
+    <None Include="Properties\Resources\button_add.png" />
+    <None Include="Properties\Resources\button_delete.png" />
+    <None Include="Properties\Resources\button_close.png" />
+    <None Include="Properties\Resources\pen_green_01.png" />
+    <None Include="Properties\Resources\rename_edit.png" />
+    <None Include="Properties\Resources\pen_blue_01.png" />
+    <None Include="Properties\Resources\pencil.png" />
+    <None Include="Properties\Resources\pen.png" />
+    <None Include="Properties\Resources\login.png" />
+    <None Include="Properties\Resources\deletered.png" />
+    <None Include="Properties\Resources\delete.png" />
+    <None Include="Properties\Resources\add.png" />
+    <None Include="Properties\Resources\search1.png" />
+    <None Include="Properties\Resources\search.png" />
+    <None Include="Properties\Resources\find_search.png" />
+    <None Include="Properties\Resources\old_edit_find.png" />
+    <None Include="Properties\Resources\sales-report-icon.png" />
+    <None Include="Properties\Resources\report-icon.png" />
+    <None Include="Properties\Resources\product-sales-report-icon.png" />
+    <None Include="Properties\Resources\distributor-report-icon.png" />
+    <None Include="Properties\Resources\633976411272812500_HUHTAMAKI.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AUT\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <ID>13</ID>
+    <SoPKN>2</SoPKN>
+    <KQKNTemplateID>1</KQKNTemplateID>
+    <SoPNK>4645</SoPNK>
+    <QCDG>9</QCDG>
+    <SLNhan>8</SLNhan>
+    <NgayNhan>2018-05-25T00:00:00+07:00</NgayNhan>
+    <Solo>15052018</Solo>
+    <NgaySX>2018-05-25T00:00:00+07:00</NgaySX>
+    <HSD>2018-05-25T00:00:00+07:00</HSD>
+    <NgayPT>2018-05-25T00:00:00+07:00</NgayPT>
+  </Table>
+</NewDataSet>

@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <DT_DEB>2018-04-27T10:18:31+07:00</DT_DEB>
+    <DT_FIN>2018-04-27T12:09:05+07:00</DT_FIN>
+    <CD_MAT>FGMMP110</CD_MAT>
+    <LB_MAT>P1010 MINERAL</LB_MAT>
+    <CD_VER>89</CD_VER>
+    <QT_LOT>1000</QT_LOT>
+    <QT_FAB>1035.20</QT_FAB>
+    <CD_DEST>TR6</CD_DEST>
+    <CD_OF>1222</CD_OF>
+    <NB_LOT>1</NB_LOT>
+    <CD_FORM>FGMMP110</CD_FORM>
+  </Table>
+</NewDataSet>

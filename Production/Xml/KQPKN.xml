@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <ID>27</ID>
+    <STT>1</STT>
+    <CTPT>1. TÍNH CHẤT</CTPT>
+    <PPT />
+  </Table>
+  <Table>
+    <ID>28</ID>
+    <STT>2</STT>
+    <CTPT>a. Cảm quan </CTPT>
+    <TC>Dạng bột màu hơi trắng</TC>
+    <PPT>Bằng mắt</PPT>
+  </Table>
+</NewDataSet>

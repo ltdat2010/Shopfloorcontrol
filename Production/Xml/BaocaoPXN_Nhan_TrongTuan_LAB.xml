@@ -1,0 +1,368 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <ID>76</ID>
+    <SoPXN>HTH190001</SoPXN>
+    <PXNDescription />
+    <CoSoGuiMau />
+    <TenCoSoGuiMau>Anh Khanh</TenCoSoGuiMau>
+    <PhoneCoSoGuiMau>0903-961-159</PhoneCoSoGuiMau>
+    <FaxCoSoGuiMau />
+    <EmailCoSoGuiMau>khanh.nt@viphavet.com</EmailCoSoGuiMau>
+    <MSTCoSoGuiMau />
+    <CoSoLayMau />
+    <TenCoSoLayMau>Trại Anh Quyết</TenCoSoLayMau>
+    <PhoneCoSoLayMau />
+    <FaxCoSoLayMau />
+    <EmailCoSoLayMau />
+    <CreatedDate>2019-05-03T00:00:00+07:00</CreatedDate>
+    <CreatedBy>truyen</CreatedBy>
+    <Note>VP-4716</Note>
+    <Locked>false</Locked>
+    <KHMau />
+    <PTNThucHien>false</PTNThucHien>
+    <LoaiXN>H2O</LoaiXN>
+    <NgayNhanMau>2019-04-05T00:00:00+07:00</NgayNhanMau>
+    <DCCoSoGuiMau />
+    <DCCoSoLayMau />
+    <NgayDuKienTra>2019-04-08T00:00:00+07:00</NgayDuKienTra>
+    <NgonNgu>VN</NgonNgu>
+    <SendMail>0</SendMail>
+    <NgayCoKetQua>2019-01-01T00:00:00+07:00</NgayCoKetQua>
+    <NgayTraKetQua>2019-01-01T00:00:00+07:00</NgayTraKetQua>
+    <ID1>40</ID1>
+    <SoPXN1>HTH190001</SoPXN1>
+    <CreatedDate1>2019-05-03T00:00:00+07:00</CreatedDate1>
+    <CreatedBy1 />
+    <Locked1>false</Locked1>
+    <Note1 />
+    <KHMau1>VP-4716A</KHMau1>
+    <SoLuongKHMau>16</SoLuongKHMau>
+    <DonViKHMau>Mẩu</DonViKHMau>
+    <PhuongPhapBaoQuan>...</PhuongPhapBaoQuan>
+    <VitriLuuKHMau>...</VitriLuuKHMau>
+    <NgayLuuKHMau>2019-01-01T00:00:00+07:00</NgayLuuKHMau>
+    <NhanVienLuuKHMau>...</NhanVienLuuKHMau>
+    <NgayHuyKHMau>2019-01-01T00:00:00+07:00</NgayHuyKHMau>
+    <TaiLieuHuyKHMau>...</TaiLieuHuyKHMau>
+    <NhanVienHuyKHMau>...</NhanVienHuyKHMau>
+    <TrangThaiKHMau>false</TrangThaiKHMau>
+    <SoLuongHuyKHMau>0</SoLuongHuyKHMau>
+    <KHMau_KhachHang>...</KHMau_KhachHang>
+    <LoaiDVMauNuoc>Gà</LoaiDVMauNuoc>
+    <NgayLayMau>2019-01-01T00:00:00+07:00</NgayLayMau>
+    <LoaiMauGui>...</LoaiMauGui>
+    <TTMauGui>...</TTMauGui>
+    <VTLayMauDayChuong>...</VTLayMauDayChuong>
+    <GioLayMauTuoi>28 ngày tuổi </GioLayMauTuoi>
+    <Khac>...</Khac>
+    <SoLuongKHMauKhongDat>4</SoLuongKHMauKhongDat>
+    <LiDoKHMauKhongDat>Mẫu dung huyết</LiDoKHMauKhongDat>
+    <ID2>85</ID2>
+    <KHMau2>VP-4716A</KHMau2>
+    <CTXNID>56</CTXNID>
+    <CreatedBy2 />
+    <CreatedDate2>2019-05-03T00:00:00+07:00</CreatedDate2>
+    <Note2 />
+    <Locked2>false</Locked2>
+    <DonGia>62000</DonGia>
+    <ThanhTien>992000</ThanhTien>
+    <SoLuongDat />
+    <VAT>0</VAT>
+    <SoLuongXN>16</SoLuongXN>
+    <KHMau_ID>0</KHMau_ID>
+    <DonGiaMuaNgoai>0</DonGiaMuaNgoai>
+  </Table>
+  <Table>
+    <ID>76</ID>
+    <SoPXN>HTH190001</SoPXN>
+    <PXNDescription />
+    <CoSoGuiMau />
+    <TenCoSoGuiMau>Anh Khanh</TenCoSoGuiMau>
+    <PhoneCoSoGuiMau>0903-961-159</PhoneCoSoGuiMau>
+    <FaxCoSoGuiMau />
+    <EmailCoSoGuiMau>khanh.nt@viphavet.com</EmailCoSoGuiMau>
+    <MSTCoSoGuiMau />
+    <CoSoLayMau />
+    <TenCoSoLayMau>Trại Anh Quyết</TenCoSoLayMau>
+    <PhoneCoSoLayMau />
+    <FaxCoSoLayMau />
+    <EmailCoSoLayMau />
+    <CreatedDate>2019-05-03T00:00:00+07:00</CreatedDate>
+    <CreatedBy>truyen</CreatedBy>
+    <Note>VP-4716</Note>
+    <Locked>false</Locked>
+    <KHMau />
+    <PTNThucHien>false</PTNThucHien>
+    <LoaiXN>H2O</LoaiXN>
+    <NgayNhanMau>2019-04-05T00:00:00+07:00</NgayNhanMau>
+    <DCCoSoGuiMau />
+    <DCCoSoLayMau />
+    <NgayDuKienTra>2019-04-08T00:00:00+07:00</NgayDuKienTra>
+    <NgonNgu>VN</NgonNgu>
+    <SendMail>0</SendMail>
+    <NgayCoKetQua>2019-01-01T00:00:00+07:00</NgayCoKetQua>
+    <NgayTraKetQua>2019-01-01T00:00:00+07:00</NgayTraKetQua>
+    <ID1>40</ID1>
+    <SoPXN1>HTH190001</SoPXN1>
+    <CreatedDate1>2019-05-03T00:00:00+07:00</CreatedDate1>
+    <CreatedBy1 />
+    <Locked1>false</Locked1>
+    <Note1 />
+    <KHMau1>VP-4716A</KHMau1>
+    <SoLuongKHMau>16</SoLuongKHMau>
+    <DonViKHMau>Mẩu</DonViKHMau>
+    <PhuongPhapBaoQuan>...</PhuongPhapBaoQuan>
+    <VitriLuuKHMau>...</VitriLuuKHMau>
+    <NgayLuuKHMau>2019-01-01T00:00:00+07:00</NgayLuuKHMau>
+    <NhanVienLuuKHMau>...</NhanVienLuuKHMau>
+    <NgayHuyKHMau>2019-01-01T00:00:00+07:00</NgayHuyKHMau>
+    <TaiLieuHuyKHMau>...</TaiLieuHuyKHMau>
+    <NhanVienHuyKHMau>...</NhanVienHuyKHMau>
+    <TrangThaiKHMau>false</TrangThaiKHMau>
+    <SoLuongHuyKHMau>0</SoLuongHuyKHMau>
+    <KHMau_KhachHang>...</KHMau_KhachHang>
+    <LoaiDVMauNuoc>Gà</LoaiDVMauNuoc>
+    <NgayLayMau>2019-01-01T00:00:00+07:00</NgayLayMau>
+    <LoaiMauGui>...</LoaiMauGui>
+    <TTMauGui>...</TTMauGui>
+    <VTLayMauDayChuong>...</VTLayMauDayChuong>
+    <GioLayMauTuoi>28 ngày tuổi </GioLayMauTuoi>
+    <Khac>...</Khac>
+    <SoLuongKHMauKhongDat>4</SoLuongKHMauKhongDat>
+    <LiDoKHMauKhongDat>Mẫu dung huyết</LiDoKHMauKhongDat>
+    <ID2>86</ID2>
+    <KHMau2>VP-4716A</KHMau2>
+    <CTXNID>52</CTXNID>
+    <CreatedBy2 />
+    <CreatedDate2>2019-05-03T00:00:00+07:00</CreatedDate2>
+    <Note2 />
+    <Locked2>false</Locked2>
+    <DonGia>60000</DonGia>
+    <ThanhTien>960000</ThanhTien>
+    <SoLuongDat />
+    <VAT>0</VAT>
+    <SoLuongXN>16</SoLuongXN>
+    <KHMau_ID>0</KHMau_ID>
+    <DonGiaMuaNgoai>0</DonGiaMuaNgoai>
+  </Table>
+  <Table>
+    <ID>76</ID>
+    <SoPXN>HTH190001</SoPXN>
+    <PXNDescription />
+    <CoSoGuiMau />
+    <TenCoSoGuiMau>Anh Khanh</TenCoSoGuiMau>
+    <PhoneCoSoGuiMau>0903-961-159</PhoneCoSoGuiMau>
+    <FaxCoSoGuiMau />
+    <EmailCoSoGuiMau>khanh.nt@viphavet.com</EmailCoSoGuiMau>
+    <MSTCoSoGuiMau />
+    <CoSoLayMau />
+    <TenCoSoLayMau>Trại Anh Quyết</TenCoSoLayMau>
+    <PhoneCoSoLayMau />
+    <FaxCoSoLayMau />
+    <EmailCoSoLayMau />
+    <CreatedDate>2019-05-03T00:00:00+07:00</CreatedDate>
+    <CreatedBy>truyen</CreatedBy>
+    <Note>VP-4716</Note>
+    <Locked>false</Locked>
+    <KHMau />
+    <PTNThucHien>false</PTNThucHien>
+    <LoaiXN>H2O</LoaiXN>
+    <NgayNhanMau>2019-04-05T00:00:00+07:00</NgayNhanMau>
+    <DCCoSoGuiMau />
+    <DCCoSoLayMau />
+    <NgayDuKienTra>2019-04-08T00:00:00+07:00</NgayDuKienTra>
+    <NgonNgu>VN</NgonNgu>
+    <SendMail>0</SendMail>
+    <NgayCoKetQua>2019-01-01T00:00:00+07:00</NgayCoKetQua>
+    <NgayTraKetQua>2019-01-01T00:00:00+07:00</NgayTraKetQua>
+    <ID1>40</ID1>
+    <SoPXN1>HTH190001</SoPXN1>
+    <CreatedDate1>2019-05-03T00:00:00+07:00</CreatedDate1>
+    <CreatedBy1 />
+    <Locked1>false</Locked1>
+    <Note1 />
+    <KHMau1>VP-4716A</KHMau1>
+    <SoLuongKHMau>16</SoLuongKHMau>
+    <DonViKHMau>Mẩu</DonViKHMau>
+    <PhuongPhapBaoQuan>...</PhuongPhapBaoQuan>
+    <VitriLuuKHMau>...</VitriLuuKHMau>
+    <NgayLuuKHMau>2019-01-01T00:00:00+07:00</NgayLuuKHMau>
+    <NhanVienLuuKHMau>...</NhanVienLuuKHMau>
+    <NgayHuyKHMau>2019-01-01T00:00:00+07:00</NgayHuyKHMau>
+    <TaiLieuHuyKHMau>...</TaiLieuHuyKHMau>
+    <NhanVienHuyKHMau>...</NhanVienHuyKHMau>
+    <TrangThaiKHMau>false</TrangThaiKHMau>
+    <SoLuongHuyKHMau>0</SoLuongHuyKHMau>
+    <KHMau_KhachHang>...</KHMau_KhachHang>
+    <LoaiDVMauNuoc>Gà</LoaiDVMauNuoc>
+    <NgayLayMau>2019-01-01T00:00:00+07:00</NgayLayMau>
+    <LoaiMauGui>...</LoaiMauGui>
+    <TTMauGui>...</TTMauGui>
+    <VTLayMauDayChuong>...</VTLayMauDayChuong>
+    <GioLayMauTuoi>28 ngày tuổi </GioLayMauTuoi>
+    <Khac>...</Khac>
+    <SoLuongKHMauKhongDat>4</SoLuongKHMauKhongDat>
+    <LiDoKHMauKhongDat>Mẫu dung huyết</LiDoKHMauKhongDat>
+    <ID2>87</ID2>
+    <KHMau2>VP-4716A</KHMau2>
+    <CTXNID>55</CTXNID>
+    <CreatedBy2 />
+    <CreatedDate2>2019-05-03T00:00:00+07:00</CreatedDate2>
+    <Note2 />
+    <Locked2>false</Locked2>
+    <DonGia>55000</DonGia>
+    <ThanhTien>880000</ThanhTien>
+    <SoLuongDat />
+    <VAT>0</VAT>
+    <SoLuongXN>16</SoLuongXN>
+    <KHMau_ID>0</KHMau_ID>
+    <DonGiaMuaNgoai>0</DonGiaMuaNgoai>
+  </Table>
+  <Table>
+    <ID>78</ID>
+    <SoPXN>GEN190002</SoPXN>
+    <PXNDescription />
+    <CoSoGuiMau />
+    <TenCoSoGuiMau>Anh Trịnh</TenCoSoGuiMau>
+    <PhoneCoSoGuiMau>0945-490-707</PhoneCoSoGuiMau>
+    <FaxCoSoGuiMau />
+    <EmailCoSoGuiMau>trinh.c@viphavet.com</EmailCoSoGuiMau>
+    <MSTCoSoGuiMau />
+    <CoSoLayMau />
+    <TenCoSoLayMau>Trại giống Nguyệt Thơ</TenCoSoLayMau>
+    <PhoneCoSoLayMau />
+    <FaxCoSoLayMau />
+    <EmailCoSoLayMau />
+    <CreatedDate>2019-05-03T00:00:00+07:00</CreatedDate>
+    <CreatedBy>truyen</CreatedBy>
+    <Note>VP-4735</Note>
+    <Locked>false</Locked>
+    <KHMau />
+    <PTNThucHien>false</PTNThucHien>
+    <LoaiXN>GEN</LoaiXN>
+    <NgayNhanMau>2019-04-10T00:00:00+07:00</NgayNhanMau>
+    <DCCoSoGuiMau />
+    <DCCoSoLayMau>EAKA - ĐakLak</DCCoSoLayMau>
+    <NgayDuKienTra>2019-04-18T00:00:00+07:00</NgayDuKienTra>
+    <NgonNgu>VN</NgonNgu>
+    <SendMail>0</SendMail>
+    <NgayCoKetQua>2019-01-01T00:00:00+07:00</NgayCoKetQua>
+    <NgayTraKetQua>2019-01-01T00:00:00+07:00</NgayTraKetQua>
+    <ID1>41</ID1>
+    <SoPXN1>GEN190002</SoPXN1>
+    <CreatedDate1>2019-05-03T00:00:00+07:00</CreatedDate1>
+    <CreatedBy1 />
+    <Locked1>false</Locked1>
+    <Note1 />
+    <KHMau1>VP-4735A</KHMau1>
+    <SoLuongKHMau>1</SoLuongKHMau>
+    <DonViKHMau>Mẩu</DonViKHMau>
+    <PhuongPhapBaoQuan>...</PhuongPhapBaoQuan>
+    <VitriLuuKHMau>...</VitriLuuKHMau>
+    <NgayLuuKHMau>2019-01-01T00:00:00+07:00</NgayLuuKHMau>
+    <NhanVienLuuKHMau>...</NhanVienLuuKHMau>
+    <NgayHuyKHMau>2019-01-01T00:00:00+07:00</NgayHuyKHMau>
+    <TaiLieuHuyKHMau>...</TaiLieuHuyKHMau>
+    <NhanVienHuyKHMau>...</NhanVienHuyKHMau>
+    <TrangThaiKHMau>false</TrangThaiKHMau>
+    <SoLuongHuyKHMau>0</SoLuongHuyKHMau>
+    <KHMau_KhachHang>...</KHMau_KhachHang>
+    <LoaiDVMauNuoc>Gà hậu bị</LoaiDVMauNuoc>
+    <NgayLayMau>2019-04-10T00:00:00+07:00</NgayLayMau>
+    <LoaiMauGui>Chân gà</LoaiMauGui>
+    <TTMauGui>...</TTMauGui>
+    <VTLayMauDayChuong>...</VTLayMauDayChuong>
+    <GioLayMauTuoi />
+    <Khac>...</Khac>
+    <SoLuongKHMauKhongDat>0</SoLuongKHMauKhongDat>
+    <LiDoKHMauKhongDat>...</LiDoKHMauKhongDat>
+    <ID2>88</ID2>
+    <KHMau2>VP-4735A</KHMau2>
+    <CTXNID>101</CTXNID>
+    <CreatedBy2 />
+    <CreatedDate2>2019-05-03T00:00:00+07:00</CreatedDate2>
+    <Note2 />
+    <Locked2>false</Locked2>
+    <DonGia>564000</DonGia>
+    <ThanhTien>564000</ThanhTien>
+    <SoLuongDat />
+    <VAT>0</VAT>
+    <SoLuongXN>1</SoLuongXN>
+    <KHMau_ID>0</KHMau_ID>
+    <DonGiaMuaNgoai>0</DonGiaMuaNgoai>
+  </Table>
+  <Table>
+    <ID>77</ID>
+    <SoPXN>GEN190001</SoPXN>
+    <PXNDescription />
+    <CoSoGuiMau />
+    <TenCoSoGuiMau>Anh Khanh</TenCoSoGuiMau>
+    <PhoneCoSoGuiMau>0903-961-159</PhoneCoSoGuiMau>
+    <FaxCoSoGuiMau />
+    <EmailCoSoGuiMau>khanh.nt@viphavet.com</EmailCoSoGuiMau>
+    <MSTCoSoGuiMau />
+    <CoSoLayMau />
+    <TenCoSoLayMau>Trại Anh Quyết</TenCoSoLayMau>
+    <PhoneCoSoLayMau />
+    <FaxCoSoLayMau />
+    <EmailCoSoLayMau />
+    <CreatedDate>2019-05-03T00:00:00+07:00</CreatedDate>
+    <CreatedBy>truyen</CreatedBy>
+    <Note>VP-4716</Note>
+    <Locked>false</Locked>
+    <KHMau />
+    <PTNThucHien>false</PTNThucHien>
+    <LoaiXN>GEN</LoaiXN>
+    <NgayNhanMau>2019-04-05T00:00:00+07:00</NgayNhanMau>
+    <DCCoSoGuiMau />
+    <DCCoSoLayMau />
+    <NgayDuKienTra>2019-05-18T00:00:00+07:00</NgayDuKienTra>
+    <NgonNgu>VN</NgonNgu>
+    <SendMail>0</SendMail>
+    <NgayCoKetQua>2019-01-01T00:00:00+07:00</NgayCoKetQua>
+    <NgayTraKetQua>2019-01-01T00:00:00+07:00</NgayTraKetQua>
+    <ID1>43</ID1>
+    <SoPXN1>GEN190001</SoPXN1>
+    <CreatedDate1>2019-05-03T00:00:00+07:00</CreatedDate1>
+    <CreatedBy1 />
+    <Locked1>false</Locked1>
+    <Note1 />
+    <KHMau1>VP-4716B</KHMau1>
+    <SoLuongKHMau>5</SoLuongKHMau>
+    <DonViKHMau>Bịch</DonViKHMau>
+    <PhuongPhapBaoQuan>...</PhuongPhapBaoQuan>
+    <VitriLuuKHMau>...</VitriLuuKHMau>
+    <NgayLuuKHMau>2019-01-01T00:00:00+07:00</NgayLuuKHMau>
+    <NhanVienLuuKHMau>...</NhanVienLuuKHMau>
+    <NgayHuyKHMau>2019-01-01T00:00:00+07:00</NgayHuyKHMau>
+    <TaiLieuHuyKHMau>...</TaiLieuHuyKHMau>
+    <NhanVienHuyKHMau>...</NhanVienHuyKHMau>
+    <TrangThaiKHMau>false</TrangThaiKHMau>
+    <SoLuongHuyKHMau>0</SoLuongHuyKHMau>
+    <KHMau_KhachHang>...</KHMau_KhachHang>
+    <LoaiDVMauNuoc>...</LoaiDVMauNuoc>
+    <NgayLayMau>2019-04-04T00:00:00+07:00</NgayLayMau>
+    <LoaiMauGui>Túi bursa ngân formol</LoaiMauGui>
+    <TTMauGui>...</TTMauGui>
+    <VTLayMauDayChuong>...</VTLayMauDayChuong>
+    <GioLayMauTuoi />
+    <Khac>...</Khac>
+    <SoLuongKHMauKhongDat>0</SoLuongKHMauKhongDat>
+    <LiDoKHMauKhongDat>...</LiDoKHMauKhongDat>
+    <ID2>89</ID2>
+    <KHMau2>VP-4716B</KHMau2>
+    <CTXNID>107</CTXNID>
+    <CreatedBy2 />
+    <CreatedDate2>2019-05-03T00:00:00+07:00</CreatedDate2>
+    <Note2 />
+    <Locked2>false</Locked2>
+    <DonGia>108000</DonGia>
+    <ThanhTien>540000</ThanhTien>
+    <SoLuongDat />
+    <VAT>0</VAT>
+    <SoLuongXN>5</SoLuongXN>
+    <KHMau_ID>0</KHMau_ID>
+    <DonGiaMuaNgoai>0</DonGiaMuaNgoai>
+  </Table>
+</NewDataSet>
