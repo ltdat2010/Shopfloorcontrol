@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
-using System.Data;
-using System.Windows;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class PhuongPhapXetNghiemBUS
     {
         //public static OF of = new OF();
-        public static PhuongPhapXetNghiemDAO DAO = new PhuongPhapXetNghiemDAO();   
-     
+        public static PhuongPhapXetNghiemDAO DAO = new PhuongPhapXetNghiemDAO();
+
         //public void PPT_Update(DataRow dr)
         //{
         //    PPTCB.PPT_Update(dr);

@@ -10,9 +10,9 @@ namespace Production.Class
             int CTXN_ID,
             double ConC,
             string KHMau,
-            DateTime CreatedDate, 
-            string CreatedBy, 
-            bool Locked,            
+            DateTime CreatedDate,
+            string CreatedBy,
+            bool Locked,
             string Note
             )
         {
@@ -22,12 +22,12 @@ namespace Production.Class
             this._KHMau = KHMau;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;            
+            this._Locked = Locked;
             this._Note = Note;
         }
+
         public MYCOTOXIN_ConC()
         {
-
         }
 
         private int _ID;
@@ -62,8 +62,8 @@ namespace Production.Class
             set { _KHMau = value; }
         }
 
-
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -71,6 +71,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -78,19 +79,19 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
-        
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
             set { _Note = value; }
-        }      
-
-
+        }
     }
 }

@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class COA_Template_DetailsBUS
     {
-        COA_Template_DetailsDAO DAO = new COA_Template_DetailsDAO();
+        private COA_Template_DetailsDAO DAO = new COA_Template_DetailsDAO();
 
         public void COA_Template_DetailsDAO_INSERT(COA_Template_Details OBJ)
         {
@@ -32,9 +25,5 @@ namespace Production.Class
         {
             return DAO.COA_Template_Details_SELECT(OBJ);
         }
-
     }
-
 }
-
-

@@ -1,30 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using System.Data;
 
 namespace Production.Class
 {
-    class NHOMCHITIEUXETNGHIEMBUS
+    internal class NHOMCHITIEUXETNGHIEMBUS
     {
-        NHOMCHITIEUXETNGHIEMDAO DAO = new NHOMCHITIEUXETNGHIEMDAO();
+        private NHOMCHITIEUXETNGHIEMDAO DAO = new NHOMCHITIEUXETNGHIEMDAO();
+
         public DataTable NPPXN_List()
         {
             return DAO.NCTXN_List();
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
         //public void PPT_Update(DataRow dr)
-        //{            
+        //{
         //    Sql.ExecuteNonQuery("SAP",  "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PhuongPhapThu]" +
         //                                " SET [PPT] ='"+dr["PPT"].ToString() + "'"+
         //                                ",[PPTDG] = '" + dr["PPTDG"].ToString() + "' " +

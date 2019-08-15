@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -11,11 +8,11 @@ namespace Production.Class
         public CUSTOMERTYPE(
             int Id,
             string CUSTTYPEName,
-            string CUSTTYPECode, 
-            DateTime CreatedDate, 
+            string CUSTTYPECode,
+            DateTime CreatedDate,
             string CreatedBy,
             string Note,
-            bool Locked          
+            bool Locked
             )
         {
             this._Id = Id;
@@ -25,11 +22,10 @@ namespace Production.Class
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public CUSTOMERTYPE()
         {
-
         }
 
         private int _Id;
@@ -49,6 +45,7 @@ namespace Production.Class
         }
 
         private string _CUSTTYPECode;
+
         public string CUSTTYPECode
         {
             get { return _CUSTTYPECode; }
@@ -56,6 +53,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -63,6 +61,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -70,6 +69,7 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
@@ -77,11 +77,11 @@ namespace Production.Class
         }
 
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
             set { _Note = value; }
         }
-
     }
 }

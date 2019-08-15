@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,6 @@ namespace Production.Class
     {
         public void KHMau_LABDAO_INSERT(KHMau_LAB OBJ)
         {
-            
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] " +
            " ([SoPXN] " +
            " ,[KHMau] " +
@@ -30,11 +23,11 @@ namespace Production.Class
            " ,[TaiLieuHuyKHMau] " +
            " ,[NhanVienHuyKHMau] " +
            " ,[TrangThaiKHMau] " +
-           " ,[SoLuongHuyKHMau] " +           
+           " ,[SoLuongHuyKHMau] " +
            " ,[CreatedDate] " +
            " ,[CreatedBy] " +
-           " ,[Note] " +           
-           " ,[Locked] "+
+           " ,[Note] " +
+           " ,[Locked] " +
            " ,[LoaiDVMauNuoc] " +
            " ,[NgayLayMau] " +
            " ,[LoaiMauGui] " +
@@ -65,7 +58,7 @@ namespace Production.Class
            "',N'" + OBJ.SoLuongHuyKHMau +
            "',CONVERT(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
-           "',N'" + OBJ.Note +           
+           "',N'" + OBJ.Note +
            "','" + OBJ.Locked +
            "',N'" + OBJ.LoaiDVMauNuoc +
            "',CONVERT(datetime,'" + OBJ.NgayLayMau +
@@ -97,12 +90,12 @@ namespace Production.Class
            ",[NhanVienLuuKHMau]         =   N'" + OBJ.NhanVienLuuKHMau + "'" +
            ",[NgayHuyKHMau]             =   CONVERT(datetime,'" + OBJ.NgayHuyKHMau + "',103)" +
            ",[TaiLieuHuyKHMau]          =   N'" + OBJ.TaiLieuHuyKHMau + "'" +
-           ",[NhanVienHuyKHMau]         =   N'" + OBJ.NhanVienHuyKHMau+ "'" +
+           ",[NhanVienHuyKHMau]         =   N'" + OBJ.NhanVienHuyKHMau + "'" +
            ",[TrangThaiKHMau]           =   N'" + OBJ.TrangThaiKHMau + "'" +
            ",[SoLuongHuyKHMau]          =   N'" + OBJ.SoLuongHuyKHMau + "'" +
            ",[CreatedDate]              =   CONVERT(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy]                =   N'" + OBJ.CreatedBy + "' " +
-           ",[Note]                     =   N'" + OBJ.Note + "'" +           
+           ",[Note]                     =   N'" + OBJ.Note + "'" +
            ",[Locked]                   =   N'" + OBJ.Locked + "'" +
            ",[LoaiDVMauNuoc]            =   N'" + OBJ.LoaiDVMauNuoc + "'" +
            ",[NgayLayMau]               =   CONVERT(datetime,'" + OBJ.NgayLayMau + "',103)" +
@@ -115,7 +108,7 @@ namespace Production.Class
            //",[NguoiGiaoBanGiaoMau]                     =   N'" + OBJ.CreatedBy + "'" +
            //",[NgayBanGiaoMau]                     =   CONVERT(datetime,'" + DateTime.Now + "',103)" +
            ",[GioLayMauTuoi]            =   N'" + OBJ.GioLayMauTuoi + "'" +
-           " WHERE [ID]              =   " + OBJ.ID , CommandType.Text);
+           " WHERE [ID]              =   " + OBJ.ID, CommandType.Text);
         }
 
         public void KHMau_LABDAO_DELETE(string KHMau)
@@ -133,19 +126,18 @@ namespace Production.Class
         public DataTable KHMau_LABDAO_SELECT(string SoPXN)
         {
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] " +
-                                                " WHERE [SoPXN]='" + SoPXN +"'", CommandType.Text);
+                                                " WHERE [SoPXN]='" + SoPXN + "'", CommandType.Text);
         }
 
         public int MAX_KHMau_LABDAO_ID()
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
 
         public DataTable KHMau_LABDAO_REPORT_RECEIPT(string SoPXN)
         {
-            return Sql.ExecuteDataTable("SAP",  " SELECT   *  " +                                               
+            return Sql.ExecuteDataTable("SAP", " SELECT   *  " +
                                                 " FROM            tbl_KHMau_LAB  " +
                                                 " LEFT JOIN tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV" +
                                                 " LEFT JOIN tbl_LoaiMau_LAB ON tbl_KHMau_LAB.LoaiMauGui = tbl_LoaiMau_LAB.MaLoaiMau" +
@@ -165,7 +157,7 @@ namespace Production.Class
                          " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT JOIN " +
                          " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT JOIN " +
                          " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT JOIN " +
-                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +                         
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
                          " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "'", CommandType.Text);
         }
 
@@ -193,10 +185,9 @@ namespace Production.Class
                 " tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau  " +
                 " FROM            tbl_KHMau_LAB LEFT JOIN   " +
                 " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau  " +
-                " WHERE tbl_KHMau_LAB.SoPXN ='"+SoPXN+"' and TrangThaiKHMau = '0'  " +
+                " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and TrangThaiKHMau = '0'  " +
                 " GROUP BY tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN,  tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau,   " +
                 " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau   ", CommandType.Text);
-
         }
 
         public DataTable KHMau_LABDAO_REPORT_STORAGE(string SoPXN)
@@ -223,9 +214,9 @@ namespace Production.Class
                 " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau  " +
                 " FROM            tbl_KHMau_LAB LEFT JOIN   " +
                 " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau  " +
-                " WHERE tbl_KHMau_LAB.SoPXN ='"+SoPXN+"' and TrangThaiKHMau = '0'  " +
+                " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and TrangThaiKHMau = '0'  " +
                 " GROUP BY tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN,  tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau,   " +
-                " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau  " , CommandType.Text); 
+                " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau  ", CommandType.Text);
         }
 
         public DataTable KHMau_LABDAO_REPORT_KHMAU(string SoPXN)
@@ -244,11 +235,5 @@ namespace Production.Class
                          " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
                          " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "'", CommandType.Text);
         }
-
-
-
     }
-
 }
-
-

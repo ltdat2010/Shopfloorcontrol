@@ -1,46 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using System.Globalization;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace Production.Class
 {
     public partial class F_CUSTOMER : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
+
         //Object
-        CUSTOMER CUS = new CUSTOMER();
+        private CUSTOMER CUS = new CUSTOMER();
+
         //BUS
-        CUSTOMERBUS CUSBUS = new CUSTOMERBUS();
+        private CUSTOMERBUS CUSBUS = new CUSTOMERBUS();
+
         public F_CUSTOMER()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
                     /// 1 Lấy thông tin user login
                     CUS.CreatedBy = user.Username;
 
-                    // 2 Fill data                  
+                    // 2 Fill data
                     grid_CUSTOMER_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER_LAB);
 
                     // 3 Gán controls trạng thái đọc
                     //ControlsReadOnly(true);
 
-                    // 4 Gán datasource cho grid                    
-                    //gridControl1.DataSource = grid_CUSTOMERTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER);        
-                                
+                    // 4 Gán datasource cho grid
+                    //gridControl1.DataSource = grid_CUSTOMERTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER);
+
                     // 5 Để grid tự canh chỉnh cột
                     gridView1.BestFitColumns();
-                                        
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -60,16 +53,17 @@ namespace Production.Class
             // 10B Cancel
             action1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
 
-
             gridView1.RowClick += (s, e) =>
                 {
-                    gridViewRowClick = true;                    
-                };            
+                    gridViewRowClick = true;
+                };
         }
+
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
             this.Close();
         }
+
         // Sự kiện xóa
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
@@ -109,10 +103,9 @@ namespace Production.Class
                 args.Text = "Vui lòng click vào dòng cần chỉnh sửa . Thông báo này sẽ tự đóng sau 3 giây.";
                 args.Buttons = new DialogResult[] { DialogResult.OK };
                 XtraMessageBox.Show(args).ToString();
-
             }
-                
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -121,7 +114,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -137,6 +130,7 @@ namespace Production.Class
             F_CUS_Dtl.myFinished += this.finished;
             F_CUS_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -152,12 +146,11 @@ namespace Production.Class
             F_CUS_Dtl.CUS = this.CUS;
             F_CUS_Dtl.myFinished += this.finished;
             F_CUS_Dtl.Show();
-
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -213,9 +206,8 @@ namespace Production.Class
             //ControlsReadOnly(true);
 
             // 33 Xoa noi dung trong cac control
-            //ResetControl();     
-
-        }   
+            //ResetControl();
+        }
 
         //
         public void Set4Object()
@@ -236,6 +228,7 @@ namespace Production.Class
             CUS.ContactNumber = gridView1.GetFocusedRowCellValue("ContactNumber").ToString();
             CUS.ProvinceName = gridView1.GetFocusedRowCellValue("ProvinceName").ToString();
         }
+
         public void finished(object sender)
         {
             this.Enabled = true;
@@ -246,8 +239,6 @@ namespace Production.Class
 
             // Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = grid_CUSTOMER_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER_LAB);
-
         }
-
     }
 }

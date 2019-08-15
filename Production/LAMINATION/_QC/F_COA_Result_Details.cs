@@ -1,23 +1,23 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Data;
-using System.Windows.Forms;
 using System.Globalization;
-using DevExpress.XtraEditors;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_COA_Result_Details : frm_Base
     {
         public Result_COA_TD OBJTD = new Result_COA_TD();
-        Result_COA_KQ OBJKQ = new Result_COA_KQ();
+        private Result_COA_KQ OBJKQ = new Result_COA_KQ();
 
-        Result_COA_TDBUS BUSTD = new Result_COA_TDBUS();
-        Result_COA_KQBUS BUSKQ = new Result_COA_KQBUS();
+        private Result_COA_TDBUS BUSTD = new Result_COA_TDBUS();
+        private Result_COA_KQBUS BUSKQ = new Result_COA_KQBUS();
 
-        COA_Template_DetailsBUS BUSDetail = new COA_Template_DetailsBUS();
-
+        private COA_Template_DetailsBUS BUSDetail = new COA_Template_DetailsBUS();
 
         public delegate void MyAdd(object sender, string isActionReturn);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -31,31 +31,30 @@ namespace Production.Class
             }
         }
 
-
-        RECEIPTBUS RCB = new RECEIPTBUS();
-        PKNBUS PKB = new PKNBUS();
-        public string PassFail                                  ="2";//Unchecked all
+        private RECEIPTBUS RCB = new RECEIPTBUS();
+        private PKNBUS PKB = new PKNBUS();
+        public string PassFail = "2";//Unchecked all
         public string ActStatus;
         public int ID;
         public int KQKNTemplateID;
         public int SoPKN;
-        public string SoPNK                                     = "";
-        public string QCDG                                      = "";
-        public string SLNhan                                    = "";
-        public string NgayNhan                                  = "";
-        public string SoLo                                      = "";
-        public string NSX                                       = "";
-        public string HSD                                       = "";
+        public string SoPNK = "";
+        public string QCDG = "";
+        public string SLNhan = "";
+        public string NgayNhan = "";
+        public string SoLo = "";
+        public string NSX = "";
+        public string HSD = "";
         public int Lan;
+
         public F_COA_Result_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header' table. You can move, or remove it, as needed.
                 //this.tbl_KQKN_Template_HeaderTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header);
-                
-                                                               
+
                 if (isAction == "Edit")
                 {
                     btnSave.Enabled = false;
@@ -65,7 +64,7 @@ namespace Production.Class
                 else if (isAction == "Add")
                 {
                     txtSoCOA.Text = Func_SoCOA_NPT(BUSTD.Result_COA_TD_SoCOA());
-                    gridControl1.Enabled = false;                                   
+                    gridControl1.Enabled = false;
                 }
                 else if (isAction == "View")
                 {
@@ -73,10 +72,8 @@ namespace Production.Class
 
                     Set4Controls();
 
-
                     TDcontrolReadonly(true);
                     KQcontrolReadonly(true);
-                    
 
                     btnSave2.Enabled = false;
                 }
@@ -93,7 +90,7 @@ namespace Production.Class
                         Set4Object_TDKQKN();
 
                         BUSTD.Result_COA_TDBUS_INSERT(OBJTD);
-                                            
+
                         gridControl1.Enabled = true;
                         //--actionMini1.Enabled = true;
                         //Gan gia tri ID moi insert vo table tbl_KQKN_Template_Hedaer cho form
@@ -106,12 +103,9 @@ namespace Production.Class
                         }
 
                         btnSave2.Enabled = true;
-
                     }
                     else if (isAction == "Edit")
                     {
-                        
-
                         btnSave.Enabled = false;
 
                         //Set4Controls();
@@ -120,7 +114,7 @@ namespace Production.Class
                     }
 
                     gridControl1.DataSource = tbl_Result_COA_KQTableAdapter.FillBySoCOA(sYNC_NUTRICIELDataSet.tbl_Result_COA_KQ, OBJTD.SoCOA);
-                    
+
                     Is_close = true;
                 }
                 catch (Exception ex)
@@ -151,13 +145,12 @@ namespace Production.Class
                 {
                     PassFail = "1";
                     chkFail.CheckState = CheckState.Unchecked;
-                }                    
+                }
                 else
                 {
                     PassFail = "0";
                     chkFail.CheckState = CheckState.Checked;
-                }                   
-
+                }
             };
 
             chkFail.CheckedChanged += (s, e) =>
@@ -234,17 +227,15 @@ namespace Production.Class
                         //OBJKQTT.KQTT = gridView1.GetFocusedRowCellValue("KQTT").ToString();
                         //BUSKQTT.Result_KQKN_KQTTDAO_UPDATE_KQTT_VALUE(OBJKQTT);
                     }
-                        
-                };            
+                };
 
             txtKL.TextChanged += (s, e) =>
             {
-                if(isAction == "Edit" || isAction == "Changed")
+                if (isAction == "Edit" || isAction == "Changed")
                 {
                     isAction = "Changed";
-                btnSave2.Enabled = true;
+                    btnSave2.Enabled = true;
                 }
-                
             };
             chkFail.CheckStateChanged += (s, e) =>
             {
@@ -267,11 +258,12 @@ namespace Production.Class
                 isAction = "Edit";
             };
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
             try
             {
-                TDcontrolReadonly(false);                
+                TDcontrolReadonly(false);
             }
             catch (Exception ex)
             {
@@ -308,7 +300,7 @@ namespace Production.Class
                     //BUSKL.Result_KQKN_KLBUS_UPDATE(OBJKL);
                     this.Close();
                 }
-            }             
+            }
         }
 
         public void TDcontrolReadonly(bool bl)
@@ -319,13 +311,14 @@ namespace Production.Class
             dteNgaySX.ReadOnly = bl;
             dteHSD.ReadOnly = bl;
             dteNgayPT.ReadOnly = bl;
-            lkeTenTP.ReadOnly = bl;            
+            lkeTenTP.ReadOnly = bl;
         }
+
         public void KQcontrolReadonly(bool bl)
         {
             gridView1.OptionsBehavior.ReadOnly = bl;
-
         }
+
         public void KLcontrolEnabled(bool bl)
         {
             txtKL.Enabled = bl;
@@ -333,19 +326,17 @@ namespace Production.Class
             chkPass.Enabled = bl;
             btnSave2.Enabled = bl;
         }
+
         /////////////////////
         //TextEditChanged
         /////////////////////
-
 
         public void Set4Object_TDKQKN()
         {
             if (isAction == "Edit")
             {
                 OBJTD.ID = int.Parse(txtID.Text);
-            } 
-                
-
+            }
 
             //if (isAction == "Add")
             //OBJTD.SoPKN = txtSoPKN.Text;
@@ -361,10 +352,10 @@ namespace Production.Class
             OBJTD.AnlDate = dteNgaySX.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayPT.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJTD.ManfDate = dteHSD.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgaySX.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJTD.ExpDate = dteNgayPT.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteHSD.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            OBJTD.SoCOA = txtSoCOA.Text;            
-            OBJTD.WO = lkeSolo.EditValue.ToString();            
+            OBJTD.SoCOA = txtSoCOA.Text;
+            OBJTD.WO = lkeSolo.EditValue.ToString();
             //OBJTD.Note = txtTenNL.Text;
-            //OBJTD.Lan = int.Parse(txtLan.Text.ToString());    
+            //OBJTD.Lan = int.Parse(txtLan.Text.ToString());
             //OBJTD.Locked = ;
         }
 
@@ -373,7 +364,7 @@ namespace Production.Class
             if (isAction == "Edit")
             {
                 OBJKQ.ID = int.Parse(dr["ID"].ToString());
-                OBJKQ.Result = dr["Result"].ToString();                
+                OBJKQ.Result = dr["Result"].ToString();
             }
             else if (isAction == "Add")
                 OBJKQ.COA_Template_Details_ID = int.Parse(dr["ID"].ToString());
@@ -390,13 +381,13 @@ namespace Production.Class
             //lkeKQKNTemplate.EditValue = OBJTD.KQKNTemplateID ;
             //lkeSoPNK.Text = OBJTD.SoPNK;
             //txtQCDG.Text = OBJTD.QCDG;
-            ////txtQCDG.Text = OBJTD.QCDG.Substring(0, OBJTD.QCDG.LastIndexOf(" "));            
+            ////txtQCDG.Text = OBJTD.QCDG.Substring(0, OBJTD.QCDG.LastIndexOf(" "));
             //cmbUoM1.Text = OBJTD.UoM1;
-            //cmbUoM2.Text = OBJTD.UoM2;           
+            //cmbUoM2.Text = OBJTD.UoM2;
             //txtSLNhan.Text = OBJTD.SLNhan;
             //dteNgayNhan.Text = OBJTD.NgayNhan.ToString().Substring(0,10) ;
             //lkeSolo.Text = OBJTD.Solo;
-            //dteNgaySX.Text = OBJTD.NgaySX.ToString().Substring(0, 10);            
+            //dteNgaySX.Text = OBJTD.NgaySX.ToString().Substring(0, 10);
             //dteHSD.Text = OBJTD.HSD.ToString().Substring(0, 10);
             //dteNgayPT.Text  = OBJTD.NgayPT.ToString().Substring(0, 10);
             //txtTenNL.Text = OBJTD.TenNL ;
@@ -408,16 +399,14 @@ namespace Production.Class
             lkeTenTP.EditValue = OBJTD.COATemplateID;
             cmbSX.SelectedText = OBJTD.ManfBy;
             dteNgayLayMau.Text = OBJTD.SmpDate.ToString().Substring(0, 10);
-            dteNgaySX.Text = OBJTD.AnlDate.ToString().Substring(0, 10) ;
-            dteHSD.Text = OBJTD.ManfDate.ToString().Substring(0, 10) ;
-            dteNgayPT.Text = OBJTD.ExpDate.ToString().Substring(0, 10) ;
-            txtSoCOA.Text = OBJTD.SoCOA ;
+            dteNgaySX.Text = OBJTD.AnlDate.ToString().Substring(0, 10);
+            dteHSD.Text = OBJTD.ManfDate.ToString().Substring(0, 10);
+            dteNgayPT.Text = OBJTD.ExpDate.ToString().Substring(0, 10);
+            txtSoCOA.Text = OBJTD.SoCOA;
             //XtraMessageBox.Show(OBJTD.WO);
-            lkeSolo.EditValue = OBJTD.WO ;
+            lkeSolo.EditValue = OBJTD.WO;
 
             gridControl1.DataSource = tbl_Result_COA_KQTableAdapter.FillBySoCOA(sYNC_NUTRICIELDataSet.tbl_Result_COA_KQ, txtSoCOA.Text);
-
-
         }
 
         private void F_COA_Result_Details_Load(object sender, EventArgs e)
@@ -426,7 +415,6 @@ namespace Production.Class
             this.tbl_COA_Template_HeaderTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_COA_Template_Header);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_OF_Finished' table. You can move, or remove it, as needed.
             this.tbl_OF_FinishedTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_OF_Finished);
-
         }
 
         public string Func_SoCOA_NPT(int SoCOA)
@@ -438,18 +426,20 @@ namespace Production.Class
                 case (1):
                     SoCOA_Text = "VP-" + DateTime.Now.Year.ToString().Substring(2, 2) + "000" + BUSTD.Result_COA_TD_SoCOA().ToString();
                     break;
+
                 case (2):
                     SoCOA_Text = "VP-" + DateTime.Now.Year.ToString().Substring(2, 2) + "00" + BUSTD.Result_COA_TD_SoCOA().ToString();
                     break;
+
                 case (3):
                     SoCOA_Text = "VP-" + DateTime.Now.Year.ToString().Substring(2, 2) + "0" + BUSTD.Result_COA_TD_SoCOA().ToString();
                     break;
+
                 case (4):
                     SoCOA_Text = "VP-" + DateTime.Now.Year.ToString().Substring(2, 2) + BUSTD.Result_COA_TD_SoCOA().ToString();
                     break;
             }
             return SoCOA_Text;
-
         }
     }
 }

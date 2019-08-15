@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,7 @@ namespace Production.Class
     {
         public void Result_KQKN_KLDAO_INSERT(Result_KQKN_KL OBJ)
         {
-           //XtraMessageBox.Show("LOC.Locked : " + LOC.Locked.ToString());
+            //XtraMessageBox.Show("LOC.Locked : " + LOC.Locked.ToString());
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_KL] " +
            " ([SoPKN] " +
            " ,[KL] " +
@@ -44,7 +38,7 @@ namespace Production.Class
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
            //"','" + OBJ.Locked +
-           "',N'False" + 
+           "',N'False" +
            "')", CommandType.Text);
         }
 
@@ -67,7 +61,7 @@ namespace Production.Class
            ",[Note] = N'" + OBJ.Note + "' " +
            //",[Locked] = '" + OBJ.Locked + "' " +
            ",[Locked] = 'False' " +
-           " WHERE [SoPKN]='" + OBJ.SoPKN +"'", CommandType.Text);
+           " WHERE [SoPKN]='" + OBJ.SoPKN + "'", CommandType.Text);
         }
 
         public void Result_KQKN_KLDAO_DELETE(Result_KQKN_TD OBJ)
@@ -86,10 +80,6 @@ namespace Production.Class
             OBJKL.SoPKN = dt.Rows[0]["SoPKN"].ToString();
 
             return OBJKL;
-
         }
     }
-
 }
-
-

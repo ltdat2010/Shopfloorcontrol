@@ -9,14 +9,13 @@
         View = 4,
         NotView = 5,
         Delete = 6,
-        Cancel =7
+        Cancel = 7
     }
 
     public enum status
-    {        
+    {
         Delete = 0,
         Disable = 1,
         Available = 2
     }
-    
 }

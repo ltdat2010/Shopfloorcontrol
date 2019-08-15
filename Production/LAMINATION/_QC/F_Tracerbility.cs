@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Drawing;
 
 namespace Production.Class
 {
     public partial class F_Tracerbility : UC_Base
     {
-        OF of = new OF();
-        OFBUS OFB = new OFBUS();
-        COABUS COB = new COABUS();
-        CSVFromToDataTable CSV = new CSVFromToDataTable();
-        RMUSEDBUS RMB = new RMUSEDBUS();
+        private OF of = new OF();
+        private OFBUS OFB = new OFBUS();
+        private COABUS COB = new COABUS();
+        private CSVFromToDataTable CSV = new CSVFromToDataTable();
+        private RMUSEDBUS RMB = new RMUSEDBUS();
 
         //Luu du lieu edit vao list
         //class UserVal
@@ -31,9 +30,9 @@ namespace Production.Class
         //List<OF> OFList = new List<OF>();
 
         public F_Tracerbility()
-        {           
+        {
             InitializeComponent();
-            
+
             Load += (s, e) =>
             {
                 tbl_OF_FinishedTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_OF_Finished);
@@ -41,12 +40,9 @@ namespace Production.Class
                 ControlsReadOnly(true);
             };
 
-
-
             //action1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
             //action1.CSV(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_CSV));
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
-
 
             lkeCD_OF.EditValueChanged += (s, e) =>
             {
@@ -65,12 +61,11 @@ namespace Production.Class
                     txtPlnQty.Text = lkeCD_OF.GetColumnValue("QT_PREV").ToString();
                     txtStdDte.Text = lkeCD_OF.GetColumnValue("DT_DEB").ToString();
                 }
-
             };
 
             repositoryItemButtonEdit1.ButtonClick += (s, e) =>
             {
-                if(e.Button.Caption == "PNK Number")
+                if (e.Button.Caption == "PNK Number")
                 {
                     if (gridView3.GetFocusedRowCellValue("SoPKN").ToString().Length > 0)
                     {
@@ -84,7 +79,6 @@ namespace Production.Class
                     else
                         XtraMessageBox.Show("Your PKN is blank. Please contact QA for more information");
                 }
-                
             };
 
             repositoryItemButtonEdit2.ButtonClick += (s, e) =>
@@ -102,18 +96,14 @@ namespace Production.Class
                     else
                         XtraMessageBox.Show("Your COA is blank. Please contact QA for more information");
                 }
-                    
             };
-
-
 
             //gridView4.RowClick += (s, e) =>
             //{
-
             //    frm_COA COA = new frm_COA();
             //    COA.SoCOA = gridView4.GetFocusedRowCellValue("SoCOA").ToString();
             //    COA.ActStatus = "V";
-            //    COA.CD_OF = gridView4.GetFocusedRowCellValue("WO").ToString();                
+            //    COA.CD_OF = gridView4.GetFocusedRowCellValue("WO").ToString();
             //    COA.Show();
             //};
 
@@ -128,7 +118,6 @@ namespace Production.Class
                 drawFormat.Alignment = drawFormat.LineAlignment = StringAlignment.Center;
 
                 e.Graphics.DrawString(" No Analysis Report founded ", e.Appearance.Font, SystemBrushes.ControlDark, new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
-
             };
 
             gridView4.CustomDrawEmptyForeground += (s, e) =>
@@ -142,23 +131,20 @@ namespace Production.Class
                 drawFormat.Alignment = drawFormat.LineAlignment = StringAlignment.Center;
 
                 e.Graphics.DrawString(" No Analysis Report founded ", e.Appearance.Font, SystemBrushes.ControlDark, new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
-
             };
         }
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
-                     
         }
 
         private void ItemClickEventHandler_CSV(object sender, EventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
-            if(lkeCD_OF.EditValue.ToString() != "[Please click and select Production Order]")
+            if (lkeCD_OF.EditValue.ToString() != "[Please click and select Production Order]")
             {
                 try
                 {
@@ -166,26 +152,23 @@ namespace Production.Class
                     RTR.OF = lkeCD_OF.EditValue.ToString();
                     RTR.Show();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw ex;
                 }
-                                  
-            }            
+            }
         }
 
         private void ItemClickEventHandler_PKN(object sender, EventArgs e)
-        {    
-            
+        {
         }
 
         private void ItemClickEventHandler_COA(object sender, EventArgs e)
         {
-            
         }
+
         private void ItemClickEventHandler_TRACE(object sender, EventArgs e)
         {
-            
         }
 
         private void ControlsReadOnly(bool bl)
@@ -207,6 +190,6 @@ namespace Production.Class
         //    pb.PageSettings.RightMargin = 0;
         //    pb.PageSettings.BottomMargin = 0;
         //    pb.PageSettings.TopMargin = 5;
-        //}  
+        //}
     }
 }

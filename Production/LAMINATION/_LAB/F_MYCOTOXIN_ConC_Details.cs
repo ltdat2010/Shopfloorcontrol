@@ -1,19 +1,21 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using DevExpress.XtraBars;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_MYCOTOXIN_ConC_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -26,13 +28,14 @@ namespace Production.Class
                 }
             }
         }
+
         public MYCOTOXIN_ConC CUS = new MYCOTOXIN_ConC();
-        MYCOTOXIN_ConCBUS CUSBUS = new MYCOTOXIN_ConCBUS();
+        private MYCOTOXIN_ConCBUS CUSBUS = new MYCOTOXIN_ConCBUS();
 
         public F_MYCOTOXIN_ConC_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
@@ -49,10 +52,7 @@ namespace Production.Class
                 }
                 else if (isAction == "Add")
                     txtID.ReadOnly = true;
-
-
-                
-            };           
+            };
 
             //Action_EndForm
             action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -132,15 +132,13 @@ namespace Production.Class
             //{
             //    txtMaDN2.Text = CUS.CUSTCODE;
             //    txtTenDN2.Text = CUS.CUSTNAME;
-            //}             
+            //}
 
-
-            txtAcronym.EditValue                        = CUS.CTXN_ID;
-            txtConC.Text                            = CUS.ConC.ToString() ;
-            txtKHMau.Text                           = CUS.KHMau;
-            cmbKhoa.Text                            = CUS.Locked.ToString() ;
-            txtNote.Text                            = CUS.Note ;
-
+            txtAcronym.EditValue = CUS.CTXN_ID;
+            txtConC.Text = CUS.ConC.ToString();
+            txtKHMau.Text = CUS.KHMau;
+            cmbKhoa.Text = CUS.Locked.ToString();
+            txtNote.Text = CUS.Note;
         }
 
         public void Set4Object()
@@ -148,32 +146,29 @@ namespace Production.Class
             if (isAction == "Edit")
             {
                 CUS.ID = int.Parse(txtID.Text.ToString());
-            }            
-            CUS.CTXN_ID                 = int.Parse(txtAcronym.EditValue.ToString());
-            CUS.ConC                    = double.Parse(txtConC.Text);
-            CUS.KHMau                   = txtKHMau.Text;
-            CUS.Locked                  = cmbKhoa.SelectedText.ToString() == "True" ? true : false;            
-            CUS.Note                    = txtNote.Text;
-
-
+            }
+            CUS.CTXN_ID = int.Parse(txtAcronym.EditValue.ToString());
+            CUS.ConC = double.Parse(txtConC.Text);
+            CUS.KHMau = txtKHMau.Text;
+            CUS.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
+            CUS.Note = txtNote.Text;
         }
+
         public void ResetControl()
         {
-            
             //lkeMaDN.Text = "";
             //txtTenDN.Text = "";
-            
-            txtConC.Text          = "";
-            txtKHMau.Text        = "";
-            cmbKhoa.Text            = "";
-            txtNote.Text            = "";
-            txtAcronym.Text          = "";
+
+            txtConC.Text = "";
+            txtKHMau.Text = "";
+            cmbKhoa.Text = "";
+            txtNote.Text = "";
+            txtAcronym.Text = "";
         }
+
         //
         public void ControlsReadOnly(bool bl)
         {
-            
-            
             txtConC.ReadOnly = bl;
             txtKHMau.ReadOnly = bl;
             cmbKhoa.ReadOnly = bl;
@@ -185,7 +180,6 @@ namespace Production.Class
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB' table. You can move, or remove it, as needed.
             this.tbl_ChiTieuXetNghiem_LABTableAdapter.FillAcronym(this.sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB);
-           
         }
     }
 }

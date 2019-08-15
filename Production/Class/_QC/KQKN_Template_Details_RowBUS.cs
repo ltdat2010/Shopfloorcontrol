@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class KQKN_Template_Details_RowBUS
     {
-        KQKN_Template_Details_RowDAO DAO = new KQKN_Template_Details_RowDAO();
+        private KQKN_Template_Details_RowDAO DAO = new KQKN_Template_Details_RowDAO();
+
         public void KQKN_Template_Details_Row_INSERT(KQKN_Template_Details_Row OBJ)
         {
             DAO.KQKN_Template_Details_Row_INSERT(OBJ);
@@ -32,7 +26,4 @@ namespace Production.Class
             return DAO.KQKN_Template_Details_Row_SELECT(OBJ);
         }
     }
-
 }
-
-

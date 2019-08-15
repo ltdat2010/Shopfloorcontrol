@@ -1,46 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using System.Globalization;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace Production.Class
 {
     public partial class F_LOCATION : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
+
         //Object
-        LOCATION LOC = new LOCATION();
+        private LOCATION LOC = new LOCATION();
+
         //BUS
-        LOCATIONBUS LOCBUS = new LOCATIONBUS();
+        private LOCATIONBUS LOCBUS = new LOCATIONBUS();
+
         public F_LOCATION()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
                     // 1 Lấy thông tin user login
-                    LOC.CreatedBy = user.Username;  
+                    LOC.CreatedBy = user.Username;
 
-                    // 2 Fill data                  
-                    tbl_LOCATION_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);  
-                     
+                    // 2 Fill data
+                    tbl_LOCATION_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);
+
                     // 3 Gán controls trạng thái đọc
                     //ControlsReadOnly(true);
 
-                    // 4 Gán datasource cho grid                    
-                    gridControl1.DataSource = tbl_LOCATION_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);        
-                                
+                    // 4 Gán datasource cho grid
+                    gridControl1.DataSource = tbl_LOCATION_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);
+
                     // 5 Để grid tự canh chỉnh cột
                     gridView1.BestFitColumns();
-                                        
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -62,13 +55,15 @@ namespace Production.Class
 
             gridView1.RowClick += (s, e) =>
                 {
-                     gridViewRowClick = true;                                    
-                };            
+                    gridViewRowClick = true;
+                };
         }
+
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
             this.Close();
         }
+
         // Sự kiện xóa
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
@@ -108,9 +103,7 @@ namespace Production.Class
                 args.Buttons = new DialogResult[] { DialogResult.OK };
                 XtraMessageBox.Show(args).ToString();
             }
-                     
         }
-
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
@@ -120,7 +113,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -136,6 +129,7 @@ namespace Production.Class
             F_LOC_Dtl.myFinished += this.finished;
             F_LOC_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -149,15 +143,13 @@ namespace Production.Class
             F_LOCATION_Details F_LOC_Dtl = new Class.F_LOCATION_Details();
             F_LOC_Dtl.isAction = this.isAction;
             F_LOC_Dtl.LOC = this.LOC;
-            F_LOC_Dtl.myFinished += this.finished;            
-            F_LOC_Dtl.Show();                    
-                     
-                        
+            F_LOC_Dtl.myFinished += this.finished;
+            F_LOC_Dtl.Show();
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -186,7 +178,7 @@ namespace Production.Class
                 args.Text = "Vui lòng click vào dòng cần chỉnh sửa . Thông báo này sẽ tự đóng sau 3 giây.";
                 args.Buttons = new DialogResult[] { DialogResult.OK };
                 XtraMessageBox.Show(args).ToString();
-            }           
+            }
         }
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
@@ -207,11 +199,9 @@ namespace Production.Class
 
             // 31 Tra lai trang thai ban dau cho IsNew
             //isNew = false;
-            isAction = "";                    
-
+            isAction = "";
         }
-          
-        
+
         //
         public void Set4Object()
         {
@@ -220,7 +210,7 @@ namespace Production.Class
             LOC.LOCName = gridView1.GetFocusedRowCellValue("LOCName").ToString();
             LOC.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
             LOC.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
-        }        
+        }
 
         public void finished(object sender)
         {
@@ -232,8 +222,7 @@ namespace Production.Class
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
             // Step 2 : Load lại data tren grid sau khi Add
-            gridControl1.DataSource = tbl_LOCATION_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);            
-
+            gridControl1.DataSource = tbl_LOCATION_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);
         }
     }
 }

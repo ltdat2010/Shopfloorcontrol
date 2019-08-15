@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class BATCHDAO
     {
         //public DataTable Branch_SelectAll()
-        //{            
-        //    return Sql.ExecuteDataTable("Branch_SelectAll", CommandType.StoredProcedure);            
+        //{
+        //    return Sql.ExecuteDataTable("Branch_SelectAll", CommandType.StoredProcedure);
         //}
 
         //public DataTable Branch_GetByID(string BranchID)
@@ -40,6 +34,7 @@ namespace Production.Class
                                                   "FROM [SYNC_NUTRICIEL].dbo.tbl_BATCH ", CommandType.Text);
             return dt;
         }
+
         public DataTable MINStart_MAXEnd_Date(string CD_OF)
         {
             DataTable dt = new DataTable();
@@ -48,7 +43,7 @@ namespace Production.Class
                                                      ",SUM([SYNC_NUTRICIEL].dbo.tbl_BATCH.[ManufacturedQty]) as ManufacturedQty " +
                                                      ",[SYNC_NUTRICIEL].dbo.tbl_BATCH.Formula " +
                                                      ",[SYNC_NUTRICIEL].dbo.tbl_BATCH.TotalBatchNb " +
-                                                    " FROM [SYNC_NUTRICIEL].dbo.tbl_BATCH "+
+                                                    " FROM [SYNC_NUTRICIEL].dbo.tbl_BATCH " +
                                                     " WHERE [SYNC_NUTRICIEL].dbo.tbl_BATCH.[CD_OF]='" + CD_OF + "' GROUP BY [SYNC_NUTRICIEL].dbo.tbl_BATCH.Formula ,[SYNC_NUTRICIEL].dbo.tbl_BATCH.TotalBatchNb ", CommandType.Text);
             return dt;
         }
@@ -95,64 +90,62 @@ namespace Production.Class
            "','" + dr["Batch"].ToString() +
            "','" + dr["Start"].ToString() +
            "','" + dr["End"].ToString() +
-           "','"+ dr["Code"].ToString() +
-           "','"+ dr["Product"].ToString() +
-           "','"+dr["Formula"].ToString() +
-           "','"+dr["Version"].ToString() +
-           "',"+dr["Planned Qty"] +
-           ","+dr["Manufactured Qty"]+
-           ",'"+dr["Destination"].ToString()+
-           "',"+dr["Prepare Batch Nb"]+
-           ","+dr["Total Batch Nb"]+ ")", CommandType.Text);
+           "','" + dr["Code"].ToString() +
+           "','" + dr["Product"].ToString() +
+           "','" + dr["Formula"].ToString() +
+           "','" + dr["Version"].ToString() +
+           "'," + dr["Planned Qty"] +
+           "," + dr["Manufactured Qty"] +
+           ",'" + dr["Destination"].ToString() +
+           "'," + dr["Prepare Batch Nb"] +
+           "," + dr["Total Batch Nb"] + ")", CommandType.Text);
             //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_OF_Detail]" +
-     //      "([CD_OF]" +
-     //      ",[FG_STATUS]" +
-     //      ",[DT_PREV]" +
-     //      ",[CD_DEPOT]" +
-     //      ",[CD_MAT]" +
-     //      ",[LB_MAT]" +
-     //      ",[QT_PREV]" +
-     //      ",[CD_UNIT]" +
-     //      ",[NO_ORDRE]" +
-     //      ",[CD_MAT1]" +
-     //      ",[QT_DOSE]" +
-     //      ",[CD_VER]" +
-     //      ",[LOSS_COMP])" +
-     //"VALUES" +
-     //      "(" + dr["CD_OF"] +
-     //      ",'" + 1 +
-     //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
-     //      "','" + 891 +
-     //      "','" + dr["CD_MAT"].ToString() +
-     //      "','" + dr["LB_MAT"].ToString() +
-     //      "'," + dr["QT_PREV"] +
-     //      ",'" + dr["CD_UNIT"].ToString() +
-     //      "','" + 1000 +
-     //      "','" + dr["CD_MAT1"].ToString() +
-     //      "'," + dr["QT_DOSE"] +
-     //      ",'" + 89 +
-     //      "'," + dr["LOSS_COMP"]+
-     //      ")", CommandType.Text);
+            //      "([CD_OF]" +
+            //      ",[FG_STATUS]" +
+            //      ",[DT_PREV]" +
+            //      ",[CD_DEPOT]" +
+            //      ",[CD_MAT]" +
+            //      ",[LB_MAT]" +
+            //      ",[QT_PREV]" +
+            //      ",[CD_UNIT]" +
+            //      ",[NO_ORDRE]" +
+            //      ",[CD_MAT1]" +
+            //      ",[QT_DOSE]" +
+            //      ",[CD_VER]" +
+            //      ",[LOSS_COMP])" +
+            //"VALUES" +
+            //      "(" + dr["CD_OF"] +
+            //      ",'" + 1 +
+            //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
+            //      "','" + 891 +
+            //      "','" + dr["CD_MAT"].ToString() +
+            //      "','" + dr["LB_MAT"].ToString() +
+            //      "'," + dr["QT_PREV"] +
+            //      ",'" + dr["CD_UNIT"].ToString() +
+            //      "','" + 1000 +
+            //      "','" + dr["CD_MAT1"].ToString() +
+            //      "'," + dr["QT_DOSE"] +
+            //      ",'" + 89 +
+            //      "'," + dr["LOSS_COMP"]+
+            //      ")", CommandType.Text);
         }
-     //   public void OF_INSERT(DataRow dr)
-     //   {
-     //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [dbo].[tbl_OF]" +
-     //      "([CD_OF]" +           
-     //      ",[DT_PREV]" +           
-     //      ",[CD_MAT]" +
-     //      ",[LB_MAT]" +
-     //      ",[QT_PREV]" +
-     //      ")" +
-     //"VALUES" +
-     //      "('" + dr["CD_OF"].ToString() +
-     //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
-     //      "','" + dr["CD_MAT"].ToString() +
-     //      "','" + dr["LB_MAT"].ToString() +
-     //      "'," + dr["QT_PREV"] +           
-     //      ")", CommandType.Text);
-     //   }
+
+        //   public void OF_INSERT(DataRow dr)
+        //   {
+        //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [dbo].[tbl_OF]" +
+        //      "([CD_OF]" +
+        //      ",[DT_PREV]" +
+        //      ",[CD_MAT]" +
+        //      ",[LB_MAT]" +
+        //      ",[QT_PREV]" +
+        //      ")" +
+        //"VALUES" +
+        //      "('" + dr["CD_OF"].ToString() +
+        //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
+        //      "','" + dr["CD_MAT"].ToString() +
+        //      "','" + dr["LB_MAT"].ToString() +
+        //      "'," + dr["QT_PREV"] +
+        //      ")", CommandType.Text);
+        //   }
     }
-
 }
-
-

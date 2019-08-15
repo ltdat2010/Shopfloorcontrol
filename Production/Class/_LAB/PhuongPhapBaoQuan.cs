@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -13,9 +10,9 @@ namespace Production.Class
             string PPBQ,
             string PPBQDG,
             string PPBQDGTA,
-            DateTime CreatedDate, 
-            string CreatedBy, 
-            bool Locked,            
+            DateTime CreatedDate,
+            string CreatedBy,
+            bool Locked,
             string Note
             )
         {
@@ -25,12 +22,12 @@ namespace Production.Class
             this._PPBQDGTA = PPBQDGTA;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;            
+            this._Locked = Locked;
             this._Note = Note;
         }
+
         public PhuongPhapBaoQuan()
         {
-
         }
 
         private int _ID;
@@ -50,6 +47,7 @@ namespace Production.Class
         }
 
         private string _PPBQDG;
+
         public string PPBQDG
         {
             get { return _PPBQDG; }
@@ -57,6 +55,7 @@ namespace Production.Class
         }
 
         private string _PPBQDGTA;
+
         public string PPBQDGTA
         {
             get { return _PPBQDGTA; }
@@ -64,6 +63,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -71,6 +71,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -78,6 +79,7 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
@@ -91,7 +93,5 @@ namespace Production.Class
             get { return _Note; }
             set { _Note = value; }
         }
-
-        
     }
 }

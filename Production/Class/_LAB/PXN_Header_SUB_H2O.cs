@@ -12,7 +12,7 @@ namespace Production.Class
             string VitriLay,
             string SLMau,
             string TTMau,
-            string KHMau,    
+            string KHMau,
             DateTime CreatedDate,
             string CreatedBy,
             string Note,
@@ -31,12 +31,12 @@ namespace Production.Class
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public PXN_Header_SUB_H2O()
         {
-
         }
+
         private int _ID;
 
         public int ID
@@ -52,6 +52,7 @@ namespace Production.Class
             get { return _MaSoPXN; }
             set { _MaSoPXN = value; }
         }
+
         private DateTime _NgayLayMau;
 
         public DateTime NgayLayMau
@@ -59,6 +60,7 @@ namespace Production.Class
             get { return _NgayLayMau; }
             set { _NgayLayMau = value; }
         }
+
         private string _LoaiNuoc;
 
         public string LoaiNuoc
@@ -66,6 +68,7 @@ namespace Production.Class
             get { return _LoaiNuoc; }
             set { _LoaiNuoc = value; }
         }
+
         private string _VitriLay;
 
         public string VitriLay
@@ -73,7 +76,7 @@ namespace Production.Class
             get { return _VitriLay; }
             set { _VitriLay = value; }
         }
-        
+
         private string _SLMau;
 
         public string SLMau
@@ -81,6 +84,7 @@ namespace Production.Class
             get { return _SLMau; }
             set { _SLMau = value; }
         }
+
         private string _TTMau;
 
         public string TTMau
@@ -95,9 +99,10 @@ namespace Production.Class
         {
             get { return _KHMau; }
             set { _KHMau = value; }
-        }        
+        }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -105,6 +110,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -112,12 +118,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }

@@ -14,10 +14,10 @@ namespace Production.Class
             int NCTXNID,
             int PPXNID,
             string MinValue,
-            string MaxValue,            
+            string MaxValue,
             string UnitValue,
-            DateTime CreatedDate, 
-            string CreatedBy, 
+            DateTime CreatedDate,
+            string CreatedBy,
             bool Locked,
             //bool MuaNgoai,
             string Note,
@@ -29,7 +29,7 @@ namespace Production.Class
             this._ID = ID;
             this._CTXN = CTXN;
             this._MaCTXN = MaCTXN;
-            this._CTXNDG= CTXNDG;
+            this._CTXNDG = CTXNDG;
             this._CTXNDGTA = CTXNDGTA;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
@@ -45,9 +45,9 @@ namespace Production.Class
             this._Acronym = Acronym;
             this._UoM = UoM;
         }
+
         public CHITIEUXETNGHIEM()
         {
-
         }
 
         private int _ID;
@@ -75,6 +75,7 @@ namespace Production.Class
         }
 
         private string _CTXNDG;
+
         public string CTXNDG
         {
             get { return _CTXNDG; }
@@ -82,6 +83,7 @@ namespace Production.Class
         }
 
         private string _CTXNDGTA;
+
         public string CTXNDGTA
         {
             get { return _CTXNDGTA; }
@@ -89,6 +91,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -96,6 +99,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -103,6 +107,7 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
@@ -189,7 +194,5 @@ namespace Production.Class
             get { return _UoM; }
             set { _UoM = value; }
         }
-
-
     }
 }

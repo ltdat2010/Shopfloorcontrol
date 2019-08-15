@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
-    
     public class InternalTransfer_Detail
     {
         //public InternalTransfer(
         //    string CD_OF,
-        //    float TOL_QTY_PAK, 
-        //    string FUL_PAK_TYPE, 
-        //    float FUL_PAK_BAG, 
-        //    string LST_PAK_TYPE, 
-        //    float LST_PAK_BAG, 
+        //    float TOL_QTY_PAK,
+        //    string FUL_PAK_TYPE,
+        //    float FUL_PAK_BAG,
+        //    string LST_PAK_TYPE,
+        //    float LST_PAK_BAG,
         //    float CONTAMINATION_PAK_BAG,
-        //    string FRM_CD_OF, 
-        //    float REMAIN_PREV_CD_OF_QTY           
+        //    string FRM_CD_OF,
+        //    float REMAIN_PREV_CD_OF_QTY
         //    )
         //{
         //    this._CD_OF = CD_OF;
@@ -34,6 +30,7 @@ namespace Production.Class
         public InternalTransfer_Detail()
         {
         }
+
         private string _ID;
 
         public string ID
@@ -49,6 +46,7 @@ namespace Production.Class
             get { return _DocNum; }
             set { _DocNum = value; }
         }
+
         private DateTime? _DocDate;
 
         public DateTime? DocDate
@@ -56,8 +54,5 @@ namespace Production.Class
             get { return _DocDate; }
             set { _DocDate = value; }
         }
-        
-        
-        
     }
 }

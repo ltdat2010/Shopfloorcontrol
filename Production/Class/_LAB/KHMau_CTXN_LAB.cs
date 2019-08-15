@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -10,7 +7,7 @@ namespace Production.Class
         public KHMau_CTXN_LAB(
             int ID,
             int KHMau_ID,
-            string KHMau,            
+            string KHMau,
             int CTXNID,
             //int NCTXNID,
             DateTime CreatedDate,
@@ -33,7 +30,7 @@ namespace Production.Class
         {
             this._ID = ID;
             this._KHMau_ID = KHMau_ID;
-            this._KHMau = KHMau;            
+            this._KHMau = KHMau;
             this._CTXNID = CTXNID;
             //this._NCTXNID = NCTXNID;
             this._CreatedDate = CreatedDate;
@@ -50,10 +47,11 @@ namespace Production.Class
             this._PriceList_Details_LAB_Id = PriceList_Details_LAB_Id;
             this._NgayCoKetQua = NgayCoKetQua;
         }
+
         public KHMau_CTXN_LAB()
         {
-
         }
+
         private int _ID;
 
         public int ID
@@ -84,7 +82,7 @@ namespace Production.Class
         {
             get { return _KHMau; }
             set { _KHMau = value; }
-        }       
+        }
 
         private int _CTXNID;
 
@@ -98,11 +96,12 @@ namespace Production.Class
 
         //public int NCTXNID
         //{
-           // get { return _NCTXNID; }
-            //set { _NCTXNID = value; }
+        // get { return _NCTXNID; }
+        //set { _NCTXNID = value; }
         //}
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -110,6 +109,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -117,12 +117,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
@@ -130,12 +133,15 @@ namespace Production.Class
         }
 
         private float _DonGia;
+
         public float DonGia
         {
             get { return _DonGia; }
             set { _DonGia = value; }
         }
+
         private float _DonGiaMuaNgoai;
+
         public float DonGiaMuaNgoai
         {
             get { return _DonGiaMuaNgoai; }
@@ -143,6 +149,7 @@ namespace Production.Class
         }
 
         private float _ThanhTien;
+
         public float ThanhTien
         {
             get { return _ThanhTien; }
@@ -150,6 +157,7 @@ namespace Production.Class
         }
 
         private bool _KetQua;
+
         public bool KetQua
         {
             get { return _KetQua; }
@@ -157,6 +165,7 @@ namespace Production.Class
         }
 
         private string _SoLuongDat;
+
         public string SoLuongDat
         {
             get { return _SoLuongDat; }
@@ -164,6 +173,7 @@ namespace Production.Class
         }
 
         private string _SoLuongXN;
+
         public string SoLuongXN
         {
             get { return _SoLuongXN; }
@@ -171,6 +181,7 @@ namespace Production.Class
         }
 
         private float _VAT;
+
         public float VAT
         {
             get { return _VAT; }
@@ -182,6 +193,7 @@ namespace Production.Class
         //    float DonGiaSauDiscount
 
         private float _Discount;
+
         public float Discount
         {
             get { return _Discount; }
@@ -189,6 +201,7 @@ namespace Production.Class
         }
 
         private string _LoaiDiscount;
+
         public string LoaiDiscount
         {
             get { return _LoaiDiscount; }
@@ -196,6 +209,7 @@ namespace Production.Class
         }
 
         private float _DonGiaSauDiscount;
+
         public float DonGiaSauDiscount
         {
             get { return _DonGiaSauDiscount; }
@@ -204,6 +218,7 @@ namespace Production.Class
 
         //PriceList_Details_LAB_Id
         private int _PriceList_Details_LAB_Id;
+
         public int PriceList_Details_LAB_Id
         {
             get { return _PriceList_Details_LAB_Id; }
@@ -211,6 +226,7 @@ namespace Production.Class
         }
 
         private string _NgayCoKetQua;
+
         public string NgayCoKetQua
         {
             get { return _NgayCoKetQua; }

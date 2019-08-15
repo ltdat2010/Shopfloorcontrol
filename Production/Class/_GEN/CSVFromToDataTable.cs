@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Production.Class
 {
-    class CSVFromToDataTable
+    internal class CSVFromToDataTable
     {
         public DataTable OpenCsvFileAsDataTable(string fileName, bool firstLineIsHeader)
         {
@@ -19,7 +19,7 @@ namespace Production.Class
             // The table name is the actual name of the file.
             string tableName = fileInfo.Name;
             //MessageBox.Show("tableName :" + tableName);
-            // Get the folder name in which the file is. This will be part of the 
+            // Get the folder name in which the file is. This will be part of the
             // connection string.
             string folderName = fileInfo.DirectoryName;
             //MessageBox.Show("folderName :" + folderName);
@@ -31,7 +31,7 @@ namespace Production.Class
             using (System.Data.OleDb.OleDbConnection connection =
                 new System.Data.OleDb.OleDbConnection(connectionString))
             {
-                // Open the connection 
+                // Open the connection
                 connection.Open();
 
                 // Set up the adapter and query the table.
@@ -43,15 +43,16 @@ namespace Production.Class
                     adapter.Fill(result);
                 }
             }
-            return result;            
+            return result;
         }
+
         public DataTable ConvertCsvStringToDataTable(bool isFilePath, string CSVContent)
         {
             //CSVFilePathName = @"C:\test.csv";
             string[] Lines;
             if (isFilePath && File.Exists(CSVContent))
             {
-                Lines = File.ReadAllLines(CSVContent);                
+                Lines = File.ReadAllLines(CSVContent);
             }
             else
             {
@@ -64,10 +65,10 @@ namespace Production.Class
             //1st row must be column names; force lower case to ensure matching later on.
             for (int i = 0; i < Cols; i++)
                 //if( i == 0)
-                    //dt.Columns.Add(Fields[i].ToLower(), typeof(string));
-                    dt.Columns.Add(i.ToString(), typeof(string));
-                //else
-                    //dt.Columns.Add(Fields[i].ToLower(), typeof(string));
+                //dt.Columns.Add(Fields[i].ToLower(), typeof(string));
+                dt.Columns.Add(i.ToString(), typeof(string));
+            //else
+            //dt.Columns.Add(Fields[i].ToLower(), typeof(string));
             DataRow Row;
             for (int i = 0; i < Lines.GetLength(0); i++)
             {
@@ -79,6 +80,7 @@ namespace Production.Class
             }
             return dt;
         }
+
         public static DataTable XLSToDataTable(string filePath)
         {
             ////
@@ -91,11 +93,11 @@ namespace Production.Class
             //string strConn;
             ////Microsoft.ACE.OLEDB.12.0
             //if (Path.GetExtension(filePath).ToLower().Trim() == ".xls" && Environment.Is64BitOperatingSystem == false)
-                
-            //    strConn =   "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath + 
-            //                ";Extended Properties=\"Excel 8.0;HDR=" + HDR + 
+
+            //    strConn =   "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath +
+            //                ";Extended Properties=\"Excel 8.0;HDR=" + HDR +
             //                ";IMEX=0\"";
-            
+
             //else
             //    strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath +
             //                ";Extended Properties=\"Excel 12.0;HDR=" + HDR +
@@ -136,7 +138,7 @@ namespace Production.Class
             OleDbConnection connExcel = new OleDbConnection(conStr);
             OleDbCommand cmdExcel = new OleDbCommand();
             OleDbDataAdapter oda = new OleDbDataAdapter();
-            DataTable dt = new DataTable();           
+            DataTable dt = new DataTable();
             //Get the name of First Sheet
             //if (connExcel.State == ConnectionState.Open)
             //    connExcel.Close();
@@ -194,16 +196,17 @@ namespace Production.Class
             }
             else
                 choofdlog.Dispose();
-        } 
-        
+        }
+
         private static Microsoft.Office.Interop.Excel.Workbook mWorkBook;
         private static Microsoft.Office.Interop.Excel.Sheets mWorkSheets;
         private static Microsoft.Office.Interop.Excel.Worksheet mWSheet1;
         private static Microsoft.Office.Interop.Excel.Application oXL;
+
         public void WRITE2XSLX(GridView gv)
         {
             //string path = @"C:\ProjectTesting\TwsDde.xlsm";
-            string path = @"D:\Template21Jun2018.xlsx";            
+            string path = @"D:\Template21Jun2018.xlsx";
             oXL = new Microsoft.Office.Interop.Excel.Application();
             oXL.Visible = true;
             oXL.DisplayAlerts = false;
@@ -222,11 +225,11 @@ namespace Production.Class
             //    mWSheet1.Cells[rowCount + index, 2] = "New Item" + index;
             //}
             //XtraMessageBox.Show("gv.DataRowCount : " + gv.DataRowCount.ToString());
-            for (int i = 0 ; i <= gv.DataRowCount - 1; i++ )
+            for (int i = 0; i <= gv.DataRowCount - 1; i++)
             {
                 //XtraMessageBox.Show("i : " + i.ToString());
                 //XtraMessageBox.Show("OA BATCH : " + gv.GetRowCellValue(i, "OA BATCH").ToString());
-                mWSheet1.Cells[i + 2, 1] = gv.GetRowCellValue(i, "OA BATCH").ToString();                
+                mWSheet1.Cells[i + 2, 1] = gv.GetRowCellValue(i, "OA BATCH").ToString();
             }
             mWorkBook.SaveAs(path, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault,
             Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive,
@@ -241,7 +244,5 @@ namespace Production.Class
             //GC.WaitForPendingFinalizers();
             //GC.Collect();
         }
-        
     }
-
 }

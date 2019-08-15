@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
-
 namespace Production.Class
 {
-    public partial class F_BaocaoDichTeDan_EXCEL : UC_Base 
+    public partial class F_BaocaoDichTeDan_EXCEL : UC_Base
     {
-        PXN_HeaderBUS BUS = new PXN_HeaderBUS();
-        string TenBaocao = "";
-        string filename = "";
-        string month = "";
-        string year = "";
-        string quater = "";
+        private PXN_HeaderBUS BUS = new PXN_HeaderBUS();
+        private string TenBaocao = "";
+        private string filename = "";
+        private string month = "";
+        private string year = "";
+        private string quater = "";
 
         public F_BaocaoDichTeDan_EXCEL()
         {
@@ -61,7 +59,6 @@ namespace Production.Class
                 }
             };
 
-
             gridView1.CellValueChanged += (s, e) =>
             {
                 e.Column.BestFit();
@@ -78,15 +75,14 @@ namespace Production.Class
                 //Open excel file
                 System.Diagnostics.Process.Start(filename);
             }
-
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string _error = ex.Message;
                 MessageBox.Show(_error);
                 throw;
-            }                        
+            }
         }
-        
+
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
             R_FrDate_ToDate_OABatch RFTOAB = new R_FrDate_ToDate_OABatch();
@@ -95,11 +91,9 @@ namespace Production.Class
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
-                           
-                //TenBaocao = "BC_DichTeChung_Nhan_Tu"+dteFrmDate.Text.ToString().Replace("/","")+"_Den"+ dteToDate.Text.ToString().Replace("/", "");
+            //TenBaocao = "BC_DichTeChung_Nhan_Tu"+dteFrmDate.Text.ToString().Replace("/","")+"_Den"+ dteToDate.Text.ToString().Replace("/", "");
 
-                //gridControl1.DataSource = BUS.BaoCaoDichTeDan_Thang_xport2Excel(DateTime.Parse(dteFrmDate.EditValue.ToString()), DateTime.Parse(dteToDate.EditValue.ToString()));
-            
+            //gridControl1.DataSource = BUS.BaoCaoDichTeDan_Thang_xport2Excel(DateTime.Parse(dteFrmDate.EditValue.ToString()), DateTime.Parse(dteToDate.EditValue.ToString()));
         }
 
         private void Readonly4Controls(bool bl)
@@ -109,11 +103,6 @@ namespace Production.Class
             cmbNamTheoThang.ReadOnly = bl;
             cmbQuyTheoQuy.ReadOnly = bl;
             cmbThangTheoThang.ReadOnly = bl;
-
         }
-
-        
-        
-
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -18,7 +15,7 @@ namespace Production.Class
             string QCDG,
             string UoM1,
             string UoM2,
-            string SLNhan,            
+            string SLNhan,
             string CreatedBy,
             string Solo,
             string TenNL,
@@ -27,8 +24,8 @@ namespace Production.Class
             DateTime NgaySX,
             DateTime HSD,
             DateTime NgayPT,
-            DateTime CreatedDate,            
-            bool Locked          
+            DateTime CreatedDate,
+            bool Locked
             )
         {
             this._ID = ID;
@@ -53,11 +50,10 @@ namespace Production.Class
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public Result_KQKN_TD()
         {
-
         }
 
         private int _ID;
@@ -123,6 +119,7 @@ namespace Production.Class
             get { return _UoM1; }
             set { _UoM1 = value; }
         }
+
         private string _UoM2;
 
         public string UoM2
@@ -138,6 +135,7 @@ namespace Production.Class
             get { return _SLNhan; }
             set { _SLNhan = value; }
         }
+
         private string _Solo;
 
         public string Solo
@@ -145,6 +143,7 @@ namespace Production.Class
             get { return _Solo; }
             set { _Solo = value; }
         }
+
         private string _TenNL;
 
         public string TenNL
@@ -152,25 +151,33 @@ namespace Production.Class
             get { return _TenNL; }
             set { _TenNL = value; }
         }
+
         private DateTime _NgayNhan;
+
         public DateTime NgayNhan
         {
             get { return _NgayNhan; }
             set { _NgayNhan = value; }
         }
+
         private DateTime _NgaySX;
+
         public DateTime NgaySX
         {
             get { return _NgaySX; }
             set { _NgaySX = value; }
         }
+
         private DateTime _HSD;
+
         public DateTime HSD
         {
             get { return _HSD; }
             set { _HSD = value; }
         }
+
         private DateTime _NgayPT;
+
         public DateTime NgayPT
         {
             get { return _NgayPT; }
@@ -178,6 +185,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -185,6 +193,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -192,12 +201,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
@@ -205,7 +217,5 @@ namespace Production.Class
         }
 
         //List<KQKN_Template_Details_Row> Lst = new List<KQKN_Template_Details_Row>();
-
-
     }
 }

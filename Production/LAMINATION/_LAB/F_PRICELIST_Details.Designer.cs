@@ -206,6 +206,7 @@
             // 
             this.txtIDENTITY.Location = new System.Drawing.Point(411, 5);
             this.txtIDENTITY.Name = "txtIDENTITY";
+            this.txtIDENTITY.Properties.ReadOnly = true;
             this.txtIDENTITY.Size = new System.Drawing.Size(50, 20);
             this.txtIDENTITY.StyleController = this.layoutControl3;
             this.txtIDENTITY.TabIndex = 11;
@@ -599,7 +600,7 @@
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "Update";
+            this.gridColumn5.Caption = "Lưu";
             this.gridColumn5.ColumnEdit = this.repositoryItemButtonEdit1;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;

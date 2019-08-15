@@ -3,16 +3,14 @@ using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Windows.Forms;
 
-
-
 namespace Production.Class
 {
-    public partial class F_BaocaoPO_EXCEL : UC_Base 
-    {        
-        string TenBaocao = "";
-        string filename = "";
+    public partial class F_BaocaoPO_EXCEL : UC_Base
+    {
+        private string TenBaocao = "";
+        private string filename = "";
 
-        PO_Header_BUS POH_BUS = new PO_Header_BUS();
+        private PO_Header_BUS POH_BUS = new PO_Header_BUS();
 
         public F_BaocaoPO_EXCEL()
         {
@@ -20,7 +18,6 @@ namespace Production.Class
 
             Load += (s, e) =>
                 {
-                    
                 };
 
             gridView1.CustomUnboundColumnData += (sender, e) =>
@@ -32,8 +29,8 @@ namespace Production.Class
 
             action1.Excel(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Excel));
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
-            action1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));  
-                                            
+            action1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
+
             gridView1.CellValueChanged += (s, e) =>
             {
                 e.Column.BestFit();
@@ -45,24 +42,22 @@ namespace Production.Class
             try
             {
                 TenBaocao = "PO_Tonghop";
-                filename = "D:\\" + TenBaocao +DateTime.Today.ToShortDateString().Replace("/","_")+ ".xlsx";
+                filename = "D:\\" + TenBaocao + DateTime.Today.ToShortDateString().Replace("/", "_") + ".xlsx";
                 //Export excel file
                 gridControl1.ExportToXlsx(filename);
                 //Open excel file
                 System.Diagnostics.Process.Start(filename);
             }
-
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string _error = ex.Message;
                 MessageBox.Show(_error);
                 throw;
-            }                        
+            }
         }
-        
+
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
@@ -73,7 +68,5 @@ namespace Production.Class
             colCounter.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             colCounter.VisibleIndex = 0;
         }
-        
-
     }
 }

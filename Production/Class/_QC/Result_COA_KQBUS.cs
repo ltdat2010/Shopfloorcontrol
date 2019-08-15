@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class Result_COA_KQBUS
     {
-        Result_COA_KQDAO DAO = new Result_COA_KQDAO();
+        private Result_COA_KQDAO DAO = new Result_COA_KQDAO();
 
         public void Result_COA_KQDAO_INSERT(Result_COA_KQ OBJ)
         {
@@ -45,7 +36,4 @@ namespace Production.Class
 
         //}
     }
-
 }
-
-

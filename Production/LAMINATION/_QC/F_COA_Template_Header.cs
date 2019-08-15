@@ -1,21 +1,21 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.IO;
-using System.Data.SqlClient;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Data;
-using DevExpress.XtraBars;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_COA_Template_Header : frm_Base
     {
         #region Variables
-        int ImageID = 0;
-        String strFilePath = "";
-        Image DefaultImage;
-        Byte[] ImageByteArray;
+
+        private int ImageID = 0;
+        private String strFilePath = "";
+        private Image DefaultImage;
+        private Byte[] ImageByteArray;
         ////before executing -create database with given script - change connection string according to yours
         //public static string varConnect_S = "Data Source= 192.168.0.249;" +
         //                                       "Database= SYNC_NUTRICIEL;" +
@@ -23,15 +23,17 @@ namespace Production.Class
         //                                       "password= bsvn";
         ////public static SqlConnection conn_S = new SqlConnection(Conn.varConnect_S);
         //SqlConnection sqlcon = new SqlConnection(varConnect_S);
-        #endregion
-        
-        bool gridViewRowClick = false;
-        string Path = Directory.GetCurrentDirectory();        
+
+        #endregion Variables
+
+        private bool gridViewRowClick = false;
+        private string Path = Directory.GetCurrentDirectory();
 
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender, string isActionReturn);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -46,35 +48,32 @@ namespace Production.Class
         }
 
         public COA_Template_Header OBJ = new COA_Template_Header();
-        COA_Template_Details OBJ1 = new COA_Template_Details();
+        private COA_Template_Details OBJ1 = new COA_Template_Details();
         //public KQKN_Template_Details_Row OBJ1 = new KQKN_Template_Details_Row();
 
-        COA_Template_HeaderBUS BUS = new COA_Template_HeaderBUS();
-        COA_Template_DetailsBUS BUS1 = new COA_Template_DetailsBUS();
+        private COA_Template_HeaderBUS BUS = new COA_Template_HeaderBUS();
+        private COA_Template_DetailsBUS BUS1 = new COA_Template_DetailsBUS();
 
         public F_COA_Template_Header()
         {
             InitializeComponent();
             Load += (s, e) =>
             {
-
                 if (isAction == "Edit")
                 {
                     TDControlsReadOnly(true);
                     Set4Controls();
-                    
+
                     gridControl1.DataSource = tbl_COA_Template_DetailsTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA_Template_Details, int.Parse(txtID.Text));
 
-                    
                     //ImageByteArray = OBJ.IMGCOA;
-                    //pbxImage.Image = Image.FromStream(new MemoryStream(OBJ.IMGCOA));                    
+                    //pbxImage.Image = Image.FromStream(new MemoryStream(OBJ.IMGCOA));
                 }
-
                 else if (isAction == "Add")
                 {
                     gridControl1.Enabled = false;
                     actionMini1.Enabled = false;
-                    txtID.ReadOnly = true;                   
+                    txtID.ReadOnly = true;
                 }
             };
 
@@ -90,34 +89,30 @@ namespace Production.Class
                         Set4ObjectRow();
                         BUS.COA_Template_HeaderDAO_INSERT(OBJ);
                         gridControl1.Enabled = true;
-                        actionMini1.Enabled = true;                      
-                        
+                        actionMini1.Enabled = true;
+
                         //Gan gia tri ID moi insert vo table tbl_KQKN_Template_Hedaer cho form
                         OBJ.ID = BUS.MAX_COA_Template_ID();
-
-
                     }
                     else if (isAction == "Edit")
                     {
                         Set4ObjectHeader();
-                        Set4ObjectRow();                        
+                        Set4ObjectRow();
 
                         BUS.COA_Template_HeaderDAO_UPDATE(OBJ);
                     }
 
-                    
-
                     ///////////////Save image/////////////////////////////////////////////////////////////////
-                    Image temp ;
+                    Image temp;
                     if (strFilePath == "")
                     {
                         //if (ImageByteArray.Length != 0)
-                        //ImageByteArray = new byte[] { };                        
+                        //ImageByteArray = new byte[] { };
                         temp = (Bitmap)Properties.Resources.defaultimage;
                     }
                     else
                     {
-                        temp = new Bitmap(strFilePath);                        
+                        temp = new Bitmap(strFilePath);
                     }
 
                     MemoryStream strm = new MemoryStream();
@@ -126,7 +121,7 @@ namespace Production.Class
 
                     if (Conn.conn_S.State == ConnectionState.Closed)
                         Conn.conn_S.Open();
-                    SqlCommand sqlCmd = new SqlCommand("ImageAddOrEdit", Conn.conn_S) { CommandType = CommandType.StoredProcedure };                    
+                    SqlCommand sqlCmd = new SqlCommand("ImageAddOrEdit", Conn.conn_S) { CommandType = CommandType.StoredProcedure };
                     sqlCmd.Parameters.Add("@Image", ImageByteArray);
                     sqlCmd.Parameters.Add("@ID", OBJ.ID);
                     sqlCmd.ExecuteNonQuery();
@@ -154,7 +149,7 @@ namespace Production.Class
 
             btnCancel.Click += (s, e) =>
             {
-            this.Close();
+                this.Close();
             };
 
             txtNote.TextChanged += (s, e) =>
@@ -190,7 +185,6 @@ namespace Production.Class
 
             btnClear.Click += (s, e) =>
             {
-
             };
 
             // 7 Add hoặc New
@@ -209,8 +203,8 @@ namespace Production.Class
             actionMini1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
 
             // 10B Cancel
-            actionMini1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));            
-        }        
+            actionMini1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
+        }
 
         public void Set4Controls()
         {
@@ -248,7 +242,7 @@ namespace Production.Class
         }
 
         public void Set4ObjectHeader()
-        {           
+        {
             if (isAction == "Edit")
             {
                 //MessageBox.Show("Bat dau Edit");
@@ -258,12 +252,11 @@ namespace Production.Class
                 //OBJ.COADescription = txtDienGiai.Text;
                 OBJ.Note = txtNote.Text;
                 OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
-            }   
+            }
             OBJ.COATemplate = txtTenmauCOA.Text;
             OBJ.COADescription = txtDienGiai.Text;
             OBJ.Note = txtNote.Text;
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
-            
         }
 
         public void ResetControl()
@@ -284,7 +277,7 @@ namespace Production.Class
             txtTenmauCOA.ReadOnly = bl;
             txtDienGiai.ReadOnly = bl;
             //txtNote.ReadOnly = bl;
-            //cmbKhoa.ReadOnly = bl;            
+            //cmbKhoa.ReadOnly = bl;
         }
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
@@ -303,14 +296,15 @@ namespace Production.Class
             FRM.myFinished += this.finished;
             FRM.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
-
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -319,7 +313,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isActionMini = "View";
 
@@ -411,8 +405,7 @@ namespace Production.Class
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
 
-
-            //// Step 2 : Load lại data tren grid sau khi Add            
+            //// Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = tbl_COA_Template_DetailsTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA_Template_Details, OBJ.ID);
             gridView1.BestFitColumns();
         }
@@ -423,9 +416,10 @@ namespace Production.Class
             img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             return ms.ToArray();
         }
+
         #region Methods Image
 
-        void RefreshImage(int ID)
+        private void RefreshImage(int ID)
         {
             if (Conn.conn_S.State == ConnectionState.Closed)
                 Conn.conn_S.Open();
@@ -433,11 +427,10 @@ namespace Production.Class
             DataTable dtblImages = new DataTable();
             sqlda.Fill(dtblImages);
             OBJ.IMGCOA = dtblImages.Rows[0].Field<byte[]>("IMGCOA");
-            pbxImage.Image = Image.FromStream(new MemoryStream(OBJ.IMGCOA));   
-                   
+            pbxImage.Image = Image.FromStream(new MemoryStream(OBJ.IMGCOA));
         }
 
-        void Clear()
+        private void Clear()
         {
             //ImageID = 0;
             txtTitle.Text = "";
@@ -445,11 +438,13 @@ namespace Production.Class
             //strFilePath = "";
             //btnSave.Text = "Save";
         }
-        #endregion
 
-        Image nullImage;
+        #endregion Methods Image
+
+        private Image nullImage;
+
         private void pbxImage_Paint(object sender, PaintEventArgs e)
-        {         
+        {
             if (pbxImage.EditValue == null)
             {
                 Point pt = new Point((pbxImage.Width - nullImage.Width) / 2, (pbxImage.Height - nullImage.Height) / 2);
@@ -457,5 +452,4 @@ namespace Production.Class
             }
         }
     }
-
 }

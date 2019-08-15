@@ -21,12 +21,12 @@ namespace Production.Class
            "',Convert(datetime,'" + DateTime.Now +
            "',103),N'" + LOC.CreatedBy +
            "',N'" + LOC.Note +
-           "','" + LOC.Locked + 
+           "','" + LOC.Locked +
            "')", CommandType.Text);
         }
 
         public void LOAIDV_UPDATE(LOAIDV LOC)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_LoaiDV_LAB] SET" +
            "[MaLoaiDV] = N'" + LOC.MaLoaiDV + "'" +
            ",[TenLoaiDV] = N'" + LOC.TenLoaiDV + "'" +
@@ -39,20 +39,14 @@ namespace Production.Class
 
         public void LOAIDV_DELETE(LOAIDV LOC)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_LoaiDV_LAB] " +
-           " WHERE [ID]='" + LOC.ID + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_LoaiDV_LAB] " +
+            " WHERE [ID]='" + LOC.ID + "'", CommandType.Text);
         }
 
         public int MAX_MALOAIDV()
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ISNULL(MAX(CONVERT(int,RIGHT(MaLoaiDV,(LEN(MaLoaiDV)-2)))),'0') as MaLoaiDV FROM [SYNC_NUTRICIEL].[dbo].[tbl_LoaiDV_LAB] ", CommandType.Text);
             return int.Parse(dt.Rows[0]["MaLoaiDV"].ToString()) + 1;
-
         }
-
-
     }
-
 }
-
-

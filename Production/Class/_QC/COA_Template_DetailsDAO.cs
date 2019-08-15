@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -67,9 +61,5 @@ namespace Production.Class
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details] " +
             " WHERE [COATemplateID] =" + OBJ.COATemplateID, CommandType.Text);
         }
-
     }
-
 }
-
-

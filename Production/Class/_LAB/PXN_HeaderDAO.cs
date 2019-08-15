@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
     public class PXN_HeaderDAO
     {
         public void PXN_HeaderDAO_INSERT(PXN_Header OBJ)
-        {            
+        {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] " +
            " ([SoPXN] " +
            " ,[PXNDescription] " +
@@ -36,7 +30,7 @@ namespace Production.Class
            " ,[CreatedBy] " +
            " ,[Note] " +
            " ,[NgayNhanMau] " +
-           " ,[NgayDuKienTra] " +           
+           " ,[NgayDuKienTra] " +
            " ,[KHMau] " +
            //" ,[Khac] " +
            " ,[PTNThucHien] " +
@@ -131,7 +125,7 @@ namespace Production.Class
            ",[CreatedBy]            = N'" + OBJ.CreatedBy + "' " +
            ",[Note]                 = N'" + OBJ.Note + "' " +
            ",[NgayNhanMau]          = CONVERT(datetime,'" + OBJ.NgayNhanMau + "',103)" +
-           ",[NgayDuKienTra]        = CONVERT(datetime,'" + OBJ.NgayDuKienTra + "',103)" +           
+           ",[NgayDuKienTra]        = CONVERT(datetime,'" + OBJ.NgayDuKienTra + "',103)" +
            ",[KHMau]                = N'" + OBJ.KHMau + "' " +
            //",[Khac]                 = N'" + OBJ.Khac + "' " +
            ",[PTNThucHien]          = N'" + OBJ.PTNThucHien + "' " +
@@ -146,11 +140,11 @@ namespace Production.Class
            ",[SoHoaDon]               = N'" + OBJ.SoHoaDon + "' " +
            ",[DaThuTien]               = N'" + OBJ.DaThuTien + "' " +
            ",[NgayThuTien]               = CONVERT(datetime,'" + OBJ.NgayThuTien + "',103)" +
-           ",[SoTienDaThu]               = " + OBJ.SoTienDaThu + 
-           ",[SoTienHoaDon]               = " + OBJ.SoTienHoaDon + 
+           ",[SoTienDaThu]               = " + OBJ.SoTienDaThu +
+           ",[SoTienHoaDon]               = " + OBJ.SoTienHoaDon +
            ",[TraTruoc]               = N'" + OBJ.TraTruoc + "' " +
            ",[NgayTraTruoc]               = CONVERT(datetime,'" + OBJ.NgayTraTruoc + "',103)" +
-           ",[SoTienTraTruoc]               = " + OBJ.SoTienTraTruoc + 
+           ",[SoTienTraTruoc]               = " + OBJ.SoTienTraTruoc +
            ",[NoiDungHoaDon]               = N'" + OBJ.NoiDungHoaDon + "' " +
            ",[NoiDungTraTruoc]               = N'" + OBJ.NoiDungTraTruoc + "' " +
            " WHERE [ID]             =" + OBJ.ID, CommandType.Text);
@@ -158,12 +152,12 @@ namespace Production.Class
 
         public void PXN_HeaderDAO_UPDATE_SendMail(int ID, string SendMail)
         {
-            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +         
-           "[SendMail]             = N'" + SendMail + "'" +           
-           " WHERE [ID]             =" +ID, CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +
+           "[SendMail]             = N'" + SendMail + "'" +
+           " WHERE [ID]             =" + ID, CommandType.Text);
         }
 
-        public void PXN_HeaderDAO_UPDATE_NgayCoKetQua(int ID,DateTime NgayCoKetQua,bool CoKetQua)
+        public void PXN_HeaderDAO_UPDATE_NgayCoKetQua(int ID, DateTime NgayCoKetQua, bool CoKetQua)
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +
            "[NgayCoKetQua]        = CONVERT(datetime,'" + NgayCoKetQua + "',103)" +
@@ -193,7 +187,7 @@ namespace Production.Class
                                                 " INNER JOIN tbl_CUSTOMER_LAB  " +
                                                 " ON[SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header].CUSTCODE_ID = tbl_CUSTOMER_LAB.ID  " +
                                                 " INNER JOIN tbl_EMPLOYEE_LAB ON [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header].EMPCode_ID = tbl_EMPLOYEE_LAB.Id " +
-                                                " WHERE [SoPXN]='" + SoPXN +"'", CommandType.Text);
+                                                " WHERE [SoPXN]='" + SoPXN + "'", CommandType.Text);
         }
 
         public int MAX_PXN_HeaderDAO_ID()
@@ -204,14 +198,14 @@ namespace Production.Class
 
         public int PXN_HeaderDAO_ID_bySoPXN(string SoPXN)
         {
-            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] WHERE SoPXN ='"+SoPXN+"'", CommandType.Text);
+            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] WHERE SoPXN ='" + SoPXN + "'", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
         }
 
-        public DataTable BaoCaoPXN_Nhan(DateTime Stardate, DateTime Enddate) 
+        public DataTable BaoCaoPXN_Nhan(DateTime Stardate, DateTime Enddate)
         {
             DataTable dt = Sql.ExecuteDataTable("SAP",
-                        " SELECT        tbl_PXN_Header.*, tbl_KHMau_LAB.*, tbl_KHMau_CTXN_LAB.* "+
+                        " SELECT        tbl_PXN_Header.*, tbl_KHMau_LAB.*, tbl_KHMau_CTXN_LAB.* " +
                          " FROM            tbl_PXN_Header INNER JOIN " +
                          " tbl_KHMau_LAB ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN INNER JOIN " +
                          " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau " +
@@ -219,7 +213,7 @@ namespace Production.Class
                         " ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
                         " INNER JOIN tbl_NhomChiTieuXetNghiem_LAB " +
                         " ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID " +
-                         " WHERE tbl_PXN_Header.NgayNhanMau >= CONVERT(datetime, '" + Stardate + "', 103) "+
+                         " WHERE tbl_PXN_Header.NgayNhanMau >= CONVERT(datetime, '" + Stardate + "', 103) " +
                          " AND tbl_PXN_Header.NgayNhanMau <= CONVERT(datetime, '" + Enddate + "', 103)"
                          , CommandType.Text);
             return dt;
@@ -267,7 +261,7 @@ namespace Production.Class
                             " INNER JOIN tbl_CUSTOMERTYPE_LAB " +
                             " ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode   " +
                             " WHERE tbl_PXN_Header.NgayNhanMau >= CONVERT(datetime, '" + Stardate + "', 103) " +
-                            " AND tbl_PXN_Header.NgayNhanMau <= CONVERT(datetime, '" + Enddate + "', 103)" 
+                            " AND tbl_PXN_Header.NgayNhanMau <= CONVERT(datetime, '" + Enddate + "', 103)"
                          , CommandType.Text);
             return dt;
         }
@@ -436,8 +430,8 @@ namespace Production.Class
                         "  ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id " +
                         "  INNER JOIN tbl_CUSTOMERTYPE_LAB " +
                         "  ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode " +
-                        "  WHERE RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua, 7), 2) = '"+month+"' " +
-                        "  AND         LEFT(tbl_PXN_Header.NgayTraKetQua, 4) = '"+year+"' " +
+                        "  WHERE RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua, 7), 2) = '" + month + "' " +
+                        "  AND         LEFT(tbl_PXN_Header.NgayTraKetQua, 4) = '" + year + "' " +
                         "  GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua, 7), " +
                         " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, " +
                         " tbl_ChiTieuXetNghiem_LAB.CTXN, " +
@@ -451,7 +445,7 @@ namespace Production.Class
                         " tbl_PXN_Header.DichTeDan, " +
                         " tbl_LOCATION_LAB.LOCName, " +
                         "  tbl_CUSTOMER_LAB.ProvinceName, " +
-                        "  tbl_KHMau_LAB.DonViKHMau " 
+                        "  tbl_KHMau_LAB.DonViKHMau "
                          , CommandType.Text);
             return dt;
         }
@@ -584,14 +578,12 @@ namespace Production.Class
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ISNULL(MAX(RIGHT(SoPXN,4)),'0') as SoPXN FROM [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] WHERE LEFT(SoPXN,3) = '" + LoaiXN + "'AND RIGHT(LEFT(SoPXN,5),2) = RIGHT(YEAR(GETDATE()),2)", CommandType.Text);
             return int.Parse(dt.Rows[0]["SoPXN"].ToString()) + 1;
         }
+
         public void PXN_HeaderDAO_UPDATE_NgayTraKetQua(string SoPXN)
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +
             "[NgayTraKetQua]        = CONVERT(datetime,'" + DateTime.Now.ToShortDateString() + "',103)" +
-           " WHERE [SoPXN]             ='" + SoPXN+"'", CommandType.Text);
+           " WHERE [SoPXN]             ='" + SoPXN + "'", CommandType.Text);
         }
     }
-
 }
-
-

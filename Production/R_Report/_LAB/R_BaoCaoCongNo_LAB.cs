@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
+﻿using CrystalDecisions.CrystalReports.Engine;
 using DevExpress.XtraBars;
+using System;
+using System.Data;
+using System.Drawing.Printing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
@@ -21,8 +12,9 @@ namespace Production.Class
     {
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -36,15 +28,15 @@ namespace Production.Class
             }
         }
 
-        PXN_HeaderBUS BUS = new PXN_HeaderBUS();
+        private PXN_HeaderBUS BUS = new PXN_HeaderBUS();
         public DateTime FrDate;
         public DateTime ToDate;
-        DataTable dt = new DataTable();
+        private DataTable dt = new DataTable();
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
 
-        string Path = Directory.GetCurrentDirectory();
-        CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        private string Path = Directory.GetCurrentDirectory();
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
         //----------------------------End Report parameters declare---------------------------------------------
 
         public R_BaoCaoCongNo_LAB()
@@ -66,7 +58,6 @@ namespace Production.Class
                 rpt.SetParameterValue("P_FrDate", FrDate);
                 rpt.SetParameterValue("P_ToDate", ToDate);
                 crvReport.ReportSource = rpt;
-
             };
 
             action1.Print(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Print));
@@ -110,7 +101,7 @@ namespace Production.Class
         private void PrintReport(PrintDocument pd)
         {
             ReportDocument rDoc = (ReportDocument)crvReport.ReportSource;
-            // This line helps, in case user selects a different printer 
+            // This line helps, in case user selects a different printer
             // other than the default selected.
             rDoc.PrintOptions.PrinterName = pd.PrinterSettings.PrinterName;
             // In place of Frompage and ToPage put 0,0 to print all pages,
@@ -121,11 +112,10 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Excel(object sender, EventArgs e)
         {
-            string filename = @"D:\\BaoCaoCongNo_" + FrDate.ToString().Substring(0, 10).Replace("/","") + "_" + ToDate.ToString().Substring(0, 10).Replace("/", "") + ".xls";
+            string filename = @"D:\\BaoCaoCongNo_" + FrDate.ToString().Substring(0, 10).Replace("/", "") + "_" + ToDate.ToString().Substring(0, 10).Replace("/", "") + ".xls";
             rpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel, filename);
             //Open excel file
             System.Diagnostics.Process.Start(filename);
-
         }
     }
 }

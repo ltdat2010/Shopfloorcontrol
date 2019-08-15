@@ -1,20 +1,22 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using System.IO;
-using DevExpress.XtraBars;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_EMPLOYEE_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -27,15 +29,15 @@ namespace Production.Class
                 }
             }
         }
-        public EMPLOYEE EMP                     = new EMPLOYEE();
-        EMPLOYEEBUS EMPBUS                      = new EMPLOYEEBUS();
+
+        public EMPLOYEE EMP = new EMPLOYEE();
+        private EMPLOYEEBUS EMPBUS = new EMPLOYEEBUS();
 
         public F_EMPLOYEE_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
-
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
                 action_EndForm1.Update_Status(false);
@@ -51,26 +53,21 @@ namespace Production.Class
                 }
                 else if (isAction == "Add")
                     txtID.ReadOnly = true;
-            };          
+            };
 
             //Action_EndForm
             //action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
             //action_EndForm1.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update));
             action_EndForm1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
             action_EndForm1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
-
-
         }
 
         private void ItemClickEventHandler_Save(object sender, ItemClickEventArgs e)
         {
-            
-
             try
             {
                 if (this.dxValidationProvider1.Validate() == true)
                 {
-
                     if (isAction == "Add")
                     {
                         Set4Object();
@@ -106,7 +103,6 @@ namespace Production.Class
                     foreach (Control ctrl in IControls)
                         ctrl.Focus();
                 }
-                   
             }
             catch (Exception ex)
             {
@@ -141,40 +137,39 @@ namespace Production.Class
             txtEmail.Text = EMP.EMPEmail;
             txtNote.Text = EMP.Note;
             cmbKhoa.Text = EMP.Locked.ToString();
-
         }
 
         public void Set4Object()
         {
-            EMP.EMPCode                             = txtMaNhanvien.Text;
-            EMP.EMPName                             = txtTenNhanvien.Text;
-            EMP.EMPMobile                           = txtSdt.Text;
-            EMP.EMPEmail                            = txtEmail.Text;
+            EMP.EMPCode = txtMaNhanvien.Text;
+            EMP.EMPName = txtTenNhanvien.Text;
+            EMP.EMPMobile = txtSdt.Text;
+            EMP.EMPEmail = txtEmail.Text;
             EMP.Note = txtNote.Text;
-            EMP.Locked                              = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
+            EMP.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
         }
+
         public void ResetControl()
         {
-            txtID.Text                              = "";
-            txtMaNhanvien.Text                      = "";
-            txtTenNhanvien.Text                     = "";
-            txtEmail.Text                           = "";
-            txtSdt.Text                             = "";
+            txtID.Text = "";
+            txtMaNhanvien.Text = "";
+            txtTenNhanvien.Text = "";
+            txtEmail.Text = "";
+            txtSdt.Text = "";
             txtNote.Text = "";
-            cmbKhoa.Text                            = null;
+            cmbKhoa.Text = null;
         }
 
         //
         public void ControlsReadOnly(bool bl)
         {
             //txtID.ReadOnly = bl;
-            txtMaNhanvien.ReadOnly                  = bl;
-            txtTenNhanvien.ReadOnly                 = bl;
-            txtSdt.ReadOnly                         = bl;
-            txtEmail.ReadOnly                       = bl;
+            txtMaNhanvien.ReadOnly = bl;
+            txtTenNhanvien.ReadOnly = bl;
+            txtSdt.ReadOnly = bl;
+            txtEmail.ReadOnly = bl;
             txtNote.ReadOnly = bl;
-            cmbKhoa.ReadOnly                        = bl;
+            cmbKhoa.ReadOnly = bl;
         }
-
     }
 }

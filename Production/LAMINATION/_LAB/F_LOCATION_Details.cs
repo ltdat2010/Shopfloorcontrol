@@ -1,30 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.IO;
-using DevExpress.XtraBars;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_LOCATION_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -37,13 +28,14 @@ namespace Production.Class
                 }
             }
         }
+
         public LOCATION LOC = new LOCATION();
-        LOCATIONBUS LOCBUS = new LOCATIONBUS();
+        private LOCATIONBUS LOCBUS = new LOCATIONBUS();
 
         public F_LOCATION_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
@@ -60,14 +52,12 @@ namespace Production.Class
                 }
                 else if (isAction == "Add")
                     txtID.ReadOnly = true;
-            };            
+            };
             //Action_EndForm
             //action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
             //action_EndForm1.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update));
             action_EndForm1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
             action_EndForm1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
-
-
         }
 
         private void ItemClickEventHandler_Save(object sender, ItemClickEventArgs e)
@@ -123,7 +113,6 @@ namespace Production.Class
             txtTenKhuvuc.Text = LOC.LOCName;
             txtNote.Text = LOC.Note;
             cmbKhoa.Text = LOC.Locked.ToString();
-
         }
 
         public void Set4Object()
@@ -133,6 +122,7 @@ namespace Production.Class
             LOC.Note = txtNote.Text;
             LOC.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
         }
+
         public void ResetControl()
         {
             txtID.Text = "";
@@ -151,6 +141,5 @@ namespace Production.Class
             txtNote.ReadOnly = bl;
             cmbKhoa.ReadOnly = bl;
         }
-
     }
 }

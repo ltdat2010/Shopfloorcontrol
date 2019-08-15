@@ -1,29 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_CUSTOMERTYPE_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -36,13 +26,14 @@ namespace Production.Class
                 }
             }
         }
+
         public CUSTOMERTYPE CUSTPE = new CUSTOMERTYPE();
-        CUSTOMERTYPEBUS CUSTPEBUS = new CUSTOMERTYPEBUS();
+        private CUSTOMERTYPEBUS CUSTPEBUS = new CUSTOMERTYPEBUS();
 
         public F_CUSTOMERTYPE_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 //if(isEditting == true)
                 if (isAction == "Edit")
@@ -54,7 +45,7 @@ namespace Production.Class
                     txtID.ReadOnly = true;
             };
 
-            btnSave.Click += (s,e) =>
+            btnSave.Click += (s, e) =>
             {
                 try
                 {
@@ -68,7 +59,7 @@ namespace Production.Class
                         Set4Object();
                         CUSTPEBUS.CUSTOMERTYPE_UPDATE(CUSTPE);
                     }
-                //XtraMessageBox.Show("here");
+                    //XtraMessageBox.Show("here");
                     Is_close = true;
                 }
                 catch (Exception ex)
@@ -81,8 +72,8 @@ namespace Production.Class
             {
                 this.Close();
             };
-            
         }
+
         public void Set4Controls()
         {
             txtID.Text = CUSTPE.Id.ToString();
@@ -90,7 +81,6 @@ namespace Production.Class
             txtTenKH.Text = CUSTPE.CUSTTYPEName;
             txtNote.Text = CUSTPE.Note;
             cmbKhoa.Text = CUSTPE.Locked.ToString();
-
         }
 
         public void Set4Object()
@@ -100,6 +90,7 @@ namespace Production.Class
             CUSTPE.Note = txtNote.Text;
             CUSTPE.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
         }
+
         public void ResetControl()
         {
             txtID.Text = "";
@@ -118,6 +109,5 @@ namespace Production.Class
             txtNote.ReadOnly = bl;
             cmbKhoa.ReadOnly = bl;
         }
-
     }
 }

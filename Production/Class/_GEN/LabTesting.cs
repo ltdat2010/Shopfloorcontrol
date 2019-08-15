@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -56,6 +53,7 @@ namespace Production.Class
         }
 
         private string _Testing_Period_Time;
+
         public string Testing_Period_Time
         {
             get { return _Testing_Period_Time; }
@@ -63,12 +61,11 @@ namespace Production.Class
         }
 
         private string _Testing_Result_Receive_Time;
+
         public string Testing_Result_Receive_Time
         {
             get { return _Testing_Result_Receive_Time; }
             set { _Testing_Result_Receive_Time = value; }
         }
-
-        
     }
 }

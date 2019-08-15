@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class Resources
     {
@@ -22,6 +17,7 @@ namespace Production.Class
             get { return _IdSort; }
             set { _IdSort = value; }
         }
+
         private int _ParentId;
 
         public int ParentId
@@ -45,6 +41,7 @@ namespace Production.Class
             get { return _Description; }
             set { _Description = value; }
         }
+
         private string _Color;
 
         public string Color
@@ -52,6 +49,7 @@ namespace Production.Class
             get { return _Color; }
             set { _Color = value; }
         }
+
         private string _Image;
 
         public string Image
@@ -59,14 +57,13 @@ namespace Production.Class
             get { return _Image; }
             set { _Image = value; }
         }
+
         private string _CustomField1;
 
         public string CustomField1
         {
             get { return _CustomField1; }
             set { _CustomField1 = value; }
-        } 
-
-        
+        }
     }
 }

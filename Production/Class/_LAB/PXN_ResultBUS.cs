@@ -4,7 +4,7 @@ namespace Production.Class
 {
     public class PXN_ResultBUS
     {
-        PXN_ResultDAO DAO = new PXN_ResultDAO();
+        private PXN_ResultDAO DAO = new PXN_ResultDAO();
 
         public void PXN_ResultBUS_INSERT(PXN_Result OBJ)
         {
@@ -31,7 +31,4 @@ namespace Production.Class
             return DAO.MAX_PXN_ResultDAO_ID();
         }
     }
-
 }
-
-

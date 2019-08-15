@@ -1,15 +1,14 @@
 ﻿namespace Production
 {
-
-
     public partial class SYNC_NUTRICIELDataSet
     {
     }
 }
-namespace Production {
-    
-    
-    public partial class SYNC_NUTRICIELDataSet {
+
+namespace Production
+{
+    public partial class SYNC_NUTRICIELDataSet
+    {
     }
 }
 
@@ -62,8 +61,8 @@ namespace Production.SYNC_NUTRICIELDataSetTableAdapters
     partial class tbl_KQKNTemplateTableAdapter
     {
     }
-    
-    
-    public partial class tbl_PRTableAdapter {
+
+    public partial class tbl_PRTableAdapter
+    {
     }
 }

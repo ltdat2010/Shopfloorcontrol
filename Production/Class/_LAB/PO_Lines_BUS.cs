@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class PO_Lines_BUS
     {
-        PO_Lines_DAO DAO = new PO_Lines_DAO();
+        private PO_Lines_DAO DAO = new PO_Lines_DAO();
+
         public void PO_Lines_INSERT(PO_Lines OBJ)
         {
             DAO.PO_Lines_INSERT(OBJ);
@@ -31,9 +25,5 @@ namespace Production.Class
         {
             return DAO.PO_Lines_SELECT(SoPO);
         }
-
     }
-
 }
-
-

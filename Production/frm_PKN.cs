@@ -1,68 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
-using DevExpress.XtraGrid;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class frm_PKN : frm_Base
     {
-        RECEIPTBUS RCB = new RECEIPTBUS();
-        PKNBUS PKB = new PKNBUS();
-        public string PassFail                                  ="2";//Unchecked all
+        private RECEIPTBUS RCB = new RECEIPTBUS();
+        private PKNBUS PKB = new PKNBUS();
+        public string PassFail = "2";//Unchecked all
         public string ActStatus;
         public int ID;
         public int KQKNTemplateID;
         public string SoPKN;
-        public string SoPNK                                     = "";
-        public string QCDG                                      = "";
-        public string SLNhan                                    = "";
-        public string NgayNhan                                  = "";
-        public string SoLo                                      = "";
-        public string NSX                                       = "";
-        public string HSD                                       = "";
+        public string SoPNK = "";
+        public string QCDG = "";
+        public string SLNhan = "";
+        public string NgayNhan = "";
+        public string SoLo = "";
+        public string NSX = "";
+        public string HSD = "";
         public int Lan = 0;
+
         public frm_PKN()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 action1.Add_Status(false);
                 action1.Edit_Status(false);
-                //controlReadonly(true);                
-
+                //controlReadonly(true);
 
                 if (ActStatus == "E")
                 {
-                    
-                    DataTable dt                            = new DataTable();
-                    dt                                      = PKB.TDPKN_Search(SoPKN, Lan);
-                    DataRow dr                              = dt.Rows[0];
+                    DataTable dt = new DataTable();
+                    dt = PKB.TDPKN_Search(SoPKN, Lan);
+                    DataRow dr = dt.Rows[0];
                     //XtraMessageBox.Show(dr["SoPNK"].ToString());
-                    txtSoPKN.Text                           = dr["SoPKN"].ToString();
-                    lkeKQKNTemplate.EditValue               = dr["KQKNTemplateID"].ToString();
-                    txtSoPNK.EditValue                      = dr["SoPNK"].ToString();
-                    txtSolo.EditValue                       = dr["Solo"].ToString();
-                    txtSLNhan.Text                          = dr["SLNhan"].ToString();
-                    txtQCDG.Text                            = dr["QCDG"].ToString();
-                    dteNgaySX.Text                          = dr["NgaySX"].ToString();
-                    dteHSD.Text                             = dr["HSD"].ToString();
-                    dteNgayNhan.Text                        = dr["NgayNhan"].ToString();
-                    dteNgayPT.Text                          = dr["NgayPT"].ToString();
-                    txtLan.Text                             = dr["Lan"].ToString();
+                    txtSoPKN.Text = dr["SoPKN"].ToString();
+                    lkeKQKNTemplate.EditValue = dr["KQKNTemplateID"].ToString();
+                    txtSoPNK.EditValue = dr["SoPNK"].ToString();
+                    txtSolo.EditValue = dr["Solo"].ToString();
+                    txtSLNhan.Text = dr["SLNhan"].ToString();
+                    txtQCDG.Text = dr["QCDG"].ToString();
+                    dteNgaySX.Text = dr["NgaySX"].ToString();
+                    dteHSD.Text = dr["HSD"].ToString();
+                    dteNgayNhan.Text = dr["NgayNhan"].ToString();
+                    dteNgayPT.Text = dr["NgayPT"].ToString();
+                    txtLan.Text = dr["Lan"].ToString();
                     gridControl1.DataSource = PKB.KQPKN_Search(dr["SoPKN"].ToString());
                     gridView1.BestFitColumns();
                 }
@@ -71,9 +57,7 @@ namespace Production.Class
                     KQcontrolReadonly(true);
                     KLcontrolEnabled(false);
                     //PKN
-                    txtSoPKN.Text                           = PKB.PKN_Template_Max_KQKNID().ToString();
-                    
-                    
+                    txtSoPKN.Text = PKB.PKN_Template_Max_KQKNID().ToString();
                 }
                 else if (ActStatus == "V")
                 {
@@ -111,10 +95,10 @@ namespace Production.Class
                 txtSoPNK.Properties.ValueMember = "ECH_RECEPS";
                 txtSoPNK.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
                 //TC
-                lkeKQKNTemplate.Properties.DataSource       = PKB.PKN_Template_View();
-                lkeKQKNTemplate.Properties.SearchMode       = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-                lkeKQKNTemplate.Properties.DisplayMember    = "KQKN";
-                lkeKQKNTemplate.Properties.ValueMember      = "ID";
+                lkeKQKNTemplate.Properties.DataSource = PKB.PKN_Template_View();
+                lkeKQKNTemplate.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+                lkeKQKNTemplate.Properties.DisplayMember = "KQKN";
+                lkeKQKNTemplate.Properties.ValueMember = "ID";
                 lkeKQKNTemplate.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
                 //txtSoPNK.Text = SoPNK;
                 //txtSolo.Text = SoLo;
@@ -124,16 +108,15 @@ namespace Production.Class
                 //if(PKB.KQPKN_Visible(SoPNK,SoLo).Rows.Count > 0)
 
                 //else
-
             };
             txtSoPNK.TextChanged += (s, e) =>
                 {
                     //XtraMessageBox.Show(txtSoPNK.EditValue.ToString());
                     //Lot
-                    txtSolo.Properties.DataSource           = RCB.RECEIPT_Lot(txtSoPNK.EditValue.ToString());
-                    txtSolo.Properties.SearchMode           = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-                    txtSolo.Properties.DisplayMember        = "NO_LOT";
-                    txtSolo.Properties.ValueMember          = "NO_LOT";
+                    txtSolo.Properties.DataSource = RCB.RECEIPT_Lot(txtSoPNK.EditValue.ToString());
+                    txtSolo.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+                    txtSolo.Properties.DisplayMember = "NO_LOT";
+                    txtSolo.Properties.ValueMember = "NO_LOT";
                     txtSolo.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
                 };
 
@@ -143,11 +126,10 @@ namespace Production.Class
                 {
                     dteHSD.Text = RCB.RECEIPT_ExpDate_ItemName(txtSoPNK.EditValue.ToString(), txtSolo.EditValue.ToString()).Rows[0]["DP_PEREMP"].ToString();
                     txtTenNL.Text = RCB.RECEIPT_ExpDate_ItemName(txtSoPNK.EditValue.ToString(), txtSolo.EditValue.ToString()).Rows[0]["LB_MAT"].ToString();
-
                 }
                 //Exp Date
                 if (ActStatus == "N")
-                    LayoutControlLan.Text                                 = PKB.PKN_Lan(txtSolo.EditValue.ToString()).ToString();
+                    LayoutControlLan.Text = PKB.PKN_Lan(txtSolo.EditValue.ToString()).ToString();
             };
             ///////////////////////////////
             // 0 : Fail
@@ -160,13 +142,12 @@ namespace Production.Class
                 {
                     PassFail = "1";
                     chkFail.CheckState = CheckState.Unchecked;
-                }                    
+                }
                 else
                 {
                     PassFail = "0";
                     chkFail.CheckState = CheckState.Checked;
-                }                   
-
+                }
             };
 
             chkFail.CheckedChanged += (s, e) =>
@@ -216,7 +197,7 @@ namespace Production.Class
                 };
             btnSave2.Click += (s, e) =>
                 {
-                    PKB.KLPKN_Update(int.Parse(txtSoPKN.Text.ToString()),txtKL.Text,PassFail);
+                    PKB.KLPKN_Update(int.Parse(txtSoPKN.Text.ToString()), txtKL.Text, PassFail);
                 };
 
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
@@ -226,14 +207,15 @@ namespace Production.Class
                 {
                     if (e.Column.FieldName == "KQTT")
                         //XtraMessageBox.Show("cell changed");
-                        PKB.KQPKN_Update(int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString()),float.Parse(gridView1.GetFocusedRowCellValue("KQTT").ToString()));
-                };            
+                        PKB.KQPKN_Update(int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString()), float.Parse(gridView1.GetFocusedRowCellValue("KQTT").ToString()));
+                };
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
             try
             {
-                TDcontrolReadonly(false);                
+                TDcontrolReadonly(false);
             }
             catch (Exception ex)
             {
@@ -245,7 +227,7 @@ namespace Production.Class
         {
             R_PKN RPKN = new R_PKN();
             RPKN.SoPKN = txtSoPKN.Text.ToString();
-            if( this.Lan == 1 )
+            if (this.Lan == 1)
                 RPKN.Lan = 1; //Mặc định gán = 1 ---- int.Parse(txtLan.Text.ToString());
             else
                 RPKN.Lan = int.Parse(txtLan.Text.ToString());
@@ -271,25 +253,24 @@ namespace Production.Class
             txtQCDG.ReadOnly = bl;
             txtSLNhan.ReadOnly = bl;
             txtSolo.ReadOnly = bl;
-            txtSoPNK.ReadOnly = bl;            
-
+            txtSoPNK.ReadOnly = bl;
         }
+
         public void KQcontrolReadonly(bool bl)
         {
             gridView1.OptionsBehavior.ReadOnly = bl;
-
         }
+
         public void KLcontrolEnabled(bool bl)
         {
             txtKL.Enabled = bl;
             chkFail.Enabled = bl;
             chkPass.Enabled = bl;
             btnSave2.Enabled = bl;
-
         }
+
         /////////////////////
         //Set popup width for LookupEdit
         /////////////////////
-                
     }
 }

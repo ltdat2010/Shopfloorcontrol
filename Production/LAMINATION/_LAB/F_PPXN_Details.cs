@@ -1,18 +1,20 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using DevExpress.XtraBars;
+using System;
 using System.IO;
-using DevExpress.XtraBars;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PPXN_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -25,15 +27,15 @@ namespace Production.Class
                 }
             }
         }
+
         public PhuongPhapXetNghiem OBJ = new PhuongPhapXetNghiem();
-        PhuongPhapXetNghiemBUS BUS = new PhuongPhapXetNghiemBUS();
+        private PhuongPhapXetNghiemBUS BUS = new PhuongPhapXetNghiemBUS();
 
         public F_PPXN_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
-
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
                 action_EndForm1.Update_Status(false);
@@ -50,15 +52,12 @@ namespace Production.Class
                 else if (isAction == "Add")
                     txtID.ReadOnly = true;
             };
-            
 
             //Action_EndForm
             //action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
             //action_EndForm1.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update));
             action_EndForm1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
             action_EndForm1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
-
-
         }
 
         private void ItemClickEventHandler_Save(object sender, ItemClickEventArgs e)
@@ -108,7 +107,6 @@ namespace Production.Class
             txtDienGiai.Text = OBJ.PPXNDG;
             txtNote.Text = OBJ.Note;
             cmbKhoa.Text = OBJ.Locked.ToString();
-
         }
 
         public void Set4Object()
@@ -120,6 +118,7 @@ namespace Production.Class
             OBJ.Note = txtNote.Text;
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
         }
+
         public void ResetControl()
         {
             txtID.Text = "";
@@ -138,6 +137,5 @@ namespace Production.Class
             txtNote.ReadOnly = bl;
             cmbKhoa.ReadOnly = bl;
         }
-
     }
 }

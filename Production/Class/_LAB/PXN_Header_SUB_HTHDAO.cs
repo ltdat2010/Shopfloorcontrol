@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,9 +7,8 @@ namespace Production.Class
     {
         public void PXN_Header_SUB_HTHDAO_INSERT(PXN_Header_SUB_HTH OBJ)
         {
-            
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header_SUB_HTH] " +
-           " ([MaSoPXN] " +           
+           " ([MaSoPXN] " +
            " ,[NgayLayMau] " +
            " ,[Tuoi] " +
            " ,[LoaiDV] " +
@@ -30,7 +23,7 @@ namespace Production.Class
            " ,[Note] " +
            " ,[Locked]) " +
      " VALUES " +
-           "(N'" + OBJ.MaSoPXN +           
+           "(N'" + OBJ.MaSoPXN +
            "',CONVERT(datetime,'" + OBJ.NgayLayMau +
            "',103),N'" + OBJ.Tuoi +
            "',N'" + OBJ.LoaiDV +
@@ -76,10 +69,6 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header_SUB_HTH]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
     }
-
 }
-
-

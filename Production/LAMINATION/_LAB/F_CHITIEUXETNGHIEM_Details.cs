@@ -1,19 +1,21 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using DevExpress.XtraBars;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_CHITIEUXETNGHIEM_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -26,13 +28,14 @@ namespace Production.Class
                 }
             }
         }
+
         public CHITIEUXETNGHIEM CUS = new CHITIEUXETNGHIEM();
-        CHITIEUXETNGHIEMBUS CUSBUS = new CHITIEUXETNGHIEMBUS();
+        private CHITIEUXETNGHIEMBUS CUSBUS = new CHITIEUXETNGHIEMBUS();
 
         public F_CHITIEUXETNGHIEM_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
@@ -49,9 +52,6 @@ namespace Production.Class
                 }
                 else if (isAction == "Add")
                     txtID.ReadOnly = true;
-
-
-                
             };
 
             //lkePPXNID.EditValueChanged += (s, e) =>
@@ -136,7 +136,7 @@ namespace Production.Class
         {
             txtID.Text = CUS.ID.ToString();
             //lkeLoaiDN.EditValue                 = CUS.CUSTTYPECode;
-            
+
             //if (lkeLoaiDN.EditValue.ToString() == "L01")
             //{
             //    lkeMaDN.Text = CUS.CUSTCODE;
@@ -146,21 +146,19 @@ namespace Production.Class
             //{
             //    txtMaDN2.Text = CUS.CUSTCODE;
             //    txtTenDN2.Text = CUS.CUSTNAME;
-            //}             
-            
-            
-            txtCTXN.Text                        = CUS.CTXN;
-            txtCTXNDG.Text                      = CUS.CTXNDG ;
-            txtCTXNDGTA.Text                    = CUS.CTXNDGTA;
-            lkeNCTXNID.EditValue                = CUS.NCTXNID;
-            cmbKhoa.Text                        = CUS.Locked.ToString() ;
-            lkePPXNID.EditValue                 = CUS.PPXNID;
-            txtUnitValue.Text                   = CUS.UnitValue;
-            txtNote.Text                        = CUS.Note ;
-            txtMaCTXN.Text                      = CUS.MaCTXN;
+            //}
+
+            txtCTXN.Text = CUS.CTXN;
+            txtCTXNDG.Text = CUS.CTXNDG;
+            txtCTXNDGTA.Text = CUS.CTXNDGTA;
+            lkeNCTXNID.EditValue = CUS.NCTXNID;
+            cmbKhoa.Text = CUS.Locked.ToString();
+            lkePPXNID.EditValue = CUS.PPXNID;
+            txtUnitValue.Text = CUS.UnitValue;
+            txtNote.Text = CUS.Note;
+            txtMaCTXN.Text = CUS.MaCTXN;
             txtAcronym.Text = CUS.Acronym;
             cmbUoM.Text = CUS.UoM.ToString();
-
         }
 
         public void Set4Object()
@@ -171,55 +169,52 @@ namespace Production.Class
                 //MessageBox.Show("txtID.Text.ToString()" + txtID.Text.ToString());
             }
 
-            
-            CUS.CTXN                    = txtCTXN.Text;
+            CUS.CTXN = txtCTXN.Text;
             //MessageBox.Show("txtCTXN.Text" + txtCTXN.Text);
-            CUS.CTXNDG                  = txtCTXNDG.Text;
+            CUS.CTXNDG = txtCTXNDG.Text;
             //MessageBox.Show("txtCTXNDG.Text" + txtCTXNDG.Text);
-            CUS.CTXNDGTA                = txtCTXNDGTA.Text;
+            CUS.CTXNDGTA = txtCTXNDGTA.Text;
             //MessageBox.Show("txtCTXNDGTA.Text" + txtCTXNDGTA.Text);
-            CUS.Locked                  = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
+            CUS.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
             //MessageBox.Show("cmbKhoa.SelectedText.ToString()" + cmbKhoa.SelectedText.ToString());
-            CUS.NCTXNID                 = int.Parse(lkeNCTXNID.EditValue.ToString());
+            CUS.NCTXNID = int.Parse(lkeNCTXNID.EditValue.ToString());
             //MessageBox.Show("lkeNCTXNID.EditValue.ToString()" + lkeNCTXNID.EditValue.ToString());
-            CUS.PPXNID                  = int.Parse(lkePPXNID.EditValue.ToString());
+            CUS.PPXNID = int.Parse(lkePPXNID.EditValue.ToString());
             //MessageBox.Show("lkePPXNID.EditValue.ToString()" + lkePPXNID.EditValue.ToString());
-            CUS.MinValue                = txtMinValue.Text;
+            CUS.MinValue = txtMinValue.Text;
             //MessageBox.Show("txtMinValue.Text" + txtMinValue.Text);
-            CUS.MaxValue                = txtMaxValue.Text;
+            CUS.MaxValue = txtMaxValue.Text;
             //MessageBox.Show("txtMaxValue.Text" + txtMaxValue.Text);
-            CUS.UnitValue               = txtUnitValue.Text;
+            CUS.UnitValue = txtUnitValue.Text;
             //MessageBox.Show("txtUnitValue.Text" + txtUnitValue.Text);
-            CUS.Note                    = txtNote.Text;
+            CUS.Note = txtNote.Text;
 
-            CUS.MaCTXN                  = txtMaCTXN.Text;
+            CUS.MaCTXN = txtMaCTXN.Text;
 
-            CUS.Acronym                 = txtAcronym.Text;
+            CUS.Acronym = txtAcronym.Text;
 
-            CUS.UoM                     = cmbUoM.Text.ToString();
-
-
+            CUS.UoM = cmbUoM.Text.ToString();
         }
+
         public void ResetControl()
         {
-            
             //lkeMaDN.Text = "";
             //txtTenDN.Text = "";
-            txtCTXN.Text            = "";
-            txtCTXNDG.Text          = "";
-            txtCTXNDGTA.Text        = "";
-            lkeNCTXNID.Text         = "";
-            cmbKhoa.Text            = "";
-            lkePPXNID.EditValue     = null;
-            txtNote.Text            = "";
-            txtMaCTXN.Text          = "";
-            txtAcronym.Text         = "";
+            txtCTXN.Text = "";
+            txtCTXNDG.Text = "";
+            txtCTXNDGTA.Text = "";
+            lkeNCTXNID.Text = "";
+            cmbKhoa.Text = "";
+            lkePPXNID.EditValue = null;
+            txtNote.Text = "";
+            txtMaCTXN.Text = "";
+            txtAcronym.Text = "";
             cmbUoM.Text = "";
         }
+
         //
         public void ControlsReadOnly(bool bl)
         {
-            
             txtCTXN.ReadOnly = bl;
             txtCTXNDG.ReadOnly = bl;
             txtCTXNDGTA.ReadOnly = bl;
@@ -238,7 +233,6 @@ namespace Production.Class
             this.tbl_PhuongPhapXetNghiem_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_PhuongPhapXetNghiem_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB' table. You can move, or remove it, as needed.
             this.tbl_NhomChiTieuXetNghiem_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB);
-
         }
     }
 }

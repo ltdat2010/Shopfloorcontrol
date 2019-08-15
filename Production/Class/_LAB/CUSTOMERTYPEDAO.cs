@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
     public class CUSTOMERTYPEDAO
     {
         public void CUSTOMERTYPE_INSERT(CUSTOMERTYPE CUSTTYPE)
-        {     
+        {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO[SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMERTYPE_LAB] " +
            " ([CUSTTYPECode] " +
            " ,[CUSTTYPEName] " +
@@ -31,7 +25,7 @@ namespace Production.Class
         }
 
         public void CUSTOMERTYPE_UPDATE(CUSTOMERTYPE CUSTTYPE)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMERTYPE_LAB] SET" +
            "[CUSTTYPEName] = N'" + CUSTTYPE.CUSTTYPEName + "'" +
            //",[LOCCode] = '" + MINStart + "' " +
@@ -44,13 +38,8 @@ namespace Production.Class
 
         public void CUSTOMERTYPE_DELETE(CUSTOMERTYPE CUSTTYPE)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMERTYPE_LAB] " +
-           " WHERE [CUSTTYPECode]='" + CUSTTYPE.CUSTTYPECode + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMERTYPE_LAB] " +
+            " WHERE [CUSTTYPECode]='" + CUSTTYPE.CUSTTYPECode + "'", CommandType.Text);
         }
-
-
     }
-
 }
-
-

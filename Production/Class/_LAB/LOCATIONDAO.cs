@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -27,12 +21,12 @@ namespace Production.Class
            "',Convert(datetime,'" + DateTime.Now +
            "',103),N'" + LOC.CreatedBy +
            "',N'" + LOC.Note +
-           "','" + LOC.Locked + 
+           "','" + LOC.Locked +
            "')", CommandType.Text);
         }
 
         public void LOCATION_UPDATE(LOCATION LOC)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_LOCATION_LAB] SET" +
            "[LOCName] = N'" + LOC.LOCName + "'" +
            ",[LOCCode] = N'" + LOC.LOCCode + "'" +
@@ -45,13 +39,8 @@ namespace Production.Class
 
         public void LOCATION_DELETE(LOCATION LOC)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_LOCATION_LAB] " +
-           " WHERE [LOCCode]='" + LOC.LOCCode + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_LOCATION_LAB] " +
+            " WHERE [LOCCode]='" + LOC.LOCCode + "'", CommandType.Text);
         }
-
-
     }
-
 }
-
-

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 
 namespace Production.Class
 {
     public class MYCOTOXIN_RESULT_LinesBUS
     {
-        MYCOTOXIN_RESULT_LinesDAO DAO = new MYCOTOXIN_RESULT_LinesDAO();
+        private MYCOTOXIN_RESULT_LinesDAO DAO = new MYCOTOXIN_RESULT_LinesDAO();
+
         public void MYCOTOXIN_RESULT_Lines_INSERT(MYCOTOXIN_RESULT_Lines OBJ)
         {
             DAO.MYCOTOXIN_RESULT_Lines_INSERT(OBJ);
@@ -52,7 +52,4 @@ namespace Production.Class
             return DAO.MYCOTOXIN_RESUTL_Lines_AnalysisReport(SoPXN);
         }
     }
-
 }
-
-

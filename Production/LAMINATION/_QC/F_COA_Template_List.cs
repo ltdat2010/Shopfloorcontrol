@@ -1,16 +1,16 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
     public partial class F_COA_Template_List : UC_Base
     {
-        COA_Template_Header OBJ = new COA_Template_Header();
+        private COA_Template_Header OBJ = new COA_Template_Header();
 
-        COA_Template_HeaderBUS BUS = new COA_Template_HeaderBUS();
-        HangMucKiemTraBUS BUS1 = new HangMucKiemTraBUS();
-        
+        private COA_Template_HeaderBUS BUS = new COA_Template_HeaderBUS();
+        private HangMucKiemTraBUS BUS1 = new HangMucKiemTraBUS();
+
         public F_COA_Template_List()
         {
             InitializeComponent();
@@ -20,11 +20,10 @@ namespace Production.Class
                     OBJ.CreatedBy = user.Username;
 
                     gridControl1.DataSource = tbl_COA_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA_Template_Header);
-                    
+
                     gridView1.BestFitColumns();
-                    
+
                     gridView1.OptionsBehavior.ReadOnly = true;
-                   
                 };
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
 
@@ -48,7 +47,7 @@ namespace Production.Class
                     //txtID.Text = gridView1.GetFocusedRowCellValue("ID").ToString();
                     //txtCOA.Text = gridView1.GetFocusedRowCellValue("COA").ToString();
                     //gridControl2.DataSource = COB.COA_Template(int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString()));
-                };       
+                };
         }
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
@@ -63,14 +62,14 @@ namespace Production.Class
             FRM.OBJ = this.OBJ;
             FRM.myFinished += this.finished;
             FRM.Show();
-            //    txtID.Text = COB.COA_Template_Max_COAID().ToString();            
+            //    txtID.Text = COB.COA_Template_Max_COAID().ToString();
             //    ControlsReadOnly(false);
-            //    gridView2.OptionsBehavior.Editable = true;               
+            //    gridView2.OptionsBehavior.Editable = true;
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -91,14 +90,14 @@ namespace Production.Class
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
             //    isNew = false;
             //    if(txtID.Text.Length > 0)
-            //    {                
+            //    {
             //        ControlsReadOnly(false);
-            //        gridView2.OptionsBehavior.Editable = true;       
-            //    }            
+            //        gridView2.OptionsBehavior.Editable = true;
+            //    }
         }
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
-        {        
+        {
         }
 
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
@@ -141,7 +140,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -158,12 +157,10 @@ namespace Production.Class
 
         private void ItemClickEventHandler_CSV(object sender, EventArgs e)
         {
-
         }
 
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
-
         }
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
@@ -172,27 +169,26 @@ namespace Production.Class
         }
 
         //public void ResetControl()
-        //{            
-        //    gridControl1.DataSource = tbl_COATableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA);           
-        //    txtID.Text = "";            
+        //{
+        //    gridControl1.DataSource = tbl_COATableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA);
+        //    txtID.Text = "";
         //}
 
         //public void ControlsReadOnly(bool bl)
         //{
-        //    txtCOA.ReadOnly = bl;            
-        //} 
+        //    txtCOA.ReadOnly = bl;
+        //}
 
         public void Set4Object()
         {
-            OBJ.ID              = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-            OBJ.COATemplate     = gridView1.GetFocusedRowCellValue("COATemplate").ToString();
-            OBJ.COADescription  = gridView1.GetFocusedRowCellValue("COADescription").ToString();
-            OBJ.Note            = gridView1.GetFocusedRowCellValue("Note").ToString();
-            OBJ.Locked          = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
+            OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+            OBJ.COATemplate = gridView1.GetFocusedRowCellValue("COATemplate").ToString();
+            OBJ.COADescription = gridView1.GetFocusedRowCellValue("COADescription").ToString();
+            OBJ.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
+            OBJ.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
             //XtraMessageBox.Show(string.IsNullOrEmpty(gridView1.GetFocusedRowCellValue("IMGCOA").ToString()).ToString());
-            if(string.IsNullOrEmpty(gridView1.GetFocusedRowCellValue("IMGCOA").ToString()) == false)
-                OBJ.IMGCOA          = (byte[])gridView1.GetFocusedRowCellValue("IMGCOA");            
-
+            if (string.IsNullOrEmpty(gridView1.GetFocusedRowCellValue("IMGCOA").ToString()) == false)
+                OBJ.IMGCOA = (byte[])gridView1.GetFocusedRowCellValue("IMGCOA");
         }
 
         public void finished(object sender, string isActionReturn)
@@ -203,27 +199,25 @@ namespace Production.Class
 
             if (isActionReturn == "Edit")
                 frm.Close();
-            
+
             // Step 2 : Load lại daisActionReturnta tren grid sau khi Add
             gridControl1.DataSource = tbl_COA_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA_Template_Header);
 
             gridView1.BestFitColumns();
-
         }
 
-        static byte[] GetBytes(string str)
+        private static byte[] GetBytes(string str)
         {
             byte[] bytes = new byte[str.Length * sizeof(char)];
             System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
             return bytes;
         }
 
-        static string GetString(byte[] bytes)
+        private static string GetString(byte[] bytes)
         {
             char[] chars = new char[bytes.Length / sizeof(char)];
             System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
         }
-
     }
 }

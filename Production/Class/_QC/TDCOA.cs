@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
     public class TDCOA
     {
-            public TDCOA(
-            int ID,
-            int COAID,
-            int HMKTID,
-            string Value,
-            string Tolerance,
-            string ValueVN,
-            string ToleranceVN,
-            DateTime CreatedDate,
-            string CreatedBy,
-            string Note,
-            bool Locked
-            )
+        public TDCOA(
+        int ID,
+        int COAID,
+        int HMKTID,
+        string Value,
+        string Tolerance,
+        string ValueVN,
+        string ToleranceVN,
+        DateTime CreatedDate,
+        string CreatedBy,
+        string Note,
+        bool Locked
+        )
         {
             this._ID = ID;
             this._COAID = COAID;
@@ -32,12 +29,12 @@ namespace Production.Class
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public TDCOA()
         {
-
         }
+
         private int _ID;
 
         public int ID
@@ -95,6 +92,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -102,6 +100,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -109,12 +108,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }

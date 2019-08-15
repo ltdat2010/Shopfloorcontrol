@@ -1,42 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
-using DevExpress.XtraGrid;
-using System.Globalization;
 
 namespace Production.Class
 {
     public partial class frm_COA : frm_Base
     {
-        COABUS COB = new COABUS();        
-        public string CD_OF ;
+        private COABUS COB = new COABUS();
+        public string CD_OF;
         public string LB_MAT;
-        public string ActStatus ;
-        public string SoCOA ;                              
+        public string ActStatus;
+        public string SoCOA;
+
         public frm_COA()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 //XtraMessageBox.Show("WO : "+CD_OF.ToString());
                 gridControl1.DataSource = COB.KQCOA_Search_COAID(0, "null");
                 gridControl2.DataSource = COB.KQCOA_Search_COAID(0, "null");
-                        
+
                 action1.Add_Status(false);
                 action1.Edit_Status(false);
-                //controlReadonly(true);                
+                //controlReadonly(true);
                 tbl_COATableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_COA_Template_Header);
                 //if (COB.TDCOA_Visible(CD_OF).Rows.Count > 0)
                 //    ActStatus = "E";
@@ -46,13 +33,13 @@ namespace Production.Class
                 if (ActStatus == "E")
                 {
                     //XtraMessageBox.Show(SoCOA.ToString());
-                    DataTable dt                            = new DataTable();
+                    DataTable dt = new DataTable();
                     //dt                                      = COB.TDCOA_Search(CD_OF);
-                    dt                                      = COB.TDCOA_Search(SoCOA);
-                    DataRow dr                              = dt.Rows[0];
+                    dt = COB.TDCOA_Search(SoCOA);
+                    DataRow dr = dt.Rows[0];
                     //XtraMessageBox.Show(dr["SoPNK"].ToString());
                     txtSoCOA.Text = dr["SoCOA"].ToString();
-                    txtWO.EditValue = dr["WO"].ToString();                   
+                    txtWO.EditValue = dr["WO"].ToString();
                     //txtSolo.EditValue                       = dr["Solo"].ToString();
                     //txtSLNhan.Text                          = dr["SLNhan"].ToString();
                     lkeTemplate.EditValue = dr["COATemplateID"].ToString();
@@ -60,8 +47,8 @@ namespace Production.Class
                     dteSmpDate.Text = dr["SmpDate"].ToString();
                     dteAnlDate.Text = dr["AnlDate"].ToString();
                     dteManfDate.Text = dr["ManfDate"].ToString();
-                    dteExpDate.Text = dr["ExpDate"].ToString();                    
-                    gridControl1.DataSource = COB.KQCOA_Search(dr["SoCOA"].ToString(),"Physical");
+                    dteExpDate.Text = dr["ExpDate"].ToString();
+                    gridControl1.DataSource = COB.KQCOA_Search(dr["SoCOA"].ToString(), "Physical");
                     gridView1.BestFitColumns();
                     gridControl2.DataSource = COB.KQCOA_Search(dr["SoCOA"].ToString(), "Chemical");
                     gridView2.BestFitColumns();
@@ -69,7 +56,7 @@ namespace Production.Class
                 else if (ActStatus == "N")
                 {
                     KQcontrolReadonly(true);
-                    
+
                     //PKN
                     txtSoCOA.Text = COB.COA_Template_Max_COAID().ToString();
                     //PNK
@@ -82,7 +69,6 @@ namespace Production.Class
                 }
                 else if (ActStatus == "V")
                 {
-                    
                     DataTable dt = new DataTable();
                     dt = COB.TDCOA_Search(SoCOA);
                     //XtraMessageBox.Show(dt.Rows.Count.ToString());
@@ -105,10 +91,7 @@ namespace Production.Class
                     gridView2.BestFitColumns();
                     TDcontrolReadonly(true);
                     KQcontrolReadonly(true);
-                    
                 }
-                    
-
 
                 //txtWO.Properties.DataSource       = PKB.PKN_Template_View();
                 //txtWO.Properties.SearchMode       = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
@@ -123,7 +106,6 @@ namespace Production.Class
                 //if(PKB.KQPKN_Visible(SoPNK,SoLo).Rows.Count > 0)
 
                 //else
-
             };
             lkeTemplate.TextChanged += (s, e) =>
             {
@@ -140,7 +122,6 @@ namespace Production.Class
                     //XtraMessageBox.Show(gridView1.GetFocusedRowCellValue("COATemplateID").ToString());
                     COB.KQCOA_Update(int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString()), gridView1.GetFocusedRowCellValue("Result").ToString());
                 }
-                    
             };
 
             gridView2.CellValueChanged += (s, e) =>
@@ -163,7 +144,7 @@ namespace Production.Class
             //txtSolo.TextChanged += (s, e) =>
             //{
             //    //Exp Date
-            //    dteHSD.Text = RCB.RECEIPT_ExpDate(txtSoPNK.EditValue.ToString(), txtSolo.EditValue.ToString()).Rows[0]["DP_PEREMP"].ToString(); 
+            //    dteHSD.Text = RCB.RECEIPT_ExpDate(txtSoPNK.EditValue.ToString(), txtSolo.EditValue.ToString()).Rows[0]["DP_PEREMP"].ToString();
             //};
             ///////////////////////////////
             // 0 : Fail
@@ -176,12 +157,12 @@ namespace Production.Class
             //    {
             //        PassFail = "1";
             //        chkFail.CheckState = CheckState.Unchecked;
-            //    }                    
+            //    }
             //    else
             //    {
             //        PassFail = "0";
             //        chkFail.CheckState = CheckState.Checked;
-            //    }                   
+            //    }
 
             //};
 
@@ -205,14 +186,14 @@ namespace Production.Class
                     if (COB.TDCOA_Visible(txtWO.Text.ToString()).Rows.Count <= 0)
                     {
                         COB.TDCOA_Insert(int.Parse(txtSoCOA.Text.ToString())
-                            ,int.Parse(lkeTemplate.EditValue.ToString())
-                            ,txtWO.Text
-                            ,txtManfBy.Text
+                            , int.Parse(lkeTemplate.EditValue.ToString())
+                            , txtWO.Text
+                            , txtManfBy.Text
                             , dteSmpDate.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteSmpDate.Text.ToString())
                             , dteExpDate.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteExpDate.Text.ToString())
                             , dteAnlDate.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteAnlDate.Text.ToString())
                             , dteManfDate.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteManfDate.Text.ToString())
-                            ,LB_MAT);
+                            , LB_MAT);
                         //XtraMessageBox.Show(dteNgayNhan.Text.Length == 0 ? DateTime.Today.ToString() : DateTime.Parse(dteNgayNhan.Text, CultureInfo.CreateSpecificCulture("en-GB")).ToString());
                         //Insert TieuDe PKN
                         //PKB.TDPKN_Insert(
@@ -229,7 +210,7 @@ namespace Production.Class
                         //                );
                         //Insert template -> KQPKN
                         //foreach (DataRow dr in COB.COA_Template_Search(int.Parse(txtWO.EditValue.ToString())).Rows)
-                            //COB.KQCOA_Insert(int.Parse(txtSoCOA.Text), dr);
+                        //COB.KQCOA_Insert(int.Parse(txtSoCOA.Text), dr);
                         for (int i = 0; i <= gridView1.DataRowCount - 1; i++)
                             COB.KQCOA_Insert(int.Parse(txtSoCOA.Text), gridView1.GetDataRow(i));
 
@@ -238,13 +219,12 @@ namespace Production.Class
 
                         gridControl1.DataSource = COB.KQCOA_Search(txtSoCOA.Text.ToString(), "Physical");
                         gridControl2.DataSource = COB.KQCOA_Search(txtSoCOA.Text.ToString(), "Chemical");
-                        //PKB.KLPKN_Insert(int.Parse(txtSoCOA.Text.ToString()), txtKL.Text, PassFail);                        
-                        gridView1.BestFitColumns();                        
+                        //PKB.KLPKN_Insert(int.Parse(txtSoCOA.Text.ToString()), txtKL.Text, PassFail);
+                        gridView1.BestFitColumns();
                         gridView2.BestFitColumns();
                         TDcontrolReadonly(true);
                         btnSave.Enabled = false;
                         KQcontrolReadonly(false);
-                        
                     }
                 };
             //btnSave2.Click += (s, e) =>
@@ -259,14 +239,15 @@ namespace Production.Class
                 {
                     if (e.Column.FieldName == "Result")
                         //XtraMessageBox.Show("cell changed");
-                        COB.KQCOA_Update(int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString()),gridView1.GetFocusedRowCellValue("Result").ToString());
-                };            
+                        COB.KQCOA_Update(int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString()), gridView1.GetFocusedRowCellValue("Result").ToString());
+                };
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
             try
             {
-                TDcontrolReadonly(false);                
+                TDcontrolReadonly(false);
             }
             catch (Exception ex)
             {
@@ -296,22 +277,21 @@ namespace Production.Class
 
         public void TDcontrolReadonly(bool bl)
         {
-            this.txtWO.Properties.ReadOnly              = bl;
-            txtManfBy.ReadOnly                          = bl;
-            lkeTemplate.Properties.ReadOnly             = bl;
-            txtManfBy.ReadOnly                          = bl;
-            dteAnlDate.ReadOnly                         = bl;
-            dteExpDate.ReadOnly                         = bl;
-            dteManfDate.ReadOnly                        = bl;
-            dteSmpDate.ReadOnly                         = bl;   
-            
-
+            this.txtWO.Properties.ReadOnly = bl;
+            txtManfBy.ReadOnly = bl;
+            lkeTemplate.Properties.ReadOnly = bl;
+            txtManfBy.ReadOnly = bl;
+            dteAnlDate.ReadOnly = bl;
+            dteExpDate.ReadOnly = bl;
+            dteManfDate.ReadOnly = bl;
+            dteSmpDate.ReadOnly = bl;
         }
+
         public void KQcontrolReadonly(bool bl)
         {
             gridView1.OptionsBehavior.ReadOnly = bl;
             gridView2.OptionsBehavior.ReadOnly = bl;
-        }        
+        }
 
         private void frm_COA_Load(object sender, EventArgs e)
         {
@@ -321,11 +301,10 @@ namespace Production.Class
             this.tbl_COATableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_COA_Template_Header);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KQCOA' table. You can move, or remove it, as needed.
             //this.tbl_KQCOATableAdapter.FillBySoPKN(this.sYNC_NUTRICIELDataSet.tbl_KQCOA);
-
         }
+
         /////////////////////
         //Set popup width for LookupEdit
         /////////////////////
-                
     }
 }

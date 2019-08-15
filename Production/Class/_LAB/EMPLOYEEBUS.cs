@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class EMPLOYEEBUS
     {
-        EMPLOYEEDAO EMPDAO = new EMPLOYEEDAO();     
+        private EMPLOYEEDAO EMPDAO = new EMPLOYEEDAO();
+
         public void EMPLOYEE_INSERT(EMPLOYEE EMP)
         {
             EMPDAO.EMPLOYEE_INSERT(EMP);
@@ -26,10 +18,5 @@ namespace Production.Class
         {
             EMPDAO.EMPLOYEE_DELETE(EMP);
         }
-
-
     }
-
 }
-
-

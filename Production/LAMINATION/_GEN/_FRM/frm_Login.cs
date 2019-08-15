@@ -1,55 +1,61 @@
-﻿using System;
-using System.Globalization;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Xml;
+using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
-
+using System.Windows.Forms;
+using System.Xml;
 
 namespace Production.Class
 {
     public partial class frm_Login : frm_Base
     {
         public bool ischkDashBoardEnabled;
-        public delegate void MyLogin( User user,bool status);
-        public event MyLogin mylogin;        
-        public delegate void MyClose(object sender,bool isDashboardEnabled);
+
+        public delegate void MyLogin(User user, bool status);
+
+        public event MyLogin mylogin;
+
+        public delegate void MyClose(object sender, bool isDashboardEnabled);
+
         public event MyClose myclose;
 
         //User user = new User();
-        User_ user_ = new User_();
+        private User_ user_ = new User_();
 
-        CultureInfo culture;
+        private CultureInfo culture;
         public RijndaelManaged key = null;
 
-        string path = @"D:\pkl.xml";
+        private string path = @"D:\pkl.xml";
+
         public bool Is_close
         {
             set
             {
                 if (value)
                 {
-                    if (myclose != null) myclose(sender: this, isDashboardEnabled : ischkDashBoardEnabled);
+                    if (myclose != null) myclose(sender: this, isDashboardEnabled: ischkDashBoardEnabled);
                 }
             }
         }
+
         public bool Is_login
         {
             set
             {
                 if (value)
                 {
-                    if (mylogin != null) mylogin(status:true,user : user);
+                    if (mylogin != null) mylogin(status: true, user: user);
                 }
             }
         }
+
         public frm_Login()
-        {            
+        {
             InitializeComponent();
-            Load += (s, e) => {
+            Load += (s, e) =>
+            {
                 if (chkDashboard.CheckState == CheckState.Checked)
                     ischkDashBoardEnabled = true;
                 else
@@ -58,7 +64,7 @@ namespace Production.Class
                 simpleButton1.Enabled = false;
                 chkMSSQL.ReadOnly = true;
                 chkORACLE.ReadOnly = true;
-                //Kiểm tra kết nối  
+                //Kiểm tra kết nối
                 //---------------------------------------MSSQL------------------------------------
                 try
                 {
@@ -103,9 +109,9 @@ namespace Production.Class
                     //Console.WriteLine("## ERROR: " + ex.Message);
                     //Console.Read();
                     return;
-                }           
+                }
                 //check pkl
-                
+
                 XmlDocument document = new XmlDocument();
                 if (File.Exists(path))
                 {
@@ -120,29 +126,29 @@ namespace Production.Class
                         {
                             if (node.Name == "user")
                             {
-                                txtUsername.Text = Production.Class._GEN.EncryptKey.Decrypt(node.InnerText,true);
+                                txtUsername.Text = Production.Class._GEN.EncryptKey.Decrypt(node.InnerText, true);
                             }
                             if (node.Name == "pass")
                             {
-                                txtPassword.Text = Production.Class._GEN.EncryptKey.Decrypt(node.InnerText,true);
+                                txtPassword.Text = Production.Class._GEN.EncryptKey.Decrypt(node.InnerText, true);
                             }
                         }
-                    }                    
+                    }
                 }
                 else
                 {
                     checkEdit1.Checked = false;
-                }                
-            };                        
-            simpleButton1.Click += (s, e) => {
+                }
+            };
+            simpleButton1.Click += (s, e) =>
+            {
                 if (txtUsername.Text != "")
                 {
                     if (txtPassword.Text != "")
-                    {                       
-                        
+                    {
                         user.Username = txtUsername.Text;
                         user.Password = txtPassword.Text;
-                        
+
                         //user.Username = Production.Class._GEN.EncryptKey.Decrypt(txtUsername.Text, true);
                         //user.Password = Production.Class._GEN.EncryptKey.Decrypt(txtPassword.Text, true);
 
@@ -156,10 +162,10 @@ namespace Production.Class
                             {
                                 if (File.Exists(@"D:\pkl.xml"))
                                 {
-                                    File.Delete(@"D:\pkl.xml");                                    
+                                    File.Delete(@"D:\pkl.xml");
                                 }
-                                File.WriteAllText(@"D:\pkl.xml", "<xml><foo><user>" + Production.Class._GEN.EncryptKey.Encrypt(txtUsername.Text,true) + "</user> <pass>" + Production.Class._GEN.EncryptKey.Encrypt(txtPassword.Text,true) + "</pass></foo></xml>");
-                            }                                
+                                File.WriteAllText(@"D:\pkl.xml", "<xml><foo><user>" + Production.Class._GEN.EncryptKey.Encrypt(txtUsername.Text, true) + "</user> <pass>" + Production.Class._GEN.EncryptKey.Encrypt(txtPassword.Text, true) + "</pass></foo></xml>");
+                            }
                             //khong checked luu thi thoi khong luu ra
                             else
                             {
@@ -167,12 +173,12 @@ namespace Production.Class
                                 {
                                     File.Delete(@"D:\pkl.xml");
                                 }
-                            }                              
+                            }
                             ////////////////////////////////////////////////////////
                             user = user_.Login(txtUsername.Text, txtPassword.Text);
                             login_sts = true;
                             Is_login = true;
-                            Is_close = true; 
+                            Is_close = true;
                         }
                         else
                         {
@@ -213,14 +219,14 @@ namespace Production.Class
                     args.Buttons = new DialogResult[] { DialogResult.OK };
                     XtraMessageBox.Show(args).ToString();
                     txtUsername.Focus();
-                }          
+                }
             };
-            simpleButton2.Click += (s, e) => { Application.Exit(); };  
-            
-            hlkNewUser.Click += (s, e) => 
+            simpleButton2.Click += (s, e) => { Application.Exit(); };
+
+            hlkNewUser.Click += (s, e) =>
             {
                 frm_CreateUser FRM = new frm_CreateUser();
-                FRM.myFinished += this.finished ;
+                FRM.myFinished += this.finished;
                 FRM.Show();
             };
         }
@@ -242,7 +248,7 @@ namespace Production.Class
             else
             {
                 if (txtPassword.Text == "")
-                {                    
+                {
                     XtraMessageBoxArgs args = new XtraMessageBoxArgs();
                     args.AutoCloseOptions.Delay = 2000;
                     args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
@@ -255,7 +261,7 @@ namespace Production.Class
                 }
                 else
                 {
-                    if(user_.CheckUser(txtUsername.Text.ToString().Trim(), txtPassword.Text.ToString().Trim()) == true)
+                    if (user_.CheckUser(txtUsername.Text.ToString().Trim(), txtPassword.Text.ToString().Trim()) == true)
                     {
                         frm_ChangePass frm = new frm_ChangePass();
                         frm.user.Username = txtUsername.Text;
@@ -272,9 +278,9 @@ namespace Production.Class
                         args.Text = "Tên đăng nhập hoặc mật khẩu không đúng. Thông báo này sẽ tự đóng sau 2 giây.";
                         args.Buttons = new DialogResult[] { DialogResult.OK };
                         XtraMessageBox.Show(args).ToString();
-                    }                        
+                    }
                 }
-            }                        
+            }
         }
 
         //private void setLanguage(string cultureName)
@@ -284,8 +290,8 @@ namespace Production.Class
         //    //layoutControlItem1.Text = resource.GetString("Ten", culture);
         //    //layoutControlItem2.Text = resource.GetString("Matkhau", culture);
         //    //simpleButton1.Text = resource.GetString("Dangnhap", culture);
-        //    //simpleButton2.Text = resource.GetString("Thoat", culture);            
-        //}         
+        //    //simpleButton2.Text = resource.GetString("Thoat", culture);
+        //}
 
         public void finished(object sender)
         {
@@ -296,8 +302,7 @@ namespace Production.Class
             //var frm = (Form)sender;
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
-            this.Visible = true;            
+            this.Visible = true;
         }
-
     }
 }

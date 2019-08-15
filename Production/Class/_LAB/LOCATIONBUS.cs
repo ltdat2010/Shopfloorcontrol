@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class LOCATIONBUS
     {
-        LOCATIONDAO LOCDAO = new LOCATIONDAO();
+        private LOCATIONDAO LOCDAO = new LOCATIONDAO();
+
         public void LOCATION_INSERT(LOCATION LOC)
         {
             LOCDAO.LOCATION_INSERT(LOC);
@@ -26,10 +18,5 @@ namespace Production.Class
         {
             LOCDAO.LOCATION_DELETE(LOC);
         }
-
-
     }
-
 }
-
-

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -9,16 +6,16 @@ namespace Production.Class
     public class PO_Header
     {
         public PO_Header(
-            int ID,            
-            string SoPO, 
+            int ID,
+            string SoPO,
             string VENDCode,
             string VENDName,
             DateTime NgayLapPO,
-            DateTime NgayGiaoHang,            
+            DateTime NgayGiaoHang,
             string DiaChiGiaoHang,
             string PaymentTerm,
-            DateTime CreatedDate, 
-            string CreatedBy, 
+            DateTime CreatedDate,
+            string CreatedBy,
             bool Locked,
             string Note,
             string Discount
@@ -26,7 +23,7 @@ namespace Production.Class
             )
         {
             this._ID = ID;
-            this._SoPO = SoPO;            
+            this._SoPO = SoPO;
             this._VENDCode = VENDCode;
             this._VENDName = VENDName;
             this._NgayLapPO = NgayLapPO;
@@ -35,16 +32,17 @@ namespace Production.Class
             this._PaymentTerm = PaymentTerm;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;     
+            this._Locked = Locked;
             this._Note = Note;
             this._Discount = Discount;
         }
+
         public PO_Header()
         {
-
         }
 
         private int _ID;
+
         public int ID
         {
             get { return _ID; }
@@ -52,6 +50,7 @@ namespace Production.Class
         }
 
         private string _SoPO;
+
         public string SoPO
         {
             get { return _SoPO; }
@@ -59,6 +58,7 @@ namespace Production.Class
         }
 
         private string _VENDCode;
+
         public string VENDCode
         {
             get { return _VENDCode; }
@@ -66,6 +66,7 @@ namespace Production.Class
         }
 
         private string _VENDName;
+
         public string VENDName
         {
             get { return _VENDName; }
@@ -73,13 +74,15 @@ namespace Production.Class
         }
 
         private DateTime _NgayLapPO;
+
         public DateTime NgayLapPO
         {
             get { return _NgayLapPO; }
             set { _NgayLapPO = value; }
-        }        
+        }
 
         private DateTime _NgayGiaoHang;
+
         public DateTime NgayGiaoHang
         {
             get { return _NgayGiaoHang; }
@@ -87,6 +90,7 @@ namespace Production.Class
         }
 
         private string _DiaChiGiaoHang;
+
         public string DiaChiGiaoHang
         {
             get { return _DiaChiGiaoHang; }
@@ -94,13 +98,15 @@ namespace Production.Class
         }
 
         private string _PaymentTerm;
+
         public string PaymentTerm
         {
             get { return _PaymentTerm; }
             set { _PaymentTerm = value; }
-        }        
+        }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -108,6 +114,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -115,11 +122,12 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
-        }        
+        }
 
         private string _Note;
 
@@ -136,7 +144,5 @@ namespace Production.Class
             get { return _Discount; }
             set { _Discount = value; }
         }
-
-
     }
 }

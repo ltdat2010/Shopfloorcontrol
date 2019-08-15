@@ -1,29 +1,27 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Globalization;
-using DevExpress.XtraEditors;
-using System.Net.Mail;
-using System.Data;
-using System.Collections;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PTU_List : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
 
-        PTU_Header OBJ = new PTU_Header();
+        private PTU_Header OBJ = new PTU_Header();
 
-        PTU_Header_BUS BUS = new PTU_Header_BUS();
+        private PTU_Header_BUS BUS = new PTU_Header_BUS();
 
-        PTU_Header PTUH_OBJ = new PTU_Header();
-        PTU_Lines PTUL_OBJ = new PTU_Lines();
+        private PTU_Header PTUH_OBJ = new PTU_Header();
+        private PTU_Lines PTUL_OBJ = new PTU_Lines();
 
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender, string isActionReturn);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -36,9 +34,9 @@ namespace Production.Class
                 }
             }
         }
+
         public F_PTU_List()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
@@ -47,11 +45,10 @@ namespace Production.Class
                     OBJ.CreatedBy = user.Username;
 
                     tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);
-                  
-                    gridControl1.DataSource = tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);                    
-                    
+
+                    gridControl1.DataSource = tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);
+
                     gridView1.BestFitColumns();
-                                       
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -85,29 +82,28 @@ namespace Production.Class
                     Set4Object();
                 }
                 //if ((bool)gridView1.GetFocusedRowCellValue("BanGiaoMauStatus") == false)
-                    //btnGiaoMau.Enabled = true;
-            };                    
+                //btnGiaoMau.Enabled = true;
+            };
 
+            //btnGiaoMau.Click += (s, e) =>
+            //{
+            //    if (gridViewRowClick == true)
+            //    {
+            //        //Disable
+            //        this.Enabled = false;
+            //        //
+            //        R_PGM_LAB FRM = new Class.R_PGM_LAB();
+            //        FRM.OBJ = this.OBJ;
+            //        FRM.Show();
+            //    }
+            //    else
+            //        XtraMessageBox.Show("Vui lòng click vào đầu dòng cần giao mẫu ");
+            //};
+        }
 
-                //btnGiaoMau.Click += (s, e) =>
-                //{
-                //    if (gridViewRowClick == true)
-                //    {
-                //        //Disable
-                //        this.Enabled = false;
-                //        //
-                //        R_PGM_LAB FRM = new Class.R_PGM_LAB();
-                //        FRM.OBJ = this.OBJ;
-                //        FRM.Show();
-                //    }
-                //    else
-                //        XtraMessageBox.Show("Vui lòng click vào đầu dòng cần giao mẫu ");
-                //};
-            }
-        
         private void ItemClickEventHandler_Excel(object sender, EventArgs e)
         {
-            string filePath = @"D:\PNM_Created_"+DateTime.Now.ToShortDateString().Replace("/","_")+".xlsx";
+            string filePath = @"D:\PNM_Created_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
             gridView1.ExportToXlsx(filePath);
         }
 
@@ -124,7 +120,7 @@ namespace Production.Class
             F_PTU_LAB_Details FRM = new F_PTU_LAB_Details();
             FRM.isAction = this.isAction;
             //F_LOC_Dtl.OBJ = this.OBJ;
-            FRM.myFinished += this.finished ;
+            FRM.myFinished += this.finished;
             FRM.Show();
         }
 
@@ -132,7 +128,7 @@ namespace Production.Class
         {
             if (!gridView1.IsGroupRow(gridView1.FocusedRowHandle))
             {
-                // 25 isEditting gan bang true 
+                // 25 isEditting gan bang true
                 //isEditting = true;
                 isAction = "Edit";
 
@@ -155,11 +151,9 @@ namespace Production.Class
                     FRM.Show();
                     //XtraMessageBox.Show("Showed");
                 }
-
                 else
                     XtraMessageBox.Show("Vui lòng click vào đầu dòng cần chỉnh sửa ");
             }
-                
         }
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
@@ -176,7 +170,7 @@ namespace Production.Class
                 BUS.PTU_Header_UPDATE(OBJ);
 
             // 30 Gán du lieu ho datasource cua grid
-            gridControl1.DataSource = tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);            
+            gridControl1.DataSource = tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);
 
             gridView1.BestFitColumns();
             // 31 Tra lai trang thai ban dau cho IsNew
@@ -192,7 +186,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -209,12 +203,12 @@ namespace Production.Class
             FRM.myFinished += this.finished;
             FRM.Show();
         }
+
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
             //if (!gridView1.IsGroupRow(((DevExpress.XtraGrid.Views.Base.ColumnView)(sender)).FocusedRowHandle))
             if (!gridView1.IsGroupRow(gridView1.FocusedRowHandle))
             {
-
                 if (gridViewRowClick == true)
                 {
                     //Disable
@@ -230,7 +224,6 @@ namespace Production.Class
             }
         }
 
-
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
             // 14 Khai báo state cho các nút khi nhấn nút Del
@@ -243,11 +236,11 @@ namespace Production.Class
 
                 DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa phiếu xét nghiệm số : " + OBJ.SoPTU + " ?. Lưu ý là tất cả thông tin bao gồm cả kết quả, liên quan đến phiếu xét nghiệm này sẽ bị xóa. Bạn chắc chắn vẫn muốn xóa ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
-                {             
-                    BUS.PTU_Header_DELETE(OBJ.ID);                  
+                {
+                    BUS.PTU_Header_DELETE(OBJ.ID);
                 }
                 // 18 Load lại datasource cho grid
-                
+
                 gridControl1.DataSource = tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);
 
                 gridView1.BestFitColumns();
@@ -263,19 +256,19 @@ namespace Production.Class
         {
             this.Close();
         }
-     
+
         public void Set4Object()
         {
-            OBJ.ID                  = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-            OBJ.SoPTU               = gridView1.GetFocusedRowCellValue("SoPTU").ToString();
-            OBJ.NgayTamUng          = DateTime.Parse(gridView1.GetFocusedRowCellValue("NgayTamUng").ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
-            OBJ.NgayLapPhieu        = DateTime.Parse(gridView1.GetFocusedRowCellValue("NgayLapPhieu").ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
-            OBJ.PaymentTerm         = gridView1.GetFocusedRowCellValue("PaymentTerm").ToString();
-            OBJ.VENDCode            = gridView1.GetFocusedRowCellValue("VENDCode").ToString();
-            OBJ.VENDName            = gridView1.GetFocusedRowCellValue("VENDName").ToString();
-            OBJ.NoiDung             = gridView1.GetFocusedRowCellValue("NoiDung").ToString();            
-            OBJ.Locked              = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
-            OBJ.Note                = gridView1.GetFocusedRowCellValue("Note").ToString();
+            OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
+            OBJ.SoPTU = gridView1.GetFocusedRowCellValue("SoPTU").ToString();
+            OBJ.NgayTamUng = DateTime.Parse(gridView1.GetFocusedRowCellValue("NgayTamUng").ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            OBJ.NgayLapPhieu = DateTime.Parse(gridView1.GetFocusedRowCellValue("NgayLapPhieu").ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            OBJ.PaymentTerm = gridView1.GetFocusedRowCellValue("PaymentTerm").ToString();
+            OBJ.VENDCode = gridView1.GetFocusedRowCellValue("VENDCode").ToString();
+            OBJ.VENDName = gridView1.GetFocusedRowCellValue("VENDName").ToString();
+            OBJ.NoiDung = gridView1.GetFocusedRowCellValue("NoiDung").ToString();
+            OBJ.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
+            OBJ.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
         }
 
         public void finished(object sender)
@@ -292,9 +285,6 @@ namespace Production.Class
             gridControl1.DataSource = tbl_PTU_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PTU_Header_LAB);
 
             gridView1.BestFitColumns();
-
         }
-
-
     }
 }

@@ -11,17 +11,17 @@ namespace Production.Class
         //public event EventHandler Cancel;
         //public event EventHandler Report;
         public string btn = "";
+
         public Action_Function()
         {
             InitializeComponent();
-        
-        
         }
+
         public void PKN(ItemClickEventHandler handle)
         {
             BtnPKN.ItemClick += handle;
         }
-        
+
         public void COA(ItemClickEventHandler handle)
         {
             BtnCOA.ItemClick += handle;
@@ -32,23 +32,19 @@ namespace Production.Class
             BtnTrace.ItemClick += handle;
         }
 
-                       
         private Class.MenuState State;
 
         public Class.MenuState StateMenu
         {
             get { return State; }
-            set 
-            { 
+            set
+            {
                 State = value;
                 if (value == Class.MenuState.Update)
                 {
                     BtnPKN.Enabled = false;
                     BtnCOA.Enabled = false;
                     BtnTrace.Enabled = true;
-                    
-                    
-                      
                 }
                 else if (value == Class.MenuState.Full)
                 {
@@ -56,16 +52,13 @@ namespace Production.Class
                     BtnPKN.Enabled = false;
                     BtnCOA.Enabled = false;
                     BtnTrace.Enabled = true;
-
                 }
-
                 else if (value == Class.MenuState.Insert)
                 {
                     //BtnPKN.Enabled = true;
                     BtnPKN.Enabled = false;
                     BtnCOA.Enabled = false;
                     BtnTrace.Enabled = true;
-
                 }
                 else if (value == Class.MenuState.View)
                 {
@@ -73,7 +66,6 @@ namespace Production.Class
                     BtnPKN.Enabled = false;
                     BtnCOA.Enabled = false;
                     BtnTrace.Enabled = true;
-
                 }
                 else if (value == Class.MenuState.NotView)
                 {
@@ -81,11 +73,8 @@ namespace Production.Class
                     BtnPKN.Enabled = false;
                     BtnCOA.Enabled = false;
                     BtnTrace.Enabled = false;
-
                 }
-                
             }
-        }       
-        
+        }
     }
 }

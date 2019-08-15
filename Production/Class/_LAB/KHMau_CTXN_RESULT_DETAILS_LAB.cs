@@ -22,7 +22,7 @@ namespace Production.Class
             )
         {
             this._ID = ID;
-            this._KHMau_CTXN_ID = KHMau_CTXN_ID;      
+            this._KHMau_CTXN_ID = KHMau_CTXN_ID;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
             this._Note = Note;
@@ -36,17 +36,18 @@ namespace Production.Class
             this._Locked = Locked;
             this._LineNo = LineNo;
         }
+
         public KHMau_CTXN_RESULT_DETAILS_LAB()
         {
-
         }
+
         private int _ID;
 
         public int ID
         {
             get { return _ID; }
             set { _ID = value; }
-        }        
+        }
 
         private int _KHMau_CTXN_ID;
 
@@ -65,6 +66,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -72,6 +74,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -79,19 +82,23 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
             set { _Note = value; }
-        }        
+        }
 
         private string _MinVal;
+
         public string MinVal
         {
             get { return _MinVal; }
@@ -99,6 +106,7 @@ namespace Production.Class
         }
 
         private string _MaxVal;
+
         public string MaxVal
         {
             get { return _MaxVal; }
@@ -106,6 +114,7 @@ namespace Production.Class
         }
 
         private string _Custom1;
+
         public string Custom1
         {
             get { return _Custom1; }
@@ -113,6 +122,7 @@ namespace Production.Class
         }
 
         private string _Custom2;
+
         public string Custom2
         {
             get { return _Custom2; }
@@ -120,6 +130,7 @@ namespace Production.Class
         }
 
         private string _Custom3;
+
         public string Custom3
         {
             get { return _Custom3; }
@@ -127,6 +138,7 @@ namespace Production.Class
         }
 
         private string _Custom4;
+
         public string Custom4
         {
             get { return _Custom4; }
@@ -134,6 +146,7 @@ namespace Production.Class
         }
 
         private string _Custom5;
+
         public string Custom5
         {
             get { return _Custom5; }

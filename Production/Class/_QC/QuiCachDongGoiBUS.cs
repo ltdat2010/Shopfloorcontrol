@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
-using System.Data;
-using System.Windows;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class QuiCachDongGoiBUS
     {
         //public static OF of = new OF();
-        public static QuiCachDongGoiDAO QCDGD = new QuiCachDongGoiDAO();   
-     
+        public static QuiCachDongGoiDAO QCDGD = new QuiCachDongGoiDAO();
+
         //public void QCDG_Update(DataRow dr)
         //{
         //    QCDGD.QCDG_Update(dr);
@@ -41,6 +32,5 @@ namespace Production.Class
         {
             QCDGD.QCDG_DELETE(OBJ);
         }
-
     }
 }

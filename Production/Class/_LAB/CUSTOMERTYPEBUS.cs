@@ -2,7 +2,8 @@
 {
     public class CUSTOMERTYPEBUS
     {
-        CUSTOMERTYPEDAO CUSTTYPEDAO = new CUSTOMERTYPEDAO();
+        private CUSTOMERTYPEDAO CUSTTYPEDAO = new CUSTOMERTYPEDAO();
+
         public void CUSTOMERTYPE_INSERT(CUSTOMERTYPE CUSTTYPE)
         {
             CUSTTYPEDAO.CUSTOMERTYPE_INSERT(CUSTTYPE);
@@ -17,10 +18,5 @@
         {
             CUSTTYPEDAO.CUSTOMERTYPE_DELETE(CUSTTYPE);
         }
-
-
     }
-
 }
-
-

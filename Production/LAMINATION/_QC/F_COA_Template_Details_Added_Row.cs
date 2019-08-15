@@ -1,17 +1,17 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
+﻿using System.IO;
 
 namespace Production.Class
 {
     public partial class F_COA_Template_Details_Added_Row : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
+
         //public string isAction = "";
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -24,16 +24,17 @@ namespace Production.Class
                 }
             }
         }
+
         public COA_Template_Details OBJ = new COA_Template_Details();
-        COA_Template_DetailsBUS BUS = new COA_Template_DetailsBUS();
+        private COA_Template_DetailsBUS BUS = new COA_Template_DetailsBUS();
 
         public F_COA_Template_Details_Added_Row()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 LoadDataIntoTable();
-                
+
                 if (isAction == "Edit")
                 {
                     txtID.ReadOnly = true;
@@ -42,23 +43,23 @@ namespace Production.Class
                 else if (isAction == "Add")
                 {
                     txtID.ReadOnly = true;
-                    txtCOAID.Text = OBJ.COATemplateID.ToString() ;
-                }                    
+                    txtCOAID.Text = OBJ.COATemplateID.ToString();
+                }
             };
 
-            btnSave.Click += (s,e) =>
-            {         
-                    if (isAction == "Add")
-                    {
-                        Set4Object();
-                        BUS.COA_Template_DetailsDAO_INSERT(OBJ);
-                    }
-                    else if (isAction == "Edit")
-                    {                        
-                        Set4Object();
-                        BUS.COA_Template_DetailsDAO_UPDATE(OBJ);
-                    }                
-                    Is_close = true;                
+            btnSave.Click += (s, e) =>
+            {
+                if (isAction == "Add")
+                {
+                    Set4Object();
+                    BUS.COA_Template_DetailsDAO_INSERT(OBJ);
+                }
+                else if (isAction == "Edit")
+                {
+                    Set4Object();
+                    BUS.COA_Template_DetailsDAO_UPDATE(OBJ);
+                }
+                Is_close = true;
             };
 
             btnCancel.Click += (s, e) =>
@@ -70,7 +71,6 @@ namespace Production.Class
             {
                 if (e.Button.Index == 1)
                 {
-                    
                     F_CTPT_Details FRM = new F_CTPT_Details();
                     FRM.isAction = "Add";
                     FRM.myFinished += this.finished;
@@ -83,11 +83,11 @@ namespace Production.Class
         {
             txtID.Text = OBJ.ID.ToString();
 
-            txtCOAID.Text = OBJ.COATemplateID.ToString();            
-            
+            txtCOAID.Text = OBJ.COATemplateID.ToString();
+
             lkeHMKT.EditValue = OBJ.HMKTID;
-            
-            txtTolerance.EditValue = OBJ.Tolerance;           
+
+            txtTolerance.EditValue = OBJ.Tolerance;
 
             txtNote.Text = OBJ.Note;
 
@@ -106,10 +106,10 @@ namespace Production.Class
             OBJ.Tolerance = txtTolerance.Text;
 
             OBJ.Note = txtNote.Text;
-            
+
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
-            
         }
+
         public void ResetControl()
         {
             txtID.Text = "";
@@ -124,7 +124,7 @@ namespace Production.Class
         public void ControlsReadOnly(bool bl)
         {
             //txtID.ReadOnly = bl;
-            
+
             lkeHMKT.ReadOnly = bl;
             txtTolerance.ReadOnly = bl;
             txtNote.ReadOnly = bl;

@@ -11,18 +11,19 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Select ID , PPXN From [SYNC_NUTRICIEL].[dbo].tbl_PhuongPhapXetNghiem_LAB WHERE ID>1", CommandType.Text);
             return dt;
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
         //public void PPT_Update(DataRow dr)
-        //{            
+        //{
         //    Sql.ExecuteNonQuery("SAP",  "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PhuongPhapThu]" +
         //                                " SET [PPT] ='"+dr["PPT"].ToString() + "'"+
         //                                ",[PPTDG] = '" + dr["PPTDG"].ToString() + "' " +
@@ -68,7 +69,4 @@ namespace Production.Class
             " WHERE [ID]=" + OBJ.ID, CommandType.Text);
         }
     }
-
 }
-
-

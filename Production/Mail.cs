@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DevExpress.XtraEditors;
-
-namespace Production
+﻿namespace Production
 {
     public class Mail
-    {       
-
+    {
         public static void SendMail(string recipients, string body, string subject)
         {
-                      
         }
+
         //private static string [] new_Str(string str1)
         //{
         //    string[] str2 = str1.Split(new char[] {','});
@@ -33,8 +26,8 @@ namespace Production
         //                    "|" + "--------------------------------------------------------------------------------------------" + System.Environment.NewLine +
         //                    "----------------------------Please do not reply this e-mail. Thanks-------------------------------";
         //    string subject = "GA Dept. has been created new Artwork : " + cyn.ArtworkCode_ + " - FG Code : " + cyn.FGCode_;
-        //    SendMail(recipients, body, subject);                
-                        
+        //    SendMail(recipients, body, subject);
+
         //}
 
         //public static void SendMail_PL_InsNew(Cyn cyn, User user, string recipients)
@@ -127,7 +120,7 @@ namespace Production
         //                    "|" + " - Color                             : " + cyn.Color_ + System.Environment.NewLine +
         //                    "|" + " - CoreStatus                        : " + (cyn.CoreStatus_ == true ? "OK": "NOT OK") + System.Environment.NewLine +
         //                    "|" + " - StockofMonth                      : " + cyn.StockofMonth_ + System.Environment.NewLine +
-        //                    "|" + " - DateReceivedfromCM                : " + cyn.DateReceivedfromCM_.ToString() + System.Environment.NewLine +                           
+        //                    "|" + " - DateReceivedfromCM                : " + cyn.DateReceivedfromCM_.ToString() + System.Environment.NewLine +
         //                    "|" + "--------------------------------------------------------------------------------------------" + System.Environment.NewLine +
         //                    "----------------------------Please do not reply this e-mail. Thanks-------------------------------";
         //    string subject = "CM_Warehouse Dept. has been updated new Artwork : " + cyn.ArtworkCode_ + " - FG Code : " + cyn.FGCode_;

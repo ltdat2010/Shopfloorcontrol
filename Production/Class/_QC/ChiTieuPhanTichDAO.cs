@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -17,7 +11,7 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Select ID , CTPT From [SYNC_NUTRICIEL].[dbo].tbl_ChiTieuPhanTich WHERE ID>1", CommandType.Text);
             return dt;
         }
-        
+
         //public void CTPT_Update(DataRow dr)
         //{
         //    Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_ChiTieuPhanTich]" +
@@ -65,7 +59,4 @@ namespace Production.Class
             " WHERE [ID]=" + CTPT.ID, CommandType.Text);
         }
     }
-
 }
-
-

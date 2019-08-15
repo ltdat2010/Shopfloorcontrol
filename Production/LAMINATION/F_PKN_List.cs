@@ -1,35 +1,15 @@
 ﻿using System;
-using System.IO;
-using System.Globalization;
-using System.Collections.Generic;
-using System.Resources;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Data.SqlClient;
-using System.Data.Sql;
-using System.Threading;
-using Production.LAN;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.Utils.Controls;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraEditors.Controls;
-using Production.Class;
-
 
 namespace Production.Class
 {
-    public partial class F_PKN_List : UC_Base 
+    public partial class F_PKN_List : UC_Base
     {
-        PKNBUS PKB = new PKNBUS();
+        private PKNBUS PKB = new PKNBUS();
+
         public F_PKN_List()
-        {           
+        {
             InitializeComponent();
-            
+
             Load += (s, e) =>
             {
                 gridControl1.DataSource = PKB.PKN_List();
@@ -42,7 +22,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
-            //MessageBox.Show("click");     
+            //MessageBox.Show("click");
             frm_PKN PKN = new frm_PKN();
             PKN.ActStatus = "N";
             PKN.Show();
@@ -59,7 +39,6 @@ namespace Production.Class
             PKN.SoPNK = gridView1.GetFocusedRowCellValue("SoPNK").ToString();
             PKN.Lan = int.Parse(gridView1.GetFocusedRowCellValue("Lan").ToString());
             PKN.Show();
-
         }
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
@@ -73,8 +52,8 @@ namespace Production.Class
             PKN.SoPNK = gridView1.GetFocusedRowCellValue("SoPNK").ToString();
             PKN.Lan = int.Parse(gridView1.GetFocusedRowCellValue("Lan").ToString());
             PKN.Show();
-
         }
+
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
             R_PKN RPKN = new R_PKN();

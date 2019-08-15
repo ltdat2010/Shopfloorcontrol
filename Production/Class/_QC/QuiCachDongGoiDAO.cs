@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -17,13 +11,14 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Select * From [SYNC_NUTRICIEL].[dbo].tbl_QuiCachDongGoi", CommandType.Text);
             return dt;
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
@@ -74,7 +69,4 @@ namespace Production.Class
             " WHERE [ID]=" + OBJ.ID, CommandType.Text);
         }
     }
-
 }
-
-

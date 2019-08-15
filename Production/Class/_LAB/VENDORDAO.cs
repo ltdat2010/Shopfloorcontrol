@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace Production.Class
 {
@@ -11,9 +10,5 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Select * from [SYNC_NUTRICIEL].[dbo].[V_VENDOR] ", CommandType.Text);
             return dt;
         }
-
     }
-
 }
-
-

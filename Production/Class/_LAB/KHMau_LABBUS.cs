@@ -4,7 +4,7 @@ namespace Production.Class
 {
     public class KHMau_LABBUS
     {
-        KHMau_LABDAO DAO = new KHMau_LABDAO();
+        private KHMau_LABDAO DAO = new KHMau_LABDAO();
 
         public void KHMau_LABBUS_INSERT(KHMau_LAB OBJ)
         {
@@ -34,7 +34,6 @@ namespace Production.Class
         public int MAX_KHMau_LABBUS_ID()
         {
             return DAO.MAX_KHMau_LABDAO_ID();
-
         }
 
         public DataTable KHMau_LABDAO_REPORT_RECEIPT(string SoPXN)
@@ -62,7 +61,4 @@ namespace Production.Class
             return DAO.KHMau_LABDAO_REPORT_DETAILS(SoPXN);
         }
     }
-
 }
-
-

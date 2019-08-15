@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
-using System.Data;
-using System.Security.Principal;
 using DevExpress.XtraGrid.Columns;
-using System.Globalization;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
+using System.Data;
+using System.IO;
 
 namespace Production.Class
 {
@@ -17,10 +12,9 @@ namespace Production.Class
     {
         public static RECEIPT RC = new RECEIPT();
         public static RECEIPTDAO RCD = new RECEIPTDAO();
-        
+
         public static bool Checkbool(String x)
         {
-            
             return bool.Parse(x.Length > 0 ? x : "False");
         }
 
@@ -33,6 +27,7 @@ namespace Production.Class
         {
             return RCD.RECEIPT_List();
         }
+
         public void F_RECEIPT_Detail(GridControl gc1, string ECHRECEPS)
         {
             gc1.DataSource = RCD.RECEIPT_Detail(ECHRECEPS);
@@ -47,10 +42,12 @@ namespace Production.Class
         {
             return RCD.RECEIPT_Lot(ECH_RECEPS);
         }
+
         public DataTable RECEIPT_ExpDate_ItemName(string ECH_RECEPS, string NO_LOT)
         {
             return RCD.RECEIPT_ExpDate_ItemName(ECH_RECEPS, NO_LOT);
         }
+
         public DataTable F_RECEIPT_Find(string ECH_RECEPS)
         {
             return RCD.RECEIPT_Find(ECH_RECEPS);
@@ -58,14 +55,12 @@ namespace Production.Class
 
         public void F_RECEIPT_DetailsCSV(GridView gridview1)
         {
-            
             CreateCSVFile(GridView2DataTable(gridview1), @"D:\\Eresis\\EXCHANGES\\IN\\RECEIPT.csv");
         }
 
         public void RECEIPT_INSERT(GridView gv1)
-        {            
-                RCD.OF_INSERT(gv1.GetDataRow(0));           
-
+        {
+            RCD.OF_INSERT(gv1.GetDataRow(0));
         }
 
         //public void RECEIPT_Detail_INSERT(GridView gv1)
@@ -78,14 +73,16 @@ namespace Production.Class
 
         //}
         public void RECEIPT_Detail_INSERT(DataTable dt)
-        {         
-            foreach(DataRow dr in dt.Rows)
+        {
+            foreach (DataRow dr in dt.Rows)
                 RCD.OF_Detail_INSERT(dr);
         }
+
         public int MAX_XHL(string ECH_RECEPS)
         {
             return RCD.MAX_XHL(ECH_RECEPS);
         }
+
         public void OF_Detail_DELETE(string ECH_RECEPS)
         {
             RCD.OF_Detail_DELETE(ECH_RECEPS);
@@ -95,10 +92,11 @@ namespace Production.Class
         {
             RCD.OF_DELETE(ECH_RECEPS);
         }
+
         public void CreateCSVFile(DataTable dt, string strFilePath)
         {
-
             #region Export Grid to CSV
+
             //AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
             //WindowsIdentity idnt = new WindowsIdentity("Administrator", "eresis44$");
             //WindowsImpersonationContext context = idnt.Impersonate();
@@ -109,20 +107,17 @@ namespace Production.Class
 
             //DataTable dt = m_dsProducts.Tables[0];
 
-            int iColCount = dt.Columns.Count-1;
+            int iColCount = dt.Columns.Count - 1;
 
             for (int i = 0; i < iColCount; i++)
             {
-
                 //sw.Write(dt.Columns[i]);
                 sw.Write('"' + dt.Columns[i].ToString() + '"');
 
                 if (i <= iColCount - 1)
                 {
                     sw.Write(";");
-
                 }
-
             }
 
             sw.Write(sw.NewLine);
@@ -135,85 +130,79 @@ namespace Production.Class
             {
                 //XtraMessageBox.Show("Số XHL : " + XHL.ToString());
                 //if (dt.Rows[j]["XHL"].ToString() == XHL.ToString())
-                //{                    
-                    //if(tmp_line == 0 )
-                    //{
-                        //if (int.Parse(dt.Rows[j]["ECH_RECEP"].ToString()) != 1000)
-                        //{
-                            //tmp_line = 1000;
-                            //dt.Rows[j]["ECH_RECEP"] = tmp_line;
-                        //}
-                        //else
-                            //tmp_line = int.Parse(dt.Rows[j]["ECH_RECEP"].ToString());                        
-                    //}
-                    //else
-                    //{
-                        //tmp_line = tmp_line + 1000;
-                        //dt.Rows[j]["ECH_RECEP"] = tmp_line;
-                    //}
+                //{
+                //if(tmp_line == 0 )
+                //{
+                //if (int.Parse(dt.Rows[j]["ECH_RECEP"].ToString()) != 1000)
+                //{
+                //tmp_line = 1000;
+                //dt.Rows[j]["ECH_RECEP"] = tmp_line;
+                //}
+                //else
+                //tmp_line = int.Parse(dt.Rows[j]["ECH_RECEP"].ToString());
+                //}
+                //else
+                //{
+                //tmp_line = tmp_line + 1000;
+                //dt.Rows[j]["ECH_RECEP"] = tmp_line;
+                //}
 
-                    //XtraMessageBox.Show("Số XHL của cột : " + dt.Rows[j]["XHL"].ToString());
-                    //if (j <= dt.Rows.Count - 1)
-                    //{
-                    for (int i = 0; i < iColCount ; i++)
+                //XtraMessageBox.Show("Số XHL của cột : " + dt.Rows[j]["XHL"].ToString());
+                //if (j <= dt.Rows.Count - 1)
+                //{
+                for (int i = 0; i < iColCount; i++)
+                {
+                    if (i == 0)
                     {
-                        
-                        if (i == 0)
+                        if (!Convert.IsDBNull(dt.Rows[j][i]))
                         {
-                            
-                            if (!Convert.IsDBNull(dt.Rows[j][i]))
-                            {
-                                sw.Write('"' + dt.Rows[j][i].ToString() + '"');
-                                
-                            }
-                        }
-                        else if (i == 1 || i == 6)
-                        {
-                            if (!Convert.IsDBNull(dt.Rows[j][i]))
-                            {
-                                sw.Write(dt.Rows[j][i].ToString());
-                            }
-                        }
-                        else
-                        {
-                            if (!Convert.IsDBNull(dt.Rows[j][i]))
-                            {
-                                sw.Write('"' + dt.Rows[j][i].ToString() + '"');
-                            }
-                        }
-                        if (i < iColCount)
-                        {
-                            sw.Write(";");
+                            sw.Write('"' + dt.Rows[j][i].ToString() + '"');
                         }
                     }
+                    else if (i == 1 || i == 6)
+                    {
+                        if (!Convert.IsDBNull(dt.Rows[j][i]))
+                        {
+                            sw.Write(dt.Rows[j][i].ToString());
+                        }
+                    }
+                    else
+                    {
+                        if (!Convert.IsDBNull(dt.Rows[j][i]))
+                        {
+                            sw.Write('"' + dt.Rows[j][i].ToString() + '"');
+                        }
+                    }
+                    if (i < iColCount)
+                    {
+                        sw.Write(";");
+                    }
+                }
 
-                    //}
-                    //Move len day
-                    sw.Write(sw.NewLine);
                 //}
-                    //Move len tren do gay ra loi line bi trong
-                    //sw.Write(sw.NewLine);
-                    //test doi len day
-                    //sw.Close();
+                //Move len day
+                sw.Write(sw.NewLine);
+                //}
+                //Move len tren do gay ra loi line bi trong
+                //sw.Write(sw.NewLine);
+                //test doi len day
+                //sw.Close();
 
                 //}
                 //An dong duoi de test
                 //sw.Close();
-
-             }
+            }
             //tmp_line = 0;
-            sw.Close();    
-        } 
+            sw.Close();
+        }
 
-        #endregion
-
+        #endregion Export Grid to CSV
 
         //public static void Select_All(GridControl gc1, DataNavigator dn)
         //{
         //    cyn_.CM_Select_All(gc1, dn);
         //}
 
-       
         public static void SetRow4Ob(OF ofv, GridView gridView1)
         {
             //of.CD_OF            =   gridView1.GetFocusedRowCellValue("CD_OF").ToString();
@@ -249,7 +238,7 @@ namespace Production.Class
             cyn.ReceivedDocfromGA_      = (DateTime?)(string.IsNullOrEmpty(gridView1.GetFocusedRowCellValue("ReceivedDocfromGA").ToString()) ? null : gridView1.GetFocusedRowCellValue("ReceivedDocfromGA"));
             cyn.NoteCM_                 = gridView1.GetFocusedRowCellValue("NoteCM").ToString();
             cyn.OverQuantity_           = CM_bus.Checkbool(gridView1.GetFocusedRowCellValue("OverQuantity").ToString());
-        
+
              */
         }
 
@@ -271,6 +260,5 @@ namespace Production.Class
             }
             return dt;
         }
-
     }
 }

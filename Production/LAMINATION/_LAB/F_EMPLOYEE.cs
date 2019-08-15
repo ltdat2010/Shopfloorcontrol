@@ -1,46 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using System.Globalization;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace Production.Class
 {
     public partial class F_EMPLOYEE : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
+
         //Object
-        EMPLOYEE EMP = new EMPLOYEE();
+        private EMPLOYEE EMP = new EMPLOYEE();
+
         //BUS
-        EMPLOYEEBUS EMPBUS = new EMPLOYEEBUS();
+        private EMPLOYEEBUS EMPBUS = new EMPLOYEEBUS();
+
         public F_EMPLOYEE()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
                     /// 1 Lấy thông tin user login
                     EMP.CreatedBy = user.Username;
 
-                    // 2 Fill data                  
+                    // 2 Fill data
                     tbl_EMPLOYEE_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
 
                     // 3 Gán controls trạng thái đọc
                     //ControlsReadOnly(true);
-                    
-                    // 4 Gán datasource cho grid                    
-                    gridControl1.DataSource = tbl_EMPLOYEE_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);        
-                                
+
+                    // 4 Gán datasource cho grid
+                    gridControl1.DataSource = tbl_EMPLOYEE_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
+
                     // 5 Để grid tự canh chỉnh cột
                     gridView1.BestFitColumns();
-                                        
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -60,17 +53,17 @@ namespace Production.Class
             // 10B Cancel
             action1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
 
-
             gridView1.RowClick += (s, e) =>
                 {
                     gridViewRowClick = true;
-                    
-                };            
+                };
         }
+
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
             this.Close();
         }
+
         // Sự kiện xóa
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
@@ -112,6 +105,7 @@ namespace Production.Class
                 XtraMessageBox.Show(args).ToString();
             }
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -120,7 +114,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -136,6 +130,7 @@ namespace Production.Class
             F_EMP_Dtl.myFinished += this.finished;
             F_EMP_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -151,12 +146,11 @@ namespace Production.Class
             F_EMP_Dtl.EMP = this.EMP;
             F_EMP_Dtl.myFinished += this.finished;
             F_EMP_Dtl.Show();
-
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -212,8 +206,8 @@ namespace Production.Class
             //ControlsReadOnly(true);
 
             // 33 Xoa noi dung trong cac control
-            //ResetControl();    
-        }   
+            //ResetControl();
+        }
 
         //
         public void Set4Object()
@@ -226,6 +220,7 @@ namespace Production.Class
             EMP.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
             EMP.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
         }
+
         public void finished(object sender)
         {
             //Disable
@@ -238,8 +233,6 @@ namespace Production.Class
 
             // Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = tbl_EMPLOYEE_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
-
         }
-
     }
 }

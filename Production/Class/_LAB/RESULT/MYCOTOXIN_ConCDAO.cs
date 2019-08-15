@@ -23,15 +23,15 @@ namespace Production.Class
            "',Convert(datetime,'" + DateTime.Now +
            "',103),N'" + LOC.CreatedBy +
            "',N'" + LOC.Note +
-           "','" + LOC.Locked + 
+           "','" + LOC.Locked +
            "')", CommandType.Text);
         }
 
         public void MYCOTOXIN_ConC_UPDATE(MYCOTOXIN_ConC LOC)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_ConC] SET" +
            "[CTXN_ID] = " + LOC.CTXN_ID +
-           ",[ConC] = " + LOC.ConC + 
+           ",[ConC] = " + LOC.ConC +
            ",[KHMau] = N'" + LOC.KHMau + "'" +
            ",[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy] = N'" + LOC.CreatedBy + "' " +
@@ -42,13 +42,8 @@ namespace Production.Class
 
         public void MYCOTOXIN_ConC_DELETE(MYCOTOXIN_ConC LOC)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_ConC] " +
-           " WHERE [ID]='" + LOC.ID + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_ConC] " +
+            " WHERE [ID]='" + LOC.ID + "'", CommandType.Text);
         }
-        
-
     }
-
 }
-
-

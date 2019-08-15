@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class HangMucKiemTraBUS
     {
-        HangMucKiemTraDAO DAO = new HangMucKiemTraDAO();
+        private HangMucKiemTraDAO DAO = new HangMucKiemTraDAO();
+
         public void HMKT_INSERT(HangMucKiemTra OBJ)
         {
             DAO.HMKT_INSERT(OBJ);
@@ -27,7 +19,6 @@ namespace Production.Class
             DAO.HMKT_DELETE(OBJ);
         }
 
-
         //public DataTable Control_List()
         //{
         //    DataTable dt = new DataTable();
@@ -40,7 +31,6 @@ namespace Production.Class
         //    dt = Sql.ExecuteDataTable("SAP", "Select ID as ControlID, Control as Control, ControlVN ans ControlVN FROM [SYNC_NUTRICIEL].[dbo].tbl_Control WHERE Characteristic='" + Characteristic + "' ", CommandType.Text);
         //    return dt;
         //}
-
 
         //public int Control_Visible(string control)
         //{
@@ -68,7 +58,4 @@ namespace Production.Class
         //    //return dt;
         //}
     }
-
 }
-
-

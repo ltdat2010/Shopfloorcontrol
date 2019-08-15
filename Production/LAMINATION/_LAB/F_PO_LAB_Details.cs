@@ -1,30 +1,30 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
-using DevExpress.XtraEditors;
-using System.Globalization;
-using System.Data;
+﻿using DevExpress.Data;
 using DevExpress.XtraBars;
-using System.Collections.Generic;
-using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid;
-using DevExpress.Data;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PO_LAB_Details : frm_Base
     {
         public DateTime ngaynhanmau;
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
         public string str_KHMau = "";
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
 
-        float value1, value2;
+        private float value1, value2;
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
 
         public event MyAdd myFinished;
@@ -40,25 +40,26 @@ namespace Production.Class
                 }
             }
         }
+
         //NEW : Phan khai bao cho KH Mau
         //public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
         //KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
         //KHMau_LABBUS BUS1 = new KHMau_LABBUS();
-        //KHMau_CTXN_LABBUS BUS2 = new KHMau_CTXN_LABBUS();        
+        //KHMau_CTXN_LABBUS BUS2 = new KHMau_CTXN_LABBUS();
         public PO_Header OBJ_POH = new PO_Header();
-        PO_Lines OBJ_POL = new PO_Lines();
 
+        private PO_Lines OBJ_POL = new PO_Lines();
 
-        PO_Header_BUS BUS_POH = new PO_Header_BUS();
-        PO_Lines_BUS BUS_POL = new PO_Lines_BUS();
+        private PO_Header_BUS BUS_POH = new PO_Header_BUS();
+        private PO_Lines_BUS BUS_POL = new PO_Lines_BUS();
 
         public F_PO_LAB_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
-            {                
-                this.Width                      = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
-                this.Height                     = Screen.PrimaryScreen.Bounds.Height - 30;
+            Load += (s, e) =>
+            {
+                this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
+                this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
                 //XtraMessageBoxArgs args = new XtraMessageBoxArgs();
                 //args.AutoCloseOptions.Delay = 3000;
@@ -89,13 +90,13 @@ namespace Production.Class
                 action_EndForm3.Save_Status(true);
                 action_EndForm3.View_Status(false);
                 action_EndForm3.Close_Status(true);
-                                
+
                 this.Location = new System.Drawing.Point(Screen.PrimaryScreen.Bounds.Right - this.Width, 0);
                 //XtraMessageBox.Show("Action : " + isAction);
 
                 if (isAction == "Edit")
                 {
-                    layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;                    
+                    layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     txtSoPO.ReadOnly = true;
                     Set4Controls_Header();
                     Set4Controls_Details();
@@ -103,20 +104,20 @@ namespace Production.Class
 
                     //GridSummaryItem groupSummaryItem0 = gridView1.
                     //XtraMessageBox.Show(groupSummaryItem0.SummaryValue.ToString());
-                    //GridSummaryItem groupSummaryItem1 = gridView1.GroupSummary[1];                    
+                    //GridSummaryItem groupSummaryItem1 = gridView1.GroupSummary[1];
                     //XtraMessageBox.Show(groupSummaryItem1.SummaryValue.ToString());
                 }
                 else if (isAction == "Add")
                 {
                     Set4Controls_Header();
                     txtSoPO.ReadOnly = true;
-                    int suff_SoPO = int.Parse((BUS_POH.Issued_SoPO().Substring(3,3)));
-                    if(suff_SoPO == 0)
-                        txtSoPO.Text = DateTime.Now.Year.ToString().Substring(2, 2) + "."+"001";
-                    else if (suff_SoPO <= 9 && suff_SoPO >0)
+                    int suff_SoPO = int.Parse((BUS_POH.Issued_SoPO().Substring(3, 3)));
+                    if (suff_SoPO == 0)
+                        txtSoPO.Text = DateTime.Now.Year.ToString().Substring(2, 2) + "." + "001";
+                    else if (suff_SoPO <= 9 && suff_SoPO > 0)
                     {
                         suff_SoPO = suff_SoPO + 1;
-                        txtSoPO.Text = DateTime.Now.Year.ToString().Substring(2,2) + "." + "00"+ suff_SoPO.ToString();
+                        txtSoPO.Text = DateTime.Now.Year.ToString().Substring(2, 2) + "." + "00" + suff_SoPO.ToString();
                     }
                     else if (suff_SoPO <= 99 && suff_SoPO > 9)
                     {
@@ -127,7 +128,7 @@ namespace Production.Class
                     {
                         suff_SoPO = suff_SoPO + 1;
                         txtSoPO.Text = DateTime.Now.Year.ToString().Substring(2, 2) + "." + suff_SoPO.ToString();
-                    }                    
+                    }
                     txtID.ReadOnly = true;
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     //btnCancel.Enabled = false;
@@ -147,7 +148,6 @@ namespace Production.Class
             {
                 e.Column.BestFit();
             };
-
 
             gridView1.CustomSummaryCalculate += (sender, e) =>
             {
@@ -176,8 +176,8 @@ namespace Production.Class
             {
                 DataRowView row = lkeNhaCungCap.GetSelectedDataRow() as DataRowView;
                 //OBJ_POL.CTXNDG = row["CTXNDG"].ToString();
-                OBJ_POH.VENDCode= row["VENDCode"].ToString();
-                OBJ_POH.VENDName= row["VENDName"].ToString();                
+                OBJ_POH.VENDCode = row["VENDCode"].ToString();
+                OBJ_POH.VENDName = row["VENDName"].ToString();
             };
 
             gridView1.RowClick += (s, e) =>
@@ -185,22 +185,21 @@ namespace Production.Class
                 //KHMAUCTXNOBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 gridViewRowClick = true;
                 Set4Object_Details();
-            };            
+            };
 
             lkeNhaCungCap.ButtonClick += (s, e) =>
             {
                 if (e.Button.Index == 1)
                 {
-                    
                 }
-             };
+            };
             txtDiscount.Leave += (s, e) =>
             {
                 XtraMessageBox.Show(gridView1.DataRowCount.ToString());
             };
 
-                //Action_EndForm
-                action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
+            //Action_EndForm
+            action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
             action_EndForm1.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update));
             action_EndForm1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
             action_EndForm1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
@@ -215,7 +214,6 @@ namespace Production.Class
             action_EndForm3.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update3));
             action_EndForm3.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close3));
             action_EndForm3.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save3));
-
         }
 
         private void ItemClickEventHandler_Save3(object sender, ItemClickEventArgs e)
@@ -254,7 +252,6 @@ namespace Production.Class
         private void ItemClickEventHandler_Update3(object sender, ItemClickEventArgs e)
         {
             Set4Object_Details();
-            
 
             XtraMessageBoxArgs args = new XtraMessageBoxArgs();
             args.AutoCloseOptions.Delay = 3000;
@@ -323,9 +320,9 @@ namespace Production.Class
                 isAction = "Edit";
 
                 state = MenuState.Insert;
-                
+
                 this.Enabled = false;
-                
+
                 F_PO_Lines_Added_Row FRM = new F_PO_Lines_Added_Row();
                 FRM.isAction = this.isAction;
                 FRM.ngaynhanmau = this.ngaynhanmau;
@@ -345,13 +342,13 @@ namespace Production.Class
                 args.Text = "Vui lòng click chọn dòng cần cập nhật. Thông báo này sẽ tự đóng sau 3 giây.";
                 args.Buttons = new DialogResult[] { DialogResult.OK };
                 XtraMessageBox.Show(args).ToString();
-            }            
+            }
         }
 
         private void ItemClickEventHandler_Add2(object sender, ItemClickEventArgs e)
-        {            
-            state = MenuState.Insert;            
-            this.Enabled = false;            
+        {
+            state = MenuState.Insert;
+            this.Enabled = false;
             F_PO_Lines_Added_Row FRM = new F_PO_Lines_Added_Row();
             FRM.isAction = "Add";
             FRM.ngaynhanmau = this.ngaynhanmau;
@@ -369,7 +366,7 @@ namespace Production.Class
                 Set4Object_Header();
                 BUS_POH.PO_Header_INSERT(OBJ_POH);
                 BUS_POH.Update_SoPO(OBJ_POH.SoPO);
-                
+
                 layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
 
                 XtraMessageBoxArgs args = new XtraMessageBoxArgs();
@@ -382,14 +379,11 @@ namespace Production.Class
                 XtraMessageBox.Show(args).ToString();
 
                 //Is_close = true;
-
-                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new NotImplementedException();
             }
-            
         }
 
         private void ItemClickEventHandler_Close(object sender, ItemClickEventArgs e)
@@ -410,40 +404,39 @@ namespace Production.Class
         }
 
         public void Set4Controls_Header()
-        {     
-            txtSoPO.Text                    = OBJ_POH.SoPO;            
-            if (isAction                    == "Edit")
+        {
+            txtSoPO.Text = OBJ_POH.SoPO;
+            if (isAction == "Edit")
             {
-                txtID.Text                  = OBJ_POH.ID.ToString();
-                txtDiscount.Text            = OBJ_POH.Discount.ToString();
-            }          
+                txtID.Text = OBJ_POH.ID.ToString();
+                txtDiscount.Text = OBJ_POH.Discount.ToString();
+            }
         }
 
         public void Set4Controls_Details()
         {
-            if (isAction                    == "Edit")
-                txtID.Text                  = OBJ_POH.ID.ToString();
-            cmbKhoa.Text                    = OBJ_POH.Locked.ToString();
-            txtNote.Text                    = OBJ_POH.Note; 
-            if (txtSoPO.Text.Substring(0,3) == "H2O")
+            if (isAction == "Edit")
+                txtID.Text = OBJ_POH.ID.ToString();
+            cmbKhoa.Text = OBJ_POH.Locked.ToString();
+            txtNote.Text = OBJ_POH.Note;
+            if (txtSoPO.Text.Substring(0, 3) == "H2O")
             {
                 lkeNhaCungCap.Text = "";
             }
             else if (txtSoPO.Text.Substring(0, 3) == "GEN" || txtSoPO.Text.Substring(0, 3) == "HTH" || txtSoPO.Text.Substring(0, 3) == "MDW")
             {
-                
-            }            
-            dteNgayLapPO.Text = OBJ_POH.NgayLapPO.ToString().Substring(0, 10);            
+            }
+            dteNgayLapPO.Text = OBJ_POH.NgayLapPO.ToString().Substring(0, 10);
         }
 
         public void Set4Object_Header()
         {
             //KHMAUOBJ.KHMau = txtKHMau.Text;
             //XtraMessageBox.Show(isAction);
-            if( isAction == "Edit")
-                OBJ_POH.ID = int.Parse(txtID.Text.ToString()) ;
+            if (isAction == "Edit")
+                OBJ_POH.ID = int.Parse(txtID.Text.ToString());
 
-            OBJ_POH.SoPO= txtSoPO.Text;
+            OBJ_POH.SoPO = txtSoPO.Text;
 
             if (dteNgayLapPO.Text.ToString() == null || dteNgayLapPO.Text.Length == 0)
                 OBJ_POH.NgayLapPO = DateTime.Parse("2019-01-01");
@@ -457,41 +450,41 @@ namespace Production.Class
             OBJ_POH.Discount = txtDiscount.Text;
             OBJ_POH.PaymentTerm = "CK/TM";
             OBJ_POH.DiaChiGiaoHang = "Số 24, Đường 26, KCN Sóng Thần 2, Dĩ An, Bình Dương";
-            OBJ_POH.CreatedBy = user.Username; 
-            OBJ_POH.Note = txtNote.Text ; OBJ_POH.Locked = cmbKhoa.Text.ToString() == "True" ? true : false;
+            OBJ_POH.CreatedBy = user.Username;
+            OBJ_POH.Note = txtNote.Text; OBJ_POH.Locked = cmbKhoa.Text.ToString() == "True" ? true : false;
         }
 
         public void Set4Object_Details()
-        {            
+        {
             if (isAction == "Edit" && gridView1.DataRowCount > 0)
             {
                 OBJ_POL.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-                OBJ_POL.MaCTXN = gridView1.GetFocusedRowCellValue("MaCTXN").ToString();               
+                OBJ_POL.MaCTXN = gridView1.GetFocusedRowCellValue("MaCTXN").ToString();
             }
-            
 
             OBJ_POH.CreatedBy = user.Username;
-            
+
             OBJ_POH.Locked = cmbKhoa.Text.ToString() == "True" ? true : false;
             OBJ_POH.Note = txtNote.Text;
-            
-            OBJ_POH.Note                   = txtNote.Text;
+
+            OBJ_POH.Note = txtNote.Text;
         }
 
-
         public void ResetControl()
-        {         
+        {
             cmbKhoa.Text = "";
             txtNote.Text = "";
         }
+
         //
         public void ControlsReadOnly(bool bl)
         {
             cmbKhoa.ReadOnly = bl;
             txtNote.ReadOnly = bl;
         }
+
         public void finished(object sender)
-        {            
+        {
             this.Enabled = true;
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
@@ -505,11 +498,11 @@ namespace Production.Class
 
             gridView1.BestFitColumns();
         }
+
         private void F_CUSTOMER_Details_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.V_VENDOR' table. You can move, or remove it, as needed.
-            this.v_VENDORTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.V_VENDOR);            
+            this.v_VENDORTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.V_VENDOR);
         }
     }
-    
 }

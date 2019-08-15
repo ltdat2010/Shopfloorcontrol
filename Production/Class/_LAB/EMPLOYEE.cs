@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -14,27 +11,27 @@ namespace Production.Class
             string EMPCode,
             string EMPMobile,
             string EMPEmail,
-            DateTime CreatedDate, 
+            DateTime CreatedDate,
             string CreatedBy,
             string Note,
-            bool Locked          
+            bool Locked
             )
         {
-            this._Id                = Id;
-            this._EMPName           = EMPName;
-            this._EMPCode           = EMPCode;
-            this._EMPMobile         = EMPMobile;
-            this._EMPEmail          = EMPEmail;
-            this._CreatedDate       = CreatedDate;
-            this._CreatedBy         = CreatedBy;
+            this._Id = Id;
+            this._EMPName = EMPName;
+            this._EMPCode = EMPCode;
+            this._EMPMobile = EMPMobile;
+            this._EMPEmail = EMPEmail;
+            this._CreatedDate = CreatedDate;
+            this._CreatedBy = CreatedBy;
             this._Note = Note;
-            this._Locked            = Locked;
-
+            this._Locked = Locked;
         }
+
         public EMPLOYEE()
         {
-
         }
+
         private int _Id;
 
         public int Id
@@ -52,6 +49,7 @@ namespace Production.Class
         }
 
         private string _EMPCode;
+
         public string EMPCode
         {
             get { return _EMPCode; }
@@ -75,6 +73,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -82,6 +81,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -89,6 +89,7 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
@@ -96,12 +97,11 @@ namespace Production.Class
         }
 
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
             set { _Note = value; }
         }
-
-
     }
 }

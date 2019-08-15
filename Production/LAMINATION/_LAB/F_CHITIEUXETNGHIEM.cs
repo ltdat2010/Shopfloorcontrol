@@ -1,46 +1,46 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
+using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Columns;
 
 namespace Production.Class
 {
     public partial class F_CHITIEUXETNGHIEM : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
 
-        string filePath = @"D:\ChiTieuXetNghiem_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+        private string filePath = @"D:\ChiTieuXetNghiem_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
-        string filePath_Upload = @"D:\ChiTieuXetNghiem_Upload_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+        private string filePath_Upload = @"D:\ChiTieuXetNghiem_Upload_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
         //Object
-        CHITIEUXETNGHIEM CUS = new CHITIEUXETNGHIEM();
+        private CHITIEUXETNGHIEM CUS = new CHITIEUXETNGHIEM();
+
         //BUS
-        CHITIEUXETNGHIEMBUS CUSBUS = new CHITIEUXETNGHIEMBUS();
+        private CHITIEUXETNGHIEMBUS CUSBUS = new CHITIEUXETNGHIEMBUS();
+
         public F_CHITIEUXETNGHIEM()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
                     /// 1 Lấy thông tin user login
                     CUS.CreatedBy = user.Username;
 
-                    // 2 Fill data                  
+                    // 2 Fill data
                     tbl_ChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB);
 
                     // 3 Gán controls trạng thái đọc
                     //ControlsReadOnly(true);
 
-                    // 4 Gán datasource cho grid                    
-                    //gridControl1.DataSource = grid_CUSTOMERTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER);        
-                                
+                    // 4 Gán datasource cho grid
+                    //gridControl1.DataSource = grid_CUSTOMERTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER);
+
                     // 5 Để grid tự canh chỉnh cột
                     gridView1.BestFitColumns();
-                                        
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -62,11 +62,9 @@ namespace Production.Class
 
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
 
-
             gridView1.RowClick += (s, e) =>
             {
-            gridViewRowClick = true;
-                    
+                gridViewRowClick = true;
             };
             btnUpload.Click += (s, e) =>
             {
@@ -78,7 +76,7 @@ namespace Production.Class
                 //args.Text = "Lưu thành công . Thông báo này sẽ tự đóng sau 10 giây.";
                 //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                 //XtraMessageBox.Show(args).ToString();
-                //args.Showing += Args_Showing;             
+                //args.Showing += Args_Showing;
                 System.Data.DataTable dt = new System.Data.DataTable();
 
                 dt = ImportExceltoDatatable(filePath_Upload, "Sheet");
@@ -115,7 +113,7 @@ namespace Production.Class
             gridView1.ExportToXlsx(filePath);
             System.Diagnostics.Process.Start(filePath);
 
-            //Tra về indent khi user them dong moi vo file excel 
+            //Tra về indent khi user them dong moi vo file excel
             txtIdentity.Text = CUSBUS.CTXN_INDENTITY_SELECT().ToString();
 
             //Export to excel for update
@@ -136,7 +134,6 @@ namespace Production.Class
                     column.VisibleIndex = 1;
                     column.Visible = true;
                 }
-
                 else if (column.Name == "colCTXN")
                 {
                     column.VisibleIndex = 2;
@@ -217,13 +214,13 @@ namespace Production.Class
             gridView1.RestoreLayoutFromXml(@"D:\tempLayout.xml");
 
             System.Diagnostics.Process.Start(filePath_Upload);
-
         }
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
             this.Close();
         }
+
         // Sự kiện xóa
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
@@ -250,9 +247,9 @@ namespace Production.Class
                         args.Buttons = new DialogResult[] { DialogResult.OK };
                         XtraMessageBox.Show(args).ToString();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
-                        throw ex ;
+                        throw ex;
                     }
                 }
                 // 18 Load lại datasource cho grid
@@ -271,9 +268,9 @@ namespace Production.Class
                 args.Buttons = new DialogResult[] { DialogResult.OK };
                 XtraMessageBox.Show(args).ToString();
             }
-                // 16 Xác nhận có muốn xoa không ?
-                
+            // 16 Xác nhận có muốn xoa không ?
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -282,7 +279,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -297,6 +294,7 @@ namespace Production.Class
             F_CUS_Dtl.myFinished += this.finished;
             F_CUS_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -312,12 +310,11 @@ namespace Production.Class
             F_CUS_Dtl.CUS = this.CUS;
             F_CUS_Dtl.myFinished += this.finished;
             F_CUS_Dtl.Show();
-
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -373,9 +370,8 @@ namespace Production.Class
             //ControlsReadOnly(true);
 
             // 33 Xoa noi dung trong cac control
-            //ResetControl();     
-
-        }   
+            //ResetControl();
+        }
 
         //
         public void Set4Object()
@@ -389,13 +385,14 @@ namespace Production.Class
             CUS.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
             CUS.MaxValue = gridView1.GetFocusedRowCellValue("MaxValue").ToString();
             CUS.MinValue = gridView1.GetFocusedRowCellValue("MinValue").ToString();
-            CUS.NCTXNID= int.Parse(gridView1.GetFocusedRowCellValue("NCTXNID").ToString());
+            CUS.NCTXNID = int.Parse(gridView1.GetFocusedRowCellValue("NCTXNID").ToString());
             CUS.PPXNID = int.Parse(gridView1.GetFocusedRowCellValue("PPXNID").ToString());
             //MessageBox.Show(gridView1.GetFocusedRowCellValue("Locked").ToString());
             CUS.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
             CUS.UnitValue = gridView1.GetFocusedRowCellValue("UnitValue").ToString();
             CUS.CreatedBy = gridView1.GetFocusedRowCellValue("CreatedBy").ToString();
         }
+
         public void finished(object sender)
         {
             //Disable
@@ -408,8 +405,6 @@ namespace Production.Class
 
             // Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = tbl_ChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB);
-
         }
-
     }
 }

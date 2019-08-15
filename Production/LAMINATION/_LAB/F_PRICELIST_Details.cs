@@ -1,27 +1,23 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.IO;
-using System.Data.SqlClient;
-using System.Data;
-using DevExpress.XtraBars;
-using System.Globalization;
-using System.Configuration;
-using System.Data.OleDb;
-using Microsoft.Office.Interop.Excel;
-using System.Data.Common;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
+using System;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PRICELIST_Details : frm_Base
     {
         #region Variables
-        int ImageID = 0;
-        String strFilePath = "";
-        Image DefaultImage;
-        Byte[] ImageByteArray;
+
+        private int ImageID = 0;
+        private String strFilePath = "";
+        private Image DefaultImage;
+        private Byte[] ImageByteArray;
         ////before executing -create database with given script - change connection string according to yours
         //public static string varConnect_S = "Data Source= 192.168.0.249;" +
         //                                       "Database= SYNC_NUTRICIEL;" +
@@ -29,16 +25,18 @@ namespace Production.Class
         //                                       "password= bsvn";
         ////public static SqlConnection conn_S = new SqlConnection(Conn.varConnect_S);
         //SqlConnection sqlcon = new SqlConnection(varConnect_S);
-        #endregion
-        
-        bool gridViewRowClick = false;
-        string Path = Directory.GetCurrentDirectory();
-        string filePath = @"D:\PriceList_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+
+        #endregion Variables
+
+        private bool gridViewRowClick = false;
+        private string Path = Directory.GetCurrentDirectory();
+        private string filePath = @"D:\PriceList_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);//, string isActionReturn);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -51,12 +49,13 @@ namespace Production.Class
                 }
             }
         }
+
         public PRICELIST OBJ = new PRICELIST();
-        PRICELIST_Details OBJ1 = new PRICELIST_Details();
+        private PRICELIST_Details OBJ1 = new PRICELIST_Details();
         //public KQKN_Template_Details_Row OBJ1 = new KQKN_Template_Details_Row();
-        
-        PRICELISTBUS BUS = new PRICELISTBUS();
-        PRICELIST_DetailsBUS BUS1 = new PRICELIST_DetailsBUS();
+
+        private PRICELISTBUS BUS = new PRICELISTBUS();
+        private PRICELIST_DetailsBUS BUS1 = new PRICELIST_DetailsBUS();
 
         public F_PRICELIST_Details()
         {
@@ -67,18 +66,17 @@ namespace Production.Class
                 {
                     TDControlsReadOnly(true);
                     Set4Controls();
-                    
-                    gridControl1.DataSource = tbl_PriceList_Details_LABTableAdapter.FillbyPLID(sYNC_NUTRICIELDataSet.tbl_PriceList_Details_LAB, int.Parse(txtID.Text));
-                                        
-                    //ImageByteArray = OBJ.IMGCOA;
-                    //pbxImage.Image = Image.FromStream(new MemoryStream(OBJ.IMGCOA));                    
-                }
 
+                    gridControl1.DataSource = tbl_PriceList_Details_LABTableAdapter.FillbyPLID(sYNC_NUTRICIELDataSet.tbl_PriceList_Details_LAB, int.Parse(txtID.Text));
+
+                    //ImageByteArray = OBJ.IMGCOA;
+                    //pbxImage.Image = Image.FromStream(new MemoryStream(OBJ.IMGCOA));
+                }
                 else if (isAction == "Add")
                 {
                     gridControl1.Enabled = false;
                     actionMini1.Enabled = false;
-                    txtID.ReadOnly = true;                   
+                    txtID.ReadOnly = true;
                 }
             };
 
@@ -105,8 +103,8 @@ namespace Production.Class
                         Set4ObjectRow();
 
                         BUS.PRICELISTBUS_UPDATE(OBJ);
-                    }                  
-                    
+                    }
+
                     Is_close = true;
                     //XtraMessageBox.Show("3");
                 }
@@ -155,7 +153,7 @@ namespace Production.Class
                 //args.Text = "Lưu thành công . Thông báo này sẽ tự đóng sau 10 giây.";
                 //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                 //XtraMessageBox.Show(args).ToString();
-                //args.Showing += Args_Showing;             
+                //args.Showing += Args_Showing;
                 System.Data.DataTable dt = new System.Data.DataTable();
 
                 dt = ImportExceltoDatatable(filePath, "Sheet");
@@ -191,7 +189,7 @@ namespace Production.Class
 
             // 10C PDF
             actionMini1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
-        }        
+        }
 
         public void Set4Controls()
         {
@@ -233,13 +231,11 @@ namespace Production.Class
                 OBJ1.MuaNgoai = gridView1.GetFocusedRowCellValue("MuaNgoai").ToString() == "True" ? true : false;
                 OBJ1.DVMuaNgoaiCode = gridView1.GetFocusedRowCellValue("DVMuaNgoaiCode").ToString();
                 OBJ1.DVMuaNgoaiName = gridView1.GetFocusedRowCellValue("DVMuaNgoaiName").ToString();
-
-
             }
         }
 
         public void Set4ObjectHeader()
-        {           
+        {
             if (isAction == "Edit")
             {
                 //MessageBox.Show("Bat dau Edit");
@@ -249,14 +245,13 @@ namespace Production.Class
                 //OBJ.COADescription = txtDienGiai.Text;
                 //OBJ.Note = txtNote.Text;
                 //OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
-            }   
+            }
             OBJ.PL = txtTenmauCOA.Text;
             //OBJ.PL = txtDienGiai.Text;
             OBJ.EffDate = dteEffDate.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteEffDate.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.ExpDate = dteExpDate.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteExpDate.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.Note = txtNote.Text;
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
-            
         }
 
         public void ResetControl()
@@ -265,7 +260,7 @@ namespace Production.Class
             txtTenmauCOA.Text = "";
             //lkeCTPT.Text = "";
             //lkeTC.Text = "";
-            
+
             txtNote.Text = "";
             cmbKhoa.Text = null;
         }
@@ -280,7 +275,7 @@ namespace Production.Class
             txtTenmauCOA.ReadOnly = bl;
             txtDienGiai.ReadOnly = bl;
             //txtNote.ReadOnly = bl;
-            //cmbKhoa.ReadOnly = bl;            
+            //cmbKhoa.ReadOnly = bl;
         }
 
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
@@ -294,18 +289,17 @@ namespace Production.Class
             txtIDENTITY.Text = BUS1.PRICELIST_INDENTITY_SELECT().ToString();
 
             foreach (GridColumn column in gridView1.Columns)
-            { 
-                if( column.Name == "colID" )
+            {
+                if (column.Name == "colID")
                 {
                     column.VisibleIndex = 0;
-                    column.Visible = true;                    
+                    column.Visible = true;
                 }
                 else if (column.Name == "colPLID")
                 {
                     column.VisibleIndex = 1;
                     column.Visible = true;
                 }
-
                 else if (column.Name == "colCTXNID")
                 {
                     column.VisibleIndex = 2;
@@ -379,31 +373,32 @@ namespace Production.Class
 
             //Restore layout
             gridView1.RestoreLayoutFromXml(@"D:\tempLayout.xml");
-            
+
             System.Diagnostics.Process.Start(filePath);
         }
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
-            isActionMini                                    = "Add";
+            isActionMini = "Add";
             //Riêng cho trường hợp tạo mới Row trên KQKN template
             //Truyen ID cua KQKN template cho Row
-            OBJ1.PLID                                       = OBJ.ID;
-            state                                           = MenuState.Insert;
+            OBJ1.PLID = OBJ.ID;
+            state = MenuState.Insert;
             //Update :  DELEGATE
             // Gọi form Details
             //Disable
-            this.Enabled                                    = false;
+            this.Enabled = false;
             //
-            F_PRICELIST_Details_Added_Row FRM               = new F_PRICELIST_Details_Added_Row();
-            FRM.isAction                                    = this.isActionMini;
-            FRM.OBJ                                         = this.OBJ1;
-            FRM.myFinished                                  += this.finished;
+            F_PRICELIST_Details_Added_Row FRM = new F_PRICELIST_Details_Added_Row();
+            FRM.isAction = this.isActionMini;
+            FRM.OBJ = this.OBJ1;
+            FRM.myFinished += this.finished;
             FRM.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            isActionMini                = "Edit";
+            isActionMini = "Edit";
             //Riêng cho trường hợp tạo mới Row trên KQKN template
             //Truyen ID cua KQKN template cho Row
             Set4Object_PriceList_Details();
@@ -419,10 +414,11 @@ namespace Production.Class
             FRM.myFinished += this.finished;
             FRM.Show();
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
-
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -431,7 +427,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isActionMini = "View";
 
@@ -450,8 +446,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
-
-            // Cap nhat 2019-07-06 
+            // Cap nhat 2019-07-06
             // Khong cho xoa ma chi set Locked = '1'
             // De luu history price list detail
             // 14 Khai báo state cho các nút khi nhấn nút Del
@@ -510,16 +505,16 @@ namespace Production.Class
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
 
-            //// Step 2 : Load lại data tren grid sau khi Add            
+            //// Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = tbl_PriceList_Details_LABTableAdapter.FillbyPLID(sYNC_NUTRICIELDataSet.tbl_PriceList_Details_LAB, OBJ.ID);
             gridView1.BestFitColumns();
         }
 
-        public System.Data.DataTable ImportExceltoDatatable(string filepath,string sheetname)
+        public System.Data.DataTable ImportExceltoDatatable(string filepath, string sheetname)
         {
             // string sqlquery= "Select * From [SheetName$] Where YourCondition";
             //string sqlquery = "Select * From [SheetName$] Where Id='ID_007'";
-            string sqlquery = "Select * From ["+ sheetname +"$]" ;
+            string sqlquery = "Select * From [" + sheetname + "$]";
             DataSet ds = new DataSet();
             string constring = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filepath + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
             OleDbConnection con = new OleDbConnection(constring + "");
@@ -528,7 +523,6 @@ namespace Production.Class
             System.Data.DataTable dt = ds.Tables[0];
             return dt;
         }
-
 
         private void Set4Object_PriceList_Details()
         {
@@ -549,10 +543,11 @@ namespace Production.Class
             OBJ1.DVMuaNgoaiCode = gridView1.GetFocusedRowCellValue("DVMuaNgoaiCode").ToString();
             OBJ1.DVMuaNgoaiName = gridView1.GetFocusedRowCellValue("DVMuaNgoaiName").ToString();
         }
+
         //public void FillFromReader(DbDataReader reader)
         //{
-        //    // We want to get the schema information (i.e. columns) from the 
-        //    // DbDataReader and 
+        //    // We want to get the schema information (i.e. columns) from the
+        //    // DbDataReader and
         //    // import it into *this* DataTable, NOT a new one.
         //    System.Data.DataTable schema = reader.GetSchemaTable();
         //    //GetSchemaTable() returns a DataTable with the columns we want.
@@ -579,5 +574,4 @@ namespace Production.Class
             tbl_PriceList_Details_LABTableAdapter.FillbyPLID(sYNC_NUTRICIELDataSet.tbl_PriceList_Details_LAB, OBJ.ID);
         }
     }
-
 }

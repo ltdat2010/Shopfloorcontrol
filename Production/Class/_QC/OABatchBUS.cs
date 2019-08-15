@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
-using System.Data;
-using System.Windows;
+﻿using System.Data;
 
 namespace Production.Class
 {
@@ -20,6 +11,7 @@ namespace Production.Class
         {
             OAD.OABatch_INSERT(dr);
         }
+
         public bool OABatch_Visible(string OABatch)
         {
             return OAD.OABatch_Visible(OABatch);
@@ -35,10 +27,9 @@ namespace Production.Class
             return OAD.OABatch_View();
         }
 
-        public DataTable OABatch_Report_byDate( string FrDate, string ToDate)
+        public DataTable OABatch_Report_byDate(string FrDate, string ToDate)
         {
             return OAD.OABatch_Report_byDate(FrDate, ToDate);
         }
-
     }
 }

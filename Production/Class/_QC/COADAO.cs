@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 using System.Windows.Forms;
 
 namespace Production.Class
@@ -24,7 +19,7 @@ namespace Production.Class
                                              " FROM [SYNC_NUTRICIEL].[dbo].tbl_COA_Template_Details  " +
                                              " LEFT JOIN [SYNC_NUTRICIEL].[dbo].tbl_HangMucKiemTra " +
                                              " ON tbl_COA_Template_Details.ControlID = tbl_Control.ID " +
-                                             " WHERE tbl_COA_Template_Details.COAID=" + ID , CommandType.Text);
+                                             " WHERE tbl_COA_Template_Details.COAID=" + ID, CommandType.Text);
             return dt;
         }
 
@@ -40,7 +35,7 @@ namespace Production.Class
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", " SELECT [WO],[SoCOA],[LB_MAT] " +
-                                             " FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD] WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[WO]='" + WO+"' ", CommandType.Text);
+                                             " FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD] WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[WO]='" + WO + "' ", CommandType.Text);
             return dt;
         }
 
@@ -54,13 +49,13 @@ namespace Production.Class
         public DataTable COA_Template_Search(int ID)
         {
             DataTable dt = new DataTable();
-            dt = Sql.ExecuteDataTable("SAP"," SELECT [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].ID, "+
+            dt = Sql.ExecuteDataTable("SAP", " SELECT [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].ID, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].ControlID, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_Control].Control, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].Value, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].Tolerance " +
                                             " FROM [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate] " +
-                                            " INNER JOIN [SYNC_NUTRICIEL].[dbo].tbl_Control "+
+                                            " INNER JOIN [SYNC_NUTRICIEL].[dbo].tbl_Control " +
                                             " ON [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].ControlID = [SYNC_NUTRICIEL].[dbo].tbl_Control.ID " +
                                             " WHERE [SYNC_NUTRICIEL].[dbo].[tbl_COATemplate].COAID =" + ID, CommandType.Text);
             return dt;
@@ -70,8 +65,8 @@ namespace Production.Class
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", " SELECT [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ].ID, " +
-                                            " [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].HMKTID,  "+
-                                            " [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].HMKTEN, "+
+                                            " [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].HMKTID,  " +
+                                            " [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].HMKTEN, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].HMKTVN, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].Value , " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].Tolerance,  " +
@@ -81,14 +76,14 @@ namespace Production.Class
                                             " ON [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].ID= [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ].COA_Template_Details_ID  " +
                                             " INNER JOIN [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra]  " +
                                             " ON [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].HMKTID = [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].ID  " +
-                                            " WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ].SoCOA ='"+ SoCOA +"' AND  [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].Characteristic='" + Characteristic +"'", CommandType.Text);
+                                            " WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ].SoCOA ='" + SoCOA + "' AND  [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].Characteristic='" + Characteristic + "'", CommandType.Text);
             return dt;
         }
 
         public DataTable KQCOA_Search_COAID(int COAID, string Characteristic)
         {
             DataTable dt = new DataTable();
-            dt = Sql.ExecuteDataTable("SAP"," SELECT [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ].ID, " +
+            dt = Sql.ExecuteDataTable("SAP", " SELECT [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ].ID, " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].HMKTID,  " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].ID as COATemplateID,  " +
                                             " [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra].HMKTEN, " +
@@ -101,19 +96,17 @@ namespace Production.Class
                                             " ON [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].ID= [SYNC_NUTRICIEL].[dbo].tbl_Result_COA_KQ.COATemplateID  " +
                                             " INNER JOIN [SYNC_NUTRICIEL].[dbo].[tbl_HangMucKiemTra]  " +
                                             " ON [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].HMKTID = [SYNC_NUTRICIEL].[dbo].tbl_HangMucKiemTra.ID  " +
-                                            " WHERE [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].COAID =" + COAID + 
+                                            " WHERE [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details].COAID =" + COAID +
                                             " AND [SYNC_NUTRICIEL].[dbo].tbl_HangMucKiemTra.Characteristic='" + Characteristic + "'", CommandType.Text);
             return dt;
         }
-
-
 
         public DataTable TDCOA_Search(string SoCOA)
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", "SELECT [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[ID] " +
                                                 ", [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[SoCOA] " +
-                                                ", [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[COATemplateID]"  +
+                                                ", [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[COATemplateID]" +
                                                 ", [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[WO] " +
                                                 ", [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[ManfBy] " +
                                                 ", [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[SmpDate] " +
@@ -129,7 +122,7 @@ namespace Production.Class
                                                 "FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD]  " +
                                                 "INNER JOIN [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Header]  " +
                                                 "ON [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].[COATemplateID] =  [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Header].[ID]  " +
-                                                "WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].SoCOA ='" + SoCOA+"'" , CommandType.Text);
+                                                "WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].SoCOA ='" + SoCOA + "'", CommandType.Text);
             return dt;
         }
 
@@ -147,8 +140,8 @@ namespace Production.Class
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", "SELECT * " +
                                             "FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD]   " +
-                                            "WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].WO ='" + WO+"'", CommandType.Text);
-            return dt ;
+                                            "WHERE [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD].WO ='" + WO + "'", CommandType.Text);
+            return dt;
         }
 
         public DataTable COA_Template_View()
@@ -157,26 +150,25 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details] ", CommandType.Text);
             return dt;
         }
+
         public int COA_Template_Visible(int COAID, int ControlID)
         {
             DataTable dt = new DataTable();
-            dt = Sql.ExecuteDataTable("SAP", "SELECT *  FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details] WHERE COAID =" + COAID+" and ControlID = "+ControlID, CommandType.Text);
+            dt = Sql.ExecuteDataTable("SAP", "SELECT *  FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details] WHERE COAID =" + COAID + " and ControlID = " + ControlID, CommandType.Text);
             //XtraMessageBox.Show("Row count : "+dt.Rows.Count.ToString());
             return dt.Rows.Count;
         }
 
         public void COA_Template_Delete(int ID)
         {
-            if (XtraMessageBox.Show("Do you want to delete the COA template no = '"+ID.ToString()+"'?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Do you want to delete the COA template no = '" + ID.ToString() + "'?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //e.Cancel = true;
                 Sql.ExecuteNonQuery("SAP", "DELETE  FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Details] WHERE COAID =" + ID, CommandType.Text);
                 Sql.ExecuteNonQuery("SAP", "DELETE  FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA] WHERE ID =" + ID, CommandType.Text);
                 XtraMessageBox.Show("Delete successfull ");
             }
-            
         }
-
 
         public void COA_Template_Insert(DataRow dr)
         {
@@ -184,15 +176,15 @@ namespace Production.Class
            "([COAID] " +
            ",[ControlID] " +
            ",[Value] " +
-           ",[Tolerance]) "+
-     "VALUES "+
+           ",[Tolerance]) " +
+     "VALUES " +
            "(" + int.Parse(dr["COAID"].ToString()) +
            "," + int.Parse(dr["ControlID"].ToString()) +
            ",'" + dr["Value"].ToString() +
            "','" + dr["Tolerance"].ToString() + "')", CommandType.Text);
         }
 
-        public void KQCOA_Insert(int SoCOA,DataRow dr)
+        public void KQCOA_Insert(int SoCOA, DataRow dr)
         {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KQCOA]" +
            "([SoCOA] " +
@@ -208,17 +200,17 @@ namespace Production.Class
            "','NguoiTao')", CommandType.Text);
         }
 
-     //   public void KLPKN_Insert(int SoPKN, string KL ,string PassFail)
-     //   {
-     //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KLPKN]" +
-     //      "([SoPKN] " +
-     //      ",[KL] " +
-     //      ",[PassFail]) " +
-     //"VALUES " +
-     //      "(" + SoPKN +
-     //      ",'" + KL +
-     //      "','" + PassFail + "')", CommandType.Text);
-     //   }
+        //   public void KLPKN_Insert(int SoPKN, string KL ,string PassFail)
+        //   {
+        //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KLPKN]" +
+        //      "([SoPKN] " +
+        //      ",[KL] " +
+        //      ",[PassFail]) " +
+        //"VALUES " +
+        //      "(" + SoPKN +
+        //      ",'" + KL +
+        //      "','" + PassFail + "')", CommandType.Text);
+        //   }
 
         //public void KLPKN_Update(int SoPKN, string KL, string PassFail)
         //{
@@ -228,11 +220,10 @@ namespace Production.Class
         //                               "' WHERE [dbo].[tbl_KQPKN].[SoPKN]=" + SoPKN, CommandType.Text);
         //}
 
-
         //public void KQPKN_Update(DataRow dr)
         //{
         //    Sql.ExecuteNonQuery("SAP", "UPDATE [dbo].[tbl_KQPKN] "+
-        //                               "SET [KQTT] = "+ float.Parse(dr["KQTT"].ToString()) +                                      
+        //                               "SET [KQTT] = "+ float.Parse(dr["KQTT"].ToString()) +
         //                               "WHERE [dbo].[tbl_KQPKN].[ID]=" + int.Parse(dr["ID"].ToString()), CommandType.Text);
         //}
 
@@ -256,7 +247,7 @@ namespace Production.Class
             , string LB_MAT
             )
         {
-            Sql.ExecuteNonQuery("SAP", "INSERT INTO [dbo].[tbl_TDCOA] "+
+            Sql.ExecuteNonQuery("SAP", "INSERT INTO [dbo].[tbl_TDCOA] " +
            "([SoCOA] " +
            ",[COATemplateID] " +
            ",[WO] " +
@@ -264,9 +255,9 @@ namespace Production.Class
            ",[SmpDate] " +
            ",[ExpDate] " +
            ",[AnlDate] " +
-           ",[ManfDate] "+
+           ",[ManfDate] " +
            ",[LB_MAT]) " +
-     "VALUES "+
+     "VALUES " +
            "('" + SoCOA +
            "'," + COATemplateID +
            ",'" + WO +
@@ -274,13 +265,8 @@ namespace Production.Class
            "','" + SmpDate +
            "','" + ExpDate +
            "','" + AnlDate +
-           "','" + ManfDate + 
-           "','" + LB_MAT  +"')", CommandType.Text);
+           "','" + ManfDate +
+           "','" + LB_MAT + "')", CommandType.Text);
         }
-
-        
     }
-
 }
-
-

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,7 @@ namespace Production.Class
     {
         public void Result_KQKN_KQTTDAO_INSERT(Result_KQKN_KQTT OBJ)
         {
-           //XtraMessageBox.Show("LOC.Locked : " + LOC.Locked.ToString());
+            //XtraMessageBox.Show("LOC.Locked : " + LOC.Locked.ToString());
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_KQTT] " +
            " ([SoPKN] " +
            " ,[KQKN_Detail_ID] " +
@@ -61,18 +55,13 @@ namespace Production.Class
         public void Result_KQKN_KQTTDAO_DELETE(Result_KQKN_TD OBJ)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_KQTT] " +
-            " WHERE [SoPKN]='" + OBJ.SoPKN+"'", CommandType.Text);
+            " WHERE [SoPKN]='" + OBJ.SoPKN + "'", CommandType.Text);
         }
 
         public void Result_KQKN_KQTTDAO_DELETE_ALL(Result_KQKN_TD OBJ)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_KQTT] " +
-            " WHERE [SoPKN]='" + OBJ.SoPKN+"'", CommandType.Text);
+            " WHERE [SoPKN]='" + OBJ.SoPKN + "'", CommandType.Text);
         }
-
-        
     }
-
 }
-
-

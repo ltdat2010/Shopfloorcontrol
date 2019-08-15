@@ -1,39 +1,42 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.IO;
-using System.Data;
-using System.Globalization;
-using System.Net.Mail;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Windows.Forms;
+﻿using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
 using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
-using DevExpress.XtraGrid.Views.Grid;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Net.Mail;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PXN_Details : frm_Base
     {
         #region Variables
-        int ImageID                                     = 0;
-        String strFilePath                              = "";
-        Image DefaultImage;
-        Byte[] ImageByteArray;        
-        #endregion
-        
-        bool gridViewRowClick                           = false;
-        bool gridViewRowClick2                          = false;
-        bool chkSendMail_status                         = false;
-        string isChanged                                = "";
-        string Path                                     = Directory.GetCurrentDirectory();
-        public int gridRow                              = 0;
+
+        private int ImageID = 0;
+        private String strFilePath = "";
+        private Image DefaultImage;
+        private Byte[] ImageByteArray;
+
+        #endregion Variables
+
+        private bool gridViewRowClick = false;
+        private bool gridViewRowClick2 = false;
+        private bool chkSendMail_status = false;
+        private string isChanged = "";
+        private string Path = Directory.GetCurrentDirectory();
+        public int gridRow = 0;
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -46,31 +49,34 @@ namespace Production.Class
                 }
             }
         }
+
         //NEW : Phan khai bao cho KH Mau
-        public KHMau_LAB KHMAUOBJ                       = new KHMau_LAB();
+        public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
 
-        KHMau_LABBUS KHMauBUS                           = new KHMau_LABBUS();
-        KHMau_CTXN_LABBUS KHMauCTXNBUS                  = new KHMau_CTXN_LABBUS();
+        private KHMau_LABBUS KHMauBUS = new KHMau_LABBUS();
+        private KHMau_CTXN_LABBUS KHMauCTXNBUS = new KHMau_CTXN_LABBUS();
 
-        public PXN_Header OBJ                           = new PXN_Header();
-        PXN_Details OBJ1                                = new PXN_Details();
+        public PXN_Header OBJ = new PXN_Header();
+        private PXN_Details OBJ1 = new PXN_Details();
 
-        PXN_HeaderBUS BUS                               = new PXN_HeaderBUS();
-        PXN_DetailsBUS BUS1                             = new PXN_DetailsBUS();
-        KHMau_LABBUS BUS2                               = new KHMau_LABBUS();
+        private PXN_HeaderBUS BUS = new PXN_HeaderBUS();
+        private PXN_DetailsBUS BUS1 = new PXN_DetailsBUS();
+        private KHMau_LABBUS BUS2 = new KHMau_LABBUS();
+
         //Shcedule
-        Resources RSRC                                  = new Resources();
-        ResourcesBUS RSRCBUS                            = new ResourcesBUS();
+        private Resources RSRC = new Resources();
 
-        List<bool> LstBool = new List<bool>();
+        private ResourcesBUS RSRCBUS = new ResourcesBUS();
+
+        private List<bool> LstBool = new List<bool>();
 
         public F_PXN_Details()
         {
             InitializeComponent();
             Load += (s, e) =>
             {
-                this.Width                              = Screen.PrimaryScreen.Bounds.Width * 3/5;
-                this.Height                             = Screen.PrimaryScreen.Bounds.Height - 30;
+                this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
+                this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
@@ -96,92 +102,91 @@ namespace Production.Class
                 btnSendMail.Enabled = false;
                 //MessageBox.Show(isAction);
                 if (isAction == "Edit")
-                {                    
+                {
                     Set4Controls();
                     TDControlsReadOnly(false);
                     //XtraMessageBox.Show("Edit SoPXN :" + txtSoPXN.Text);
-                    gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB,txtSoPXN.Text);
+                    gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
                     for (int i = 0; i < gridView2.DataRowCount; i++)
-                        LstBool.Add(bool.Parse(gridView2.GetRowCellValue(i,"KetQua").ToString() == "1" ? "true" : "false"));
-                } 
+                        LstBool.Add(bool.Parse(gridView2.GetRowCellValue(i, "KetQua").ToString() == "1" ? "true" : "false"));
+                }
                 else if (isAction == "Add")
                 {
-                    xtraTabControl1.Enabled             = false;
-                    txtNote.ReadOnly                    = true;
-                    cmbKhoa.ReadOnly                    = true;
-                    txtSendMail.ReadOnly                = true;
+                    xtraTabControl1.Enabled = false;
+                    txtNote.ReadOnly = true;
+                    cmbKhoa.ReadOnly = true;
+                    txtSendMail.ReadOnly = true;
                     //dteNgayCoKetQua.ReadOnly            = true;
-                    dteNgayTraKetQua.ReadOnly           = true;
-                    TDControlsReadOnly(true);                    
-                    txtID.ReadOnly                      = true;
-                    txtSendMail.Text                    = OBJ.SendMail = "0";                    
+                    dteNgayTraKetQua.ReadOnly = true;
+                    TDControlsReadOnly(true);
+                    txtID.ReadOnly = true;
+                    txtSendMail.Text = OBJ.SendMail = "0";
                 }
-                gridControl3.DataSource                 = KHMauBUS.KHMau_LABDAO_REPORT_STORAGE(KHMAUOBJ.SoPXN);
+                gridControl3.DataSource = KHMauBUS.KHMau_LABDAO_REPORT_STORAGE(KHMAUOBJ.SoPXN);
                 gridView3.BestFitColumns();
 
-                gridControl4.DataSource                 = KHMauBUS.KHMau_LABDAO_REPORT_DETROY(KHMAUOBJ.SoPXN);
+                gridControl4.DataSource = KHMauBUS.KHMau_LABDAO_REPORT_DETROY(KHMAUOBJ.SoPXN);
                 gridView4.BestFitColumns();
             };
 
             gridView2.RowClick += (s, e) =>
             {
-                gridViewRowClick2                       = true;
+                gridViewRowClick2 = true;
                 Set4ObjectKHMau();
-            };    
+            };
 
             chkSendMail.CheckStateChanged += (s, e) =>
             {
                 if (chkSendMail.CheckState == CheckState.Checked)
                 {
-                    if (txtEmailCoSoGuiMau.Text.Length  == 0)
-                    {
-                        chkSendMail_status              = false;
-                        btnSendMail.Enabled             = false;
-                        //Khong co email nhan vien gui mau thi khong cho gui
-                        //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
-                        XtraMessageBoxArgs args         = new XtraMessageBoxArgs();
-                        args.AutoCloseOptions.Delay     = 2000;
-                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                        args.DefaultButtonIndex         = 0;
-                        args.Caption                    = "Lưu ý ";
-                        args.Text                       = "Email người nhận không được bỏ trống. Thông báo này sẽ tự đóng sau 2 giây.";
-                        args.Buttons                    = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                        XtraMessageBox.Show(args).ToString();                        
-
-                    }
-                    else if(gridView2.RowCount == 0)
+                    if (txtEmailCoSoGuiMau.Text.Length == 0)
                     {
                         chkSendMail_status = false;
                         btnSendMail.Enabled = false;
                         //Khong co email nhan vien gui mau thi khong cho gui
                         //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
-                        XtraMessageBoxArgs args         = new XtraMessageBoxArgs();
-                        args.AutoCloseOptions.Delay     = 2000;
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
                         args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                        args.DefaultButtonIndex         = 0;
-                        args.Caption                    = "Lưu ý ";
-                        args.Text                       = "Không có kí hiệu mẫu. Thông báo này sẽ tự đóng sau 2 giây.";
-                        args.Buttons                    = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Lưu ý ";
+                        args.Text = "Email người nhận không được bỏ trống. Thông báo này sẽ tự đóng sau 2 giây.";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                         XtraMessageBox.Show(args).ToString();
                     }
-                    else if(txtEmailCoSoGuiMau.Text.Length > 0 && gridView2.RowCount > 0)
+                    else if (gridView2.RowCount == 0)
                     {
-                        chkSendMail_status              = true;
-                        btnSendMail.Enabled             = true;
+                        chkSendMail_status = false;
+                        btnSendMail.Enabled = false;
+                        //Khong co email nhan vien gui mau thi khong cho gui
+                        //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Lưu ý ";
+                        args.Text = "Không có kí hiệu mẫu. Thông báo này sẽ tự đóng sau 2 giây.";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
+                    else if (txtEmailCoSoGuiMau.Text.Length > 0 && gridView2.RowCount > 0)
+                    {
+                        chkSendMail_status = true;
+                        btnSendMail.Enabled = true;
                     }
                 }
                 else
                 {
-                    chkSendMail_status                  = false;
-                    btnSendMail.Enabled                 = false;
-                }                   
+                    chkSendMail_status = false;
+                    btnSendMail.Enabled = false;
+                }
             };
 
             btnSendMail.Click += (s, e) =>
             {
                 //Kiểm tra xem user có check gửi mail không
 
-                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn gởi mail tới người nhận :"+ txtEmailCoSoGuiMau.Text  + " . Lưu ý hệ thống sẽ tiến hành gởi mail và không thể recall mail lại sau khi gởi", "Gởi mail", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn gởi mail tới người nhận :" + txtEmailCoSoGuiMau.Text + " . Lưu ý hệ thống sẽ tiến hành gởi mail và không thể recall mail lại sau khi gởi", "Gởi mail", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
                     string filename = "PhieuXetNghiem" + txtSoPXN.Text;
@@ -194,7 +199,7 @@ namespace Production.Class
                     {
                         Export2Pdf(filename);
                         SendMail(txtEmailCoSoGuiMau.Text, "Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Cập nhật )", filename);
-                    }                    
+                    }
                 }
                 else
                 {
@@ -207,8 +212,6 @@ namespace Production.Class
                     args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                     XtraMessageBox.Show(args).ToString();
                 }
-
-
             };
             //Tra ket qua cho kach hang
             //Chi khi tat ca cac dong co gia tri cua TraKetQua = true thi moi xu ly
@@ -220,12 +223,12 @@ namespace Production.Class
                     if (dlDel == DialogResult.Yes)
                     {
                         BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(txtSoPXN.Text);
-                        if(txtSoPXN.Text.Substring(0,3)=="MDW")
+                        if (txtSoPXN.Text.Substring(0, 3) == "MDW")
                         {
                             R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT FRM = new R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT();
                             FRM.SoPXN = this.OBJ.SoPXN;
                             FRM.Show();
-                        }                        
+                        }
                     }
                 }
                 else
@@ -238,42 +241,41 @@ namespace Production.Class
                     args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
                     args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                     XtraMessageBox.Show(args).ToString();
-                }                    
+                }
             };
 
             gridView2.RowClick += (s, e) =>
             {
-                gridViewRowClick                    = true;
+                gridViewRowClick = true;
                 Set4ObjectKHMau();
             };
 
             gridView2.InitNewRow += (s, e) =>
             {
-                gridViewRowClick                    = true;
+                gridViewRowClick = true;
             };
-            
+
             //this.FormClosed += (s, e) =>
             //{
-                
             //};
 
             txtNote.TextChanged += (s, e) =>
             {
-                if (isAction == "Edit" || isChanged == "Changed")                    
+                if (isAction == "Edit" || isChanged == "Changed")
                     //btnSave.Enabled = true;
-                isChanged                           = "Changed";
+                    isChanged = "Changed";
             };
 
             cmbKhoa.TextChanged += (s, e) =>
             {
-                if (isAction == "Edit" || isChanged == "Changed")   
-                   // btnSave.Enabled = true;
-                isChanged = "Changed";
+                if (isAction == "Edit" || isChanged == "Changed")
+                    // btnSave.Enabled = true;
+                    isChanged = "Changed";
             };
 
             chkGEN.CheckedChanged += (s, e) =>
              {
-                 if(chkGEN.CheckState == CheckState.Checked)
+                 if (chkGEN.CheckState == CheckState.Checked)
                  {
                      dteNgayNhanMau.ReadOnly = false;
                      //TDControlsReadOnly(false);
@@ -378,7 +380,6 @@ namespace Production.Class
                     chkPTN.CheckState = CheckState.Unchecked;
                     chkNTP.CheckState = CheckState.Checked;
                 }
-                    
             };
 
             chkNTP.CheckedChanged += (s, e) =>
@@ -388,13 +389,11 @@ namespace Production.Class
                     chkNTP.CheckState = CheckState.Checked;
                     chkPTN.CheckState = CheckState.Unchecked;
                 }
-                    
                 else
                 {
                     chkNTP.CheckState = CheckState.Unchecked;
                     chkPTN.CheckState = CheckState.Checked;
                 }
-                    
             };
 
             dteNgayNhanMau.EditValueChanged += (s, e) =>
@@ -406,7 +405,7 @@ namespace Production.Class
             {
                 TDControlsReadOnly(false);
             };
-            
+
             //Cập nhật ngày có kết quả --- Tạm chờ làm phần kết quả
             //dteNgayCoKetQua.ButtonClick += (s, e) =>
             //{
@@ -457,8 +456,6 @@ namespace Production.Class
             //    }
             //};
 
-
-
             lkeTenCoSoGuiMau.ButtonClick += (s, e) =>
             {
                 if (e.Button.Index == 1)
@@ -487,11 +484,10 @@ namespace Production.Class
                     F_CUS_Dtl.myFinished += this.finished;
                     F_CUS_Dtl.Show();
                 }
-
             };
 
             lkeTenCoSoGuiMau.EditValueChanged += (s, e) =>
-            {           
+            {
                 DataRowView rowView = (DataRowView)lkeTenCoSoGuiMau.GetSelectedDataRow();
                 DataRow row = rowView.Row;
                 txtPhoneCoSoGuiMau.Text = row["EMPMobile"].ToString();
@@ -504,7 +500,7 @@ namespace Production.Class
             };
 
             lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
-            {                
+            {
                 DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
                 DataRow row = rowView.Row;
                 txtDCCoSoLayMau.Text = row["CUSTADDRESS"].ToString();
@@ -521,7 +517,7 @@ namespace Production.Class
             action_EndForm1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
             action_EndForm1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
 
-           //Action_EndForm KHMau
+            //Action_EndForm KHMau
             action_EndForm2.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add_KHMau));
             action_EndForm2.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update_KHMau));
             action_EndForm2.Delete(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Delete_KHMau));
@@ -548,14 +544,14 @@ namespace Production.Class
             //actionMini1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
 
             // 10B Cancel
-            // actionMini1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));            
+            // actionMini1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
         }
 
         private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
         {
             Set4ObjectHeader();
             //Set4ObjectRow();
-            //Khong cho update Header          
+            //Khong cho update Header
             //XtraMessageBox.Show(OBJ.SoPXN);
             BUS.PXN_HeaderBUS_UPDATE(OBJ);
             Is_close = true;
@@ -569,9 +565,9 @@ namespace Production.Class
             {
                 Set4ObjectHeader();
                 //Set4ObjectRow();
-                //Khong cho update Header          
+                //Khong cho update Header
                 //XtraMessageBox.Show(OBJ.Note);
-                BUS.PXN_HeaderBUS_UPDATE(OBJ);                
+                BUS.PXN_HeaderBUS_UPDATE(OBJ);
 
                 Is_close = true;
                 //throw new NotImplementedException();
@@ -597,7 +593,6 @@ namespace Production.Class
                 DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa mục có mã  : " + KHMAUOBJ.KHMau + " ? ", "Xóa kí hiệu mẫu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
-
                     KHMauCTXNBUS.KHMau_CTXN_LABDAO_DELETE_ByKHMau(KHMAUOBJ.KHMau);
                     KHMauBUS.KHMau_LABBUS_DELETE(KHMAUOBJ.KHMau);
                     XtraMessageBoxArgs args = new XtraMessageBoxArgs();
@@ -605,7 +600,7 @@ namespace Production.Class
                     args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
                     args.DefaultButtonIndex = 0;
                     args.Caption = "Thông báo ";
-                    args.Text = "Đã xóa kí hiệu mẫu :"+ KHMAUOBJ.KHMau + ". Thông báo này sẽ tự đóng sau 1 giây.";
+                    args.Text = "Đã xóa kí hiệu mẫu :" + KHMAUOBJ.KHMau + ". Thông báo này sẽ tự đóng sau 1 giây.";
                     args.Buttons = new DialogResult[] { DialogResult.OK };
                     XtraMessageBox.Show(args).ToString();
                 }
@@ -622,7 +617,7 @@ namespace Production.Class
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
             {
                 XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                args.AutoCloseOptions.Delay = 1500;
+                args.AutoCloseOptions.Delay = 1000;
                 args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
                 args.DefaultButtonIndex = 0;
                 args.Caption = "Chú ý ";
@@ -645,18 +640,17 @@ namespace Production.Class
 
             if (gridViewRowClick2 == true)
             {
-                
                 Set4ObjectKHMau();
                 gridViewRowClick2 = false;
                 //Update :  DELEGATE
                 // Gọi form Details
                 // Disable form
-                this.Enabled = false;                
-                
+                this.Enabled = false;
+
                 F_KHMau_Details FRM = new F_KHMau_Details();
                 FRM.isAction = this.isAction;
                 FRM.ngaynhanmau = dteNgayNhanMau.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayNhanMau.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-                XtraMessageBox.Show(FRM.ngaynhanmau.ToString());
+                //XtraMessageBox.Show(FRM.ngaynhanmau.ToString());
                 FRM.KHMAUOBJ = this.KHMAUOBJ;
                 FRM.myFinished += this.finished;
                 FRM.Show();
@@ -739,8 +733,7 @@ namespace Production.Class
                 chkMDW.CheckState = CheckState.Unchecked;
                 chkMDW.ReadOnly = true;
             }
-                
-            else if ( OBJ.LoaiXN == "H2O")
+            else if (OBJ.LoaiXN == "H2O")
             {
                 chkGEN.CheckState = CheckState.Unchecked;
                 chkGEN.ReadOnly = true;
@@ -760,7 +753,6 @@ namespace Production.Class
                 chkMDW.CheckState = CheckState.Unchecked;
                 chkMDW.ReadOnly = true;
             }
-
             else if (OBJ.LoaiXN == "MDW")
             {
                 chkGEN.CheckState = CheckState.Unchecked;
@@ -777,25 +769,25 @@ namespace Production.Class
             else
                 chkDichTeDan.CheckState = CheckState.Unchecked;
 
-            txtSendMail.Text                = OBJ.SendMail;
-            dteNgayNhanMau.Text             = OBJ.NgayNhanMau.ToString().Substring(0, 10);
-            txtSoPXN.Text                   = OBJ.SoPXN;
-            lkeTenCoSoGuiMau.Text           = OBJ.TenCoSoGuiMau;
-            txtDCCoSoGuiMau.Text            = OBJ.DCCoSoGuiMau;
-            txtPhoneCoSoGuiMau.Text         = OBJ.PhoneCoSoGuiMau;
-            txtFaxCoSoGuiMau.Text           = OBJ.FaxCoSoGuiMau;
-            txtEmailCoSoGuiMau.Text         = OBJ.EmailCoSoGuiMau;
-            txtMSTCoSoGuiMau.Text           = OBJ.MSTCoSoGuiMau;
-            lkeTenCoSoLayMau.Text           = OBJ.TenCoSoLayMau;
-            txtDCCoSoLayMau.Text            = OBJ.DCCoSoLayMau;
-            txtPhoneCoSoLayMau.Text         = OBJ.PhoneCoSoLayMau;
-            txtFaxCoSoLayMau.Text           = OBJ.FaxCoSoLayMau;
-            txtEmailCoSoLayMau.Text         = OBJ.EmailCoSoLayMau;
-            dteNgayDukienTra.Text           = OBJ.NgayDuKienTra.ToString().Substring(0, 10);
+            txtSendMail.Text = OBJ.SendMail;
+            dteNgayNhanMau.Text = OBJ.NgayNhanMau.ToString().Substring(0, 10);
+            txtSoPXN.Text = OBJ.SoPXN;
+            lkeTenCoSoGuiMau.Text = OBJ.TenCoSoGuiMau;
+            txtDCCoSoGuiMau.Text = OBJ.DCCoSoGuiMau;
+            txtPhoneCoSoGuiMau.Text = OBJ.PhoneCoSoGuiMau;
+            txtFaxCoSoGuiMau.Text = OBJ.FaxCoSoGuiMau;
+            txtEmailCoSoGuiMau.Text = OBJ.EmailCoSoGuiMau;
+            txtMSTCoSoGuiMau.Text = OBJ.MSTCoSoGuiMau;
+            lkeTenCoSoLayMau.Text = OBJ.TenCoSoLayMau;
+            txtDCCoSoLayMau.Text = OBJ.DCCoSoLayMau;
+            txtPhoneCoSoLayMau.Text = OBJ.PhoneCoSoLayMau;
+            txtFaxCoSoLayMau.Text = OBJ.FaxCoSoLayMau;
+            txtEmailCoSoLayMau.Text = OBJ.EmailCoSoLayMau;
+            dteNgayDukienTra.Text = OBJ.NgayDuKienTra.ToString().Substring(0, 10);
             //dteNgayCoKetQua.Text            = OBJ.NgayCoKetQua.ToString().Substring(0, 10);
             //if (dteNgayCoKetQua.Text == "2019-01-01")
             //    dteNgayCoKetQua.Properties.ReadOnly = true;
-            dteNgayTraKetQua.Text           = OBJ.NgayTraKetQua.ToString().Substring(0, 10);
+            dteNgayTraKetQua.Text = OBJ.NgayTraKetQua.ToString().Substring(0, 10);
             if (dteNgayTraKetQua.Text == "2019-01-01")
                 dteNgayTraKetQua.Properties.ReadOnly = true;
             //if (chkH2O.CheckState == CheckState.Checked)
@@ -879,22 +871,22 @@ namespace Production.Class
                 //OBJ1.CTXNID = int.Parse(gridView1.GetFocusedRowCellValue("CTXNID").ToString());
                 ////MessageBox.Show("3");
                 //OBJ1.PLID = int.Parse(gridView1.GetFocusedRowCellValue("PLID").ToString());
-                ////MessageBox.Show("4");                
+                ////MessageBox.Show("4");
                 //OBJ1.DonGia = gridView1.GetFocusedRowCellValue("DonGia").ToString();
                 //OBJ1.Giam = gridView1.GetFocusedRowCellValue("Giam").ToString();
                 //OBJ1.SoLuong = gridView1.GetFocusedRowCellValue("SoLuong").ToString();
                 //OBJ1.UoM = gridView1.GetFocusedRowCellValue("UoM").ToString();
                 //OBJ1.UoMGiam = gridView1.GetFocusedRowCellValue("UoMGiam").ToString();
-                ////MessageBox.Show("5");                
+                ////MessageBox.Show("5");
                 //OBJ1.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
                 ////MessageBox.Show("6");
                 //OBJ1.CreatedBy = gridView1.GetFocusedRowCellValue("CreatedBy").ToString();
                 ////MessageBox.Show("7");
                 //OBJ1.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
-                ////MessageBox.Show("8");               
-
+                ////MessageBox.Show("8");
             }
         }
+
         public void Set4ObjectKHMau()
         {
             KHMAUOBJ.SoPXN = txtSoPXN.Text;
@@ -930,28 +922,26 @@ namespace Production.Class
                     KHMAUOBJ.CreatedBy = gridView2.GetFocusedRowCellValue("CreatedBy").ToString();
                 }
             }
-            //KHMAUOBJ.CreatedBy 
+            //KHMAUOBJ.CreatedBy
             //KHMAUOBJ.CreatedDate
-            
         }
+
         public void Set4ObjectHeader()
         {
             //XtraMessageBox.Show("isAction "+isAction.ToString());
             //XtraMessageBox.Show("isChanged "+isChanged.ToString());
             //XtraMessageBox.Show(txtID.Text);
-            if (isAction == "Edit" || isChanged =="Changed")
-                OBJ.ID = int.Parse(txtID.Text);            
+            if (isAction == "Edit" || isChanged == "Changed")
+                OBJ.ID = int.Parse(txtID.Text);
 
             if (chkGEN.CheckState == CheckState.Checked)
             {
                 OBJ.LoaiXN = "GEN";
             }
-
             else if (chkH2O.CheckState == CheckState.Checked)
             {
                 OBJ.LoaiXN = "H2O";
             }
-
             else if (chkHTH.CheckState == CheckState.Checked)
             {
                 OBJ.LoaiXN = "H2O";
@@ -969,7 +959,7 @@ namespace Production.Class
             OBJ.DCCoSoLayMau = txtDCCoSoLayMau.Text;
             OBJ.PhoneCoSoLayMau = txtPhoneCoSoLayMau.Text;
             OBJ.FaxCoSoLayMau = txtFaxCoSoLayMau.Text;
-            OBJ.EmailCoSoLayMau = txtEmailCoSoLayMau.Text;            
+            OBJ.EmailCoSoLayMau = txtEmailCoSoLayMau.Text;
             //OBJ.KHMau = txtKHMau.Text;
             //OBJ.Khac = txtKhac.Text;
             //if (chkPTN.CheckState == CheckState.Checked)
@@ -992,7 +982,6 @@ namespace Production.Class
             OBJ.NgayTraTruoc = dteNgayTraTruoc.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayTraTruoc.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.NgayThuTien = dteNgayThuTien.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayThuTien.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.NgayXuatHoaDon = dteNgayXuatHoaDon.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayXuatHoaDon.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            
         }
 
         public void ResetControl()
@@ -1000,7 +989,7 @@ namespace Production.Class
             txtID.Text = "";
             lkeTenCoSoGuiMau.Text = "";
             //lkeCTPT.Text = "";
-            //lkeTC.Text = "";            
+            //lkeTC.Text = "";
             txtNote.Text = "";
             cmbKhoa.Text = null;
         }
@@ -1056,7 +1045,7 @@ namespace Production.Class
             ////Disable
             //this.Enabled = false;
             ////
-            //F_PXN_Details_Added_Row FRM = new F_PXN_Details_Added_Row();            
+            //F_PXN_Details_Added_Row FRM = new F_PXN_Details_Added_Row();
             //FRM.isAction = this.isActionMini;
             //FRM.ngaynhanmau = dteNgayNhanMau.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayNhanMau.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             //OBJ1.SoPXN = OBJ.SoPXN;
@@ -1066,10 +1055,10 @@ namespace Production.Class
             ////XtraMessageBox.Show("Delegate finished");
             //FRM.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
             //Luu y : Chỉ cho xóa ko ch edit
-
 
             //isActionMini = "Edit";
             ////Riêng cho trường hợp tạo mới Row trên KQKN template
@@ -1096,6 +1085,7 @@ namespace Production.Class
             //FRM.myFinished += this.finished;
             //FRM.Show();
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
             xtraTabControl1.Enabled = true;
@@ -1104,7 +1094,7 @@ namespace Production.Class
             txtSendMail.ReadOnly = false;
             //dteNgayCoKetQua.ReadOnly = false;
             dteNgayTraKetQua.ReadOnly = false;
-            //MessageBox.Show(isAction.ToString());       
+            //MessageBox.Show(isAction.ToString());
             try
             {
                 //btnSave.Enabled = false;
@@ -1136,7 +1126,7 @@ namespace Production.Class
                     //MessageBox.Show("3");
                     RSRCBUS.Appointments_INSERT(dteNgayNhanMau.SelectedText, dteNgayNhanMau.SelectedText, ParentResourcesId, "Code mẫu ( nhận mẫu )", "LAB", 1);
                     //MessageBox.Show("4" + dteNgayNhanMau.EditValue.ToString());
-                    //////////////////////////////////////////////////////////////////        
+                    //////////////////////////////////////////////////////////////////
                     RSRC.Id = RSRCBUS.GET_ResourceId(RSRC.Description);
                     //////////////////////////////////////////////////////////////////
                     RSRCBUS.Appointments_INSERT(dteNgayNhanMau.EditValue.ToString(), dteNgayNhanMau.EditValue.ToString(), RSRC.Id, "Chuyển đến phòng XN", "LAB", 2);
@@ -1148,7 +1138,7 @@ namespace Production.Class
                     RSRCBUS.Appointments_INSERT(dteNgayNhanMau.EditValue.ToString(), dteNgayNhanMau.EditValue.ToString(), RSRC.Id, "Bộ phận nhận kết quả", "LAB", 5);
                     //////////////////////////////////////////////////////////////////
                     RSRCBUS.Appointments_INSERT(dteNgayNhanMau.EditValue.ToString(), dteNgayNhanMau.EditValue.ToString(), RSRC.Id, "Kiểm tra kết quả", "LAB", 6);
-                    //////////////////////////////////////////////////////////////////                        
+                    //////////////////////////////////////////////////////////////////
                     RSRCBUS.Appointments_INSERT(dteNgayNhanMau.EditValue.ToString(), dteNgayNhanMau.EditValue.ToString(), RSRC.Id, "Trả kết quả cho khách hàng", "LAB", 7);
                     //////////////////////////////////////////////////////////////////
                 }
@@ -1162,6 +1152,7 @@ namespace Production.Class
             isAction = "Edit";
             txtID.Text = BUS.PXN_HeaderDAO_ID_bySoPXN(txtSoPXN.Text).ToString();
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             //Set4ObjectHeader();
@@ -1171,7 +1162,7 @@ namespace Production.Class
             ////24  Edit hoặc update nên  isNew gán bằng false
             ////isNew = false;
 
-            //// 25 isEditting gan bang true 
+            //// 25 isEditting gan bang true
             ////isEditting = true;
             //isActionMini = "View";
 
@@ -1193,7 +1184,6 @@ namespace Production.Class
 
         //private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         //{
-            
         //    //// 14 Khai báo state cho các nút khi nhấn nút Del
         //    //state = MenuState.Delete;
 
@@ -1233,35 +1223,34 @@ namespace Production.Class
             //        Set4ObjectHeader();
             //        //BUS.PRICELISTBUS_UPDATE(OBJ);
             //        this.Close();
-            //    }           
-                
+            //    }
+
             //}
             //Is_close = true;
         }
 
         public void finished(object sender)
         {
-            
-            this.Enabled= true;
+            this.Enabled = true;
             //Dong form DELEGATE
             //var frm = (Form)sender;
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
-            //// Step 2 : Load lại data tren grid sau khi Add            
+            //// Step 2 : Load lại data tren grid sau khi Add
             //gridControl2.DataSource = tbl_PXN_DetailsTableAdapter.FillBySoPXN(sYNC_NUTRICIELDataSet.tbl_PXN_Details, txtSoPXN.Text);
             //gridView2.BestFitColumns();
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB' table. You can move, or remove it, as needed.
-            this.tbl_CUSTOMER_LABTableAdapter.FillByEMPCode(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB,lkeTenCoSoGuiMau.EditValue.ToString());
-            
+            this.tbl_CUSTOMER_LABTableAdapter.FillByEMPCode(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB, lkeTenCoSoGuiMau.EditValue.ToString());
+
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB' table. You can move, or remove it, as needed.
             this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
 
             gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
             gridView2.BestFitColumns();
-            
+
             gridControl3.DataSource = KHMauBUS.KHMau_LABDAO_REPORT_STORAGE(KHMAUOBJ.SoPXN);
             gridView3.BestFitColumns();
-            
+
             gridControl4.DataSource = KHMauBUS.KHMau_LABDAO_REPORT_DETROY(KHMAUOBJ.SoPXN);
             gridView4.BestFitColumns();
         }
@@ -1269,14 +1258,13 @@ namespace Production.Class
         private void F_PRICELIST_Details_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KHMau_LAB' table. You can move, or remove it, as needed.
-            this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB,OBJ.SoPXN);
+            this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.SoPXN);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB' table. You can move, or remove it, as needed.
             this.tbl_CUSTOMER_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB' table. You can move, or remove it, as needed.
             this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_PriceList_Details_LAB' table. You can move, or remove it, as needed.
             //this.tbl_PXN_DetailsTableAdapter.FillBySoPXN(this.sYNC_NUTRICIELDataSet.tbl_PXN_Details,txtSoPXN.Text);
-
         }
 
         public string Func_SoPXN_NPT(int SoPXN)
@@ -1288,18 +1276,21 @@ namespace Production.Class
                 case (1):
                     SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + "000" + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
                     break;
+
                 case (2):
                     SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + "00" + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
                     break;
+
                 case (3):
                     SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + "0" + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
                     break;
+
                 case (4):
                     SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
                     break;
             }
             return SoPXN_Text;
-        }  
+        }
 
         //private void lkeTenCoSoGuiMau_EditValueChanged(object sender, EventArgs e)
         //{
@@ -1366,228 +1357,225 @@ namespace Production.Class
                 MessageBox.Show(ex.ToString());
             }
         }
+
         //Send Mail
         private void SendMail(string receipt, string subject, string attachedfilename)
-        {       
+        {
+            //XtraMessageBox.Show(OBJ.SendMail);
 
-                //XtraMessageBox.Show(OBJ.SendMail);
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            //if (OBJ.SendMail == "0")
+            //{
+            //Send email
+            //SMTP
+            SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
+            SmtpServer.Port = 587;
+            //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
 
-                ///////////////////////////////////////////////////////////////////////////////////////////////////         
-                //if (OBJ.SendMail == "0")
+            //SEND
+            try
+            {
+                //MessageBox.Show("1");
+                MailMessage mail = new MailMessage();
+                //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("truyen.htb@viphavet.com");
+                mail.To.Add("vipha.lab@viphavet.com");
+                mail.CC.Add("dat.lt@olmixasia.com");
+                mail.CC.Add("tuyet.ntb@olmixasia.com");
+                mail.CC.Add("thom.lt@viphavet.com");
+                mail.CC.Add("truyen.htb@viphavet.com");
+                mail.Subject = subject;//"Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Mới )";
+                                       //1_Export to pdf
+
+                //2_Attach to Email
+                mail.Attachments.Add(new Attachment("D:\\" + attachedfilename + ".pdf"));
+                //mail.Body = "This is for testing SMTP mail from DAT to TRUYEN";
+                mail.IsBodyHtml = true;
+                //SmtpServer.Port = 587;
+                //SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
+                //SmtpServer.EnableSsl = true;
+                string messageBody = "<font>Kính gửi : " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
+
+                //if (grid.RowCount == 0) return messageBody;
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
+                string htmlTableEnd = "</table>";
+                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+                string htmlHeaderRowEnd = "</tr>";
+                string htmlTrStart = "<tr style=\"color:#555555;\">";
+                string htmlTrEnd = "</tr>";
+                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdEnd = "</td>";
+                messageBody += "Vipha.Lab trân trọng cảm ơn Quý Khách Hàng đã sử dụng dịch vụ xét nghiệm của chúng tôi. <br><br>";
+                messageBody += "Chúng tôi xin đính kèm Phiếu nhận mẫu xét nghiệm đối với các mẫu yêu cầu thử nghiệm của Quý Khách Hàng. <br><br>";
+                //messageBody += "Code mẫu             :" + txtSoPXN.Text + " <br><br>";
+                messageBody += "- Ngày nhận mẫu        : " + dteNgayNhanMau.EditValue.ToString() + " <br><br>";
+                messageBody += "- Ngày trả kết quả dự kiến : " + dteNgayDukienTra.EditValue.ToString() + " <br><br>";
+                messageBody += "Quý Khách Hàng vui lòng kiểm tra các thông tin trên Phiếu nhận mẫu xét nghiệm và vui lòng phản hồi nếu có bất kỳ thay đổi nào trong vòng 04 giờ kể từ khi nhận email này.  <br><br>";
+                //messageBody += htmlTableStart;
+                //messageBody += htmlHeaderRowStart;
+                //messageBody += htmlTdStart + "Chỉ tiêu xét nghiệm" + htmlTdEnd;
+                //messageBody += htmlTdStart + "Số lượng mẫu" + htmlTdEnd;
+                //messageBody += htmlTdStart + "Đơn giá (VND)" + htmlTdEnd;
+                //messageBody += htmlTdStart + "VAT (%)" + htmlTdEnd;
+                //messageBody += htmlTdStart + "Thành tiền (VND)" + htmlTdEnd;
+                //messageBody += htmlHeaderRowEnd;
+                //for (int i = 0; i <= gridView2.DataRowCount - 1; i++)
                 //{
-                    //Send email
-                    //SMTP
-                    SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
-                    SmtpServer.Port = 587;
-                    //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
-                    SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
-
-                    //SEND
-                    try
-                    {
-                        //MessageBox.Show("1");
-                        MailMessage mail = new MailMessage();
-                        //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                        mail.From = new MailAddress("truyen.htb@viphavet.com");
-                        mail.To.Add("vipha.lab@viphavet.com");
-                        mail.CC.Add("dat.lt@olmixasia.com");
-                        mail.CC.Add("tuyet.ntb@olmixasia.com");
-                        mail.CC.Add("thom.lt@viphavet.com");
-                        mail.CC.Add("truyen.htb@viphavet.com");
-                        mail.Subject = subject;//"Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Mới )";
-                        //1_Export to pdf
-
-                        //2_Attach to Email
-                        mail.Attachments.Add(new Attachment("D:\\" + attachedfilename + ".pdf"));
-                        //mail.Body = "This is for testing SMTP mail from DAT to TRUYEN";
-                        mail.IsBodyHtml = true;
-                        //SmtpServer.Port = 587;
-                        //SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
-                        //SmtpServer.EnableSsl = true;
-                        string messageBody = "<font>Kính gửi : " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
-
-                        //if (grid.RowCount == 0) return messageBody;
-                        string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
-                        string htmlTableEnd = "</table>";
-                        string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
-                        string htmlHeaderRowEnd = "</tr>";
-                        string htmlTrStart = "<tr style=\"color:#555555;\">";
-                        string htmlTrEnd = "</tr>";
-                        string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
-                        string htmlTdEnd = "</td>";
-                        messageBody += "Vipha.Lab trân trọng cảm ơn Quý Khách Hàng đã sử dụng dịch vụ xét nghiệm của chúng tôi. <br><br>";
-                        messageBody += "Chúng tôi xin đính kèm Phiếu nhận mẫu xét nghiệm đối với các mẫu yêu cầu thử nghiệm của Quý Khách Hàng. <br><br>";
-                        //messageBody += "Code mẫu             :" + txtSoPXN.Text + " <br><br>";
-                        messageBody += "- Ngày nhận mẫu        : " + dteNgayNhanMau.EditValue.ToString() + " <br><br>";
-                        messageBody += "- Ngày trả kết quả dự kiến : " + dteNgayDukienTra.EditValue.ToString() + " <br><br>";
-                        messageBody += "Quý Khách Hàng vui lòng kiểm tra các thông tin trên Phiếu nhận mẫu xét nghiệm và vui lòng phản hồi nếu có bất kỳ thay đổi nào trong vòng 04 giờ kể từ khi nhận email này.  <br><br>";
-                    //messageBody += htmlTableStart;
-                    //messageBody += htmlHeaderRowStart;
-                    //messageBody += htmlTdStart + "Chỉ tiêu xét nghiệm" + htmlTdEnd;
-                    //messageBody += htmlTdStart + "Số lượng mẫu" + htmlTdEnd;
-                    //messageBody += htmlTdStart + "Đơn giá (VND)" + htmlTdEnd;
-                    //messageBody += htmlTdStart + "VAT (%)" + htmlTdEnd;
-                    //messageBody += htmlTdStart + "Thành tiền (VND)" + htmlTdEnd;
-                    //messageBody += htmlHeaderRowEnd;
-                    //for (int i = 0; i <= gridView2.DataRowCount - 1; i++)
-                    //{
-                    //    float ThanhTien = 0;
-                    //    ThanhTien = float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
-                    //    TongTien = TongTien + float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
-                    //    messageBody = messageBody + htmlTrStart;
-                    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "CTXN").ToString() + htmlTdEnd; //adding student name  
-                    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "SoLuongXN").ToString() + htmlTdEnd;
-                    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "DonGia").ToString() + htmlTdEnd;
-                    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "VAT").ToString() + htmlTdEnd;
-                    //    messageBody = messageBody + htmlTdStart + ThanhTien.ToString("0,000.##") + htmlTdEnd;
-                    //    messageBody = messageBody + htmlTrEnd;
-                    //}
-                    //messageBody = messageBody + htmlTdStart + htmlTdEnd; //adding student name 
-                    //messageBody = messageBody + htmlTdStart + htmlTdEnd;
-                    //messageBody = messageBody + htmlTdStart + htmlTdEnd;
-                    //messageBody = messageBody + htmlTdStart + "Tổng cộng" + htmlTdEnd;
-                    //messageBody = messageBody + htmlTdStart + TongTien.ToString("0,000.##") + htmlTdEnd;
-
-                    //messageBody = messageBody + htmlTableEnd;
-                        messageBody += "Trân trọng kính chào. <br><br>";
-                        mail.Body = messageBody;
-
-                        SmtpServer.Send(mail);
-
-                        //Cập nhật gởi mail
-                        OBJ.SendMail = "1";
-                        BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
-
-                        //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
-                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                        args.AutoCloseOptions.Delay = 1000;
-                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                        args.DefaultButtonIndex = 0;
-                        args.Caption = "Thông báo tự đóng ";
-                        args.Text = "Email đã được gởi đến khách hàng . Thông báo này sẽ tự đóng sau 1 giây.";
-                        //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                        args.Buttons = new DialogResult[] { DialogResult.OK};
-                        XtraMessageBox.Show(args).ToString();
-                    }
-                    catch (SmtpFailedRecipientException ex)
-                    {
-                        XtraMessageBox.Show(ex.FailedRecipient);
-                        //ex.GetBaseException(); //should give you enough info.
-                    }
+                //    float ThanhTien = 0;
+                //    ThanhTien = float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
+                //    TongTien = TongTien + float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
+                //    messageBody = messageBody + htmlTrStart;
+                //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "CTXN").ToString() + htmlTdEnd; //adding student name
+                //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "SoLuongXN").ToString() + htmlTdEnd;
+                //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "DonGia").ToString() + htmlTdEnd;
+                //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "VAT").ToString() + htmlTdEnd;
+                //    messageBody = messageBody + htmlTdStart + ThanhTien.ToString("0,000.##") + htmlTdEnd;
+                //    messageBody = messageBody + htmlTrEnd;
                 //}
-                //else if (OBJ.SendMail != "0")
-                //{
-                //    //Send email
-                //    //SMTP
-                //    SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
-                //    SmtpServer.Port = 587;
-                //    //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
-                //    SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
-                //    //SEND
-                //    try
-                //    {
-                //        //MessageBox.Show("1");
-                //        MailMessage mail = new MailMessage();
-                //        //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                        
-                //        mail.From = new MailAddress("truyen.htb@viphavet.com");
-                //        mail.To.Add("vipha.lab@viphavet.com");
-                //        mail.CC.Add("dat.lt@olmixasia.com");
-                //        mail.CC.Add("tuyet.ntb@olmixasia.com");
-                //        mail.CC.Add("thom.lt@viphavet.com");
-                //        mail.CC.Add("truyen.htb@viphavet.com");
-                //        mail.Subject = subject; //"Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Cập nhật )"; ;
-                //        //1_Export to pdf
+                //messageBody = messageBody + htmlTdStart + htmlTdEnd; //adding student name
+                //messageBody = messageBody + htmlTdStart + htmlTdEnd;
+                //messageBody = messageBody + htmlTdStart + htmlTdEnd;
+                //messageBody = messageBody + htmlTdStart + "Tổng cộng" + htmlTdEnd;
+                //messageBody = messageBody + htmlTdStart + TongTien.ToString("0,000.##") + htmlTdEnd;
 
-                //        //2_Attach to Email
-                //        mail.Attachments.Add(new Attachment("D:\\" + txtSoPXN.Text + ".pdf"));
-                //        //mail.Body = "This is for testing SMTP mail from DAT to TRUYEN";
-                //        mail.IsBodyHtml = true;
-                //        //SmtpServer.Port = 587;
-                //        //SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
-                //        //SmtpServer.EnableSsl = true;
-                //        string messageBody = "<font>Kính gửi: " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
-                //        //if (grid.RowCount == 0) return messageBody;
-                //        string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
-                //        string htmlTableEnd = "</table>";
-                //        string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
-                //        string htmlHeaderRowEnd = "</tr>";
-                //        string htmlTrStart = "<tr style=\"color:#555555;\">";
-                //        string htmlTrEnd = "</tr>";
-                //        string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
-                //        string htmlTdEnd = "</td>";
-                //        messageBody += "Vipha.Lab trân trọng cảm ơn Quý Khách Hàng đã sử dụng dịch vụ xét nghiệm của chúng tôi. <br><br>";
-                //        messageBody += "Chúng tôi xin đính kèm Phiếu nhận mẫu xét nghiệm đối với các mẫu yêu cầu thử nghiệm của Quý Khách Hàng. <br><br>";
-                //        //messageBody += "Code mẫu             :" + txtSoPXN.Text + " <br><br>";
-                //        messageBody += "- Ngày nhận mẫu        : " + dteNgayNhanMau.EditValue.ToString() + " <br><br>";
-                //        messageBody += "- Ngày trả kết quả dự kiến : " + dteNgayDukienTra.EditValue.ToString() + " <br><br>";
-                //        messageBody += "Quý Khách Hàng vui lòng kiểm tra các thông tin trên Phiếu nhận mẫu xét nghiệm và vui lòng phản hồi nếu có bất kỳ thay đổi nào trong vòng 04 giờ kể từ khi nhận email này.  <br><br>";
-                //    //messageBody += htmlTableStart;
-                //    //messageBody += htmlHeaderRowStart;
-                //    //messageBody += htmlTdStart + "Chỉ tiêu xét nghiệm" + htmlTdEnd;
-                //    //messageBody += htmlTdStart + "Số lượng mẫu" + htmlTdEnd;
-                //    //messageBody += htmlTdStart + "Đơn giá (VND)" + htmlTdEnd;
-                //    //messageBody += htmlTdStart + "VAT (%)" + htmlTdEnd;
-                //    //messageBody += htmlTdStart + "Thành tiền (VND)" + htmlTdEnd;
-                //    //messageBody += htmlHeaderRowEnd;
-                //    //for (int i = 0; i <= gridView2.DataRowCount - 1; i++)
-                //    //{
-                //    //    float ThanhTien = 0;
-                //    //    ThanhTien = float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
-                //    //    TongTien = TongTien + float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
-                //    //    messageBody = messageBody + htmlTrStart;
-                //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "CTXN").ToString() + htmlTdEnd; //adding student name  
-                //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "SoLuongXN").ToString() + htmlTdEnd;
-                //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "DonGia").ToString() + htmlTdEnd;
-                //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "VAT").ToString() + htmlTdEnd;
-                //    //    messageBody = messageBody + htmlTdStart + ThanhTien.ToString("0,000.##") + htmlTdEnd;
-                //    //    messageBody = messageBody + htmlTrEnd;
-                //    //}
+                //messageBody = messageBody + htmlTableEnd;
+                messageBody += "Trân trọng kính chào. <br><br>";
+                mail.Body = messageBody;
 
-                //    //messageBody = messageBody + htmlTdStart + htmlTdEnd; //adding student name  
-                //    //messageBody = messageBody + htmlTdStart + htmlTdEnd;
-                //    //messageBody = messageBody + htmlTdStart + htmlTdEnd;
-                //    //messageBody = messageBody + htmlTdStart + "Tổng cộng" + htmlTdEnd;
-                //    //messageBody = messageBody + htmlTdStart + TongTien.ToString("0,000.##") + htmlTdEnd;
+                SmtpServer.Send(mail);
 
-                //    //messageBody = messageBody + htmlTableEnd;
-                //    messageBody += "Trân trọng kính chào. <br><br>";
-                //    mail.Body = messageBody;
-                //        SmtpServer.Send(mail);
-                //        txtSendMail.Text = (int.Parse(OBJ.SendMail) + 1).ToString();
+                //Cập nhật gởi mail
+                OBJ.SendMail = "1";
+                BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
 
-                //        //Cập nhật gởi mail
-                //        OBJ.SendMail = (int.Parse(OBJ.SendMail)+1).ToString();
-                //        BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
-                    
-                //        //XtraMessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
-                //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //        args.AutoCloseOptions.Delay = 1000;
-                //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //        args.DefaultButtonIndex = 0;
-                //        args.Caption = "Thông báo tự đóng ";
-                //        args.Text = "Email đã được gởi đến khách hàng . Thông báo này sẽ tự đóng sau 1 giây.";
-                //        //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //        args.Buttons = new DialogResult[] { DialogResult.OK };
-                //    XtraMessageBox.Show(args).ToString();
-                //    }
-                //    catch (SmtpFailedRecipientException ex)
-                //    {
-                //        XtraMessageBox.Show(ex.FailedRecipient);
-                //        //ex.FailedRecipient and ex.GetBaseException() should give you enough info.
-                //    }
-                //}
-                //Set4ObjectHeader();
-                //XtraMessageBox.Show(OBJ.SoPXN);             
-                //BUS.PXN_HeaderBUS_UPDATE(OBJ);
-                //Set4ObjectHeader();
-                //Set4ObjectRow();
-                txtSendMail.Text = (int.Parse(txtSendMail.Text) + 1).ToString();
-                Is_close = true;
-                this.Close();
-            
+                //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
+                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                args.AutoCloseOptions.Delay = 1000;
+                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                args.DefaultButtonIndex = 0;
+                args.Caption = "Thông báo tự đóng ";
+                args.Text = "Email đã được gởi đến khách hàng . Thông báo này sẽ tự đóng sau 1 giây.";
+                //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                args.Buttons = new DialogResult[] { DialogResult.OK };
+                XtraMessageBox.Show(args).ToString();
+            }
+            catch (SmtpFailedRecipientException ex)
+            {
+                XtraMessageBox.Show(ex.FailedRecipient);
+                //ex.GetBaseException(); //should give you enough info.
+            }
+            //}
+            //else if (OBJ.SendMail != "0")
+            //{
+            //    //Send email
+            //    //SMTP
+            //    SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
+            //    SmtpServer.Port = 587;
+            //    //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
+            //    SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
+            //    //SEND
+            //    try
+            //    {
+            //        //MessageBox.Show("1");
+            //        MailMessage mail = new MailMessage();
+            //        //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
+            //        mail.From = new MailAddress("truyen.htb@viphavet.com");
+            //        mail.To.Add("vipha.lab@viphavet.com");
+            //        mail.CC.Add("dat.lt@olmixasia.com");
+            //        mail.CC.Add("tuyet.ntb@olmixasia.com");
+            //        mail.CC.Add("thom.lt@viphavet.com");
+            //        mail.CC.Add("truyen.htb@viphavet.com");
+            //        mail.Subject = subject; //"Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Cập nhật )"; ;
+            //        //1_Export to pdf
+
+            //        //2_Attach to Email
+            //        mail.Attachments.Add(new Attachment("D:\\" + txtSoPXN.Text + ".pdf"));
+            //        //mail.Body = "This is for testing SMTP mail from DAT to TRUYEN";
+            //        mail.IsBodyHtml = true;
+            //        //SmtpServer.Port = 587;
+            //        //SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
+            //        //SmtpServer.EnableSsl = true;
+            //        string messageBody = "<font>Kính gửi: " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
+            //        //if (grid.RowCount == 0) return messageBody;
+            //        string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
+            //        string htmlTableEnd = "</table>";
+            //        string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+            //        string htmlHeaderRowEnd = "</tr>";
+            //        string htmlTrStart = "<tr style=\"color:#555555;\">";
+            //        string htmlTrEnd = "</tr>";
+            //        string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+            //        string htmlTdEnd = "</td>";
+            //        messageBody += "Vipha.Lab trân trọng cảm ơn Quý Khách Hàng đã sử dụng dịch vụ xét nghiệm của chúng tôi. <br><br>";
+            //        messageBody += "Chúng tôi xin đính kèm Phiếu nhận mẫu xét nghiệm đối với các mẫu yêu cầu thử nghiệm của Quý Khách Hàng. <br><br>";
+            //        //messageBody += "Code mẫu             :" + txtSoPXN.Text + " <br><br>";
+            //        messageBody += "- Ngày nhận mẫu        : " + dteNgayNhanMau.EditValue.ToString() + " <br><br>";
+            //        messageBody += "- Ngày trả kết quả dự kiến : " + dteNgayDukienTra.EditValue.ToString() + " <br><br>";
+            //        messageBody += "Quý Khách Hàng vui lòng kiểm tra các thông tin trên Phiếu nhận mẫu xét nghiệm và vui lòng phản hồi nếu có bất kỳ thay đổi nào trong vòng 04 giờ kể từ khi nhận email này.  <br><br>";
+            //    //messageBody += htmlTableStart;
+            //    //messageBody += htmlHeaderRowStart;
+            //    //messageBody += htmlTdStart + "Chỉ tiêu xét nghiệm" + htmlTdEnd;
+            //    //messageBody += htmlTdStart + "Số lượng mẫu" + htmlTdEnd;
+            //    //messageBody += htmlTdStart + "Đơn giá (VND)" + htmlTdEnd;
+            //    //messageBody += htmlTdStart + "VAT (%)" + htmlTdEnd;
+            //    //messageBody += htmlTdStart + "Thành tiền (VND)" + htmlTdEnd;
+            //    //messageBody += htmlHeaderRowEnd;
+            //    //for (int i = 0; i <= gridView2.DataRowCount - 1; i++)
+            //    //{
+            //    //    float ThanhTien = 0;
+            //    //    ThanhTien = float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
+            //    //    TongTien = TongTien + float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString());
+            //    //    messageBody = messageBody + htmlTrStart;
+            //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "CTXN").ToString() + htmlTdEnd; //adding student name
+            //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "SoLuongXN").ToString() + htmlTdEnd;
+            //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "DonGia").ToString() + htmlTdEnd;
+            //    //    messageBody = messageBody + htmlTdStart + gridView2.GetRowCellValue(i, "VAT").ToString() + htmlTdEnd;
+            //    //    messageBody = messageBody + htmlTdStart + ThanhTien.ToString("0,000.##") + htmlTdEnd;
+            //    //    messageBody = messageBody + htmlTrEnd;
+            //    //}
+
+            //    //messageBody = messageBody + htmlTdStart + htmlTdEnd; //adding student name
+            //    //messageBody = messageBody + htmlTdStart + htmlTdEnd;
+            //    //messageBody = messageBody + htmlTdStart + htmlTdEnd;
+            //    //messageBody = messageBody + htmlTdStart + "Tổng cộng" + htmlTdEnd;
+            //    //messageBody = messageBody + htmlTdStart + TongTien.ToString("0,000.##") + htmlTdEnd;
+
+            //    //messageBody = messageBody + htmlTableEnd;
+            //    messageBody += "Trân trọng kính chào. <br><br>";
+            //    mail.Body = messageBody;
+            //        SmtpServer.Send(mail);
+            //        txtSendMail.Text = (int.Parse(OBJ.SendMail) + 1).ToString();
+
+            //        //Cập nhật gởi mail
+            //        OBJ.SendMail = (int.Parse(OBJ.SendMail)+1).ToString();
+            //        BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
+
+            //        //XtraMessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
+            //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+            //        args.AutoCloseOptions.Delay = 1000;
+            //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+            //        args.DefaultButtonIndex = 0;
+            //        args.Caption = "Thông báo tự đóng ";
+            //        args.Text = "Email đã được gởi đến khách hàng . Thông báo này sẽ tự đóng sau 1 giây.";
+            //        //args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+            //        args.Buttons = new DialogResult[] { DialogResult.OK };
+            //    XtraMessageBox.Show(args).ToString();
+            //    }
+            //    catch (SmtpFailedRecipientException ex)
+            //    {
+            //        XtraMessageBox.Show(ex.FailedRecipient);
+            //        //ex.FailedRecipient and ex.GetBaseException() should give you enough info.
+            //    }
+            //}
+            //Set4ObjectHeader();
+            //XtraMessageBox.Show(OBJ.SoPXN);
+            //BUS.PXN_HeaderBUS_UPDATE(OBJ);
+            //Set4ObjectHeader();
+            //Set4ObjectRow();
+            txtSendMail.Text = (int.Parse(txtSendMail.Text) + 1).ToString();
+            Is_close = true;
+            this.Close();
         }
     }
-
 }

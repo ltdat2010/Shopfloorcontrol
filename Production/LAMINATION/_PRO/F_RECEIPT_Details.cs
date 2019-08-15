@@ -1,32 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DevExpress.XtraGrid.Columns;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Grid;
-using System.IO;
 
 namespace Production.Class
 {
     public partial class F_RECEIPT_Details : frm_Base //DevExpress.XtraEditors.XtraForm
     {
-        bool EXP_EXCEL=false;
-        int MAX_XHL;
-        RECEIPTBUS RECEIPTB = new RECEIPTBUS();
+        private bool EXP_EXCEL = false;
+        private int MAX_XHL;
+        private RECEIPTBUS RECEIPTB = new RECEIPTBUS();
         public string ECHRECEPS = "";
+
         public F_RECEIPT_Details()
         {
             InitializeComponent();
             Load += (s, e) =>
             {
-                RECEIPTB.F_RECEIPT_Detail(gridControl1, ECHRECEPS);               
-                
-                
+                RECEIPTB.F_RECEIPT_Detail(gridControl1, ECHRECEPS);
+
                 //for (int i = 0; i < gridView1.DataRowCount; i++)
                 //{
                 //    int j = 1;
@@ -42,7 +34,7 @@ namespace Production.Class
                 //        if (gridView1.GetRowCellValue(i, "CD_MAT").ToString() == gridView1.GetRowCellValue(i - 1, "CD_MAT").ToString())
                 //        {
                 //            //XtraMessageBox.Show("2 CD_MAT bang nhau j :" + j.ToString());
-                //            gridView1.SetRowCellValue(i, "XHL", int.Parse(gridView1.GetRowCellValue(i - 1, "XHL").ToString()) + 1);                            
+                //            gridView1.SetRowCellValue(i, "XHL", int.Parse(gridView1.GetRowCellValue(i - 1, "XHL").ToString()) + 1);
                 //        }
                 //        else
                 //        {
@@ -54,10 +46,6 @@ namespace Production.Class
                 //    }
                 //    //XtraMessageBox.Show("1");
                 //}
-                
-                
-                
-
 
                 //Reload lai lên grid để có field XHL
                 //gridControl1.DataSource = RECEIPTB.RECEIPT_Detail_Reload(ECHRECEPS);
@@ -72,6 +60,7 @@ namespace Production.Class
             //        }
             //    };
         }
+
         //void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         //{
         //    if (e.Column.FieldName == "XHL")
@@ -82,8 +71,6 @@ namespace Production.Class
         //            stats[e.ListSourceRowIndex] = int.Parse(e.Value.ToString());
         //    }
         //}
-
-        
 
         //Export to CSV
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -99,7 +86,6 @@ namespace Production.Class
                 //Save to Receipt details
                 DataTable tmp = RECEIPTB.GridView2DataTable(gridView1);
                 RECEIPTB.RECEIPT_Detail_INSERT(tmp);
-                
 
                 for (int i = 0; i < gridView1.DataRowCount; i++)
                 {
@@ -112,16 +98,13 @@ namespace Production.Class
 
                 MessageBox.Show("RECEIPT : " + ECHRECEPS + " đã nhập vào hệ thống thành công.");
             }
-            
             else
                 MessageBox.Show("Lưu ý : RECEIPT số :" + ECHRECEPS + " đã được lưu trước đây.");
             this.Close();
         }
-               
 
         private void ItemClickEventHandler_COA(object sender, EventArgs e)
         {
-            
         }
 
         private void CreateUnboundColumn()
@@ -129,53 +112,49 @@ namespace Production.Class
             GridColumn col = gridView1.Columns.AddVisible("XHL", "XHL");
             col.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
         }
+
         //Gan giá trị cho unbound column
         //private void CreateXHL(GridView gr)
         //{
-            //XtraMessageBox.Show("run");
-            //GridView view = sender as GridView;
-            //int k = 0;
-            //if (e.Column.FieldName == "XHL" && e.IsGetData)
-            //{
-            //    e.Value = k;
+        //XtraMessageBox.Show("run");
+        //GridView view = sender as GridView;
+        //int k = 0;
+        //if (e.Column.FieldName == "XHL" && e.IsGetData)
+        //{
+        //    e.Value = k;
 
-            //    k = k + 1;
-            //}
-            //XtraMessageBox.Show("view.DataRowCount : " + view.DataRowCount.ToString());
-            //for (int i = 0; i <= view.DataRowCount - 1; i++)
-            //{
+        //    k = k + 1;
+        //}
+        //XtraMessageBox.Show("view.DataRowCount : " + view.DataRowCount.ToString());
+        //for (int i = 0; i <= view.DataRowCount - 1; i++)
+        //{
+        //    XtraMessageBox.Show("i : " + i.ToString());
+        //    int j = 0;
+        //    if (e.Column.FieldName == "XHL" && e.IsGetData)
+        //    {
+        //        XtraMessageBox.Show("start");
+        //        if (i == 0)
+        //        {
+        //            j = 1;
+        //            //gridView1.SetRowCellValue(i, "XHL", j);
+        //            e.Value = j;
+        //        }
+        //        else
+        //        {
+        //            if (view.GetRowCellValue(i, "CD_MAT").ToString() == view.GetRowCellValue(i - 1, "CD_MAT").ToString())
+        //                //gridView1.SetRowCellValue(i, "XHL", j);
+        //                e.Value = j;
+        //            else
+        //            {
+        //                j = j + 1;
+        //                //gridView1.SetRowCellValue(i, "XHL", j.ToString());
+        //                e.Value = j;
+        //            }
 
-            //    XtraMessageBox.Show("i : " + i.ToString());
-            //    int j = 0;
-            //    if (e.Column.FieldName == "XHL" && e.IsGetData)
-            //    {
-            //        XtraMessageBox.Show("start");
-            //        if (i == 0)
-            //        {
-            //            j = 1;
-            //            //gridView1.SetRowCellValue(i, "XHL", j);
-            //            e.Value = j;
-            //        }
-            //        else
-            //        {
-            //            if (view.GetRowCellValue(i, "CD_MAT").ToString() == view.GetRowCellValue(i - 1, "CD_MAT").ToString())
-            //                //gridView1.SetRowCellValue(i, "XHL", j);
-            //                e.Value = j;
-            //            else
-            //            {
-            //                j = j + 1;
-            //                //gridView1.SetRowCellValue(i, "XHL", j.ToString());
-            //                e.Value = j;
-            //            }
-
-
-            //        }
-            //        XtraMessageBox.Show("end");
-            //    }
-            //}
-            
-
-
+        //        }
+        //        XtraMessageBox.Show("end");
+        //    }
+        //}
 
         //}
 
@@ -185,7 +164,6 @@ namespace Production.Class
         //    {
         //        for (int i = 0; i <= gridView1.DataRowCount - 1; i++)
         //        {
-
         //            XtraMessageBox.Show("i : " + i.ToString());
         //            int j = 0;
 
@@ -209,13 +187,11 @@ namespace Production.Class
         //                    //e.Value = j;
         //                }
 
-
         //            }
         //            //XtraMessageBox.Show("end");
 
         //        }
         //    }
         //}
-
     }
 }

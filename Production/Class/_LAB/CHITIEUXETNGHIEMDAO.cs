@@ -7,48 +7,47 @@ namespace Production.Class
     {
         public void CHITIEUXETNGHIEM_INSERT(CHITIEUXETNGHIEM CTXN)
         {
-            
-        Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_ChiTieuXetNghiem_LAB] " +
-           " ([CTXN] " +
-           " ,[MaCTXN] " +
-           " ,[CTXNDG] " +
-           " ,[CTXNDGTA] " +
-           " ,[CreatedDate] " +
-           " ,[CreatedBy] " +
-           " ,[Locked] " +
-           //" ,[MuaNgoai] " +
-           " ,[NCTXNID] " +
-           " ,[PPXNID] " +
-           " ,[MinValue] " +
-           " ,[MaxValue] " +
-           " ,[UnitValue] " +
-           " ,[Days] " +
-           " ,[Acronym] " +
-           " ,[UoM] " +
-           " ,[Note] )" +
-     " VALUES " +
-           "(N'" + CTXN.CTXN +
-           "',N'" + CTXN.MaCTXN +
-           "',N'" + CTXN.CTXNDG +
-           "',N'" + CTXN.CTXNDGTA +
-           "',Convert(datetime,'" + DateTime.Today +
-           "',103),'" + CTXN.CreatedBy +
-           "','" + CTXN.Locked +
-           //"','" + CTXN.MuaNgoai +
-           "'," + CTXN.NCTXNID +
-           "," + CTXN.PPXNID +      
-           ",N'" + CTXN.MinValue +
-           "',N'" + CTXN.MaxValue +
-           "',N'" + CTXN.UnitValue +
-           "',N'" + CTXN.Days +
-           "',N'" + CTXN.Acronym +
-           "',N'" + CTXN.UoM +
-           "',N'" + CTXN.Note +
-            "')", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_ChiTieuXetNghiem_LAB] " +
+               " ([CTXN] " +
+               " ,[MaCTXN] " +
+               " ,[CTXNDG] " +
+               " ,[CTXNDGTA] " +
+               " ,[CreatedDate] " +
+               " ,[CreatedBy] " +
+               " ,[Locked] " +
+               //" ,[MuaNgoai] " +
+               " ,[NCTXNID] " +
+               " ,[PPXNID] " +
+               " ,[MinValue] " +
+               " ,[MaxValue] " +
+               " ,[UnitValue] " +
+               " ,[Days] " +
+               " ,[Acronym] " +
+               " ,[UoM] " +
+               " ,[Note] )" +
+         " VALUES " +
+               "(N'" + CTXN.CTXN +
+               "',N'" + CTXN.MaCTXN +
+               "',N'" + CTXN.CTXNDG +
+               "',N'" + CTXN.CTXNDGTA +
+               "',Convert(datetime,'" + DateTime.Today +
+               "',103),'" + CTXN.CreatedBy +
+               "','" + CTXN.Locked +
+               //"','" + CTXN.MuaNgoai +
+               "'," + CTXN.NCTXNID +
+               "," + CTXN.PPXNID +
+               ",N'" + CTXN.MinValue +
+               "',N'" + CTXN.MaxValue +
+               "',N'" + CTXN.UnitValue +
+               "',N'" + CTXN.Days +
+               "',N'" + CTXN.Acronym +
+               "',N'" + CTXN.UoM +
+               "',N'" + CTXN.Note +
+                "')", CommandType.Text);
         }
 
         public void CHITIEUXETNGHIEM_UPDATE(CHITIEUXETNGHIEM CTXN)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_ChiTieuXetNghiem_LAB] SET" +
            "[CTXN]                      = N'" + CTXN.CTXN + "'" +
            ",[MaCTXN]                   = N'" + CTXN.MaCTXN + "' " +
@@ -59,8 +58,8 @@ namespace Production.Class
            //",[MuaNgoai]                 = '" + CTXN.MuaNgoai + "' " +
            ",[CTXNDG]                   = N'" + CTXN.CTXNDG + "' " +
            ",[CTXNDGTA]                 = N'" + CTXN.CTXNDGTA + "' " +
-           ",[NCTXNID]                  = " + CTXN.NCTXNID + 
-           ",[PPXNID]                   = " + CTXN.PPXNID + 
+           ",[NCTXNID]                  = " + CTXN.NCTXNID +
+           ",[PPXNID]                   = " + CTXN.PPXNID +
            ",[Note]                     = N'" + CTXN.Note + "' " +
            ",[MinValue]                 = N'" + CTXN.MinValue + "' " +
            ",[MaxValue]                 = '" + CTXN.MaxValue + "' " +
@@ -73,8 +72,8 @@ namespace Production.Class
 
         public void CHITIEUXETNGHIEM_DELETE(CHITIEUXETNGHIEM CTXN)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_ChiTieuXetNghiem_LAB] " +
-           " WHERE [ID]='" + CTXN.ID + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_ChiTieuXetNghiem_LAB] " +
+            " WHERE [ID]='" + CTXN.ID + "'", CommandType.Text);
         }
 
         //public DataTable CUSTOMER_LIST_SAPB1()
@@ -123,29 +122,26 @@ namespace Production.Class
                                                                     "FROM tbl_PriceList_Details_LAB " +
                                                                     "INNER JOIN tbl_PriceList_LAB " +
                                                                     "ON tbl_PriceList_Details_LAB.PLID = tbl_PriceList_LAB.ID " +
-                                                                    "WHERE '"+ NgayLapPXN + "' IN(tbl_PriceList_LAB.EffDate, tbl_PriceList_LAB.ExpDate) and tbl_PXN_Details.CTXNID =" + CTXNID +
+                                                                    "WHERE '" + NgayLapPXN + "' IN(tbl_PriceList_LAB.EffDate, tbl_PriceList_LAB.ExpDate) and tbl_PXN_Details.CTXNID =" + CTXNID +
                                                                     ") as T " +
                                                                     "ON  tbl_PXN_Details.CTXNID = T.CTXNID ", CommandType.Text);
-            return dt.Rows[0] ;
+            return dt.Rows[0];
         }
 
         public int CTXN_CTXNID_SELECT(string acr)
         {
             DataTable dt = new DataTable();
-            dt = Sql.ExecuteDataTable("SAP", " SELECT ID " +                                            
-                                            "FROM       tbl_ChiTieuXetNghiem_LAB " +                                                       
-                                                                    "WHERE Acronym ='"+acr+"' ", CommandType.Text);
+            dt = Sql.ExecuteDataTable("SAP", " SELECT ID " +
+                                            "FROM       tbl_ChiTieuXetNghiem_LAB " +
+                                                                    "WHERE Acronym ='" + acr + "' ", CommandType.Text);
             return (int)dt.Rows[0]["ID"];
         }
 
         public int CTXN_INDENTITY_SELECT()
         {
             DataTable dt = new DataTable();
-            dt = Sql.ExecuteDataTable("SAP", " SELECT IDENT_CURRENT( 'tbl_ChiTieuXetNghiem_LAB' ) + 1 as IDENT " , CommandType.Text);
+            dt = Sql.ExecuteDataTable("SAP", " SELECT IDENT_CURRENT( 'tbl_ChiTieuXetNghiem_LAB' ) + 1 as IDENT ", CommandType.Text);
             return int.Parse(dt.Rows[0]["IDENT"].ToString());
         }
     }
-
 }
-
-

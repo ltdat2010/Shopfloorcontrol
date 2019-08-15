@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class KHMau_CTXN_RESULT_DETAILS_LABBUS
     {
-        KHMau_CTXN_RESULT_DETAILS_LABDAO DAO = new KHMau_CTXN_RESULT_DETAILS_LABDAO();
+        private KHMau_CTXN_RESULT_DETAILS_LABDAO DAO = new KHMau_CTXN_RESULT_DETAILS_LABDAO();
+
         public void KHMau_CTXN_LABDAO_INSERT(KHMau_CTXN_RESULT_DETAILS_LAB OBJ)
         {
-
             DAO.KHMau_CTXN_LABDAO_INSERT(OBJ);
         }
 
@@ -46,10 +39,6 @@ namespace Production.Class
         public int MAX_KHMau_CTXN_LABDAO_ID()
         {
             return DAO.MAX_KHMau_CTXN_LABDAO_ID();
-        }        
-
+        }
     }
-
 }
-
-

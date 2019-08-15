@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
 using System.Data;
-using System.Windows;
 
 namespace Production.Class
 {
     public class COABUS
     {
         //public static OF of = new OF();
-        public static COADAO CAB = new COADAO();        
+        public static COADAO CAB = new COADAO();
+
         public DataTable COA_Template(int ID)
         {
             return CAB.COA_Template(ID);
@@ -49,6 +42,7 @@ namespace Production.Class
         {
             return CAB.KQCOA_Search_COAID(COAID, Characteristic);
         }
+
         public DataTable TDCOA_Search(string SoCOA)
         {
             return CAB.TDCOA_Search(SoCOA);
@@ -72,38 +66,38 @@ namespace Production.Class
         {
             return CAB.COA_Template_View();
         }
+
         public int COA_Template_Visible(int COAID, int STT)
         {
             return CAB.COA_Template_Visible(COAID, STT);
         }
 
         public void COA_Template_Delete(int ID)
-        {            
-            CAB.COA_Template_Delete(ID);  
+        {
+            CAB.COA_Template_Delete(ID);
         }
-
 
         public void COA_Template_Insert(DataRow dr)
         {
             CAB.COA_Template_Insert(dr);
         }
 
-        public void KQCOA_Insert(int SoCOA,DataRow dr)
+        public void KQCOA_Insert(int SoCOA, DataRow dr)
         {
-            CAB.KQCOA_Insert(SoCOA,dr);
+            CAB.KQCOA_Insert(SoCOA, dr);
         }
 
-     //   public void KLPKN_Insert(int SoPKN, string KL ,string PassFail)
-     //   {
-     //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KLPKN]" +
-     //      "([SoPKN] " +
-     //      ",[KL] " +
-     //      ",[PassFail]) " +
-     //"VALUES " +
-     //      "(" + SoPKN +
-     //      ",'" + KL +
-     //      "','" + PassFail + "')", CommandType.Text);
-     //   }
+        //   public void KLPKN_Insert(int SoPKN, string KL ,string PassFail)
+        //   {
+        //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KLPKN]" +
+        //      "([SoPKN] " +
+        //      ",[KL] " +
+        //      ",[PassFail]) " +
+        //"VALUES " +
+        //      "(" + SoPKN +
+        //      ",'" + KL +
+        //      "','" + PassFail + "')", CommandType.Text);
+        //   }
 
         //public void KLPKN_Update(int SoPKN, string KL, string PassFail)
         //{
@@ -113,41 +107,39 @@ namespace Production.Class
         //                               "' WHERE [dbo].[tbl_KQPKN].[SoPKN]=" + SoPKN, CommandType.Text);
         //}
 
-
         //public void KQPKN_Update(DataRow dr)
         //{
         //    Sql.ExecuteNonQuery("SAP", "UPDATE [dbo].[tbl_KQPKN] "+
-        //                               "SET [KQTT] = "+ float.Parse(dr["KQTT"].ToString()) +                                      
+        //                               "SET [KQTT] = "+ float.Parse(dr["KQTT"].ToString()) +
         //                               "WHERE [dbo].[tbl_KQPKN].[ID]=" + int.Parse(dr["ID"].ToString()), CommandType.Text);
         //}
 
         public void KQCOA_Update(int ID, string Result)
         {
-            CAB.KQCOA_Update( ID, Result);
+            CAB.KQCOA_Update(ID, Result);
         }
 
         public void TDCOA_Insert(int SoCOA
             , int COATemplateID
             , string WO
-            , string Manufacturedby            
-            , DateTime SmpDate            
+            , string Manufacturedby
+            , DateTime SmpDate
             , DateTime ExpDate
             , DateTime AnlDate
             , DateTime ManfDate
-            ,string LB_MAT
+            , string LB_MAT
             )
         {
             CAB.TDCOA_Insert(SoCOA
             , COATemplateID
             , WO
-            , Manufacturedby            
-            , SmpDate            
+            , Manufacturedby
+            , SmpDate
             , ExpDate
             , AnlDate
             , ManfDate
-            ,LB_MAT
+            , LB_MAT
             );
-        }       
-    
+        }
     }
 }

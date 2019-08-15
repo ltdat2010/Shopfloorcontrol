@@ -1,38 +1,18 @@
 ﻿using System;
-using System.IO;
-using System.Globalization;
-using System.Collections.Generic;
-using System.Resources;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Data.SqlClient;
-using System.Data.Sql;
-using System.Threading;
-using Production.LAN;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.Utils.Controls;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraEditors.Controls;
-using Production.Class;
-
 
 namespace Production.Class
 {
-    public partial class F_RECEIPT_List : UC_Base 
+    public partial class F_RECEIPT_List : UC_Base
     {
-        RECEIPT of = new RECEIPT();
-        RECEIPTBUS OFB = new RECEIPTBUS();
+        private RECEIPT of = new RECEIPT();
+        private RECEIPTBUS OFB = new RECEIPTBUS();
+
         public F_RECEIPT_List()
-        {           
+        {
             InitializeComponent();
-            
+
             Load += (s, e) =>
-            {                
+            {
                 //--------------------------------------------------------------
                 gridControl1.DataSource = OFB.F_RECEIPT_List();
             };
@@ -47,40 +27,44 @@ namespace Production.Class
 
         private void ItemClickEventHandler_CSV(object sender, EventArgs e)
         {
-            if(gridView1.GetFocusedRowCellDisplayText(ECH_RECEPS).ToString().Length > 0 )
+            if (gridView1.GetFocusedRowCellDisplayText(ECH_RECEPS).ToString().Length > 0)
             {
                 F_RECEIPT_Details FRCD = new F_RECEIPT_Details();
                 FRCD.ECHRECEPS = gridView1.GetFocusedRowCellDisplayText(ECH_RECEPS).ToString();
                 FRCD.Show();
             }
-            
         }
-                       
+
         //Them
         public override UC_Base Add()
-        {            
-            return base.Add();           
+        {
+            return base.Add();
         }
+
         //Sua
         public override frm_Base Modify()
         {
-            return base.Modify();            
+            return base.Modify();
         }
+
         //Luu
-        public override  void Save()
+        public override void Save()
         {
             base.Save();
         }
+
         //Xoa
         public override void Delete()
         {
-            base.Delete();            
+            base.Delete();
         }
+
         //Thoat
         public override void Close()
         {
-            this.Dispose();     
+            this.Dispose();
         }
+
         //Next
 
         //Prev
@@ -92,8 +76,8 @@ namespace Production.Class
         //Chart
         public override UC_Base Chart()
         {
-            return base.Chart();      
-        } 
+            return base.Chart();
+        }
 
         ////Report
         //public override UC_Base Report()
@@ -103,15 +87,14 @@ namespace Production.Class
         //Report Lite
         //public override UC_Base ReportLite()
         //{
-        //    return base.Report(); 
-        //}      
+        //    return base.Report();
+        //}
 
         public void Update(object sender)
         {
             //var frm = (DevExpress.XtraEditors.XtraForm)sender;
             //CM_bus.Select_All( gridControl1, dataNavigator1);
             //frm.Dispose();
-        }        
-        
+        }
     }
 }

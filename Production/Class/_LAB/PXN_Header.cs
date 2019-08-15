@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -29,7 +26,7 @@ namespace Production.Class
             DateTime CreatedDate,
             string CreatedBy,
             string Note,
-            bool Locked,    
+            bool Locked,
             DateTime NgayNhanMau,
             DateTime NgayDuKienTra,
             DateTime NgayCoKetQua,
@@ -67,7 +64,7 @@ namespace Production.Class
             this._ID = ID;
             this._SoPXN = SoPXN;
             this._PXNDescription = PXNDescription;
-            this._CoSoGuiMau= CoSoGuiMau;
+            this._CoSoGuiMau = CoSoGuiMau;
             this._MaCoSoGuiMau = MaCoSoGuiMau;
             this._TenCoSoGuiMau = TenCoSoGuiMau;
             this._DCCoSoGuiMau = DCCoSoGuiMau;
@@ -120,17 +117,18 @@ namespace Production.Class
             this._NoiDungHoaDon = NoiDungHoaDon;
             this._NoiDungTraTruoc = NoiDungTraTruoc;
         }
+
         public PXN_Header()
         {
-
         }
+
         private int _ID;
 
         public int ID
         {
             get { return _ID; }
             set { _ID = value; }
-        }        
+        }
 
         private string _SoPXN;
 
@@ -252,7 +250,6 @@ namespace Production.Class
             set { _PhoneCoSoLayMau = value; }
         }
 
-
         private string _FaxCoSoLayMau;
 
         public string FaxCoSoLayMau
@@ -260,7 +257,6 @@ namespace Production.Class
             get { return _FaxCoSoLayMau; }
             set { _FaxCoSoLayMau = value; }
         }
-
 
         private string _EmailCoSoLayMau;
 
@@ -271,6 +267,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -278,6 +275,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -285,19 +283,23 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
             set { _Note = value; }
-        }        
+        }
 
         private DateTime _NgayNhanMau;
+
         public DateTime NgayNhanMau
         {
             get { return _NgayNhanMau; }
@@ -305,6 +307,7 @@ namespace Production.Class
         }
 
         private DateTime _NgayDuKienTra;
+
         public DateTime NgayDuKienTra
         {
             get { return _NgayDuKienTra; }
@@ -312,6 +315,7 @@ namespace Production.Class
         }
 
         private DateTime _NgayCoKetQua;
+
         public DateTime NgayCoKetQua
         {
             get { return _NgayCoKetQua; }
@@ -319,11 +323,13 @@ namespace Production.Class
         }
 
         private DateTime _NgayTraKetQua;
+
         public DateTime NgayTraKetQua
         {
             get { return _NgayTraKetQua; }
             set { _NgayTraKetQua = value; }
         }
+
         //private string _LoaiMauGui;
         //public string LoaiMauGui
         //{
@@ -343,7 +349,6 @@ namespace Production.Class
         //    get { return _SLMauGui; }
         //    set { _SLMauGui = value; }
         //}
-
 
         //private DateTime _NgayLayMau;
         //public DateTime NgayLayMau
@@ -366,6 +371,7 @@ namespace Production.Class
         //}
 
         private string _SendMail;
+
         public string SendMail
         {
             get { return _SendMail; }
@@ -373,6 +379,7 @@ namespace Production.Class
         }
 
         private string _KHMau;
+
         public string KHMau
         {
             get { return _KHMau; }
@@ -380,6 +387,7 @@ namespace Production.Class
         }
 
         private string _Khac;
+
         public string Khac
         {
             get { return _Khac; }
@@ -387,6 +395,7 @@ namespace Production.Class
         }
 
         private bool _PTNThucHien;
+
         public bool PTNThucHien
         {
             get { return _PTNThucHien; }
@@ -394,6 +403,7 @@ namespace Production.Class
         }
 
         private string _LoaiXN;
+
         public string LoaiXN
         {
             get { return _LoaiXN; }
@@ -401,6 +411,7 @@ namespace Production.Class
         }
 
         private string _NgonNgu;
+
         public string NgonNgu
         {
             get { return _NgonNgu; }
@@ -408,6 +419,7 @@ namespace Production.Class
         }
 
         private bool _DichTeDan;
+
         public bool DichTeDan
         {
             get { return _DichTeDan; }
@@ -415,6 +427,7 @@ namespace Production.Class
         }
 
         private int _CUSTCODE_ID;
+
         public int CUSTCODE_ID
         {
             get { return _CUSTCODE_ID; }
@@ -422,12 +435,12 @@ namespace Production.Class
         }
 
         private int _EMPCode_ID;
+
         public int EMPCode_ID
         {
             get { return _EMPCode_ID; }
             set { _EMPCode_ID = value; }
         }
-
 
         ////////////// HOA DON - THANH TOAN /////////////////
         //this._DaXuatHoaDon = DaXuatHoaDon;
@@ -441,6 +454,7 @@ namespace Production.Class
         //this._SoTienTraTruoc = SoTienTraTruoc;
         //this._NoiDungHoaDon = NoiDungHoaDon;
         private bool _DaXuatHoaDon;
+
         public bool DaXuatHoaDon
         {
             get { return _DaXuatHoaDon; }
@@ -448,48 +462,63 @@ namespace Production.Class
         }
 
         private DateTime _NgayXuatHoaDon;
+
         public DateTime NgayXuatHoaDon
         {
             get { return _NgayXuatHoaDon; }
             set { _NgayXuatHoaDon = value; }
         }
+
         private string _SoHoaDon;
+
         public string SoHoaDon
         {
             get { return _SoHoaDon; }
             set { _SoHoaDon = value; }
         }
+
         private bool _DaThuTien;
+
         public bool DaThuTien
         {
             get { return _DaThuTien; }
             set { _DaThuTien = value; }
         }
+
         private DateTime _NgayThuTien;
+
         public DateTime NgayThuTien
         {
             get { return _NgayThuTien; }
             set { _NgayThuTien = value; }
         }
+
         private float _SoTienHoaDon;
+
         public float SoTienHoaDon
         {
             get { return _SoTienHoaDon; }
             set { _SoTienHoaDon = value; }
         }
+
         private bool _TraTruoc;
+
         public bool TraTruoc
         {
             get { return _TraTruoc; }
             set { _TraTruoc = value; }
         }
+
         private DateTime _NgayTraTruoc;
+
         public DateTime NgayTraTruoc
         {
             get { return _NgayTraTruoc; }
             set { _NgayTraTruoc = value; }
         }
+
         private float _SoTienDaThu;
+
         public float SoTienDaThu
         {
             get { return _SoTienDaThu; }
@@ -497,6 +526,7 @@ namespace Production.Class
         }
 
         private float _SoTienTraTruoc;
+
         public float SoTienTraTruoc
         {
             get { return _SoTienTraTruoc; }
@@ -504,17 +534,19 @@ namespace Production.Class
         }
 
         private string _NoiDungHoaDon;
+
         public string NoiDungHoaDon
         {
             get { return _NoiDungHoaDon; }
             set { _NoiDungHoaDon = value; }
         }
+
         private string _NoiDungTraTruoc;
+
         public string NoiDungTraTruoc
         {
             get { return _NoiDungTraTruoc; }
             set { _NoiDungTraTruoc = value; }
         }
-
     }
 }

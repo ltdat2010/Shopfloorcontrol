@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
+﻿using System.Data;
 
 namespace Production.Class
 {
@@ -26,65 +20,66 @@ namespace Production.Class
 
         public void RMUSED_INSERT(DataRow dr)
         {
-            Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_RMUsed] "+
-           "([CD_OF] "+
-           ",[Step] "+
-           ",[RMCode] "+
-           ",[RMUsed] "+
-           ",[NUBatch]) "+
+            Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_RMUsed] " +
+           "([CD_OF] " +
+           ",[Step] " +
+           ",[RMCode] " +
+           ",[RMUsed] " +
+           ",[NUBatch]) " +
      "VALUES " +
            "('" + dr["0"].ToString() +
            "','" + dr["4"].ToString() +
            "','" + dr["5"].ToString() +
            "'," + dr["7"] +
-           ",'"+ dr["14"].ToString()+ "')", CommandType.Text);
+           ",'" + dr["14"].ToString() + "')", CommandType.Text);
             //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_OF_Detail]" +
-     //      "([CD_OF]" +
-     //      ",[FG_STATUS]" +
-     //      ",[DT_PREV]" +
-     //      ",[CD_DEPOT]" +
-     //      ",[CD_MAT]" +
-     //      ",[LB_MAT]" +
-     //      ",[QT_PREV]" +
-     //      ",[CD_UNIT]" +
-     //      ",[NO_ORDRE]" +
-     //      ",[CD_MAT1]" +
-     //      ",[QT_DOSE]" +
-     //      ",[CD_VER]" +
-     //      ",[LOSS_COMP])" +
-     //"VALUES" +
-     //      "(" + dr["CD_OF"] +
-     //      ",'" + 1 +
-     //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
-     //      "','" + 891 +
-     //      "','" + dr["CD_MAT"].ToString() +
-     //      "','" + dr["LB_MAT"].ToString() +
-     //      "'," + dr["QT_PREV"] +
-     //      ",'" + dr["CD_UNIT"].ToString() +
-     //      "','" + 1000 +
-     //      "','" + dr["CD_MAT1"].ToString() +
-     //      "'," + dr["QT_DOSE"] +
-     //      ",'" + 89 +
-     //      "'," + dr["LOSS_COMP"]+
-     //      ")", CommandType.Text);
+            //      "([CD_OF]" +
+            //      ",[FG_STATUS]" +
+            //      ",[DT_PREV]" +
+            //      ",[CD_DEPOT]" +
+            //      ",[CD_MAT]" +
+            //      ",[LB_MAT]" +
+            //      ",[QT_PREV]" +
+            //      ",[CD_UNIT]" +
+            //      ",[NO_ORDRE]" +
+            //      ",[CD_MAT1]" +
+            //      ",[QT_DOSE]" +
+            //      ",[CD_VER]" +
+            //      ",[LOSS_COMP])" +
+            //"VALUES" +
+            //      "(" + dr["CD_OF"] +
+            //      ",'" + 1 +
+            //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
+            //      "','" + 891 +
+            //      "','" + dr["CD_MAT"].ToString() +
+            //      "','" + dr["LB_MAT"].ToString() +
+            //      "'," + dr["QT_PREV"] +
+            //      ",'" + dr["CD_UNIT"].ToString() +
+            //      "','" + 1000 +
+            //      "','" + dr["CD_MAT1"].ToString() +
+            //      "'," + dr["QT_DOSE"] +
+            //      ",'" + 89 +
+            //      "'," + dr["LOSS_COMP"]+
+            //      ")", CommandType.Text);
         }
-     //   public void OF_INSERT(DataRow dr)
-     //   {
-     //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [dbo].[tbl_OF]" +
-     //      "([CD_OF]" +           
-     //      ",[DT_PREV]" +           
-     //      ",[CD_MAT]" +
-     //      ",[LB_MAT]" +
-     //      ",[QT_PREV]" +
-     //      ")" +
-     //"VALUES" +
-     //      "('" + dr["CD_OF"].ToString() +
-     //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
-     //      "','" + dr["CD_MAT"].ToString() +
-     //      "','" + dr["LB_MAT"].ToString() +
-     //      "'," + dr["QT_PREV"] +           
-     //      ")", CommandType.Text);
-     //   }
+
+        //   public void OF_INSERT(DataRow dr)
+        //   {
+        //       Sql.ExecuteNonQuery("SAP", "INSERT INTO [dbo].[tbl_OF]" +
+        //      "([CD_OF]" +
+        //      ",[DT_PREV]" +
+        //      ",[CD_MAT]" +
+        //      ",[LB_MAT]" +
+        //      ",[QT_PREV]" +
+        //      ")" +
+        //"VALUES" +
+        //      "('" + dr["CD_OF"].ToString() +
+        //      "','" + DateTime.Parse(dr["DT_PREV"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
+        //      "','" + dr["CD_MAT"].ToString() +
+        //      "','" + dr["LB_MAT"].ToString() +
+        //      "'," + dr["QT_PREV"] +
+        //      ")", CommandType.Text);
+        //   }
         public DataTable RMUsed_Report(string Prefix_RM)
         {
             DataTable dt = new DataTable();
@@ -112,6 +107,7 @@ namespace Production.Class
                                              " ORDER BY V1.CD_ZONE,HISDOS.NO_LOT, V1.CD_LOTORG,V1.NO_LOTORG", CommandType.Text);
             return dt;
         }
+
         public DataTable RMUsed_Report_Simple(string Prefix_RM)
         {
             DataTable dt = new DataTable();
@@ -136,7 +132,4 @@ namespace Production.Class
             return dt;
         }
     }
-
 }
-
-

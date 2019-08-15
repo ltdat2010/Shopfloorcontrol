@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Production.Class._GEN
+﻿namespace Production.Class._GEN
 {
-    class Point
+    internal class Point
     {
         private double _dblX;
         private double _dblY;
@@ -15,6 +10,7 @@ namespace Production.Class._GEN
             get { return _dblX; }
             set { _dblX = value; }
         }
+
         public double Y_Coord
         {
             get { return _dblY; }

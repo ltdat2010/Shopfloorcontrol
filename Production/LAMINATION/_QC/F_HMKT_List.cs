@@ -1,28 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using System.Globalization;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace Production.Class
 {
     public partial class F_HMKT_List : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
-        
-        HangMucKiemTra OBJ = new HangMucKiemTra();
-        HangMucKiemTraBUS BUS = new HangMucKiemTraBUS();
-       
+        private bool gridViewRowClick = false;
+
+        private HangMucKiemTra OBJ = new HangMucKiemTra();
+        private HangMucKiemTraBUS BUS = new HangMucKiemTraBUS();
+
         public F_HMKT_List()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
@@ -30,11 +21,10 @@ namespace Production.Class
                     OBJ.CreatedBy = user.Username;
 
                     tbl_HangMucKiemTraTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_HangMucKiemTra);
-                  
-                    gridControl1.DataSource = tbl_HangMucKiemTraTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_HangMucKiemTra);                    
-                    
+
+                    gridControl1.DataSource = tbl_HangMucKiemTraTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_HangMucKiemTra);
+
                     gridView1.BestFitColumns();
-                                       
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -59,6 +49,7 @@ namespace Production.Class
                 gridViewRowClick = true;
             };
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -72,9 +63,10 @@ namespace Production.Class
             F_LOC_Dtl.myFinished += this.finished;
             F_LOC_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -94,6 +86,7 @@ namespace Production.Class
             else
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
             // 27 Gán dữ liệ trên control cho object
@@ -115,6 +108,7 @@ namespace Production.Class
             //isNew = false;
             isAction = "";
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -123,7 +117,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -148,13 +142,13 @@ namespace Production.Class
                 OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 OBJ.HMKT = gridView1.GetFocusedRowCellValue("HMKT").ToString();
 
-                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa chỉ tiêu phân tích  : " + OBJ.HMKT +"( "+ OBJ.HMKTEN +" )" +" ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa chỉ tiêu phân tích  : " + OBJ.HMKT + "( " + OBJ.HMKTEN + " )" + " ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
                     BUS.HMKT_DELETE(OBJ);
                 }
                 // 18 Load lại datasource cho grid
-                
+
                 gridControl1.DataSource = tbl_HangMucKiemTraTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_HangMucKiemTra);
 
                 gridView1.BestFitColumns();
@@ -170,7 +164,7 @@ namespace Production.Class
         {
             this.Close();
         }
-     
+
         public void Set4Object()
         {
             OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
@@ -192,9 +186,6 @@ namespace Production.Class
             gridControl1.DataSource = tbl_HangMucKiemTraTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_HangMucKiemTra);
 
             gridView1.BestFitColumns();
-
         }
-
-
     }
 }

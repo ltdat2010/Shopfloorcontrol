@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class LOAIMAUBUS
     {
-        LOAIMAUDAO DAO = new LOAIMAUDAO();
+        private LOAIMAUDAO DAO = new LOAIMAUDAO();
 
         public void LOAIMAU_INSERT(LOAIMAU OBJ)
         {
@@ -25,12 +22,6 @@ namespace Production.Class
         public int MAX_MALOAIMAI()
         {
             return DAO.MAX_MALOAIMAI();
-
         }
-
-
     }
-
 }
-
-

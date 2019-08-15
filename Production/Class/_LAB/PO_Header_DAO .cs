@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,6 @@ namespace Production.Class
     {
         public void PO_Header_INSERT(PO_Header OBJ)
         {
-
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_PO_Header_LAB] " +
            " ([SoPO] " +
            " ,[VENDCode] " +
@@ -166,10 +159,6 @@ namespace Production.Class
                                                   " tbl_PO_Header_LAB.VENDCode,  " +
                                                   " tbl_PO_Header_LAB.VENDName,  " +
                                                   " tbl_PO_Lines_LAB.DonGia  ", CommandType.Text);
-
         }
     }
-
 }
-
-

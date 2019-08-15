@@ -1,20 +1,20 @@
-﻿using System;
+﻿using DevExpress.LookAndFeel;
+using System;
 using System.Windows.Forms;
-using DevExpress.LookAndFeel;
 
 namespace Production.Class
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-                        DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.OfficeSkins.Register();
             DevExpress.UserSkins.BonusSkins.Register();
             DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;

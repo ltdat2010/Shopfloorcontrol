@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -9,8 +6,8 @@ namespace Production.Class
     public class PO_Lines
     {
         public PO_Lines(
-            int ID,            
-            string SoPO, 
+            int ID,
+            string SoPO,
             int PriceList_Details_LAB_Id,
             string MaCTXN,
             string CTXN,
@@ -21,15 +18,15 @@ namespace Production.Class
             float ThanhTien,
             string GhiChu,
             int KHMau_CTXN_LAB_Id,
-            DateTime CreatedDate, 
-            string CreatedBy, 
+            DateTime CreatedDate,
+            string CreatedBy,
             bool Locked,
             string Note
 
             )
         {
             this._ID = ID;
-            this._SoPO = SoPO;            
+            this._SoPO = SoPO;
             this._PriceList_Details_LAB_Id = PriceList_Details_LAB_Id;
             this._MaCTXN = MaCTXN;
             this._CTXN = CTXN;
@@ -43,15 +40,16 @@ namespace Production.Class
             this._KHMau_CTXN_LAB_Id = KHMau_CTXN_LAB_Id;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;     
+            this._Locked = Locked;
             this._Note = Note;
         }
+
         public PO_Lines()
         {
-
         }
 
         private int _ID;
+
         public int ID
         {
             get { return _ID; }
@@ -59,6 +57,7 @@ namespace Production.Class
         }
 
         private string _SoPO;
+
         public string SoPO
         {
             get { return _SoPO; }
@@ -66,6 +65,7 @@ namespace Production.Class
         }
 
         private int _PriceList_Details_LAB_Id;
+
         public int PriceList_Details_LAB_Id
         {
             get { return _PriceList_Details_LAB_Id; }
@@ -73,6 +73,7 @@ namespace Production.Class
         }
 
         private string _MaCTXN;
+
         public string MaCTXN
         {
             get { return _MaCTXN; }
@@ -80,13 +81,15 @@ namespace Production.Class
         }
 
         private string _CTXN;
+
         public string CTXN
         {
             get { return _CTXN; }
             set { _CTXN = value; }
-        }        
+        }
 
         private string _UoM;
+
         public string UoM
         {
             get { return _UoM; }
@@ -94,6 +97,7 @@ namespace Production.Class
         }
 
         private string _SoLuongXN;
+
         public string SoLuongXN
         {
             get { return _SoLuongXN; }
@@ -101,6 +105,7 @@ namespace Production.Class
         }
 
         private float _DonGia;
+
         public float DonGia
         {
             get { return _DonGia; }
@@ -108,6 +113,7 @@ namespace Production.Class
         }
 
         private float _VAT;
+
         public float VAT
         {
             get { return _VAT; }
@@ -115,6 +121,7 @@ namespace Production.Class
         }
 
         private float _ThanhTien;
+
         public float ThanhTien
         {
             get { return _ThanhTien; }
@@ -122,6 +129,7 @@ namespace Production.Class
         }
 
         private string _GhiChu;
+
         public string GhiChu
         {
             get { return _GhiChu; }
@@ -129,6 +137,7 @@ namespace Production.Class
         }
 
         private int _KHMau_CTXN_LAB_Id;
+
         public int KHMau_CTXN_LAB_Id
         {
             get { return _KHMau_CTXN_LAB_Id; }
@@ -136,6 +145,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -143,6 +153,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -150,11 +161,12 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
-        }        
+        }
 
         private string _Note;
 
@@ -163,7 +175,5 @@ namespace Production.Class
             get { return _Note; }
             set { _Note = value; }
         }
-
-        
     }
 }

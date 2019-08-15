@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 
 namespace Production.Class
 {
@@ -17,11 +16,11 @@ namespace Production.Class
             double LogConc,
             double HsoPhaLoang,
             string Row,
-            double Col,            
+            double Col,
             DateTime CreatedDate,
-            string CreatedBy, 
-            bool Locked,            
-            string Note   ,
+            string CreatedBy,
+            bool Locked,
+            string Note,
             double Conc_ng_ml,
             double Conc_ng_g,
             int CTXN_ID
@@ -41,18 +40,18 @@ namespace Production.Class
             this._Col = Col;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;            
+            this._Locked = Locked;
             this._Note = Note;
             this._Conc_ng_ml = Conc_ng_ml;
             this._Conc_ng_g = Conc_ng_g;
             this._CTXN_ID = CTXN_ID;
-        }                
+        }
+
         //GridViewRow
-        
+
         //Contructor blank
         public MYCOTOXIN_RESULT_Lines()
         {
-
         }
 
         private int _ID;
@@ -86,7 +85,7 @@ namespace Production.Class
             get { return _OD; }
             set { _OD = value; }
         }
-       
+
         private string _KHMau;
 
         public string KHMau
@@ -102,6 +101,7 @@ namespace Production.Class
             get { return _B_Bo; }
             set { _B_Bo = value; }
         }
+
         private double _LogitB_Bo;
 
         public double LogitB_Bo
@@ -109,6 +109,7 @@ namespace Production.Class
             get { return _LogitB_Bo; }
             set { _LogitB_Bo = value; }
         }
+
         private double _LogConc;
 
         public double LogConc
@@ -116,6 +117,7 @@ namespace Production.Class
             get { return _LogConc; }
             set { _LogConc = value; }
         }
+
         private double _HsoPhaLoang;
 
         public double HsoPhaLoang
@@ -131,6 +133,7 @@ namespace Production.Class
             get { return _Row; }
             set { _Row = value; }
         }
+
         private string _Read;
 
         public string Read
@@ -138,15 +141,17 @@ namespace Production.Class
             get { return _Read; }
             set { _Read = value; }
         }
+
         private double _Col;
 
         public double Col
         {
             get { return _Col; }
             set { _Col = value; }
-        }        
+        }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -154,6 +159,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -161,13 +167,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
-        
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
@@ -181,6 +189,7 @@ namespace Production.Class
             get { return _Conc_ng_ml; }
             set { _Conc_ng_ml = value; }
         }
+
         private double _Conc_ng_g;
 
         public double Conc_ng_g
@@ -196,6 +205,5 @@ namespace Production.Class
             get { return _CTXN_ID; }
             set { _CTXN_ID = value; }
         }
-
     }
 }

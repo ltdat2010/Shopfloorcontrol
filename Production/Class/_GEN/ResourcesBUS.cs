@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class ResourcesBUS
     {
-        ResourcesDAO DAO = new ResourcesDAO();
+        private ResourcesDAO DAO = new ResourcesDAO();
+
         public int MAX_IdSort()
         {
             return DAO.MAX_IdSort();
         }
+
         //OFDAO
         //ResourcesDAO
         public int Resources_Visible(string description)
@@ -27,24 +22,25 @@ namespace Production.Class
         {
             return DAO.GET_ResourceId(description);
         }
+
         //INSERT
         public void Resources_INSERT(Resources resources)
         {
             DAO.Resources_INSERT(resources);
         }
 
-
         //UPDATE
         public void Resources_UPDATE(Resources resources)
         {
             DAO.Resources_UPDATE(resources);
         }
+
         //
         //
 
         public void Appointments_INSERT(string DT_DEB, string DT_FIN, int ResourceId, string Description, string CustField1, int label)
         {
-            DAO.Appointments_INSERT( DT_DEB,  DT_FIN,  ResourceId, Description, CustField1, label);
+            DAO.Appointments_INSERT(DT_DEB, DT_FIN, ResourceId, Description, CustField1, label);
         }
 
         //public void Appointments_UPDATE(DateTime DT_DEB, DateTime DT_FIN, int UniqueId)
@@ -61,10 +57,5 @@ namespace Production.Class
         {
             return DAO.Appointments_SELECT(SoPXN);
         }
-
-
     }
-
 }
-
-

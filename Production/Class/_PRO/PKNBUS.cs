@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
 using System.Data;
-using System.Windows;
 
 namespace Production.Class
 {
     public class PKNBUS
     {
         //public static OF of = new OF();
-        public static PKNDAO PKB = new PKNDAO();        
-        
+        public static PKNDAO PKB = new PKNDAO();
+
         public DataTable PKN_Template(int ID)
         {
             return PKB.PKN_Template(ID);
@@ -24,7 +16,7 @@ namespace Production.Class
         public DataTable PKN_List()
         {
             return PKB.PKN_List();
-        }        
+        }
 
         public int PKN_Template_Max_KQKNID()
         {
@@ -50,6 +42,7 @@ namespace Production.Class
         {
             return PKB.KQPKN_Search(ID);
         }
+
         public DataTable TDPKN_Search(string SoPKN, int Lan)
         {
             return PKB.TDPKN_Search(SoPKN, Lan);
@@ -64,6 +57,7 @@ namespace Production.Class
         {
             return PKB.PKN_Template_View();
         }
+
         public void PKN_Template_Delete(int ID)
         {
             PKB.PKN_Template_Delete(ID);
@@ -71,8 +65,9 @@ namespace Production.Class
 
         public void KQPKN_Insert(int SoPKNID, DataRow dr)
         {
-            PKB.KQPKN_Insert(SoPKNID,dr);
+            PKB.KQPKN_Insert(SoPKNID, dr);
         }
+
         public DataTable TDPKN_Visible(string SoPNK, string Solo)
         {
             return PKB.TDPKN_Visible(SoPNK, Solo);
@@ -83,8 +78,6 @@ namespace Production.Class
             return PKB.TDPKN_Search_Lan(SoPKN);
         }
 
-
-
         //public void KQPKN_Update(DataRow dr)
         //{
         //    PKB.KQPKN_Update(dr);
@@ -94,6 +87,7 @@ namespace Production.Class
         {
             PKB.KQPKN_Update(ID, KQTT);
         }
+
         public void TDPKN_Insert(string SoPKN
             , int KQKNTemplateID
             , string SoPNK
@@ -104,8 +98,8 @@ namespace Production.Class
             , DateTime NgaySX
             , DateTime HSD
             , DateTime NgayPT
-            ,string TenNL
-            ,int Lan
+            , string TenNL
+            , int Lan
             )
         {
             PKB.TDPKN_Insert(SoPKN
@@ -118,14 +112,14 @@ namespace Production.Class
             , NgaySX
             , HSD
             , NgayPT
-            ,TenNL
-            ,Lan
+            , TenNL
+            , Lan
             );
         }
 
-        public void KLPKN_Insert(int SoPKN, string KL, string PassFail,int Lan)
+        public void KLPKN_Insert(int SoPKN, string KL, string PassFail, int Lan)
         {
-           PKB.KLPKN_Insert( SoPKN, KL, PassFail, Lan);
+            PKB.KLPKN_Insert(SoPKN, KL, PassFail, Lan);
         }
 
         public void KLPKN_Update(int SoPKN, string KL, string PassFail)

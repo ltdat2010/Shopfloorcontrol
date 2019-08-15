@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
-    public class CHITIEUXETNGHIEMBUS        
+    public class CHITIEUXETNGHIEMBUS
     {
+        private CHITIEUXETNGHIEMDAO CTXNDAO = new CHITIEUXETNGHIEMDAO();
 
-        CHITIEUXETNGHIEMDAO CTXNDAO = new CHITIEUXETNGHIEMDAO();
         public void CHITIEUXETNGHIEM_INSERT(CHITIEUXETNGHIEM CTXN)
         {
-
             CTXNDAO.CHITIEUXETNGHIEM_INSERT(CTXN);
         }
 
@@ -33,8 +26,8 @@ namespace Production.Class
         //{
         //    DataTable dt = new DataTable();
         //    dt = Sql.ExecuteDataTable("SAP", "Select CardCode,CardName,Address from [VIPHAVET].[dbo].[OCRD] where CardType ='S' ", CommandType.Text);
-        //    return dt;      
-        
+        //    return dt;
+
         public DataRow TINHGIA_CTXN(DateTime NgayLapPXN, int CTXNID)
         {
             return CTXNDAO.TINHGIA_CTXN(NgayLapPXN, CTXNID);
@@ -50,7 +43,4 @@ namespace Production.Class
             return CTXNDAO.CTXN_INDENTITY_SELECT();
         }
     }
-
 }
-
-

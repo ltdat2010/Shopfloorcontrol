@@ -1,18 +1,20 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.IO;
-using DevExpress.XtraEditors;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_NCTXN_Details : frm_Base
     {
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -25,13 +27,14 @@ namespace Production.Class
                 }
             }
         }
+
         public NHOMCHITIEUXETNGHIEM OBJ = new NHOMCHITIEUXETNGHIEM();
-        NHOMCHITIEUXETNGHIEMBUS BUS = new NHOMCHITIEUXETNGHIEMBUS();
+        private NHOMCHITIEUXETNGHIEMBUS BUS = new NHOMCHITIEUXETNGHIEMBUS();
 
         public F_NCTXN_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 //if(isEditting == true)
                 if (isAction == "Edit")
@@ -43,7 +46,7 @@ namespace Production.Class
                     txtID.ReadOnly = true;
             };
 
-            btnSave.Click += (s,e) =>
+            btnSave.Click += (s, e) =>
             {
                 try
                 {
@@ -54,12 +57,12 @@ namespace Production.Class
                         XtraMessageBox.Show("Đã thêm mới nhóm chỉ tiêu xét nghiệm thành công", "Info .", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (isAction == "Edit")
-                    {                        
+                    {
                         Set4Object();
                         BUS.NCTXN_UPDATE(OBJ);
                         XtraMessageBox.Show("Đã cập nhật nhóm chỉ tiêu xét nghiệm thành công", "Info .", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                //XtraMessageBox.Show("here");
+                    //XtraMessageBox.Show("here");
                     Is_close = true;
                 }
                 catch (Exception ex)
@@ -73,8 +76,8 @@ namespace Production.Class
                 Is_close = true;
                 //this.Close();
             };
-            
         }
+
         public void Set4Controls()
         {
             txtID.Text = OBJ.ID.ToString();
@@ -82,7 +85,6 @@ namespace Production.Class
             txtDienGiai.Text = OBJ.NCTXNDG;
             txtNote.Text = OBJ.Note;
             cmbKhoa.Text = OBJ.Locked.ToString();
-
         }
 
         public void Set4Object()
@@ -94,6 +96,7 @@ namespace Production.Class
             OBJ.Note = txtNote.Text;
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
         }
+
         public void ResetControl()
         {
             txtID.Text = "";
@@ -112,6 +115,5 @@ namespace Production.Class
             txtNote.ReadOnly = bl;
             cmbKhoa.ReadOnly = bl;
         }
-
     }
 }

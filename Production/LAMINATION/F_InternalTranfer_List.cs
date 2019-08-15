@@ -1,60 +1,38 @@
 ﻿using System;
-using System.IO;
-using System.Globalization;
-using System.Collections.Generic;
-using System.Resources;
-using System.ComponentModel;
 using System.Data;
-using System.Linq;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Data.SqlClient;
-using System.Data.Sql;
-using System.Threading;
-using Production.LAN;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.Utils.Controls;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraEditors.Controls;
-using Production.Class;
-using DevExpress.XtraPrinting;
-using CrystalDecisions.CrystalReports.Engine;
-
+using System.IO;
 
 namespace Production.Class
 {
     public partial class F_InternalTranfer_List : UC_Base
     {
+        private string Path = Directory.GetCurrentDirectory();
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
 
-        string Path = Directory.GetCurrentDirectory();
-        CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-
-        DataTable dt_InternalTransfer_Header,
+        private DataTable dt_InternalTransfer_Header,
                   dt_InternalTransfer_Detail = new DataTable();
 
-        ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter internal_Transfer_DetailTableAdapter = new ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter(); 
+        private ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter internal_Transfer_DetailTableAdapter = new ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter();
 
         public F_InternalTranfer_List()
-        {           
+        {
             InitializeComponent();
-            
+
             Load += (s, e) =>
             {
                 warehouseTableAdapter.Fill(aSIALANDDataSet.Warehouse);
                 //XtraMessageBox.Show("Path : " +Path);
-            };            
+            };
             //};
-            
+
             action1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
             action1.CSV(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_CSV));
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
 
             lkEWarehouse.EditValueChanged += (s, e) =>
             {
-                
                 gridControl1.DataSource = internal_TransferTableAdapter.Fill(aSIALANDDataSet.Internal_Transfer, lkEWarehouse.EditValue.ToString());
             };
 
@@ -68,27 +46,25 @@ namespace Production.Class
 
                 //rpt.Load(Path + "/RPT/Rpt_InternalTransfer.rpt");
 
-                //crvReport.ReportSource = rpt;                
-
+                //crvReport.ReportSource = rpt;
             };
-            
 
-            gridView1.CustomDrawEmptyForeground                     +=                          (s, e) =>
-            {
-                DevExpress.XtraGrid.Views.Grid.GridView view        =                           s as DevExpress.XtraGrid.Views.Grid.GridView;
+            gridView1.CustomDrawEmptyForeground += (s, e) =>
+{
+DevExpress.XtraGrid.Views.Grid.GridView view = s as DevExpress.XtraGrid.Views.Grid.GridView;
 
-                if (view.RowCount != 0) return;
+if (view.RowCount != 0) return;
 
-                StringFormat drawFormat                             =                           new StringFormat();
+StringFormat drawFormat = new StringFormat();
 
-                drawFormat.Alignment = drawFormat.LineAlignment     =                           StringAlignment.Center;
+drawFormat.Alignment = drawFormat.LineAlignment = StringAlignment.Center;
 
-                e.Graphics.DrawString("Vui lòng chọn WO bên trên ", e.Appearance.Font, SystemBrushes.ControlDark, new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
-
-            };
+e.Graphics.DrawString("Vui lòng chọn WO bên trên ", e.Appearance.Font, SystemBrushes.ControlDark, new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
+};
 
             action1.Print(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Print));
         }
+
         private void ItemClickEventHandler_Print(object sender, EventArgs e)
         {
             //try
@@ -100,7 +76,7 @@ namespace Production.Class
             //    printDialog1.AllowSomePages                         =                           true;
             //    printDialog1.AllowSelection                         =                           false;
             //    printDialog1.AllowCurrentPage                       =                           false;
-            //    printDialog1.PrinterSettings.Copies                 =                           1; 
+            //    printDialog1.PrinterSettings.Copies                 =                           1;
             //    DialogResult result                                 =                           printDialog1.ShowDialog();
             //    if (result                                          ==                          DialogResult.OK)
             //    {
@@ -116,7 +92,7 @@ namespace Production.Class
         private void PrintReport(PrintDocument pd)
         {
             //ReportDocument rDoc                                     =                           (ReportDocument)crvReport.ReportSource;
-            //// This line helps, in case user selects a different printer 
+            //// This line helps, in case user selects a different printer
             //// other than the default selected.
             //rDoc.PrintOptions.PrinterName                           =                           pd.PrinterSettings.PrinterName;
             //// In place of Frompage and ToPage put 0,0 to print all pages,
@@ -124,14 +100,14 @@ namespace Production.Class
             //rDoc.PrintToPrinter(pd.PrinterSettings.Copies, false, pd.PrinterSettings.FromPage,
             //pd.PrinterSettings.ToPage);
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
-            //MessageBox.Show("click");            
+            //MessageBox.Show("click");
         }
 
         private void ItemClickEventHandler_CSV(object sender, EventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
@@ -143,20 +119,15 @@ namespace Production.Class
 
         private void ItemClickEventHandler_PKN(object sender, EventArgs e)
         {
-            //MessageBox.Show("click");     
-            
+            //MessageBox.Show("click");
         }
 
         private void ItemClickEventHandler_COA(object sender, EventArgs e)
         {
-            
         }
+
         private void ItemClickEventHandler_TRACE(object sender, EventArgs e)
         {
-            
-        }        
-        
-        
-        
+        }
     }
 }

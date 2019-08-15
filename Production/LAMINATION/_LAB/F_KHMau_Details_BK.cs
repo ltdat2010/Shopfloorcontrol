@@ -1,24 +1,25 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Globalization;
-using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_KHMau_Details_BK : frm_Base
     {
         public DateTime ngaynhanmau;
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
-        
+
         public bool Is_close
         {
             set
@@ -30,16 +31,18 @@ namespace Production.Class
                 }
             }
         }
+
         //NEW : Phan khai bao cho KH Mau
         public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
-        KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
-        KHMau_LABBUS BUS1 = new KHMau_LABBUS();
-        KHMau_CTXN_LABBUS BUS2 = new KHMau_CTXN_LABBUS();        
+
+        private KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
+        private KHMau_LABBUS BUS1 = new KHMau_LABBUS();
+        private KHMau_CTXN_LABBUS BUS2 = new KHMau_CTXN_LABBUS();
 
         public F_KHMau_Details_BK()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 cmbNhanVienHuyMau.ReadOnly = true;
                 txtTaiLieuHuy.ReadOnly = true;
@@ -50,7 +53,7 @@ namespace Production.Class
                 //if(isEditting == true)
                 //Set4Controls();
 
-                if (KHMAUOBJ.SoPXN.Substring(0,3) == "GEN" || KHMAUOBJ.SoPXN.Substring(0, 3) == "HTH" || KHMAUOBJ.SoPXN.Substring(0, 3) == "MDW")
+                if (KHMAUOBJ.SoPXN.Substring(0, 3) == "GEN" || KHMAUOBJ.SoPXN.Substring(0, 3) == "HTH" || KHMAUOBJ.SoPXN.Substring(0, 3) == "MDW")
                 {
                     //cmbLoaiDV
                     layoutControlItem30.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -60,7 +63,6 @@ namespace Production.Class
                     layoutControlItem29.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     layoutControlItem29.Text = "Mẫu nước";
                 }
-
                 else if (KHMAUOBJ.SoPXN.Substring(0, 3) == "H2O")
                 {
                     //cmbLoaiDV
@@ -93,8 +95,6 @@ namespace Production.Class
 
                     //Luu khi cap nhat thong tin KH_Mau
                     btnUpdate.Enabled = true;
-
-
                 }
                 else if (isAction == "Add")
                 {
@@ -118,7 +118,7 @@ namespace Production.Class
                 }
                 //Khong tao moi thi huy form
                 btnSave.Enabled = true;
-            };            
+            };
 
             //Them Chi tieu hay yeu cau xet nghiem
             btnAdd1.Click += (s, e) =>
@@ -134,8 +134,7 @@ namespace Production.Class
                 FRM.KHMAUOBJ = this.KHMAUOBJ;
                 FRM.KHMAUCTXNOBJ = this.KHMAUCTXNOBJ;
                 FRM.myFinished += this.finished;
-                FRM.Show();                               
-
+                FRM.Show();
 
                 //if(lkeCTXN.Text.Length > 0 && lkeCTXN.Text != "...")
                 //{
@@ -159,7 +158,6 @@ namespace Production.Class
                 //}
                 //this.tbl_KHMau_CTXN_LABTableAdapter.ClearBeforeFill = true;
                 //gridControl1.DataSource = this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB, txtKHMau.Text);
-
             };
 
             //Cap nhat Chi tieu hay yeu cau xet nghiem
@@ -183,8 +181,6 @@ namespace Production.Class
                 else
                     XtraMessageBox.Show("Vui lòng click chọn dòng cần cập nhật");
 
-
-
                 //if(lkeCTXN.Text.Length > 0 && lkeCTXN.Text != "...")
                 //{
                 //    if (txtSoLuong.Text == null)
@@ -207,7 +203,6 @@ namespace Production.Class
                 //}
                 //this.tbl_KHMau_CTXN_LABTableAdapter.ClearBeforeFill = true;
                 //gridControl1.DataSource = this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB, txtKHMau.Text);
-
             };
 
             //lkeCTXN.TextChanged += (s, e) =>
@@ -218,9 +213,9 @@ namespace Production.Class
             //    //MessageBox.Show((row as DataRowView)["DonGia"].ToString());
             //    //lkePPXN.EditValue = int.Parse((row as DataRowView)["PPXNID"].ToString());
             //    KHMAUCTXNOBJ.DonGia         = float.Parse((row as DataRowView)["DonGia"].ToString());
-                
+
             //    KHMAUCTXNOBJ.VAT            = float.Parse((row as DataRowView)["VAT"].ToString());
-                
+
             //    //txtVAT.Text = (row as DataRowView)["VAT"].ToString();
             //    //MessageBox.Show("DonGia " +(row as DataRowView)["DonGia"].ToString());
             //    //MessageBox.Show("ThanhTien " + (row as DataRowView)["ThanhTien"].ToString());
@@ -244,13 +239,12 @@ namespace Production.Class
                 KHMAUCTXNOBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 gridViewRowClick = true;
                 Set4Object_Details();
-
             };
 
             btnDel1.Click += (s, e) =>
             {
                 if (gridViewRowClick == true)
-                {                     
+                {
                     BUS2.KHMau_CTXN_LABDAO_DELETE(KHMAUCTXNOBJ.ID);
                     gridViewRowClick = false;
                     XtraMessageBox.Show("Xóa thành công ");
@@ -275,16 +269,16 @@ namespace Production.Class
                 }
             };
 
-            btnSave.Click += (s,e) =>
+            btnSave.Click += (s, e) =>
             {
                 try
                 {
                     //if (isAction == "Edit")
                     //{
-                        Set4Object_Header();
-                        Set4Object_Details();
-                        BUS1.KHMau_LABBUS_UPDATE(KHMAUOBJ);
-                    //}                
+                    Set4Object_Header();
+                    Set4Object_Details();
+                    BUS1.KHMau_LABBUS_UPDATE(KHMAUOBJ);
+                    //}
                     Is_close = true;
                 }
                 catch (Exception ex)
@@ -301,50 +295,45 @@ namespace Production.Class
                 Is_close = true;
             };
 
-            chkHuyMau.CheckedChanged +=(s,e) =>
-            {
-                if(chkHuyMau.CheckState == CheckState.Checked)
-                {
-                    KHMAUOBJ.TrangThaiKHMau = false;
-                    cmbNhanVienHuyMau.ReadOnly = false;
-                    txtTaiLieuHuy.ReadOnly = false;
-                    dteNgayHuyMau.ReadOnly = false;
-                    txtSoLuongHuy.ReadOnly = false;
-                }
-
-                else
-                {
-                    KHMAUOBJ.TrangThaiKHMau = true;
-                    cmbNhanVienHuyMau.ReadOnly = true;
-                    txtTaiLieuHuy.ReadOnly = true;
-                    dteNgayHuyMau.ReadOnly = true;
-                    txtSoLuongHuy.ReadOnly = true;
-                }
-            };
-
-            
+            chkHuyMau.CheckedChanged += (s, e) =>
+             {
+                 if (chkHuyMau.CheckState == CheckState.Checked)
+                 {
+                     KHMAUOBJ.TrangThaiKHMau = false;
+                     cmbNhanVienHuyMau.ReadOnly = false;
+                     txtTaiLieuHuy.ReadOnly = false;
+                     dteNgayHuyMau.ReadOnly = false;
+                     txtSoLuongHuy.ReadOnly = false;
+                 }
+                 else
+                 {
+                     KHMAUOBJ.TrangThaiKHMau = true;
+                     cmbNhanVienHuyMau.ReadOnly = true;
+                     txtTaiLieuHuy.ReadOnly = true;
+                     dteNgayHuyMau.ReadOnly = true;
+                     txtSoLuongHuy.ReadOnly = true;
+                 }
+             };
         }
+
         public void Set4Controls_Header()
         {
-                      
-           
             txtSoPXN.Text = KHMAUOBJ.SoPXN;
-            txtID.Text = KHMAUOBJ.ID.ToString() ;
-            if(isAction == "Edit")
-                txtKHMau.Text = KHMAUOBJ.KHMau;           
+            txtID.Text = KHMAUOBJ.ID.ToString();
+            if (isAction == "Edit")
+                txtKHMau.Text = KHMAUOBJ.KHMau;
         }
 
         public void Set4Controls_Details()
         {
-                     
-            if(KHMAUOBJ.TrangThaiKHMau == true )            
+            if (KHMAUOBJ.TrangThaiKHMau == true)
                 chkHuyMau.CheckState = CheckState.Checked;
             else
                 chkHuyMau.CheckState = CheckState.Unchecked;
-            
+
             txtKHMau_KH.Text = KHMAUOBJ.KHMau_KhachHang;
             cmbKhoa.Text = KHMAUOBJ.Locked.ToString();
-            txtNote.Text = KHMAUOBJ.Note;            
+            txtNote.Text = KHMAUOBJ.Note;
             txtSoLuong.Text = KHMAUOBJ.SoLuongKHMau;
             cmbDonViTinh.Text = KHMAUOBJ.DonViKHMau;
             cmbDonViTinh.Text = KHMAUOBJ.DonViKHMau;
@@ -358,7 +347,7 @@ namespace Production.Class
             txtSoLuongHuy.Text = KHMAUOBJ.SoLuongHuyKHMau;
             gridControl1.DataSource = this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB, KHMAUOBJ.KHMau);
             ///////////////////////////////////////////////////////////////
-            if (txtSoPXN.Text.Substring(0,3) == "H2O")
+            if (txtSoPXN.Text.Substring(0, 3) == "H2O")
             {
                 //XtraMessageBox.Show(txtSoPXN.Text.Substring(0, 3));
                 cmbLoaiDongVat.Text = "";
@@ -372,7 +361,7 @@ namespace Production.Class
                 cmbMauNuoc.Text = "";
                 //XtraMessageBox.Show(KHMAUOBJ.LoaiDVMauNuoc);
             }
-            
+
             dteNgayLayMau.Text = KHMAUOBJ.NgayLayMau.ToString().Substring(0, 10);
             txtLoaiMauGui.Text = KHMAUOBJ.LoaiMauGui;
             txtTTMauGui.Text = KHMAUOBJ.TTMauGui;
@@ -382,28 +371,26 @@ namespace Production.Class
             txtKhac.Text = KHMAUOBJ.Khac;
             txtSoLuongKhongDat.Text = KHMAUOBJ.SoLuongKHMauKhongDat;
             txtLiDo.Text = KHMAUOBJ.LiDoKHMauKhongDat;
-
         }
 
         public void Set4Object_Header()
         {
             KHMAUOBJ.KHMau = txtKHMau.Text;
-            if( isAction == "Edit")
-                KHMAUOBJ.ID = int.Parse(txtID.Text.ToString()) ;            
-            KHMAUOBJ.SoPXN= txtSoPXN.Text;
+            if (isAction == "Edit")
+                KHMAUOBJ.ID = int.Parse(txtID.Text.ToString());
+            KHMAUOBJ.SoPXN = txtSoPXN.Text;
         }
 
         public void Set4Object_Details()
         {
-
             //KHMAUCTXNOBJ
-            
+
             if (isAction == "Edit")
             {
                 KHMAUCTXNOBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 KHMAUCTXNOBJ.SoLuongXN = gridView1.GetFocusedRowCellValue("SoLuongXN").ToString();
                 KHMAUCTXNOBJ.CTXNID = int.Parse(gridView1.GetFocusedRowCellValue("CTXNID").ToString());
-            }                
+            }
 
             if (chkHuyMau.CheckState == CheckState.Checked)
                 KHMAUOBJ.TrangThaiKHMau = true;
@@ -426,18 +413,16 @@ namespace Production.Class
             KHMAUOBJ.VitriLuuKHMau = cmbViTriLuuMau.Text;
             //XtraMessageBox.Show(dteNgayHuyMau.Text.ToString());
             //KHMAUOBJ.NgayHuyKHMau = dteNgayHuyMau.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayHuyMau.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            if(isAction == "Add")
+            if (isAction == "Add")
             {
                 //XtraMessageBox.Show(dteNgayHuyMau.Text.ToString());
                 if (dteNgayHuyMau.Text.ToString() == null || dteNgayHuyMau.Text.Length == 0)
                     KHMAUOBJ.NgayHuyKHMau = DateTime.Parse("1999-01-01");
-                
                 else
                     KHMAUOBJ.NgayHuyKHMau = DateTime.Parse(dteNgayHuyMau.Text.ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
 
-                if (dteNgayLuuMau.Text.ToString() == null || dteNgayLuuMau.Text.Length == 0 )
+                if (dteNgayLuuMau.Text.ToString() == null || dteNgayLuuMau.Text.Length == 0)
                     KHMAUOBJ.NgayLuuKHMau = DateTime.Parse("1999-01-01");
-                
                 else
                     KHMAUOBJ.NgayLuuKHMau = DateTime.Parse(dteNgayLuuMau.Text.ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
             }
@@ -445,7 +430,6 @@ namespace Production.Class
             {
                 KHMAUOBJ.NgayHuyKHMau = DateTime.Parse(dteNgayHuyMau.Text.ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
                 KHMAUOBJ.NgayLuuKHMau = DateTime.Parse(dteNgayLuuMau.Text.ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
-
             }
             //XtraMessageBox.Show(KHMAUOBJ.NgayHuyKHMau.ToString());
             //KHMAUOBJ.NgayLuuKHMau = dteNgayLuuMau.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayLuuMau.Text, CultureInfo.CreateSpecificCulture("en-GB"));
@@ -461,7 +445,7 @@ namespace Production.Class
             }
             //KHMAUOBJ.NgayLayMau = dteNgayLayMau.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayLayMau.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             if (dteNgayLayMau.Text.ToString() == null || dteNgayLayMau.Text.Length == 0 || dteNgayLayMau.Text.ToString().Substring(0, 10) == "01/01/0001")
-                KHMAUOBJ.NgayLayMau = DateTime.Parse("1999-01-01");            
+                KHMAUOBJ.NgayLayMau = DateTime.Parse("1999-01-01");
             else
                 KHMAUOBJ.NgayLayMau = DateTime.Parse(dteNgayLayMau.Text.ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
 
@@ -474,10 +458,8 @@ namespace Production.Class
             KHMAUOBJ.LiDoKHMauKhongDat = txtLiDo.Text;
         }
 
-
         public void ResetControl()
         {
-            
             //lkeMaDN.Text = "";
             //txtTenDN.Text = "";
             txtKHMau.Text = "";
@@ -488,10 +470,10 @@ namespace Production.Class
             //lkePPXNID.EditValue = null;
             txtNote.Text = "";
         }
+
         //
         public void ControlsReadOnly(bool bl)
         {
-            
             txtKHMau.ReadOnly = bl;
             txtSoLuong.ReadOnly = bl;
             cmbDonViTinh.ReadOnly = bl;
@@ -500,6 +482,7 @@ namespace Production.Class
             //lkePPXNID.ReadOnly = bl;
             txtNote.ReadOnly = bl;
         }
+
         public void finished(object sender)
         {
             //Dong form DELEGATE
@@ -508,27 +491,25 @@ namespace Production.Class
             frm.Close();
 
             // Step 2 : Load lại data tren grid sau khi Add
-            this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB,KHMAUOBJ.KHMau);
+            this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB, KHMAUOBJ.KHMau);
 
             gridView1.BestFitColumns();
-
         }
+
         private void F_CUSTOMER_Details_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_PhuongPhapBaoQuan_LAB' table. You can move, or remove it, as needed.
             this.tbl_PhuongPhapBaoQuan_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_PhuongPhapBaoQuan_LAB);
-              // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_MauNuoc_LAB' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_MauNuoc_LAB' table. You can move, or remove it, as needed.
             this.tbl_MauNuoc_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_MauNuoc_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_MauNuoc_LAB' table. You can move, or remove it, as needed.
             this.tbl_MauNuoc_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_MauNuoc_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_LoaiDV_LAB' table. You can move, or remove it, as needed.
             this.tbl_LoaiDV_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_LoaiDV_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB' table. You can move, or remove it, as needed.
-            this.tbl_KHMau_CTXN_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB);            
+            this.tbl_KHMau_CTXN_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB);
 
             this.tbl_ChiTieuXetNghiem_LAB_ByNgayNhanMauTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB_ByNgayNhanMau, ngaynhanmau.ToString());
-
         }
     }
-    
 }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using System.Data;
 
 namespace Production.Class
 {
@@ -32,12 +25,12 @@ namespace Production.Class
             string ItemCode4OA
            )
         {
-            Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_Item]"+
-            "([ItemCode],"+
-            "[ItemName],"+ 
-            "[FrgnName],"+
-            "[InvntryUom],"+
-            "[ItemCode4OA]" + 
+            Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_Item]" +
+            "([ItemCode]," +
+            "[ItemName]," +
+            "[FrgnName]," +
+            "[InvntryUom]," +
+            "[ItemCode4OA]" +
            ")" +
             "VALUES" +
            "('" + ItemCode +
@@ -66,7 +59,4 @@ namespace Production.Class
             "'", CommandType.Text);
         }
     }
-
 }
-
-

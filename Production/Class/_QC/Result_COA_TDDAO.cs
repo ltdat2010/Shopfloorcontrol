@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -41,7 +35,7 @@ namespace Production.Class
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
            //"','" + OBJ.Locked +
-           "','False" + 
+           "','False" +
            "')", CommandType.Text);
         }
 
@@ -55,7 +49,7 @@ namespace Production.Class
            ",[SmpDate]       = Convert(datetime,'" + OBJ.SmpDate + "',103)" +
            ",[ExpDate]       = Convert(datetime,'" + OBJ.ExpDate + "',103)" +
            ",[AnlDate]       = Convert(datetime,'" + OBJ.AnlDate + "',103)" +
-           ",[ManfDate]      = Convert(datetime,'" + OBJ.ManfDate+ "',103)" +
+           ",[ManfDate]      = Convert(datetime,'" + OBJ.ManfDate + "',103)" +
            ",[LB_MAT]        = '" + OBJ.LB_MAT + "'" +
            ",[CreatedDate]   = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy]     = N'" + OBJ.CreatedBy + "' " +
@@ -75,17 +69,12 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
 
         public int Result_COA_TD_SoCOA()
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ISNULL(MAX(RIGHT(SoCOA,4)),'0') as SoCOA FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_TD] WHERE RIGHT(LEFT(SoCOA,6),2) = RIGHT(YEAR(GETDATE()),2)", CommandType.Text);
             return int.Parse(dt.Rows[0]["SoCOA"].ToString()) + 1;
-
         }
     }
-
 }
-
-

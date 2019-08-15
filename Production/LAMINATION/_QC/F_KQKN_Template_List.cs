@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using System.Globalization;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace Production.Class
 {
     public partial class F_KQKN_Template_List : UC_Base
     {
-        
-        
-        KQKN_Template_Header OBJ = new KQKN_Template_Header();
-        KQKN_Template_HeaderBUS BUS = new KQKN_Template_HeaderBUS();
-       
+        private KQKN_Template_Header OBJ = new KQKN_Template_Header();
+        private KQKN_Template_HeaderBUS BUS = new KQKN_Template_HeaderBUS();
+
         public F_KQKN_Template_List()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
@@ -29,11 +18,10 @@ namespace Production.Class
                     OBJ.CreatedBy = user.Username;
 
                     tbl_KQKN_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header);
-                  
-                    gridControl1.DataSource = tbl_KQKN_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header);                    
-                    
+
+                    gridControl1.DataSource = tbl_KQKN_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header);
+
                     gridView1.BestFitColumns();
-                                       
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -57,8 +45,8 @@ namespace Production.Class
             {
                 gridViewRowClick = true;
             };
-            
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -72,9 +60,10 @@ namespace Production.Class
             FRM.myFinished += this.finished;
             FRM.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -94,10 +83,11 @@ namespace Production.Class
             else
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
-            
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -106,7 +96,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -137,7 +127,7 @@ namespace Production.Class
                     BUS.KQKN_Template_Header_DELETE(OBJ);
                 }
                 // 18 Load lại datasource cho grid
-                
+
                 gridControl1.DataSource = tbl_KQKN_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header);
 
                 gridView1.BestFitColumns();
@@ -153,7 +143,7 @@ namespace Production.Class
         {
             this.Close();
         }
-     
+
         public void Set4Object()
         {
             OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
@@ -163,22 +153,19 @@ namespace Production.Class
             OBJ.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
         }
 
-        public void finished(object sender,string isActionReturn)
+        public void finished(object sender, string isActionReturn)
         {
             //Dong form DELEGATE
             //var frm = (Form)sender;
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
-            
-            if(isActionReturn == "Edit")
+
+            if (isActionReturn == "Edit")
                 frm.Close();
 
             // Step 2 : Load lại daisActionReturnta tren grid sau khi Add
             gridControl1.DataSource = tbl_KQKN_Template_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Header);
 
             gridView1.BestFitColumns();
-
         }
-
-
     }
 }

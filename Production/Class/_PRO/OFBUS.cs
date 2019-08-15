@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Data;
-using System.Windows;
+using System.IO;
 
 namespace Production.Class
 {
@@ -15,14 +11,17 @@ namespace Production.Class
     {
         public static OF of = new OF();
         public static OFDAO OFD = new OFDAO();
+
         public static bool Checkbool(String x)
         {
             return bool.Parse(x.Length > 0 ? x : "False");
         }
+
         public static DateTime? CheckEmtdE(DateEdit x)
         {
             return (string.IsNullOrEmpty(x.Text) ? (DateTime?)null : DateTime.Parse(x.Text));
         }
+
         public void F_OF_List(GridControl gc1)
         {
             gc1.DataSource = OFD.OF_List();
@@ -32,18 +31,22 @@ namespace Production.Class
         {
             return OFD.OF_ListBatch(CD_OF);
         }
+
         public void F_OF_Details(GridControl gc1, string CDOF)
         {
             gc1.DataSource = OFD.OF_Details(CDOF);
         }
+
         public void F_OF_DetailsCSV(string CD_OF)
         {
             CreateCSVFile(OFD.OF_Details(CD_OF), @"D:\\Eresis\\EXCHANGES\\IN\\OF.csv");
         }
+
         public DataTable F_OF_Find(string CD_OF)
         {
             return OFD.OF_Find(CD_OF);
         }
+
         public DataTable F_OF_Finished()
         {
             return OFD.OF_Finished();
@@ -53,10 +56,12 @@ namespace Production.Class
         {
             return OFD.FG_Finished();
         }
+
         public DataTable F_OF_Report(string CD_OF)
         {
             return OFD.OF_Report(CD_OF);
         }
+
         //Report .rpt
         public DataTable OF_Report_OFHeader(string CD_OF)
         {
@@ -107,15 +112,17 @@ namespace Production.Class
         {
             gc1.DataSource = OFD.OF_Detail_View(CD_OF);
         }
+
         public void OF_INSERT(GridView gv1)
         {
             OFD.OF_INSERT(gv1.GetDataRow(0));
-
         }
+
         public void OF_UPDATE(string CD_OF, float ManufacturedQty, String MINStart, string MAXEnd, string Formula, int TotalBatch)
         {
             OFD.OF_UPDATE(CD_OF, ManufacturedQty, MINStart, MAXEnd, Formula, TotalBatch);
         }
+
         public void OF_Detail_INSERT(GridView gv1)
         {
             for (int i = 0; i <= gv1.DataRowCount - 1; i++)
@@ -128,7 +135,6 @@ namespace Production.Class
         public void OF_Resources_INSERT(DataRow dr, int IdSort)
         {
             OFD.OF_Resources_INSERT(dr, IdSort);
-
         }
 
         public int MAX_IdSort()
@@ -150,7 +156,6 @@ namespace Production.Class
         {
             OFD.OF_Appointments_INSERT(DT_DEB, DT_FIN, ResourceId, Description);
         }
-
 
         public void CreateCSVFile(DataTable dt, string strFilePath)
         {
@@ -208,7 +213,6 @@ namespace Production.Class
                 {
                     for (int i = 0; i < iColCount; i++)
                     {
-
                         if (i == 6 || i == 8 || i == 10 || i == 11)
                         {
                             if (!Convert.IsDBNull(dt.Rows[j][i]))
@@ -234,11 +238,13 @@ namespace Production.Class
             }
             sw.Close();
         }
-            #endregion
+
+        #endregion Export Grid to CSV
+
         //public static void Select_All(GridControl gc1, DataNavigator dn)
         //{
         //    cyn_.CM_Select_All(gc1, dn);
-        //}       
+        //}
         public static void SetRow4Ob(OF ofv, GridView gridView1)
         {
             of.CD_OF = gridView1.GetFocusedRowCellValue("CD_OF").ToString();
@@ -274,7 +280,7 @@ namespace Production.Class
             cyn.ReceivedDocfromGA_      = (DateTime?)(string.IsNullOrEmpty(gridView1.GetFocusedRowCellValue("ReceivedDocfromGA").ToString()) ? null : gridView1.GetFocusedRowCellValue("ReceivedDocfromGA"));
             cyn.NoteCM_                 = gridView1.GetFocusedRowCellValue("NoteCM").ToString();
             cyn.OverQuantity_           = CM_bus.Checkbool(gridView1.GetFocusedRowCellValue("OverQuantity").ToString());
-        
+
              */
         }
 
@@ -307,16 +313,12 @@ namespace Production.Class
 
         public DataTable OF_Report_OFListBatchDetails_PREP(string CD_OF)
         {
-                 return OFD.OF_Report_OFListBatchDetails_PREP(CD_OF);
-
-
+            return OFD.OF_Report_OFListBatchDetails_PREP(CD_OF);
         }
 
         public DataTable OF_Report_OFSummary_PREP(string CD_OF)
         {
             return OFD.OF_Report_OFSummary_PREP(CD_OF);
-
-
         }
 
         public void OF_REVERT(string CD_OF)

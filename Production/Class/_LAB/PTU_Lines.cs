@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -9,14 +6,14 @@ namespace Production.Class
     public class PTU_Lines
     {
         public PTU_Lines(
-            int ID,  
+            int ID,
             int TAMUNG_ID,
-            string SoPTU,             
+            string SoPTU,
             string NoiDung,
             string SoHD,
             float SoTien,
-            DateTime CreatedDate, 
-            string CreatedBy, 
+            DateTime CreatedDate,
+            string CreatedBy,
             bool Locked,
             string Note
 
@@ -24,21 +21,22 @@ namespace Production.Class
         {
             this._ID = ID;
             this._TAMUNG_ID = TAMUNG_ID;
-            this._SoPTU = SoPTU;            
+            this._SoPTU = SoPTU;
             this._NoiDung = NoiDung;
             this._SoHD = SoHD;
-            this._SoTien = SoTien;            
+            this._SoTien = SoTien;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;     
+            this._Locked = Locked;
             this._Note = Note;
         }
+
         public PTU_Lines()
         {
-
         }
 
         private int _ID;
+
         public int ID
         {
             get { return _ID; }
@@ -46,6 +44,7 @@ namespace Production.Class
         }
 
         private string _SoPTU;
+
         public string SoPTU
         {
             get { return _SoPTU; }
@@ -53,6 +52,7 @@ namespace Production.Class
         }
 
         private int _TAMUNG_ID;
+
         public int TAMUNG_ID
         {
             get { return _TAMUNG_ID; }
@@ -60,6 +60,7 @@ namespace Production.Class
         }
 
         private string _NoiDung;
+
         public string NoiDung
         {
             get { return _NoiDung; }
@@ -67,20 +68,23 @@ namespace Production.Class
         }
 
         private string _SoHD;
+
         public string SoHD
         {
             get { return _SoHD; }
             set { _SoHD = value; }
-        }        
+        }
 
         private float _SoTien;
+
         public float SoTien
         {
             get { return _SoTien; }
             set { _SoTien = value; }
-        }        
+        }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -88,6 +92,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -95,11 +100,12 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
-        }        
+        }
 
         private string _Note;
 
@@ -108,7 +114,5 @@ namespace Production.Class
             get { return _Note; }
             set { _Note = value; }
         }
-
-        
     }
 }

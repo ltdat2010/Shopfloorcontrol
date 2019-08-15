@@ -1,9 +1,3 @@
-using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
-using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.Utils.Internal;
 using DevExpress.Utils.Menu;
@@ -12,14 +6,18 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Native;
 using DevExpress.XtraScheduler;
+using DevExpress.XtraScheduler.Commands;
 using DevExpress.XtraScheduler.iCalendar;
 using DevExpress.XtraScheduler.Localization;
 using DevExpress.XtraScheduler.Native;
 using DevExpress.XtraScheduler.Printing;
-using DevExpress.XtraScheduler.Printing.Native;
 using DevExpress.XtraScheduler.UI;
-using DevExpress.XtraScheduler.Commands;
-using DevExpress.XtraScheduler.Services;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace Production.LAMINATION._LAB
 {
@@ -29,25 +27,29 @@ namespace Production.LAMINATION._LAB
     public partial class OutlookAppointmentForm : DevExpress.XtraBars.Ribbon.RibbonForm, IDXManagerPopupMenu
     {
         #region Fields
-        bool openRecurrenceForm;
-        readonly ISchedulerStorage storage;
-        readonly SchedulerControl control;
-        Icon recurringIcon;
-        Icon normalIcon;
-        readonly AppointmentFormController controller;
-        IDXMenuManager menuManager;
-        bool supressCancelCore;
-        #endregion
+
+        private bool openRecurrenceForm;
+        private readonly ISchedulerStorage storage;
+        private readonly SchedulerControl control;
+        private Icon recurringIcon;
+        private Icon normalIcon;
+        private readonly AppointmentFormController controller;
+        private IDXMenuManager menuManager;
+        private bool supressCancelCore;
+
+        #endregion Fields
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OutlookAppointmentForm()
         {
             InitializeComponent();
         }
+
         public OutlookAppointmentForm(DevExpress.XtraScheduler.SchedulerControl control, Appointment apt)
             : this(control, apt, false)
         {
         }
+
         public OutlookAppointmentForm(DevExpress.XtraScheduler.SchedulerControl control, Appointment apt, bool openRecurrenceForm)
         {
             Guard.ArgumentNotNull(control, "control");
@@ -83,9 +85,12 @@ namespace Production.LAMINATION._LAB
 
             this.supressCancelCore = false;
         }
+
         #region Properties
+
         [Browsable(false)]
         public IDXMenuManager MenuManager { get { return menuManager; } private set { menuManager = value; } }
+
         protected internal AppointmentFormController Controller { get { return controller; } }
         protected internal SchedulerControl Control { get { return control; } }
         protected internal ISchedulerStorage Storage { get { return storage; } }
@@ -93,6 +98,7 @@ namespace Production.LAMINATION._LAB
         protected internal Icon RecurringIcon { get { return recurringIcon; } }
         protected internal Icon NormalIcon { get { return normalIcon; } }
         protected internal bool OpenRecurrenceForm { get { return openRecurrenceForm; } }
+
         [DXDescription("DevExpress.XtraScheduler.UI.AppointmentRibbonForm,ReadOnly")]
         [DXCategory(CategoryName.Behavior)]
         [DefaultValue(false)]
@@ -106,21 +112,26 @@ namespace Production.LAMINATION._LAB
                 Controller.ReadOnly = value;
             }
         }
+
         protected override FormShowMode ShowMode { get { return DevExpress.XtraEditors.FormShowMode.AfterInitialization; } }
-        #endregion
+
+        #endregion Properties
 
         public virtual void LoadFormData(Appointment appointment)
         {
             //do nothing
         }
+
         public virtual bool SaveFormData(Appointment appointment)
         {
             return true;
         }
+
         public virtual bool IsAppointmentChanged(Appointment appointment)
         {
             return false;
         }
+
         public virtual void SetMenuManager(DevExpress.Utils.Menu.IDXMenuManager menuManager)
         {
             MenuManagerUtils.SetMenuManager(Controls, menuManager);
@@ -133,6 +144,7 @@ namespace Production.LAMINATION._LAB
             this.tbProgress.Properties.Maximum = AppointmentProcessValues.Max;
             this.tbProgress.Properties.SmallChange = AppointmentProcessValues.Step;
         }
+
         protected virtual void BindControllerToControls()
         {
             this.DataBindings.Add("Text", Controller, "Caption");
@@ -148,7 +160,7 @@ namespace Production.LAMINATION._LAB
             BindProperties(this.edtEndTime, "EditValue", "DisplayEndTime", DataSourceUpdateMode.Never);
             BindProperties(this.edtEndTime, "Enabled", "IsTimeEnabled", DataSourceUpdateMode.Never);
 
-            BindProperties(this.lblResource, "Enabled", "CanEditResource");            
+            BindProperties(this.lblResource, "Enabled", "CanEditResource");
 
             BindProperties(this.edtResource, "ResourceId", "ResourceId");
             BindProperties(this.edtResource, "Enabled", "CanEditResource");
@@ -158,8 +170,7 @@ namespace Production.LAMINATION._LAB
             BindProperties(this.progressPanel, "Visible", "ShouldEditTaskProgress");
             BindProperties(this.btnDelete, "Enabled", "CanDeleteAppointment");
 
-
-            BindToBoolPropertyAndInvert(this.ribbonControl1, "Enabled", "ReadOnly");            
+            BindToBoolPropertyAndInvert(this.ribbonControl1, "Enabled", "ReadOnly");
         }
 
         protected virtual void BindControllerToIcon()
@@ -168,10 +179,12 @@ namespace Production.LAMINATION._LAB
             binding.Format += AppointmentTypeToIconConverter;
             DataBindings.Add(binding);
         }
+
         protected virtual void ObjectToStringConverter(object o, ConvertEventArgs e)
         {
             e.Value = e.Value.ToString();
         }
+
         protected virtual void AppointmentTypeToIconConverter(object o, ConvertEventArgs e)
         {
             AppointmentType type = (AppointmentType)e.Value;
@@ -180,30 +193,36 @@ namespace Production.LAMINATION._LAB
             else
                 e.Value = NormalIcon;
         }
+
         protected virtual void BindProperties(Control target, string targetProperty, string sourceProperty)
         {
             BindProperties(target, targetProperty, sourceProperty, DataSourceUpdateMode.OnPropertyChanged);
         }
+
         protected virtual void BindProperties(Control target, string targetProperty, string sourceProperty, DataSourceUpdateMode updateMode)
         {
             target.DataBindings.Add(targetProperty, Controller, sourceProperty, true, updateMode);
             BindToIsReadOnly(target, updateMode);
         }
+
         protected virtual void BindProperties(Control target, string targetProperty, string sourceProperty, ConvertEventHandler objectToStringConverter)
         {
             Binding binding = new Binding(targetProperty, Controller, sourceProperty, true);
             binding.Format += objectToStringConverter;
             target.DataBindings.Add(binding);
         }
+
         protected virtual void BindToBoolPropertyAndInvert(Control target, string targetProperty, string sourceProperty)
         {
             target.DataBindings.Add(new BoolInvertBinding(targetProperty, Controller, sourceProperty));
             BindToIsReadOnly(target);
         }
+
         protected virtual void BindToIsReadOnly(Control control)
         {
             BindToIsReadOnly(control, DataSourceUpdateMode.OnPropertyChanged);
         }
+
         protected virtual void BindToIsReadOnly(Control control, DataSourceUpdateMode updateMode)
         {
             if ((!(control is BaseEdit)) || control.DataBindings["ReadOnly"] != null)
@@ -215,24 +234,29 @@ namespace Production.LAMINATION._LAB
         {
             BindProperties(target, targetProperty, sourceProperty, DataSourceUpdateMode.OnPropertyChanged);
         }
+
         protected virtual void BindProperties(DevExpress.XtraBars.BarItem target, string targetProperty, string sourceProperty, DataSourceUpdateMode updateMode)
         {
             target.DataBindings.Add(targetProperty, Controller, sourceProperty, true, updateMode);
         }
+
         protected virtual void BindProperties(DevExpress.XtraBars.BarItem target, string targetProperty, string sourceProperty, ConvertEventHandler objectToStringConverter)
         {
             Binding binding = new Binding(targetProperty, Controller, sourceProperty, true);
             binding.Format += objectToStringConverter;
             target.DataBindings.Add(binding);
         }
+
         protected virtual void BindToBoolPropertyAndInvert(DevExpress.XtraBars.BarItem target, string targetProperty, string sourceProperty)
         {
             target.DataBindings.Add(new BoolInvertBinding(targetProperty, Controller, sourceProperty));
         }
+
         protected virtual void BindBoolToVisibility(DevExpress.XtraBars.BarItem target, string targetProperty, string sourceProperty)
         {
             target.DataBindings.Add(new BoolToVisibilityBinding(targetProperty, Controller, sourceProperty, false));
         }
+
         protected virtual void BindBoolToVisibility(DevExpress.XtraBars.BarItem target, string targetProperty, string sourceProperty, bool invert)
         {
             target.DataBindings.Add(new BoolToVisibilityBinding(targetProperty, Controller, sourceProperty, invert));
@@ -246,16 +270,19 @@ namespace Production.LAMINATION._LAB
             SubscribeControlsEvents();
             LoadFormData(Controller.EditedAppointmentCopy);
         }
+
         protected virtual AppointmentFormController CreateController(SchedulerControl control, Appointment apt)
         {
             return new AppointmentFormController(control, apt);
         }
+
         protected internal virtual void LoadIcons()
         {
             Assembly asm = typeof(SchedulerControl).Assembly;
             this.recurringIcon = ResourceImageHelper.CreateIconFromResources(SchedulerIconNames.RecurringAppointment, asm);
             this.normalIcon = ResourceImageHelper.CreateIconFromResources(SchedulerIconNames.Appointment, asm);
         }
+
         protected internal virtual void SubscribeControlsEvents()
         {
             this.edtEndDate.Validating += new CancelEventHandler(OnEdtEndDateValidating);
@@ -284,24 +311,29 @@ namespace Production.LAMINATION._LAB
         {
             e.ErrorText = SchedulerLocalizer.GetString(SchedulerStringId.Msg_DateOutsideLimitInterval);
         }
+
         protected internal virtual void OnEdtStartTimeValidating(object sender, CancelEventArgs e)
         {
             e.Cancel = !Controller.ValidateLimitInterval(edtStartDate.DateTime.Date, edtStartTime.Time.TimeOfDay, edtEndDate.DateTime.Date, edtEndTime.Time.TimeOfDay);
         }
+
         protected internal virtual void OnEdtStartDateInvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
             e.ErrorText = SchedulerLocalizer.GetString(SchedulerStringId.Msg_DateOutsideLimitInterval);
         }
+
         protected internal virtual void OnEdtStartDateValidating(object sender, CancelEventArgs e)
         {
             e.Cancel = !Controller.ValidateLimitInterval(edtStartDate.DateTime.Date, edtStartTime.Time.TimeOfDay, edtEndDate.DateTime.Date, edtEndTime.Time.TimeOfDay);
         }
+
         protected internal virtual void OnEdtEndDateValidating(object sender, CancelEventArgs e)
         {
             e.Cancel = !IsValidInterval();
             if (!e.Cancel)
                 this.edtEndDate.DataBindings["EditValue"].WriteValue();
         }
+
         protected internal virtual void OnEdtEndDateInvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
             if (!AppointmentFormControllerBase.ValidateInterval(edtStartDate.DateTime.Date, edtStartTime.Time.TimeOfDay, edtEndDate.DateTime.Date, edtEndTime.Time.TimeOfDay))
@@ -309,12 +341,14 @@ namespace Production.LAMINATION._LAB
             else
                 e.ErrorText = SchedulerLocalizer.GetString(SchedulerStringId.Msg_DateOutsideLimitInterval);
         }
+
         protected internal virtual void OnEdtEndTimeValidating(object sender, CancelEventArgs e)
         {
             e.Cancel = !IsValidInterval();
             if (!e.Cancel)
                 this.edtEndTime.DataBindings["EditValue"].WriteValue();
         }
+
         protected internal virtual void OnEdtEndTimeInvalidValue(object sender, InvalidValueExceptionEventArgs e)
         {
             if (!AppointmentFormControllerBase.ValidateInterval(edtStartDate.DateTime.Date, edtStartTime.Time.TimeOfDay, edtEndDate.DateTime.Date, edtEndTime.Time.TimeOfDay))
@@ -322,19 +356,23 @@ namespace Production.LAMINATION._LAB
             else
                 e.ErrorText = SchedulerLocalizer.GetString(SchedulerStringId.Msg_DateOutsideLimitInterval);
         }
+
         protected internal virtual bool IsValidInterval()
         {
             return AppointmentFormControllerBase.ValidateInterval(edtStartDate.DateTime.Date, edtStartTime.Time.TimeOfDay, edtEndDate.DateTime.Date, edtEndTime.Time.TimeOfDay) &&
                 Controller.ValidateLimitInterval(edtStartDate.DateTime.Date, edtStartTime.Time.TimeOfDay, edtEndDate.DateTime.Date, edtEndTime.Time.TimeOfDay);
         }
+
         protected internal virtual void OnOkButton()
         {
             Save(true);
         }
+
         protected virtual void OnSaveButton()
         {
             Save(false);
         }
+
         private void Save(bool closeAfterSave)
         {
             if (!ValidateDateAndTime())
@@ -355,6 +393,7 @@ namespace Production.LAMINATION._LAB
                 DialogResult = System.Windows.Forms.DialogResult.OK;
             }
         }
+
         private bool ValidateDateAndTime()
         {
             this.edtEndDate.DoValidate();
@@ -364,6 +403,7 @@ namespace Production.LAMINATION._LAB
 
             return String.IsNullOrEmpty(this.edtEndTime.ErrorText) && String.IsNullOrEmpty(this.edtEndDate.ErrorText) && String.IsNullOrEmpty(this.edtStartDate.ErrorText) && String.IsNullOrEmpty(this.edtStartTime.ErrorText);
         }
+
         protected virtual void OnSaveAsButton()
         {
             SaveFileDialog fileDialog = new SaveFileDialog();
@@ -381,7 +421,8 @@ namespace Production.LAMINATION._LAB
                 ShowMessageBox("Error: could not export appointments", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        void ExportAppointment(Stream stream)
+
+        private void ExportAppointment(Stream stream)
         {
             if (stream == null)
                 return;
@@ -393,10 +434,12 @@ namespace Production.LAMINATION._LAB
             exporter.ProductIdentifier = "-//Developer Express Inc.";
             exporter.Export(stream);
         }
+
         protected internal virtual DialogResult ShowMessageBox(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             return XtraMessageBox.Show(this, text, caption, buttons, icon);
         }
+
         protected internal virtual void OnDeleteButton()
         {
             if (IsNewAppointment)
@@ -407,6 +450,7 @@ namespace Production.LAMINATION._LAB
             DialogResult = DialogResult.Abort;
             Close();
         }
+
         protected internal virtual void OnRecurrenceButton()
         {
             if (!Controller.ShouldShowRecurrenceButton)
@@ -429,6 +473,7 @@ namespace Production.LAMINATION._LAB
                 Controller.ApplyRecurrence(patternCopy);
             }
         }
+
         protected virtual void OnCloseButton()
         {
             this.Close();
@@ -455,6 +500,7 @@ namespace Production.LAMINATION._LAB
         {
             return FormTouchUIAdapter.ShowDialog(form, this);
         }
+
         protected internal virtual Form CreateAppointmentRecurrenceForm(Appointment patternCopy, FirstDayOfWeek firstDayOfWeek)
         {
             AppointmentRecurrenceForm form = new AppointmentRecurrenceForm(patternCopy, firstDayOfWeek, Controller);
@@ -463,6 +509,7 @@ namespace Production.LAMINATION._LAB
             form.ShowExceptionsRemoveMsgBox = controller.AreExceptionsPresent();
             return form;
         }
+
         internal void OnAppointmentFormActivated(object sender, EventArgs e)
         {
             if (openRecurrenceForm)
@@ -470,7 +517,7 @@ namespace Production.LAMINATION._LAB
                 openRecurrenceForm = false;
                 OnRecurrenceButton();
             }
-        }       
+        }
 
         protected internal virtual void OnNextButton()
         {

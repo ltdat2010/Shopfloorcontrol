@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,6 @@ namespace Production.Class
     {
         public void PTU_Header_INSERT(PTU_Header OBJ)
         {
-
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_PTU_Header_LAB] " +
            " ([SoPTU] " +
            " ,[VENDCode] " +
@@ -59,7 +52,7 @@ namespace Production.Class
            ",[PaymentTerm]                                      = N'" + OBJ.PaymentTerm + "'" +
            ",[SoTienTamUng]                                      = " + OBJ.SoTienTamUng +
            ",[SoTienDaTamUng]                                      = " + OBJ.SoTienDaTamUng +
-           ",[SoTienDeNghiThanhToan]                                      = " + OBJ.SoTienDeNghiThanhToan + 
+           ",[SoTienDeNghiThanhToan]                                      = " + OBJ.SoTienDeNghiThanhToan +
            ",[CreatedDate]                                      = CONVERT(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy]                                        = N'" + OBJ.CreatedBy + "' " +
            ",[Note]                                             = N'" + OBJ.Note + "' " +
@@ -82,16 +75,12 @@ namespace Production.Class
         public string Issued_SoPTU()
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(RIGHT(SoPTU,4)) as SoPTU FROM [SYNC_NUTRICIEL].[dbo].[tbl_PTU_Header_LAB] ", CommandType.Text);
-            return dt.Rows[0]["SoPTU"].ToString().Length == 0 ? "0000" : dt.Rows[0]["SoPTU"].ToString() ;
+            return dt.Rows[0]["SoPTU"].ToString().Length == 0 ? "0000" : dt.Rows[0]["SoPTU"].ToString();
         }
 
         //public void Update_SoPO(string SoPO)
         //{
         //    Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_Info] SET PONumber = '" + SoPO + "'", CommandType.Text);
         //}
-
     }
-
 }
-
-

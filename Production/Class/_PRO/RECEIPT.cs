@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -22,6 +19,7 @@ namespace Production.Class
             get { return _ECH_RECEP; }
             set { _ECH_RECEP = value; }
         }
+
         private DateTime _DT_ENT;
 
         public DateTime DT_ENT
@@ -29,6 +27,7 @@ namespace Production.Class
             get { return _DT_ENT; }
             set { _DT_ENT = value; }
         }
+
         private string _CD_MAT;
 
         public string CD_MAT
@@ -36,7 +35,7 @@ namespace Production.Class
             get { return _CD_MAT; }
             set { _CD_MAT = value; }
         }
-        
+
         private string _LB_MAT;
 
         public string LB_MAT
@@ -44,6 +43,7 @@ namespace Production.Class
             get { return _LB_MAT; }
             set { _LB_MAT = value; }
         }
+
         private float _NO_LOT;
 
         public float NO_LOT
@@ -51,6 +51,7 @@ namespace Production.Class
             get { return _NO_LOT; }
             set { _NO_LOT = value; }
         }
+
         private string _QT_NET;
 
         public string QT_NET
@@ -58,6 +59,7 @@ namespace Production.Class
             get { return _QT_NET; }
             set { _QT_NET = value; }
         }
+
         private string _CD_UNIT;
 
         public string CD_UNIT
@@ -65,14 +67,13 @@ namespace Production.Class
             get { return _CD_UNIT; }
             set { _CD_UNIT = value; }
         }
+
         private DateTime _DP_PEREMP;
 
         public DateTime DP_PEREMP
         {
             get { return _DP_PEREMP; }
             set { _DP_PEREMP = value; }
-        }       
-
-        
+        }
     }
 }

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class VENDORBUS
     {
-        VENDORDAO DAO = new VENDORDAO();
+        private VENDORDAO DAO = new VENDORDAO();
 
         public DataTable VENDOR_SELECT()
         {
-             return DAO.VENDOR_SELECT();
+            return DAO.VENDOR_SELECT();
         }
-
     }
-
 }
-
-

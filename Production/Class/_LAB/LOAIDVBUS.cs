@@ -1,11 +1,9 @@
-﻿using System;
-using System.Data;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class LOAIDVBUS
     {
-        LOAIDVDAO DAO = new LOAIDVDAO();
+        private LOAIDVDAO DAO = new LOAIDVDAO();
+
         public void LOAIDV_INSERT(LOAIDV OBJ)
         {
             DAO.LOAIDV_INSERT(OBJ);
@@ -24,12 +22,6 @@ namespace Production.Class
         public int MAX_MALOAIDV()
         {
             return DAO.MAX_MALOAIDV();
-
         }
-
-
     }
-
 }
-
-

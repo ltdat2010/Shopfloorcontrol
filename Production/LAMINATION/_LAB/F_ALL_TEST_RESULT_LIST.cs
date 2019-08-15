@@ -1,27 +1,23 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Production.Class
 {
-    public partial class F_ALL_TEST_RESULT_LIST : UC_Base 
+    public partial class F_ALL_TEST_RESULT_LIST : UC_Base
     {
-        MYCOTOXIN_RESULT_Lines OBJLines = new MYCOTOXIN_RESULT_Lines();
-        MYCOTOXIN_RESULT_Header OBJHeader = new MYCOTOXIN_RESULT_Header();
+        private MYCOTOXIN_RESULT_Lines OBJLines = new MYCOTOXIN_RESULT_Lines();
+        private MYCOTOXIN_RESULT_Header OBJHeader = new MYCOTOXIN_RESULT_Header();
 
-        MYCOTOXIN_RESULT_LinesBUS BUSLines = new MYCOTOXIN_RESULT_LinesBUS();
-        MYCOTOXIN_RESULT_HeaderBUS BUSHeader = new MYCOTOXIN_RESULT_HeaderBUS();
+        private MYCOTOXIN_RESULT_LinesBUS BUSLines = new MYCOTOXIN_RESULT_LinesBUS();
+        private MYCOTOXIN_RESULT_HeaderBUS BUSHeader = new MYCOTOXIN_RESULT_HeaderBUS();
 
-        CSVFromToDataTable XLSX = new CSVFromToDataTable();
+        private CSVFromToDataTable XLSX = new CSVFromToDataTable();
 
-        SplashScreen1 Splash = new SplashScreen1();
+        private SplashScreen1 Splash = new SplashScreen1();
 
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
 
         public event MyAdd myFinished;
@@ -39,18 +35,17 @@ namespace Production.Class
         }
 
         public F_ALL_TEST_RESULT_LIST()
-        {           
+        {
             InitializeComponent();
-            
+
             Load += (s, e) =>
                 {
                     this.f_ALL_TEST_RESULT_LISTTableAdapter.Fill(sYNC_NUTRICIELDataSet.F_ALL_TEST_RESULT_LIST);
-                };                       
+                };
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
-            action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));           
-
-                       
+            action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
         }
+
         //private string[] ConvertToStringArray(System.Array values)
         //{
         //    // create a new string array
@@ -81,10 +76,10 @@ namespace Production.Class
                 MessageBox.Show(_error);
                 throw;
             }
-        }        
+        }
+
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
-            
         }
 
         public void finished(object sender)
@@ -104,7 +99,7 @@ namespace Production.Class
             gridView1.BestFitColumns();
         }
 
-        //StandardCurve              
+        //StandardCurve
 
         private void repositoryItemButtonEdit2_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {

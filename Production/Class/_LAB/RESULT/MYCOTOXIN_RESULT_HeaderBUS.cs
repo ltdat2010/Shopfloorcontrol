@@ -1,12 +1,11 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class MYCOTOXIN_RESULT_HeaderBUS
     {
+        private MYCOTOXIN_RESULT_HeaderDAO DAO = new MYCOTOXIN_RESULT_HeaderDAO();
 
-        MYCOTOXIN_RESULT_HeaderDAO DAO = new MYCOTOXIN_RESULT_HeaderDAO();
         public int MYCOTOXIN_RESULT_Header_INSERT(MYCOTOXIN_RESULT_Header OBJ)
         {
             return DAO.MYCOTOXIN_RESULT_Header_INSERT(OBJ);
@@ -31,9 +30,5 @@ namespace Production.Class
         {
             return DAO.MYCOTOXIN_RESULT_Header_SELECT(ID);
         }
-
     }
-
 }
-
-

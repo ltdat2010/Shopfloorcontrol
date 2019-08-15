@@ -1,28 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using System.Globalization;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
 
 namespace Production.Class
 {
     public partial class F_NCTXN_List : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
 
-        NHOMCHITIEUXETNGHIEM OBJ = new NHOMCHITIEUXETNGHIEM();
-        NHOMCHITIEUXETNGHIEMBUS BUS = new NHOMCHITIEUXETNGHIEMBUS();
-       
+        private NHOMCHITIEUXETNGHIEM OBJ = new NHOMCHITIEUXETNGHIEM();
+        private NHOMCHITIEUXETNGHIEMBUS BUS = new NHOMCHITIEUXETNGHIEMBUS();
+
         public F_NCTXN_List()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
@@ -30,11 +21,10 @@ namespace Production.Class
                     OBJ.CreatedBy = user.Username;
 
                     tbl_NhomChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB);
-                  
-                    gridControl1.DataSource = tbl_NhomChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB);                    
-                    
+
+                    gridControl1.DataSource = tbl_NhomChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB);
+
                     gridView1.BestFitColumns();
-                                       
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -59,6 +49,7 @@ namespace Production.Class
                 gridViewRowClick = true;
             };
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -75,9 +66,10 @@ namespace Production.Class
             F_LOC_Dtl.myFinished += this.finished;
             F_LOC_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -99,6 +91,7 @@ namespace Production.Class
             else
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ", "Lỗi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
             // 27 Gán dữ liệ trên control cho object
@@ -120,6 +113,7 @@ namespace Production.Class
             //isNew = false;
             isAction = "";
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -128,7 +122,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -161,7 +155,7 @@ namespace Production.Class
                     BUS.NCTXN_DELETE(OBJ);
                 }
                 // 18 Load lại datasource cho grid
-                
+
                 gridControl1.DataSource = tbl_NhomChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB);
 
                 gridView1.BestFitColumns();
@@ -177,7 +171,7 @@ namespace Production.Class
         {
             this.Close();
         }
-     
+
         public void Set4Object()
         {
             OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
@@ -200,9 +194,6 @@ namespace Production.Class
             // Step 2 : Load lại data tren grid sau khi Add
             tbl_NhomChiTieuXetNghiem_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_NhomChiTieuXetNghiem_LAB);
             gridView1.BestFitColumns();
-
         }
-
-
     }
 }

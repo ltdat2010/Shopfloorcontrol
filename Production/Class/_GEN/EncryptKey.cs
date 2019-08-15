@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Production.Class._GEN
 {
-    class EncryptKey
+    internal class EncryptKey
     {
         public static string Encrypt(string toEncrypt, bool useHashing)
         {
             try
             {
-
             }
             catch (Exception ex)
             {
-
             }
             byte[] keyArray;
             byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
@@ -96,7 +92,7 @@ namespace Production.Class._GEN
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
             //set the secret key for the tripleDES algorithm
             tdes.Key = keyArray;
-            //mode of operation. there are other 4 modes. 
+            //mode of operation. there are other 4 modes.
             //We choose ECB(Electronic code Book)
 
             tdes.Mode = CipherMode.ECB;
@@ -106,7 +102,7 @@ namespace Production.Class._GEN
             ICryptoTransform cTransform = tdes.CreateDecryptor();
             byte[] resultArray = cTransform.TransformFinalBlock(
                                  toEncryptArray, 0, toEncryptArray.Length);
-            //Release resources held by TripleDes Encryptor                
+            //Release resources held by TripleDes Encryptor
             tdes.Clear();
             //return the Clear decrypted TEXT
             return UTF8Encoding.UTF8.GetString(resultArray);

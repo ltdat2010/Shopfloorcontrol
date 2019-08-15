@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class MYCOTOXIN_ConCBUS
     {
-        MYCOTOXIN_ConCDAO DAO = new MYCOTOXIN_ConCDAO();
+        private MYCOTOXIN_ConCDAO DAO = new MYCOTOXIN_ConCDAO();
 
         public void MYCOTOXIN_ConC_INSERT(MYCOTOXIN_ConC OBJ)
         {
@@ -21,11 +18,5 @@ namespace Production.Class
         {
             DAO.MYCOTOXIN_ConC_DELETE(OBJ);
         }
-        
-
-
     }
-
 }
-
-

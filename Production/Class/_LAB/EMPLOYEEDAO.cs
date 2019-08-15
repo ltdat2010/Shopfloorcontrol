@@ -6,7 +6,7 @@ namespace Production.Class
     public class EMPLOYEEDAO
     {
         public void EMPLOYEE_INSERT(EMPLOYEE EMP)
-        {     
+        {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO[SYNC_NUTRICIEL].[dbo].[tbl_EMPLOYEE_LAB] " +
                                        " ([EMPCode] " +
                                        " ,[EMPName] " +
@@ -29,7 +29,7 @@ namespace Production.Class
         }
 
         public void EMPLOYEE_UPDATE(EMPLOYEE EMP)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_EMPLOYEE_LAB] SET" +
                                        " [EMPCode] = N'" + EMP.EMPCode + "'" +
                                        ",[EMPName] = N'" + EMP.EMPName + "'" +
@@ -39,17 +39,15 @@ namespace Production.Class
                                        ",[CreatedBy] = '" + EMP.CreatedBy + "' " +
                                        ",[Note] = N'" + EMP.Note + "' " +
                                        ",[Locked] = '" + EMP.Locked + "' " +
-                                       " WHERE [Id]='" + EMP.Id + 
+                                       " WHERE [Id]='" + EMP.Id +
                                        "'", CommandType.Text);
         }
 
         public void EMPLOYEE_DELETE(EMPLOYEE EMP)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_EMPLOYEE_LAB] " +
-                                       " WHERE [EMPCode]='" + EMP.EMPCode + 
-                                       "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_EMPLOYEE_LAB] " +
+                                        " WHERE [EMPCode]='" + EMP.EMPCode +
+                                        "'", CommandType.Text);
         }
     }
 }
-
-

@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
     public class PTU_Header_BUS
     {
+        private PTU_Header_DAO DAO = new PTU_Header_DAO();
 
-        PTU_Header_DAO DAO = new PTU_Header_DAO();
         public void PTU_Header_INSERT(PTU_Header OBJ)
         {
-
             DAO.PTU_Header_INSERT(OBJ);
         }
 
@@ -43,9 +35,5 @@ namespace Production.Class
         //{
         //    Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_Info] SET PONumber = '" + SoPO + "'", CommandType.Text);
         //}
-
     }
-
 }
-
-

@@ -1,38 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
+﻿using CrystalDecisions.CrystalReports.Engine;
 using DevExpress.XtraBars;
+using System;
+using System.Data;
+using System.Drawing.Printing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class R_FG_FG : frm_Base
     {
-        OFBUS OFB = new OFBUS();
-        public string FG ;        
-        DataTable dt = new DataTable();
+        private OFBUS OFB = new OFBUS();
+        public string FG;
+        private DataTable dt = new DataTable();
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
-        
-        string Path = Directory.GetCurrentDirectory();        
-        CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+
+        private string Path = Directory.GetCurrentDirectory();
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
         //----------------------------End Report parameters declare---------------------------------------------
 
         public R_FG_FG()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 //XtraMessageBox.Show("Path : "+Path.ToString());
                 txtFrDate.Text = FG;
@@ -41,9 +32,8 @@ namespace Production.Class
                 if (dt.Rows.Count > 0)
                     dt.WriteXml(Path + "/../../Xml/OF_Report_ByFG.xml", System.Data.XmlWriteMode.IgnoreSchema);
                 rpt.Load(Path + "/../../RPT/Rpt_FG_by_FG.rpt");
-                rpt.SetParameterValue("P_FG", FG);                
+                rpt.SetParameterValue("P_FG", FG);
                 crvReport.ReportSource = rpt;
-                
             };
 
             action1.Print(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Print));
@@ -80,12 +70,12 @@ namespace Production.Class
             {
                 MessageBox.Show(ex.Message);
             }
-        }       
+        }
 
         private void PrintReport(PrintDocument pd)
         {
             ReportDocument rDoc = (ReportDocument)crvReport.ReportSource;
-            // This line helps, in case user selects a different printer 
+            // This line helps, in case user selects a different printer
             // other than the default selected.
             rDoc.PrintOptions.PrinterName = pd.PrinterSettings.PrinterName;
             // In place of Frompage and ToPage put 0,0 to print all pages,

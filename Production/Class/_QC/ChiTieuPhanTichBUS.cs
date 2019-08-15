@@ -5,13 +5,13 @@ namespace Production.Class
     public class ChiTieuPhanTichBUS
     {
         //public static OF of = new OF();
-        public static ChiTieuPhanTichDAO CTPTDAO = new ChiTieuPhanTichDAO();   
-     
+        public static ChiTieuPhanTichDAO CTPTDAO = new ChiTieuPhanTichDAO();
+
         //public void CTPT_Update(DataRow dr)
         //{
         //    CTPTDAO.CTPT_Update(dr);
         //}
-        
+
         public DataTable CTPT_List()
         {
             return CTPTDAO.CTPT_List();
@@ -31,6 +31,5 @@ namespace Production.Class
         {
             CTPTDAO.CTPT_DELETE(CTPT);
         }
-
     }
 }

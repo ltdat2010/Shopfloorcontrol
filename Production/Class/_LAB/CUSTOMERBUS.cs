@@ -4,8 +4,8 @@ namespace Production.Class
 {
     public class CUSTOMERBUS
     {
+        private CUSTOMERDAO CUSTDAO = new CUSTOMERDAO();
 
-        CUSTOMERDAO CUSTDAO = new CUSTOMERDAO();
         public void CUSTOMER_INSERT(CUSTOMER CUST)
         {
             CUSTDAO.CUSTOMER_INSERT(CUST);
@@ -29,13 +29,6 @@ namespace Production.Class
         public int MAX_CUSTOMER_CODE()
         {
             return CUSTDAO.MAX_CUSTOMER_CODE();
-
         }
-
     }
-
-        
 }
-
-
-

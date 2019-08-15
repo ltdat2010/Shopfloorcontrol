@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,7 @@ namespace Production.Class
     {
         public void Result_KQKN_TD_INSERT(Result_KQKN_TD OBJ)
         {
-           //XtraMessageBox.Show("LOC.Locked : " + LOC.Locked.ToString());
+            //XtraMessageBox.Show("LOC.Locked : " + LOC.Locked.ToString());
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_TD] " +
            " ([SoPKN] " +
            " ,[KQKNTemplateID] " +
@@ -52,7 +46,7 @@ namespace Production.Class
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
            //"','" + OBJ.Locked +
-           "','False"  +
+           "','False" +
            "')", CommandType.Text);
         }
 
@@ -91,17 +85,12 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_TD]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
 
         public int Result_KQKB_TD_SoPNK(string pre)
         {
-            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ISNULL(MAX(RIGHT(SoPKN,4)),'0') as SoPKN FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_TD] WHERE SoPKN like '"+pre+ "%' and RIGHT(LEFT(SoPKN,6),2) = RIGHT(YEAR(GETDATE()),2)", CommandType.Text);
-            return int.Parse(dt.Rows[0]["SoPKN"].ToString())+1;
-
+            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ISNULL(MAX(RIGHT(SoPKN,4)),'0') as SoPKN FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_KQKN_TD] WHERE SoPKN like '" + pre + "%' and RIGHT(LEFT(SoPKN,6),2) = RIGHT(YEAR(GETDATE()),2)", CommandType.Text);
+            return int.Parse(dt.Rows[0]["SoPKN"].ToString()) + 1;
         }
     }
-
 }
-
-

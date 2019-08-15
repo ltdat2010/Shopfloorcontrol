@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-
-namespace Production.Class
+﻿namespace Production.Class
 {
     public class UserBUS
     {
-        UserDAO DAO = new UserDAO();
+        private UserDAO DAO = new UserDAO();
 
         public void User_INSERT(User USR)
         {
@@ -23,5 +20,3 @@ namespace Production.Class
         }
     }
 }
-
-

@@ -1,38 +1,41 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using DevExpress.XtraBars;
-using System.Collections.Generic;
 using Microsoft.Office.Interop.Excel;
-using Excel = Microsoft.Office.Interop.Excel;
 using Production.Class._GEN;
-using System.Collections;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
+
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Production.Class
 {
     public partial class F_MYCOTOXIN_RESULT_Details : frm_Base
     {
         public DateTime ngaynhanmau;
-        string Path = System.IO.Directory.GetCurrentDirectory();
+        private string Path = System.IO.Directory.GetCurrentDirectory();
         public string isAction = "";
         public string str_KHMau = "";
-        bool gridViewRowClick = false;
-        Equation_Fomular EQ = new Equation_Fomular();
+        private bool gridViewRowClick = false;
+        private Equation_Fomular EQ = new Equation_Fomular();
+
         //OBJECT
-        MYCOTOXIN_RESULT_Header OBJHeader = new MYCOTOXIN_RESULT_Header();
-        MYCOTOXIN_RESULT_Lines OBJLines = new MYCOTOXIN_RESULT_Lines();
-        MYCOTOXIN_RESULT_StandardCurve OBJSCurve = new MYCOTOXIN_RESULT_StandardCurve();
+        private MYCOTOXIN_RESULT_Header OBJHeader = new MYCOTOXIN_RESULT_Header();
+
+        private MYCOTOXIN_RESULT_Lines OBJLines = new MYCOTOXIN_RESULT_Lines();
+        private MYCOTOXIN_RESULT_StandardCurve OBJSCurve = new MYCOTOXIN_RESULT_StandardCurve();
+
         //BUS
-        MYCOTOXIN_RESULT_HeaderBUS BUSHeader = new MYCOTOXIN_RESULT_HeaderBUS();
-        MYCOTOXIN_RESULT_LinesBUS BUSLines = new MYCOTOXIN_RESULT_LinesBUS();
-        MYCOTOXIN_RESULT_StandardCurveBUS BUSSCurve = new MYCOTOXIN_RESULT_StandardCurveBUS();
-        CHITIEUXETNGHIEMBUS BUSCTXN = new CHITIEUXETNGHIEMBUS();
+        private MYCOTOXIN_RESULT_HeaderBUS BUSHeader = new MYCOTOXIN_RESULT_HeaderBUS();
+
+        private MYCOTOXIN_RESULT_LinesBUS BUSLines = new MYCOTOXIN_RESULT_LinesBUS();
+        private MYCOTOXIN_RESULT_StandardCurveBUS BUSSCurve = new MYCOTOXIN_RESULT_StandardCurveBUS();
+        private CHITIEUXETNGHIEMBUS BUSCTXN = new CHITIEUXETNGHIEMBUS();
 
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
 
         public event MyAdd myFinished;
@@ -54,7 +57,6 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
-
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
                 this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
@@ -78,7 +80,6 @@ namespace Production.Class
 
                 if (isAction == "Edit")
                 {
-
                 }
                 else if (isAction == "Add")
                 {
@@ -107,7 +108,7 @@ namespace Production.Class
 
                         int col_min = 3, col_title = 3;
                         int col_max = 14;
-                        int row_fixed=22, col_fixed=2;
+                        int row_fixed = 22, col_fixed = 2;
                         int row, col;
                         //////////////////////////////////////////////////////////////////////////////////////////
                         wbook = app.Workbooks.Open(
@@ -164,9 +165,9 @@ namespace Production.Class
                                         OBJLines.LogConc = 0;
                                         OBJLines.LogitB_Bo = 0;
                                         OBJLines.Conc_ng_ml = 0;
-                                        OBJLines.Conc_ng_g = 0;                                        
+                                        OBJLines.Conc_ng_g = 0;
                                         OBJLines.Row = (string)worksheet.Cells[row, col_fixed].Value;
-                                        OBJLines.Col = worksheet.Cells[row_fixed, col].Value;                                        
+                                        OBJLines.Col = worksheet.Cells[row_fixed, col].Value;
                                         OBJLines.CreatedBy = user.Username;
                                         OBJLines.CTXN_ID = BUSCTXN.CTXN_CTXNID_SELECT(OBJLines.Acronym);
                                         BUSLines.MYCOTOXIN_RESULT_Lines_INSERT(OBJLines);
@@ -177,12 +178,11 @@ namespace Production.Class
                         //splashScreenManager1.CloseWaitForm();
                     }
                     tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
-                 }
+                }
             };
-            
+
             btnCalc_Log.Click += (s, e) =>
             {
-                
                 List<string> List_Acronym = BUSLines.MYCOTOXIN_RESULT_Lines_List_Acronym(OBJHeader.ID);
                 //foreach(string Arc in List_Acronym)
                 //{
@@ -224,7 +224,7 @@ namespace Production.Class
                 //                        OBJLines.LogitB_Bo = Math.Log10((OBJLines.B_Bo) / (B_Bo_STD1 - OBJLines.B_Bo));
                 //                        //--------------Log(Conc)-----------------------------------------------
                 //                        OBJLines.LogConc = Math.Log10(OBJLines.Conc_ng_ml);
-                //                        //---------------Equation y= ax + b-----------------------------------------      
+                //                        //---------------Equation y= ax + b-----------------------------------------
                 //                        Lst.Add(OBJLines.LogitB_Bo);
                 //                        Lst.Add(OBJLines.LogConc);
                 //                        break;
@@ -256,7 +256,7 @@ namespace Production.Class
                 //            if (row["KHMau"].ToString().Substring(0, 3) != "STD")
                 //            {
                 //                //Gia tri ConC(ng/ml) se an ko cho hien
-                //                //Chi hien gia tri Conc(ng/g)                        
+                //                //Chi hien gia tri Conc(ng/g)
                 //                //Khai bao he so y cua y=ax + b
                 //                double y = 0;
                 //                //--------------HSoPhaLoang-----------------------------------------------
@@ -288,7 +288,6 @@ namespace Production.Class
 
                 //    splashScreenManager1.CloseWaitForm();
                 //}
-
 
                 foreach (string Arc in List_Acronym)
                 {
@@ -338,13 +337,14 @@ namespace Production.Class
                                         //--------------Log(Conc)-----------------------------------------------
                                         OBJLines.LogConc = 0;
                                         break;
+
                                     default:
                                         OBJLines.Conc_ng_ml = double.Parse(row["ConC"].ToString());
                                         //--------------logit(B/Bo)-----------------------------------------------
                                         OBJLines.LogitB_Bo = Math.Log10((OBJLines.B_Bo) / (B_Bo_STD1 - OBJLines.B_Bo));
                                         //--------------Log(Conc)-----------------------------------------------
                                         OBJLines.LogConc = Math.Log10(OBJLines.Conc_ng_ml);
-                                        //---------------Equation y= ax + b-----------------------------------------      
+                                        //---------------Equation y= ax + b-----------------------------------------
                                         Lst.Add(OBJLines.LogitB_Bo);
                                         Lst.Add(OBJLines.LogConc);
                                         break;
@@ -365,7 +365,7 @@ namespace Production.Class
                     BUSSCurve.MYCOTOXIN_RESULT_StandardCurve_INSERT(OBJSCurve);
                     //i se chay tu dong STD_Row_Count+1 den het
                     //Muc dich giam thoi gian duyet va xu ly
-                    for (int i = STD_Row_Count+1; i < gridView1.DataRowCount; i++)
+                    for (int i = STD_Row_Count + 1; i < gridView1.DataRowCount; i++)
                     {
                         DataRow row = gridView1.GetDataRow(i);
                         if (row["Acronym"].ToString() == Arc)
@@ -388,9 +388,8 @@ namespace Production.Class
 
                             if (OBJLines.KHMau.Substring(0, 3) != "STD")
                             {
-
                                 //Gia tri ConC(ng/ml) se an ko cho hien
-                                //Chi hien gia tri Conc(ng/g)                        
+                                //Chi hien gia tri Conc(ng/g)
                                 //Khai bao he so y cua y=ax + b
                                 double y = 0;
                                 //--------------HSoPhaLoang-----------------------------------------------
@@ -412,8 +411,8 @@ namespace Production.Class
                                 BUSLines.MYCOTOXIN_RESULT_Lines_UPDATE(OBJLines);
                                 this.tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
                             }
-                        }                        
-                    }             
+                        }
+                    }
 
                     splashScreenManager1.CloseWaitForm();
                 }
@@ -427,7 +426,6 @@ namespace Production.Class
                 //args.Buttons = new DialogResult[] { DialogResult.OK };
                 //XtraMessageBox.Show(args).ToString();
                 tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
-
             };
 
             gridView1.RowClick += (s, e) =>
@@ -460,6 +458,7 @@ namespace Production.Class
                     ctrl.Focus();
             }
         }
+
         private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
         {
             this.Is_close = true;
@@ -503,13 +502,11 @@ namespace Production.Class
 
         public void Set4Controls_Details()
         {
-
             ///////////////////////////////////////////////////////////////
         }
 
         public void Set4Object_Header()
         {
-
             if (isAction == "Edit")
                 OBJHeader.ID = int.Parse(txtID.Text.ToString());
             OBJHeader.ReadTimes = int.Parse(txtLan.Text);
@@ -520,24 +517,27 @@ namespace Production.Class
         }
 
         public void Set4Object_Details()
-        {            
+        {
             //KHMAUCTXNOBJ
             if (isAction == "Edit" && gridView1.DataRowCount > 0)
             {
                 OBJLines.ID = int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Lines_LAB_ID").ToString());
             }
         }
+
         public void ResetControl()
         {
             cmbKhoa.Text = "";
             txtNote.Text = "";
         }
+
         //
         public void ControlsReadOnly(bool bl)
         {
             cmbKhoa.ReadOnly = bl;
             txtNote.ReadOnly = bl;
         }
+
         public void finished(object sender)
         {
             //Enable
@@ -554,6 +554,7 @@ namespace Production.Class
 
             gridView1.BestFitColumns();
         }
+
         private void F_CUSTOMER_Details_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB' table. You can move, or remove it, as needed.
@@ -563,34 +564,34 @@ namespace Production.Class
         private void repositoryItemButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Index == 0)
-            {                
-                    DataRow row = gridView1.GetFocusedDataRow();
-                    OBJLines.Acronym = row["Acronym"].ToString();
-                    OBJLines.ID = int.Parse(row["MYCOTOXIN_RESULT_Lines_LAB_ID"].ToString());
-                    OBJLines.KHMau = row["KHMau"].ToString();
-                    //XtraMessageBox.Show(row["HsoPhaLoang"].ToString());
-                    //Khac STD
-                    if (row["KHMau"].ToString().Substring(0, 3) != "STD")
-                    {
-                        //Gia tri ConC(ng/ml) se an ko cho hien
-                        //Chi hien gia tri Conc(ng/g)                        
-                        //Khai bao he so y cua y=ax + b
-                        double y = 0;
-                        //--------------HSoPhaLoang-----------------------------------------------
-                        OBJLines.HsoPhaLoang = double.Parse(row["HsoPhaLoang"].ToString());
-                        //--------------B/Bo-----------------------------------------------
-                        OBJLines.B_Bo = double.Parse(row["B_Bo"].ToString());
-                        //--------------logit(B/Bo)-----------------------------------------------
-                        OBJLines.LogitB_Bo = double.Parse(row["LogitB_Bo"].ToString());
-                        //--------------Tinh y tuong ung voi tung B/Bo ben tren-----------------------------------------------
+            {
+                DataRow row = gridView1.GetFocusedDataRow();
+                OBJLines.Acronym = row["Acronym"].ToString();
+                OBJLines.ID = int.Parse(row["MYCOTOXIN_RESULT_Lines_LAB_ID"].ToString());
+                OBJLines.KHMau = row["KHMau"].ToString();
+                //XtraMessageBox.Show(row["HsoPhaLoang"].ToString());
+                //Khac STD
+                if (row["KHMau"].ToString().Substring(0, 3) != "STD")
+                {
+                    //Gia tri ConC(ng/ml) se an ko cho hien
+                    //Chi hien gia tri Conc(ng/g)
+                    //Khai bao he so y cua y=ax + b
+                    double y = 0;
+                    //--------------HSoPhaLoang-----------------------------------------------
+                    OBJLines.HsoPhaLoang = double.Parse(row["HsoPhaLoang"].ToString());
+                    //--------------B/Bo-----------------------------------------------
+                    OBJLines.B_Bo = double.Parse(row["B_Bo"].ToString());
+                    //--------------logit(B/Bo)-----------------------------------------------
+                    OBJLines.LogitB_Bo = double.Parse(row["LogitB_Bo"].ToString());
+                    //--------------Tinh y tuong ung voi tung B/Bo ben tren-----------------------------------------------
 
-                        //--------------Conc(ng/ml) gia tri nay se bi an -----------------------------------------------
-                        OBJLines.Conc_ng_ml = double.Parse(row["Conc_ng_ml"].ToString());
-                        //--------------Conc(ng/g)-----------------------------------------------
-                        OBJLines.LogConc = 0;
-                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
+                    //--------------Conc(ng/ml) gia tri nay se bi an -----------------------------------------------
+                    OBJLines.Conc_ng_ml = double.Parse(row["Conc_ng_ml"].ToString());
+                    //--------------Conc(ng/g)-----------------------------------------------
+                    OBJLines.LogConc = 0;
+                    OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
 
-                        BUSLines.MYCOTOXIN_RESULT_Lines_UPDATE(OBJLines);
+                    BUSLines.MYCOTOXIN_RESULT_Lines_UPDATE(OBJLines);
 
                     XtraMessageBoxArgs args = new XtraMessageBoxArgs();
                     args.AutoCloseOptions.Delay = 1000;
@@ -602,8 +603,6 @@ namespace Production.Class
                     XtraMessageBox.Show(args).ToString();
                 }
                 this.tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
-
-                
             }
         }
     }

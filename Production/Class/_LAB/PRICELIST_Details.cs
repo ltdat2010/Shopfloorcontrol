@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -11,9 +8,9 @@ namespace Production.Class
         public PRICELIST_Details(
             int ID,
             int CTXNID,
-            int PLID, 
-            DateTime CreatedDate, 
-            string CreatedBy, 
+            int PLID,
+            DateTime CreatedDate,
+            string CreatedBy,
             bool Locked,
             string UoM,
             string DonGia,
@@ -39,19 +36,20 @@ namespace Production.Class
             this._UoMGiam = UoMGiam;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;     
+            this._Locked = Locked;
             this._Note = Note;
             this._VAT = VAT;
             this._DVMuaNgoaiCode = DVMuaNgoaiCode;
             this._DVMuaNgoaiName = DVMuaNgoaiName;
             this._MuaNgoai = MuaNgoai;
         }
+
         public PRICELIST_Details()
         {
-
         }
 
         private int _ID;
+
         public int ID
         {
             get { return _ID; }
@@ -59,6 +57,7 @@ namespace Production.Class
         }
 
         private int _CTXNID;
+
         public int CTXNID
         {
             get { return _CTXNID; }
@@ -66,6 +65,7 @@ namespace Production.Class
         }
 
         private int _PLID;
+
         public int PLID
         {
             get { return _PLID; }
@@ -73,6 +73,7 @@ namespace Production.Class
         }
 
         private string _UoM;
+
         public string UoM
         {
             get { return _UoM; }
@@ -80,6 +81,7 @@ namespace Production.Class
         }
 
         private string _DonGia;
+
         public string DonGia
         {
             get { return _DonGia; }
@@ -87,6 +89,7 @@ namespace Production.Class
         }
 
         private string _DonGiaMuaNgoai;
+
         public string DonGiaMuaNgoai
         {
             get { return _DonGiaMuaNgoai; }
@@ -94,6 +97,7 @@ namespace Production.Class
         }
 
         private string _SoLuong;
+
         public string SoLuong
         {
             get { return _SoLuong; }
@@ -101,6 +105,7 @@ namespace Production.Class
         }
 
         private string _Giam;
+
         public string Giam
         {
             get { return _Giam; }
@@ -108,13 +113,15 @@ namespace Production.Class
         }
 
         private string _UoMGiam;
+
         public string UoMGiam
         {
             get { return _UoMGiam; }
             set { _UoMGiam = value; }
-        }        
+        }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -122,6 +129,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -129,11 +137,12 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
-        }        
+        }
 
         private string _Note;
 
@@ -174,7 +183,5 @@ namespace Production.Class
             get { return _MuaNgoai; }
             set { _MuaNgoai = value; }
         }
-
-
     }
 }

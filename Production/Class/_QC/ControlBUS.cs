@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid;
-using System.Text;
-using Production.Class;
-using System.IO;
-using System.Data;
-using System.Windows;
+﻿using System.Data;
 
 namespace Production.Class
 {
@@ -20,10 +11,12 @@ namespace Production.Class
         {
             return COD.Control_List();
         }
+
         public void Control_Insert(DataRow dr)
         {
             COD.Control_Insert(dr);
         }
+
         public void Control_Update(DataRow dr)
         {
             COD.Control_Update(dr);

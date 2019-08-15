@@ -1,32 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
-    class PRICELIST_DetailsDAO
+    internal class PRICELIST_DetailsDAO
     {
-
         public DataTable PRICELIST_DetailsDAO_List()
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", "Select ID , MaPL From [SYNC_NUTRICIEL].[dbo].tbl_PriceList_Details_LAB", CommandType.Text);
             return dt;
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
         //public void PPT_Update(DataRow dr)
-        //{            
+        //{
         //    Sql.ExecuteNonQuery("SAP",  "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PhuongPhapThu]" +
         //                                " SET [PPT] ='"+dr["PPT"].ToString() + "'"+
         //                                ",[PPTDG] = '" + dr["PPTDG"].ToString() + "' " +
@@ -98,12 +95,12 @@ namespace Production.Class
 
         public void PRICELIST_DetailsDAO_DELETE(PRICELIST_Details OBJ)
         {
-            // Cap nhat 2019-07-06 
+            // Cap nhat 2019-07-06
             // Khong cho xoa ma chi set Locked = '1'
             // De luu history price list detail
             //Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_PriceList_Details_LAB] " +
             //" WHERE [ID]=" + OBJ.ID, CommandType.Text);
-            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PriceList_Details_LAB] SET" +           
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PriceList_Details_LAB] SET" +
            "[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy] = N'" + OBJ.CreatedBy + "' " +
            ",[Note] = N'" + OBJ.Note + "' " +
@@ -136,15 +133,15 @@ namespace Production.Class
                         " INNER JOIN tbl_ChiTieuXetNghiem_LAB " +
                         " ON[V_PriceList_History].CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
                         " WHERE [PLID]=" + PLID +
-                        " Order by [V_PriceList_History].[CTXNID],[V_PriceList_History].[CreatedDate] DESC" , CommandType.Text);
+                        " Order by [V_PriceList_History].[CTXNID],[V_PriceList_History].[CreatedDate] DESC", CommandType.Text);
             return dt;
         }
+
         public int PRICELIST_INDENTITY_SELECT()
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", " SELECT IDENT_CURRENT( 'tbl_PriceList_Details_LAB' ) + 1 as IDENT ", CommandType.Text);
             return int.Parse(dt.Rows[0]["IDENT"].ToString());
         }
-
     }
 }

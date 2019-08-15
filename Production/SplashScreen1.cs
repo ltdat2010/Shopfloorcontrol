@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraSplashScreen;
+﻿using DevExpress.XtraSplashScreen;
+using System;
 
 namespace Production.Class
 {
@@ -23,7 +17,7 @@ namespace Production.Class
             base.ProcessCommand(cmd, arg);
         }
 
-        #endregion
+        #endregion Overrides
 
         public enum SplashScreenCommand
         {

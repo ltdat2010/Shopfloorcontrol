@@ -10,18 +10,20 @@ namespace Production.Class
     /// </summary>
     /// Reset ID
     /// DBCC CHECKIDENT ('[tbl_TieuChuan]', RESEED, 0);
-    /// 
+    ///
 
     #region SQL
+
     public class Sql
     {
         public static string content;
-        public static DataTable ExecuteDataTable(string StrConn,string sql,
+
+        public static DataTable ExecuteDataTable(string StrConn, string sql,
                                                 CommandType commtype,
                                                 params object[] pars)
         {
             try
-            {                
+            {
                 //Conn.str = StrConn;
                 if (Conn.conn_S.State == ConnectionState.Closed)
                 {
@@ -62,7 +64,7 @@ namespace Production.Class
         public static void ExecuteNonQuery(string StrConn, string sql,
                                             CommandType commtype,
                                             params object[] pars)
-        {            
+        {
             //Conn.str = StrConn;
             int interval;
             if (Conn.conn_S.State == ConnectionState.Closed)
@@ -79,8 +81,8 @@ namespace Production.Class
             content = com.CommandText.ToString();
             System.IO.File.WriteAllText(@"D:\Exc_Non_CommandText_WriteText.txt", content);
             //MessageBox.Show("com =" + com.CommandText.ToString());
-            
-            interval= com.ExecuteNonQuery();
+
+            interval = com.ExecuteNonQuery();
             //MessageBox.Show("ExecuteNonQueryNO =" + interval.ToString());
             if (Conn.conn_S.State == ConnectionState.Open)
             {
@@ -88,13 +90,12 @@ namespace Production.Class
             }
         }
 
-
         public static SqlDataAdapter ExecuteDataAdapter(string StrConn, string sql,
                                                         CommandType commtype,
                                                         params object[] pars)
         {
             try
-            {                
+            {
                 if (Conn.conn_S.State == ConnectionState.Closed)
                 {
                     Conn.conn_S.Open();
@@ -109,7 +110,7 @@ namespace Production.Class
                 //MessageBox.Show("com =" + com.CommandText.ToString());
                 content = com.CommandText.ToString();
                 System.IO.File.WriteAllText(@"D:\Exc_SqlDT_CommandText_WriteText.txt", content);
-                SqlDataAdapter da = new SqlDataAdapter(com);                
+                SqlDataAdapter da = new SqlDataAdapter(com);
                 return da;
             }
             catch (Exception e)
@@ -118,7 +119,6 @@ namespace Production.Class
                 MessageBox.Show(_error);
                 throw;
             }
-
             finally
             {
                 if (Conn.conn_S.State == ConnectionState.Open)
@@ -128,14 +128,13 @@ namespace Production.Class
                 //Conn.conn.Close();
             }
         }
+
         public static DataSet ExecuteDataSet(string StrConn, string sql,
                                                 CommandType commtype,
                                                 params object[] pars)
         {
-
             try
             {
-                
                 //Conn.str = StrConn;
                 if (Conn.conn_S.State == ConnectionState.Closed)
                 {
@@ -148,7 +147,6 @@ namespace Production.Class
                 {
                     SqlParameter par = new SqlParameter(pars[i].ToString(), pars[i + 1]);
                     com.Parameters.Add(par);
-
                 }
                 //MessageBox.Show("com =" + com.CommandText.ToString());
                 content = com.CommandText.ToString();
@@ -164,7 +162,6 @@ namespace Production.Class
                 MessageBox.Show(_error);
                 throw;
             }
-
             finally
             {
                 if (Conn.conn_S.State == ConnectionState.Open)
@@ -182,7 +179,6 @@ namespace Production.Class
         {
             try
             {
-                
                 //Conn.str = StrConn;
                 if (Conn.conn_S.State == ConnectionState.Closed)
                 {
@@ -214,7 +210,6 @@ namespace Production.Class
                 }
                 //conn.Close();
             }
-
         }
 
         //public static int ReturnParameterFromStore(string sql,
@@ -240,7 +235,6 @@ namespace Production.Class
         //        com.ExecuteNonQuery();
         //        return Convert.ToInt32(returnValue.Value);
 
-
         //    }
         //    catch (Exception E)
         //    {
@@ -258,7 +252,6 @@ namespace Production.Class
 
         //    }
 
-
         //}
 
         public static DataTable ExecuteDataTable_SelectCMD(string StrConn,
@@ -268,7 +261,6 @@ namespace Production.Class
         {
             try
             {
-                
                 //Conn.str = StrConn;
                 if (Conn.conn_S.State == ConnectionState.Closed)
                 {
@@ -281,7 +273,6 @@ namespace Production.Class
                 {
                     SqlParameter par = new SqlParameter(pars[i].ToString(), pars[i + 1]);
                     com.Parameters.Add(par);
-
                 }
                 System.IO.File.WriteAllText(@"D:\CommandText_WriteText.txt", content);
                 DataTable dt = new DataTable(); ;
@@ -290,7 +281,6 @@ namespace Production.Class
                 da.SelectCommand = com;
                 da.Fill(dt);
                 return dt;
-
             }
             catch (Exception e)
             {
@@ -308,17 +298,14 @@ namespace Production.Class
             //conn.Close();
         }
              * */
-
-
-
         }
+
         public static int ReturnParameterFromStore(string StrConn, string sql,
                                                         CommandType commtype,
                                                         params object[] pars)
         {
             try
             {
-                
                 //Conn.str = StrConn;
                 if (Conn.conn_S.State == ConnectionState.Closed)
                 {
@@ -343,7 +330,6 @@ namespace Production.Class
                 string _error = E.Message;
                 MessageBox.Show(_error);
                 throw;
-
             }
             finally
             {
@@ -351,18 +337,14 @@ namespace Production.Class
                 {
                     Conn.conn_S.Close();
                 }
-
             }
-
-
         }
+
         public string StrRep(string s)
         {
             return s.Replace('"', ' ');
         }
-
     }
+
     #endregion SQL
-
 }
-

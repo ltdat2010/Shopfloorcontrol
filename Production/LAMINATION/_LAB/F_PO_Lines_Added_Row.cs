@@ -1,24 +1,26 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using System;
 using System.Data;
-using DevExpress.XtraBars;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PO_Lines_Added_Row : DevExpress.XtraEditors.XtraForm
     {
         public DateTime ngaynhanmau;
-        string Path = Directory.GetCurrentDirectory();
+        private string Path = Directory.GetCurrentDirectory();
         public string isAction = "";
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
-        
+
         public bool Is_close
         {
             set
@@ -30,23 +32,25 @@ namespace Production.Class
                 }
             }
         }
+
         //NEW : Phan khai bao cho KH Mau
         public PO_Header OBJ_POH = new PO_Header();
+
         public PO_Lines OBJ_POL = new PO_Lines();
 
         //public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
         //public KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
         //public KHMau_CTXN_RESULT_DETAILS_LAB KHMAUCTXNRESULT = new KHMau_CTXN_RESULT_DETAILS_LAB();
 
-        PO_Lines_BUS BUS_POL = new PO_Lines_BUS();
+        private PO_Lines_BUS BUS_POL = new PO_Lines_BUS();
         //KHMau_LABBUS BUS1 = new KHMau_LABBUS();
         //KHMau_CTXN_LABBUS BUS2 = new KHMau_CTXN_LABBUS();
-        //KHMau_CTXN_RESULT_DETAILS_LABBUS BUS3 = new KHMau_CTXN_RESULT_DETAILS_LABBUS();     
+        //KHMau_CTXN_RESULT_DETAILS_LABBUS BUS3 = new KHMau_CTXN_RESULT_DETAILS_LABBUS();
 
         public F_PO_Lines_Added_Row()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 //XtraMessageBox.Show(OBJ_POH.VENDCode);
                 //v_PO_InfoTableAdapter.FillByVENDCODE(sYNC_NUTRICIELDataSet.V_PO_Info, OBJ_POH.VENDCode);
@@ -72,15 +76,13 @@ namespace Production.Class
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
 
                     //txtSoLuongXN.Text = KHMAUOBJ.SoLuongKHMau;
-                    //KH_Mau                    
+                    //KH_Mau
                     Set4Controls_Header();
-                    Set4Controls_Details();  
-
-
+                    Set4Controls_Details();
                 }
                 else if (isAction == "Add")
                 {
-                    //Set4Controls_Header();                                        
+                    //Set4Controls_Header();
 
                     ////Nut Luu khi Tao moi KH_Mau
                     //btnSave.Enabled = true;
@@ -97,11 +99,10 @@ namespace Production.Class
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
 
                     //txtSoLuongXN.Text = KHMAUOBJ.SoLuongKHMau;
-                    //KH_Mau                    
+                    //KH_Mau
                     Set4Controls_Header();
-                    Set4Controls_Details();                   
-                }                
-
+                    Set4Controls_Details();
+                }
             };
 
             lkeSoPXN.EditValueChanged += (s, e) =>
@@ -115,31 +116,30 @@ namespace Production.Class
             {
                 //if(isAction == "Add")
                 //{
-                    DataRowView row                         = lkeCTXN.GetSelectedDataRow() as DataRowView;
-                    OBJ_POL.CTXN                            = row["CTXN"].ToString();
-                    OBJ_POL.DonGia                          = float.Parse(row["DonGia"].ToString());
-                    //OBJ_POL.GhiChu                          = row["GhiChu"].ToString();
-                    OBJ_POL.KHMau_CTXN_LAB_Id               = int.Parse(row["KHMau_CTXN_LAB_Id"].ToString());
-                    OBJ_POL.MaCTXN                          = row["MaCTXN"].ToString();
-                    OBJ_POL.PriceList_Details_LAB_Id        = int.Parse(row["PriceList_Details_LAB_Id"].ToString());
-                    OBJ_POL.SoPO                            = txtSoPO.Text;
-                    OBJ_POL.ThanhTien                       = float.Parse(row["ThanhTien"].ToString());
-                    OBJ_POL.UoM                             = row["UoM"].ToString();
-                    OBJ_POL.SoLuongXN                       = row["SoLuongXN"].ToString();
-                    OBJ_POL.VAT                             = float.Parse(row["VAT"].ToString());
+                DataRowView row = lkeCTXN.GetSelectedDataRow() as DataRowView;
+                OBJ_POL.CTXN = row["CTXN"].ToString();
+                OBJ_POL.DonGia = float.Parse(row["DonGia"].ToString());
+                //OBJ_POL.GhiChu                          = row["GhiChu"].ToString();
+                OBJ_POL.KHMau_CTXN_LAB_Id = int.Parse(row["KHMau_CTXN_LAB_Id"].ToString());
+                OBJ_POL.MaCTXN = row["MaCTXN"].ToString();
+                OBJ_POL.PriceList_Details_LAB_Id = int.Parse(row["PriceList_Details_LAB_Id"].ToString());
+                OBJ_POL.SoPO = txtSoPO.Text;
+                OBJ_POL.ThanhTien = float.Parse(row["ThanhTien"].ToString());
+                OBJ_POL.UoM = row["UoM"].ToString();
+                OBJ_POL.SoLuongXN = row["SoLuongXN"].ToString();
+                OBJ_POL.VAT = float.Parse(row["VAT"].ToString());
 
-                    OBJ_POL.CreatedBy              = row["CreatedBy"].ToString();
-                    //OBJ_POL.CreatedDate              = row["CreatedDate"].ToString();
-                    OBJ_POL.Locked              = row["Locked"].ToString() == "True" ? true : false; ;
-                    OBJ_POL.Note              = row["Note"].ToString();
+                OBJ_POL.CreatedBy = row["CreatedBy"].ToString();
+                //OBJ_POL.CreatedDate              = row["CreatedDate"].ToString();
+                OBJ_POL.Locked = row["Locked"].ToString() == "True" ? true : false; ;
+                OBJ_POL.Note = row["Note"].ToString();
 
-
-                    //txtDonGia.Text              = (row as DataRowView)["DonGia"].ToString();
-                    //txtDonGiaMuaNgoai.Text      = (row as DataRowView)["DonGiaMuaNgoai"].ToString();
-                    //txtVAT.Text                 = (row as DataRowView)["VAT"].ToString();
-                    //txtDonGiaSauDiscount.Text   = (row as DataRowView)["DonGia"].ToString();
-                    //txtDVMuaNgoai.Text          = (row as DataRowView)["DVMuaNgoaiName"].ToString();
-                    //txtPriceList_Details_LAB_Id.Text = (row as DataRowView)["PriceList_Details_LAB_Id"].ToString();
+                //txtDonGia.Text              = (row as DataRowView)["DonGia"].ToString();
+                //txtDonGiaMuaNgoai.Text      = (row as DataRowView)["DonGiaMuaNgoai"].ToString();
+                //txtVAT.Text                 = (row as DataRowView)["VAT"].ToString();
+                //txtDonGiaSauDiscount.Text   = (row as DataRowView)["DonGia"].ToString();
+                //txtDVMuaNgoai.Text          = (row as DataRowView)["DVMuaNgoaiName"].ToString();
+                //txtPriceList_Details_LAB_Id.Text = (row as DataRowView)["PriceList_Details_LAB_Id"].ToString();
 
                 //}
             };
@@ -162,13 +162,13 @@ namespace Production.Class
             //     {
             //         if (cmbLoaiDiscount.SelectedText == "%")
             //         {
-            //             //KHMAUCTXNOBJ.DonGiaSauDiscount = KHMAUCTXNOBJ.DonGia * (1 - KHMAUCTXNOBJ.Discount / 100);  
+            //             //KHMAUCTXNOBJ.DonGiaSauDiscount = KHMAUCTXNOBJ.DonGia * (1 - KHMAUCTXNOBJ.Discount / 100);
             //             txtDonGiaSauDiscount.Text = (float.Parse(txtDonGia.Text) * (1 - float.Parse(txtDiscount.Text)/100)).ToString();
             //         }
             //         //Neu discount tien
             //         else if (cmbLoaiDiscount.SelectedText == "VND")
             //         {
-            //             //KHMAUCTXNOBJ.DonGiaSauDiscount = KHMAUCTXNOBJ.DonGia - KHMAUCTXNOBJ.Discount;                         
+            //             //KHMAUCTXNOBJ.DonGiaSauDiscount = KHMAUCTXNOBJ.DonGia - KHMAUCTXNOBJ.Discount;
             //             txtDonGiaSauDiscount.Text = (float.Parse(txtDonGia.Text) - float.Parse(txtDiscount.Text)).ToString();
             //         }
             //     }
@@ -177,7 +177,7 @@ namespace Production.Class
             //         //KHMAUCTXNOBJ.DonGiaSauDiscount = KHMAUCTXNOBJ.DonGia;
 
             // };
-              
+
             //Action_EndForm
             action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
             action_EndForm1.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update));
@@ -191,7 +191,6 @@ namespace Production.Class
             {
                 if (lkeCTXN.Text.Length > 0 && lkeCTXN.Text != "...")
                 {
-
                     Set4Object_Details();
                     //XtraMessageBox.Show("Set object xong");
                     BUS_POL.PO_Lines_INSERT(OBJ_POL);
@@ -229,7 +228,7 @@ namespace Production.Class
                     //    //KHMAUCTXNOBJ.LoaiDiscount = (row as DataRowView)["LoaiDiscount"].ToString();
                     //    KHMAUCTXNOBJ.DonGiaSauDiscount = float.Parse(txtDonGiaSauDiscount.Text.ToString());
                     //    //Dongiasaudiscount
-                    //    //Neu discount %                        
+                    //    //Neu discount %
 
                     //    //ThanhTien
                     //    if (KHMAUCTXNOBJ.DonGiaSauDiscount != 0)
@@ -269,9 +268,7 @@ namespace Production.Class
 
                     //}
                 }
-
             }
-
             else if (isAction == "Edit")
             {
                 Set4Object_Details();
@@ -297,7 +294,7 @@ namespace Production.Class
             //Set4Object_Details();
             ////KHMau_LABBUS
             //BUS1.KHMau_LABBUS_UPDATE(KHMAUOBJ);
-           
+
             //throw new NotImplementedException();
         }
 
@@ -326,9 +323,9 @@ namespace Production.Class
 
         public void Set4Controls_Header()
         {
-            txtID.Text              = OBJ_POH.ID.ToString() ;
+            txtID.Text = OBJ_POH.ID.ToString();
             //txtKHMau.Text           = KHMAUOBJ.KHMau;
-            txtSoPO.Text           = OBJ_POH.SoPO;
+            txtSoPO.Text = OBJ_POH.SoPO;
             //txtSoLuongKHMau.Text    = KHMAUOBJ.SoLuongKHMau;
             if (isAction == "Edit")
                 txtID.Text = OBJ_POL.ID.ToString();
@@ -347,19 +344,19 @@ namespace Production.Class
                 //txtDonGiaMuaNgoai.Text      = KHMAUCTXNOBJ.DonGiaMuaNgoai.ToString();
                 //txtVAT.Text                 = KHMAUCTXNOBJ.VAT.ToString();
                 //txtPriceList_Details_LAB_Id.Text = KHMAUCTXNOBJ.PriceList_Details_LAB_Id.ToString();
-            }                
+            }
         }
 
         public void Set4Object_Header()
         {
             //OBJ_POH.KHMau = txtKHMau.Text;
-            if( isAction == "Edit")
-                OBJ_POH.ID = int.Parse(txtID.Text.ToString()) ;
-            OBJ_POH.SoPO= txtSoPO.Text;
+            if (isAction == "Edit")
+                OBJ_POH.ID = int.Parse(txtID.Text.ToString());
+            OBJ_POH.SoPO = txtSoPO.Text;
         }
 
         public void Set4Object_Details()
-        {            
+        {
             //KHMAUCTXNOBJ.SoLuongXN = txtSoLuongXN.Text;
             //KHMAUCTXNOBJ.CTXNID = int.Parse(lkeCTXN.EditValue.ToString());
             //KHMAUOBJ.CreatedBy = user.Username;
@@ -368,19 +365,19 @@ namespace Production.Class
             //KHMAUCTXNOBJ.Discount = float.Parse(txtDiscount.Text.ToString());
             //KHMAUCTXNOBJ.DonGiaSauDiscount = float.Parse(txtDonGiaSauDiscount.Text.ToString());
             //KHMAUCTXNOBJ.DonGiaMuaNgoai = float.Parse(txtDonGiaMuaNgoai.Text.ToString());
-            //KHMAUCTXNOBJ.VAT = float.Parse(txtVAT.Text.ToString());            
+            //KHMAUCTXNOBJ.VAT = float.Parse(txtVAT.Text.ToString());
             //KHMAUCTXNOBJ.PriceList_Details_LAB_Id = int.Parse(txtPriceList_Details_LAB_Id.Text);
         }
 
-
         public void ResetControl()
         {
-            //txtKHMau.Text = "";           
-            lkeCTXN.Text = "";            
+            //txtKHMau.Text = "";
+            lkeCTXN.Text = "";
         }
+
         //
         public void ControlsReadOnly(bool bl)
-        {            
+        {
             //txtKHMau.ReadOnly = bl;
             lkeCTXN.ReadOnly = bl;
         }
@@ -396,15 +393,12 @@ namespace Production.Class
             frm.Close();
             //this.v_NTP_SoPXNTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.V_NTP_SoPXN);
             //this.tbl_ChiTieuXetNghiem_LAB_ByNgayNhanMauTableAdapter.FillBy_NgayNhanMau_Note(this.sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB_ByNgayNhanMau, KHMAUOBJ.SoPXN.Substring(0, 3), ngaynhanmau.ToString());
-
         }
 
         private void F_PO_Lines_Added_Row_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.V_NTP_SoPXN' table. You can move, or remove it, as needed.
             this.v_NTP_SoPXNTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.V_NTP_SoPXN);
-
         }
     }
-    
 }

@@ -74,17 +74,18 @@ namespace Production.Class
             this._NguoiGiaoBanGiaoMau = NguoiGiaoBanGiaoMau;
             this._NgayBanGiaoMau = NgayBanGiaoMau;
         }
+
         public KHMau_LAB()
         {
-
         }
+
         private int _ID;
 
         public int ID
         {
             get { return _ID; }
             set { _ID = value; }
-        }        
+        }
 
         private string _SoPXN;
 
@@ -182,7 +183,6 @@ namespace Production.Class
             set { _NhanVienHuyKHMau = value; }
         }
 
-
         private bool _TrangThaiKHMau;
 
         public bool TrangThaiKHMau
@@ -200,6 +200,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -207,6 +208,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -214,12 +216,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
@@ -227,12 +232,15 @@ namespace Production.Class
         }
 
         private string _LoaiMauGui;
+
         public string LoaiMauGui
         {
             get { return _LoaiMauGui; }
             set { _LoaiMauGui = value; }
         }
+
         private string _LoaiDVMauNuoc;
+
         public string LoaiDVMauNuoc
         {
             get { return _LoaiDVMauNuoc; }
@@ -240,12 +248,15 @@ namespace Production.Class
         }
 
         private DateTime _NgayLayMau;
+
         public DateTime NgayLayMau
         {
             get { return _NgayLayMau; }
             set { _NgayLayMau = value; }
         }
+
         private string _TTMauGui;
+
         public string TTMauGui
         {
             get { return _TTMauGui; }
@@ -253,6 +264,7 @@ namespace Production.Class
         }
 
         private string _VTLayMauDayChuong;
+
         public string VTLayMauDayChuong
         {
             get { return _VTLayMauDayChuong; }
@@ -260,6 +272,7 @@ namespace Production.Class
         }
 
         private string _GioLayMauTuoi;
+
         public string GioLayMauTuoi
         {
             get { return _GioLayMauTuoi; }
@@ -267,6 +280,7 @@ namespace Production.Class
         }
 
         private string _Khac;
+
         public string Khac
         {
             get { return _Khac; }
@@ -274,6 +288,7 @@ namespace Production.Class
         }
 
         private string _SoLuongKHMauKhongDat;
+
         public string SoLuongKHMauKhongDat
         {
             get { return _SoLuongKHMauKhongDat; }
@@ -281,13 +296,15 @@ namespace Production.Class
         }
 
         private string _LiDoKHMauKhongDat;
+
         public string LiDoKHMauKhongDat
         {
             get { return _LiDoKHMauKhongDat; }
             set { _LiDoKHMauKhongDat = value; }
         }
-        
+
         private string _MotaMau;
+
         public string MotaMau
         {
             get { return _MotaMau; }
@@ -295,6 +312,7 @@ namespace Production.Class
         }
 
         private bool _BanGiaoMauStatus;
+
         public bool BanGiaoMauStatus
         {
             get { return _BanGiaoMauStatus; }
@@ -302,6 +320,7 @@ namespace Production.Class
         }
 
         private string _NguoiNhanBanGiaoMau;
+
         public string NguoiNhanBanGiaoMau
         {
             get { return _NguoiNhanBanGiaoMau; }
@@ -309,6 +328,7 @@ namespace Production.Class
         }
 
         private string _NguoiGiaoBanGiaoMau;
+
         public string NguoiGiaoBanGiaoMau
         {
             get { return _NguoiGiaoBanGiaoMau; }
@@ -316,12 +336,11 @@ namespace Production.Class
         }
 
         private DateTime _NgayBanGiaoMau;
+
         public DateTime NgayBanGiaoMau
         {
             get { return _NgayBanGiaoMau; }
             set { _NgayBanGiaoMau = value; }
         }
-
-
     }
 }

@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
     public class PXN_HeaderBUS
     {
-        PXN_HeaderDAO DAO = new PXN_HeaderDAO();
+        private PXN_HeaderDAO DAO = new PXN_HeaderDAO();
 
         public void PXN_HeaderBUS_INSERT(PXN_Header OBJ)
         {
@@ -22,13 +16,15 @@ namespace Production.Class
         {
             DAO.PXN_HeaderDAO_UPDATE(OBJ);
         }
+
         public void PXN_HeaderDAO_UPDATE_SendMail(int ID, string SendMail)
         {
             DAO.PXN_HeaderDAO_UPDATE_SendMail(ID, SendMail);
         }
+
         public void PXN_HeaderDAO_UPDATE_NgayCoKetQua(int ID, DateTime NgayCoKetQua, bool CoKetQua)
         {
-            DAO.PXN_HeaderDAO_UPDATE_NgayCoKetQua( ID, NgayCoKetQua, CoKetQua);
+            DAO.PXN_HeaderDAO_UPDATE_NgayCoKetQua(ID, NgayCoKetQua, CoKetQua);
         }
 
         public void PXN_HeaderDAO_UPDATE_NgayTraKetQua(int ID, DateTime NgayTraKetQua, bool TraKetQua)
@@ -88,7 +84,7 @@ namespace Production.Class
 
         public DataTable BaoCaoDichTeDan_Thang_xport2Excel(string month, string year)
         {
-            return DAO.BaoCaoDichTeDan_Thang_xport2Excel( month, year);
+            return DAO.BaoCaoDichTeDan_Thang_xport2Excel(month, year);
         }
 
         public DataTable BaoCaoDoanhSo_Thang(DateTime Stardate, DateTime Enddate)
@@ -104,7 +100,6 @@ namespace Production.Class
         public int Result_PXN_Header_SoPXN(string LoaiXN)
         {
             return DAO.Result_PXN_Header_SoPXN(LoaiXN);
-
         }
 
         public void PXN_HeaderDAO_UPDATE_NgayTraKetQua(string SoPXN)
@@ -112,7 +107,4 @@ namespace Production.Class
             DAO.PXN_HeaderDAO_UPDATE_NgayTraKetQua(SoPXN);
         }
     }
-
 }
-
-

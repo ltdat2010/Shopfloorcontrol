@@ -5,9 +5,9 @@ using System.Windows;
 
 namespace Production.Class
 {
-    class Pdf
+    internal class Pdf
     {
-        public void ExportToPdf (ReportDocument cryRpt, string diskFileName)
+        public void ExportToPdf(ReportDocument cryRpt, string diskFileName)
         {
             try
             {

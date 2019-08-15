@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -17,18 +11,19 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Select ID , PPT From [SYNC_NUTRICIEL].[dbo].tbl_PhuongPhapThu WHERE ID>1", CommandType.Text);
             return dt;
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
         //public void PPT_Update(DataRow dr)
-        //{            
+        //{
         //    Sql.ExecuteNonQuery("SAP",  "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PhuongPhapThu]" +
         //                                " SET [PPT] ='"+dr["PPT"].ToString() + "'"+
         //                                ",[PPTDG] = '" + dr["PPTDG"].ToString() + "' " +
@@ -74,7 +69,4 @@ namespace Production.Class
             " WHERE [ID]=" + PPT.ID, CommandType.Text);
         }
     }
-
 }
-
-

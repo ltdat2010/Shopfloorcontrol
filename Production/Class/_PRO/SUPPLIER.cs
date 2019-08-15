@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -22,6 +19,7 @@ namespace Production.Class
             get { return _FG_STATUS; }
             set { _FG_STATUS = value; }
         }
+
         private DateTime? _DT_PREV;
 
         public DateTime? DT_PREV
@@ -29,6 +27,7 @@ namespace Production.Class
             get { return _DT_PREV; }
             set { _DT_PREV = value; }
         }
+
         private string _CD_DEPOT;
 
         public string CD_DEPOT
@@ -36,6 +35,7 @@ namespace Production.Class
             get { return _CD_DEPOT; }
             set { _CD_DEPOT = value; }
         }
+
         private string _CD_MAT;
 
         public string CD_MAT
@@ -51,6 +51,7 @@ namespace Production.Class
             get { return _LB_MAT; }
             set { _LB_MAT = value; }
         }
+
         private float _QT_PREV;
 
         public float QT_PREV
@@ -58,6 +59,7 @@ namespace Production.Class
             get { return _QT_PREV; }
             set { _QT_PREV = value; }
         }
+
         private string _CD_UNIT;
 
         public string CD_UNIT
@@ -65,6 +67,7 @@ namespace Production.Class
             get { return _CD_UNIT; }
             set { _CD_UNIT = value; }
         }
+
         private string _NO_ORDRE;
 
         public string NO_ORDRE
@@ -72,6 +75,7 @@ namespace Production.Class
             get { return _NO_ORDRE; }
             set { _NO_ORDRE = value; }
         }
+
         private string _CD_MAT1;
 
         public string CD_MAT1
@@ -79,6 +83,7 @@ namespace Production.Class
             get { return _CD_MAT1; }
             set { _CD_MAT1 = value; }
         }
+
         private float _QT_DOSE;
 
         public float QT_DOSE
@@ -86,6 +91,7 @@ namespace Production.Class
             get { return _QT_DOSE; }
             set { _QT_DOSE = value; }
         }
+
         private string _CD_VER;
 
         public string CD_VER
@@ -93,7 +99,5 @@ namespace Production.Class
             get { return _CD_VER; }
             set { _CD_VER = value; }
         }
-
-        
     }
 }

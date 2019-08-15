@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -14,7 +13,7 @@ namespace Production.Class
            " ([MYCOTOCXIN_RESULT_Header_LAB_ID] " +
            " ,[CTXN_ID] " +
            " ,[Acronym] " +
-           " ,[OD] " +           
+           " ,[OD] " +
            " ,[KHMau] " +
            " ,[B_Bo] " +
            " ,[LogitB_Bo] " +
@@ -32,7 +31,7 @@ namespace Production.Class
            "(" + OBJ.MYCOTOCXIN_RESULT_Header_LAB_ID +
            "," + OBJ.CTXN_ID +
            ",N'" + OBJ.Acronym +
-           "'," + OBJ.OD +           
+           "'," + OBJ.OD +
            ",N'" + OBJ.KHMau +
            "'," + OBJ.B_Bo +
            "," + OBJ.LogitB_Bo +
@@ -45,13 +44,12 @@ namespace Production.Class
            ",Convert(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
-           "','" + OBJ.Locked + 
+           "','" + OBJ.Locked +
            "')", CommandType.Text);
-           
         }
 
         public void MYCOTOXIN_RESULT_Lines_UPDATE(MYCOTOXIN_RESULT_Lines OBJ)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] SET" +
            "[MYCOTOCXIN_RESULT_Header_LAB_ID]          = " + OBJ.MYCOTOCXIN_RESULT_Header_LAB_ID +
            ",[CTXN_ID]             =" + OBJ.CTXN_ID +
@@ -65,7 +63,7 @@ namespace Production.Class
            ",[Conc_ng_g]      = " + OBJ.Conc_ng_g +
            ",[HsoPhaLoang]      = " + OBJ.HsoPhaLoang +
            ",[Row] = N'" + OBJ.Row + "'" +
-           ",[Col] = " + OBJ.Col + 
+           ",[Col] = " + OBJ.Col +
            ",[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy] = N'" + OBJ.CreatedBy + "' " +
            ",[Note] = N'" + OBJ.Note + "' " +
@@ -75,14 +73,14 @@ namespace Production.Class
 
         public void MYCOTOXIN_RESULT_Lines_DELETE(MYCOTOXIN_RESULT_Lines OBJ)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] " +
-           " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] " +
+            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
         }
 
         public List<string> MYCOTOXIN_RESULT_Lines_List_Acronym(int ID)
         {
             List<string> Lst = new List<string>();
-            DataTable dt = Sql.ExecuteDataTable("SAP", "Select Acronym FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] Where MYCOTOCXIN_RESULT_Header_LAB_ID = "+ID+" GROUP BY Acronym Order by Acronym ASC", CommandType.Text);
+            DataTable dt = Sql.ExecuteDataTable("SAP", "Select Acronym FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] Where MYCOTOCXIN_RESULT_Header_LAB_ID = " + ID + " GROUP BY Acronym Order by Acronym ASC", CommandType.Text);
             foreach (DataRow row in dt.Rows)
                 Lst.Add(row["Acronym"].ToString());
             return Lst;
@@ -90,8 +88,8 @@ namespace Production.Class
 
         public DataTable MYCOTOXIN_RESULT_Lines_STD_SELECT(int ID, string acr)
         {
-           return  Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] " +
-            " WHERE [MYCOTOCXIN_RESULT_Header_LAB_ID]=" + ID + " AND Acronym='"+acr+ "' AND KHMau like'STD%' ", CommandType.Text);
+            return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] " +
+             " WHERE [MYCOTOCXIN_RESULT_Header_LAB_ID]=" + ID + " AND Acronym='" + acr + "' AND KHMau like'STD%' ", CommandType.Text);
         }
 
         public DataTable MYCOTOXIN_RESULT_Lines_StandardCurve_Graph(int ID, string acr)
@@ -109,7 +107,7 @@ namespace Production.Class
         public DataTable MYCOTOXIN_RESULT_Lines_SELECT(int ID)
         {
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Lines_LAB] " +
-             " WHERE [MYCOTOCXIN_RESULT_Header_LAB_ID]=" + ID , CommandType.Text);
+             " WHERE [MYCOTOCXIN_RESULT_Header_LAB_ID]=" + ID, CommandType.Text);
         }
 
         //Report trả kết quả cho khách hàng
@@ -146,10 +144,5 @@ namespace Production.Class
             " ON tbl_PhuongPhapXetNghiem_LAB.ID = T3.PPXNID " +
             " ORDER BY T3.MaCTXN ASC ", CommandType.Text);
         }
-
-
     }
-
 }
-
-

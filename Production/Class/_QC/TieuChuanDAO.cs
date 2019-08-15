@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -64,7 +58,4 @@ namespace Production.Class
             " WHERE [ID]=" + TC.ID, CommandType.Text);
         }
     }
-
 }
-
-

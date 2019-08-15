@@ -1,14 +1,13 @@
-﻿using DevExpress.XtraEditors;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 
 namespace Production.Class._GEN
 {
-    class Equation_Fomular
+    internal class Equation_Fomular
     {
-        MYCOTOXIN_RESULT_StandardCurve OBj = new MYCOTOXIN_RESULT_StandardCurve();
+        private MYCOTOXIN_RESULT_StandardCurve OBj = new MYCOTOXIN_RESULT_StandardCurve();
+
         //public static void calcValues(ArrayList alPoints)
-        public MYCOTOXIN_RESULT_StandardCurve calcValues(string acronym,List<double> alPoints)
+        public MYCOTOXIN_RESULT_StandardCurve calcValues(string acronym, List<double> alPoints)
         {
             //double sumOfX = 0;
             //double sumOfY = 0;
@@ -25,7 +24,7 @@ namespace Production.Class._GEN
             int n = alPoints.Count / 2; ;
             double Sx = 0;
             double Sy = 0;
-            double Sxy= 0;
+            double Sxy = 0;
             double Sx2 = 0;
             double Sy2 = 0;
             double SxSx = 0;
@@ -35,8 +34,7 @@ namespace Production.Class._GEN
             double r;
             double R_SQUARE;
 
-
-            for (int ctr = 0; ctr < alPoints.Count; ctr=ctr + 2)
+            for (int ctr = 0; ctr < alPoints.Count; ctr = ctr + 2)
             {
                 //int i = 0;
                 Point objPoint = new Point(alPoints[ctr], alPoints[ctr + 1]);
@@ -54,8 +52,8 @@ namespace Production.Class._GEN
                 //sumOfX += x;
                 //sumOfY += y;
                 //sumOfXSq = sumOfXSq + (x * x);
-                //sumOfYSq = sumOfYSq + (y * y);           
-                                            
+                //sumOfYSq = sumOfYSq + (y * y);
+
                 Sx = Sx + x;
 
                 Sy = Sy + y;
@@ -66,27 +64,18 @@ namespace Production.Class._GEN
 
                 Sy2 = Sy2 + (y * y);
 
-                
-
                 //xy.SetValue(x * y, i);
-
-
-
-
-
-
-
             }
 
             SxSx = Sx * Sx;
 
-            SySy = Sy * Sy ;
+            SySy = Sy * Sy;
 
             a_SLOPE = (n * Sxy - Sx * Sy) / (n * Sx2 - SxSx);
 
             b_INTERCEPT = (Sy - a_SLOPE * Sx) / n;
 
-            r = ((n * Sxy) - (Sx * Sy)) / System.Math.Sqrt((n * Sx2 - SxSx)*(n * Sy2 - Sy * Sy));
+            r = ((n * Sxy) - (Sx * Sy)) / System.Math.Sqrt((n * Sx2 - SxSx) * (n * Sy2 - Sy * Sy));
 
             R_SQUARE = r * r;
 
@@ -125,7 +114,6 @@ namespace Production.Class._GEN
             //XtraMessageBox.Show("b_Intercept :" + b_INTERCEPT.ToString());
             //XtraMessageBox.Show("R_Squared :" + R_SQUARE.ToString());
 
-            
             OBj.Acronym = acronym;
             OBj.a_SLOPE = a_SLOPE;
             OBj.b_INTERCEPT = b_INTERCEPT;

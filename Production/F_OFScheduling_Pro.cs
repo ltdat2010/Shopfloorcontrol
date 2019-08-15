@@ -1,30 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DevExpress.XtraScheduler;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
-using DevExpress.XtraScheduler;
 using System.Data.SqlClient;
 
 namespace Production.Class
 {
     public partial class F_OFScheduling_Pro : frm_Base
     {
-        OFBUS OFB = new OFBUS();
+        private OFBUS OFB = new OFBUS();
+
         public F_OFScheduling_Pro()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 schedulerStorage1.AppointmentsInserted += new PersistentObjectsEventHandler(schedulerStorage1_AppointmentsInserted);
                 schedulerStorage1.AppointmentsChanged += new PersistentObjectsEventHandler(schedulerStorage1_AppointmentsChanged);
@@ -43,7 +31,7 @@ namespace Production.Class
                 //this.taskDependenciesTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.TaskDependencies);
                 // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Resources' table. You can move, or remove it, as needed.
                 //this.resourcesTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.Resources);
-                //foreach (DataRow dr in this.sYNC_NUTRICIELDataSet.Tables["Appointments"].Rows)                    
+                //foreach (DataRow dr in this.sYNC_NUTRICIELDataSet.Tables["Appointments"].Rows)
                 // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Resources' table. You can move, or remove it, as needed.
                 this.resourcesTableAdapter.FillByThisWeek(this.sYNC_NUTRICIELDataSet.Resources);
                 //schedulerControl1.Start = DateTime.Parse(dtestr.ToString());
@@ -52,26 +40,20 @@ namespace Production.Class
             btnView.Click += (s, e) =>
                 {
                     // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Appointments' table. You can move, or remove it, as needed.
-                    this.appointmentsTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.Appointments,DateTime.Parse(dtestr.SelectedText),DateTime.Parse(dteend.SelectedText));
+                    this.appointmentsTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.Appointments, DateTime.Parse(dtestr.SelectedText), DateTime.Parse(dteend.SelectedText));
                     // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.TaskDependencies' table. You can move, or remove it, as needed.
                     //this.taskDependenciesTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.TaskDependencies);
                     // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Resources' table. You can move, or remove it, as needed.
                     //this.resourcesTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.Resources);
-                    //foreach (DataRow dr in this.sYNC_NUTRICIELDataSet.Tables["Appointments"].Rows)                    
-                        // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Resources' table. You can move, or remove it, as needed.
-                    this.resourcesTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.Resources,DateTime.Parse(dtestr.SelectedText),DateTime.Parse(dteend.SelectedText));
+                    //foreach (DataRow dr in this.sYNC_NUTRICIELDataSet.Tables["Appointments"].Rows)
+                    // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Resources' table. You can move, or remove it, as needed.
+                    this.resourcesTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.Resources, DateTime.Parse(dtestr.SelectedText), DateTime.Parse(dteend.SelectedText));
                     //schedulerControl1.Start = DateTime.Parse(dtestr.ToString());
-
-
-                    
-                    
                 };
-           
         }
 
         private void F_OFScheduling_Pro_Load(object sender, EventArgs e)
         {
-
             //// TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.TaskDependencies' table. You can move, or remove it, as needed.
             //this.taskDependenciesTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.TaskDependencies);
             //// TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Resources' table. You can move, or remove it, as needed.
@@ -79,6 +61,7 @@ namespace Production.Class
             //// TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.Appointments' table. You can move, or remove it, as needed.
             //this.appointmentsTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.Appointments);
         }
+
         private void schedulerStorage1_AppointmentsChanged(object sender, PersistentObjectsEventArgs e)
         {
             CommitTask();
@@ -88,15 +71,15 @@ namespace Production.Class
         {
             CommitTask();
         }
+
         private void schedulerStorage1_AppointmentsInserted(object sender, PersistentObjectsEventArgs e)
         {
-
             CommitTask();
             schedulerStorage1.SetAppointmentId(((Appointment)e.Objects[0]), id);
         }
-        void CommitTask()
-        {
 
+        private void CommitTask()
+        {
             appointmentsTableAdapter.Update(sYNC_NUTRICIELDataSet);
             this.sYNC_NUTRICIELDataSet.AcceptChanges();
         }
@@ -115,13 +98,15 @@ namespace Production.Class
         {
             CommitTaskDependency();
         }
-        void CommitTaskDependency()
+
+        private void CommitTaskDependency()
         {
             taskDependenciesTableAdapter.Update(this.sYNC_NUTRICIELDataSet);
             this.sYNC_NUTRICIELDataSet.AcceptChanges();
         }
 
-        int id = 0;
+        private int id = 0;
+
         private void appointmentsTableAdapter_RowUpdated(object sender, SqlRowUpdatedEventArgs e)
         {
             if (e.Status == UpdateStatus.Continue && e.StatementType == StatementType.Insert)
@@ -139,7 +124,6 @@ namespace Production.Class
         {
             this.appointmentsTableAdapter.FillByCD_OF(this.sYNC_NUTRICIELDataSet.Appointments, btnOF.EditValue.ToString());
             this.resourcesTableAdapter.FillByCD_OF(this.sYNC_NUTRICIELDataSet.Resources, btnOF.EditValue.ToString());
-            
         }
 
         private void schedulerControl1_EditAppointmentFormShowing(object sender, AppointmentFormEventArgs e)
@@ -155,11 +139,6 @@ namespace Production.Class
             {
                 form.Dispose();
             }
-
-        }        
-
-        
-               
-
+        }
     }
 }

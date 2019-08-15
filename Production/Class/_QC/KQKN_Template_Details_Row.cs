@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -15,10 +12,10 @@ namespace Production.Class
             int TCID,
             int CTPTID,
             int PPTID,
-            DateTime CreatedDate, 
+            DateTime CreatedDate,
             string CreatedBy,
             string Note,
-            bool Locked          
+            bool Locked
             )
         {
             this._ID = ID;
@@ -31,11 +28,10 @@ namespace Production.Class
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public KQKN_Template_Details_Row()
         {
-
         }
 
         private int _ID;
@@ -53,7 +49,6 @@ namespace Production.Class
             get { return _KQKNTemplateID; }
             set { _KQKNTemplateID = value; }
         }
-
 
         private string _STT;
 
@@ -87,8 +82,8 @@ namespace Production.Class
             set { _PPTID = value; }
         }
 
-        
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -96,6 +91,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -103,18 +99,19 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
             set { _Note = value; }
         }
-
-
     }
 }

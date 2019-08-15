@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -38,12 +35,12 @@ namespace Production.Class
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public Result_COA_TD()
         {
-
         }
+
         private int _ID;
 
         public int ID
@@ -75,6 +72,7 @@ namespace Production.Class
             get { return _WO; }
             set { _WO = value; }
         }
+
         private string _ManfBy;
 
         public string ManfBy
@@ -82,6 +80,7 @@ namespace Production.Class
             get { return _ManfBy; }
             set { _ManfBy = value; }
         }
+
         private DateTime _SmpDate;
 
         public DateTime SmpDate
@@ -89,6 +88,7 @@ namespace Production.Class
             get { return _SmpDate; }
             set { _SmpDate = value; }
         }
+
         private DateTime _ExpDate;
 
         public DateTime ExpDate
@@ -96,6 +96,7 @@ namespace Production.Class
             get { return _ExpDate; }
             set { _ExpDate = value; }
         }
+
         private DateTime _AnlDate;
 
         public DateTime AnlDate
@@ -121,6 +122,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -128,6 +130,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -135,12 +138,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }

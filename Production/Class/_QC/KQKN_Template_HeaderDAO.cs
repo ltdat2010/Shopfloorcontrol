@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -22,8 +16,8 @@ namespace Production.Class
            " ,[Note] " +
            " ,[Locked]) " +
      " VALUES " +
-           "(N'" + OBJ.KQKNTemplate + 
-           "',N'" + OBJ.SoMRA +          
+           "(N'" + OBJ.KQKNTemplate +
+           "',N'" + OBJ.SoMRA +
            "',CONVERT(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
@@ -53,10 +47,6 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KQKN_Template_Header]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
     }
-
 }
-
-

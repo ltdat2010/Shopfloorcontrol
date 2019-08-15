@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue3 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -74,7 +75,6 @@
             this.colEffDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colExpDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCTXNID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPPXNDG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNCTXNDG = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -184,6 +184,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.Caption = "Đơn giá";
+            this.colDonGia.FieldName = "DonGia";
+            this.colDonGia.Name = "colDonGia";
+            this.colDonGia.Width = 113;
             // 
             // layoutControl1
             // 
@@ -496,14 +503,14 @@
             this.colPriceList_Details_LAB_Id,
             this.colDVMuaNgoaiCode});
             this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridFormatRule3.ApplyToRow = true;
-            gridFormatRule3.Column = this.colDonGia;
-            gridFormatRule3.Name = "Format0";
-            formatConditionRuleValue3.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual;
-            formatConditionRuleValue3.PredefinedName = "Red Fill, Red Text";
-            formatConditionRuleValue3.Value1 = 0D;
-            gridFormatRule3.Rule = formatConditionRuleValue3;
-            this.gridLookUpEdit1View.FormatRules.Add(gridFormatRule3);
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colDonGia;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual;
+            formatConditionRuleValue1.PredefinedName = "Red Fill, Red Text";
+            formatConditionRuleValue1.Value1 = 0D;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            this.gridLookUpEdit1View.FormatRules.Add(gridFormatRule1);
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
@@ -519,7 +526,7 @@
             this.colCTXN.Name = "colCTXN";
             this.colCTXN.Visible = true;
             this.colCTXN.VisibleIndex = 2;
-            this.colCTXN.Width = 186;
+            this.colCTXN.Width = 462;
             // 
             // colID
             // 
@@ -588,7 +595,7 @@
             this.colNCTXN.Name = "colNCTXN";
             this.colNCTXN.Visible = true;
             this.colNCTXN.VisibleIndex = 0;
-            this.colNCTXN.Width = 167;
+            this.colNCTXN.Width = 198;
             // 
             // colPPXN
             // 
@@ -610,22 +617,11 @@
             this.colCTXNID.FieldName = "CTXNID";
             this.colCTXNID.Name = "colCTXNID";
             // 
-            // colDonGia
-            // 
-            this.colDonGia.Caption = "Đơn giá";
-            this.colDonGia.FieldName = "DonGia";
-            this.colDonGia.Name = "colDonGia";
-            this.colDonGia.Visible = true;
-            this.colDonGia.VisibleIndex = 4;
-            this.colDonGia.Width = 113;
-            // 
             // colVAT
             // 
             this.colVAT.Caption = "VAT";
             this.colVAT.FieldName = "VAT";
             this.colVAT.Name = "colVAT";
-            this.colVAT.Visible = true;
-            this.colVAT.VisibleIndex = 5;
             this.colVAT.Width = 47;
             // 
             // colPPXNDG
@@ -668,7 +664,7 @@
             this.colDVMuaNgoaiName.Name = "colDVMuaNgoaiName";
             this.colDVMuaNgoaiName.Visible = true;
             this.colDVMuaNgoaiName.VisibleIndex = 3;
-            this.colDVMuaNgoaiName.Width = 187;
+            this.colDVMuaNgoaiName.Width = 302;
             // 
             // colPriceList_Details_LAB_Id
             // 

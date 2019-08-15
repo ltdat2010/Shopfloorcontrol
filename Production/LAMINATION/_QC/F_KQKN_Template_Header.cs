@@ -1,31 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_KQKN_Template_Header : frm_Base
     {
-        bool gridViewRowClick = false;
-        string Path = Directory.GetCurrentDirectory();
+        private bool gridViewRowClick = false;
+        private string Path = Directory.GetCurrentDirectory();
 
-               
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender, string isActionReturn);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -38,16 +27,17 @@ namespace Production.Class
                 }
             }
         }
+
         public KQKN_Template_Header OBJ = new KQKN_Template_Header();
         public KQKN_Template_Details_Row OBJ1 = new KQKN_Template_Details_Row();
 
-        KQKN_Template_HeaderBUS BUS = new KQKN_Template_HeaderBUS();
-        KQKN_Template_Details_RowBUS BUS1 = new KQKN_Template_Details_RowBUS();
+        private KQKN_Template_HeaderBUS BUS = new KQKN_Template_HeaderBUS();
+        private KQKN_Template_Details_RowBUS BUS1 = new KQKN_Template_Details_RowBUS();
 
         public F_KQKN_Template_Header()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 //if(isEditting == true)
                 if (isAction == "Edit")
@@ -62,10 +52,9 @@ namespace Production.Class
                     txtID.ReadOnly = true;
                     ////gridControl1.DataSource = null;
                 }
-                    
             };
 
-            btnSave.Click += (s,e) =>
+            btnSave.Click += (s, e) =>
             {
                 try
                 {
@@ -81,12 +70,12 @@ namespace Production.Class
                         OBJ.ID = BUS.MAX_KQKB_Template_ID();
                     }
                     else if (isAction == "Edit")
-                    {                        
+                    {
                         Set4Object();
                         //MessageBox.Show(OBJ.SoMRA.ToString());
                         BUS.KQKN_Template_Header_UPDATE(OBJ);
                     }
-                //XtraMessageBox.Show("here");
+                    //XtraMessageBox.Show("here");
                     Is_close = true;
                 }
                 catch (Exception ex)
@@ -100,11 +89,10 @@ namespace Production.Class
                 Set4Object();
             };
 
-
-                btnCancel.Click += (s, e) =>
-            {
-                this.Close();
-            };
+            btnCancel.Click += (s, e) =>
+        {
+            this.Close();
+        };
 
             txtNote.TextChanged += (s, e) =>
             {
@@ -140,7 +128,7 @@ namespace Production.Class
 
             // 10B Cancel
             actionMini1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
-        }        
+        }
 
         public void Set4Controls()
         {
@@ -151,7 +139,6 @@ namespace Production.Class
             //lkeTC.Text = CTPT.CTPTDG;
             txtNote.Text = OBJ.Note;
             cmbKhoa.Text = OBJ.Locked.ToString();
-
         }
 
         public void Set4Object()
@@ -171,15 +158,13 @@ namespace Production.Class
                 OBJ1.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
                 OBJ1.CreatedBy = gridView1.GetFocusedRowCellValue("CreatedBy").ToString();
                 OBJ1.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
-            }    
-            
-                OBJ.KQKNTemplate = txtTenmauKQKN.Text;
-                OBJ.SoMRA = txtSoMRA.Text;
-                OBJ.Note = txtNote.Text;
-                OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;      
-        }
+            }
 
-        
+            OBJ.KQKNTemplate = txtTenmauKQKN.Text;
+            OBJ.SoMRA = txtSoMRA.Text;
+            OBJ.Note = txtNote.Text;
+            OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
+        }
 
         public void ResetControl()
         {
@@ -205,7 +190,6 @@ namespace Production.Class
             cmbKhoa.ReadOnly = bl;
         }
 
-
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isActionMini = "Add";
@@ -226,9 +210,10 @@ namespace Production.Class
             FRM.myFinished += this.finished;
             FRM.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isActionMini = "Edit";
 
@@ -240,7 +225,7 @@ namespace Production.Class
                 // Truyen object LOC to DELEGATE
                 F_KQKN_Template_Details_Added_Row F_LOC_Dtl = new F_KQKN_Template_Details_Added_Row();
                 F_LOC_Dtl.OBJ = this.OBJ1;
-                MessageBox.Show(OBJ1.STT);                    
+                MessageBox.Show(OBJ1.STT);
                 F_LOC_Dtl.isAction = this.isActionMini;
                 F_LOC_Dtl.myFinished += this.finished;
                 F_LOC_Dtl.Show();
@@ -248,10 +233,11 @@ namespace Production.Class
             else
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
-
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -260,7 +246,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isActionMini = "View";
 
@@ -328,19 +314,16 @@ namespace Production.Class
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
 
-            // Step 2 : Load lại data tren grid sau khi Add            
+            // Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = tbl_KQKN_Template_DetailsTableAdapter.FillByKQKNTemplateID(this.sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Details, OBJ.ID);
-            
-            gridView1.BestFitColumns();                        
-        }
 
-        
+            gridView1.BestFitColumns();
+        }
 
         private void F_PKQKN_Template_Header_Load(object sender, EventArgs e)
         {
-            
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KQKNTemplate_Details' table. You can move, or remove it, as needed.
-            this.tbl_KQKN_Template_DetailsTableAdapter.FillByKQKNTemplateID(this.sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Details,OBJ.ID);
+            this.tbl_KQKN_Template_DetailsTableAdapter.FillByKQKNTemplateID(this.sYNC_NUTRICIELDataSet.tbl_KQKN_Template_Details, OBJ.ID);
         }
     }
 }

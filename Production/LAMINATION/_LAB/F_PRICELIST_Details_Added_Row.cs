@@ -1,20 +1,22 @@
-﻿using System;
-using System.Windows.Forms;
-using System.IO;
-using DevExpress.XtraLayout.Utils;
+﻿using DevExpress.XtraLayout.Utils;
+using System;
 using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class F_PRICELIST_Details_Added_Row : frm_Base
     {
-        CUSTOMERBUS CUSBUS = new CUSTOMERBUS();
-        string Path = Directory.GetCurrentDirectory();
+        private CUSTOMERBUS CUSBUS = new CUSTOMERBUS();
+        private string Path = Directory.GetCurrentDirectory();
+
         //public string isAction = "";
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -27,43 +29,44 @@ namespace Production.Class
                 }
             }
         }
+
         public PRICELIST_Details OBJ = new PRICELIST_Details();
-        PRICELIST_DetailsBUS BUS = new PRICELIST_DetailsBUS();
+        private PRICELIST_DetailsBUS BUS = new PRICELIST_DetailsBUS();
 
         public F_PRICELIST_Details_Added_Row()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 LoadDataIntoTable();
-                
+
                 if (isAction == "Edit")
-                {                  
+                {
                     txtID.ReadOnly = true;
                     lkeCTXN.Properties.ReadOnly = true;
                     Set4Controls();
                 }
                 else if (isAction == "Add")
-                {                    
+                {
                     txtID.ReadOnly = true;
-                    txtPLID.Text = OBJ.PLID.ToString() ;
+                    txtPLID.Text = OBJ.PLID.ToString();
                 }
             };
 
-            btnSave.Click += (s,e) =>
-            {         
-                    if (isAction == "Add")
-                    {
-                        Set4Object();
-                        BUS.PRICELIST_INSERT(OBJ);
-                    }
-                    else if (isAction == "Edit")
-                    {                        
-                        Set4Object();
-                        BUS.PRICELIST_UPDATE(OBJ);
-                    }                
-                    Is_close = true;                
-            };            
+            btnSave.Click += (s, e) =>
+            {
+                if (isAction == "Add")
+                {
+                    Set4Object();
+                    BUS.PRICELIST_INSERT(OBJ);
+                }
+                else if (isAction == "Edit")
+                {
+                    Set4Object();
+                    BUS.PRICELIST_UPDATE(OBJ);
+                }
+                Is_close = true;
+            };
 
             btnCancel.Click += (s, e) =>
             {
@@ -73,9 +76,9 @@ namespace Production.Class
             lkeCTXN.ButtonClick += (s, e) =>
             {
                 if (e.Button.Index == 1)
-                {                    
+                {
                     this.Enabled = false;
-                    
+
                     F_CHITIEUXETNGHIEM_Details FRM = new F_CHITIEUXETNGHIEM_Details();
                     FRM.isAction = "Add";
                     FRM.myFinished += this.finished;
@@ -105,13 +108,12 @@ namespace Production.Class
                     layoutControlItem19.Visibility = LayoutVisibility.Never;
                     layoutControlItem20.Visibility = LayoutVisibility.Never;
                 }
-
             };
 
             lkeMaDN.EditValueChanged += (s, e) =>
             {
-                    DataRowView row = lkeMaDN.GetSelectedDataRow() as DataRowView;
-                    txtTenDN.Text = row["CardName"].ToString();
+                DataRowView row = lkeMaDN.GetSelectedDataRow() as DataRowView;
+                txtTenDN.Text = row["CardName"].ToString();
             };
 
             lkeCTXN.EditValueChanged += (s, e) =>
@@ -122,16 +124,18 @@ namespace Production.Class
 
             cmbVAT.SelectedValueChanged += (s, e) =>
             {
-                if (cmbVAT.SelectedText == "0")
-                {
-                    if(chkNTP.CheckState == CheckState.Checked)
-                        txtDonGia.Text = (float.Parse(txtDonGiaMuaNgoai.Text) * 1.2).ToString();
-                }
-                if (cmbVAT.SelectedText != "0")
-                {
-                    if (chkNTP.CheckState == CheckState.Checked)
-                        txtDonGia.Text = (float.Parse(txtDonGiaMuaNgoai.Text) * float.Parse(cmbVAT.SelectedText) * 1.2).ToString();
-                }
+                //2019-08-14
+                //Update Don gia ban khong can tinh theo don gia mua
+                //if (cmbVAT.SelectedText == "0")
+                //{
+                //    if (chkNTP.CheckState == CheckState.Checked)
+                //        txtDonGia.Text = (float.Parse(txtDonGiaMuaNgoai.Text) * 1.2).ToString();
+                //}
+                //if (cmbVAT.SelectedText != "0")
+                //{
+                //    if (chkNTP.CheckState == CheckState.Checked)
+                //        txtDonGia.Text = (float.Parse(txtDonGiaMuaNgoai.Text) * float.Parse(cmbVAT.SelectedText) * 1.2).ToString();
+                //}
             };
         }
 
@@ -142,20 +146,20 @@ namespace Production.Class
                 chkNTP.Checked = true;
                 lkeMaDN.Text = OBJ.DVMuaNgoaiCode;
                 txtTenDN.Text = OBJ.DVMuaNgoaiName;
-            }                           
+            }
             else
             {
                 chkNTP.Checked = false;
                 txtMaPTN.Text = OBJ.DVMuaNgoaiCode;
                 txtTenPTN.Text = OBJ.DVMuaNgoaiName;
-            }    
-            
+            }
+
             txtID.Text = OBJ.ID.ToString();
 
-            txtPLID.Text = OBJ.PLID.ToString();            
-            
+            txtPLID.Text = OBJ.PLID.ToString();
+
             lkeCTXN.EditValue = OBJ.CTXNID;
-            
+
             txtDonGia.Text = OBJ.DonGia;
 
             txtDonGiaMuaNgoai.Text = OBJ.DonGiaMuaNgoai;
@@ -184,7 +188,7 @@ namespace Production.Class
 
             OBJ.CTXNID = int.Parse(lkeCTXN.EditValue.ToString());
 
-            OBJ.DonGia = txtDonGia.Text;            
+            OBJ.DonGia = txtDonGia.Text;
 
             OBJ.Note = txtNote.Text;
 
@@ -195,12 +199,12 @@ namespace Production.Class
             OBJ.UoM = cmbUoM.SelectedText;
 
             OBJ.UoMGiam = cmbUoMGiamGia.SelectedText;
-            
+
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
 
             OBJ.VAT = cmbVAT.Text;
 
-            if(chkNTP.CheckState== CheckState.Checked)
+            if (chkNTP.CheckState == CheckState.Checked)
             {
                 OBJ.DVMuaNgoaiCode = lkeMaDN.EditValue.ToString();
                 OBJ.DVMuaNgoaiName = txtTenDN.Text;
@@ -215,6 +219,7 @@ namespace Production.Class
                 OBJ.DonGiaMuaNgoai = "0";
             }
         }
+
         public void ResetControl()
         {
             txtID.Text = "";
@@ -277,6 +282,5 @@ namespace Production.Class
             // TODO: This line of code loads data into the 'vIPHAVETDataset.OCRD' table. You can move, or remove it, as needed.
             this.oCRDTableAdapter.Fill(this.vIPHAVETDataset.OCRD);
         }
-
     }
 }

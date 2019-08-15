@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -13,7 +7,6 @@ namespace Production.Class
     {
         public void COA_Template_HeaderDAO_INSERT(COA_Template_Header OBJ)
         {
-            
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Header] " +
            " ([COATemplate] " +
            " ,[COADescription] " +
@@ -56,10 +49,6 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_COA_Template_Header]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
     }
-
 }
-
-

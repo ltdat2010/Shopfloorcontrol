@@ -19,8 +19,8 @@ namespace Production.Class
             string SoftwareVersion,
             string PlateNumber,
             DateTime CreatedDate,
-            string CreatedBy, 
-            bool Locked,            
+            string CreatedBy,
+            bool Locked,
             string Note,
             int ReadTimes,
             double a_SLOPE,
@@ -43,7 +43,7 @@ namespace Production.Class
             this._PlateNumber = PlateNumber;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;            
+            this._Locked = Locked;
             this._Note = Note;
             this._ReadTimes = ReadTimes;
             this._a_SLOPE = a_SLOPE;
@@ -51,9 +51,9 @@ namespace Production.Class
             this._R_SQUARE = R_SQUARE;
             this._Name = Name;
         }
+
         public MYCOTOXIN_RESULT_Header()
         {
-
         }
 
         private int _ID;
@@ -95,6 +95,7 @@ namespace Production.Class
             get { return _ReadingType; }
             set { _ReadingType = value; }
         }
+
         private string _ReaderType;
 
         public string ReaderType
@@ -102,6 +103,7 @@ namespace Production.Class
             get { return _ReaderType; }
             set { _ReaderType = value; }
         }
+
         private string _PlateType;
 
         public string PlateType
@@ -109,6 +111,7 @@ namespace Production.Class
             get { return _PlateType; }
             set { _PlateType = value; }
         }
+
         private string _Read;
 
         public string Read
@@ -116,6 +119,7 @@ namespace Production.Class
             get { return _Read; }
             set { _Read = value; }
         }
+
         private string _Wavelengths;
 
         public string Wavelengths
@@ -123,6 +127,7 @@ namespace Production.Class
             get { return _Wavelengths; }
             set { _Wavelengths = value; }
         }
+
         private string _ReadSpeed;
 
         public string ReadSpeed
@@ -148,6 +153,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -155,6 +161,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -162,13 +169,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
-        
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
@@ -176,6 +185,7 @@ namespace Production.Class
         }
 
         private int _ReadTimes;
+
         public int ReadTimes
         {
             get { return _ReadTimes; }
@@ -183,6 +193,7 @@ namespace Production.Class
         }
 
         private double _a_SLOPE;
+
         public double a_SLOPE
         {
             get { return _a_SLOPE; }
@@ -190,6 +201,7 @@ namespace Production.Class
         }
 
         private double _b_INTERCEPT;
+
         public double b_INTERCEPT
         {
             get { return _b_INTERCEPT; }
@@ -197,6 +209,7 @@ namespace Production.Class
         }
 
         private double _R_SQUARE;
+
         public double R_SQUARE
         {
             get { return _R_SQUARE; }
@@ -204,6 +217,7 @@ namespace Production.Class
         }
 
         private string _Name;
+
         public string Name
         {
             get { return _Name; }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
@@ -29,7 +23,7 @@ namespace Production.Class
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
            //"','" + OBJ.Locked +
-           "','False" + 
+           "','False" +
            "')", CommandType.Text);
         }
 
@@ -69,7 +63,6 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_Result_COA_KQ]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
 
         //public int Result_COA_TD_SoCOA()
@@ -79,7 +72,4 @@ namespace Production.Class
 
         //}
     }
-
 }
-
-

@@ -6,7 +6,7 @@ namespace Production.Class
     public class CUSTOMERDAO
     {
         public void CUSTOMER_INSERT(CUSTOMER CUST)
-        {     
+        {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB] " +
            " ([CUSTCODE] " +
            " ,[CUSTNAME] " +
@@ -23,7 +23,7 @@ namespace Production.Class
            " ,[TaxCode] " +
            " ,[ProvinceName] " +
            " ,[ContactEmail] " +
-           " ,[CUSTViphaLAB] " +           
+           " ,[CUSTViphaLAB] " +
            " ,[LOCCode] )" +
      " VALUES " +
            "('" + CUST.CUSTCODE +
@@ -32,7 +32,7 @@ namespace Production.Class
            "',103),'" + CUST.CreatedBy +
            "','" + CUST.Locked +
            "',N'" + CUST.EMPCode +
-           "','" + CUST.CUSTTYPECode +           
+           "','" + CUST.CUSTTYPECode +
            "',N'" + CUST.Note +
            "',N'" + CUST.ContactName +
            "',N'" + CUST.ContactNumber +
@@ -47,7 +47,7 @@ namespace Production.Class
         }
 
         public void CUSTOMER_UPDATE(CUSTOMER CUST)
-        {		            
+        {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB] SET" +
            "[CUSTNAME] = N'" + CUST.CUSTNAME + "'" +
            //",[LOCCode] = '" + MINStart + "' " +
@@ -71,8 +71,8 @@ namespace Production.Class
 
         public void CUSTOMER_DELETE(CUSTOMER CUST)
         {
-           Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB] " +
-           " WHERE [CUSTCODE]='" + CUST.CUSTCODE + "'", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB] " +
+            " WHERE [CUSTCODE]='" + CUST.CUSTCODE + "'", CommandType.Text);
         }
 
         public DataTable CUSTOMER_LIST_SAPB1()
@@ -84,17 +84,11 @@ namespace Production.Class
 
         public int MAX_CUSTOMER_CODE()
         {
-            DataTable dt 
+            DataTable dt
                 = Sql.ExecuteDataTable("SAP", "SELECT MAX(RIGHT([CUSTCODE],LEN(   [CUSTCODE]) -2) ) +1 as CUSTCODE" +
-                                                      " FROM[SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB]"+
-                                                      " WHERE[CUSTCODE] like 'HT%' " , CommandType.Text);
-            return int.Parse(dt.Rows[0]["CUSTCODE"].ToString()) ;
-
+                                                      " FROM[SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB]" +
+                                                      " WHERE[CUSTCODE] like 'HT%' ", CommandType.Text);
+            return int.Parse(dt.Rows[0]["CUSTCODE"].ToString());
         }
-
-
     }
-
 }
-
-

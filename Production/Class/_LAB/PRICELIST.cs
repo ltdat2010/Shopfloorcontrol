@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -9,32 +6,33 @@ namespace Production.Class
     public class PRICELIST
     {
         public PRICELIST(
-            int ID,            
-            string PL, 
-            DateTime CreatedDate, 
-            string CreatedBy, 
-            bool Locked,            
+            int ID,
+            string PL,
+            DateTime CreatedDate,
+            string CreatedBy,
+            bool Locked,
             DateTime EffDate,
             DateTime ExpDate,
             string Note
-            
+
             )
         {
             this._ID = ID;
-            this._PL = PL;            
+            this._PL = PL;
             this._EffDate = EffDate;
             this._ExpDate = ExpDate;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
-            this._Locked = Locked;     
+            this._Locked = Locked;
             this._Note = Note;
         }
+
         public PRICELIST()
         {
-
         }
 
         private int _ID;
+
         public int ID
         {
             get { return _ID; }
@@ -42,6 +40,7 @@ namespace Production.Class
         }
 
         private string _CTXNID;
+
         public string CTXNID
         {
             get { return _CTXNID; }
@@ -49,6 +48,7 @@ namespace Production.Class
         }
 
         private string _PL;
+
         public string PL
         {
             get { return _PL; }
@@ -56,6 +56,7 @@ namespace Production.Class
         }
 
         private string _UoM;
+
         public string UoM
         {
             get { return _UoM; }
@@ -63,6 +64,7 @@ namespace Production.Class
         }
 
         private string _DonGia;
+
         public string DonGia
         {
             get { return _DonGia; }
@@ -70,6 +72,7 @@ namespace Production.Class
         }
 
         private string _SoLuong;
+
         public string SoLuong
         {
             get { return _SoLuong; }
@@ -77,6 +80,7 @@ namespace Production.Class
         }
 
         private string _Giam;
+
         public string Giam
         {
             get { return _Giam; }
@@ -84,6 +88,7 @@ namespace Production.Class
         }
 
         private string _UoMGiam;
+
         public string UoMGiam
         {
             get { return _UoMGiam; }
@@ -91,6 +96,7 @@ namespace Production.Class
         }
 
         private DateTime _EffDate;
+
         public DateTime EffDate
         {
             get { return _EffDate; }
@@ -98,6 +104,7 @@ namespace Production.Class
         }
 
         private DateTime _ExpDate;
+
         public DateTime ExpDate
         {
             get { return _ExpDate; }
@@ -105,6 +112,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -112,6 +120,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -119,11 +128,12 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
-        }        
+        }
 
         private string _Note;
 
@@ -132,7 +142,5 @@ namespace Production.Class
             get { return _Note; }
             set { _Note = value; }
         }
-
-        
     }
 }

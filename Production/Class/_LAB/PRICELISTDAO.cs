@@ -1,32 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
-    class PRICELISTDAO
+    internal class PRICELISTDAO
     {
-
         public DataTable PRICELISTDAO_List()
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", "Select ID , PL From [SYNC_NUTRICIEL].[dbo].tbl_PriceList_LAB", CommandType.Text);
             return dt;
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
         //public void PPT_Update(DataRow dr)
-        //{            
+        //{
         //    Sql.ExecuteNonQuery("SAP",  "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PhuongPhapThu]" +
         //                                " SET [PPT] ='"+dr["PPT"].ToString() + "'"+
         //                                ",[PPTDG] = '" + dr["PPTDG"].ToString() + "' " +
@@ -79,8 +76,6 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_PriceList_LAB]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
-
         }
-
     }
 }

@@ -1,33 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DevExpress.XtraEditors;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
-using DevExpress.XtraGrid;
-using System.Globalization;
 
 namespace Production.Class
 {
     public partial class F_Scheduling_Details : frm_Base
     {
-
         public PXN_Header OBJ = new PXN_Header();
-        ResourcesBUS BUS = new ResourcesBUS();
-        int ID1, ID2, ID3, ID4, ID5, ID6, ID7;
+        private ResourcesBUS BUS = new ResourcesBUS();
+        private int ID1, ID2, ID3, ID4, ID5, ID6, ID7;
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -44,7 +31,7 @@ namespace Production.Class
         public F_Scheduling_Details()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 txtSoPXN.Text = OBJ.SoPXN;
 
@@ -143,10 +130,9 @@ namespace Production.Class
                         tmeStartTime2.ReadOnly = false;
                     }
                 }
-                
+
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             btnNext2.Click += (s, e) =>
             {
@@ -169,7 +155,6 @@ namespace Production.Class
                 }
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             btnNext3.Click += (s, e) =>
             {
@@ -188,12 +173,10 @@ namespace Production.Class
                         btnNext4.Enabled = true;
                         dteStartDate4.ReadOnly = false;
                         tmeStartTime4.ReadOnly = false;
-
                     }
                 }
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             btnNext4.Click += (s, e) =>
             {
@@ -216,7 +199,6 @@ namespace Production.Class
                 }
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             btnNext5.Click += (s, e) =>
             {
@@ -239,7 +221,6 @@ namespace Production.Class
                 }
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             btnNext6.Click += (s, e) =>
             {
@@ -262,7 +243,6 @@ namespace Production.Class
                 }
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             btnNext7.Click += (s, e) =>
             {
@@ -281,7 +261,6 @@ namespace Production.Class
                 }
                 //MessageBox.Show(tmeStartTime1.Time.ToLongTimeString());
                 //BUS.Appointments_UPDATE((dteStartDate1.DateTime.ToShortDateString() +" "+ tmeStartTime1.Time.ToShortTimeString()) , DateTime.Now.ToString(), int.Parse(txtID1.Text));
-                
             };
             //btnNext8.Click += (s, e) =>
             //{
@@ -292,21 +271,14 @@ namespace Production.Class
             //    dteStartDate8.ReadOnly = true;
             //    tmeStartTime8.ReadOnly = true;
             //};
-
-
-        }    
-        
-        void Set4Object()
-        {
-            
-
-        }  
-
-        void Set4Controls()
-        {
-
-
         }
-                
+
+        private void Set4Object()
+        {
+        }
+
+        private void Set4Controls()
+        {
+        }
     }
 }

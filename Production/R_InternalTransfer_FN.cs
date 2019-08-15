@@ -1,40 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using CrystalDecisions.CrystalReports.Engine;
-using System.IO;
-using System.Data.SqlClient;
+﻿using CrystalDecisions.CrystalReports.Engine;
 using DevExpress.XtraBars;
+using System;
+using System.Data;
+using System.Drawing.Printing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Production.Class
 {
     public partial class R_InternalTransfer_FN : frm_Base
     {
         public string DocNum = "";
-        CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
 
-        DataTable dt_InternalTransfer_Header,
+        private DataTable dt_InternalTransfer_Header,
                   dt_InternalTransfer_Detail = new DataTable();
 
-        ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter internal_Transfer_DetailTableAdapter = new ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter();
-        ASIALANDDataSetTableAdapters.Internal_TransferTableAdapter internal_TransferTableAdapter = new ASIALANDDataSetTableAdapters.Internal_TransferTableAdapter();
-        string Path = Directory.GetCurrentDirectory();        
+        private ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter internal_Transfer_DetailTableAdapter = new ASIALANDDataSetTableAdapters.Internal_Transfer_DetailTableAdapter();
+        private ASIALANDDataSetTableAdapters.Internal_TransferTableAdapter internal_TransferTableAdapter = new ASIALANDDataSetTableAdapters.Internal_TransferTableAdapter();
+        private string Path = Directory.GetCurrentDirectory();
         //----------------------------End Report parameters declare---------------------------------------------
-        
+
         public R_InternalTransfer_FN()
         {
             InitializeComponent();
-            Load += (s,e) =>
+            Load += (s, e) =>
             {
                 dt_InternalTransfer_Header = internal_TransferTableAdapter.GetDataBy(int.Parse(DocNum));
                 dt_InternalTransfer_Detail = internal_Transfer_DetailTableAdapter.GetDataBy(int.Parse(DocNum));
@@ -89,17 +79,17 @@ namespace Production.Class
             {
                 MessageBox.Show(ex.Message);
             }
-        }       
+        }
 
         private void PrintReport(PrintDocument pd)
         {
             ReportDocument rDoc = (ReportDocument)crvReport.ReportSource;
-            // This line helps, in case user selects a different printer 
+            // This line helps, in case user selects a different printer
             // other than the default selected.
             rDoc.PrintOptions.PrinterName = pd.PrinterSettings.PrinterName;
             // In place of Frompage and ToPage put 0,0 to print all pages,
             // however in that case user wont be able to choose selection.
-            rDoc.PrintToPrinter(pd.PrinterSettings.Copies, false, pd.PrinterSettings.FromPage,pd.PrinterSettings.ToPage);
+            rDoc.PrintToPrinter(pd.PrinterSettings.Copies, false, pd.PrinterSettings.FromPage, pd.PrinterSettings.ToPage);
         }
     }
 }

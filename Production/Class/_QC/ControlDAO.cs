@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Globalization;
-using DevExpress.XtraEditors;
+﻿using System.Data;
 
 namespace Production.Class
 {
@@ -17,6 +10,7 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Select ID as ControlID, Control as Control, ControlVN as ControlVN,Characteristic FROM [SYNC_NUTRICIEL].[dbo].tbl_Control ", CommandType.Text);
             return dt;
         }
+
         public DataTable Control_List_Characteristic(string Characteristic)
         {
             DataTable dt = new DataTable();
@@ -24,23 +18,24 @@ namespace Production.Class
             return dt;
         }
 
-        
         public int Control_Visible(string control)
         {
             DataTable dt = new DataTable();
-            dt = Sql.ExecuteDataTable("SAP", "Select * From [SYNC_NUTRICIEL].[dbo].tbl_Control where [Control]='"+control+"'", CommandType.Text);
+            dt = Sql.ExecuteDataTable("SAP", "Select * From [SYNC_NUTRICIEL].[dbo].tbl_Control where [Control]='" + control + "'", CommandType.Text);
             return dt.Rows.Count;
         }
+
         public void Control_Insert(DataRow dr)
         {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_Control] " +
                                                    "([Control],[ControlVN],[Characteristic]) " +
                                              "VALUES " +
-                                                   "('" + dr["Control"].ToString() + "','" + 
-                                                           dr["ControlVN"].ToString() + "','" + 
+                                                   "('" + dr["Control"].ToString() + "','" +
+                                                           dr["ControlVN"].ToString() + "','" +
                                                            dr["Characteristic"].ToString() + "'", CommandType.Text);
             //return dt;
         }
+
         public void Control_Update(DataRow dr)
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_Control]" +
@@ -51,7 +46,4 @@ namespace Production.Class
             //return dt;
         }
     }
-
 }
-
-

@@ -1,43 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Net;
 using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.LookAndFeel;
-using DevExpress.UserSkins;
-using DevExpress.XtraEditors;
-using System.Threading;
-using System.Security.Principal;
 
 namespace Production.Class
 {
     public partial class frm_Main : DevExpress.XtraEditors.XtraForm
-    //public partial class frm_Main : //frm_Base  
+    //public partial class frm_Main : //frm_Base
     {
         public User user = new User();
-        UC_Base uc = new UC_Base();
+        private UC_Base uc = new UC_Base();
+
         public frm_Main()
         {
             OFBUS OFB = new OFBUS();
             //UC_Base uc = new UC_Base();
             InitializeComponent();
-            
-            
+
             Load += (s, e) =>
-            {  
-                    //barStaticItem5.Caption = "IP Address : " + GetIP();
-                    //barStaticItem6.Caption = "Login time :" + DateTime.Now.ToString();
+            {
+                //barStaticItem5.Caption = "IP Address : " + GetIP();
+                //barStaticItem6.Caption = "Login time :" + DateTime.Now.ToString();
                 this.Enabled = false;
                 //var frm = new frm_Login();
                 frm_Login frm = new frm_Login();
                 frm.Show();
                 frm.mylogin += logined;
                 frm.myclose += closed;
-                
+
                 //2018-09-25
                 //Kiem tra va load OF d9a3 finished tu Oracle vao SQL
                 //De Mr Tarng nhap so luong sau khi dong goi va cac thogn tin khac
@@ -55,20 +45,19 @@ namespace Production.Class
                     {
                         string dcr = dt2.Rows[i]["CD_MAT"].ToString() + "       " +
                             dt2.Rows[i]["LB_MAT"].ToString() + "      " +
-                            "Planned QTY. : "+dt2.Rows[i]["QT_LOT"].ToString() + "      " +
-                            "Pakaged QTY. : " + dt2.Rows[i]["TOL_QTY_PAK"].ToString(); 
+                            "Planned QTY. : " + dt2.Rows[i]["QT_LOT"].ToString() + "      " +
+                            "Pakaged QTY. : " + dt2.Rows[i]["TOL_QTY_PAK"].ToString();
                         //Khong co thi insert
                         OFB.OF_Resources_INSERT(dt2.Rows[i], Max_IdSort);
                         //Lay so ResourceId
                         int ResourceId = OFB.GET_ResourceId(dt2.Rows[i]["CD_OF"].ToString());
                         //Insert vao Appointments
-                        OFB.OF_Appointments_INSERT(dt2.Rows[i]["DT_DEB"].ToString(), 
-                            dt2.Rows[i]["DT_FIN"].ToString(), 
+                        OFB.OF_Appointments_INSERT(dt2.Rows[i]["DT_DEB"].ToString(),
+                            dt2.Rows[i]["DT_FIN"].ToString(),
                             ResourceId,
                             dcr);
                     }
                 }
-
 
                 //ribbonPage1.Visible = false;
                 //ribbonPage2.Visible = false;
@@ -104,13 +93,10 @@ namespace Production.Class
             FormClosing += (s, e) => { uc.Close(); };
 
             //CM.LinkClicked += (s, e) =>
-            //{               
-
+            //{
             //};
             //EmployeeList.LinkClicked += (s, e) =>
             //{
-                
-                
             //};
             //OFList.LinkClicked += (s, e) =>
             //{
@@ -148,26 +134,19 @@ namespace Production.Class
             //};
             //navBarItem4.LinkClicked += (s, e) =>
             //{
-                
-            //};              
-
-            //GA.LinkClicked += (s, e) => {
-
-                
             //};
 
-           
+            //GA.LinkClicked += (s, e) => {
+            //};
+
             //Schedule.LinkClicked += (s, e) =>
             //{
-                
             //};
             //PL.LinkClicked += (s, e) =>
             //{
-                
             //};
             //CMWH.LinkClicked += (s, e) =>
             //{
-                
             //};
 
             barButtonItem12.ItemClick += (s, e) =>
@@ -190,7 +169,6 @@ namespace Production.Class
                     uc.Enabled = true;
                     gc1.Controls.Add(uc);
                     uc.Dock = DockStyle.Fill;
-
                 };
             barButtonItem14.ItemClick += (s, e) =>
             {
@@ -208,7 +186,6 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem11.ItemClick += (s, e) =>
             {
@@ -226,7 +203,6 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
 
             barButtonItem15.ItemClick += (s, e) =>
@@ -237,7 +213,7 @@ namespace Production.Class
 
             barButtonItem17.ItemClick += (s, e) =>
             {
-                R_by_FG RFGFG= new R_by_FG();
+                R_by_FG RFGFG = new R_by_FG();
                 RFGFG.Show();
             };
 
@@ -247,10 +223,8 @@ namespace Production.Class
                 RFGDate.Show();
             };
 
-
             barButtonItem21.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -264,11 +238,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem22.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -282,11 +254,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem23.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -300,12 +270,10 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
-            
+
             barButtonItem25.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -319,11 +287,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem26.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -337,11 +303,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem27.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -355,11 +319,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem28.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -373,11 +335,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem29.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -391,11 +351,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem30.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -409,11 +367,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem31.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -427,11 +383,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem32.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -445,11 +399,9 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem33.ItemClick += (s, e) =>
             {
-
                 foreach (Control x in this.gc1.Controls)
                 {
                     if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -463,12 +415,11 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-
             };
             barButtonItem35.ItemClick += (s, e) =>
             {
-               R_RMUsed_SelectPrefixRM RMPre = new R_RMUsed_SelectPrefixRM();
-               RMPre.Show();
+                R_RMUsed_SelectPrefixRM RMPre = new R_RMUsed_SelectPrefixRM();
+                RMPre.Show();
             };
 
             barButtonItem36.ItemClick += (s, e) =>
@@ -486,8 +437,6 @@ namespace Production.Class
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
-                
-
             };
 
             barButtonItem37.ItemClick += (s, e) =>
@@ -510,8 +459,7 @@ namespace Production.Class
                 uc.Visible = true;
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
-                uc.Dock = DockStyle.Fill;               
-
+                uc.Dock = DockStyle.Fill;
             };
 
             //Internal transfer Finished Goods
@@ -530,7 +478,7 @@ namespace Production.Class
                 uc.Visible = true;
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
-                uc.Dock = DockStyle.Fill;  
+                uc.Dock = DockStyle.Fill;
             };
 
             //Internal transfer Raw Material
@@ -566,7 +514,7 @@ namespace Production.Class
                 uc.Visible = true;
                 uc.Enabled = true;
                 gc1.Controls.Add(uc);
-                uc.Dock = DockStyle.Fill;                
+                uc.Dock = DockStyle.Fill;
             };
             ////DS Nhan vien
             barButtonItem67.ItemClick += (s, e) =>
@@ -639,7 +587,6 @@ namespace Production.Class
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
             };
-
 
             barButtonItem46.ItemClick += (s, e) =>
             {
@@ -837,7 +784,7 @@ namespace Production.Class
 
             ////MDW Result
             //barButtonItem65.ItemClick += (s, e) =>
-            //{                
+            //{
             //    foreach (Control x in this.gc1.Controls)
             //    {
             //        if (x is DevExpress.XtraEditors.XtraUserControl)
@@ -959,6 +906,7 @@ namespace Production.Class
             };
 
             #region action controls
+
             //Them
             barButtonItem1.ItemClick += (s, e) =>
             {
@@ -1025,8 +973,8 @@ namespace Production.Class
                     barButtonItem10.Enabled = true;
                     Timeline_rpt.Enabled = false;
                     Details_rpt.Enabled = false;
-                }               
-                                
+                }
+
                 //uc = uc.Modify();
                 //uc.Visible = true;
                 //uc.Enabled = true;
@@ -1043,9 +991,8 @@ namespace Production.Class
                         //    frm_CM frm = new frm_CM();
                         //    frm.Show();
                         //}
-                        switch (x.Name) 
+                        switch (x.Name)
                         {
-                        
                         }
                     }
                 }
@@ -1059,7 +1006,7 @@ namespace Production.Class
                 barButtonItem4.Enabled = true;
                 //barButtonItem10.Enabled = true;
                 //barButtonItem11.Enabled = false;
-                uc.Save();                
+                uc.Save();
             };
             //Xoa
             barButtonItem3.ItemClick += (s, e) =>
@@ -1091,27 +1038,23 @@ namespace Production.Class
                     Details_rpt.Enabled = false;
                 }
                 //
-                uc.Close();                
+                uc.Close();
             };
             //Next
             barButtonItem8.ItemClick += (s, e) =>
             {
-
             };
             //Prev
             barButtonItem7.ItemClick += (s, e) =>
             {
-
             };
             //Last
             barButtonItem9.ItemClick += (s, e) =>
             {
-
             };
             //First
             barButtonItem6.ItemClick += (s, e) =>
             {
-                
             };
             //Chart
             barButtonItem5.ItemClick += (s, e) =>
@@ -1132,7 +1075,7 @@ namespace Production.Class
                     }
                 }
             };
-            
+
             //Report
             Timeline_rpt.ItemClick += (s, e) =>
             {
@@ -1158,7 +1101,6 @@ namespace Production.Class
                 //}
                 //frm_Rpt_Timeline frm = new frm_Rpt_Timeline();
                 //frm.Show();
-                
             };
             //Report Lite
             Details_rpt.ItemClick += (s, e) =>
@@ -1183,10 +1125,9 @@ namespace Production.Class
                 //    //barButtonItem11.Enabled = false;
                 //    //barButtonItem11.Enabled = false;
                 //}
-                                
-                //frm_Rpt_FollowDate frm = new frm_Rpt_FollowDate();
-                //frm.Show();              
 
+                //frm_Rpt_FollowDate frm = new frm_Rpt_FollowDate();
+                //frm.Show();
             };
 
             GA_report.ItemClick += (s, e) =>
@@ -1212,72 +1153,67 @@ namespace Production.Class
 
             CM_report.ItemClick += (s, e) =>
             {
-                
             };
-        #endregion
+
+            #endregion action controls
         }
+
         public void closed(object sender, bool isDashboardEnabled)
         {
             //Dong form login
             //var frm = (Form)sender;
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
-            
-                //Kiem tra xem bo phan nao login
-                //A Trang Production -  Load dashnoard production
-                //Production_ID
-                //if (this.user._UserName == "dat1" || this.user._UserName == "trang")
-                if (this.user._DeptID == 5)
-                {
-                    //
-                    ribbonPage2.Visible = true;
-                    ribbonPage3.Visible = true;
-                    ribbonPage4.Visible = true;
-                    ribbonPage5.Visible = true;
-                    ribbonPage6.Visible = true;
-                //
-                    if (isDashboardEnabled == true)
-                    {
-                        uc = new F_DashBoard_Pro();
-                        uc.user = this.user;
-                        uc.BringToFront();
-                        uc.Visible = true;
-                        uc.Enabled = true;
-                        gc1.Controls.Add(uc);
-                        uc.Dock = DockStyle.Fill;
-                    }
-                    
-                }
-                //QC_ID
-                //else if (this.user._UserName == "dat2" || this.user._UserName == "tuyet")
-                else if (this.user._DeptID == 4)
-                {
-                    //
-                    ribbonPage7.Visible = true;
-                    ribbonPage3.Visible = true;
-                //
-                    if (isDashboardEnabled == true)
-                    {
-                        uc = new F_DashBoard_QC();
-                        uc.user = this.user;
-                        uc.BringToFront();
-                        uc.Visible = true;
-                        uc.Enabled = true;
-                        gc1.Controls.Add(uc);
-                        uc.Dock = DockStyle.Fill;
-                    }
-                    
-                }
-                //LAB_ID
-                else if (user._DeptID == 7)
-                {
-                    ribbonPage15.Visible = true;
-                }
 
-            
+            //Kiem tra xem bo phan nao login
+            //A Trang Production -  Load dashnoard production
+            //Production_ID
+            //if (this.user._UserName == "dat1" || this.user._UserName == "trang")
+            if (this.user._DeptID == 5)
+            {
+                //
+                ribbonPage2.Visible = true;
+                ribbonPage3.Visible = true;
+                ribbonPage4.Visible = true;
+                ribbonPage5.Visible = true;
+                ribbonPage6.Visible = true;
+                //
+                if (isDashboardEnabled == true)
+                {
+                    uc = new F_DashBoard_Pro();
+                    uc.user = this.user;
+                    uc.BringToFront();
+                    uc.Visible = true;
+                    uc.Enabled = true;
+                    gc1.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                }
+            }
+            //QC_ID
+            //else if (this.user._UserName == "dat2" || this.user._UserName == "tuyet")
+            else if (this.user._DeptID == 4)
+            {
+                //
+                ribbonPage7.Visible = true;
+                ribbonPage3.Visible = true;
+                //
+                if (isDashboardEnabled == true)
+                {
+                    uc = new F_DashBoard_QC();
+                    uc.user = this.user;
+                    uc.BringToFront();
+                    uc.Visible = true;
+                    uc.Enabled = true;
+                    gc1.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                }
+            }
+            //LAB_ID
+            else if (user._DeptID == 7)
+            {
+                ribbonPage15.Visible = true;
+            }
+
             frm.Close();
-            
-            
-            
 
             //Chi tuyet QC - Load dashboard QC
             //uc = new F_DashBoard_QC();
@@ -1287,12 +1223,8 @@ namespace Production.Class
             //uc.Enabled = true;
             //gc1.Controls.Add(uc);
             //uc.Dock = DockStyle.Fill;
-
-
-
-
-
         }
+
         public void logined(User usr, bool status)
         {
             this.Enabled = status;
@@ -1316,7 +1248,7 @@ namespace Production.Class
                     //Timeline_rpt.Enabled = true;
                     break;
                 //Manager
-                case 8 :
+                case 8:
 
                     //Dept_Code	Dept_Name
                     //    1	        IT
@@ -1326,98 +1258,103 @@ namespace Production.Class
                     //    5	        CMWH
                     //    6	        Other
 
-                        switch(user.DeptID)
-                        {
-                            case  1:
-                                //GA.Enabled = true;
-                                //PL.Enabled = true;
-                                //CM.Enabled = true;
-                                //CMWH.Enabled = true;
-                                //Schedule.Enabled = true;
-                                ////----------------------------
-                                //GA_report.Enabled = true;
-                                //CM_report.Enabled = true;
-                                //PL_report.Enabled = true;
-                                //CMWH_report.Enabled = true;
-                                ////----------------------------
-                                //Details_rpt.Enabled = true;
-                                //Timeline_rpt.Enabled = true;
-                                break;
-                            case 2:
-                                //GA.Enabled = true;
-                                ////PL.Enabled = true;
-                                ////CM.Enabled = true;
-                                ////CMWH.Enabled = true;
-                                //Schedule.Enabled = true;
-                                ////----------------------------
-                                //GA_report.Enabled = true;
-                                ////CM_report.Enabled = true;
-                                ////PL_report.Enabled = true;
-                                ////CMWH_report.Enabled = true;
-                                ////----------------------------
-                                //Details_rpt.Enabled = true;
-                                //Timeline_rpt.Enabled = true;
-                                break;
-                            case 3:
-                                //GA.Enabled = true;
-                                //PL.Enabled = true;
-                                ////CM.Enabled = true;
-                                ////CMWH.Enabled = true;
-                                //Schedule.Enabled = true;
-                                ////----------------------------
-                                ////GA_report.Enabled = true;
-                                ////CM_report.Enabled = true;
-                                //PL_report.Enabled = true;
-                                ////CMWH_report.Enabled = true;
-                                ////----------------------------
-                                //Details_rpt.Enabled = true;
-                                //Timeline_rpt.Enabled = true;
-                                break;
-                            case 4:
-                                ////GA.Enabled = true;
-                                ////PL.Enabled = true;
-                                //CM.Enabled = true;
-                                ////CMWH.Enabled = true;
-                                //Schedule.Enabled = true;
-                                ////----------------------------
-                                ////GA_report.Enabled = true;
-                                //CM_report.Enabled = true;
-                                ////PL_report.Enabled = true;
-                                ////CMWH_report.Enabled = true;
-                                ////----------------------------
-                                //Details_rpt.Enabled = true;
-                                //Timeline_rpt.Enabled = true;
-                                break;
-                            case 5:
-                                ////GA.Enabled = true;
-                                ////PL.Enabled = true;
-                                ////CM.Enabled = true;
-                                //CMWH.Enabled = true;
-                                //Schedule.Enabled = true;
-                                ////----------------------------
-                                ////GA_report.Enabled = true;
-                                ////CM_report.Enabled = true;
-                                ////PL_report.Enabled = true;
-                                //CMWH_report.Enabled = true;
-                                ////----------------------------
-                                //Details_rpt.Enabled = true;
-                                //Timeline_rpt.Enabled = true;
-                                break;
-                            case 6:
-                                //GA.Enabled = true;
-                                //PL.Enabled = true;
-                                //CM.Enabled = true;
-                                //CMWH.Enabled = true;
-                                ////----------------------------
-                                //GA_report.Enabled = true;
-                                //CM_report.Enabled = true;
-                                //PL_report.Enabled = true;
-                                //CMWH_report.Enabled = true;
-                                ////----------------------------
-                                //Details_rpt.Enabled = true;
-                                //Timeline_rpt.Enabled = true;
-                                break;    
-                        }               
+                    switch (user.DeptID)
+                    {
+                        case 1:
+                            //GA.Enabled = true;
+                            //PL.Enabled = true;
+                            //CM.Enabled = true;
+                            //CMWH.Enabled = true;
+                            //Schedule.Enabled = true;
+                            ////----------------------------
+                            //GA_report.Enabled = true;
+                            //CM_report.Enabled = true;
+                            //PL_report.Enabled = true;
+                            //CMWH_report.Enabled = true;
+                            ////----------------------------
+                            //Details_rpt.Enabled = true;
+                            //Timeline_rpt.Enabled = true;
+                            break;
+
+                        case 2:
+                            //GA.Enabled = true;
+                            ////PL.Enabled = true;
+                            ////CM.Enabled = true;
+                            ////CMWH.Enabled = true;
+                            //Schedule.Enabled = true;
+                            ////----------------------------
+                            //GA_report.Enabled = true;
+                            ////CM_report.Enabled = true;
+                            ////PL_report.Enabled = true;
+                            ////CMWH_report.Enabled = true;
+                            ////----------------------------
+                            //Details_rpt.Enabled = true;
+                            //Timeline_rpt.Enabled = true;
+                            break;
+
+                        case 3:
+                            //GA.Enabled = true;
+                            //PL.Enabled = true;
+                            ////CM.Enabled = true;
+                            ////CMWH.Enabled = true;
+                            //Schedule.Enabled = true;
+                            ////----------------------------
+                            ////GA_report.Enabled = true;
+                            ////CM_report.Enabled = true;
+                            //PL_report.Enabled = true;
+                            ////CMWH_report.Enabled = true;
+                            ////----------------------------
+                            //Details_rpt.Enabled = true;
+                            //Timeline_rpt.Enabled = true;
+                            break;
+
+                        case 4:
+                            ////GA.Enabled = true;
+                            ////PL.Enabled = true;
+                            //CM.Enabled = true;
+                            ////CMWH.Enabled = true;
+                            //Schedule.Enabled = true;
+                            ////----------------------------
+                            ////GA_report.Enabled = true;
+                            //CM_report.Enabled = true;
+                            ////PL_report.Enabled = true;
+                            ////CMWH_report.Enabled = true;
+                            ////----------------------------
+                            //Details_rpt.Enabled = true;
+                            //Timeline_rpt.Enabled = true;
+                            break;
+
+                        case 5:
+                            ////GA.Enabled = true;
+                            ////PL.Enabled = true;
+                            ////CM.Enabled = true;
+                            //CMWH.Enabled = true;
+                            //Schedule.Enabled = true;
+                            ////----------------------------
+                            ////GA_report.Enabled = true;
+                            ////CM_report.Enabled = true;
+                            ////PL_report.Enabled = true;
+                            //CMWH_report.Enabled = true;
+                            ////----------------------------
+                            //Details_rpt.Enabled = true;
+                            //Timeline_rpt.Enabled = true;
+                            break;
+
+                        case 6:
+                            //GA.Enabled = true;
+                            //PL.Enabled = true;
+                            //CM.Enabled = true;
+                            //CMWH.Enabled = true;
+                            ////----------------------------
+                            //GA_report.Enabled = true;
+                            //CM_report.Enabled = true;
+                            //PL_report.Enabled = true;
+                            //CMWH_report.Enabled = true;
+                            ////----------------------------
+                            //Details_rpt.Enabled = true;
+                            //Timeline_rpt.Enabled = true;
+                            break;
+                    }
                     break;
                 //Supervisor
                 case 4:
@@ -1438,6 +1375,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 2:
                             //GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1453,6 +1391,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 3:
                             ////GA.Enabled = true;
                             //PL.Enabled = true;
@@ -1468,6 +1407,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 4:
                             ////GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1483,6 +1423,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 5:
                             ////GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1498,6 +1439,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 6:
                             //GA.Enabled = true;
                             //PL.Enabled = true;
@@ -1513,8 +1455,8 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
-                    }    
-                    
+                    }
+
                     break;
                 //Employee
                 case 2:
@@ -1535,6 +1477,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 2:
                             //GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1550,6 +1493,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 3:
                             ////GA.Enabled = true;
                             //PL.Enabled = true;
@@ -1565,6 +1509,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 4:
                             ////GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1580,6 +1525,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 5:
                             ////GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1595,6 +1541,7 @@ namespace Production.Class
                             //Details_rpt.Enabled = true;
                             //Timeline_rpt.Enabled = true;
                             break;
+
                         case 6:
                             ////GA.Enabled = true;
                             ////PL.Enabled = true;
@@ -1610,24 +1557,23 @@ namespace Production.Class
                             ////Details_rpt.Enabled = true;
                             ////Timeline_rpt.Enabled = true;
                             break;
-                    }    
-                    
+                    }
+
                     break;
                 //View
                 case 0:
-                    
+
                     break;
-            }             
+            }
             labelControl1.Caption = user.Username;
-            labelControl5.Caption = user.Language;            
+            labelControl5.Caption = user.Language;
         }
 
-        private String GetIP() 
+        private String GetIP()
         {
             IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
             IPAddress[] addr = ipEntry.AddressList;
             return addr[1].ToString();
         }
-
     }
 }

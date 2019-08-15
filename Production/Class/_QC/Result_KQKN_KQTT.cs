@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class
 {
@@ -11,29 +8,28 @@ namespace Production.Class
         public Result_KQKN_KQTT(
             int ID,
             string SoPKN,
-            int KQKN_Detail_ID,            
-            string KQTT,                     
+            int KQKN_Detail_ID,
+            string KQTT,
             string CreatedBy,
             int Lan,
             string Note,
-            DateTime CreatedDate,            
-            bool Locked          
+            DateTime CreatedDate,
+            bool Locked
             )
         {
             this._ID = ID;
             this._SoPKN = SoPKN;
             this._KQKN_Detail_ID = KQKN_Detail_ID;
             this._Lan = Lan;
-            this._KQTT = KQTT;      
+            this._KQTT = KQTT;
             this._CreatedDate = CreatedDate;
             this._CreatedBy = CreatedBy;
             this._Note = Note;
             this._Locked = Locked;
-
         }
+
         public Result_KQKN_KQTT()
         {
-
         }
 
         private int _ID;
@@ -59,7 +55,7 @@ namespace Production.Class
             get { return _KQKN_Detail_ID; }
             set { _KQKN_Detail_ID = value; }
         }
-        
+
         private int _Lan;
 
         public int Lan
@@ -69,6 +65,7 @@ namespace Production.Class
         }
 
         private string _KQTT;
+
         public string KQTT
         {
             get { return _KQTT; }
@@ -76,6 +73,7 @@ namespace Production.Class
         }
 
         private DateTime _CreatedDate;
+
         public DateTime CreatedDate
         {
             get { return _CreatedDate; }
@@ -83,6 +81,7 @@ namespace Production.Class
         }
 
         private string _CreatedBy;
+
         public string CreatedBy
         {
             get { return _CreatedBy; }
@@ -90,12 +89,15 @@ namespace Production.Class
         }
 
         private bool _Locked;
+
         public bool Locked
         {
             get { return _Locked; }
             set { _Locked = value; }
         }
+
         private string _Note;
+
         public string Note
         {
             get { return _Note; }
@@ -103,7 +105,5 @@ namespace Production.Class
         }
 
         //List<KQKN_Template_Details_Row> Lst = new List<KQKN_Template_Details_Row>();
-
-
     }
 }

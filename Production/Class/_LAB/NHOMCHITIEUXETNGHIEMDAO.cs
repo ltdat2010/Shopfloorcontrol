@@ -3,27 +3,27 @@ using System.Data;
 
 namespace Production.Class
 {
-    class NHOMCHITIEUXETNGHIEMDAO
+    internal class NHOMCHITIEUXETNGHIEMDAO
     {
-
         public DataTable NCTXN_List()
         {
             DataTable dt = new DataTable();
             dt = Sql.ExecuteDataTable("SAP", "Select ID , NCTXN From [SYNC_NUTRICIEL].[dbo].tbl_NhomChiTieuXetNghiem_LAB WHERE ID>1", CommandType.Text);
             return dt;
         }
+
         //public void TC_Insert(TieuChuan tc)
-        //{           
+        //{
         //    Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_TieuChuan] " +
         //                                           "([TC] " +
         //                                           ",[TCDG]) " +
         //                                     "VALUES " +
-        //                                           "('" + tc.TC + 
+        //                                           "('" + tc.TC +
         //                                           "','" + tc.TCDG + "'", CommandType.Text);
         //    //return dt;
         //}
         //public void PPT_Update(DataRow dr)
-        //{            
+        //{
         //    Sql.ExecuteNonQuery("SAP",  "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PhuongPhapThu]" +
         //                                " SET [PPT] ='"+dr["PPT"].ToString() + "'"+
         //                                ",[PPTDG] = '" + dr["PPTDG"].ToString() + "' " +
@@ -33,23 +33,23 @@ namespace Production.Class
 
         public void NCTXN_INSERT(NHOMCHITIEUXETNGHIEM OBJ)
         {
-           Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_NhomChiTieuXetNghiem_LAB] " +
-           " ([NCTXN] " +
-           " ,[NCTXNDG] " +
-           " ,[CreatedDate] " +
-           " ,[CreatedBy] " +
-           " ,[Note] " +
-           " ,[NhomChung] " +
-           " ,[Locked]) " +
-            " VALUES " +
-           "(N'" + OBJ.NCTXN +
-           "',N'" + OBJ.NCTXNDG +
-           "',Convert(datetime,'" + DateTime.Now +
-           "',103),N'" + OBJ.CreatedBy +
-           "',N'" + OBJ.Note +
-           "',N'" + OBJ.NhomChung +
-           "','" + OBJ.Locked +
-           "')", CommandType.Text);
+            Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_NhomChiTieuXetNghiem_LAB] " +
+            " ([NCTXN] " +
+            " ,[NCTXNDG] " +
+            " ,[CreatedDate] " +
+            " ,[CreatedBy] " +
+            " ,[Note] " +
+            " ,[NhomChung] " +
+            " ,[Locked]) " +
+             " VALUES " +
+            "(N'" + OBJ.NCTXN +
+            "',N'" + OBJ.NCTXNDG +
+            "',Convert(datetime,'" + DateTime.Now +
+            "',103),N'" + OBJ.CreatedBy +
+            "',N'" + OBJ.Note +
+            "',N'" + OBJ.NhomChung +
+            "','" + OBJ.Locked +
+            "')", CommandType.Text);
         }
 
         public void NCTXN_UPDATE(NHOMCHITIEUXETNGHIEM OBJ)
@@ -70,6 +70,5 @@ namespace Production.Class
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_NhomChiTieuXetNghiem_LAB] " +
             " WHERE [ID]=" + OBJ.ID, CommandType.Text);
         }
-
     }
 }

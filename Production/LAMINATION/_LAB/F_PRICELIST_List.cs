@@ -1,20 +1,22 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace Production.Class
 {
     public partial class F_PRICELIST_List : UC_Base
     {
         //Kiem tra xem click chon row tren grid chua
-        bool gridViewRowClick = false;
+        private bool gridViewRowClick = false;
 
-        PRICELIST OBJ = new PRICELIST();
-        PRICELISTBUS BUS = new PRICELISTBUS();
+        private PRICELIST OBJ = new PRICELIST();
+        private PRICELISTBUS BUS = new PRICELISTBUS();
+
         /// <summary>
         /// DELEGATE
-        /// </summary>        
+        /// </summary>
         public delegate void MyAdd(object sender, string isActionReturn);
+
         public event MyAdd myFinished;
 
         public bool Is_close
@@ -29,8 +31,7 @@ namespace Production.Class
         }
 
         public F_PRICELIST_List()
-        {       
-            
+        {
             InitializeComponent();
             Load += (s, e) =>
                 {
@@ -38,11 +39,10 @@ namespace Production.Class
                     OBJ.CreatedBy = user.Username;
 
                     tbl_PriceList_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PriceList_LAB);
-                  
-                    gridControl1.DataSource = tbl_PriceList_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PriceList_LAB);                    
-                    
+
+                    gridControl1.DataSource = tbl_PriceList_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PriceList_LAB);
+
                     gridView1.BestFitColumns();
-                                       
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -69,7 +69,7 @@ namespace Production.Class
 
             btnPriceListHistory.Click += (s, e) =>
             {
-                if(gridViewRowClick == true)
+                if (gridViewRowClick == true)
                 {
                     Set4Object();
                     F_PRICELIST_History FRM = new Class.F_PRICELIST_History();
@@ -82,6 +82,7 @@ namespace Production.Class
                     XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
             };
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -95,12 +96,13 @@ namespace Production.Class
             F_PRICELIST_Details F_LOC_Dtl = new F_PRICELIST_Details();
             F_LOC_Dtl.isAction = this.isAction;
             F_LOC_Dtl.OBJ = this.OBJ;
-            F_LOC_Dtl.myFinished += this.finished ;
+            F_LOC_Dtl.myFinished += this.finished;
             F_LOC_Dtl.Show();
         }
+
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "Edit";
 
@@ -122,6 +124,7 @@ namespace Production.Class
             else
                 XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
         }
+
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
             // 27 Gán dữ liệ trên control cho object
@@ -143,6 +146,7 @@ namespace Production.Class
             //isNew = false;
             isAction = "";
         }
+
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
             // 23 Gán state UPdate cho tat ca cac nut
@@ -151,7 +155,7 @@ namespace Production.Class
             //24  Edit hoặc update nên  isNew gán bằng false
             //isNew = false;
 
-            // 25 isEditting gan bang true 
+            // 25 isEditting gan bang true
             //isEditting = true;
             isAction = "View";
 
@@ -184,7 +188,7 @@ namespace Production.Class
                     BUS.PRICELISTBUS_DELETE(OBJ);
                 }
                 // 18 Load lại datasource cho grid
-                
+
                 gridControl1.DataSource = tbl_PriceList_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PriceList_LAB);
 
                 gridView1.BestFitColumns();
@@ -200,7 +204,7 @@ namespace Production.Class
         {
             this.Close();
         }
-     
+
         public void Set4Object()
         {
             OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
@@ -226,9 +230,6 @@ namespace Production.Class
             gridControl1.DataSource = tbl_PriceList_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PriceList_LAB);
 
             gridView1.BestFitColumns();
-
         }
-
-
     }
 }
