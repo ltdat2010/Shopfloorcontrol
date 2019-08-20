@@ -854,7 +854,7 @@ namespace Production.Class
                 uc.Dock = DockStyle.Fill;
             };
             //Ket qua MYCOTOCXIN : barButtonItem76
-            barButtonItem76.ItemClick += (s, e) =>
+            barButtonItem81.ItemClick += (s, e) =>
             {
                 foreach (Control x in this.gc1.Controls)
                 {
@@ -870,8 +870,26 @@ namespace Production.Class
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
             };
-            //barButtonItem77 : MYCOTOCXIN_ConC
-            barButtonItem77.ItemClick += (s, e) =>
+            ////barButtonItem77 : MYCOTOCXIN_ConC
+            //barButtonItem77.ItemClick += (s, e) =>
+            //{
+            //    foreach (Control x in this.gc1.Controls)
+            //    {
+            //        if (x is DevExpress.XtraEditors.XtraUserControl)
+            //            x.Dispose();
+            //    }
+
+            //    uc = new F_MYCOTOXIN_ConC();
+            //    uc.user = this.user;
+            //    uc.BringToFront();
+            //    uc.Visible = true;
+            //    uc.Enabled = true;
+            //    gc1.Controls.Add(uc);
+            //    uc.Dock = DockStyle.Fill;
+            //};            
+
+            //barButtonItem82 -- Đọc kết quả AI
+            barButtonItem82.ItemClick += (s, e) =>
             {
                 foreach (Control x in this.gc1.Controls)
                 {
@@ -879,7 +897,7 @@ namespace Production.Class
                         x.Dispose();
                 }
 
-                uc = new F_MYCOTOXIN_ConC();
+                uc = new F_AI_RESULT_LIST();
                 uc.user = this.user;
                 uc.BringToFront();
                 uc.Visible = true;
@@ -887,8 +905,9 @@ namespace Production.Class
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
             };
-            //barButtonItem78 -- Danh sách Trả kết quả tất cả các loại xét nghiệm
-            barButtonItem78.ItemClick += (s, e) =>
+
+            //barButtonItem83 -- Đọc kết quả IBD
+            barButtonItem83.ItemClick += (s, e) =>
             {
                 foreach (Control x in this.gc1.Controls)
                 {
@@ -896,7 +915,7 @@ namespace Production.Class
                         x.Dispose();
                 }
 
-                uc = new F_MYCOTOXIN_ConC();
+                uc = new F_IBD_RESULT_LIST();
                 uc.user = this.user;
                 uc.BringToFront();
                 uc.Visible = true;

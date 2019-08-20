@@ -164,6 +164,9 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -175,6 +178,18 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -270,9 +285,20 @@
     <Compile Include="Class\_LAB\PO_Lines_BUS.cs" />
     <Compile Include="Class\_LAB\PO_Header_DAO .cs" />
     <Compile Include="Class\_LAB\PO_Lines_DAO.cs" />
+    <Compile Include="Class\_LAB\RESULT\HUYETTHANHHOC_STD_VALUE.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Header_LAB.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Header_LABBUS.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Lines_LAB.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Lines_LABBUS.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Summary_LABBUS.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Summary_LABDAO.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Summary_LAB.cs" />
     <Compile Include="Class\_LAB\RESULT\MYCOTOXIN_ConC.cs" />
     <Compile Include="Class\_LAB\RESULT\MYCOTOXIN_ConCBUS.cs" />
     <Compile Include="Class\_LAB\RESULT\MYCOTOXIN_ConCDAO.cs" />
+    <Compile Include="Class\_LAB\RESULT\AI_RESULT_Lines.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Header_LABDAO.cs" />
+    <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Lines_LABDAO.cs" />
     <Compile Include="Class\_LAB\RESULT\MYCOTOXIN_RESULT_StandardCurveBUS.cs" />
     <Compile Include="Class\_LAB\RESULT\MYCOTOXIN_RESULT_StandardCurveDA0.cs" />
     <Compile Include="Class\_LAB\RESULT\MYCOTOXIN_RESULT_StandardCurve.cs" />
@@ -564,6 +590,20 @@
     <Compile Include="LAMINATION\F_BOM_List.Designer.cs">
       <DependentUpon>F_BOM_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="LAMINATION\_LAB\F_IBD_RESULT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_IBD_RESULT_Details.Designer.cs">
+      <DependentUpon>F_IBD_RESULT_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_IBD_RESULT_LIST.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_IBD_RESULT_LIST.Designer.cs">
+      <DependentUpon>F_IBD_RESULT_LIST.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.cs">
       <SubType>UserControl</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -592,6 +632,12 @@
     <Compile Include="LAMINATION\_LAB\F_MYCOTOXIN_ConC_Details.Designer.cs">
       <DependentUpon>F_MYCOTOXIN_ConC_Details.cs</DependentUpon>
     </Compile>
+    <Compile Include="LAMINATION\_LAB\F_AI_RESULT_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_AI_RESULT_Details.Designer.cs">
+      <DependentUpon>F_AI_RESULT_Details.cs</DependentUpon>
+    </Compile>
     <Compile Include="LAMINATION\_LAB\F_MYCOTOXIN_RESULT_Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -604,6 +650,14 @@
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_ALL_TEST_RESULT_LIST.Designer.cs">
       <DependentUpon>F_ALL_TEST_RESULT_LIST.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_AI_RESULT_LIST.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_AI_RESULT_LIST.Designer.cs">
+      <DependentUpon>F_AI_RESULT_LIST.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_MYCOTOXIN_RESULT_LIST.cs">
@@ -958,11 +1012,25 @@
     <Compile Include="LAMINATION\_QC\F_TC_List.Designer.cs">
       <DependentUpon>F_TC_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="RPT\_LAB\Rpt_AI_RESULT_LAB.cs">
+      <DependentUpon>Rpt_AI_RESULT_LAB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.cs">
+      <DependentUpon>Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_VN.cs">
       <DependentUpon>Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_VN.rpt</DependentUpon>
@@ -1227,6 +1295,12 @@
     </Compile>
     <Compile Include="R_InternalTransfer_FN.Designer.cs">
       <DependentUpon>R_InternalTransfer_FN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_Report\_LAB\R_AI_RESULT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_Report\_LAB\R_AI_RESULT.Designer.cs">
+      <DependentUpon>R_AI_RESULT.cs</DependentUpon>
     </Compile>
     <Compile Include="R_Report\_LAB\R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT.cs">
       <SubType>Form</SubType>
@@ -1707,6 +1781,13 @@
     <EmbeddedResource Include="LAMINATION\F_BOM_List.resx">
       <DependentUpon>F_BOM_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_IBD_RESULT_Details.resx">
+      <DependentUpon>F_IBD_RESULT_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_IBD_RESULT_LIST.resx">
+      <DependentUpon>F_IBD_RESULT_LIST.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.resx">
       <DependentUpon>F_BaocaoDichTeDan_EXCEL.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1721,11 +1802,18 @@
     <EmbeddedResource Include="LAMINATION\_LAB\F_MYCOTOXIN_ConC_Details.resx">
       <DependentUpon>F_MYCOTOXIN_ConC_Details.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_AI_RESULT_Details.resx">
+      <DependentUpon>F_AI_RESULT_Details.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_MYCOTOXIN_RESULT_Details.resx">
       <DependentUpon>F_MYCOTOXIN_RESULT_Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_ALL_TEST_RESULT_LIST.resx">
       <DependentUpon>F_ALL_TEST_RESULT_LIST.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_AI_RESULT_LIST.resx">
+      <DependentUpon>F_AI_RESULT_LIST.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_MYCOTOXIN_RESULT_LIST.resx">
@@ -1921,9 +2009,19 @@
       <DependentUpon>F_RECEIPT_Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="RPT\_LAB\Rpt_AI_RESULT_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_AI_RESULT_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_VN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2101,6 +2199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="R_InternalTransfer_FN.resx">
       <DependentUpon>R_InternalTransfer_FN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_Report\_LAB\R_AI_RESULT.resx">
+      <DependentUpon>R_AI_RESULT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R_Report\_LAB\R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT.resx">
       <DependentUpon>R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT.cs</DependentUpon>
