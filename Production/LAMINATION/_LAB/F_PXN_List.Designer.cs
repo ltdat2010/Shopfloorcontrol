@@ -125,9 +125,9 @@
             // btnGiaoMau
             // 
             this.btnGiaoMau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaoMau.ImageOptions.Image")));
-            this.btnGiaoMau.Location = new System.Drawing.Point(930, 492);
+            this.btnGiaoMau.Location = new System.Drawing.Point(902, 476);
             this.btnGiaoMau.Name = "btnGiaoMau";
-            this.btnGiaoMau.Size = new System.Drawing.Size(76, 22);
+            this.btnGiaoMau.Size = new System.Drawing.Size(88, 38);
             this.btnGiaoMau.StyleController = this.layoutControl2;
             this.btnGiaoMau.TabIndex = 22;
             this.btnGiaoMau.Text = "Giao mẫu";
@@ -135,9 +135,9 @@
             // btnViewProcess
             // 
             this.btnViewProcess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcess.ImageOptions.Image")));
-            this.btnViewProcess.Location = new System.Drawing.Point(1010, 492);
+            this.btnViewProcess.Location = new System.Drawing.Point(994, 476);
             this.btnViewProcess.Name = "btnViewProcess";
-            this.btnViewProcess.Size = new System.Drawing.Size(90, 22);
+            this.btnViewProcess.Size = new System.Drawing.Size(106, 38);
             this.btnViewProcess.StyleController = this.layoutControl2;
             this.btnViewProcess.TabIndex = 21;
             this.btnViewProcess.Text = "View process";
@@ -148,7 +148,7 @@
             this.gridControl1.Location = new System.Drawing.Point(4, 46);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1096, 442);
+            this.gridControl1.Size = new System.Drawing.Size(1096, 426);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -382,33 +382,33 @@
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 446);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 430);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnViewProcess;
-            this.layoutControlItem2.Location = new System.Drawing.Point(1006, 488);
+            this.layoutControlItem2.Location = new System.Drawing.Point(990, 472);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(94, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(110, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 488);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 472);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(926, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(898, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnGiaoMau;
-            this.layoutControlItem3.Location = new System.Drawing.Point(926, 488);
+            this.layoutControlItem3.Location = new System.Drawing.Point(898, 472);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(92, 42);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 

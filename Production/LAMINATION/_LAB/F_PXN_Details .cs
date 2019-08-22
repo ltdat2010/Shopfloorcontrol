@@ -32,6 +32,7 @@ namespace Production.Class
         private string Path = Directory.GetCurrentDirectory();
         public int gridRow = 0;
 
+        private bool Automatically = true; 
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -292,9 +293,68 @@ namespace Production.Class
                  if (isAction == "Add")
                  {
                      OBJ.LoaiXN = "GEN";
-                     txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                     if (Automatically == true)
+                        txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
                  }
              };
+            chkAutomatically.CheckedChanged += (s, e) =>
+            {
+                if (chkAutomatically.CheckState == CheckState.Checked)
+                {
+                    Automatically = true;
+                    chkManually.CheckState = CheckState.Unchecked;
+                    chkGEN.ReadOnly = false;
+                    chkH2O.ReadOnly = false;
+                    chkHTH.ReadOnly = false;
+                    chkMDW.ReadOnly = false;
+                    txtSoPXN.ReadOnly = true;
+                }
+                else
+                {
+                    Automatically = false;
+                    chkManually.CheckState = CheckState.Checked;
+                    chkGEN.ReadOnly = true;
+                    chkGEN.CheckState = CheckState.Unchecked;
+                    chkH2O.ReadOnly = true;
+                    chkH2O.CheckState = CheckState.Unchecked;
+                    chkHTH.ReadOnly = true;
+                    chkHTH.CheckState = CheckState.Unchecked;
+                    chkMDW.ReadOnly = true;
+                    chkMDW.CheckState = CheckState.Unchecked;
+                    txtSoPXN.ReadOnly = false;
+                    txtSoPXN.Text = "";
+                }
+            };
+
+            chkManually.CheckedChanged += (s, e) =>
+            {
+                if (chkManually.CheckState == CheckState.Checked)
+                {
+                    Automatically = false;
+                    chkAutomatically.CheckState = CheckState.Unchecked;
+                    chkGEN.ReadOnly = true;
+                    chkGEN.CheckState = CheckState.Unchecked;
+                    chkH2O.ReadOnly = true;
+                    chkH2O.CheckState = CheckState.Unchecked;
+                    chkHTH.ReadOnly = true;
+                    chkHTH.CheckState = CheckState.Unchecked;
+                    chkMDW.ReadOnly = true;
+                    chkMDW.CheckState = CheckState.Unchecked;
+                    txtSoPXN.ReadOnly = false;
+                    txtSoPXN.Text = "";
+                }
+                else
+                {
+                    Automatically = true;
+                    chkAutomatically.CheckState = CheckState.Checked;
+                    chkGEN.ReadOnly = false;
+                    chkH2O.ReadOnly = false;
+                    chkHTH.ReadOnly = false;
+                    chkMDW.ReadOnly = false;
+                    txtSoPXN.ReadOnly = true;
+
+                }
+            };
 
             chkHTH.CheckedChanged += (s, e) =>
             {
@@ -316,7 +376,8 @@ namespace Production.Class
                 if (isAction == "Add")
                 {
                     OBJ.LoaiXN = "HTH";
-                    txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                    if (Automatically == true)
+                        txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
                 }
             };
 
@@ -339,7 +400,8 @@ namespace Production.Class
                 if (isAction == "Add")
                 {
                     OBJ.LoaiXN = "H2O";
-                    txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                    if (Automatically == true)
+                        txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
                 }
             };
 
@@ -364,7 +426,8 @@ namespace Production.Class
                 if (isAction == "Add")
                 {
                     OBJ.LoaiXN = "MDW";
-                    txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                    if (Automatically == true)
+                        txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
                 }
             };
 

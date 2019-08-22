@@ -14,12 +14,12 @@ namespace Production.Class._LAB.RESULT
         public int ID { get; set; }
         public string Type { get; set; }
         public int IBD_RESULT_Header_LAB_ID { get; set; }
-        public float AMean { get; set; }
-        public float GMean { get; set; }
-        public float SD { get; set; }
-        public float CV { get; set; }
-        public float Min { get; set; }
-        public float Max { get; set; }
+        public decimal AMean { get; set; }
+        public decimal GMean { get; set; }
+        public decimal SD { get; set; }
+        public decimal CV { get; set; }
+        public decimal Min { get; set; }
+        public decimal Max { get; set; }
         public string Note { get; set; }
         public string CreatedBy { get; set; }
         public bool Locked { get; set; }

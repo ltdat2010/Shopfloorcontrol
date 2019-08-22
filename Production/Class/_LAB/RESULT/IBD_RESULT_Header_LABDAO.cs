@@ -34,7 +34,7 @@ namespace Production.Class
                 " VALUES " +
                "(N'" + OBJ.FilePath +
                "',N'" + OBJ.FileName +
-               "',Convert(datetime,'" + OBJ.Date +
+               "',Convert(datetime,N'" + OBJ.Date +
                "',103),N'" + OBJ.Time +
                "',N'" + OBJ.Case +
                "'," + OBJ.Count +
@@ -44,8 +44,8 @@ namespace Production.Class
                "," + OBJ.CV +
                "," + OBJ.Min +
                "," + OBJ.Max +
-               "," + OBJ.Tech +
-               "," + OBJ.HUYETTHANHHOC_STD_VALUE_ID +
+               ",'" + OBJ.Tech +
+               "'," + OBJ.HUYETTHANHHOC_STD_VALUE_ID +
                ",Convert(datetime,N'" + DateTime.Now +
                "',103),N'" + OBJ.CreatedBy +
                "',N'" + OBJ.Note +
@@ -53,7 +53,7 @@ namespace Production.Class
                "')", CommandType.Text);
 
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] " +
-                "WHERE FilePath='" + OBJ.FilePath + "'", CommandType.Text);
+                "WHERE FileName='" + OBJ.FileName + "'", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
             //}
         }
@@ -63,7 +63,7 @@ namespace Production.Class
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] SET" +
            "[FilePath]          = N'" + OBJ.FilePath + "'" +
            ",[FileName]          = N'" + OBJ.FileName + "'" +
-           ",[Date]             = Convert(datetime,'" + OBJ.Date + "',103)" +
+           ",[Date]             = N'" + OBJ.Date + "'" +
            ",[Time]              = N'" + OBJ.Time + "'" +
            ",[Case]      = N'" + OBJ.Case + "'" +
            ",[Count] = " + OBJ.Count +
@@ -82,10 +82,10 @@ namespace Production.Class
            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
         }
 
-        public void IBD_RESULT_Header_LABDAO_DELETE(IBD_RESULT_Header_LAB OBJ)
+        public void IBD_RESULT_Header_LABDAO_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] " +
-            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
+            " WHERE [ID]=" + ID , CommandType.Text);
         }
 
         //public int MYCOTOXIN_RESULT_Header_ID(string FilePath)

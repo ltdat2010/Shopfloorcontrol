@@ -20,6 +20,7 @@ namespace Production.Class
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
         private string Path = Directory.GetCurrentDirectory();
+        private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
         //----------------------------End Report parameters declare---------------------------------------------
@@ -32,8 +33,8 @@ namespace Production.Class
                 dt_PXN_Header = BUS.PXN_HeaderBUS_SELECT(OBJ.SoPXN);
                 dt_KHMau_Details = BUS2.KHMau_LABDAO_REPORT_DETAILS(OBJ.SoPXN);
 
-                dt_PXN_Header.WriteXml(Path + "/Xml/dt_PXN_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_KHMau_Details.WriteXml(Path + "/Xml/dt_KHMau_Details.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_PXN_Header.WriteXml(XmlPath + "/dt_PXN_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_KHMau_Details.WriteXml(XmlPath + "/dt_KHMau_Details.xml", System.Data.XmlWriteMode.IgnoreSchema);
 
                 rpt.Load(Path + "/RPT/Rpt_PGM_LAB.rpt");
                 crvReport.ReportSource = rpt;

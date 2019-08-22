@@ -17,9 +17,9 @@ namespace Production.Class
             DAO.IBD_RESULT_Summary_LABDAO_UPDATE(OBJ);
         }
 
-        public void IBD_RESULT_Summary_LABDAO_DELETE(IBD_RESULT_Summary_LAB OBJ)
+        public void IBD_RESULT_Summary_LABDAO_DELETE(int ID)
         {
-            DAO.IBD_RESULT_Summary_LABDAO_DELETE(OBJ);
+            DAO.IBD_RESULT_Summary_LABDAO_DELETE(ID);
         }
 
         public DataTable IBD_RESULT_Summary_LABDAO_SELECT(int ID)

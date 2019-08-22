@@ -17,7 +17,8 @@ namespace Production.Class
            " ,[SP] " +
            " ,[Titer] " +
            " ,[GroupTiter] " +
-           " ,[Well] " +
+           " ,[Row] " +
+           " ,[Col] " +
            " ,[Result] " +           
            " ,[CreatedDate] " +
            " ,[CreatedBy] " +
@@ -30,7 +31,8 @@ namespace Production.Class
            "," + OBJ.SP +
            "," + OBJ.Titer +
            "," + OBJ.GroupTiter +
-           ",N'" + OBJ.Well +
+           ",N'" + OBJ.Row +
+           "',N'" + OBJ.Col +
            "',N'" + OBJ.Result +           
            "',Convert(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
@@ -48,7 +50,8 @@ namespace Production.Class
            ",[SP]              = " + OBJ.SP +
            ",[Titer] = " + OBJ.Titer +
            ",[GroupTiter]      = " + OBJ.GroupTiter +
-           ",[Well]      = N'" + OBJ.Well + "'" +
+           ",[Row]      = N'" + OBJ.Row + "'" +
+           ",[Col]      = N'" + OBJ.Col + "'" +
            ",[Result]      = N'" + OBJ.Result + "'" +           
            ",[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy] = N'" + OBJ.CreatedBy + "' " +
@@ -57,10 +60,10 @@ namespace Production.Class
            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
         }
 
-        public void IBD_RESULT_Lines_LABDAO_DELETE(IBD_RESULT_Lines_LAB OBJ)
+        public void IBD_RESULT_Lines_LABDAO_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Lines_LAB] " +
-            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
+            " WHERE [IBD_RESULT_Header_LAB_ID]=" + ID, CommandType.Text);
         }
 
         //public List<string> MYCOTOXIN_RESULT_Lines_List_Acronym(int ID)

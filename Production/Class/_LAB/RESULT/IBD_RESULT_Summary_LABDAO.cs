@@ -57,10 +57,10 @@ namespace Production.Class
            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
         }
 
-        public void IBD_RESULT_Summary_LABDAO_DELETE(IBD_RESULT_Summary_LAB OBJ)
+        public void IBD_RESULT_Summary_LABDAO_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Summary_LAB] " +
-            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
+            " WHERE [ID]=" + ID , CommandType.Text);
         }
 
         //public List<string> MYCOTOXIN_RESULT_Lines_List_Acronym(int ID)

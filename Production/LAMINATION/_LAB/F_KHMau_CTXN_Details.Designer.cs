@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -99,12 +99,12 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.txtKHMau = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -164,12 +164,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKHMau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -238,7 +238,6 @@
             this.action_EndForm1.Margin = new System.Windows.Forms.Padding(0);
             this.action_EndForm1.Name = "action_EndForm1";
             this.action_EndForm1.Size = new System.Drawing.Size(777, 29);
-            this.action_EndForm1.StateMenu = Production.Class.MenuState.Empty;
             this.action_EndForm1.TabIndex = 11;
             // 
             // layoutControlGroup3
@@ -350,15 +349,15 @@
             this.txtKHMau_CTXN_Id.Location = new System.Drawing.Point(131, 5);
             this.txtKHMau_CTXN_Id.Name = "txtKHMau_CTXN_Id";
             this.txtKHMau_CTXN_Id.Properties.ReadOnly = true;
-            this.txtKHMau_CTXN_Id.Size = new System.Drawing.Size(637, 20);
+            this.txtKHMau_CTXN_Id.Size = new System.Drawing.Size(253, 20);
             this.txtKHMau_CTXN_Id.StyleController = this.layoutControl4;
             this.txtKHMau_CTXN_Id.TabIndex = 50;
             // 
             // txtPriceList_Details_LAB_Id
             // 
-            this.txtPriceList_Details_LAB_Id.Location = new System.Drawing.Point(530, 77);
+            this.txtPriceList_Details_LAB_Id.Location = new System.Drawing.Point(510, 5);
             this.txtPriceList_Details_LAB_Id.Name = "txtPriceList_Details_LAB_Id";
-            this.txtPriceList_Details_LAB_Id.Size = new System.Drawing.Size(238, 20);
+            this.txtPriceList_Details_LAB_Id.Size = new System.Drawing.Size(258, 20);
             this.txtPriceList_Details_LAB_Id.StyleController = this.layoutControl4;
             this.txtPriceList_Details_LAB_Id.TabIndex = 49;
             // 
@@ -455,7 +454,7 @@
             this.lkeCTXN.Properties.NullValuePromptShowForEmptyValue = true;
             this.lkeCTXN.Properties.PopupFormSize = new System.Drawing.Size(800, 600);
             this.lkeCTXN.Properties.PopupView = this.gridLookUpEdit1View;
-            this.lkeCTXN.Properties.ValueMember = "PriceList_Details_LAB_Id";
+            this.lkeCTXN.Properties.ValueMember = "ID";
             this.lkeCTXN.Size = new System.Drawing.Size(637, 20);
             this.lkeCTXN.StyleController = this.layoutControl4;
             this.lkeCTXN.TabIndex = 41;
@@ -503,14 +502,14 @@
             this.colPriceList_Details_LAB_Id,
             this.colDVMuaNgoaiCode});
             this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Column = this.colDonGia;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual;
-            formatConditionRuleValue1.PredefinedName = "Red Fill, Red Text";
-            formatConditionRuleValue1.Value1 = 0D;
-            gridFormatRule1.Rule = formatConditionRuleValue1;
-            this.gridLookUpEdit1View.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.ApplyToRow = true;
+            gridFormatRule2.Column = this.colDonGia;
+            gridFormatRule2.Name = "Format0";
+            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual;
+            formatConditionRuleValue2.PredefinedName = "Red Fill, Red Text";
+            formatConditionRuleValue2.Value1 = 0D;
+            gridFormatRule2.Rule = formatConditionRuleValue2;
+            this.gridLookUpEdit1View.FormatRules.Add(gridFormatRule2);
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
@@ -717,12 +716,12 @@
             this.layoutControlItem8,
             this.emptySpaceItem5,
             this.emptySpaceItem3,
-            this.layoutControlItem14,
             this.layoutControlItem15,
             this.layoutControlItem16,
             this.layoutControlItem6,
             this.layoutControlItem13,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem14});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             this.layoutControlGroup4.Size = new System.Drawing.Size(773, 218);
@@ -834,30 +833,17 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(234, 72);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(169, 48);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(533, 48);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.txtPriceList_Details_LAB_Id;
-            this.layoutControlItem14.Location = new System.Drawing.Point(403, 72);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(364, 48);
-            this.layoutControlItem14.Text = "PriceList_Details_LAB_Id";
-            this.layoutControlItem14.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(117, 13);
-            this.layoutControlItem14.TextToControlDistance = 5;
-            this.layoutControlItem14.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.txtKHMau_CTXN_Id;
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(767, 24);
+            this.layoutControlItem15.Size = new System.Drawing.Size(383, 24);
             this.layoutControlItem15.Text = "KHMau_CTXN_Id";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(123, 13);
-            this.layoutControlItem15.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem16
             // 
@@ -900,6 +886,17 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(448, 24);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.txtPriceList_Details_LAB_Id;
+            this.layoutControlItem14.Location = new System.Drawing.Point(383, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(384, 24);
+            this.layoutControlItem14.Text = "PriceList_Details_LAB_Id";
+            this.layoutControlItem14.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(117, 13);
+            this.layoutControlItem14.TextToControlDistance = 5;
             // 
             // txtID
             // 
@@ -1083,12 +1080,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKHMau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();

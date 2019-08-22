@@ -99,10 +99,14 @@ namespace Production.Class
                 {
                     //Disable
                     this.Enabled = false;
-                    //
-                    R_PGM_LAB FRM = new Class.R_PGM_LAB();
+                    //Update 20190822
+                    //R_PGM_LAB FRM = new Class.R_PGM_LAB();
+                    //FRM.OBJ = this.OBJ;
+                    //FRM.Show();
+                    F_GiaoMau_LAB FRM = new Class.F_GiaoMau_LAB();
                     FRM.OBJ = this.OBJ;
                     FRM.Show();
+                    
                 }
                 else
                     XtraMessageBox.Show("Vui lòng click vào đầu dòng cần giao mẫu ");
