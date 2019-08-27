@@ -304,5 +304,10 @@ namespace Production.Class
             frm.Close();
             this.Visible = true;
         }
+
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

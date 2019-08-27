@@ -377,8 +377,10 @@ namespace Production.Class
                                 OBJLines.GroupTiter = int.Parse("0");
                                 OBJLines.Result = "";
                                 OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
-                                BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
-                            }
+                                //OBJLines.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
+                                //OBJLines.KHMau_BanGiao = row["KHMau_BanGiao"].ToString();
+                                //BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
+                        }
                             else
                             {
                                 OBJLines.Line_No = worksheet.Cells[i, "B"].Value;
@@ -391,9 +393,12 @@ namespace Production.Class
                                 OBJLines.GroupTiter = int.Parse(worksheet.Cells[i, "Z"].Value.ToString());
                                 OBJLines.Result = worksheet.Cells[i, "AA"].Value.ToString();
                                 OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
-                                BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
-                            }
+                                //OBJLines.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
+                                //OBJLines.KHMau_BanGiao = row["KHMau_BanGiao"].ToString();
+                                //BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
                         }
+                        BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
+                    }
                         break;
 
                     case "BIOCHEK":                        
@@ -429,7 +434,7 @@ namespace Production.Class
                                     OBJHeader.Max = Convert.ToDecimal(0.000);//float.Parse(worksheet.Cells[i, ""].Value);
                                     break;
                                 default:
-                                    OBJHeader.FileName = txtTenXetNghiem.Text = (string)worksheet.Cells[11, "J"].Value; ;
+                                    OBJHeader.FileName = txtTenXetNghiem.Text = (string)worksheet.Cells[11, "J"].Value;                                   
                                     OBJHeader.FilePath = openFileDialog1.FileName;
                                     OBJHeader.Case = "0";
                                     OBJHeader.Count = 0;
@@ -466,37 +471,41 @@ namespace Production.Class
                                 row_data = i+1;
                                 row_max = row_data + 24;
                             }                                
-                        }                        
-
+                        }
+                    //XtraMessageBox.Show(row_data.ToString());
                         for (int i = row_data ; i < row_max; i++)
                         {
-                        if(i < row_data + 4)
-                        {
-                            OBJLines.Line_No = worksheet.Cells[i, "B"].Value;
-                            string well = worksheet.Cells[i, "D"].Value.ToString();
-                            OBJLines.Row = well.Substring(0, 1);
-                            OBJLines.Col = well.Substring(1, well.Length - 1);
-                            OBJLines.OD = Decimal.Parse(string.Format("{0:##,##0.00}", worksheet.Cells[i, "M"].Value));
-                            OBJLines.SP = Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
-                            OBJLines.Titer = 0.000M;
-                            OBJLines.GroupTiter = 0;
-                            OBJLines.Result = "";
-                            OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
-                        }
-                        else
-                        {
-                            OBJLines.Line_No = worksheet.Cells[i, "B"].Value;
-                            string well = worksheet.Cells[i, "D"].Value.ToString();
-                            OBJLines.Row = well.Substring(0, 1);
-                            OBJLines.Col = well.Substring(1, well.Length - 1);
-                            OBJLines.OD = Decimal.Parse(string.Format("{0:##,##0.00}", worksheet.Cells[i, "M"].Value));
-                            OBJLines.SP = Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
-                            OBJLines.Titer = int.Parse(worksheet.Cells[i, "T"].Value.ToString());
-                            OBJLines.GroupTiter = int.Parse(worksheet.Cells[i, "X"].Value.ToString()) ;
-                            OBJLines.Result = worksheet.Cells[i, "AF"].Value;
-                            OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
-                        }                            
-                            BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
+                            if(i < row_data + 4)
+                            {
+                                OBJLines.Line_No = worksheet.Cells[i, "B"].Value;
+                                string well = worksheet.Cells[i, "F"].Value.ToString();
+                                OBJLines.Row = well.Substring(0, 1);
+                                OBJLines.Col = well.Substring(1, well.Length - 1);
+                                OBJLines.OD = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "M"].Value));
+                                OBJLines.SP = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "O"].Value));//Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
+                                OBJLines.Titer = 0.000M;
+                                OBJLines.GroupTiter = 0;
+                                OBJLines.Result = "";
+                                OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
+                                OBJLines.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
+                                OBJLines.KHMau_BanGiao = (string)worksheet.Cells[11, "J"].Value;
+                            }
+                            else
+                            {
+                                OBJLines.Line_No = worksheet.Cells[i, "B"].Value;
+                                string well = worksheet.Cells[i, "F"].Value.ToString();
+                                OBJLines.Row = well.Substring(0, 1);
+                                OBJLines.Col = well.Substring(1, well.Length - 1);
+                                OBJLines.OD = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "M"].Value));
+                                OBJLines.SP = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "O"].Value));//Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
+                                OBJLines.Titer = int.Parse(worksheet.Cells[i, "T"].Value.ToString());
+                                OBJLines.GroupTiter = int.Parse(worksheet.Cells[i, "X"].Value.ToString()) ;
+                                OBJLines.Result = worksheet.Cells[i, "AF"].Value;
+                                OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
+                                OBJLines.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
+                                OBJLines.KHMau_BanGiao = (string)worksheet.Cells[11, "J"].Value;
+                            }                            
+                                BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
                         }
                         break;
 

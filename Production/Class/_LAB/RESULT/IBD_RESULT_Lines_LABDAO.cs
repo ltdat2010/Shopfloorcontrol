@@ -13,13 +13,15 @@ namespace Production.Class
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Lines_LAB] " +
            " ([Line_No] " +
            " ,[IBD_RESULT_Header_LAB_ID] " +
+           " ,[CTXN_ID] " +
            " ,[OD] " +
            " ,[SP] " +
            " ,[Titer] " +
            " ,[GroupTiter] " +
            " ,[Row] " +
            " ,[Col] " +
-           " ,[Result] " +           
+           " ,[Result] " +
+           " ,[KHMau_BanGiao] " +
            " ,[CreatedDate] " +
            " ,[CreatedBy] " +
            " ,[Note] " +
@@ -27,13 +29,15 @@ namespace Production.Class
      " VALUES " +
            "(N'" + OBJ.Line_No +
            "'," + OBJ.IBD_RESULT_Header_LAB_ID +
+           "," + OBJ.CTXN_ID +
            "," + OBJ.OD +
            "," + OBJ.SP +
            "," + OBJ.Titer +
            "," + OBJ.GroupTiter +
            ",N'" + OBJ.Row +
            "',N'" + OBJ.Col +
-           "',N'" + OBJ.Result +           
+           "',N'" + OBJ.Result +
+           "',N'" + OBJ.KHMau_BanGiao +
            "',Convert(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
@@ -44,20 +48,22 @@ namespace Production.Class
         public void IBD_RESULT_Lines_LABDAO_UPDATE(IBD_RESULT_Lines_LAB OBJ)
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Lines_LAB] SET" +
-           "[Line_No]          = N'" + OBJ.Line_No + "'" +
+           "[Line_No]                               = N'" + OBJ.Line_No + "'" +
            ",[IBD_RESULT_Header_LAB_ID]             =" + OBJ.IBD_RESULT_Header_LAB_ID +
-           ",[OD]             =" + OBJ.OD +
-           ",[SP]              = " + OBJ.SP +
-           ",[Titer] = " + OBJ.Titer +
-           ",[GroupTiter]      = " + OBJ.GroupTiter +
-           ",[Row]      = N'" + OBJ.Row + "'" +
-           ",[Col]      = N'" + OBJ.Col + "'" +
-           ",[Result]      = N'" + OBJ.Result + "'" +           
-           ",[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
-           ",[CreatedBy] = N'" + OBJ.CreatedBy + "' " +
-           ",[Note] = N'" + OBJ.Note + "' " +
-           ",[Locked] = '" + OBJ.Locked + "' " +
-           " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
+           ",[CTXN_ID]                              =" + OBJ.CTXN_ID +
+           ",[OD]                                   =" + OBJ.OD +
+           ",[SP]                                   = " + OBJ.SP +
+           ",[Titer]                                = " + OBJ.Titer +
+           ",[GroupTiter]                           = " + OBJ.GroupTiter +
+           ",[Row]                                  = N'" + OBJ.Row + "'" +
+           ",[Col]                                  = N'" + OBJ.Col + "'" +
+           ",[Result]                               = N'" + OBJ.Result + "'" +
+           ",[KHMau_BanGiao]                        = N'" + OBJ.KHMau_BanGiao + "'" +
+           ",[CreatedDate]                          = Convert(datetime,'" + DateTime.Now + "',103)" +
+           ",[CreatedBy]                            = N'" + OBJ.CreatedBy + "' " +
+           ",[Note]                                 = N'" + OBJ.Note + "' " +
+           ",[Locked]                               = '" + OBJ.Locked + "' " +
+           " WHERE [ID]                             =" + OBJ.ID , CommandType.Text);
         }
 
         public void IBD_RESULT_Lines_LABDAO_DELETE(int ID)

@@ -16,9 +16,9 @@ namespace Production.Class
             DAO.MYCOTOXIN_RESULT_Header_UPDATE(OBJ);
         }
 
-        public void MYCOTOXIN_RESULT_Header_DELETE(MYCOTOXIN_RESULT_Header OBJ)
+        public void MYCOTOXIN_RESULT_Header_DELETE(int ID)
         {
-            DAO.MYCOTOXIN_RESULT_Header_DELETE(OBJ);
+            DAO.MYCOTOXIN_RESULT_Header_DELETE(ID);
         }
 
         public int MYCOTOXIN_RESULT_Header_ID(string FilePath)

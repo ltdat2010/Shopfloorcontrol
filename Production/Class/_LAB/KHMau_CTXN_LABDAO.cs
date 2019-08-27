@@ -9,6 +9,7 @@ namespace Production.Class
         {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] " +
            " ([KHMau] " +
+           //" ,[KHMau_GiaoMau] " +
            " ,[KHMau_ID] " +
            " ,[PriceList_Details_LAB_Id] " +
            //_PriceList_Details_LAB_Id
@@ -30,6 +31,7 @@ namespace Production.Class
            " ,[Locked]) " +
      " VALUES " +
            "(N'" + OBJ.KHMau +
+           //"','" + OBJ.KHMau_GiaoMau +
            "'," + OBJ.KHMau_ID +
            "," + OBJ.PriceList_Details_LAB_Id +
            "," + OBJ.CTXNID +

@@ -42,6 +42,11 @@
             this.tblKHMauLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuongDat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoPXN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCTXN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaBanGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -49,11 +54,6 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tbl_KHMau_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_KHMau_LABTableAdapter();
-            this.colKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSoLuongDat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSoPXN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCTXN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaBanGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -167,7 +167,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(868, 636);
             this.groupControl1.TabIndex = 6;
-            this.groupControl1.Text = "Thông tin giao mẫu";
+            this.groupControl1.Text = "Nọi dung giao mẫu";
             // 
             // layoutControl2
             // 
@@ -211,6 +211,46 @@
             this.colMaBanGiaoMau});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            // 
+            // colKHMau
+            // 
+            this.colKHMau.Caption = "Kí hiệu mẫu";
+            this.colKHMau.FieldName = "KHMau";
+            this.colKHMau.Name = "colKHMau";
+            this.colKHMau.Visible = true;
+            this.colKHMau.VisibleIndex = 1;
+            this.colKHMau.Width = 160;
+            // 
+            // colSoLuongDat
+            // 
+            this.colSoLuongDat.FieldName = "SoLuongDat";
+            this.colSoLuongDat.Name = "colSoLuongDat";
+            this.colSoLuongDat.Visible = true;
+            this.colSoLuongDat.VisibleIndex = 3;
+            this.colSoLuongDat.Width = 172;
+            // 
+            // colSoPXN
+            // 
+            this.colSoPXN.FieldName = "SoPXN";
+            this.colSoPXN.Name = "colSoPXN";
+            this.colSoPXN.Visible = true;
+            this.colSoPXN.VisibleIndex = 0;
+            this.colSoPXN.Width = 156;
+            // 
+            // colCTXN
+            // 
+            this.colCTXN.FieldName = "CTXN";
+            this.colCTXN.Name = "colCTXN";
+            this.colCTXN.Visible = true;
+            this.colCTXN.VisibleIndex = 2;
+            this.colCTXN.Width = 579;
+            // 
+            // colMaBanGiaoMau
+            // 
+            this.colMaBanGiaoMau.Caption = "Mã bàn giao mẫu";
+            this.colMaBanGiaoMau.Name = "colMaBanGiaoMau";
+            this.colMaBanGiaoMau.Visible = true;
+            this.colMaBanGiaoMau.VisibleIndex = 4;
             // 
             // layoutControlGroup2
             // 
@@ -265,46 +305,6 @@
             // tbl_KHMau_LABTableAdapter
             // 
             this.tbl_KHMau_LABTableAdapter.ClearBeforeFill = true;
-            // 
-            // colKHMau
-            // 
-            this.colKHMau.Caption = "Kí hiệu mẫu";
-            this.colKHMau.FieldName = "KHMau";
-            this.colKHMau.Name = "colKHMau";
-            this.colKHMau.Visible = true;
-            this.colKHMau.VisibleIndex = 1;
-            this.colKHMau.Width = 160;
-            // 
-            // colSoLuongDat
-            // 
-            this.colSoLuongDat.FieldName = "SoLuongDat";
-            this.colSoLuongDat.Name = "colSoLuongDat";
-            this.colSoLuongDat.Visible = true;
-            this.colSoLuongDat.VisibleIndex = 3;
-            this.colSoLuongDat.Width = 172;
-            // 
-            // colSoPXN
-            // 
-            this.colSoPXN.FieldName = "SoPXN";
-            this.colSoPXN.Name = "colSoPXN";
-            this.colSoPXN.Visible = true;
-            this.colSoPXN.VisibleIndex = 0;
-            this.colSoPXN.Width = 156;
-            // 
-            // colCTXN
-            // 
-            this.colCTXN.FieldName = "CTXN";
-            this.colCTXN.Name = "colCTXN";
-            this.colCTXN.Visible = true;
-            this.colCTXN.VisibleIndex = 2;
-            this.colCTXN.Width = 579;
-            // 
-            // colMaBanGiaoMau
-            // 
-            this.colMaBanGiaoMau.Caption = "Mã bàn giao mẫu";
-            this.colMaBanGiaoMau.Name = "colMaBanGiaoMau";
-            this.colMaBanGiaoMau.Visible = true;
-            this.colMaBanGiaoMau.VisibleIndex = 4;
             // 
             // F_GiaoMau_LAB
             // 

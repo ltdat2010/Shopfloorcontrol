@@ -330,7 +330,7 @@ namespace Production.Class
                 OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
                 OBJ.SoPXN = gridView1.GetFocusedRowCellValue("SoPXN").ToString();
 
-                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa phiếu xét nghiệm số : " + OBJ.SoPXN + " ?. Lưu ý là tất cả thông tin bao gồm cả kết quả, liên quan đến phiếu xét nghiệm này sẽ bị xóa. Bạn chắc chắn vẫn muốn xóa ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa phiếu nhận mẫu số : " + OBJ.SoPXN + " ?. Lưu ý là tất cả thông tin bao gồm cả kết quả, liên quan đến phiếu xét nghiệm này sẽ bị xóa. Bạn chắc chắn vẫn muốn xóa ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
                     //Ẩn sau khi xét CASCADE trong SYNC_NUTRICIELDataset.xsd

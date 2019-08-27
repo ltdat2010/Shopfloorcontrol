@@ -16,9 +16,9 @@ namespace Production.Class
             DAO.MYCOTOXIN_RESULT_StandardCurve_UPDATE(OBJ);
         }
 
-        public void MYCOTOXIN_RESULT_StandardCurve_DELETE(MYCOTOXIN_RESULT_StandardCurve OBJ)
+        public void MYCOTOXIN_RESULT_StandardCurve_DELETE(int ID)
         {
-            DAO.MYCOTOXIN_RESULT_StandardCurve_DELETE(OBJ);
+            DAO.MYCOTOXIN_RESULT_StandardCurve_DELETE(ID);
         }
 
         public DataTable MYCOTOXIN_RESULT_StandardCurve_SELECT(int ID, string acr)

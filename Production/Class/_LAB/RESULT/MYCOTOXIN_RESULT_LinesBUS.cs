@@ -17,9 +17,9 @@ namespace Production.Class
             DAO.MYCOTOXIN_RESULT_Lines_UPDATE(OBJ);
         }
 
-        public void MYCOTOXIN_RESULT_Lines_DELETE(MYCOTOXIN_RESULT_Lines OBJ)
+        public void MYCOTOXIN_RESULT_Lines_DELETE(int ID)
         {
-            DAO.MYCOTOXIN_RESULT_Lines_DELETE(OBJ);
+            DAO.MYCOTOXIN_RESULT_Lines_DELETE(ID);
         }
 
         public List<string> MYCOTOXIN_RESULT_Lines_List_Acronym(int ID)

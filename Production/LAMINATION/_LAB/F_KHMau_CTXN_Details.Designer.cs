@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.colDonGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -238,6 +238,7 @@
             this.action_EndForm1.Margin = new System.Windows.Forms.Padding(0);
             this.action_EndForm1.Name = "action_EndForm1";
             this.action_EndForm1.Size = new System.Drawing.Size(777, 29);
+            this.action_EndForm1.StateMenu = Production.Class.MenuState.Empty;
             this.action_EndForm1.TabIndex = 11;
             // 
             // layoutControlGroup3
@@ -502,14 +503,14 @@
             this.colPriceList_Details_LAB_Id,
             this.colDVMuaNgoaiCode});
             this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colDonGia;
-            gridFormatRule2.Name = "Format0";
-            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual;
-            formatConditionRuleValue2.PredefinedName = "Red Fill, Red Text";
-            formatConditionRuleValue2.Value1 = 0D;
-            gridFormatRule2.Rule = formatConditionRuleValue2;
-            this.gridLookUpEdit1View.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colDonGia;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual;
+            formatConditionRuleValue1.PredefinedName = "Red Fill, Red Text";
+            formatConditionRuleValue1.Value1 = 0D;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            this.gridLookUpEdit1View.FormatRules.Add(gridFormatRule1);
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;

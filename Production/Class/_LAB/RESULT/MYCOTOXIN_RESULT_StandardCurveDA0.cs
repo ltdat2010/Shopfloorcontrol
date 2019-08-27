@@ -45,10 +45,10 @@ namespace Production.Class
            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
         }
 
-        public void MYCOTOXIN_RESULT_StandardCurve_DELETE(MYCOTOXIN_RESULT_StandardCurve OBJ)
+        public void MYCOTOXIN_RESULT_StandardCurve_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_StandardCurve_LAB] " +
-            " WHERE [ID]='" + OBJ.ID + "'", CommandType.Text);
+            " WHERE [MYCOTOXIN_RESULT_Header_ID]=" + ID , CommandType.Text);
         }
 
         public DataTable MYCOTOXIN_RESULT_StandardCurve_SELECT(int ID, string acr)

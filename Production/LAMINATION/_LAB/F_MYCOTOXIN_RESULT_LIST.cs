@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
 
 namespace Production.Class
@@ -10,6 +11,7 @@ namespace Production.Class
 
         private MYCOTOXIN_RESULT_LinesBUS BUSLines = new MYCOTOXIN_RESULT_LinesBUS();
         private MYCOTOXIN_RESULT_HeaderBUS BUSHeader = new MYCOTOXIN_RESULT_HeaderBUS();
+        private MYCOTOXIN_RESULT_StandardCurveBUS BUSSCurve = new MYCOTOXIN_RESULT_StandardCurveBUS();
 
         private CSVFromToDataTable XLSX = new CSVFromToDataTable();
 
@@ -44,6 +46,7 @@ namespace Production.Class
                     this.tbl_MYCOTOXIN_RESULT_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Header_LAB);
                 };
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
+            action1.Delete(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Delete));
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
         }
 
@@ -62,6 +65,27 @@ namespace Production.Class
         //    }
         //    return theArray;
         //}
+        private void ItemClickEventHandler_Delete(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn muốn xóa kết quả  "+ gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString() + " ? .Lưu ý : Dữ liệu sẽ không thể phục hồi.", "Xác nhận xóa", MessageBoxButtons.YesNo) != DialogResult.No)
+            {
+                BUSHeader.MYCOTOXIN_RESULT_Header_DELETE(int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString()));
+                BUSLines.MYCOTOXIN_RESULT_Lines_DELETE(int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString()));
+                BUSSCurve.MYCOTOXIN_RESULT_StandardCurve_DELETE(int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString()));
+                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                args.AutoCloseOptions.Delay = 1000;
+                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                args.DefaultButtonIndex = 0;
+                args.Caption = "Thông báo ";
+                args.Text = "Xóa thành công. Thông báo này sẽ tự đóng sau 1 giây.";
+                args.Buttons = new DialogResult[] { DialogResult.OK };
+                XtraMessageBox.Show(args).ToString();
+
+                this.tbl_MYCOTOXIN_RESULT_StandardCurve_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_StandardCurve_LAB);
+                this.tbl_MYCOTOXIN_RESULT_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Header_LAB);
+                gridView1.BestFitColumns();
+            }
+        }
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             try
@@ -96,7 +120,8 @@ namespace Production.Class
             this.Visible = true;
 
             // Step 2 : Load lại data tren grid sau khi Add
-
+            this.tbl_MYCOTOXIN_RESULT_StandardCurve_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_StandardCurve_LAB);
+            this.tbl_MYCOTOXIN_RESULT_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Header_LAB);
             gridView1.BestFitColumns();
         }
 

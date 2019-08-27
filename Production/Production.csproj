@@ -1026,6 +1026,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_EN.cs">
+      <DependentUpon>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_EN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1034,6 +1040,13 @@
     </Compile>
     <Compile Include="RPT\_LAB\Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.cs">
       <DependentUpon>Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_VN.cs">
+      <DependentUpon>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_VN.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1308,6 +1321,12 @@
     </Compile>
     <Compile Include="R_Report\_LAB\R_AI_RESULT.Designer.cs">
       <DependentUpon>R_AI_RESULT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="R_Report\_LAB\R_IBD_RESULT_LAB_ANALYSISREPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_Report\_LAB\R_IBD_RESULT_LAB_ANALYSISREPORT.Designer.cs">
+      <DependentUpon>R_IBD_RESULT_LAB_ANALYSISREPORT.cs</DependentUpon>
     </Compile>
     <Compile Include="R_Report\_LAB\R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT.cs">
       <SubType>Form</SubType>
@@ -2024,6 +2043,10 @@
       <LastGenOutput>Rpt_AI_RESULT_LAB.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_EN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_EN.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.cs</LastGenOutput>
@@ -2031,6 +2054,11 @@
     <EmbeddedResource Include="RPT\_LAB\Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_VN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_VN.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_VN.rpt">
@@ -2212,6 +2240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="R_Report\_LAB\R_AI_RESULT.resx">
       <DependentUpon>R_AI_RESULT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="R_Report\_LAB\R_IBD_RESULT_LAB_ANALYSISREPORT.resx">
+      <DependentUpon>R_IBD_RESULT_LAB_ANALYSISREPORT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="R_Report\_LAB\R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT.resx">
       <DependentUpon>R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT.cs</DependentUpon>
@@ -2505,6 +2536,8 @@
   <ItemGroup>
     <Content Include="Huhtamaki Logo.ico" />
     <Content Include="if_archive_16601.ico" />
+    <None Include="Resources\olmixasialand_logo.png" />
+    <None Include="Resources\Viphavet_logo.png" />
     <None Include="Resources\defaultimage.png" />
   </ItemGroup>
   <ItemGroup>

@@ -56,6 +56,7 @@ namespace Production.Class
 
         private KHMau_LABBUS KHMauBUS = new KHMau_LABBUS();
         private KHMau_CTXN_LABBUS KHMauCTXNBUS = new KHMau_CTXN_LABBUS();
+        private KHMau_CTXN_RESULT_DETAILS_LABBUS BUS3 = new KHMau_CTXN_RESULT_DETAILS_LABBUS();
 
         public PXN_Header OBJ = new PXN_Header();
         private PXN_Details OBJ1 = new PXN_Details();
@@ -110,6 +111,8 @@ namespace Production.Class
                     gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
                     for (int i = 0; i < gridView2.DataRowCount; i++)
                         LstBool.Add(bool.Parse(gridView2.GetRowCellValue(i, "KetQua").ToString() == "1" ? "true" : "false"));
+                    
+
                 }
                 else if (isAction == "Add")
                 {
@@ -330,6 +333,7 @@ namespace Production.Class
             {
                 if (chkManually.CheckState == CheckState.Checked)
                 {
+                    dteNgayNhanMau.ReadOnly = false;
                     Automatically = false;
                     chkAutomatically.CheckState = CheckState.Unchecked;
                     chkGEN.ReadOnly = true;
@@ -656,6 +660,7 @@ namespace Production.Class
                 DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa mục có mã  : " + KHMAUOBJ.KHMau + " ? ", "Xóa kí hiệu mẫu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
+                    //BUS3.KHMau_CTXN_LABDAO_DELETE_ByKHMau_CTXN_ID();
                     KHMauCTXNBUS.KHMau_CTXN_LABDAO_DELETE_ByKHMau(KHMAUOBJ.KHMau);
                     KHMauBUS.KHMau_LABBUS_DELETE(KHMAUOBJ.KHMau);
                     XtraMessageBoxArgs args = new XtraMessageBoxArgs();

@@ -121,4 +121,10 @@
   <data name="defaultimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\defaultimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Viphavet_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Viphavet_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="olmixasialand_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\olmixasialand_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

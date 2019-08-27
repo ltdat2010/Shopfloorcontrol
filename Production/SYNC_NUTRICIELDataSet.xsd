@@ -3429,67 +3429,23 @@ WHERE        (tbl_KHMau_CTXN_LAB.KHMau = @KHMau)</CommandText>
               <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT
-tbl_KHMau_LAB.ID,
-tbl_KHMau_LAB.SoPXN,
-tbl_KHMau_LAB.CreatedDate,
-tbl_KHMau_LAB.CreatedBy,
-tbl_KHMau_LAB.Locked,
-tbl_KHMau_LAB.Note,
-tbl_KHMau_LAB.KHMau,
-tbl_KHMau_LAB.SoLuongKHMau,
-                         tbl_KHMau_LAB.DonViKHMau,
-tbl_KHMau_LAB.PhuongPhapBaoQuan,
-tbl_KHMau_LAB.VitriLuuKHMau,
-tbl_KHMau_LAB.NgayLuuKHMau,
-tbl_KHMau_LAB.NhanVienLuuKHMau,
-tbl_KHMau_LAB.NgayHuyKHMau,
-                         tbl_KHMau_LAB.TaiLieuHuyKHMau,
-tbl_KHMau_LAB.NhanVienHuyKHMau,
-tbl_KHMau_LAB.TrangThaiKHMau,
-tbl_KHMau_LAB.SoLuongHuyKHMau,
-tbl_KHMau_LAB.KHMau_KhachHang,
-tbl_ChiTieuXetNghiem_LAB.CTXN,
-                         tbl_ChiTieuXetNghiem_LAB.CTXNDG,
-tbl_ChiTieuXetNghiem_LAB.CTXNDGTA,
-tbl_ChiTieuXetNghiem_LAB.MinValue,
-tbl_ChiTieuXetNghiem_LAB.MaxValue,
-tbl_ChiTieuXetNghiem_LAB.UnitValue,
-tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
-tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG,
-tbl_NhomChiTieuXetNghiem_LAB.NhomChung,
-tbl_PhuongPhapXetNghiem_LAB.PPXN,
-tbl_PhuongPhapXetNghiem_LAB.PPXNDG,
-tbl_KHMau_CTXN_LAB.DonGia,
-tbl_KHMau_CTXN_LAB.ThanhTien,
-tbl_KHMau_CTXN_LAB.KetQua,
-tbl_KHMau_CTXN_LAB.SoLuongDat,
-tbl_KHMau_CTXN_LAB.VAT,
-                         tbl_KHMau_LAB.LoaiDVMauNuoc,
-tbl_KHMau_LAB.NgayLayMau,
-tbl_KHMau_LAB.LoaiMauGui,
-tbl_KHMau_LAB.TTMauGui,
-tbl_KHMau_LAB.VTLayMauDayChuong,
-tbl_KHMau_LAB.GioLayMauTuoi,
-tbl_KHMau_LAB.Khac,
-                         tbl_KHMau_LAB.SoLuongKHMauKhongDat,
-tbl_KHMau_LAB.LiDoKHMauKhongDat,
-tbl_KHMau_CTXN_LAB.SoLuongXN,
-tbl_KHMau_CTXN_LAB.DonGiaMuaNgoai,
-tbl_KHMau_CTXN_LAB.Discount,
-                         tbl_KHMau_CTXN_LAB.LoaiDiscount,
-tbl_KHMau_CTXN_LAB.NgayCoKetQua,
-tbl_KHMau_CTXN_LAB.DonGiaSauDiscount,
-tbl_PriceList_Details_LAB.DVMuaNgoaiCode,
-tbl_PriceList_Details_LAB.DVMuaNgoaiName,
-tbl_PriceList_Details_LAB.MuaNgoai
+                    <CommandText>SELECT        tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau, 
+                         tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, 
+                         tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_ChiTieuXetNghiem_LAB.CTXN, 
+                         tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, 
+                         tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, 
+                         tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_LAB.LoaiDVMauNuoc, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.LoaiMauGui, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, 
+                         tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_CTXN_LAB.DonGiaMuaNgoai, tbl_KHMau_CTXN_LAB.Discount, 
+                         tbl_KHMau_CTXN_LAB.LoaiDiscount, tbl_KHMau_CTXN_LAB.NgayCoKetQua, tbl_KHMau_CTXN_LAB.DonGiaSauDiscount, tbl_PriceList_Details_LAB.DVMuaNgoaiCode, tbl_PriceList_Details_LAB.DVMuaNgoaiName, 
+                         tbl_PriceList_Details_LAB.MuaNgoai, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.MotaMau
 FROM            tbl_PhuongPhapXetNghiem_LAB RIGHT OUTER JOIN
                          tbl_PriceList_Details_LAB INNER JOIN
                          tbl_KHMau_LAB INNER JOIN
                          tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau ON tbl_PriceList_Details_LAB.ID = tbl_KHMau_CTXN_LAB.PriceList_Details_LAB_Id INNER JOIN
                          tbl_ChiTieuXetNghiem_LAB ON tbl_PriceList_Details_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN
                          tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID ON tbl_PhuongPhapXetNghiem_LAB.ID = tbl_ChiTieuXetNghiem_LAB.PPXNID
-ORDER BY tbl_KHMau_LAB.KHMau ASC</CommandText>
+ORDER BY tbl_KHMau_LAB.KHMau</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -3550,73 +3506,13 @@ ORDER BY tbl_KHMau_LAB.KHMau ASC</CommandText>
               <Mapping SourceColumn="DVMuaNgoaiName" DataSetColumn="DVMuaNgoaiName" />
               <Mapping SourceColumn="MuaNgoai" DataSetColumn="MuaNgoai" />
               <Mapping SourceColumn="NgayCoKetQua" DataSetColumn="NgayCoKetQua" />
+              <Mapping SourceColumn="MotaMau" DataSetColumn="MotaMau" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>--SELECT
---tbl_KHMau_LAB.ID,
---tbl_KHMau_LAB.SoPXN,
---tbl_KHMau_LAB.CreatedDate,
---tbl_KHMau_LAB.CreatedBy,
---tbl_KHMau_LAB.Locked,
---tbl_KHMau_LAB.Note,
---tbl_KHMau_LAB.KHMau,
---tbl_KHMau_LAB.SoLuongKHMau,
---                         tbl_KHMau_LAB.DonViKHMau,
---tbl_KHMau_LAB.PhuongPhapBaoQuan,
---tbl_KHMau_LAB.VitriLuuKHMau,
---tbl_KHMau_LAB.NgayLuuKHMau,
---tbl_KHMau_LAB.NhanVienLuuKHMau,
---tbl_KHMau_LAB.NgayHuyKHMau,
---                         tbl_KHMau_LAB.TaiLieuHuyKHMau,
---tbl_KHMau_LAB.NhanVienHuyKHMau,
---tbl_KHMau_LAB.TrangThaiKHMau,
---tbl_KHMau_LAB.SoLuongHuyKHMau,
---tbl_KHMau_LAB.KHMau_KhachHang,
---tbl_ChiTieuXetNghiem_LAB.CTXN,
---                         tbl_ChiTieuXetNghiem_LAB.CTXNDG,
---tbl_ChiTieuXetNghiem_LAB.CTXNDGTA,
---tbl_ChiTieuXetNghiem_LAB.MinValue,
---tbl_ChiTieuXetNghiem_LAB.MaxValue,
---tbl_ChiTieuXetNghiem_LAB.UnitValue,
---tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
---tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG,
---tbl_NhomChiTieuXetNghiem_LAB.NhomChung,
---tbl_PhuongPhapXetNghiem_LAB.PPXN,
---tbl_PhuongPhapXetNghiem_LAB.PPXNDG,
---tbl_KHMau_CTXN_LAB.DonGia,
---tbl_KHMau_CTXN_LAB.ThanhTien,
---tbl_KHMau_CTXN_LAB.KetQua,
---tbl_KHMau_CTXN_LAB.SoLuongDat,
---tbl_KHMau_CTXN_LAB.VAT,
---                         tbl_KHMau_LAB.LoaiDVMauNuoc,
---tbl_KHMau_LAB.NgayLayMau,
---tbl_KHMau_LAB.LoaiMauGui,
---tbl_KHMau_LAB.TTMauGui,
---tbl_KHMau_LAB.VTLayMauDayChuong,
---tbl_KHMau_LAB.GioLayMauTuoi,
---tbl_KHMau_LAB.Khac,
---                         tbl_KHMau_LAB.SoLuongKHMauKhongDat,
---tbl_KHMau_LAB.LiDoKHMauKhongDat,
---tbl_KHMau_CTXN_LAB.SoLuongXN,
---tbl_KHMau_CTXN_LAB.DonGiaMuaNgoai,
---tbl_KHMau_CTXN_LAB.Discount,
---                         tbl_KHMau_CTXN_LAB.LoaiDiscount,
---tbl_KHMau_CTXN_LAB.DonGiaSauDiscount,
---tbl_PriceList_Details_LAB.DVMuaNgoaiCode,
---tbl_PriceList_Details_LAB.DVMuaNgoaiName,
---tbl_PriceList_Details_LAB.MuaNgoai
---FROM            tbl_PhuongPhapXetNghiem_LAB RIGHT OUTER JOIN
---                         tbl_PriceList_Details_LAB INNER JOIN
---                         tbl_KHMau_LAB INNER JOIN
---                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau ON tbl_PriceList_Details_LAB.ID = tbl_KHMau_CTXN_LAB.PriceList_Details_LAB_Id INNER JOIN
---                         tbl_ChiTieuXetNghiem_LAB ON tbl_PriceList_Details_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN
---                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID ON tbl_PhuongPhapXetNghiem_LAB.ID = tbl_ChiTieuXetNghiem_LAB.PPXNID
---WHERE        (tbl_KHMau_LAB.SoPXN = @SoPXN)
---ORDER BY tbl_KHMau_LAB.KHMau ASC
-SELECT
+                    <CommandText>/*SELECT
 tbl_KHMau_LAB.ID,
 tbl_KHMau_LAB.SoPXN,
 tbl_KHMau_LAB.CreatedDate,
@@ -3663,35 +3559,36 @@ tbl_KHMau_LAB.Khac,
 tbl_KHMau_LAB.LiDoKHMauKhongDat,
 tbl_KHMau_CTXN_LAB.SoLuongXN,
 tbl_KHMau_CTXN_LAB.DonGiaMuaNgoai,
-tbl_KHMau_CTXN_LAB.NgayCoKetQua,
 tbl_KHMau_CTXN_LAB.Discount,
                          tbl_KHMau_CTXN_LAB.LoaiDiscount,
-tbl_KHMau_CTXN_LAB.DonGiaSauDiscount
---tbl_PriceList_Details_LAB.DVMuaNgoaiCode,
---tbl_PriceList_Details_LAB.DVMuaNgoaiName,
---tbl_PriceList_Details_LAB.MuaNgoai
-FROM
-
-                         tbl_KHMau_LAB
-						 INNER JOIN
-                         tbl_KHMau_CTXN_LAB
-						 ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau
-						 --INNER JOIN
-						 --tbl_PriceList_Details_LAB
-						 --ON tbl_KHMau_CTXN_LAB.PriceList_Details_LAB_Id = tbl_PriceList_Details_LAB.ID
-						 INNER JOIN
-                         tbl_ChiTieuXetNghiem_LAB
-						 ON
-						 tbl_KHMau_CTXN_LAB.CTXNID= tbl_ChiTieuXetNghiem_LAB.ID
-						 --ON tbl_PriceList_Details_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID
-						 INNER JOIN
-                         tbl_NhomChiTieuXetNghiem_LAB
-						 ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID
-						 INNER JOIN
-						 tbl_PhuongPhapXetNghiem_LAB
-						 ON tbl_PhuongPhapXetNghiem_LAB.ID = tbl_ChiTieuXetNghiem_LAB.PPXNID
+tbl_KHMau_CTXN_LAB.DonGiaSauDiscount,
+tbl_PriceList_Details_LAB.DVMuaNgoaiCode,
+tbl_PriceList_Details_LAB.DVMuaNgoaiName,
+tbl_PriceList_Details_LAB.MuaNgoai
+FROM            tbl_PhuongPhapXetNghiem_LAB RIGHT OUTER JOIN
+                         tbl_PriceList_Details_LAB INNER JOIN
+                         tbl_KHMau_LAB INNER JOIN
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau ON tbl_PriceList_Details_LAB.ID = tbl_KHMau_CTXN_LAB.PriceList_Details_LAB_Id INNER JOIN
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_PriceList_Details_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID ON tbl_PhuongPhapXetNghiem_LAB.ID = tbl_ChiTieuXetNghiem_LAB.PPXNID
 WHERE        (tbl_KHMau_LAB.SoPXN = @SoPXN)
-ORDER BY tbl_KHMau_LAB.KHMau ASC</CommandText>
+ORDER BY tbl_KHMau_LAB.KHMau ASC*/
+SELECT        tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau, 
+                         tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, 
+                         tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_ChiTieuXetNghiem_LAB.CTXN, 
+                         tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, 
+                         tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, 
+                         tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_LAB.LoaiDVMauNuoc, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.LoaiMauGui, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, 
+                         tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_CTXN_LAB.DonGiaMuaNgoai, tbl_KHMau_CTXN_LAB.NgayCoKetQua, 
+                         tbl_KHMau_CTXN_LAB.Discount, tbl_KHMau_CTXN_LAB.LoaiDiscount, tbl_KHMau_CTXN_LAB.DonGiaSauDiscount, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_CTXN_LAB.ID AS KHMau_CTXN_ID
+FROM            tbl_KHMau_LAB INNER JOIN
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau INNER JOIN
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID INNER JOIN
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID INNER JOIN
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_PhuongPhapXetNghiem_LAB.ID = tbl_ChiTieuXetNghiem_LAB.PPXNID
+WHERE        (tbl_KHMau_LAB.SoPXN = @SoPXN)
+ORDER BY tbl_KHMau_LAB.KHMau</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="SoPXN" ColumnName="SoPXN" DataSourceName="SYNC_NUTRICIEL.dbo.tbl_KHMau_LAB" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@SoPXN" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="SoPXN" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -3701,19 +3598,21 @@ ORDER BY tbl_KHMau_LAB.KHMau ASC</CommandText>
               <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_GiaoMau_SoPXN" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_GiaoMau_SoPXN" GeneratorSourceName="FillBy_GiaoMau_SoPXN" GetMethodModifier="Public" GetMethodName="GetDataBy_GiaoMau_SoPXN" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_GiaoMau_SoPXN" UserSourceName="FillBy_GiaoMau_SoPXN">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc,tbl_LoaiDV_LAB.TenLoaiDV,tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, tbl_KHMau_LAB.KHMau,tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, 
-                          tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, 
-                          tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, 
-                          tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, 
-                          tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, 
-                          tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN 
-                          FROM            tbl_KHMau_LAB LEFT JOIN 
-                          tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT JOIN 
-                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT JOIN 
-                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT JOIN 
-                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT JOIN 
-                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
-                         WHERE tbl_KHMau_LAB.SoPXN =@SoPXN </CommandText>
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, 
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, 
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat
+FROM            tbl_KHMau_LAB LEFT OUTER JOIN
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID
+WHERE        (tbl_KHMau_LAB.SoPXN = @SoPXN)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="SoPXN" ColumnName="SoPXN" DataSourceName="SYNC_NUTRICIEL.dbo.tbl_KHMau_LAB" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@SoPXN" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="SoPXN" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -8265,6 +8164,13 @@ WHERE   tbl_HUYETTHANHHOC_STD_VALUE.TEST_SOFTWARE_CTXN_NAME = @TEST_SOFTWARE_CTX
               </xs:element>
               <xs:element name="MuaNgoai" msprop:Generator_ColumnVarNameInTable="columnMuaNgoai" msprop:Generator_ColumnPropNameInRow="MuaNgoai" msprop:Generator_ColumnPropNameInTable="MuaNgoaiColumn" msprop:Generator_UserColumnName="MuaNgoai" type="xs:boolean" minOccurs="0" />
               <xs:element name="NgayCoKetQua" msprop:Generator_ColumnVarNameInTable="columnNgayCoKetQua" msprop:Generator_ColumnPropNameInRow="NgayCoKetQua" msprop:Generator_ColumnPropNameInTable="NgayCoKetQuaColumn" msprop:Generator_UserColumnName="NgayCoKetQua" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MotaMau" msprop:Generator_ColumnVarNameInTable="columnMotaMau" msprop:Generator_ColumnPropNameInRow="MotaMau" msprop:Generator_ColumnPropNameInTable="MotaMauColumn" msprop:Generator_UserColumnName="MotaMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -104,6 +104,7 @@
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(1);
             this.groupControl1.Name = "groupControl1";
+            this.groupControl1.ShowCaption = false;
             this.groupControl1.Size = new System.Drawing.Size(1108, 542);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Danh sách phiếu xét nghiệm mẫu";
@@ -115,19 +116,19 @@
             this.layoutControl2.Controls.Add(this.gridControl1);
             this.layoutControl2.Controls.Add(this.action1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(1104, 518);
+            this.layoutControl2.Size = new System.Drawing.Size(1104, 538);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // btnGiaoMau
             // 
             this.btnGiaoMau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaoMau.ImageOptions.Image")));
-            this.btnGiaoMau.Location = new System.Drawing.Point(902, 476);
+            this.btnGiaoMau.Location = new System.Drawing.Point(902, 498);
             this.btnGiaoMau.Name = "btnGiaoMau";
-            this.btnGiaoMau.Size = new System.Drawing.Size(88, 38);
+            this.btnGiaoMau.Size = new System.Drawing.Size(88, 36);
             this.btnGiaoMau.StyleController = this.layoutControl2;
             this.btnGiaoMau.TabIndex = 22;
             this.btnGiaoMau.Text = "Giao mẫu";
@@ -135,9 +136,9 @@
             // btnViewProcess
             // 
             this.btnViewProcess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcess.ImageOptions.Image")));
-            this.btnViewProcess.Location = new System.Drawing.Point(994, 476);
+            this.btnViewProcess.Location = new System.Drawing.Point(994, 498);
             this.btnViewProcess.Name = "btnViewProcess";
-            this.btnViewProcess.Size = new System.Drawing.Size(106, 38);
+            this.btnViewProcess.Size = new System.Drawing.Size(106, 36);
             this.btnViewProcess.StyleController = this.layoutControl2;
             this.btnViewProcess.TabIndex = 21;
             this.btnViewProcess.Text = "View process";
@@ -145,10 +146,10 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.tblPXNHeaderBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(4, 46);
+            this.gridControl1.Location = new System.Drawing.Point(4, 48);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1096, 426);
+            this.gridControl1.Size = new System.Drawing.Size(1096, 446);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -190,6 +191,8 @@
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCoSoGuiMau, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colID
             // 
@@ -206,7 +209,7 @@
             this.colMaSoPXN.Name = "colMaSoPXN";
             this.colMaSoPXN.Visible = true;
             this.colMaSoPXN.VisibleIndex = 0;
-            this.colMaSoPXN.Width = 134;
+            this.colMaSoPXN.Width = 82;
             // 
             // colPXNDescription
             // 
@@ -221,9 +224,7 @@
             this.colCoSoGuiMau.FieldName = "CoSoGuiMau";
             this.colCoSoGuiMau.MinWidth = 23;
             this.colCoSoGuiMau.Name = "colCoSoGuiMau";
-            this.colCoSoGuiMau.Visible = true;
-            this.colCoSoGuiMau.VisibleIndex = 2;
-            this.colCoSoGuiMau.Width = 140;
+            this.colCoSoGuiMau.Width = 100;
             // 
             // colTenCoSoGuiMau
             // 
@@ -232,8 +233,8 @@
             this.colTenCoSoGuiMau.MinWidth = 23;
             this.colTenCoSoGuiMau.Name = "colTenCoSoGuiMau";
             this.colTenCoSoGuiMau.Visible = true;
-            this.colTenCoSoGuiMau.VisibleIndex = 3;
-            this.colTenCoSoGuiMau.Width = 140;
+            this.colTenCoSoGuiMau.VisibleIndex = 2;
+            this.colTenCoSoGuiMau.Width = 123;
             // 
             // colPhoneCoSoGuiMau
             // 
@@ -269,9 +270,7 @@
             this.colCoSoLayMau.FieldName = "CoSoLayMau";
             this.colCoSoLayMau.MinWidth = 23;
             this.colCoSoLayMau.Name = "colCoSoLayMau";
-            this.colCoSoLayMau.Visible = true;
-            this.colCoSoLayMau.VisibleIndex = 4;
-            this.colCoSoLayMau.Width = 140;
+            this.colCoSoLayMau.Width = 189;
             // 
             // colTenCoSoLayMau
             // 
@@ -280,8 +279,8 @@
             this.colTenCoSoLayMau.MinWidth = 23;
             this.colTenCoSoLayMau.Name = "colTenCoSoLayMau";
             this.colTenCoSoLayMau.Visible = true;
-            this.colTenCoSoLayMau.VisibleIndex = 5;
-            this.colTenCoSoLayMau.Width = 140;
+            this.colTenCoSoLayMau.VisibleIndex = 3;
+            this.colTenCoSoLayMau.Width = 519;
             // 
             // colPhoneCoSoLayMau
             // 
@@ -312,7 +311,7 @@
             this.colCreatedDate.Name = "colCreatedDate";
             this.colCreatedDate.Visible = true;
             this.colCreatedDate.VisibleIndex = 1;
-            this.colCreatedDate.Width = 96;
+            this.colCreatedDate.Width = 76;
             // 
             // colCreatedBy
             // 
@@ -328,8 +327,8 @@
             this.colNote.MinWidth = 23;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
-            this.colNote.VisibleIndex = 6;
-            this.colNote.Width = 140;
+            this.colNote.VisibleIndex = 4;
+            this.colNote.Width = 183;
             // 
             // colLock
             // 
@@ -338,8 +337,8 @@
             this.colLock.MinWidth = 23;
             this.colLock.Name = "colLock";
             this.colLock.Visible = true;
-            this.colLock.VisibleIndex = 7;
-            this.colLock.Width = 147;
+            this.colLock.VisibleIndex = 5;
+            this.colLock.Width = 65;
             // 
             // action1
             // 
@@ -349,7 +348,7 @@
             this.action1.Location = new System.Drawing.Point(4, 4);
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
-            this.action1.Size = new System.Drawing.Size(1096, 38);
+            this.action1.Size = new System.Drawing.Size(1096, 40);
             this.action1.StateMenu = Production.Class.MenuState.Empty;
             this.action1.TabIndex = 19;
             // 
@@ -365,7 +364,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1104, 518);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1104, 538);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem18
@@ -373,42 +372,42 @@
             this.layoutControlItem18.Control = this.action1;
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(1100, 42);
+            this.layoutControlItem18.Size = new System.Drawing.Size(1100, 44);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 42);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 44);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 430);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 450);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnViewProcess;
-            this.layoutControlItem2.Location = new System.Drawing.Point(990, 472);
+            this.layoutControlItem2.Location = new System.Drawing.Point(990, 494);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(110, 42);
+            this.layoutControlItem2.Size = new System.Drawing.Size(110, 40);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 472);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 494);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(898, 42);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(898, 40);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnGiaoMau;
-            this.layoutControlItem3.Location = new System.Drawing.Point(898, 472);
+            this.layoutControlItem3.Location = new System.Drawing.Point(898, 494);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(92, 42);
+            this.layoutControlItem3.Size = new System.Drawing.Size(92, 40);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -443,8 +442,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_PXN_List";
             this.Size = new System.Drawing.Size(1114, 548);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

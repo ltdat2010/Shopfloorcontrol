@@ -116,7 +116,6 @@ namespace Production.Class
                 txtDVMuaNgoaiName.Text = row["DVMuaNgoaiName"].ToString();
                 txtDVMuaNgoaiCode.Text = row["DVMuaNgoaiCode"].ToString();
                 txtPriceList_Details_LAB_Id.Text = row["PriceList_Details_LAB_Id"].ToString();
-
                 //}
             };
 

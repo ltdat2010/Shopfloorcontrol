@@ -5,8 +5,8 @@ using Production.Class._GEN;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Production.Class
@@ -88,8 +88,8 @@ namespace Production.Class
             };
             btnLoad.Click += (s, e) =>
             {
-                if (dxValidationProvider1.Validate() == true)
-                {
+                //if (dxValidationProvider1.Validate() == true)
+                //{
                     OpenFileDialog openFileDialog1 = new OpenFileDialog();
                     Excel.Application app = new Excel.Application();
                     Excel.Workbook wbook = null;
@@ -118,10 +118,10 @@ namespace Production.Class
                         Sheets sheets = wbook.Worksheets;
                         Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)sheets.get_Item(1);
                         //////////////////////////OBJHeader///////////////////////////////////////////////////////
-                        OBJHeader.Name = txtTenXetNghiem.Text;
+                        OBJHeader.Name = txtTenXetNghiem.Text = openFileDialog1.SafeFileName;
                         OBJHeader.FilePath = (string)worksheet.Cells[4, 2].Value;
                         OBJHeader.PlateNumber = (string)worksheet.Cells[6, 2].Value;
-                        OBJHeader.Date = worksheet.Cells[7, 2].Value;
+                        OBJHeader.Date = Convert.ToDateTime(worksheet.Cells[7, 2].Value);
                         OBJHeader.Time = "12:00:01"; //(string)worksheet.Cells[8, 2].Value;
                         OBJHeader.ReaderType = (string)worksheet.Cells[9, 2].Value;
                         OBJHeader.ReadingType = (string)worksheet.Cells[11, 2].Value;
@@ -159,7 +159,7 @@ namespace Production.Class
                                     if (worksheet.Cells[row, col].Value > 0)
                                     {
                                         OBJLines.OD = worksheet.Cells[row, col].Value;
-                                        OBJLines.KHMau = worksheet.Cells[row, col + 13].Value;
+                                        OBJLines.KHMau = worksheet.Cells[row, col + 13].Value.ToString();
                                         OBJLines.B_Bo = 0;
                                         OBJLines.HsoPhaLoang = 1;
                                         OBJLines.LogConc = 0;
@@ -178,7 +178,11 @@ namespace Production.Class
                         //splashScreenManager1.CloseWaitForm();
                     }
                     tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
-                }
+                //}
+                //DISPOSE EXCEL
+                //wbook.Close(false, Type.Missing, Type.Missing);
+                
+
             };
 
             btnCalc_Log.Click += (s, e) =>
@@ -308,7 +312,7 @@ namespace Production.Class
                         {
                             if (row["KHMau"].ToString() == "STD1")
                             {
-                                ConC_STD1 = double.Parse(row["ConC"].ToString());
+                                ConC_STD1 = 0; //double.Parse(row["ConC"].ToString());
 
                                 OD_STD1 = double.Parse(row["OD"].ToString());
 
@@ -365,7 +369,7 @@ namespace Production.Class
                     BUSSCurve.MYCOTOXIN_RESULT_StandardCurve_INSERT(OBJSCurve);
                     //i se chay tu dong STD_Row_Count+1 den het
                     //Muc dich giam thoi gian duyet va xu ly
-                    for (int i = STD_Row_Count + 1; i < gridView1.DataRowCount; i++)
+                    for (int i = STD_Row_Count; i < gridView1.DataRowCount; i++)
                     {
                         DataRow row = gridView1.GetDataRow(i);
                         if (row["Acronym"].ToString() == Arc)
@@ -388,6 +392,7 @@ namespace Production.Class
 
                             if (OBJLines.KHMau.Substring(0, 3) != "STD")
                             {
+                                OBJLines.OD = double.Parse(row["OD"].ToString());
                                 //Gia tri ConC(ng/ml) se an ko cho hien
                                 //Chi hien gia tri Conc(ng/g)
                                 //Khai bao he so y cua y=ax + b
@@ -395,7 +400,10 @@ namespace Production.Class
                                 //--------------HSoPhaLoang-----------------------------------------------
                                 OBJLines.HsoPhaLoang = double.Parse(row["HsoPhaLoang"].ToString());
                                 //--------------B/Bo-----------------------------------------------
-                                OBJLines.B_Bo = double.Parse(row["OD"].ToString()) * 100 / OD_STD1;
+                                //OBJLines.B_Bo = double.Parse(row["OD"].ToString()) * 100 / OD_STD1;
+                                //XtraMessageBox.Show("OD : " + OBJLines.OD.ToString());
+                                //XtraMessageBox.Show("OD_STD1 : "+ OD_STD1.ToString());
+                                OBJLines.B_Bo = OBJLines.OD * 100 / OD_STD1;
                                 //--------------logit(B/Bo)-----------------------------------------------
                                 OBJLines.LogitB_Bo = Math.Log10((OBJLines.B_Bo) / (B_Bo_STD1 - OBJLines.B_Bo));
                                 //--------------Tinh y tuong ung voi tung B/Bo ben tren-----------------------------------------------
@@ -405,8 +413,27 @@ namespace Production.Class
                                 OBJLines.Conc_ng_ml = Math.Pow(10, y);
                                 //--------------Conc(ng/g)-----------------------------------------------
                                 OBJLines.LogConc = 0;
-
-                                OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
+                                switch (row["Acronym"].ToString())
+                                {
+                                    case "FUMO":
+                                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 400;
+                                        break;
+                                    case "AFLA":
+                                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 5;
+                                        break;
+                                    case "ZEARA":
+                                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 25;
+                                        break;
+                                    case "DON":
+                                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
+                                        break;
+                                    case "T2":
+                                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
+                                        break;
+                                    case "OTA":
+                                        OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 4;
+                                        break;
+                                }                                
                                 //Update line <> STD
                                 BUSLines.MYCOTOXIN_RESULT_Lines_UPDATE(OBJLines);
                                 this.tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
@@ -426,6 +453,7 @@ namespace Production.Class
                 //args.Buttons = new DialogResult[] { DialogResult.OK };
                 //XtraMessageBox.Show(args).ToString();
                 tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
+
             };
 
             gridView1.RowClick += (s, e) =>

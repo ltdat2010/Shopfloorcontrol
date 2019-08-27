@@ -10,6 +10,7 @@ namespace Production.Class
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] " +
            " ([SoPXN] " +
            " ,[KHMau] " +
+           " ,[KHMau_GiaoMau] " +
            " ,[KHMau_KhachHang] " +
            " ,[SoLuongKHMau] " +
            " ,[SoLuongKHMauKhongDat] " +
@@ -42,6 +43,7 @@ namespace Production.Class
      " VALUES " +
            "(N'" + OBJ.SoPXN +
            "',N'" + OBJ.KHMau +
+           "',N'" + OBJ.KHMau_GiaoMau +
            "',N'" + OBJ.KHMau_KhachHang +
            "',N'" + OBJ.SoLuongKHMau +
            "',N'" + OBJ.SoLuongKHMauKhongDat +
@@ -79,6 +81,7 @@ namespace Production.Class
             Sql.ExecuteNonQuery("SAP", "    UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] SET " +
            " [SoPXN]                    =   N'" + OBJ.SoPXN + "'" +
            ",[KHMau]                    =   N'" + OBJ.KHMau + "'" +
+           //",[KHMau_GiaoMau]                    =   N'" + OBJ.KHMau_GiaoMau + "'" +
            ",[KHMau_KhachHang]          =   N'" + OBJ.KHMau_KhachHang + "'" +
            ",[SoLuongKHMau]             =   N'" + OBJ.SoLuongKHMau + "'" +
            ",[SoLuongKHMauKhongDat]             =   N'" + OBJ.SoLuongKHMauKhongDat + "'" +
