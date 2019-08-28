@@ -15,13 +15,12 @@ namespace Production.Class
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //2019-08-28
-            //DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.Skins.SkinManager.EnableFormSkins();
             //DevExpress.UserSkins.OfficeSkins.Register();
             //DevExpress.UserSkins.BonusSkins.Register();
             //DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;            
             //UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            DevExpress.Skins.SkinManager.Default.RegisterAssembly(typeof(DevExpress.UserSkins.BonusSkins).Assembly);
-            Application.Run(new frm_Main());
+             Application.Run(new frm_Main());
         }
     }
 }
