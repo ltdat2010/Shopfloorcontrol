@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_BaocaoDichTeDan_EXCEL));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -250,9 +250,9 @@
             this.barEditItem2.Id = 3;
             this.barEditItem2.Name = "barEditItem2";
             this.barEditItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem2.Text = "From Date";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.barEditItem2.SuperTip = superToolTip2;
+            toolTipItem3.Text = "From Date";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.barEditItem2.SuperTip = superToolTip3;
             // 
             // repositoryItemDateEdit1
             // 
@@ -271,9 +271,9 @@
             this.barEditItem3.Id = 4;
             this.barEditItem3.Name = "barEditItem3";
             this.barEditItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem3.Text = "To Date";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.barEditItem3.SuperTip = superToolTip3;
+            toolTipItem1.Text = "To Date";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barEditItem3.SuperTip = superToolTip1;
             // 
             // repositoryItemDateEdit2
             // 
@@ -325,7 +325,7 @@
             this.dataNavigator1.Buttons.Remove.Visible = false;
             this.dataNavigator1.Location = new System.Drawing.Point(4, 479);
             this.dataNavigator1.Name = "dataNavigator1";
-            this.dataNavigator1.Size = new System.Drawing.Size(203, 19);
+            this.dataNavigator1.Size = new System.Drawing.Size(203, 20);
             this.dataNavigator1.StyleController = this.layoutControl1;
             this.dataNavigator1.TabIndex = 3;
             this.dataNavigator1.Text = "dataNavigator1";
@@ -337,10 +337,10 @@
             this.layoutControl1.Controls.Add(this.action1);
             this.layoutControl1.Controls.Add(this.dataNavigator1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl1.Location = new System.Drawing.Point(2, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1040, 502);
+            this.layoutControl1.Size = new System.Drawing.Size(1040, 503);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -404,7 +404,7 @@
             // 
             // cmbTinh
             // 
-            this.cmbTinh.Location = new System.Drawing.Point(590, 50);
+            this.cmbTinh.Location = new System.Drawing.Point(607, 50);
             this.cmbTinh.MenuManager = this.barManager1;
             this.cmbTinh.Name = "cmbTinh";
             this.cmbTinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -473,14 +473,14 @@
             "Hải Phòng",
             "Hà Nội",
             "TP HCM"});
-            this.cmbTinh.Size = new System.Drawing.Size(188, 20);
+            this.cmbTinh.Size = new System.Drawing.Size(171, 20);
             this.cmbTinh.StyleController = this.layoutControl3;
             this.cmbTinh.TabIndex = 15;
             // 
             // glkKhuvuc
             // 
             this.glkKhuvuc.EditValue = "";
-            this.glkKhuvuc.Location = new System.Drawing.Point(590, 26);
+            this.glkKhuvuc.Location = new System.Drawing.Point(607, 26);
             this.glkKhuvuc.MenuManager = this.barManager1;
             this.glkKhuvuc.Name = "glkKhuvuc";
             this.glkKhuvuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -489,7 +489,7 @@
             this.glkKhuvuc.Properties.DisplayMember = "LOCName";
             this.glkKhuvuc.Properties.PopupView = this.gridLookUpEdit1View;
             this.glkKhuvuc.Properties.ValueMember = "Id";
-            this.glkKhuvuc.Size = new System.Drawing.Size(188, 20);
+            this.glkKhuvuc.Size = new System.Drawing.Size(171, 20);
             this.glkKhuvuc.StyleController = this.layoutControl3;
             this.glkKhuvuc.TabIndex = 14;
             // 
@@ -512,7 +512,7 @@
             // 
             // cmbNamTheoQuy
             // 
-            this.cmbNamTheoQuy.Location = new System.Drawing.Point(228, 50);
+            this.cmbNamTheoQuy.Location = new System.Drawing.Point(245, 50);
             this.cmbNamTheoQuy.MenuManager = this.barManager1;
             this.cmbNamTheoQuy.Name = "cmbNamTheoQuy";
             this.cmbNamTheoQuy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -533,14 +533,14 @@
             "2031",
             "2032",
             "2033"});
-            this.cmbNamTheoQuy.Size = new System.Drawing.Size(140, 20);
+            this.cmbNamTheoQuy.Size = new System.Drawing.Size(123, 20);
             this.cmbNamTheoQuy.StyleController = this.layoutControl3;
             this.cmbNamTheoQuy.TabIndex = 13;
             // 
             // cmbNamTheoNam
             // 
             this.cmbNamTheoNam.EditValue = "";
-            this.cmbNamTheoNam.Location = new System.Drawing.Point(421, 26);
+            this.cmbNamTheoNam.Location = new System.Drawing.Point(438, 26);
             this.cmbNamTheoNam.MenuManager = this.barManager1;
             this.cmbNamTheoNam.Name = "cmbNamTheoNam";
             this.cmbNamTheoNam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -561,24 +561,24 @@
             "2031",
             "2032",
             "2033"});
-            this.cmbNamTheoNam.Size = new System.Drawing.Size(116, 20);
+            this.cmbNamTheoNam.Size = new System.Drawing.Size(99, 20);
             this.cmbNamTheoNam.StyleController = this.layoutControl3;
             this.cmbNamTheoNam.TabIndex = 12;
             // 
             // cmbQuyTheoQuy
             // 
-            this.cmbQuyTheoQuy.Location = new System.Drawing.Point(228, 26);
+            this.cmbQuyTheoQuy.Location = new System.Drawing.Point(245, 26);
             this.cmbQuyTheoQuy.MenuManager = this.barManager1;
             this.cmbQuyTheoQuy.Name = "cmbQuyTheoQuy";
             this.cmbQuyTheoQuy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbQuyTheoQuy.Size = new System.Drawing.Size(140, 20);
+            this.cmbQuyTheoQuy.Size = new System.Drawing.Size(123, 20);
             this.cmbQuyTheoQuy.StyleController = this.layoutControl3;
             this.cmbQuyTheoQuy.TabIndex = 11;
             // 
             // cmbNamTheoThang
             // 
-            this.cmbNamTheoThang.Location = new System.Drawing.Point(52, 50);
+            this.cmbNamTheoThang.Location = new System.Drawing.Point(69, 50);
             this.cmbNamTheoThang.MenuManager = this.barManager1;
             this.cmbNamTheoThang.Name = "cmbNamTheoThang";
             this.cmbNamTheoThang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -599,13 +599,13 @@
             "2031",
             "2032",
             "2033"});
-            this.cmbNamTheoThang.Size = new System.Drawing.Size(123, 20);
+            this.cmbNamTheoThang.Size = new System.Drawing.Size(106, 20);
             this.cmbNamTheoThang.StyleController = this.layoutControl3;
             this.cmbNamTheoThang.TabIndex = 10;
             // 
             // cmbThangTheoThang
             // 
-            this.cmbThangTheoThang.Location = new System.Drawing.Point(52, 26);
+            this.cmbThangTheoThang.Location = new System.Drawing.Point(69, 26);
             this.cmbThangTheoThang.MenuManager = this.barManager1;
             this.cmbThangTheoThang.Name = "cmbThangTheoThang";
             this.cmbThangTheoThang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -623,7 +623,7 @@
             "10",
             "11",
             "12"});
-            this.cmbThangTheoThang.Size = new System.Drawing.Size(123, 20);
+            this.cmbThangTheoThang.Size = new System.Drawing.Size(106, 20);
             this.cmbThangTheoThang.StyleController = this.layoutControl3;
             this.cmbThangTheoThang.TabIndex = 9;
             // 
@@ -722,7 +722,7 @@
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(176, 24);
             this.layoutControlItem6.Text = "Tháng :";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(63, 14);
             // 
             // layoutControlItem7
             // 
@@ -731,7 +731,7 @@
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(176, 24);
             this.layoutControlItem7.Text = "Năm :";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(63, 14);
             // 
             // layoutControlItem11
             // 
@@ -740,7 +740,7 @@
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(193, 24);
             this.layoutControlItem11.Text = "Quý :";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(63, 14);
             // 
             // layoutControlItem12
             // 
@@ -749,7 +749,7 @@
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(169, 48);
             this.layoutControlItem12.Text = "Năm :";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(63, 14);
             // 
             // layoutControlItem13
             // 
@@ -758,7 +758,7 @@
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(193, 24);
             this.layoutControlItem13.Text = "Năm :";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(63, 14);
             // 
             // layoutControlItem14
             // 
@@ -767,7 +767,7 @@
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(241, 24);
             this.layoutControlItem14.Text = "Khu vực :";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(63, 14);
             // 
             // layoutControlItem15
             // 
@@ -776,7 +776,7 @@
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(241, 24);
             this.layoutControlItem15.Text = "Tỉnh :";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(46, 13);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(63, 14);
             // 
             // emptySpaceItem3
             // 
@@ -822,8 +822,6 @@
             this.action1.Appearance.Options.UseForeColor = true;
             this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.action1.Location = new System.Drawing.Point(4, 4);
-            this.action1.LookAndFeel.SkinName = "Caramel";
-            this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
             this.action1.Size = new System.Drawing.Size(1032, 47);
@@ -842,7 +840,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1040, 502);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1040, 503);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -851,7 +849,7 @@
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 475);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(207, 23);
+            this.layoutControlItem2.Size = new System.Drawing.Size(207, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -861,7 +859,7 @@
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(207, 475);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(829, 23);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(829, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
@@ -907,8 +905,6 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_BaocaoDichTeDan_EXCEL";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Size = new System.Drawing.Size(1048, 530);

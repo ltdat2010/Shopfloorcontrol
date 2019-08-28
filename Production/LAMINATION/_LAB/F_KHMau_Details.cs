@@ -51,15 +51,6 @@ namespace Production.Class
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
                 this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
-                //XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //args.AutoCloseOptions.Delay = 3000;
-                //args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //args.DefaultButtonIndex = 0;
-                //args.Caption = "Lưu ý ";
-                //args.Text = "Vui lòng click vào dòng cần chỉnh sửa . Thông báo này sẽ tự đóng sau 3 giây.";
-                //args.Buttons = new DialogResult[] { DialogResult.OK };
-                //XtraMessageBox.Show(args).ToString();
-
                 action_EndForm1.Add_Status(false);
                 action_EndForm1.Delete_Status(false);
                 action_EndForm1.Update_Status(false);

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_IBD_RESULT_Details));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
@@ -46,7 +45,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.lkedonvicungcapphanmem = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.tblHUYETTHANHHOCSTDVALUEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblHUYETTHANHHOCSTDVALUEBindingSource = new System.Windows.Forms.BindingSource();
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,13 +65,11 @@
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.tblIBDRESULTLinesLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblIBDRESULTLinesLABBindingSource = new System.Windows.Forms.BindingSource();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLine_No = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIBD_RESULT_Header_LAB_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colOD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTiter = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGroupTiter = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedBy = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,6 +79,8 @@
             this.colResult = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRow = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCol = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmbKhoa = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -101,7 +100,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Production.WaitForm1), true, true);
             this.tbl_HUYETTHANHHOC_STD_VALUETableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_HUYETTHANHHOC_STD_VALUETableAdapter();
             this.tbl_IBD_RESULT_Lines_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_IBD_RESULT_Lines_LABTableAdapter();
@@ -437,7 +436,7 @@
             this.txtLan.Properties.NullValuePrompt = "1";
             this.txtLan.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtLan.Properties.ReadOnly = true;
-            this.txtLan.Size = new System.Drawing.Size(50, 20);
+            this.txtLan.Size = new System.Drawing.Size(61, 20);
             this.txtLan.StyleController = this.layoutControl2;
             this.txtLan.TabIndex = 17;
             // 
@@ -487,8 +486,6 @@
             this.colID1,
             this.colLine_No,
             this.colIBD_RESULT_Header_LAB_ID,
-            this.colOD,
-            this.colSP,
             this.colTiter,
             this.colGroupTiter,
             this.colCreatedBy,
@@ -497,7 +494,10 @@
             this.colNote,
             this.colResult,
             this.colRow,
-            this.colCol});
+            this.colCol,
+            this.colOD,
+            this.colSP});
+            this.gridView1.DetailHeight = 325;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -521,22 +521,6 @@
             this.colIBD_RESULT_Header_LAB_ID.FieldName = "IBD_RESULT_Header_LAB_ID";
             this.colIBD_RESULT_Header_LAB_ID.Name = "colIBD_RESULT_Header_LAB_ID";
             this.colIBD_RESULT_Header_LAB_ID.Width = 178;
-            // 
-            // colOD
-            // 
-            this.colOD.FieldName = "OD";
-            this.colOD.Name = "colOD";
-            this.colOD.Visible = true;
-            this.colOD.VisibleIndex = 3;
-            this.colOD.Width = 89;
-            // 
-            // colSP
-            // 
-            this.colSP.FieldName = "SP";
-            this.colSP.Name = "colSP";
-            this.colSP.Visible = true;
-            this.colSP.VisibleIndex = 4;
-            this.colSP.Width = 89;
             // 
             // colTiter
             // 
@@ -599,6 +583,20 @@
             this.colCol.Visible = true;
             this.colCol.VisibleIndex = 2;
             this.colCol.Width = 68;
+            // 
+            // colOD
+            // 
+            this.colOD.FieldName = "OD";
+            this.colOD.Name = "colOD";
+            this.colOD.Visible = true;
+            this.colOD.VisibleIndex = 3;
+            // 
+            // colSP
+            // 
+            this.colSP.FieldName = "SP";
+            this.colSP.Name = "colSP";
+            this.colSP.Visible = true;
+            this.colSP.VisibleIndex = 4;
             // 
             // repositoryItemButtonEdit2
             // 
@@ -709,7 +707,7 @@
             this.layoutControlItem19.Control = this.txtLan;
             this.layoutControlItem19.Location = new System.Drawing.Point(90, 0);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(83, 24);
+            this.layoutControlItem19.Size = new System.Drawing.Size(94, 24);
             this.layoutControlItem19.Text = "Lần :";
             this.layoutControlItem19.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem19.TextSize = new System.Drawing.Size(24, 13);
@@ -718,9 +716,9 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(173, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(184, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(551, 24);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(540, 24);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -933,8 +931,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colID1;
         private DevExpress.XtraGrid.Columns.GridColumn colLine_No;
         private DevExpress.XtraGrid.Columns.GridColumn colIBD_RESULT_Header_LAB_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colOD;
-        private DevExpress.XtraGrid.Columns.GridColumn colSP;
         private DevExpress.XtraGrid.Columns.GridColumn colTiter;
         private DevExpress.XtraGrid.Columns.GridColumn colGroupTiter;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedBy;
@@ -944,5 +940,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colResult;
         private DevExpress.XtraGrid.Columns.GridColumn colRow;
         private DevExpress.XtraGrid.Columns.GridColumn colCol;
+        private DevExpress.XtraGrid.Columns.GridColumn colOD;
+        private DevExpress.XtraGrid.Columns.GridColumn colSP;
     }
 }

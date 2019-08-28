@@ -317,7 +317,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1085, 28);
+            this.barDockControlTop.Size = new System.Drawing.Size(1085, 26);
             // 
             // barDockControlBottom
             // 
@@ -331,21 +331,21 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 1);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 3);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1085, 28);
+            this.barDockControlRight.Location = new System.Drawing.Point(1085, 26);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 1);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 3);
             // 
             // Action_BK
             // 
-            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.Appearance.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.Appearance.Options.UseBackColor = true;
@@ -358,8 +358,6 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "Action_BK";
             this.Size = new System.Drawing.Size(1085, 29);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

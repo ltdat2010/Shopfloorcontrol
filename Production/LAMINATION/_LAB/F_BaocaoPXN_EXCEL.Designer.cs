@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_BaocaoPXN_EXCEL));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -224,9 +224,9 @@
             this.barEditItem2.Id = 3;
             this.barEditItem2.Name = "barEditItem2";
             this.barEditItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem2.Text = "From Date";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.barEditItem2.SuperTip = superToolTip2;
+            toolTipItem3.Text = "From Date";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.barEditItem2.SuperTip = superToolTip3;
             // 
             // repositoryItemDateEdit1
             // 
@@ -245,9 +245,9 @@
             this.barEditItem3.Id = 4;
             this.barEditItem3.Name = "barEditItem3";
             this.barEditItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem3.Text = "To Date";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.barEditItem3.SuperTip = superToolTip3;
+            toolTipItem1.Text = "To Date";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barEditItem3.SuperTip = superToolTip1;
             // 
             // repositoryItemDateEdit2
             // 
@@ -299,7 +299,7 @@
             this.dataNavigator1.Buttons.Remove.Visible = false;
             this.dataNavigator1.Location = new System.Drawing.Point(4, 479);
             this.dataNavigator1.Name = "dataNavigator1";
-            this.dataNavigator1.Size = new System.Drawing.Size(203, 19);
+            this.dataNavigator1.Size = new System.Drawing.Size(203, 20);
             this.dataNavigator1.StyleController = this.layoutControl1;
             this.dataNavigator1.TabIndex = 3;
             this.dataNavigator1.Text = "dataNavigator1";
@@ -311,10 +311,10 @@
             this.layoutControl1.Controls.Add(this.action1);
             this.layoutControl1.Controls.Add(this.dataNavigator1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl1.Location = new System.Drawing.Point(2, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1040, 502);
+            this.layoutControl1.Size = new System.Drawing.Size(1040, 503);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -371,21 +371,21 @@
             // 
             // chkPXNChuaTra
             // 
-            this.chkPXNChuaTra.Location = new System.Drawing.Point(338, 27);
+            this.chkPXNChuaTra.Location = new System.Drawing.Point(440, 27);
             this.chkPXNChuaTra.MenuManager = this.barManager1;
             this.chkPXNChuaTra.Name = "chkPXNChuaTra";
             this.chkPXNChuaTra.Properties.Caption = "Phiếu xét nghiệm chưa trả kết quả";
-            this.chkPXNChuaTra.Size = new System.Drawing.Size(190, 19);
+            this.chkPXNChuaTra.Size = new System.Drawing.Size(253, 19);
             this.chkPXNChuaTra.StyleController = this.layoutControl3;
             this.chkPXNChuaTra.TabIndex = 8;
             // 
             // chkPXNDaTra
             // 
-            this.chkPXNDaTra.Location = new System.Drawing.Point(156, 27);
+            this.chkPXNDaTra.Location = new System.Drawing.Point(197, 27);
             this.chkPXNDaTra.MenuManager = this.barManager1;
             this.chkPXNDaTra.Name = "chkPXNDaTra";
             this.chkPXNDaTra.Properties.Caption = "Phiếu xét nghiệm đã trả kết quả";
-            this.chkPXNDaTra.Size = new System.Drawing.Size(178, 19);
+            this.chkPXNDaTra.Size = new System.Drawing.Size(239, 19);
             this.chkPXNDaTra.StyleController = this.layoutControl3;
             this.chkPXNDaTra.TabIndex = 7;
             // 
@@ -395,35 +395,35 @@
             this.chkPXNNhan.MenuManager = this.barManager1;
             this.chkPXNNhan.Name = "chkPXNNhan";
             this.chkPXNNhan.Properties.Caption = "Phiếu xét nghiệm đã nhận";
-            this.chkPXNNhan.Size = new System.Drawing.Size(149, 19);
+            this.chkPXNNhan.Size = new System.Drawing.Size(190, 19);
             this.chkPXNNhan.StyleController = this.layoutControl3;
             this.chkPXNNhan.TabIndex = 6;
             // 
             // dteToDate
             // 
             this.dteToDate.EditValue = null;
-            this.dteToDate.Location = new System.Drawing.Point(313, 3);
+            this.dteToDate.Location = new System.Drawing.Point(408, 3);
             this.dteToDate.MenuManager = this.barManager1;
             this.dteToDate.Name = "dteToDate";
             this.dteToDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteToDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteToDate.Size = new System.Drawing.Size(215, 20);
+            this.dteToDate.Size = new System.Drawing.Size(285, 20);
             this.dteToDate.StyleController = this.layoutControl3;
             this.dteToDate.TabIndex = 5;
             // 
             // dteFrmDate
             // 
             this.dteFrmDate.EditValue = null;
-            this.dteFrmDate.Location = new System.Drawing.Point(60, 3);
+            this.dteFrmDate.Location = new System.Drawing.Point(76, 3);
             this.dteFrmDate.MenuManager = this.barManager1;
             this.dteFrmDate.Name = "dteFrmDate";
             this.dteFrmDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFrmDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFrmDate.Size = new System.Drawing.Size(192, 20);
+            this.dteFrmDate.Size = new System.Drawing.Size(255, 20);
             this.dteFrmDate.StyleController = this.layoutControl3;
             this.dteFrmDate.TabIndex = 4;
             // 
@@ -448,25 +448,25 @@
             this.layoutControlItem6.Control = this.dteFrmDate;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(253, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(332, 24);
             this.layoutControlItem6.Text = "Từ ngày :";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.dteToDate;
-            this.layoutControlItem7.Location = new System.Drawing.Point(253, 0);
+            this.layoutControlItem7.Location = new System.Drawing.Point(332, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(276, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(362, 24);
             this.layoutControlItem7.Text = "Đến ngày :";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(70, 14);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.chkPXNNhan;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(153, 23);
+            this.layoutControlItem8.Size = new System.Drawing.Size(194, 23);
             this.layoutControlItem8.Text = "Phiếu xét nghiệm đã nhận";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
@@ -474,27 +474,27 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.chkPXNDaTra;
-            this.layoutControlItem9.Location = new System.Drawing.Point(153, 24);
+            this.layoutControlItem9.Location = new System.Drawing.Point(194, 24);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(182, 23);
+            this.layoutControlItem9.Size = new System.Drawing.Size(243, 23);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.chkPXNChuaTra;
-            this.layoutControlItem10.Location = new System.Drawing.Point(335, 24);
+            this.layoutControlItem10.Location = new System.Drawing.Point(437, 24);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(194, 23);
+            this.layoutControlItem10.Size = new System.Drawing.Size(257, 23);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(529, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(694, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(491, 47);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(326, 47);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // Root
@@ -533,8 +533,6 @@
             this.action1.Appearance.Options.UseForeColor = true;
             this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.action1.Location = new System.Drawing.Point(4, 4);
-            this.action1.LookAndFeel.SkinName = "Caramel";
-            this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
             this.action1.Size = new System.Drawing.Size(1032, 46);
@@ -553,7 +551,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1040, 502);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1040, 503);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -562,7 +560,7 @@
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 475);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(207, 23);
+            this.layoutControlItem2.Size = new System.Drawing.Size(207, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -572,7 +570,7 @@
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(207, 475);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(829, 23);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(829, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
@@ -618,8 +616,6 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_BaocaoPXN_EXCEL";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Size = new System.Drawing.Size(1048, 530);

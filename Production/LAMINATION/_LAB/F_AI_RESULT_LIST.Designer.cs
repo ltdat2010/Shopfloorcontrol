@@ -315,9 +315,9 @@
             this.dataNavigator1.Buttons.CancelEdit.Visible = false;
             this.dataNavigator1.Buttons.EndEdit.Visible = false;
             this.dataNavigator1.Buttons.Remove.Visible = false;
-            this.dataNavigator1.Location = new System.Drawing.Point(4, 480);
+            this.dataNavigator1.Location = new System.Drawing.Point(4, 479);
             this.dataNavigator1.Name = "dataNavigator1";
-            this.dataNavigator1.Size = new System.Drawing.Size(203, 19);
+            this.dataNavigator1.Size = new System.Drawing.Size(203, 20);
             this.dataNavigator1.StyleController = this.layoutControl1;
             this.dataNavigator1.TabIndex = 3;
             this.dataNavigator1.Text = "dataNavigator1";
@@ -346,7 +346,7 @@
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit2});
-            this.gridControl2.Size = new System.Drawing.Size(1032, 213);
+            this.gridControl2.Size = new System.Drawing.Size(1032, 212);
             this.gridControl2.TabIndex = 11;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -703,9 +703,9 @@
             // 
             this.layoutControlItem2.Control = this.dataNavigator1;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 476);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 475);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(207, 23);
+            this.layoutControlItem2.Size = new System.Drawing.Size(207, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -713,9 +713,9 @@
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(207, 476);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(207, 475);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(829, 23);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(829, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
@@ -741,7 +741,7 @@
             this.layoutControlItem3.Control = this.gridControl2;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 259);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(1036, 217);
+            this.layoutControlItem3.Size = new System.Drawing.Size(1036, 216);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -774,8 +774,6 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.LookAndFeel.SkinName = "Office 2016 Colorful";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_AI_RESULT_LIST";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Size = new System.Drawing.Size(1048, 530);

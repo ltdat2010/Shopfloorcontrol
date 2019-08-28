@@ -105,6 +105,7 @@ namespace Production.Class
                     txtLan.Text = "1";
                 }
             };
+
             btnLoad.Click += (s, e) =>
             {
                 if (dxValidationProvider1.Validate() == true)
@@ -482,7 +483,7 @@ namespace Production.Class
                                 OBJLines.Row = well.Substring(0, 1);
                                 OBJLines.Col = well.Substring(1, well.Length - 1);
                                 OBJLines.OD = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "M"].Value));
-                                OBJLines.SP = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "O"].Value));//Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
+                                OBJLines.SP = Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
                                 OBJLines.Titer = 0.000M;
                                 OBJLines.GroupTiter = 0;
                                 OBJLines.Result = "";
@@ -497,7 +498,7 @@ namespace Production.Class
                                 OBJLines.Row = well.Substring(0, 1);
                                 OBJLines.Col = well.Substring(1, well.Length - 1);
                                 OBJLines.OD = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "M"].Value));
-                                OBJLines.SP = Decimal.Parse(string.Format("{0:##,##0.000}", worksheet.Cells[i, "O"].Value));//Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
+                                OBJLines.SP = Convert.ToDecimal(worksheet.Cells[i, "O"].Value, new CultureInfo("en-US"));
                                 OBJLines.Titer = int.Parse(worksheet.Cells[i, "T"].Value.ToString());
                                 OBJLines.GroupTiter = int.Parse(worksheet.Cells[i, "X"].Value.ToString()) ;
                                 OBJLines.Result = worksheet.Cells[i, "AF"].Value;

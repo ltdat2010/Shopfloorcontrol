@@ -28,27 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_CHITIEUXETNGHIEM));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtIdentity = new DevExpress.XtraEditors.TextEdit();
+            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.tblChiTieuXetNghiemLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblChiTieuXetNghiemLABBindingSource = new System.Windows.Forms.BindingSource();
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dataNavigator1 = new DevExpress.XtraEditors.DataNavigator();
-            this.action1 = new Production.Class.Action();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tbl_ChiTieuXetNghiem_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_ChiTieuXetNghiem_LABTableAdapter();
-            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.colMinValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaxValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitValue = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,14 +57,25 @@
             this.colMaCTXN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colExpr1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAcronym = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtIdentity = new DevExpress.XtraEditors.TextEdit();
+            this.dataNavigator1 = new DevExpress.XtraEditors.DataNavigator();
+            this.action1 = new Production.Class.Action();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tbl_ChiTieuXetNghiem_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_ChiTieuXetNghiem_LABTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblChiTieuXetNghiemLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).BeginInit();
@@ -84,12 +84,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -126,6 +125,29 @@
             this.layoutControl2.Size = new System.Drawing.Size(1102, 516);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // txtIdentity
+            // 
+            this.txtIdentity.Location = new System.Drawing.Point(261, 490);
+            this.txtIdentity.Name = "txtIdentity";
+            this.txtIdentity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdentity.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtIdentity.Properties.Appearance.Options.UseFont = true;
+            this.txtIdentity.Properties.Appearance.Options.UseForeColor = true;
+            this.txtIdentity.Properties.ReadOnly = true;
+            this.txtIdentity.Size = new System.Drawing.Size(127, 20);
+            this.txtIdentity.StyleController = this.layoutControl2;
+            this.txtIdentity.TabIndex = 23;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.ImageOptions.Image")));
+            this.btnUpload.Location = new System.Drawing.Point(4, 490);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(75, 22);
+            this.btnUpload.StyleController = this.layoutControl2;
+            this.btnUpload.TabIndex = 22;
+            this.btnUpload.Text = "Upload";
             // 
             // gridControl1
             // 
@@ -183,126 +205,6 @@
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // dataNavigator1
-            // 
-            this.dataNavigator1.Location = new System.Drawing.Point(4, 467);
-            this.dataNavigator1.Name = "dataNavigator1";
-            this.dataNavigator1.Size = new System.Drawing.Size(228, 19);
-            this.dataNavigator1.StyleController = this.layoutControl2;
-            this.dataNavigator1.TabIndex = 20;
-            this.dataNavigator1.Text = "dataNavigator1";
-            // 
-            // action1
-            // 
-            this.action1.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.action1.Appearance.Options.UseForeColor = true;
-            this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.action1.Location = new System.Drawing.Point(4, 4);
-            this.action1.LookAndFeel.SkinName = "Caramel";
-            this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.action1.Margin = new System.Windows.Forms.Padding(1);
-            this.action1.Name = "action1";
-            this.action1.Size = new System.Drawing.Size(1094, 37);
-            this.action1.StateMenu = Production.Class.MenuState.Empty;
-            this.action1.TabIndex = 19;
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup2.GroupBordersVisible = false;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem18,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.emptySpaceItem1,
-            this.layoutControlItem5});
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1102, 516);
-            this.layoutControlGroup2.TextVisible = false;
-            // 
-            // layoutControlItem18
-            // 
-            this.layoutControlItem18.Control = this.action1;
-            this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(1098, 41);
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem18.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.dataNavigator1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 463);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1098, 23);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.gridControl1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 41);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1098, 422);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1114, 548);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.groupControl1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1110, 544);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // tbl_ChiTieuXetNghiem_LABTableAdapter
-            // 
-            this.tbl_ChiTieuXetNghiem_LABTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.ImageOptions.Image")));
-            this.btnUpload.Location = new System.Drawing.Point(4, 490);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(75, 22);
-            this.btnUpload.StyleController = this.layoutControl2;
-            this.btnUpload.TabIndex = 22;
-            this.btnUpload.Text = "Upload";
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.btnUpload;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 486);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(79, 26);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(79, 26);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(79, 26);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(311, 486);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(787, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // colMinValue
             // 
@@ -417,27 +319,122 @@
             this.colAcronym.VisibleIndex = 4;
             this.colAcronym.Width = 44;
             // 
-            // txtIdentity
+            // dataNavigator1
             // 
-            this.txtIdentity.Location = new System.Drawing.Point(261, 490);
-            this.txtIdentity.Name = "txtIdentity";
-            this.txtIdentity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentity.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.txtIdentity.Properties.Appearance.Options.UseFont = true;
-            this.txtIdentity.Properties.Appearance.Options.UseForeColor = true;
-            this.txtIdentity.Properties.ReadOnly = true;
-            this.txtIdentity.Size = new System.Drawing.Size(50, 20);
-            this.txtIdentity.StyleController = this.layoutControl2;
-            this.txtIdentity.TabIndex = 23;
+            this.dataNavigator1.Location = new System.Drawing.Point(4, 467);
+            this.dataNavigator1.Name = "dataNavigator1";
+            this.dataNavigator1.Size = new System.Drawing.Size(228, 19);
+            this.dataNavigator1.StyleController = this.layoutControl2;
+            this.dataNavigator1.TabIndex = 20;
+            this.dataNavigator1.Text = "dataNavigator1";
+            // 
+            // action1
+            // 
+            this.action1.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.action1.Appearance.Options.UseForeColor = true;
+            this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.action1.Location = new System.Drawing.Point(4, 4);
+            this.action1.Margin = new System.Windows.Forms.Padding(1);
+            this.action1.Name = "action1";
+            this.action1.Size = new System.Drawing.Size(1094, 37);
+            this.action1.StateMenu = Production.Class.MenuState.Empty;
+            this.action1.TabIndex = 19;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem18,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.emptySpaceItem1,
+            this.layoutControlItem5});
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1102, 516);
+            this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.action1;
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(1098, 41);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem18.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.dataNavigator1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 463);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1098, 23);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.gridControl1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 41);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(1098, 422);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.btnUpload;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 486);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(79, 26);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(79, 26);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(79, 26);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(388, 486);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(710, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtIdentity;
             this.layoutControlItem5.Location = new System.Drawing.Point(79, 486);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(232, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(309, 26);
             this.layoutControlItem5.Text = "ID khi thêm dòng mới bắt đầu từ số :";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(175, 13);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem4});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1114, 548);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.groupControl1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(1110, 544);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // tbl_ChiTieuXetNghiem_LABTableAdapter
+            // 
+            this.tbl_ChiTieuXetNghiem_LABTableAdapter.ClearBeforeFill = true;
             // 
             // F_CHITIEUXETNGHIEM
             // 
@@ -456,6 +453,7 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdentity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblChiTieuXetNghiemLABBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).EndInit();
@@ -464,12 +462,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdentity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
