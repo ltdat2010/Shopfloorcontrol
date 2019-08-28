@@ -41,6 +41,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UC_Base";
             this.Size = new System.Drawing.Size(651, 330);
             this.ResumeLayout(false);
