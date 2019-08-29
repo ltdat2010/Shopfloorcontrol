@@ -68,6 +68,8 @@ namespace Production.Class
            ",[SoLuongDat]                    = N'" + OBJ.SoLuongDat + "'" +
            ",[SoLuongXN]                    = N'" + OBJ.SoLuongXN + "'" +
            ",[VAT]                    = " + OBJ.VAT +
+           ",[DaTraKetQua]                    = N'" + OBJ.DaTraKetQua + "'" +
+           ",[NgayTraKetQua]                    = CONVERT(datetime,'" + OBJ.NgayTraKetQua + "',103)" +
            //"[NCTXNID]                    = " + OBJ.NCTXNID +
            ",[CreatedDate]              = CONVERT(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy]                = N'" + OBJ.CreatedBy + "' " +

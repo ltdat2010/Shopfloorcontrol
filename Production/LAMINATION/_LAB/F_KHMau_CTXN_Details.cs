@@ -92,7 +92,7 @@ namespace Production.Class
                     //layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     //btnCancel.Enabled = false;
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-
+                    
                     //txtSoLuongXN.Text = KHMAUOBJ.SoLuongKHMau;
                     //KH_Mau
                     Set4Controls_Header();
@@ -201,6 +201,7 @@ namespace Production.Class
                         //KHMAUCTXNOBJ.KHMau_ID = int.Parse(view.GetRowCellValue(view.FocusedRowHandle, "KHMau_ID").ToString());
                         KHMAUCTXNOBJ.KHMau_ID = int.Parse(txtID.Text);
                         KHMAUCTXNOBJ.PriceList_Details_LAB_Id = int.Parse(txtPriceList_Details_LAB_Id.Text);
+                        KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID;
                         //XtraMessageBox.Show(KHMAUCTXNOBJ.KHMau_ID.ToString());
                         KHMAUCTXNOBJ.CTXNID = int.Parse(lkeCTXN.EditValue.ToString());
                         //XtraMessageBox.Show(lkeCTXN.EditValue.ToString());
@@ -329,6 +330,7 @@ namespace Production.Class
             KHMAUCTXNOBJ.DonGiaMuaNgoai = float.Parse(txtDonGiaMuaNgoai.Text.ToString());
             KHMAUCTXNOBJ.VAT = float.Parse(txtVAT.Text.ToString());
             KHMAUCTXNOBJ.PriceList_Details_LAB_Id = int.Parse(txtPriceList_Details_LAB_Id.Text);
+            KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID ;
         }
 
         public void ResetControl()

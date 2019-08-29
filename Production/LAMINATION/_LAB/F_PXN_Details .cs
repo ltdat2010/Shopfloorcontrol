@@ -223,7 +223,8 @@ namespace Production.Class
             {
                 if (LstBool.Contains(false) != true)
                 {
-                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất kết quả ? . Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất kết quả cho kí kiệu mẫu : "+ gridView2.GetFocusedRowCellValue("KHMau").ToString() +" với chỉ tiêu xét nghiệm ? . " +
+                        "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dlDel == DialogResult.Yes)
                     {
                         BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(txtSoPXN.Text);

@@ -29,8 +29,8 @@ namespace Production.Class
         public string LoaiDiscount { get; set; }
         public float DonGiaSauDiscount { get; set; }
         public int PriceList_Details_LAB_Id { get; set; }
-        public string NgayCoKetQua { get; set; }
-
-
+        public DateTime NgayCoKetQua { get; set; }
+        public bool DaTraKetQua { get; set; }
+        public DateTime NgayTraKetQua { get; set; }
     }
 }

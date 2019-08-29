@@ -458,9 +458,9 @@ namespace Production.Class
                 KHMAUOBJ.KHMau = txtKHMau.Text;
                 Set4Object_Header();
                 Set4Object_Details();
-                BUS1.KHMau_LABBUS_INSERT(KHMAUOBJ);
+                KHMAUOBJ.ID = BUS1.KHMau_LABBUS_INSERT(KHMAUOBJ);
+                txtID.Text = KHMAUOBJ.ID.ToString();
                 gridControl1.DataSource = this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB, txtKHMau.Text);
-                txtID.Text = BUS1.MAX_KHMau_LABBUS_ID().ToString();
                 isAction = "Edit";
             }
             //throw new NotImplementedException();

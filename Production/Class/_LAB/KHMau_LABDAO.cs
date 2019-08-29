@@ -5,7 +5,7 @@ namespace Production.Class
 {
     public class KHMau_LABDAO
     {
-        public void KHMau_LABDAO_INSERT(KHMau_LAB OBJ)
+        public int KHMau_LABDAO_INSERT(KHMau_LAB OBJ)
         {
             Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] " +
            " ([SoPXN] " +
@@ -74,6 +74,9 @@ namespace Production.Class
            //"',CONVERT(datetime,'" + DateTime.Now + "',103)" +
            "',N'" + OBJ.GioLayMauTuoi +
            "')", CommandType.Text);
+
+            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] WHERE KHMau='"+ OBJ.KHMau + "'", CommandType.Text);
+            return int.Parse(dt.Rows[0]["ID"].ToString());
         }
 
         public void KHMau_LABDAO_UPDATE(KHMau_LAB OBJ)
@@ -130,13 +133,7 @@ namespace Production.Class
         {
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] " +
                                                 " WHERE [SoPXN]='" + SoPXN + "'", CommandType.Text);
-        }
-
-        public int MAX_KHMau_LABDAO_ID()
-        {
-            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB]", CommandType.Text);
-            return int.Parse(dt.Rows[0]["ID"].ToString());
-        }
+        }       
 
         public DataTable KHMau_LABDAO_REPORT_RECEIPT(string SoPXN)
         {
