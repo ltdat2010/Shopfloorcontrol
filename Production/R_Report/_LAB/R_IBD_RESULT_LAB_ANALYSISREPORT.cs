@@ -29,8 +29,9 @@ namespace Production.Class
                 }
             }
         }
-
         public int ID;
+        public string KHMau_BanGiao;
+        public int CTXNID;
 
         private IBD_RESULT_Lines_LABBUS BUS1 = new IBD_RESULT_Lines_LABBUS();
         private IBD_RESULT_Header_LABBUS BUS2 = new IBD_RESULT_Header_LABBUS();
@@ -54,9 +55,11 @@ namespace Production.Class
             Load += (s, e) =>
             {
                 dt_PXN_Header                                       = BUS3.PXN_HeaderBUS_SELECT(SoPXN);
-                dt_IBD_RESULT_Header                                = BUS2.IBD_RESULT_Header_LABDAO_SELECT(ID);
+                dt_IBD_RESULT_Header                                = BUS2.IBD_RESULT_Header_LABDAO_SELECT(KHMau_BanGiao,CTXNID);
+                ID = int.Parse(dt_IBD_RESULT_Header.Rows[0]["ID"].ToString());
                 dt_IBD_RESULT_Lines                                 = BUS1.IBD_RESULT_Lines_LABDAO_SELECT(ID);
-                dt_PXN_Header.WriteXml(XmlPath + "/dt_MYCOTOXIN_PXN_Header.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                //Write to XML
+                dt_PXN_Header.WriteXml(XmlPath + "/dt_PXN_Header.xml", System.Data.XmlWriteMode.IgnoreSchema);
                 dt_IBD_RESULT_Header.WriteXml(XmlPath + "/dt_IBD_RESULT_Header.xml", System.Data.XmlWriteMode.IgnoreSchema);
                 dt_IBD_RESULT_Lines.WriteXml(XmlPath + "/dt_IBD_RESULT_Lines.xml", System.Data.XmlWriteMode.IgnoreSchema);                
                 if (dt_PXN_Header.Rows[0]["NgonNgu"].ToString()     == "EN")

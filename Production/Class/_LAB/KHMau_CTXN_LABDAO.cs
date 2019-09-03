@@ -78,6 +78,15 @@ namespace Production.Class
            " WHERE [ID]                 =" + OBJ.ID, CommandType.Text);
         }
 
+        public void KHMau_CTXN_LABDAO_UPDATE_TraKetQua(KHMau_CTXN_LAB OBJ)
+        {
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] SET " +           
+           "[DaTraKetQua]                    = 'True'" +
+           //",[NgayTraKetQua]                    = CONVERT(datetime,'" + OBJ.NgayTraKetQua + "',103)" +
+           ",[NgayTraKetQua]                    = CONVERT(datetime,'" + DateTime.Now + "',103)" +
+           " WHERE [ID]                 =" + OBJ.ID, CommandType.Text);
+        }
+
         public void KHMau_CTXN_LABDAO_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] " +

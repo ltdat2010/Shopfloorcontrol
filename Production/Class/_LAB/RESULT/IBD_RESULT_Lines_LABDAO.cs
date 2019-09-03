@@ -21,7 +21,7 @@ namespace Production.Class
            " ,[Row] " +
            " ,[Col] " +
            " ,[Result] " +
-           " ,[KHMau_BanGiao] " +
+           " ,[KHMau_GiaoMau] " +
            " ,[CreatedDate] " +
            " ,[CreatedBy] " +
            " ,[Note] " +
@@ -37,7 +37,7 @@ namespace Production.Class
            ",N'" + OBJ.Row +
            "',N'" + OBJ.Col +
            "',N'" + OBJ.Result +
-           "',N'" + OBJ.KHMau_BanGiao +
+           "',N'" + OBJ.KHMau_GiaoMau +
            "',Convert(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
@@ -58,7 +58,7 @@ namespace Production.Class
            ",[Row]                                  = N'" + OBJ.Row + "'" +
            ",[Col]                                  = N'" + OBJ.Col + "'" +
            ",[Result]                               = N'" + OBJ.Result + "'" +
-           ",[KHMau_BanGiao]                        = N'" + OBJ.KHMau_BanGiao + "'" +
+           ",[KHMau_GiaoMau]                        = N'" + OBJ.KHMau_GiaoMau + "'" +
            ",[CreatedDate]                          = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy]                            = N'" + OBJ.CreatedBy + "' " +
            ",[Note]                                 = N'" + OBJ.Note + "' " +
@@ -101,8 +101,26 @@ namespace Production.Class
 
         public DataTable IBD_RESULT_Lines_LABDAO_SELECT(int ID)
         {
-            return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Lines_LAB] " +
-             " WHERE [MYCOTOCXIN_RESULT_Header_LAB_ID]=" + ID, CommandType.Text);
+            //return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Lines_LAB] " +
+            // " WHERE [IBD_RESULT_Header_LAB_ID]=" + ID, CommandType.Text);
+
+            return Sql.ExecuteDataTable("SAP",  " SELECT T.*,S.* " +
+                                                " FROM " +
+                                                " (" +
+                                                " SELECT[tbl_IBD_RESULT_Lines_LAB].*,[tbl_IBD_RESULT_Header_LAB].KHMau_GiaoMau as IBD_Header_KHMau_GiaoMau,[tbl_IBD_RESULT_Header_LAB].CTXN_ID as IBD_Header_CTXN_ID FROM [tbl_IBD_RESULT_Lines_LAB] " +
+                                                " inner join[tbl_IBD_RESULT_Header_LAB] " +
+                                                " ON[tbl_IBD_RESULT_Lines_LAB].IBD_RESULT_Header_LAB_ID = [tbl_IBD_RESULT_Header_LAB].ID " +
+                                                " Where[tbl_IBD_RESULT_Lines_LAB].IBD_RESULT_Header_LAB_ID = " + ID +
+                                                " ) as T  " +
+                                                " Inner join " +
+                                                " (" +
+                                                            " Select tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_CTXN_LAB.CTXNID, tbl_KHMau_LAB.GioLayMauTuoi " +
+                                                            " FROM tbl_KHMau_LAB " +
+                                                            " Inner join " +
+                                                            " tbl_KHMau_CTXN_LAB " +
+                                                            " ON tbl_KHMau_LAB.ID = tbl_KHMau_CTXN_LAB.KHMau_ID " +
+                                                " ) as S " +
+                                                " ON T.IBD_Header_KHMau_GiaoMau = S.KHMau_GiaoMau and T.IBD_Header_CTXN_ID = S.CTXNID ", CommandType.Text);
         }
 
         //Report trả kết quả cho khách hàng

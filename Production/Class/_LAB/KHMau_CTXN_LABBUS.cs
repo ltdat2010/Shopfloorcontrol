@@ -16,6 +16,11 @@ namespace Production.Class
             DAO.KHMau_CTXN_LABDAO_UPDATE(OBJ);
         }
 
+        public void KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMau_CTXN_LAB OBJ)
+        {
+            DAO.KHMau_CTXN_LABDAO_UPDATE_TraKetQua(OBJ);
+        }
+
         public void KHMau_CTXN_LABDAO_DELETE(int ID)
         {
             DAO.KHMau_CTXN_LABDAO_DELETE(ID);

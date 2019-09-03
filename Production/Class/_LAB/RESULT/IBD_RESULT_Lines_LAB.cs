@@ -13,7 +13,7 @@ namespace Production.Class._LAB.RESULT
         }
         public int ID { get; set; }
         public int CTXN_ID { get; set; }
-        public string KHMau_BanGiao { get; set; }
+        public string KHMau_GiaoMau { get; set; }
         public string Line_No { get; set; }
         public int IBD_RESULT_Header_LAB_ID { get; set; }
         public decimal OD { get; set; }

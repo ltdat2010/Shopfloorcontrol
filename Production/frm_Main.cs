@@ -870,23 +870,13 @@ namespace Production.Class
                 gc1.Controls.Add(uc);
                 uc.Dock = DockStyle.Fill;
             };
-            ////barButtonItem77 : MYCOTOCXIN_ConC
-            //barButtonItem77.ItemClick += (s, e) =>
-            //{
-            //    foreach (Control x in this.gc1.Controls)
-            //    {
-            //        if (x is DevExpress.XtraEditors.XtraUserControl)
-            //            x.Dispose();
-            //    }
 
-            //    uc = new F_MYCOTOXIN_ConC();
-            //    uc.user = this.user;
-            //    uc.BringToFront();
-            //    uc.Visible = true;
-            //    uc.Enabled = true;
-            //    gc1.Controls.Add(uc);
-            //    uc.Dock = DockStyle.Fill;
-            //};            
+            //barButtonItem76 : Bao cao huyet thanh hoc
+            barButtonItem76.ItemClick += (s, e) =>
+            {
+                R_BaoCaoHTH_CTXN FRM = new R_BaoCaoHTH_CTXN();
+                FRM.Show();
+            };
 
             //barButtonItem82 -- Đọc kết quả AI
             barButtonItem82.ItemClick += (s, e) =>

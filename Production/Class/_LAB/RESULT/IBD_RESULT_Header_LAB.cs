@@ -33,9 +33,7 @@ namespace Production.Class._LAB.RESULT
         public int Neg { get; set; }
         public int Sus { get; set; }
         public int Pos { get; set; }
-
-
-
-
+        public int CTXN_ID { get; set; }
+        public string KHMau_GiaoMau { get; set; }
     }
 }

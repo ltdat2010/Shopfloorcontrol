@@ -53,7 +53,8 @@ namespace Production.Class
 
         //NEW : Phan khai bao cho KH Mau
         public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
-
+        public KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
+        
         private KHMau_LABBUS KHMauBUS = new KHMau_LABBUS();
         private KHMau_CTXN_LABBUS KHMauCTXNBUS = new KHMau_CTXN_LABBUS();
         private KHMau_CTXN_RESULT_DETAILS_LABBUS BUS3 = new KHMau_CTXN_RESULT_DETAILS_LABBUS();
@@ -221,32 +222,83 @@ namespace Production.Class
             //Chi khi tat ca cac dong co gia tri cua TraKetQua = true thi moi xu ly
             btnTraKetQua.Click += (s, e) =>
             {
-                if (LstBool.Contains(false) != true)
+                if (txtSoPXN.Text.Substring(0,3) == "HTH")
                 {
-                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất kết quả cho kí kiệu mẫu : "+ gridView2.GetFocusedRowCellValue("KHMau").ToString() +" với chỉ tiêu xét nghiệm ? . " +
-                        "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlDel == DialogResult.Yes)
+                    if (gridView2.GetFocusedRowCellValue("KetQua").ToString() == "True")
                     {
-                        BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(txtSoPXN.Text);
-                        if (txtSoPXN.Text.Substring(0, 3) == "MDW")
+                        if (gridView2.GetFocusedRowCellValue("DaTraKetQua").ToString() == "True")
                         {
-                            R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT FRM = new R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT();
-                            FRM.SoPXN = this.OBJ.SoPXN;
-                            FRM.Show();
+                            DialogResult dlDel = XtraMessageBox.Show("In báo cáo kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm đã được trả . " +
+                            "Hệ thống sẽ chỉ có thể xuất báo cáo dưa trên kết quả đã xuất trước đó ", "In báo cáo kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (dlDel == DialogResult.Yes)
+                            {
+                                KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
+                                KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
+                                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
+                                FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
+                                FRM.KHMau_BanGiao = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+                                FRM.SoPXN = this.OBJ.SoPXN;
+                                FRM.Show();
+                            }
                         }
+                        else
+                        {
+                            DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn trả kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm ? . " +
+                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (dlDel == DialogResult.Yes)
+                            {
+                                KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
+                                KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
+                                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
+                                FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
+                                FRM.KHMau_BanGiao = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+                                FRM.SoPXN = this.OBJ.SoPXN;
+                                FRM.Show();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Trả kết quả ";
+                        args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
                     }
                 }
                 else
                 {
-                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                    args.AutoCloseOptions.Delay = 2000;
-                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                    args.DefaultButtonIndex = 0;
-                    args.Caption = "Trả kết quả ";
-                    args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
-                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                    XtraMessageBox.Show(args).ToString();
+                    if (LstBool.Contains(false) != true)
+                    {
+                        DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn trả kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm ? . " +
+                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlDel == DialogResult.Yes)
+                        {
+                            BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(txtSoPXN.Text);
+                            if (txtSoPXN.Text.Substring(0, 3) == "MDW")
+                            {
+                                R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT FRM = new R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT();
+                                FRM.SoPXN = this.OBJ.SoPXN;
+                                FRM.Show();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Trả kết quả ";
+                        args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
                 }
+                
             };
 
             gridView2.RowClick += (s, e) =>

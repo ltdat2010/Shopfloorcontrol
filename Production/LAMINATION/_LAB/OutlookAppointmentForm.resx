@@ -183,7 +183,7 @@
     <value>btnPrint</value>
   </data>
   <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
     <value>bvPrint</value>
@@ -214,7 +214,7 @@
     <value>dvInfo</value>
   </data>
   <data name="&gt;&gt;dvInfo.Type" xml:space="preserve">
-    <value>DevExpress.XtraPrinting.Preview.DocumentViewer, DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraPrinting.Preview.DocumentViewer, DevExpress.XtraPrinting.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;dvInfo.Parent" xml:space="preserve">
     <value>bvPrint</value>
@@ -235,7 +235,7 @@
     <value>bvPrint</value>
   </data>
   <data name="&gt;&gt;bvPrint.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.BackstageViewClientControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.BackstageViewClientControl, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;bvPrint.Parent" xml:space="preserve">
     <value>backstageViewControl1</value>
@@ -268,7 +268,7 @@
     <value>backstageViewControl1</value>
   </data>
   <data name="&gt;&gt;backstageViewControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.BackstageViewControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.BackstageViewControl, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;backstageViewControl1.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -596,26 +596,26 @@
   <data name="riAppointmentLabel.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <assembly alias="DevExpress.Utils.v19.1" name="DevExpress.Utils.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="riAppointmentLabel.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <assembly alias="DevExpress.Utils.v18.1" name="DevExpress.Utils.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="riAppointmentLabel.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="riAppointmentResource.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="riAppointmentResource.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <data name="riAppointmentResource.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="riAppointmentStatus.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="riAppointmentStatus.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <data name="riAppointmentStatus.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="riDuration.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="riDuration.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <data name="riDuration.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="ribbonControl1.Size" type="System.Drawing.Size, System.Drawing">
@@ -625,7 +625,7 @@
     <value>ribbonControl1</value>
   </data>
   <data name="&gt;&gt;ribbonControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;ribbonControl1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -652,7 +652,7 @@
     <value>lblStartTime</value>
   </data>
   <data name="&gt;&gt;lblStartTime.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblStartTime.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -672,7 +672,7 @@
   <data name="edtStartDate.Properties.AccessibleName" xml:space="preserve">
     <value>Start date</value>
   </data>
-  <data name="edtStartDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <data name="edtStartDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="edtStartDate.Size" type="System.Drawing.Size, System.Drawing">
@@ -685,7 +685,7 @@
     <value>edtStartDate</value>
   </data>
   <data name="&gt;&gt;edtStartDate.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;edtStartDate.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -718,7 +718,7 @@
     <value>edtStartTime</value>
   </data>
   <data name="&gt;&gt;edtStartTime.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;edtStartTime.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -745,7 +745,7 @@
     <value>lblEndTime</value>
   </data>
   <data name="&gt;&gt;lblEndTime.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblEndTime.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -765,7 +765,7 @@
   <data name="edtEndDate.Properties.AccessibleName" xml:space="preserve">
     <value>End date</value>
   </data>
-  <data name="edtEndDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <data name="edtEndDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="edtEndDate.Size" type="System.Drawing.Size, System.Drawing">
@@ -778,7 +778,7 @@
     <value>edtEndDate</value>
   </data>
   <data name="&gt;&gt;edtEndDate.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;edtEndDate.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -811,7 +811,7 @@
     <value>edtEndTime</value>
   </data>
   <data name="&gt;&gt;edtEndTime.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;edtEndTime.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -838,7 +838,7 @@
     <value>lblLocation</value>
   </data>
   <data name="&gt;&gt;lblLocation.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblLocation.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -865,7 +865,7 @@
     <value>lblResource</value>
   </data>
   <data name="&gt;&gt;lblResource.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblResource.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -876,7 +876,7 @@
   <data name="edtResource.Location" type="System.Drawing.Point, System.Drawing">
     <value>96, 69</value>
   </data>
-  <data name="edtResource.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.1">
+  <data name="edtResource.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v18.1">
     <value>Combo</value>
   </data>
   <data name="edtResource.Size" type="System.Drawing.Size, System.Drawing">
@@ -889,7 +889,7 @@
     <value>edtResource</value>
   </data>
   <data name="&gt;&gt;edtResource.Type" xml:space="preserve">
-    <value>DevExpress.XtraScheduler.UI.AppointmentResourceEdit, DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraScheduler.UI.AppointmentResourceEdit, DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;edtResource.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -919,7 +919,7 @@
     <value>tbSubject</value>
   </data>
   <data name="&gt;&gt;tbSubject.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;tbSubject.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -952,7 +952,7 @@
     <value>tbProgress</value>
   </data>
   <data name="&gt;&gt;tbProgress.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.TrackBarControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;tbProgress.Parent" xml:space="preserve">
     <value>progressPanel</value>
@@ -985,7 +985,7 @@
     <value>lblPercentCompleteValue</value>
   </data>
   <data name="&gt;&gt;lblPercentCompleteValue.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblPercentCompleteValue.Parent" xml:space="preserve">
     <value>progressPanel</value>
@@ -1015,7 +1015,7 @@
     <value>lblPercentComplete</value>
   </data>
   <data name="&gt;&gt;lblPercentComplete.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblPercentComplete.Parent" xml:space="preserve">
     <value>progressPanel</value>
@@ -1066,7 +1066,7 @@
     <value>lblSubject</value>
   </data>
   <data name="&gt;&gt;lblSubject.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;lblSubject.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -1114,7 +1114,7 @@
     <value>tbDescription</value>
   </data>
   <data name="&gt;&gt;tbDescription.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;tbDescription.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -1178,7 +1178,7 @@
     <value>simpleButton1</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;simpleButton1.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -1199,7 +1199,7 @@
     <value>tbsDescription</value>
   </data>
   <data name="&gt;&gt;tbsDescription.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;tbsDescription.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -1280,102 +1280,102 @@
     <value>bvtPrint</value>
   </data>
   <data name="&gt;&gt;bvtPrint.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.BackstageViewTabItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.BackstageViewTabItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;bvbSave.Name" xml:space="preserve">
     <value>bvbSave</value>
   </data>
   <data name="&gt;&gt;bvbSave.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.BackstageViewButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.BackstageViewButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;bvbSaveAs.Name" xml:space="preserve">
     <value>bvbSaveAs</value>
   </data>
   <data name="&gt;&gt;bvbSaveAs.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.BackstageViewButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.BackstageViewButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;bvbClose.Name" xml:space="preserve">
     <value>bvbClose</value>
   </data>
   <data name="&gt;&gt;bvbClose.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.BackstageViewButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.BackstageViewButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnSaveAndClose.Name" xml:space="preserve">
     <value>btnSaveAndClose</value>
   </data>
   <data name="&gt;&gt;btnSaveAndClose.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
     <value>btnDelete</value>
   </data>
   <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
     <value>btnSave</value>
   </data>
   <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnNext.Name" xml:space="preserve">
     <value>btnNext</value>
   </data>
   <data name="&gt;&gt;btnNext.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;btnPrevious.Name" xml:space="preserve">
     <value>btnPrevious</value>
   </data>
   <data name="&gt;&gt;btnPrevious.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;rpAppointment.Name" xml:space="preserve">
     <value>rpAppointment</value>
   </data>
   <data name="&gt;&gt;rpAppointment.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;rpgActions.Name" xml:space="preserve">
     <value>rpgActions</value>
   </data>
   <data name="&gt;&gt;rpgActions.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;riAppointmentLabel.Name" xml:space="preserve">
     <value>riAppointmentLabel</value>
   </data>
   <data name="&gt;&gt;riAppointmentLabel.Type" xml:space="preserve">
-    <value>DevExpress.XtraScheduler.UI.RepositoryItemAppointmentLabel, DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraScheduler.UI.RepositoryItemAppointmentLabel, DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;riAppointmentResource.Name" xml:space="preserve">
     <value>riAppointmentResource</value>
   </data>
   <data name="&gt;&gt;riAppointmentResource.Type" xml:space="preserve">
-    <value>DevExpress.XtraScheduler.UI.RepositoryItemAppointmentResource, DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraScheduler.UI.RepositoryItemAppointmentResource, DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;riAppointmentStatus.Name" xml:space="preserve">
     <value>riAppointmentStatus</value>
   </data>
   <data name="&gt;&gt;riAppointmentStatus.Type" xml:space="preserve">
-    <value>DevExpress.XtraScheduler.UI.RepositoryItemAppointmentStatus, DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraScheduler.UI.RepositoryItemAppointmentStatus, DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;riDuration.Name" xml:space="preserve">
     <value>riDuration</value>
   </data>
   <data name="&gt;&gt;riDuration.Type" xml:space="preserve">
-    <value>DevExpress.XtraScheduler.UI.RepositoryItemDuration, DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraScheduler.UI.RepositoryItemDuration, DevExpress.XtraScheduler.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;defaultBarAndDockingController.Name" xml:space="preserve">
     <value>defaultBarAndDockingController</value>
   </data>
   <data name="&gt;&gt;defaultBarAndDockingController.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.DefaultBarAndDockingController, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.DefaultBarAndDockingController, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>OutlookAppointmentForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Ribbon.RibbonForm, DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.Ribbon.RibbonForm, DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

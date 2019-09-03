@@ -112,32 +112,15 @@ namespace Production.Class
         {
             if (e.Button.Index == 0)
             {
-                R_AI_RESULT FRM = new R_AI_RESULT();
+                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
                 //FRM.ID = int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString());
                 //FRM.acr = gridView1.GetFocusedRowCellValue("Acronym").ToString();
                 //FRM.RptName = "Rpt_AI_RESULT_LAB";
                 FRM.Show();
             }
-            else if (e.Button.Index == 1)
-            {
-                R_AI_RESULT FRM = new R_AI_RESULT();
-                //FRM.ID = int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString());
-                //FRM.acr = gridView1.GetFocusedRowCellValue("Acronym").ToString();
-                //FRM.RptName = "Rpt_AI_RESULT_LAB";
-                FRM.Show();
-            }
+            
         }
 
-        private void repositoryItemButtonEdit2_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (e.Button.Index == 0)
-            {
-                R_AI_RESULT FRM = new R_AI_RESULT();
-                //FRM.ID = int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString());
-                //FRM.acr = gridView1.GetFocusedRowCellValue("Acronym").ToString();
-                //FRM.RptName = "Rpt_AI_RESULT_LAB";
-                FRM.Show();
-            }
-        }
+        
     }
 }

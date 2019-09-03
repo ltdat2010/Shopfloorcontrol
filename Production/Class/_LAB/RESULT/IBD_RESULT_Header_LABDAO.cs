@@ -18,6 +18,7 @@ namespace Production.Class
                " ,[Date] " +
                " ,[Time] " +
                " ,[Case] " +
+               " ,[KHMau_GiaoMau] " +
                " ,[Count] " +
                " ,[GMean] " +
                " ,[Mean] " +
@@ -27,6 +28,7 @@ namespace Production.Class
                " ,[Max] " +
                " ,[Tech] " +
                " ,[HUYETTHANHHOC_STD_VALUE_ID] " +
+               " ,[CTXN_ID] " +
                " ,[CreatedDate] " +
                " ,[CreatedBy] " +
                " ,[Note] " +
@@ -37,6 +39,7 @@ namespace Production.Class
                "',Convert(datetime,N'" + OBJ.Date +
                "',103),N'" + OBJ.Time +
                "',N'" + OBJ.Case +
+               "',N'" + OBJ.KHMau_GiaoMau +
                "'," + OBJ.Count +
                "," + OBJ.GMean +
                "," + OBJ.Mean +
@@ -46,6 +49,7 @@ namespace Production.Class
                "," + OBJ.Max +
                ",'" + OBJ.Tech +
                "'," + OBJ.HUYETTHANHHOC_STD_VALUE_ID +
+               "," + OBJ.CTXN_ID +
                ",Convert(datetime,N'" + DateTime.Now +
                "',103),N'" + OBJ.CreatedBy +
                "',N'" + OBJ.Note +
@@ -66,6 +70,7 @@ namespace Production.Class
            ",[Date]             = N'" + OBJ.Date + "'" +
            ",[Time]              = N'" + OBJ.Time + "'" +
            ",[Case]      = N'" + OBJ.Case + "'" +
+           ",[KHMau_GiaoMau]      = N'" + OBJ.KHMau_GiaoMau + "'" +
            ",[Count] = " + OBJ.Count +
            ",[GMean] = " + OBJ.GMean +
            ",[Mean] = " + OBJ.Mean +
@@ -74,7 +79,8 @@ namespace Production.Class
            ",[Min] = " + OBJ.Min +
            ",[Max] = " + OBJ.Max +
            ",[Tech] = " + OBJ.Tech +
-           ",[HUYETTHANHHOC_STD_VALUE_ID] = " + OBJ.HUYETTHANHHOC_STD_VALUE_ID +           
+           ",[HUYETTHANHHOC_STD_VALUE_ID] = " + OBJ.HUYETTHANHHOC_STD_VALUE_ID +
+           ",[CTXN_ID] = " + OBJ.CTXN_ID +
            ",[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy] = N'" + OBJ.CreatedBy + "' " +
            ",[Note] = N'" + OBJ.Note + "' " +
@@ -88,17 +94,46 @@ namespace Production.Class
             " WHERE [ID]=" + ID , CommandType.Text);
         }
 
-        //public int MYCOTOXIN_RESULT_Header_ID(string FilePath)
-        //{
-        //    DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Header_LAB] " +
-        //        "WHERE FilePath='" + FilePath + "'", CommandType.Text);
-        //    return int.Parse(dt.Rows[0]["ID"].ToString());
-        //}
-
-        public DataTable IBD_RESULT_Header_LABDAO_SELECT(int ID)
+        public DataTable IBD_RESULT_Header_LABDAO_SELECT(string KHMau_GiaoMau, int CTXNID)
         {
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] " +
-                "WHERE ID=" + ID, CommandType.Text);
+                "WHERE KHMau_GiaoMau='" + KHMau_GiaoMau +"' and CTXN_ID="+ CTXNID, CommandType.Text);
         }
+
+        public DataTable BaoCao_HuyetThanhHoc_IBD(string year, int CTXNID)
+        {
+            return Sql.ExecuteDataTable("SAP", " Select T1.ID as KHMau_CTXN_ID,T1.CTXNID,T1.SoLuongXN,T1.KHMau_GiaoMau,T1.ID,T1.SoPXN,T1.Month,T1.Year,S0.KHMau_GiaoMau,S0.CTXN_ID , "+
+                                                " S0.Neg, S0.Pos, S0.Sus, T1.TenLoaiDV " +
+                                                    " From " +
+                                                        " (" +
+                                                            " Select tbl_IBD_RESULT_Header_LAB.KHMau_GiaoMau, tbl_IBD_RESULT_Header_LAB.CTXN_ID, " +
+                                                            " tbl_IBD_RESULT_Header_LAB.Neg, tbl_IBD_RESULT_Header_LAB.Pos, tbl_IBD_RESULT_Header_LAB.Sus " +
+                                                            " from tbl_IBD_RESULT_Header_LAB " +
+                                                            " Inner JOIN tbl_IBD_RESULT_Lines_LAB " +
+                                                            " ON tbl_IBD_RESULT_Header_LAB.ID = tbl_IBD_RESULT_Lines_LAB.IBD_RESULT_Header_LAB_ID " +
+                                                        " ) as S0 " +
+                                                    " INNER JOIN " +
+                                                        " (" +
+                                                            " Select tbl_KHMau_CTXN_LAB.ID as KHMau_CTXN_ID,tbl_KHMau_CTXN_LAB.CTXNID,tbl_KHMau_CTXN_LAB.SoLuongXN,T0.KHMau_GiaoMau,T0.ID,T0.SoPXN,T0.Month,T0.Year,T0.TenLoaiDV " +
+                                                            " From tbl_KHMau_CTXN_LAB " +
+                                                            " INNER JOIN " +
+                                                                " (" +
+                                                                    " select tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.ID, tbl_PXN_Header.SoPXN, MONTH(tbl_PXN_Header.NgayNhanMau) as Month, YEAR(tbl_PXN_Header.NgayNhanMau) as Year " +
+                                                                    " from tbl_PXN_Header " +
+                                                                    " inner join tbl_KHMau_LAB " +
+                                                                    " On  tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN " +
+                                                                    " inner join tbl_LoaiDV_LAB " +
+                                                                    " on tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV " +
+                                                                    " Where YEAR(tbl_PXN_Header.NgayNhanMau) = '" + year +"' " +
+                                                                " ) as T0 " +
+                                                            " ON tbl_KHMau_CTXN_LAB.KHMau_ID = T0.ID " +
+                                                            " Where tbl_KHMau_CTXN_LAB.CTXNID = " + CTXNID +
+                                                        " ) as T1 " +
+                                                    " ON S0.KHMau_GiaoMau = T1.KHMau_GiaoMau and S0.CTXN_ID = T1.CTXNID " +
+                                                    " GROUP BY T1.TenLoaiDV,T1.ID,T1.CTXNID,T1.SoLuongXN,T1.KHMau_GiaoMau,T1.ID,T1.SoPXN,T1.Month,T1.Year,S0.KHMau_GiaoMau,S0.CTXN_ID ,S0.Neg, S0.Pos, S0.Sus", CommandType.Text);
+        }
+
+
+
     }
 }

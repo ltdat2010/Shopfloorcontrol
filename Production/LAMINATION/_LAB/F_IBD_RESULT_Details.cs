@@ -77,16 +77,7 @@ namespace Production.Class
             Load += (s, e) =>
             {
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
-                this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
-
-                //XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //args.AutoCloseOptions.Delay = 3000;
-                //args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //args.DefaultButtonIndex = 0;
-                //args.Caption = "Lưu ý ";
-                //args.Text = "Vui lòng click vào dòng cần chỉnh sửa . Thông báo này sẽ tự đóng sau 3 giây.";
-                //args.Buttons = new DialogResult[] { DialogResult.OK };
-                //XtraMessageBox.Show(args).ToString();
+                this.Height = Screen.PrimaryScreen.Bounds.Height - 30;                
 
                 action_EndForm3.Add_Status(false);
                 action_EndForm3.Delete_Status(false);
@@ -109,16 +100,7 @@ namespace Production.Class
             btnLoad.Click += (s, e) =>
             {
                 if (dxValidationProvider1.Validate() == true)
-                {
-                    //var filePath = string.Empty;
-                    //var filename = string.Empty;
-                    //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                    //Excel.Application app = new Excel.Application();
-                    //Excel.Workbook wbook = null;
-                    //Worksheet wsheet = null;
-                    //string[] strArray = null;
-
-                    //openFileDialog1.InitialDirectory = "c:\\";
+                {                    
                     openFileDialog1.Filter = "xls files (*.xls)|*.xls";
                     openFileDialog1.FilterIndex = 2;
                     openFileDialog1.RestoreDirectory = true;
@@ -127,7 +109,7 @@ namespace Production.Class
                     {
                         //Get the path of specified file
                         filePath = openFileDialog1.FileName;
-                        filename = openFileDialog1.SafeFileName; //System.IO.Path.GetFileName(filePath);
+                        filename = openFileDialog1.SafeFileName;
                         
 
                         //FileStream file = File.OpenRead(filePath);
@@ -435,9 +417,9 @@ namespace Production.Class
                                     OBJHeader.Max = Convert.ToDecimal(0.000);//float.Parse(worksheet.Cells[i, ""].Value);
                                     break;
                                 default:
-                                    OBJHeader.FileName = txtTenXetNghiem.Text = (string)worksheet.Cells[11, "J"].Value;                                   
+                                    OBJHeader.Case = OBJHeader.KHMau_GiaoMau = OBJHeader.FileName = txtTenXetNghiem.Text = (string)worksheet.Cells[11, "J"].Value;                                   
                                     OBJHeader.FilePath = openFileDialog1.FileName;
-                                    OBJHeader.Case = "0";
+                                    OBJHeader.CTXN_ID = (int)row["CTXN_ID"];
                                     OBJHeader.Count = 0;
                                     OBJHeader.SD = 0;
                                     OBJHeader.Tech = "0";
@@ -489,7 +471,7 @@ namespace Production.Class
                                 OBJLines.Result = "";
                                 OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
                                 OBJLines.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
-                                OBJLines.KHMau_BanGiao = (string)worksheet.Cells[11, "J"].Value;
+                                OBJLines.KHMau_GiaoMau = (string)worksheet.Cells[11, "J"].Value;
                             }
                             else
                             {
@@ -504,7 +486,7 @@ namespace Production.Class
                                 OBJLines.Result = worksheet.Cells[i, "AF"].Value;
                                 OBJLines.IBD_RESULT_Header_LAB_ID = OBJHeader.ID;
                                 OBJLines.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
-                                OBJLines.KHMau_BanGiao = (string)worksheet.Cells[11, "J"].Value;
+                                OBJLines.KHMau_GiaoMau = (string)worksheet.Cells[11, "J"].Value;
                             }                            
                                 BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
                         }

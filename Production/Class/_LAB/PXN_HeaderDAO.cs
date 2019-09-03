@@ -583,6 +583,7 @@ namespace Production.Class
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +
             "[NgayTraKetQua]        = CONVERT(datetime,'" + DateTime.Now.ToShortDateString() + "',103)" +
+            //",[DaTraKetQua]        = '1' " +
            " WHERE [SoPXN]             ='" + SoPXN + "'", CommandType.Text);
         }
     }
