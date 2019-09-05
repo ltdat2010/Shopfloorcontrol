@@ -110,7 +110,7 @@ namespace Production.Class
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
             //Export to excel -report xlsx
-            gridView1.ExportToXlsx(filePath);
+            //gridView1.ExportToXlsx(filePath);
             System.Diagnostics.Process.Start(filePath);
 
             //Tra về indent khi user them dong moi vo file excel

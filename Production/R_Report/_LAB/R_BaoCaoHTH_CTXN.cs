@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using DevExpress.XtraEditors;
+using System.Data;
 using System.IO;
 
 namespace Production.Class
@@ -21,13 +22,14 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
-                dteYear.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
+                //dteYear.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearsGroupView;
             };
             simpleButton1.Click += (s, e) =>
                 {
                     R_BaoCao_HuyetThanhHoc_EXCEL FRM = new R_BaoCao_HuyetThanhHoc_EXCEL();
                     DataRowView row = (DataRowView)lkeCTXN.GetSelectedDataRow();
-                    FRM.CTXN_ID = int.Parse(row["CTXN_ID"].ToString());
+                    FRM.CTXN_ID = int.Parse(row["ID"].ToString());
+                    //XtraMessageBox.Show(dteYear.EditValue.ToString().Substring(dteYear.SelectedText.ToString().Length - 4, 4));
                     FRM.year = dteYear.SelectedText.ToString();
                     //RFGDate.ToDate = DEToDate.SelectedText.ToString();
                     FRM.Show();

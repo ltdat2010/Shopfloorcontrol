@@ -122,7 +122,7 @@ namespace Production.Class
                     cmbKhoa.ReadOnly = true;
                     txtSendMail.ReadOnly = true;
                     //dteNgayCoKetQua.ReadOnly            = true;
-                    dteNgayTraKetQua.ReadOnly = true;
+                    //dteNgayTraKetQua.ReadOnly = true;
                     TDControlsReadOnly(true);
                     txtID.ReadOnly = true;
                     txtSendMail.Text = OBJ.SendMail = "0";
@@ -236,7 +236,7 @@ namespace Production.Class
                                 KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
                                 R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
                                 FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
-                                FRM.KHMau_BanGiao = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+                                FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
                                 FRM.SoPXN = this.OBJ.SoPXN;
                                 FRM.Show();
                             }
@@ -251,7 +251,7 @@ namespace Production.Class
                                 KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
                                 R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
                                 FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
-                                FRM.KHMau_BanGiao = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+                                FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
                                 FRM.SoPXN = this.OBJ.SoPXN;
                                 FRM.Show();
                             }
@@ -908,9 +908,9 @@ namespace Production.Class
             //dteNgayCoKetQua.Text            = OBJ.NgayCoKetQua.ToString().Substring(0, 10);
             //if (dteNgayCoKetQua.Text == "2019-01-01")
             //    dteNgayCoKetQua.Properties.ReadOnly = true;
-            dteNgayTraKetQua.Text = OBJ.NgayTraKetQua.ToString().Substring(0, 10);
-            if (dteNgayTraKetQua.Text == "2019-01-01")
-                dteNgayTraKetQua.Properties.ReadOnly = true;
+            //dteNgayTraKetQua.Text = OBJ.NgayTraKetQua.ToString().Substring(0, 10);
+            //if (dteNgayTraKetQua.Text == "2019-01-01")
+            //    dteNgayTraKetQua.Properties.ReadOnly = true;
             //if (chkH2O.CheckState == CheckState.Checked)
             //{
             //    cmbLoaiDongVat.Text = "";
@@ -1167,7 +1167,7 @@ namespace Production.Class
             txtNote.ReadOnly = false;
             cmbKhoa.ReadOnly = false;
             txtSendMail.ReadOnly = false;
-            dteNgayTraKetQua.ReadOnly = false;
+            //dteNgayTraKetQua.ReadOnly = false;
             try
             {
                 if (isAction == "Add")

@@ -30,7 +30,7 @@ namespace Production.Class
             }
         }
         public int ID;
-        public string KHMau_BanGiao;
+        public string KHMau_GiaoMau;
         public int CTXNID;
 
         private IBD_RESULT_Lines_LABBUS BUS1 = new IBD_RESULT_Lines_LABBUS();
@@ -55,7 +55,7 @@ namespace Production.Class
             Load += (s, e) =>
             {
                 dt_PXN_Header                                       = BUS3.PXN_HeaderBUS_SELECT(SoPXN);
-                dt_IBD_RESULT_Header                                = BUS2.IBD_RESULT_Header_LABDAO_SELECT(KHMau_BanGiao,CTXNID);
+                dt_IBD_RESULT_Header                                = BUS2.IBD_RESULT_Header_LABDAO_SELECT(KHMau_GiaoMau, CTXNID);
                 ID = int.Parse(dt_IBD_RESULT_Header.Rows[0]["ID"].ToString());
                 dt_IBD_RESULT_Lines                                 = BUS1.IBD_RESULT_Lines_LABDAO_SELECT(ID);
                 //Write to XML

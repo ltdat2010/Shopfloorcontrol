@@ -1104,18 +1104,24 @@
             // 
             this.barButtonItem81.Caption = "MYCOTOXIN";
             this.barButtonItem81.Id = 73;
+            this.barButtonItem81.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem81.ImageOptions.Image")));
+            this.barButtonItem81.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem81.ImageOptions.LargeImage")));
             this.barButtonItem81.Name = "barButtonItem81";
             // 
             // barButtonItem82
             // 
             this.barButtonItem82.Caption = "AI";
             this.barButtonItem82.Id = 74;
+            this.barButtonItem82.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem82.ImageOptions.Image")));
+            this.barButtonItem82.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem82.ImageOptions.LargeImage")));
             this.barButtonItem82.Name = "barButtonItem82";
             // 
             // barButtonItem83
             // 
             this.barButtonItem83.Caption = "IBD";
             this.barButtonItem83.Id = 75;
+            this.barButtonItem83.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem83.ImageOptions.Image")));
+            this.barButtonItem83.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem83.ImageOptions.LargeImage")));
             this.barButtonItem83.Name = "barButtonItem83";
             // 
             // ribbonPageCategory1

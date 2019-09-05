@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using DevExpress.XtraBars;
+using DevExpress.XtraGrid.Columns;
 using System;
 using System.Data;
 using System.Drawing.Printing;
@@ -46,11 +47,149 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Excel(object sender, ItemClickEventArgs e)
         {
-            string filename = "BaoCaoHuyetThanhHoc_" + DateTime.Today.ToShortDateString().Replace("/", "");
-            gridView1.ExportToXlsx(XmlPath + filename);
-            System.Diagnostics.Process.Start(XmlPath + filename);
-            
-            //throw new NotImplementedException();
+            string filename = "BaoCaoHuyetThanhHoc_" + DateTime.Today.ToShortDateString().Replace("/", "") + ".xlsx";
+            string filePath = @"D:\" +filename ;         
+
+            //Save current layout
+            gridView1.SaveLayoutToXml(@"D:\tempLayout.xml");
+            //Set to visible all column
+            foreach (GridColumn column in gridView1.Columns)
+            {
+                switch (column.Name) 
+                {                    
+                    case "colSoPXN":
+                        column.Caption = "Số phiếu nhận mẫu";
+                        column.VisibleIndex = 1;
+                        column.Visible = true;
+                        break;
+                    case "colMonth":
+                        column.Caption = "Tháng";
+                        column.VisibleIndex = 2;
+                        column.Visible = true;
+                        break;
+                    case "colYear":
+                        column.Caption = "Năm";
+                        column.VisibleIndex = 3;
+                        column.Visible = true;
+                        break;
+                    case "colProvinceName":
+                        column.Caption = "Tỉnh/Thành";
+                        column.VisibleIndex = 4;
+                        column.Visible = true;
+                        break;
+                    case "colTenCoSoGuiMau":
+                        column.Caption = "Người gửi mẫu";
+                        column.VisibleIndex = 5;
+                        column.Visible = true;
+                        break;
+                    case "colTenCoSoLayMau":
+                        column.Caption = "Khách hàng";
+                        column.VisibleIndex = 5;
+                        column.Visible = true;
+                        break;
+                    case "colTenLoaiDV":
+                        column.Caption = "Loài động vật";
+                        column.VisibleIndex = 6;
+                        column.Visible = true;
+                        break;
+                    case "colSoLuongXN":
+                        column.Caption = "Số lượng";
+                        column.VisibleIndex = 7;
+                        column.Visible = true;
+                        break;
+                    case "colPos":
+                        column.Caption = "Positive";
+                        column.VisibleIndex = 8;
+                        column.Visible = true;
+                        break;
+                    case "colNeg":
+                        column.Caption = "Negative";
+                        column.VisibleIndex = 9;
+                        column.Visible = true;
+                        break;
+                    default :
+                        column.Visible = false;
+                        break;
+                }
+                //No
+                //if (column.Name == "colID")
+                //{
+                //    //column.Caption = "No";
+                //    column.VisibleIndex = 0;
+                //    column.Visible = true;
+                //}
+                ////So PXN
+                //else if (column.Name == "SoPXN")
+                //{
+                //    //column.Caption = "Mã KH";
+                //    column.VisibleIndex = 1;
+                //    column.Visible = true;
+                //}
+                ////Month
+                //else if (column.Name == "Month")
+                //{
+                //    //column.Caption = "Month";
+                //    column.VisibleIndex = 2;
+                //    column.Visible = true;
+                //}
+                ////Year
+                //else if (column.Name == "Year")
+                //{
+                //    //column.Caption = "Year";
+                //    column.VisibleIndex = 3;
+                //    column.Visible = true;
+                //}
+                ////Areas
+                //else if (column.Name == "Province Name")
+                //{
+                //    //column.Caption = "Areas";
+                //    column.VisibleIndex = 4;
+                //    column.Visible = true;
+                //}
+                ////Customer
+                //else if (column.Name == "TenCoSoLayMau")
+                //{
+                //    //column.Caption = "Customer";
+                //    column.VisibleIndex = 5;
+                //    column.Visible = true;
+                //}
+                ////Animals
+                //else if (column.Name == "TenLoaiDV")
+                //{
+                //    //column.Caption = "Animals";
+                //    column.VisibleIndex = 6;
+                //    column.Visible = true;
+                //}
+                ////Quantity
+                //else if (column.Name == "SoLuongXN")
+                //{
+                //    //column.Caption = "Quantity";
+                //    column.VisibleIndex = 7;
+                //    column.Visible = true;
+                //}
+                ////Positive
+                //else if (column.Name == "Pos")
+                //{
+                //    //column.Caption = "Positive";
+                //    column.VisibleIndex = 8;
+                //    column.Visible = true;
+                //}
+                ////Negative
+                //else if (column.Name == "Neg")
+                //{
+                //    //column.Caption = "Negative";
+                //    column.VisibleIndex = 9;
+                //    column.Visible = true;
+                //}                
+                //else
+                //    column.Visible = false;              
+
+            }
+            //Export
+            gridView1.ExportToXlsx(filePath);
+            //Restore layout
+            gridView1.RestoreLayoutFromXml(@"D:\tempLayout.xml");
+            System.Diagnostics.Process.Start(filePath);
         }
 
         private void ItemClickEventHandler_Close(object sender, ItemClickEventArgs e)

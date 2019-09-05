@@ -107,19 +107,20 @@ namespace Production.Class
             gridView1.BestFitColumns();
         }
 
-        //StandardCurve
-        private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            if (e.Button.Index == 0)
-            {
-                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
-                //FRM.ID = int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString());
-                //FRM.acr = gridView1.GetFocusedRowCellValue("Acronym").ToString();
-                //FRM.RptName = "Rpt_AI_RESULT_LAB";
-                FRM.Show();
-            }
+        //Khong in report tu IBD List , vi IBD List chua ket qua
+        //Muon in phai ra Phieu Nhan Mau List tien hanh in
+        //private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        //{
+        //    if (e.Button.Index == 0)
+        //    {
+        //        R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
+        //        FRM.KHMau_GiaoMau = gridView1.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+        //        FRM.CTXNID = int.Parse(gridView1.GetFocusedRowCellValue("CTXN_ID").ToString());
+        //        //FRM.RptName = "Rpt_AI_RESULT_LAB";
+        //        FRM.Show();
+        //    }
             
-        }
+        //}
 
         
     }

@@ -288,6 +288,7 @@
     <Compile Include="Class\_LAB\PO_Header_DAO .cs" />
     <Compile Include="Class\_LAB\PO_Lines_DAO.cs" />
     <Compile Include="Class\_LAB\RESULT\HUYETTHANHHOC_STD_VALUE.cs" />
+    <Compile Include="Class\_LAB\RESULT\HUYETTHANHHOC_STD_VALUEDAO.cs" />
     <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Header_LAB.cs" />
     <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Header_LABBUS.cs" />
     <Compile Include="Class\_LAB\RESULT\IBD_RESULT_Lines_LAB.cs" />

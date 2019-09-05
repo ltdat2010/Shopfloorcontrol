@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(R_BaoCaoHTH_CTXN));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.dteYear = new DevExpress.XtraEditors.DateEdit();
             this.lkeCTXN = new DevExpress.XtraEditors.GridLookUpEdit();
             this.tblChiTieuXetNghiemLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
@@ -56,32 +55,34 @@
             this.colExpr1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAcronym = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.dteYear = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbl_ChiTieuXetNghiem_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_ChiTieuXetNghiem_LABTableAdapter();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteYear.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteYear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeCTXN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblChiTieuXetNghiemLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteYear.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.dteYear);
             this.layoutControl1.Controls.Add(this.lkeCTXN);
             this.layoutControl1.Controls.Add(this.simpleButton1);
+            this.layoutControl1.Controls.Add(this.dteYear);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -89,19 +90,6 @@
             this.layoutControl1.Size = new System.Drawing.Size(878, 80);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // dteYear
-            // 
-            this.dteYear.EditValue = null;
-            this.dteYear.Location = new System.Drawing.Point(106, 28);
-            this.dteYear.Name = "dteYear";
-            this.dteYear.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteYear.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteYear.Size = new System.Drawing.Size(768, 20);
-            this.dteYear.StyleController = this.layoutControl1;
-            this.dteYear.TabIndex = 10;
             // 
             // lkeCTXN
             // 
@@ -184,7 +172,7 @@
             this.colCTXN.FieldName = "CTXN";
             this.colCTXN.Name = "colCTXN";
             this.colCTXN.Visible = true;
-            this.colCTXN.VisibleIndex = 1;
+            this.colCTXN.VisibleIndex = 2;
             this.colCTXN.Width = 308;
             // 
             // colCTXNDG
@@ -192,7 +180,7 @@
             this.colCTXNDG.FieldName = "CTXNDG";
             this.colCTXNDG.Name = "colCTXNDG";
             this.colCTXNDG.Visible = true;
-            this.colCTXNDG.VisibleIndex = 2;
+            this.colCTXNDG.VisibleIndex = 3;
             this.colCTXNDG.Width = 148;
             // 
             // colCTXNDGTA
@@ -200,7 +188,7 @@
             this.colCTXNDGTA.FieldName = "CTXNDGTA";
             this.colCTXNDGTA.Name = "colCTXNDGTA";
             this.colCTXNDGTA.Visible = true;
-            this.colCTXNDGTA.VisibleIndex = 3;
+            this.colCTXNDGTA.VisibleIndex = 4;
             this.colCTXNDGTA.Width = 196;
             // 
             // colNCTXNID
@@ -218,7 +206,7 @@
             this.colNCTXN.FieldName = "NCTXN";
             this.colNCTXN.Name = "colNCTXN";
             this.colNCTXN.Visible = true;
-            this.colNCTXN.VisibleIndex = 4;
+            this.colNCTXN.VisibleIndex = 5;
             this.colNCTXN.Width = 144;
             // 
             // colPPXN
@@ -226,7 +214,7 @@
             this.colPPXN.FieldName = "PPXN";
             this.colPPXN.Name = "colPPXN";
             this.colPPXN.Visible = true;
-            this.colPPXN.VisibleIndex = 5;
+            this.colPPXN.VisibleIndex = 6;
             this.colPPXN.Width = 78;
             // 
             // colID
@@ -262,7 +250,7 @@
             this.colMaCTXN.FieldName = "MaCTXN";
             this.colMaCTXN.Name = "colMaCTXN";
             this.colMaCTXN.Visible = true;
-            this.colMaCTXN.VisibleIndex = 6;
+            this.colMaCTXN.VisibleIndex = 1;
             this.colMaCTXN.Width = 72;
             // 
             // colExpr1
@@ -288,6 +276,50 @@
             this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "Search";
             // 
+            // dteYear
+            // 
+            this.dteYear.Location = new System.Drawing.Point(106, 28);
+            this.dteYear.Name = "dteYear";
+            this.dteYear.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteYear.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.dteYear.Properties.Appearance.Options.UseFont = true;
+            this.dteYear.Properties.Appearance.Options.UseForeColor = true;
+            this.dteYear.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteYear.Properties.DisplayFormat.FormatString = "d";
+            this.dteYear.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteYear.Properties.EditFormat.FormatString = "d";
+            this.dteYear.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteYear.Properties.Items.AddRange(new object[] {
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031",
+            "2032",
+            "2033",
+            "2034",
+            "2035",
+            "2036",
+            "2037",
+            "2038",
+            "2039",
+            "2040"});
+            this.dteYear.Size = new System.Drawing.Size(66, 20);
+            this.dteYear.StyleController = this.layoutControl1;
+            this.dteYear.TabIndex = 10;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -296,7 +328,8 @@
             this.emptySpaceItem1,
             this.layoutControlItem1,
             this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlGroup1.Size = new System.Drawing.Size(878, 80);
@@ -335,14 +368,25 @@
             // 
             this.layoutControlItem3.Control = this.dteYear;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(172, 24);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(172, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(874, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(172, 24);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "Năm :";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(99, 13);
             // 
             // tbl_ChiTieuXetNghiem_LABTableAdapter
             // 
             this.tbl_ChiTieuXetNghiem_LABTableAdapter.ClearBeforeFill = true;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(172, 24);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(702, 24);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // R_BaoCaoHTH_CTXN
             // 
@@ -356,20 +400,21 @@
             this.Name = "R_BaoCaoHTH_CTXN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn chỉ tiêu xét nghiệm cần báo cáo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.R_BaoCaoHTH_CTXN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dteYear.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteYear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeCTXN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblChiTieuXetNghiemLABBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteYear.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,7 +432,6 @@
         private SYNC_NUTRICIELDataSet sYNC_NUTRICIELDataSet;
         private System.Windows.Forms.BindingSource tblChiTieuXetNghiemLABBindingSource;
         private SYNC_NUTRICIELDataSetTableAdapters.tbl_ChiTieuXetNghiem_LABTableAdapter tbl_ChiTieuXetNghiem_LABTableAdapter;
-        private DevExpress.XtraEditors.DateEdit dteYear;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraGrid.Columns.GridColumn colMinValue;
         private DevExpress.XtraGrid.Columns.GridColumn colMaxValue;
@@ -408,5 +452,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMaCTXN;
         private DevExpress.XtraGrid.Columns.GridColumn colExpr1;
         private DevExpress.XtraGrid.Columns.GridColumn colAcronym;
+        private DevExpress.XtraEditors.ComboBoxEdit dteYear;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

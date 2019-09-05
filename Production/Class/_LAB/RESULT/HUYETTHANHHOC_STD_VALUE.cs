@@ -11,7 +11,6 @@ namespace Production.Class._LAB.RESULT
         {
 
         }
-
         public int ID { get; set; }
         public int CTXN_ID { get; set; }
         public string TEST_SOFTWARE_SUP_NAME { get; set; }

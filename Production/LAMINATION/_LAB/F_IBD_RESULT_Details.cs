@@ -68,7 +68,7 @@ namespace Production.Class
         private int row_min, row_title;
 
         private string[] strArray = null;
-        private string TEST_SOFTWARE_CTXN_NAME = "IBD";
+        //private string TEST_SOFTWARE_CTXN_NAME = "IBD";
         private Microsoft.Office.Interop.Excel.Workbook wbook = null;
         private Worksheet worksheet = null;
         public F_IBD_RESULT_Details()
@@ -247,8 +247,11 @@ namespace Production.Class
 
         private void F_CUSTOMER_Details_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB' table. You can move, or remove it, as needed.
+            this.tbl_ChiTieuXetNghiem_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_HUYETTHANHHOC_STD_VALUE' table. You can move, or remove it, as needed.
-            this.tbl_HUYETTHANHHOC_STD_VALUETableAdapter.FillBy_TEST_SOFTWARE_CTXN_NAME(this.sYNC_NUTRICIELDataSet.tbl_HUYETTHANHHOC_STD_VALUE, TEST_SOFTWARE_CTXN_NAME);
+            //this.tbl_HUYETTHANHHOC_STD_VALUETableAdapter.FillBy_TEST_SOFTWARE_CTXN_NAME(this.sYNC_NUTRICIELDataSet.tbl_HUYETTHANHHOC_STD_VALUE, TEST_SOFTWARE_CTXN_NAME);
+            this.tbl_HUYETTHANHHOC_STD_VALUETableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_HUYETTHANHHOC_STD_VALUE);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB' table. You can move, or remove it, as needed.
             this.tbl_IBD_RESULT_Lines_LABTableAdapter.FillBy_IBD_RESULT_Header_LAB_ID(this.sYNC_NUTRICIELDataSet.tbl_IBD_RESULT_Lines_LAB, OBJHeader.ID);
         }
@@ -415,12 +418,12 @@ namespace Production.Class
                                 case "Min-Max Titer:":
                                     OBJHeader.Min = Convert.ToDecimal(0.000);//float.Parse(worksheet.Cells[i, "V"].Value);
                                     OBJHeader.Max = Convert.ToDecimal(0.000);//float.Parse(worksheet.Cells[i, ""].Value);
-                                    break;
+                                    break;                                
                                 default:
                                     OBJHeader.Case = OBJHeader.KHMau_GiaoMau = OBJHeader.FileName = txtTenXetNghiem.Text = (string)worksheet.Cells[11, "J"].Value;                                   
                                     OBJHeader.FilePath = openFileDialog1.FileName;
                                     OBJHeader.CTXN_ID = (int)row["CTXN_ID"];
-                                    OBJHeader.Count = 0;
+                                    //OBJHeader.Count = 0;
                                     OBJHeader.SD = 0;
                                     OBJHeader.Tech = "0";
                                     break;
@@ -433,14 +436,21 @@ namespace Production.Class
                                     string[] lst_dte_tmp = dte_tmp.Split('/');
                                     OBJHeader.Date = Convert.ToDateTime(lst_dte_tmp[1] + "/" + lst_dte_tmp[0] + "/" + lst_dte_tmp[2]);                                    
                                     break;
+                                case "No. Sample":
+                                    OBJHeader.Count = int.Parse((string)worksheet.Cells[i, "AI"].Value);
+                                    break;
                                 case "Neg/Sus/Pos:":
                                     neg_sus_pos = (string)worksheet.Cells[i, "AI"].Value;
+                                    //XtraMessageBox.Show(neg_sus_pos);
                                     string[] lst_neg_sus_pos = neg_sus_pos.Split('/');
                                     OBJHeader.Neg = int.Parse(lst_neg_sus_pos[0]);
+                                    //XtraMessageBox.Show(lst_neg_sus_pos[0]);
                                     OBJHeader.Sus = int.Parse(lst_neg_sus_pos[1]);
+                                    //XtraMessageBox.Show(lst_neg_sus_pos[1]);
                                     OBJHeader.Pos = int.Parse(lst_neg_sus_pos[2]);
-                                    break;
-                        }
+                                    //XtraMessageBox.Show(lst_neg_sus_pos[2]);
+                                break;
+                            }
                         }
                         //////////////////////////OBJHeader///////////////////////////////////////////////////////
                         
@@ -557,11 +567,11 @@ namespace Production.Class
                                 case "Total":
                                     OBJHeader.Count = int.Parse(worksheet.Cells[i, "M"].Value.ToString());
                                     break;
-                        }
+                            }
                             switch ((string)worksheet.Cells[i, "AD"].Value)
                                 {                                    
-                                    case "Neg/Sus/Pos:":
-                                        neg_sus_pos             = (string)worksheet.Cells[i, "AI"].Value;
+                                    case "Neg/Sus/Pos:":                                        
+                                        neg_sus_pos             = (string)worksheet.Cells[i, "AI"].Value;                                        
                                         string[] lst_neg_sus_pos = neg_sus_pos.Split('/');
                                         OBJHeader.Neg           = int.Parse(lst_neg_sus_pos[0]);
                                         OBJHeader.Sus           = int.Parse(lst_neg_sus_pos[1]);
