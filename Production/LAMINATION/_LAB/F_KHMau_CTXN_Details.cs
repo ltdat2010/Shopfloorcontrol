@@ -92,7 +92,7 @@ namespace Production.Class
                     //layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     //btnCancel.Enabled = false;
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    
+
                     //txtSoLuongXN.Text = KHMAUOBJ.SoLuongKHMau;
                     //KH_Mau
                     Set4Controls_Header();
@@ -330,7 +330,7 @@ namespace Production.Class
             KHMAUCTXNOBJ.DonGiaMuaNgoai = float.Parse(txtDonGiaMuaNgoai.Text.ToString());
             KHMAUCTXNOBJ.VAT = float.Parse(txtVAT.Text.ToString());
             KHMAUCTXNOBJ.PriceList_Details_LAB_Id = int.Parse(txtPriceList_Details_LAB_Id.Text);
-            KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID ;
+            KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID;
         }
 
         public void ResetControl()

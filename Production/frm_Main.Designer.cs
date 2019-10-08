@@ -169,6 +169,7 @@
             this.ribbonPage16 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.barButtonItem50 = new DevExpress.XtraBars.BarButtonItem();
             this.Result = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem77 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
@@ -286,10 +287,11 @@
             this.barButtonItem81,
             this.barButtonItem82,
             this.barButtonItem83,
-            this.barButtonItem76});
+            this.barButtonItem76,
+            this.barButtonItem77});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 77;
+            this.ribbon.MaxItemId = 78;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory1});
@@ -1049,7 +1051,8 @@
             this.barSubItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem6.ImageOptions.LargeImage")));
             this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem72),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem74)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem74),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem77)});
             this.barSubItem6.Name = "barSubItem6";
             // 
             // barButtonItem72
@@ -1115,10 +1118,11 @@
             this.barButtonItem82.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem82.ImageOptions.Image")));
             this.barButtonItem82.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem82.ImageOptions.LargeImage")));
             this.barButtonItem82.Name = "barButtonItem82";
+            this.barButtonItem82.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barButtonItem83
             // 
-            this.barButtonItem83.Caption = "IBD";
+            this.barButtonItem83.Caption = "HUYẾT THANH HỌC";
             this.barButtonItem83.Id = 75;
             this.barButtonItem83.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem83.ImageOptions.Image")));
             this.barButtonItem83.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem83.ImageOptions.LargeImage")));
@@ -1449,6 +1453,14 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem65)});
             this.Result.Name = "Result";
             // 
+            // barButtonItem77
+            // 
+            this.barButtonItem77.Caption = "Yêu cầu xuất hóa đơn";
+            this.barButtonItem77.Id = 77;
+            this.barButtonItem77.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem77.ImageOptions.Image")));
+            this.barButtonItem77.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem77.ImageOptions.LargeImage")));
+            this.barButtonItem77.Name = "barButtonItem77";
+            // 
             // frm_Main
             // 
             this.Appearance.Options.UseFont = true;
@@ -1462,6 +1474,7 @@
             this.Controls.Add(this.backstageViewControl3);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.LookAndFeel.SkinName = "Caramel";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1633,5 +1646,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem82;
         private DevExpress.XtraBars.BarButtonItem barButtonItem83;
         private DevExpress.XtraBars.BarButtonItem barButtonItem76;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem77;
     }
 }

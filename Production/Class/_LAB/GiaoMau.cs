@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class._LAB
 {
     public class GiaoMau
     {
-        public GiaoMau ()
+        public GiaoMau()
         {
-
         }
+
         public int ID { get; set; }
         public int KHMau_CTXN_LAB_ID { get; set; }
         public int SoLuongGiao { get; set; }

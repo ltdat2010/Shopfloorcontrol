@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class._LAB.RESULT
 {
@@ -9,8 +6,8 @@ namespace Production.Class._LAB.RESULT
     {
         public IBD_RESULT_Header_LAB()
         {
-
         }
+
         public int ID { get; set; }
         public string FilePath { get; set; }
         public string FileName { get; set; }
@@ -21,7 +18,7 @@ namespace Production.Class._LAB.RESULT
         public decimal GMean { get; set; }
         public decimal Mean { get; set; }
         public decimal SD { get; set; }
-        public decimal CV {get; set; }
+        public decimal CV { get; set; }
         public decimal Min { get; set; }
         public decimal Max { get; set; }
         public string Tech { get; set; }

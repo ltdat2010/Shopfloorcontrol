@@ -32,7 +32,8 @@ namespace Production.Class
         private string Path = Directory.GetCurrentDirectory();
         public int gridRow = 0;
 
-        private bool Automatically = true; 
+        private bool Automatically = true;
+
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -53,8 +54,9 @@ namespace Production.Class
 
         //NEW : Phan khai bao cho KH Mau
         public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
+
         public KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
-        
+
         private KHMau_LABBUS KHMauBUS = new KHMau_LABBUS();
         private KHMau_CTXN_LABBUS KHMauCTXNBUS = new KHMau_CTXN_LABBUS();
         private KHMau_CTXN_RESULT_DETAILS_LABBUS BUS3 = new KHMau_CTXN_RESULT_DETAILS_LABBUS();
@@ -104,16 +106,22 @@ namespace Production.Class
 
                 btnSendMail.Enabled = false;
                 //MessageBox.Show(isAction);
+                //lkeDonviXuatHoaDon.Properties.DataSource = tbl_CUSTOMER_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB);
+
                 if (isAction == "Edit")
                 {
+                    chkAutomatically.ReadOnly = true;
+                    chkManually.ReadOnly = true;
+                    chkGEN.ReadOnly = true;
+                    chkH2O.ReadOnly = true;
+                    chkHTH.ReadOnly = true;
+                    chkMDW.ReadOnly = true;
                     Set4Controls();
                     TDControlsReadOnly(false);
                     //XtraMessageBox.Show("Edit SoPXN :" + txtSoPXN.Text);
                     gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
                     for (int i = 0; i < gridView2.DataRowCount; i++)
                         LstBool.Add(bool.Parse(gridView2.GetRowCellValue(i, "KetQua").ToString() == "1" ? "true" : "false"));
-                    
-
                 }
                 else if (isAction == "Add")
                 {
@@ -126,12 +134,15 @@ namespace Production.Class
                     TDControlsReadOnly(true);
                     txtID.ReadOnly = true;
                     txtSendMail.Text = OBJ.SendMail = "0";
+
+                    
                 }
                 gridControl3.DataSource = KHMauBUS.KHMau_LABDAO_REPORT_STORAGE(KHMAUOBJ.SoPXN);
                 gridView3.BestFitColumns();
 
                 gridControl4.DataSource = KHMauBUS.KHMau_LABDAO_REPORT_DETROY(KHMAUOBJ.SoPXN);
                 gridView4.BestFitColumns();
+                
             };
 
             gridView2.RowClick += (s, e) =>
@@ -221,8 +232,8 @@ namespace Production.Class
             //Tra ket qua cho kach hang
             //Chi khi tat ca cac dong co gia tri cua TraKetQua = true thi moi xu ly
             btnTraKetQua.Click += (s, e) =>
-            {
-                if (txtSoPXN.Text.Substring(0,3) == "HTH")
+            {                
+                if (txtSoPXN.Text.Substring(0, 3) == "HTH")
                 {
                     if (gridView2.GetFocusedRowCellValue("KetQua").ToString() == "True")
                     {
@@ -233,7 +244,7 @@ namespace Production.Class
                             if (dlDel == DialogResult.Yes)
                             {
                                 KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
-                                KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
+                                //KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
                                 R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
                                 FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
                                 FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
@@ -298,19 +309,98 @@ namespace Production.Class
                         XtraMessageBox.Show(args).ToString();
                     }
                 }
-                
             };
-
+            btnTraKetQuaSN.Click += (s, e) =>
+            {
+                if (txtSoPXN.Text.Substring(0, 3) == "HTH")
+                {
+                    if (gridView2.GetFocusedRowCellValue("KetQua").ToString() == "True")
+                    {
+                        if (gridView2.GetFocusedRowCellValue("DaTraKetQua").ToString() == "True")
+                        {
+                            DialogResult dlDel = XtraMessageBox.Show("In báo cáo kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm đã được trả . " +
+                            "Hệ thống sẽ chỉ có thể xuất báo cáo dưa trên kết quả đã xuất trước đó ", "In báo cáo kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (dlDel == DialogResult.Yes)
+                            {
+                                KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
+                                //KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
+                                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
+                                FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
+                                FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+                                FRM.SoPXN = this.OBJ.SoPXN;
+                                FRM.SN = true;
+                                FRM.Show();
+                            }
+                        }
+                        else
+                        {
+                            DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn trả kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm ? . " +
+                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (dlDel == DialogResult.Yes)
+                            {
+                                KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
+                                KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
+                                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
+                                FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
+                                FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
+                                FRM.SoPXN = this.OBJ.SoPXN;
+                                FRM.SN = true;
+                                FRM.Show();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Trả kết quả ";
+                        args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
+                }
+                else
+                {
+                    if (LstBool.Contains(false) != true)
+                    {
+                        DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn trả kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm ? . " +
+                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dlDel == DialogResult.Yes)
+                        {
+                            BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(txtSoPXN.Text);
+                            if (txtSoPXN.Text.Substring(0, 3) == "MDW")
+                            {
+                                R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT FRM = new R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT();
+                                FRM.SoPXN = this.OBJ.SoPXN;
+                                FRM.Show();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Trả kết quả ";
+                        args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
+                }
+            };
             gridView2.RowClick += (s, e) =>
             {
                 gridViewRowClick = true;
                 Set4ObjectKHMau();
             };
 
-            gridView2.InitNewRow += (s, e) =>
-            {
-                gridViewRowClick = true;
-            };
+            //gridView2.InitNewRow += (s, e) =>
+            //{
+            //    gridViewRowClick = true;
+            //};
 
             //this.FormClosed += (s, e) =>
             //{
@@ -350,7 +440,7 @@ namespace Production.Class
                  {
                      OBJ.LoaiXN = "GEN";
                      if (Automatically == true)
-                        txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                         txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
                  }
              };
             chkAutomatically.CheckedChanged += (s, e) =>
@@ -364,6 +454,31 @@ namespace Production.Class
                     chkHTH.ReadOnly = false;
                     chkMDW.ReadOnly = false;
                     txtSoPXN.ReadOnly = true;
+                    if (isAction == "Add")
+                    {
+                        if (chkGEN.CheckState == CheckState.Checked)
+                        {
+                            OBJ.LoaiXN = "GEN";
+                            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                        }
+                        else if (chkHTH.CheckState == CheckState.Checked)
+                        {
+                            OBJ.LoaiXN = "HTH";
+                            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                        }
+                        else if (chkH2O.CheckState == CheckState.Checked)
+                        {
+                            OBJ.LoaiXN = "H2O";
+                            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                        }
+                        else if (chkMDW.CheckState == CheckState.Checked)
+                        {
+                            OBJ.LoaiXN = "MDW";
+                            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
+                        }
+
+                    }
+
                 }
                 else
                 {
@@ -409,7 +524,6 @@ namespace Production.Class
                     chkHTH.ReadOnly = false;
                     chkMDW.ReadOnly = false;
                     txtSoPXN.ReadOnly = true;
-
                 }
             };
 
@@ -710,7 +824,7 @@ namespace Production.Class
             {
                 //OBJ1.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
 
-                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa kí hiệu mẫu : " + KHMAUOBJ.KHMau + " ?. Lưu ý : Các chỉ tiêu xét nghiệm liên quan đến kí hiệu mẫu "+ KHMAUOBJ.KHMau + " cũng sẽ bị xóa. Đồng ý xóa ? ", "Xóa kí hiệu mẫu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa kí hiệu mẫu : " + KHMAUOBJ.KHMau + " ?. Lưu ý : Các chỉ tiêu xét nghiệm liên quan đến kí hiệu mẫu " + KHMAUOBJ.KHMau + " cũng sẽ bị xóa. Đồng ý xóa ? ", "Xóa kí hiệu mẫu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
                     //BUS3.KHMau_CTXN_LABDAO_DELETE_ByKHMau_CTXN_ID();
@@ -894,6 +1008,7 @@ namespace Production.Class
             dteNgayNhanMau.Text = OBJ.NgayNhanMau.ToString().Substring(0, 10);
             txtSoPXN.Text = OBJ.SoPXN;
             lkeTenCoSoGuiMau.Text = OBJ.TenCoSoGuiMau;
+            lkeDonviXuatHoaDon.EditValue = OBJ.DonViXuatHoaDon_ID;
             txtDCCoSoGuiMau.Text = OBJ.DCCoSoGuiMau;
             txtPhoneCoSoGuiMau.Text = OBJ.PhoneCoSoGuiMau;
             txtFaxCoSoGuiMau.Text = OBJ.FaxCoSoGuiMau;
@@ -1081,6 +1196,7 @@ namespace Production.Class
             OBJ.PhoneCoSoLayMau = txtPhoneCoSoLayMau.Text;
             OBJ.FaxCoSoLayMau = txtFaxCoSoLayMau.Text;
             OBJ.EmailCoSoLayMau = txtEmailCoSoLayMau.Text;
+            OBJ.DonViXuatHoaDon_ID = int.Parse(lkeDonviXuatHoaDon.EditValue.ToString());
             //OBJ.KHMau = txtKHMau.Text;
             //OBJ.Khac = txtKhac.Text;
             //if (chkPTN.CheckState == CheckState.Checked)
@@ -1109,6 +1225,7 @@ namespace Production.Class
         {
             txtID.Text = "";
             lkeTenCoSoGuiMau.Text = "";
+            lkeDonviXuatHoaDon.Text = "";
             //lkeCTPT.Text = "";
             //lkeTC.Text = "";
             txtNote.Text = "";
@@ -1126,6 +1243,7 @@ namespace Production.Class
             dteNgayDukienTra.ReadOnly = bl;
             txtSoPXN.ReadOnly = bl;
             lkeTenCoSoGuiMau.ReadOnly = bl;
+            lkeDonviXuatHoaDon.ReadOnly = bl;
             txtDCCoSoGuiMau.ReadOnly = bl;
             txtPhoneCoSoGuiMau.ReadOnly = bl;
             txtFaxCoSoGuiMau.ReadOnly = bl;
@@ -1153,12 +1271,10 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
@@ -1217,12 +1333,10 @@ namespace Production.Class
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
-            
-        }       
+        }
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
-            
         }
 
         public void finished(object sender)
@@ -1250,12 +1364,15 @@ namespace Production.Class
 
         private void F_PRICELIST_Details_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD' table. You can move, or remove it, as needed.
+            this.tbl_CUSTOMER_LAB_XuatHDTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD);
+
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KHMau_LAB' table. You can move, or remove it, as needed.
             this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.SoPXN);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB' table. You can move, or remove it, as needed.
             this.tbl_CUSTOMER_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB' table. You can move, or remove it, as needed.
-            this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);            
+            this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
         }
 
         public string Func_SoPXN_NPT(int SoPXN)
@@ -1282,7 +1399,7 @@ namespace Production.Class
             }
             return SoPXN_Text;
         }
-        
+
         private void Export2Pdf(string filename)
         {
             ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1324,7 +1441,7 @@ namespace Production.Class
                 ExportOptions CrExportOptions;
                 DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = "D:\\" + filename + ".pdf";
+                CrDiskFileDestinationOptions.DiskFileName = @"X:\\" + filename + ".pdf";
                 CrExportOptions = cryRpt.ExportOptions;
                 {
                     CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
@@ -1365,7 +1482,7 @@ namespace Production.Class
                                        //1_Export to pdf
 
                 //2_Attach to Email
-                mail.Attachments.Add(new Attachment("D:\\" + attachedfilename + ".pdf"));
+                mail.Attachments.Add(new Attachment(@"X:\\" + attachedfilename + ".pdf"));
                 mail.IsBodyHtml = true;
                 string messageBody = "<font>Kính gửi : " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
                 string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
@@ -1403,7 +1520,7 @@ namespace Production.Class
             {
                 XtraMessageBox.Show(ex.FailedRecipient);
                 //ex.GetBaseException(); //should give you enough info.
-            }            
+            }
             txtSendMail.Text = (int.Parse(txtSendMail.Text) + 1).ToString();
             Is_close = true;
             this.Close();

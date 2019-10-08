@@ -34,11 +34,11 @@
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -320,11 +320,11 @@
             this.layoutControl2.Controls.Add(this.cmbKhoa);
             this.layoutControl2.Controls.Add(this.txtID);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 20);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(500, 267, 450, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(1088, 545);
+            this.layoutControl2.Size = new System.Drawing.Size(1088, 547);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -361,7 +361,7 @@
             this.layoutControl4.Location = new System.Drawing.Point(5, 53);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.Root;
-            this.layoutControl4.Size = new System.Drawing.Size(1078, 439);
+            this.layoutControl4.Size = new System.Drawing.Size(1078, 441);
             this.layoutControl4.TabIndex = 17;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -373,7 +373,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1070, 389);
+            this.gridControl1.Size = new System.Drawing.Size(1070, 391);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -458,6 +458,10 @@
             // 
             // colMaCTXN
             // 
+            this.colMaCTXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaCTXN.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colMaCTXN.AppearanceCell.Options.UseFont = true;
+            this.colMaCTXN.AppearanceCell.Options.UseForeColor = true;
             this.colMaCTXN.Caption = "Mã CTXN";
             this.colMaCTXN.FieldName = "MaCTXN";
             this.colMaCTXN.Name = "colMaCTXN";
@@ -467,6 +471,10 @@
             // 
             // colCTXN
             // 
+            this.colCTXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCTXN.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colCTXN.AppearanceCell.Options.UseFont = true;
+            this.colCTXN.AppearanceCell.Options.UseForeColor = true;
             this.colCTXN.Caption = "Chỉ tiêu xét nghiêm ( CTXN )";
             this.colCTXN.FieldName = "CTXN";
             this.colCTXN.Name = "colCTXN";
@@ -610,9 +618,9 @@
             // repositoryItemButtonEdit1
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -626,6 +634,7 @@
             this.actionMini1.Location = new System.Drawing.Point(4, 4);
             this.actionMini1.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.actionMini1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.actionMini1.Margin = new System.Windows.Forms.Padding(0);
             this.actionMini1.Name = "actionMini1";
             this.actionMini1.Size = new System.Drawing.Size(1070, 38);
             this.actionMini1.StateMenu = Production.Class.MenuState.Empty;
@@ -640,7 +649,7 @@
             this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.Root.Size = new System.Drawing.Size(1078, 439);
+            this.Root.Size = new System.Drawing.Size(1078, 441);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem10
@@ -648,7 +657,7 @@
             this.layoutControlItem10.Control = this.gridControl1;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(1074, 393);
+            this.layoutControlItem10.Size = new System.Drawing.Size(1074, 395);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -679,7 +688,7 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(125, 496);
+            this.txtNote.Location = new System.Drawing.Point(125, 498);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(958, 20);
             this.txtNote.StyleController = this.layoutControl2;
@@ -687,7 +696,7 @@
             // 
             // cmbKhoa
             // 
-            this.cmbKhoa.Location = new System.Drawing.Point(125, 520);
+            this.cmbKhoa.Location = new System.Drawing.Point(125, 522);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -728,7 +737,7 @@
             this.layoutControlItem12});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1088, 545);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1088, 547);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
@@ -754,7 +763,7 @@
             this.layoutControlItem14.Control = this.layoutControl4;
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(1082, 443);
+            this.layoutControlItem14.Size = new System.Drawing.Size(1082, 445);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
@@ -772,7 +781,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.cmbKhoa;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 515);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 517);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(281, 24);
             this.layoutControlItem6.Text = "Tạm khóa :";
@@ -781,7 +790,7 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtNote;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 491);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 493);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(1082, 24);
             this.layoutControlItem2.Text = "Note :";
@@ -790,7 +799,7 @@
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(281, 515);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(281, 517);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(801, 24);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -888,13 +897,14 @@
             // 
             // F_PRICELIST_Details
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 620);
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "F_PRICELIST_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Price List";

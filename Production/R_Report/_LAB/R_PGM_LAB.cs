@@ -7,8 +7,30 @@ using System.Windows.Forms;
 
 namespace Production.Class
 {
+
     public partial class R_PGM_LAB : frm_Base
     {
+
+        /// <summary>
+        /// DELEGATE
+        /// </summary>
+        public delegate void MyAdd(object sender);
+
+        public event MyAdd myFinished;
+
+        public bool Is_close
+        {
+            set
+            {
+                if (value)
+                {
+                    if (myFinished != null) myFinished(sender: this);
+                    //myFinished?.Invoke(sender: this);
+                }
+            }
+        }
+
+
         private PXN_HeaderBUS BUS = new PXN_HeaderBUS();
         private PXN_DetailsBUS BUS1 = new PXN_DetailsBUS();
         private KHMau_LABBUS BUS2 = new KHMau_LABBUS();
@@ -20,6 +42,7 @@ namespace Production.Class
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
         private string Path = Directory.GetCurrentDirectory();
+
         private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
@@ -85,7 +108,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
-            this.Close();
+            Is_close = true;
         }
 
         private void PrintReport(PrintDocument pd)

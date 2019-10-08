@@ -112,7 +112,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Excel(object sender, EventArgs e)
         {
-            string filename = @"D:\\BaoCaoCongNo_" + FrDate.ToString().Substring(0, 10).Replace("/", "") + "_" + ToDate.ToString().Substring(0, 10).Replace("/", "") + ".xls";
+            string filename = @"X:\\BaoCaoCongNo_" + FrDate.ToString().Substring(0, 10).Replace("/", "") + "_" + ToDate.ToString().Substring(0, 10).Replace("/", "") + ".xls";
             rpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel, filename);
             //Open excel file
             System.Diagnostics.Process.Start(filename);

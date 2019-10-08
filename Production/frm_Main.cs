@@ -914,6 +914,13 @@ namespace Production.Class
                 uc.Dock = DockStyle.Fill;
             };
 
+            //barButtonItem77 -- yêu cầu xuất hóa đơn
+            barButtonItem77.ItemClick += (s, e) =>
+            {
+                F_YCXuatHD FRM = new Class.F_YCXuatHD();
+                FRM.Show();
+            };
+
             #region action controls
 
             //Them

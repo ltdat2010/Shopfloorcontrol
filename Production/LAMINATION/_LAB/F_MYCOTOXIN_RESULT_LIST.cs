@@ -67,7 +67,7 @@ namespace Production.Class
         //}
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn muốn xóa kết quả  "+ gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString() + " ? .Lưu ý : Dữ liệu sẽ không thể phục hồi.", "Xác nhận xóa", MessageBoxButtons.YesNo) != DialogResult.No)
+            if (XtraMessageBox.Show("Bạn muốn xóa kết quả  " + gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString() + " ? .Lưu ý : Dữ liệu sẽ không thể phục hồi.", "Xác nhận xóa", MessageBoxButtons.YesNo) != DialogResult.No)
             {
                 BUSHeader.MYCOTOXIN_RESULT_Header_DELETE(int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString()));
                 BUSLines.MYCOTOXIN_RESULT_Lines_DELETE(int.Parse(gridView1.GetFocusedRowCellValue("MYCOTOXIN_RESULT_Header_ID").ToString()));
@@ -86,6 +86,7 @@ namespace Production.Class
                 gridView1.BestFitColumns();
             }
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             try

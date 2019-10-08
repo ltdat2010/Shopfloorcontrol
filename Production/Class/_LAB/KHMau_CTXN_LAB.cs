@@ -6,15 +6,16 @@ namespace Production.Class
     {
         public KHMau_CTXN_LAB()
         {
-
-
         }
+
         public int ID { get; set; }
         public int KHMau_ID { get; set; }
-        public string KHMau { get; set; }        
+        public string KHMau { get; set; }
         public int CTXNID { get; set; }
+
         //int NCTXNID,
         public DateTime CreatedDate { get; set; }
+
         public string CreatedBy { get; set; }
         public string Note { get; set; }
         public bool Locked { get; set; }
@@ -32,5 +33,7 @@ namespace Production.Class
         public DateTime NgayCoKetQua { get; set; }
         public bool DaTraKetQua { get; set; }
         public DateTime NgayTraKetQua { get; set; }
+        public bool GoiYCXuatHD { get; set; }
+        public DateTime NgayGoiYCXuatHD { get; set; }
     }
 }

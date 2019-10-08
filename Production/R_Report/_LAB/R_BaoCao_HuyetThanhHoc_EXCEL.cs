@@ -1,5 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Columns;
 using System;
 using System.Data;
@@ -14,10 +13,12 @@ namespace Production.Class
         private IBD_RESULT_Header_LABBUS BUS = new IBD_RESULT_Header_LABBUS();
         public int CTXN_ID;
         public string year;
+
         //public string ToDate;
         private DataTable dt_BaoCao_HuyetThanhHoc = new DataTable();
+
         //----------------------------Report parameters declare---------------------------------------------
-        
+
         private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
         private string Path = Directory.GetCurrentDirectory();
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
@@ -37,7 +38,6 @@ namespace Production.Class
                     gridControl1.DataSource = dt_BaoCao_HuyetThanhHoc;
 
                 gridView1.BestFitColumns();
-                               
             };
 
             action1.Print(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Print));
@@ -48,66 +48,76 @@ namespace Production.Class
         private void ItemClickEventHandler_Excel(object sender, ItemClickEventArgs e)
         {
             string filename = "BaoCaoHuyetThanhHoc_" + DateTime.Today.ToShortDateString().Replace("/", "") + ".xlsx";
-            string filePath = @"D:\" +filename ;         
+            string filePath = @"X:\" + filename;
 
             //Save current layout
-            gridView1.SaveLayoutToXml(@"D:\tempLayout.xml");
+            gridView1.SaveLayoutToXml(@"X:\tempLayout.xml");
             //Set to visible all column
             foreach (GridColumn column in gridView1.Columns)
             {
-                switch (column.Name) 
-                {                    
+                switch (column.Name)
+                {
                     case "colSoPXN":
                         column.Caption = "Số phiếu nhận mẫu";
                         column.VisibleIndex = 1;
                         column.Visible = true;
                         break;
+
                     case "colMonth":
                         column.Caption = "Tháng";
                         column.VisibleIndex = 2;
                         column.Visible = true;
                         break;
+
                     case "colYear":
                         column.Caption = "Năm";
                         column.VisibleIndex = 3;
                         column.Visible = true;
                         break;
+
                     case "colProvinceName":
                         column.Caption = "Tỉnh/Thành";
                         column.VisibleIndex = 4;
                         column.Visible = true;
                         break;
+
                     case "colTenCoSoGuiMau":
                         column.Caption = "Người gửi mẫu";
                         column.VisibleIndex = 5;
                         column.Visible = true;
                         break;
+
                     case "colTenCoSoLayMau":
                         column.Caption = "Khách hàng";
                         column.VisibleIndex = 5;
                         column.Visible = true;
                         break;
+
                     case "colTenLoaiDV":
                         column.Caption = "Loài động vật";
                         column.VisibleIndex = 6;
                         column.Visible = true;
                         break;
+
                     case "colSoLuongXN":
                         column.Caption = "Số lượng";
                         column.VisibleIndex = 7;
                         column.Visible = true;
                         break;
+
                     case "colPos":
                         column.Caption = "Positive";
                         column.VisibleIndex = 8;
                         column.Visible = true;
                         break;
+
                     case "colNeg":
                         column.Caption = "Negative";
                         column.VisibleIndex = 9;
                         column.Visible = true;
                         break;
-                    default :
+
+                    default:
                         column.Visible = false;
                         break;
                 }
@@ -180,15 +190,14 @@ namespace Production.Class
                 //    //column.Caption = "Negative";
                 //    column.VisibleIndex = 9;
                 //    column.Visible = true;
-                //}                
+                //}
                 //else
-                //    column.Visible = false;              
-
+                //    column.Visible = false;
             }
             //Export
             gridView1.ExportToXlsx(filePath);
             //Restore layout
-            gridView1.RestoreLayoutFromXml(@"D:\tempLayout.xml");
+            gridView1.RestoreLayoutFromXml(@"X:\tempLayout.xml");
             System.Diagnostics.Process.Start(filePath);
         }
 

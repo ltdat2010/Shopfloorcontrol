@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_PTU_LAB_Details));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -108,6 +109,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -187,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
@@ -234,8 +237,6 @@
             this.action_EndForm3.Appearance.Options.UseFont = true;
             this.action_EndForm3.Appearance.Options.UseForeColor = true;
             this.action_EndForm3.Location = new System.Drawing.Point(317, 5);
-            this.action_EndForm3.LookAndFeel.SkinName = "Money Twins";
-            this.action_EndForm3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action_EndForm3.Margin = new System.Windows.Forms.Padding(0);
             this.action_EndForm3.Name = "action_EndForm3";
             this.action_EndForm3.Size = new System.Drawing.Size(398, 29);
@@ -278,6 +279,7 @@
             // 
             this.groupControl1.Controls.Add(this.layoutControl2);
             this.groupControl1.Location = new System.Drawing.Point(4, 4);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(1);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(724, 636);
             this.groupControl1.TabIndex = 6;
@@ -306,7 +308,7 @@
             // 
             // chkCK
             // 
-            this.chkCK.Location = new System.Drawing.Point(236, 77);
+            this.chkCK.Location = new System.Drawing.Point(337, 77);
             this.chkCK.Name = "chkCK";
             this.chkCK.Properties.Caption = "Chuyển khoản (TT)";
             this.chkCK.Size = new System.Drawing.Size(114, 19);
@@ -315,7 +317,7 @@
             // 
             // chkTM
             // 
-            this.chkTM.Location = new System.Drawing.Point(134, 77);
+            this.chkTM.Location = new System.Drawing.Point(235, 77);
             this.chkTM.Name = "chkTM";
             this.chkTM.Properties.Caption = "Tiến mặt (Cash)";
             this.chkTM.Size = new System.Drawing.Size(98, 19);
@@ -341,6 +343,7 @@
             // 
             // lkeBoPhan
             // 
+            this.lkeBoPhan.EditValue = "LAB";
             this.lkeBoPhan.Location = new System.Drawing.Point(67, 53);
             this.lkeBoPhan.Name = "lkeBoPhan";
             this.lkeBoPhan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -349,6 +352,7 @@
             this.lkeBoPhan.Properties.DisplayMember = "Dept_Name";
             this.lkeBoPhan.Properties.NullText = "";
             this.lkeBoPhan.Properties.PopupView = this.gridLookUpEdit1View;
+            this.lkeBoPhan.Properties.ReadOnly = true;
             this.lkeBoPhan.Properties.ValueMember = "Dept_Code";
             this.lkeBoPhan.Size = new System.Drawing.Size(125, 20);
             this.lkeBoPhan.StyleController = this.layoutControl2;
@@ -380,8 +384,6 @@
             this.action_EndForm1.Appearance.Options.UseFont = true;
             this.action_EndForm1.Appearance.Options.UseForeColor = true;
             this.action_EndForm1.Location = new System.Drawing.Point(318, 100);
-            this.action_EndForm1.LookAndFeel.SkinName = "Money Twins";
-            this.action_EndForm1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action_EndForm1.Margin = new System.Windows.Forms.Padding(0);
             this.action_EndForm1.Name = "action_EndForm1";
             this.action_EndForm1.Size = new System.Drawing.Size(397, 28);
@@ -464,6 +466,7 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Location = new System.Drawing.Point(5, 5);
+            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(1);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
             this.xtraTabControl1.Size = new System.Drawing.Size(696, 365);
@@ -474,9 +477,10 @@
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.layoutControl5);
+            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(689, 337);
-            this.xtraTabPage1.Text = "Yêu cầu xét nghiệm";
+            this.xtraTabPage1.Text = "Chi tiết yêu cầu thanh toán";
             // 
             // layoutControl5
             // 
@@ -499,8 +503,6 @@
             this.action_EndForm2.Appearance.Options.UseFont = true;
             this.action_EndForm2.Appearance.Options.UseForeColor = true;
             this.action_EndForm2.Location = new System.Drawing.Point(2, 2);
-            this.action_EndForm2.LookAndFeel.SkinName = "Money Twins";
-            this.action_EndForm2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action_EndForm2.Margin = new System.Windows.Forms.Padding(0);
             this.action_EndForm2.Name = "action_EndForm2";
             this.action_EndForm2.Size = new System.Drawing.Size(685, 29);
@@ -561,24 +563,36 @@
             // 
             // colNoiDung
             // 
+            this.colNoiDung.Caption = "Nội dung";
             this.colNoiDung.FieldName = "NoiDung";
             this.colNoiDung.Name = "colNoiDung";
             this.colNoiDung.Visible = true;
             this.colNoiDung.VisibleIndex = 0;
+            this.colNoiDung.Width = 787;
             // 
             // colSoHD
             // 
+            this.colSoHD.Caption = "Số hóa đơn";
             this.colSoHD.FieldName = "SoHD";
             this.colSoHD.Name = "colSoHD";
             this.colSoHD.Visible = true;
             this.colSoHD.VisibleIndex = 1;
+            this.colSoHD.Width = 139;
             // 
             // colSoTien
             // 
+            this.colSoTien.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colSoTien.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colSoTien.AppearanceCell.Options.UseFont = true;
+            this.colSoTien.AppearanceCell.Options.UseForeColor = true;
+            this.colSoTien.Caption = "Số tiền";
             this.colSoTien.FieldName = "SoTien";
             this.colSoTien.Name = "colSoTien";
+            this.colSoTien.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SoTien", "TỔNG={0:0.##}")});
             this.colSoTien.Visible = true;
             this.colSoTien.VisibleIndex = 2;
+            this.colSoTien.Width = 141;
             // 
             // colNote
             // 
@@ -769,9 +783,9 @@
             this.dteNgayLapPO.Size = new System.Drawing.Size(125, 20);
             this.dteNgayLapPO.StyleController = this.layoutControl2;
             this.dteNgayLapPO.TabIndex = 41;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.dteNgayLapPO, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.dteNgayLapPO, conditionValidationRule1);
             // 
             // lkeNhaCungCap
             // 
@@ -850,7 +864,8 @@
             this.layoutControlItem2,
             this.layoutControlItem7,
             this.emptySpaceItem5,
-            this.emptySpaceItem6});
+            this.emptySpaceItem6,
+            this.emptySpaceItem7});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             this.layoutControlGroup2.Size = new System.Drawing.Size(720, 612);
@@ -936,7 +951,7 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.chkTM;
-            this.layoutControlItem10.Location = new System.Drawing.Point(129, 72);
+            this.layoutControlItem10.Location = new System.Drawing.Point(230, 72);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(102, 23);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
@@ -945,7 +960,7 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.chkCK;
-            this.layoutControlItem11.Location = new System.Drawing.Point(231, 72);
+            this.layoutControlItem11.Location = new System.Drawing.Point(332, 72);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(118, 23);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
@@ -954,9 +969,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(349, 72);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(450, 72);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(365, 23);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(264, 23);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -992,6 +1007,14 @@
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(39, 72);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem7
+            // 
+            this.emptySpaceItem7.AllowHotTrack = false;
+            this.emptySpaceItem7.Location = new System.Drawing.Point(129, 72);
+            this.emptySpaceItem7.Name = "emptySpaceItem7";
+            this.emptySpaceItem7.Size = new System.Drawing.Size(101, 23);
+            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
             // 
@@ -1037,14 +1060,15 @@
             // 
             // F_PTU_LAB_Details
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 691);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(-1, 1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_PTU_LAB_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Phiếu đề nghị tạm ứng - Cash for Advanced";
@@ -1122,6 +1146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
@@ -1217,5 +1242,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLocked;
         private System.Windows.Forms.BindingSource tblDeptBindingSource;
         private SYNC_NUTRICIELDataSetTableAdapters.tbl_DeptTableAdapter tbl_DeptTableAdapter;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
     }
 }

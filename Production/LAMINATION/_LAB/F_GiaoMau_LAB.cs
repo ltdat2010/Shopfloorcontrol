@@ -1,10 +1,6 @@
 ﻿using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -41,7 +37,7 @@ namespace Production.Class
         private PXN_DetailsBUS BUS1 = new PXN_DetailsBUS();
         private KHMau_LABBUS BUS2 = new KHMau_LABBUS();
         public PXN_Header OBJ = new PXN_Header();
-        
+
         public F_GiaoMau_LAB()
         {
             InitializeComponent();
@@ -51,24 +47,9 @@ namespace Production.Class
 
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
                 this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
-                                
-                action_EndForm3.Add_Status(false);
-                action_EndForm3.Delete_Status(false);
-                action_EndForm3.Update_Status(false);
-                action_EndForm3.Save_Status(true);
-                action_EndForm3.View_Status(false);
-                action_EndForm3.Close_Status(true);                
 
                 this.Location = new System.Drawing.Point(Screen.PrimaryScreen.Bounds.Right - this.Width, 0);
-                                
-
-
             };
-            //Action_EndForm
-            action_EndForm3.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add3));
-            action_EndForm3.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update3));
-            action_EndForm3.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close3));
-            action_EndForm3.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save3));
 
             gridView1.CellValueChanged += (s, e) =>
             {
@@ -78,61 +59,44 @@ namespace Production.Class
                 string cellValue = e.Value.ToString().Substring(1, 1) + e.Value.ToString().PadRight(4);
                 view.SetRowCellValue(e.RowHandle, view.Columns[4], cellValue);
             };
-        }
 
-        private void ItemClickEventHandler_Save3(object sender, ItemClickEventArgs e)
-        {
-            R_PGM_LAB FRM = new Class.R_PGM_LAB();
-            FRM.OBJ = this.OBJ;
-            FRM.Show();
-        }
+            btnPhieuGiaoMau.Click += (s, e) =>
+            {
+                R_PGM_LAB FRM = new Class.R_PGM_LAB();
+                FRM.OBJ = this.OBJ;
+                FRM.myFinished += this.finished;
+                FRM.Show();
+            };
 
-        private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
-        {
-           
+            FormClosed += (s, e) =>
+            {
+                Is_close = true;
+            };
         }
-
-        private void ItemClickEventHandler_Update3(object sender, ItemClickEventArgs e)
-        {
-           
-        }
-
-        private void ItemClickEventHandler_Add3(object sender, ItemClickEventArgs e)
-        {
-            
-        }
-
-        
 
         public void Set4Controls_Header()
         {
-            
         }
 
         public void Set4Controls_Details()
         {
-            
         }
 
         public void Set4Object_Header()
         {
-           
         }
 
         public void Set4Object_Details()
         {
-            
         }
 
         public void ResetControl()
         {
-            
         }
 
         //
         public void ControlsReadOnly(bool bl)
         {
-            
         }
 
         public void finished(object sender)
@@ -146,7 +110,7 @@ namespace Production.Class
             frm.Close();
 
             this.Visible = true;
-            
+
             gridView1.BestFitColumns();
         }
 
@@ -154,7 +118,6 @@ namespace Production.Class
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KHMau_LAB' table. You can move, or remove it, as needed.
             this.tbl_KHMau_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB);
-
         }
     }
 }

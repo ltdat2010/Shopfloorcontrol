@@ -34,9 +34,10 @@ namespace Production.Class
                 }
             }
         }
+
         //NEW : Phan khai bao cho KH Mau
         public KHMau_LAB KHMAUOBJ = new KHMau_LAB();
-        
+
         private KHMau_CTXN_LAB KHMAUCTXNOBJ = new KHMau_CTXN_LAB();
         private KHMau_LABBUS BUS1 = new KHMau_LABBUS();
         private KHMau_CTXN_LABBUS BUS2 = new KHMau_CTXN_LABBUS();
@@ -76,7 +77,7 @@ namespace Production.Class
                 txtSoLuongHuy.ReadOnly = true;
 
                 this.Location = new System.Drawing.Point(Screen.PrimaryScreen.Bounds.Right - this.Width, 0);
-                
+
                 if (KHMAUOBJ.SoPXN.Substring(0, 3) == "GEN" || KHMAUOBJ.SoPXN.Substring(0, 3) == "HTH" || KHMAUOBJ.SoPXN.Substring(0, 3) == "MDW")
                 {
                     //cmbLoaiDV
@@ -101,27 +102,25 @@ namespace Production.Class
                 if (isAction == "Edit")
                 {
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                                        
+
                     txtSoPXN.ReadOnly = true;
 
                     Set4Controls_Header();
                     Set4Controls_Details();
-                    
+
                     gridControl1.DataSource = this.tbl_KHMau_CTXN_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB, KHMAUOBJ.KHMau);
-                    
                 }
                 else if (isAction == "Add")
                 {
                     txtKHMau.Text = this.str_KHMau;
                     Set4Controls_Header();
-                    
+
                     txtKHMau.ReadOnly = false;
                     txtSoPXN.ReadOnly = true;
                     txtID.ReadOnly = true;
-                    layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;                    
+                    layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 }
-                
-            };            
+            };
 
             gridView1.RowClick += (s, e) =>
             {
@@ -246,7 +245,7 @@ namespace Production.Class
                 foreach (Control ctrl in IControls)
                     ctrl.Focus();
             }
-            
+
             //throw new NotImplementedException();
         }
 
@@ -403,7 +402,7 @@ namespace Production.Class
                 IList<Control> IControls = this.dxValidationProvider2.GetInvalidControls();
                 foreach (Control ctrl in IControls)
                     ctrl.Focus();
-            }            
+            }
         }
 
         private void ItemClickEventHandler_Save(object sender, ItemClickEventArgs e)
@@ -503,7 +502,7 @@ namespace Production.Class
 
         public void Set4Object_Header()
         {
-            KHMAUOBJ.KHMau = txtKHMau.Text;            
+            KHMAUOBJ.KHMau = txtKHMau.Text;
             if (isAction == "Edit")
                 KHMAUOBJ.ID = int.Parse(txtID.Text.ToString());
             KHMAUOBJ.SoPXN = txtSoPXN.Text;
@@ -543,7 +542,7 @@ namespace Production.Class
             //KHMAUOBJ.NgayHuyKHMau = dteNgayHuyMau.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayHuyMau.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             //if (isAction == "Add")
             //{
-                //XtraMessageBox.Show(dteNgayHuyMau.Text.ToString());
+            //XtraMessageBox.Show(dteNgayHuyMau.Text.ToString());
             if (dteNgayHuyMau.Text.ToString() == null || dteNgayHuyMau.Text.Length == 0)
                 KHMAUOBJ.NgayHuyKHMau = DateTime.Parse("2019-01-01");
             else

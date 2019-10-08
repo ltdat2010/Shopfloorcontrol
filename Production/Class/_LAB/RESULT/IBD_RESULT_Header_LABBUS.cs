@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Production.Class._LAB.RESULT;
 using System.Data;
-using Production.Class._LAB.RESULT;
 
 namespace Production.Class
 {
     public class IBD_RESULT_Header_LABBUS
     {
-        IBD_RESULT_Header_LABDAO DAO = new IBD_RESULT_Header_LABDAO();
+        private IBD_RESULT_Header_LABDAO DAO = new IBD_RESULT_Header_LABDAO();
+
         public int IBD_RESULT_Header_LABDAO_INSERT(IBD_RESULT_Header_LAB OBJ)
         {
             return DAO.IBD_RESULT_Header_LABDAO_INSERT(OBJ);

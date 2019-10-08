@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using System.Data;
+﻿using System.Data;
 using System.IO;
 
 namespace Production.Class
@@ -41,7 +40,6 @@ namespace Production.Class
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB' table. You can move, or remove it, as needed.
             this.tbl_ChiTieuXetNghiem_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_ChiTieuXetNghiem_LAB);
-
         }
     }
 }

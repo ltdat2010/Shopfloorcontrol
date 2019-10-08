@@ -12,9 +12,9 @@ namespace Production.Class
         //Kiem tra xem click chon row tren grid chua
         private bool gridViewRowClick = false;
 
-        private string filePath = @"D:\ChiTieuXetNghiem_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+        private string filePath = @"X:\ChiTieuXetNghiem_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
-        private string filePath_Upload = @"D:\ChiTieuXetNghiem_Upload_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+        private string filePath_Upload = @"X:\ChiTieuXetNghiem_Upload_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
         //Object
         private CHITIEUXETNGHIEM CUS = new CHITIEUXETNGHIEM();
@@ -109,17 +109,22 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
-            //Export to excel -report xlsx
-            //gridView1.ExportToXlsx(filePath);
-            System.Diagnostics.Process.Start(filePath);
-
             //Tra về indent khi user them dong moi vo file excel
             txtIdentity.Text = CUSBUS.CTXN_INDENTITY_SELECT().ToString();
+            //Export to excel -report xlsx
+            //gridView1.ExportToXlsx(filePath);
+            System.Diagnostics.Process.Start(filePath);                        
 
             //Export to excel for update
             //string filePath = @"D:\PriceList_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
             //Save current layout
-            gridView1.SaveLayoutToXml(@"D:\tempLayout.xml");
+            //CHEK PC Name
+            string PCname = System.Environment.MachineName;
+            if (PCname == "VPV-ASL-SAMPLE")
+                gridView1.SaveLayoutToXml(@"D:\SYNC_NUTRICIEL_IMG\tempLayout.xml"); 
+            else
+                gridView1.SaveLayoutToXml(@"X:\tempLayout.xml");
+
             //Set to visible all column
 
             foreach (GridColumn column in gridView1.Columns)
@@ -211,7 +216,7 @@ namespace Production.Class
             gridView1.ExportToXlsx(filePath_Upload);
 
             //Restore layout
-            gridView1.RestoreLayoutFromXml(@"D:\tempLayout.xml");
+            gridView1.RestoreLayoutFromXml(@"X:\tempLayout.xml");
 
             System.Diagnostics.Process.Start(filePath_Upload);
         }

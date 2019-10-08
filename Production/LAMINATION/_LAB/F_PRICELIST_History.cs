@@ -99,7 +99,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Report(object sender, EventArgs e)
         {
-            string filePath = @"D:\PriceList_History_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+            string filePath = @"X:\PriceList_History_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
             gridView1.ExportToXlsx(filePath);
             System.Diagnostics.Process.Start(filePath);
         }

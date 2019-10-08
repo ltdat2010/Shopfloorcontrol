@@ -38,7 +38,7 @@ namespace Production.Class
                 }
                 //MessageBox.Show("com =" + com.CommandText.ToString());
                 content = com.CommandText.ToString();
-                System.IO.File.WriteAllText(@"D:\Exc_DT_CommandText_WriteText.txt", content);
+                //System.IO.File.WriteAllText(@"D:\Exc_DT_CommandText_WriteText.txt", content);
                 //MessageBox.Show("com =" + com.CommandText.ToString());
                 SqlDataAdapter da = new SqlDataAdapter(com);
                 DataSet ds = new DataSet();
@@ -79,7 +79,7 @@ namespace Production.Class
                 com.Parameters.Add(par);
             }
             content = com.CommandText.ToString();
-            System.IO.File.WriteAllText(@"D:\Exc_Non_CommandText_WriteText.txt", content);
+            //System.IO.File.WriteAllText(@"D:\Exc_Non_CommandText_WriteText.txt", content);
             //MessageBox.Show("com =" + com.CommandText.ToString());
 
             interval = com.ExecuteNonQuery();
@@ -109,7 +109,7 @@ namespace Production.Class
                 }
                 //MessageBox.Show("com =" + com.CommandText.ToString());
                 content = com.CommandText.ToString();
-                System.IO.File.WriteAllText(@"D:\Exc_SqlDT_CommandText_WriteText.txt", content);
+                //System.IO.File.WriteAllText(@"D:\Exc_SqlDT_CommandText_WriteText.txt", content);
                 SqlDataAdapter da = new SqlDataAdapter(com);
                 return da;
             }
@@ -150,7 +150,7 @@ namespace Production.Class
                 }
                 //MessageBox.Show("com =" + com.CommandText.ToString());
                 content = com.CommandText.ToString();
-                System.IO.File.WriteAllText(@"D:\Exc_DtsetCommandText_WriteText.txt", content);
+                //System.IO.File.WriteAllText(@"D:\Exc_DtsetCommandText_WriteText.txt", content);
                 SqlDataAdapter da = new SqlDataAdapter(com);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -192,7 +192,7 @@ namespace Production.Class
                     com.Parameters.Add(par);
                 }
                 content = com.CommandText.ToString();
-                System.IO.File.WriteAllText(@"D:\CommandText_WriteText.txt", content);
+                //System.IO.File.WriteAllText(@"D:\CommandText_WriteText.txt", content);
                 SqlDataReader de = com.ExecuteReader();
                 return de;
             }
@@ -274,7 +274,7 @@ namespace Production.Class
                     SqlParameter par = new SqlParameter(pars[i].ToString(), pars[i + 1]);
                     com.Parameters.Add(par);
                 }
-                System.IO.File.WriteAllText(@"D:\CommandText_WriteText.txt", content);
+                //System.IO.File.WriteAllText(@"D:\CommandText_WriteText.txt", content);
                 DataTable dt = new DataTable(); ;
                 SqlDataAdapter da = new SqlDataAdapter();
 

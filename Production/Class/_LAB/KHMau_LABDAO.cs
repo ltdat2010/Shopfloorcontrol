@@ -75,7 +75,7 @@ namespace Production.Class
            "',N'" + OBJ.GioLayMauTuoi +
            "')", CommandType.Text);
 
-            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] WHERE KHMau='"+ OBJ.KHMau + "'", CommandType.Text);
+            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] WHERE KHMau='" + OBJ.KHMau + "'", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
         }
 
@@ -133,14 +133,18 @@ namespace Production.Class
         {
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_LAB] " +
                                                 " WHERE [SoPXN]='" + SoPXN + "'", CommandType.Text);
-        }       
+        }
 
         public DataTable KHMau_LABDAO_REPORT_RECEIPT(string SoPXN)
         {
-            return Sql.ExecuteDataTable("SAP", " SELECT   *  " +
+            return Sql.ExecuteDataTable("SAP", " SELECT   tbl_KHMau_LAB.* ,  " +
+                                                " CASE WHEN tbl_LoaiDV_LAB.TenLoaiDV is not null THEN tbl_LoaiDV_LAB.TenLoaiDV Else 'NULL' END as TenLoaiDV, " +
+                                                " CASE WHEN tbl_MauNuoc_LAB.TenMauNuoc is not null THEN tbl_MauNuoc_LAB.TenMauNuoc Else 'NULL' END as TenMauNuoc, " +
+                                                " tbl_LoaiMau_LAB.TenLoaiMau " +
                                                 " FROM            tbl_KHMau_LAB  " +
-                                                " LEFT JOIN tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV" +
-                                                " LEFT JOIN tbl_LoaiMau_LAB ON tbl_KHMau_LAB.LoaiMauGui = tbl_LoaiMau_LAB.MaLoaiMau" +
+                                                " LEFT JOIN tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV " +
+                                                " LEFT JOIN tbl_MauNuoc_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_MauNuoc_LAB.MaMauNuoc " +
+                                                " LEFT JOIN tbl_LoaiMau_LAB ON tbl_KHMau_LAB.LoaiMauGui = tbl_LoaiMau_LAB.MaLoaiMau " +
                                                 " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "'", CommandType.Text);
         }
 
@@ -221,7 +225,7 @@ namespace Production.Class
 
         public DataTable KHMau_LABDAO_REPORT_KHMAU(string SoPXN)
         {
-            return Sql.ExecuteDataTable("SAP", " SELECT        tbl_KHMau_LAB.ID,tbl_KHMau_LAB.LoaiDVMauNuoc,tbl_KHMau_LAB.NgayLayMau,tbl_KHMau_LAB.LoaiMauGui,tbl_KHMau_LAB.TTMauGui,tbl_KHMau_LAB.VTLayMauDayChuong,tbl_KHMau_LAB.GioLayMauTuoi    " +
+            return Sql.ExecuteDataTable("SAP", " SELECT        tbl_KHMau_LAB.ID,tbl_KHMau_LAB.LoaiDVMauNuoc,tbl_KHMau_LAB.NgayLayMau,tbl_KHMau_LAB.LoaiMauGui,tbl_KHMau_LAB.TTMauGui,tbl_KHMau_LAB.VTLayMauDayChuong,tbl_KHMau_LAB.GioLayMauTuoi ,   " +
                 " tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, tbl_KHMau_LAB.KHMau,tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, " +
                          " tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, " +
                          " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, " +
@@ -234,6 +238,27 @@ namespace Production.Class
                          " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT JOIN " +
                          " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
                          " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "'", CommandType.Text);
+        }
+
+        public DataTable KHMau_LABDAO_REPORT_AnalysisReport(string SoPXN,int CTXNID,string KHMau_GiaoMau)
+        {
+            return Sql.ExecuteDataTable("SAP", " SELECT        tbl_KHMau_LAB.ID,tbl_KHMau_LAB.LoaiDVMauNuoc,tbl_KHMau_LAB.NgayLayMau,tbl_KHMau_LAB.LoaiMauGui,tbl_KHMau_LAB.TTMauGui,tbl_KHMau_LAB.VTLayMauDayChuong,tbl_KHMau_LAB.GioLayMauTuoi ,   " +
+                " tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, tbl_KHMau_LAB.KHMau,tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, " +
+                " tbl_LoaiDV_LAB.TenLoaiDV,tbl_LoaiMau_LAB.TenLoaiMau, " +         
+                " tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, " +
+                         " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, " +
+                         " tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, " +
+                         " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, " +
+                         " tbl_KHMau_CTXN_LAB.NgayCoKetQua,tbl_KHMau_CTXN_LAB.NgayTraKetQua,tbl_KHMau_CTXN_LAB.SoLuongXN,tbl_KHMau_CTXN_LAB.CTXNID,tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, " +
+                         " tbl_ChiTieuXetNghiem_LAB.Acronym " +
+                         " FROM            tbl_KHMau_LAB LEFT JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " LEFT JOIN tbl_LoaiDV_LAB ON  tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV " +
+                         " LEFT JOIN tbl_LoaiMau_LAB ON tbl_KHMau_LAB.LoaiMauGui = tbl_LoaiMau_LAB.MaLoaiMau " +
+                         " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and tbl_KHMau_CTXN_LAB.CTXNID= "+CTXNID+" and tbl_KHMau_LAB.KHMau_GiaoMau = '"+ KHMau_GiaoMau + "'", CommandType.Text);
         }
     }
 }

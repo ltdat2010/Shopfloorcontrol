@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Production.RPT {
+namespace Production.RPT._LAB {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Production.RPT {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Rpt_PXN_LAB_Received_Sub : ReportClass {
+    public class Rpt_PO_LAB : ReportClass {
         
-        public Rpt_PXN_LAB_Received_Sub() {
+        public Rpt_PO_LAB() {
         }
         
         public override string ResourceName {
             get {
-                return "Rpt_PXN_LAB_Received_Sub.rpt";
+                return "Rpt_PO_LAB.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Production.RPT {
         
         public override string FullResourceName {
             get {
-                return "Production.RPT.Rpt_PXN_LAB_Received_Sub.rpt";
+                return "Production.RPT._LAB.Rpt_PO_LAB.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Production.RPT {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRpt_PXN_LAB_Received_Sub : Component, ICachedReport {
+    public class CachedRpt_PO_LAB : Component, ICachedReport {
         
-        public CachedRpt_PXN_LAB_Received_Sub() {
+        public CachedRpt_PO_LAB() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Production.RPT {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Rpt_PXN_LAB_Received_Sub rpt = new Rpt_PXN_LAB_Received_Sub();
+            Rpt_PO_LAB rpt = new Rpt_PO_LAB();
             rpt.Site = this.Site;
             return rpt;
         }

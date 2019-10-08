@@ -87,7 +87,7 @@ namespace Production.Class
         public void MYCOTOXIN_RESULT_Header_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_MYCOTOXIN_RESULT_Header_LAB] " +
-            " WHERE [ID]=" + ID , CommandType.Text);
+            " WHERE [ID]=" + ID, CommandType.Text);
         }
 
         public int MYCOTOXIN_RESULT_Header_ID(string FilePath)

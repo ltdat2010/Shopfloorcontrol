@@ -14,6 +14,8 @@ namespace Production.Class
 
         //BUS
         private CUSTOMERBUS CUSBUS = new CUSTOMERBUS();
+        PXN_HeaderBUS pXN_HeaderBUS = new PXN_HeaderBUS();
+
 
         public F_CUSTOMER()
         {
@@ -53,10 +55,44 @@ namespace Production.Class
             // 10B Cancel
             action1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
 
-            gridView1.RowClick += (s, e) =>
+            //gridView1.RowClick += (s, e) =>
+            //{
+            //        gridViewRowClick = true;
+            //        Set4Object();
+            //};
+
+            gridView1.FocusedRowChanged += (s, e) =>
+            {
+                //XtraMessageBox.Show(gridView1.FocusedRowHandle.ToString());
+                //-2147483646
+                if(gridView1.FocusedRowHandle > 0)
                 {
                     gridViewRowClick = true;
-                };
+                    Set4Object();
+                }
+                
+            };
+
+            repositoryItemButtonEdit1.ButtonClick += (s, e) =>
+            {
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn có muốn cập nhật mã khách hàng hiện tại : " + CUS.CUSTCODE + " thành mã mới : "+ gridView1.GetFocusedRowCellDisplayText("CUSTCODE") + "? ", "Cập nhật mã khách hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlDel == DialogResult.Yes)
+                {
+                    CUSBUS.CUSTOMER_UPDATE_CUSTOMERCODE(CUS, gridView1.GetFocusedRowCellDisplayText("CUSTCODE"));
+                    pXN_HeaderBUS.PXN_HeaderDAO_UPDATE_MaCoSoLayMau(CUS.CUSTCODE, gridView1.GetFocusedRowCellDisplayText("CUSTCODE"));
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 2000;
+                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                    args.DefaultButtonIndex = 0;
+                    args.Caption = "Thông báo ";
+                    args.Text = "Cập nhật thành công. Thông báo này sẽ tự đóng sau 2 giây.";
+                    args.Buttons = new DialogResult[] { DialogResult.OK };
+                    XtraMessageBox.Show(args).ToString();
+                }
+                //XtraMessageBox.Show("CUS.CUSTCODE : "+ CUS.CUSTCODE);
+                //XtraMessageBox.Show("gridView1.GetFocusedRowCellDisplayText() : " + gridView1.GetFocusedRowCellDisplayText("CUSTCODE"));
+                
+            };
         }
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
@@ -240,5 +276,7 @@ namespace Production.Class
             // Step 2 : Load lại data tren grid sau khi Add
             gridControl1.DataSource = grid_CUSTOMER_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.Grid_CUSTOMER_LAB);
         }
+
+        
     }
 }

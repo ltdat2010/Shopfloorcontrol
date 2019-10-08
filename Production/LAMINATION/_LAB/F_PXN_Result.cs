@@ -159,7 +159,7 @@ namespace Production.Class
                                 //1_Export to pdf
 
                                 //2_Attach to Email
-                                mail.Attachments.Add(new Attachment("D:\\" + txtSoPXN.Text + ".pdf"));
+                                mail.Attachments.Add(new Attachment(@"X:\\" + txtSoPXN.Text + ".pdf"));
                                 //mail.Body = "This is for testing SMTP mail from DAT to TRUYEN";
                                 mail.IsBodyHtml = true;
                                 //SmtpServer.Port = 587;

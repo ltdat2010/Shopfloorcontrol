@@ -51,15 +51,15 @@ namespace Production.Class
 
             gridView1.CustomDrawEmptyForeground += (s, e) =>
 {
-DevExpress.XtraGrid.Views.Grid.GridView view = s as DevExpress.XtraGrid.Views.Grid.GridView;
+    DevExpress.XtraGrid.Views.Grid.GridView view = s as DevExpress.XtraGrid.Views.Grid.GridView;
 
-if (view.RowCount != 0) return;
+    if (view.RowCount != 0) return;
 
-StringFormat drawFormat = new StringFormat();
+    StringFormat drawFormat = new StringFormat();
 
-drawFormat.Alignment = drawFormat.LineAlignment = StringAlignment.Center;
+    drawFormat.Alignment = drawFormat.LineAlignment = StringAlignment.Center;
 
-e.Graphics.DrawString("Vui lòng chọn WO bên trên ", e.Appearance.Font, SystemBrushes.ControlDark, new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
+    e.Graphics.DrawString("Vui lòng chọn WO bên trên ", e.Appearance.Font, SystemBrushes.ControlDark, new RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height), drawFormat);
 };
 
             action1.Print(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Print));

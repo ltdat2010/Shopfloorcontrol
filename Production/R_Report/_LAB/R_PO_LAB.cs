@@ -38,6 +38,7 @@ namespace Production.Class
 
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
+        private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
         private string Path = Directory.GetCurrentDirectory();
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
@@ -51,10 +52,10 @@ namespace Production.Class
                 dt_PO_Header = BUS.PO_Header_SELECT(OBJ.SoPO);
                 dt_PO_Lines = BUS1.PO_Lines_SELECT(OBJ.SoPO);
 
-                dt_PO_Header.WriteXml(Path + "/Xml/dt_PO_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_PO_Lines.WriteXml(Path + "/Xml/dt_PO_Lines_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_PO_Header.WriteXml(XmlPath + @"\dt_PO_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_PO_Lines.WriteXml(XmlPath + @"\dt_PO_Lines_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
 
-                rpt.Load(Path + "/RPT/Rpt_PO_LAB.rpt");
+                rpt.Load(Path + @"\RPT\_LAB\Rpt_PO_LAB.rpt");
                 crvReport.ReportSource = rpt;
             };
 

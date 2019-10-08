@@ -73,10 +73,10 @@ namespace Production.Class
 
             lkeSoPO.EditValueChanged += (s, e) =>
 {
-DataRowView row = lkeSoPO.GetSelectedDataRow() as DataRowView;
-txtNote.Text = row["SoPO"].ToString();
-txtNoiDung.Text = "THANH TOÁN PO: " + row["SoPO"].ToString();
-txtSoTien.Text = row["TONGCONG"].ToString();
+    DataRowView row = lkeSoPO.GetSelectedDataRow() as DataRowView;
+    txtNote.Text = row["SoPO"].ToString();
+    txtNoiDung.Text = "THANH TOÁN PO: " + row["SoPO"].ToString();
+    txtSoTien.Text = row["TONGCONG"].ToString();
 };
 
             //Action_EndForm

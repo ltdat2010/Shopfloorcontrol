@@ -5,8 +5,8 @@ using Production.Class._GEN;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
+
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Production.Class
@@ -90,99 +90,97 @@ namespace Production.Class
             {
                 //if (dxValidationProvider1.Validate() == true)
                 //{
-                    OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                    Excel.Application app = new Excel.Application();
-                    Excel.Workbook wbook = null;
-                    Worksheet wsheet = null;
-                    Excel.Range range_tilte = null;
-                    Excel.Range range = null;
-                    string[] strArray = null;
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                Excel.Application app = new Excel.Application();
+                Excel.Workbook wbook = null;
+                Worksheet wsheet = null;
+                Excel.Range range_tilte = null;
+                Excel.Range range = null;
+                string[] strArray = null;
 
-                    openFileDialog1.FileName = "*.*";
-                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                openFileDialog1.FileName = "*.*";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    //range
+                    int row_min = 21, row_title = 21;
+                    int row_data = 23;
+                    int row_max = 30;
+
+                    int col_min = 3, col_title = 3;
+                    int col_max = 14;
+                    int row_fixed = 22, col_fixed = 2;
+                    int row, col;
+                    //////////////////////////////////////////////////////////////////////////////////////////
+                    wbook = app.Workbooks.Open(
+                       openFileDialog1.FileName, 0, true, 5,
+                        "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false,
+                        0, true);
+                    Sheets sheets = wbook.Worksheets;
+                    Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)sheets.get_Item(1);
+                    //////////////////////////OBJHeader///////////////////////////////////////////////////////
+                    OBJHeader.Name = txtTenXetNghiem.Text = openFileDialog1.SafeFileName;
+                    OBJHeader.FilePath = (string)worksheet.Cells[4, 2].Value;
+                    OBJHeader.PlateNumber = (string)worksheet.Cells[6, 2].Value;
+                    OBJHeader.Date = Convert.ToDateTime(worksheet.Cells[7, 2].Value);
+                    OBJHeader.Time = "12:00:01"; //(string)worksheet.Cells[8, 2].Value;
+                    OBJHeader.ReaderType = (string)worksheet.Cells[9, 2].Value;
+                    OBJHeader.ReadingType = (string)worksheet.Cells[11, 2].Value;
+                    OBJHeader.PlateType = (string)worksheet.Cells[14, 2].Value;
+                    OBJHeader.Read = (string)worksheet.Cells[15, 2].Value +
+                                                    " " +
+                                                    (string)worksheet.Cells[16, 2].Value;
+                    OBJHeader.Wavelengths = (string)worksheet.Cells[17, 2].Value;
+                    OBJHeader.ReadSpeed = (string)worksheet.Cells[18, 2].Value;
+                    OBJHeader.ReadTimes = 1;
+                    OBJHeader.ID = OBJLines.MYCOTOCXIN_RESULT_Header_LAB_ID
+                                 = BUSHeader.MYCOTOXIN_RESULT_Header_INSERT(OBJHeader);
+                    txtID.Text = OBJHeader.ID.ToString();
+                    //OBJSCurve.MYCOTOXIN_RESULT_Header_ID = OBJHeader.ID;
+
+                    //////////////////////////OBJLines////////////////////////////////////////////////////////
+                    //List<MYCOTOXIN_RESULT_Lines> TLines = new List<MYCOTOXIN_RESULT_Lines>();
+                    //this.splashScreenManager1.ShowWaitForm();
+                    for (col = col_min; col <= col_max; col++)
                     {
-                        //range
-                        int row_min = 21, row_title = 21;
-                        int row_data = 23;
-                        int row_max = 30;
-
-                        int col_min = 3, col_title = 3;
-                        int col_max = 14;
-                        int row_fixed = 22, col_fixed = 2;
-                        int row, col;
-                        //////////////////////////////////////////////////////////////////////////////////////////
-                        wbook = app.Workbooks.Open(
-                           openFileDialog1.FileName, 0, true, 5,
-                            "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false,
-                            0, true);
-                        Sheets sheets = wbook.Worksheets;
-                        Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)sheets.get_Item(1);
-                        //////////////////////////OBJHeader///////////////////////////////////////////////////////
-                        OBJHeader.Name = txtTenXetNghiem.Text = openFileDialog1.SafeFileName;
-                        OBJHeader.FilePath = (string)worksheet.Cells[4, 2].Value;
-                        OBJHeader.PlateNumber = (string)worksheet.Cells[6, 2].Value;
-                        OBJHeader.Date = Convert.ToDateTime(worksheet.Cells[7, 2].Value);
-                        OBJHeader.Time = "12:00:01"; //(string)worksheet.Cells[8, 2].Value;
-                        OBJHeader.ReaderType = (string)worksheet.Cells[9, 2].Value;
-                        OBJHeader.ReadingType = (string)worksheet.Cells[11, 2].Value;
-                        OBJHeader.PlateType = (string)worksheet.Cells[14, 2].Value;
-                        OBJHeader.Read = (string)worksheet.Cells[15, 2].Value +
-                                                        " " +
-                                                        (string)worksheet.Cells[16, 2].Value;
-                        OBJHeader.Wavelengths = (string)worksheet.Cells[17, 2].Value;
-                        OBJHeader.ReadSpeed = (string)worksheet.Cells[18, 2].Value;
-                        OBJHeader.ReadTimes = 1;
-                        OBJHeader.ID = OBJLines.MYCOTOCXIN_RESULT_Header_LAB_ID
-                                     = BUSHeader.MYCOTOXIN_RESULT_Header_INSERT(OBJHeader);
-                        txtID.Text = OBJHeader.ID.ToString();
-                        //OBJSCurve.MYCOTOXIN_RESULT_Header_ID = OBJHeader.ID;
-
-                        //////////////////////////OBJLines////////////////////////////////////////////////////////
-                        //List<MYCOTOXIN_RESULT_Lines> TLines = new List<MYCOTOXIN_RESULT_Lines>();
-                        //this.splashScreenManager1.ShowWaitForm();
-                        for (col = col_min; col <= col_max; col++)
+                        //title
+                        //check cell title empty
+                        if ((string)worksheet.Cells[row_title, col].Value == null)
                         {
-                            //title
-                            //check cell title empty
-                            if ((string)worksheet.Cells[row_title, col].Value == null)
+                            OBJLines.Acronym = (string)worksheet.Cells[row_title, col - 1].Value;
+                        }
+                        else
+                        {
+                            OBJLines.Acronym = (string)worksheet.Cells[row_title, col].Value;
+                        }
+                        for (row = row_data; row <= row_max; row++)
+                        {
+                            if (worksheet.Cells[row_data, col].Value > 0)
                             {
-                                OBJLines.Acronym = (string)worksheet.Cells[row_title, col - 1].Value;
-                            }
-                            else
-                            {
-                                OBJLines.Acronym = (string)worksheet.Cells[row_title, col].Value;
-                            }
-                            for (row = row_data; row <= row_max; row++)
-                            {
-                                if (worksheet.Cells[row_data, col].Value > 0)
+                                if (worksheet.Cells[row, col].Value > 0)
                                 {
-                                    if (worksheet.Cells[row, col].Value > 0)
-                                    {
-                                        OBJLines.OD = worksheet.Cells[row, col].Value;
-                                        OBJLines.KHMau = worksheet.Cells[row, col + 13].Value.ToString();
-                                        OBJLines.B_Bo = 0;
-                                        OBJLines.HsoPhaLoang = 1;
-                                        OBJLines.LogConc = 0;
-                                        OBJLines.LogitB_Bo = 0;
-                                        OBJLines.Conc_ng_ml = 0;
-                                        OBJLines.Conc_ng_g = 0;
-                                        OBJLines.Row = (string)worksheet.Cells[row, col_fixed].Value;
-                                        OBJLines.Col = worksheet.Cells[row_fixed, col].Value;
-                                        OBJLines.CreatedBy = user.Username;
-                                        OBJLines.CTXN_ID = BUSCTXN.CTXN_CTXNID_SELECT(OBJLines.Acronym);
-                                        BUSLines.MYCOTOXIN_RESULT_Lines_INSERT(OBJLines);
-                                    }
+                                    OBJLines.OD = worksheet.Cells[row, col].Value;
+                                    OBJLines.KHMau = worksheet.Cells[row, col + 13].Value.ToString();
+                                    OBJLines.B_Bo = 0;
+                                    OBJLines.HsoPhaLoang = 1;
+                                    OBJLines.LogConc = 0;
+                                    OBJLines.LogitB_Bo = 0;
+                                    OBJLines.Conc_ng_ml = 0;
+                                    OBJLines.Conc_ng_g = 0;
+                                    OBJLines.Row = (string)worksheet.Cells[row, col_fixed].Value;
+                                    OBJLines.Col = worksheet.Cells[row_fixed, col].Value;
+                                    OBJLines.CreatedBy = user.Username;
+                                    OBJLines.CTXN_ID = BUSCTXN.CTXN_CTXNID_SELECT(OBJLines.Acronym);
+                                    BUSLines.MYCOTOXIN_RESULT_Lines_INSERT(OBJLines);
                                 }
                             }
                         }
-                        //splashScreenManager1.CloseWaitForm();
                     }
-                    tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
+                    //splashScreenManager1.CloseWaitForm();
+                }
+                tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
                 //}
                 //DISPOSE EXCEL
                 //wbook.Close(false, Type.Missing, Type.Missing);
-                
-
             };
 
             btnCalc_Log.Click += (s, e) =>
@@ -418,22 +416,27 @@ namespace Production.Class
                                     case "FUMO":
                                         OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 400;
                                         break;
+
                                     case "AFLA":
                                         OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 5;
                                         break;
+
                                     case "ZEARA":
                                         OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 25;
                                         break;
+
                                     case "DON":
                                         OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
                                         break;
+
                                     case "T2":
                                         OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 10;
                                         break;
+
                                     case "OTA":
                                         OBJLines.Conc_ng_g = OBJLines.Conc_ng_ml * OBJLines.HsoPhaLoang * 4;
                                         break;
-                                }                                
+                                }
                                 //Update line <> STD
                                 BUSLines.MYCOTOXIN_RESULT_Lines_UPDATE(OBJLines);
                                 this.tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
@@ -453,7 +456,6 @@ namespace Production.Class
                 //args.Buttons = new DialogResult[] { DialogResult.OK };
                 //XtraMessageBox.Show(args).ToString();
                 tbl_MYCOTOXIN_RESULT_Lines_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_MYCOTOXIN_RESULT_Lines_LAB, OBJHeader.ID);
-
             };
 
             gridView1.RowClick += (s, e) =>

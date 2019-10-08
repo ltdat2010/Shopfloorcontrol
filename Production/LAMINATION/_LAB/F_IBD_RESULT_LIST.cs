@@ -9,6 +9,7 @@ namespace Production.Class
     {
         //BUS
         private IBD_RESULT_Header_LABBUS BUSHeader = new IBD_RESULT_Header_LABBUS();
+
         private IBD_RESULT_Lines_LABBUS BUSLines = new IBD_RESULT_Lines_LABBUS();
         private IBD_RESULT_Summary_LABBUS BUSSummary = new IBD_RESULT_Summary_LABBUS();
 
@@ -49,6 +50,7 @@ namespace Production.Class
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
             action1.Delete(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Delete));
         }
+
         private void ItemClickEventHandler_Delete(object sender, EventArgs e)
         {
             if (XtraMessageBox.Show("Bạn muốn xóa kết quả " + gridView1.GetFocusedRowCellValue("FileName").ToString() + " ? . Lưu ý : Dữ liệu sẽ không thể phục hồi.", "Xác nhận xóa", MessageBoxButtons.YesNo) != DialogResult.No)
@@ -67,8 +69,8 @@ namespace Production.Class
                 this.tbl_IBD_RESULT_Header_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_IBD_RESULT_Header_LAB);
                 gridView1.BestFitColumns();
             }
-
         }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             try
@@ -119,9 +121,7 @@ namespace Production.Class
         //        //FRM.RptName = "Rpt_AI_RESULT_LAB";
         //        FRM.Show();
         //    }
-            
-        //}
 
-        
+        //}
     }
 }

@@ -41,6 +41,7 @@ namespace Production.Class
 
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
+        private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
         private string Path = Directory.GetCurrentDirectory();
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
@@ -58,14 +59,14 @@ namespace Production.Class
                 dt_KHMau_DETROY = BUS2.KHMau_LABDAO_REPORT_DETROY(OBJ.SoPXN);
                 dt_PXN_Details = BUS1.PXN_DetailsBUS_SELECT(OBJ.SoPXN);
 
-                dt_PXN_Header.WriteXml(Path + "/Xml/dt_PXN_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_PXN_Details.WriteXml(Path + "/Xml/dt_PXN_Details_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_KHMau_Receipt.WriteXml(Path + "/Xml/dt_KHMau_Receipt.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_KHMau_Details.WriteXml(Path + "/Xml/dt_KHMau_Details.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_KHMau_STORAGE.WriteXml(Path + "/Xml/dt_KHMau_STORAGE.xml", System.Data.XmlWriteMode.IgnoreSchema);
-                dt_KHMau_DETROY.WriteXml(Path + "/Xml/dt_KHMau_DETROY.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_PXN_Header.WriteXml(XmlPath + "/dt_PXN_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_PXN_Details.WriteXml(XmlPath + "/dt_PXN_Details_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_KHMau_Receipt.WriteXml(XmlPath + "/dt_KHMau_Receipt.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_KHMau_Details.WriteXml(XmlPath + "/dt_KHMau_Details.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_KHMau_STORAGE.WriteXml(XmlPath + "/dt_KHMau_STORAGE.xml", System.Data.XmlWriteMode.IgnoreSchema);
+                dt_KHMau_DETROY.WriteXml(XmlPath + "/dt_KHMau_DETROY.xml", System.Data.XmlWriteMode.IgnoreSchema);
 
-                rpt.Load(Path + "/RPT/Rpt_PXN_LAB.rpt");
+                rpt.Load(Path + @"\RPT\_LAB\Rpt_PXN_LAB.rpt");
                 crvReport.ReportSource = rpt;
             };
 

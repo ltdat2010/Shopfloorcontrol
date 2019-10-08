@@ -27,7 +27,7 @@ namespace Production.Class
         private CultureInfo culture;
         public RijndaelManaged key = null;
 
-        private string path = @"D:\pkl.xml";
+        //private string path = @"X:\pkl" + txtUsername.Text + ".xml";
 
         public bool Is_close
         {
@@ -113,10 +113,10 @@ namespace Production.Class
                 //check pkl
 
                 XmlDocument document = new XmlDocument();
-                if (File.Exists(path))
+                if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
                 {
                     checkEdit1.Checked = true;
-                    document.Load(path);
+                    document.Load(@"X:\pkl" + txtUsername.Text + ".xml");
                     //Decrypt(document, key);
                     //duyet qua XML
                     XmlNodeList nodes = document.DocumentElement.ChildNodes;
@@ -160,18 +160,18 @@ namespace Production.Class
                             //neu check thi save ra file pkl
                             if (checkEdit1.Checked)
                             {
-                                if (File.Exists(@"D:\pkl.xml"))
+                                if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
                                 {
-                                    File.Delete(@"D:\pkl.xml");
+                                    File.Delete(@"X:\pkl" + txtUsername.Text + ".xml");
                                 }
-                                File.WriteAllText(@"D:\pkl.xml", "<xml><foo><user>" + Production.Class._GEN.EncryptKey.Encrypt(txtUsername.Text, true) + "</user> <pass>" + Production.Class._GEN.EncryptKey.Encrypt(txtPassword.Text, true) + "</pass></foo></xml>");
+                                File.WriteAllText(@"X:\pkl"+ txtUsername.Text +".xml", "<xml><foo><user>" + Production.Class._GEN.EncryptKey.Encrypt(txtUsername.Text, true) + "</user> <pass>" + Production.Class._GEN.EncryptKey.Encrypt(txtPassword.Text, true) + "</pass></foo></xml>");
                             }
                             //khong checked luu thi thoi khong luu ra
                             else
                             {
-                                if (File.Exists(@"D:\pkl.xml"))
+                                if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
                                 {
-                                    File.Delete(@"D:\pkl.xml");
+                                    File.Delete(@"X:\pkl" + txtUsername.Text + ".xml");
                                 }
                             }
                             ////////////////////////////////////////////////////////
@@ -307,7 +307,6 @@ namespace Production.Class
 
         private void frm_Login_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

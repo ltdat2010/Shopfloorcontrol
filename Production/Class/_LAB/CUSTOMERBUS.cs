@@ -30,5 +30,10 @@ namespace Production.Class
         {
             return CUSTDAO.MAX_CUSTOMER_CODE();
         }
+
+        public void CUSTOMER_UPDATE_CUSTOMERCODE(CUSTOMER CUST, string CUSTCODE)
+        {
+            CUSTDAO.CUSTOMER_UPDATE_CUSTOMERCODE(CUST, CUSTCODE);
+        }
     }
 }

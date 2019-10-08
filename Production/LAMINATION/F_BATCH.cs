@@ -31,7 +31,7 @@ namespace Production.Class
             Load += (s, e) =>
             {
                 //Load xls vào grid
-                gridControl1.DataSource = CSVFromToDataTable.XLSToDataTable(@"D:\\Eresis\\EXCHANGES\\OUT\\Batch.xls");
+                gridControl1.DataSource = CSVFromToDataTable.XLSToDataTable(@"X:\\Eresis\\EXCHANGES\\OUT\\Batch.xls");
 
                 for (int i = 0; i <= gridView1.DataRowCount - 1; i++)
                 {

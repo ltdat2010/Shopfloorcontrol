@@ -69,7 +69,7 @@ namespace Production.Class
         {
             try
             {
-                filename = "D:\\" + TenBaocao + ".xlsx";
+                filename = @"X:\\" + TenBaocao + ".xlsx";
                 //Export excel file
                 gridControl1.ExportToXlsx(filename);
                 //Open excel file

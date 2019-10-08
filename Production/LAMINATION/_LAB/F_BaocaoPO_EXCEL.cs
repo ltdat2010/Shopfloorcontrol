@@ -42,7 +42,7 @@ namespace Production.Class
             try
             {
                 TenBaocao = "PO_Tonghop";
-                filename = "D:\\" + TenBaocao + DateTime.Today.ToShortDateString().Replace("/", "_") + ".xlsx";
+                filename = @"X:\\" + TenBaocao + DateTime.Today.ToShortDateString().Replace("/", "_") + ".xlsx";
                 //Export excel file
                 gridControl1.ExportToXlsx(filename);
                 //Open excel file

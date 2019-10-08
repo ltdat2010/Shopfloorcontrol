@@ -69,6 +69,13 @@ namespace Production.Class
            " WHERE [CUSTCODE]='" + CUST.CUSTCODE + "'", CommandType.Text);
         }
 
+        public void CUSTOMER_UPDATE_CUSTOMERCODE(CUSTOMER CUST,string CUSTCODE)
+        {
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB] SET" +
+           "[CUSTCODE] = N'" + CUSTCODE + "'" +           
+           " WHERE [CUSTCODE]='" + CUST.CUSTCODE + "'", CommandType.Text);
+        }
+
         public void CUSTOMER_DELETE(CUSTOMER CUST)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_CUSTOMER_LAB] " +

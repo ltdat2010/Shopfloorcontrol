@@ -62,6 +62,7 @@
             this.action1.Location = new System.Drawing.Point(4, 4);
             this.action1.LookAndFeel.SkinName = "Caramel";
             this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.action1.Margin = new System.Windows.Forms.Padding(0);
             this.action1.Name = "action1";
             this.action1.Size = new System.Drawing.Size(834, 41);
             this.action1.StateMenu = Production.Class.MenuState.Empty;
@@ -121,10 +122,12 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Caramel";
             // 
-            // R_PO_LAB
+            // R_IBD_RESULT_LAB_ANALYSISREPORT
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +135,7 @@
             this.Controls.Add(this.layoutControl1);
             this.LookAndFeel.SkinName = "Caramel";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.Name = "R_PO_LAB";
+            this.Name = "R_IBD_RESULT_LAB_ANALYSISREPORT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "R_OF";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

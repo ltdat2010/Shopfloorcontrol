@@ -9,7 +9,7 @@ namespace Production.Class
         //Kiem tra xem click chon row tren grid chua
         private bool gridViewRowClick = false;
 
-        private string filePath = @"D:\NongDo_COnC_ng_per_ml_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+        private string filePath = @"X:\NongDo_COnC_ng_per_ml_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
         //Object
         private MYCOTOXIN_ConC CUS = new MYCOTOXIN_ConC();

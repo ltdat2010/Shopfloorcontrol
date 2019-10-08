@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Production.Class._LAB.RESULT;
+using System;
 using System.Data;
-using Production.Class._LAB.RESULT;
 
 namespace Production.Class
 {
@@ -63,7 +63,7 @@ namespace Production.Class
                "')", CommandType.Text);
 
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] " +
-                "WHERE FileName='" + OBJ.FileName + "'", CommandType.Text);
+                "WHERE FileName='" + OBJ.FileName + "' and CTXN_ID="+ OBJ.CTXN_ID, CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
             //}
         }
@@ -97,18 +97,18 @@ namespace Production.Class
         public void IBD_RESULT_Header_LABDAO_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] " +
-            " WHERE [ID]=" + ID , CommandType.Text);
+            " WHERE [ID]=" + ID, CommandType.Text);
         }
 
         public DataTable IBD_RESULT_Header_LABDAO_SELECT(string KHMau_GiaoMau, int CTXNID)
         {
             return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Header_LAB] " +
-                "WHERE KHMau_GiaoMau='" + KHMau_GiaoMau +"' and CTXN_ID="+ CTXNID, CommandType.Text);
+                "WHERE KHMau_GiaoMau='" + KHMau_GiaoMau + "' and CTXN_ID=" + CTXNID, CommandType.Text);
         }
 
         public DataTable BaoCao_HuyetThanhHoc_IBD(string year, int CTXNID)
         {
-            return Sql.ExecuteDataTable("SAP", " Select T1.ID as KHMau_CTXN_ID,T1.CTXNID,T1.SoLuongXN,T1.KHMau_GiaoMau,T1.ID,T1.SoPXN,T1.Month,T1.Year,S0.KHMau_GiaoMau,S0.CTXN_ID , "+
+            return Sql.ExecuteDataTable("SAP", " Select T1.ID as KHMau_CTXN_ID,T1.CTXNID,T1.SoLuongXN,T1.KHMau_GiaoMau,T1.ID,T1.SoPXN,T1.Month,T1.Year,S0.KHMau_GiaoMau,S0.CTXN_ID , " +
                                                 " S0.Neg, S0.Pos, S0.Sus, T1.TenLoaiDV,T1.TenCoSoLayMau,T1.LOCCode,T1.ProvinceName,T1.TenCoSoGuiMau " +
                                                     " From " +
                                                         " (" +
@@ -132,7 +132,7 @@ namespace Production.Class
                                                                     " on tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV " +
                                                                     " inner join tbl_CUSTOMER_LAB " +
                                                                     " ON tbl_PXN_Header.MaCoSoLayMau = tbl_CUSTOMER_LAB.CUSTCODE " +
-                                                                    " Where YEAR(tbl_PXN_Header.NgayNhanMau) = '" + year +"' " +
+                                                                    " Where YEAR(tbl_PXN_Header.NgayNhanMau) = '" + year + "' " +
                                                                 " ) as T0 " +
                                                             " ON tbl_KHMau_CTXN_LAB.KHMau_ID = T0.ID " +
                                                             " Where tbl_KHMau_CTXN_LAB.CTXNID = " + CTXNID +
@@ -140,8 +140,5 @@ namespace Production.Class
                                                     " ON S0.KHMau_GiaoMau = T1.KHMau_GiaoMau and S0.CTXN_ID = T1.CTXNID " +
                                                     " GROUP BY T1.TenLoaiDV,T1.ID,T1.CTXNID,T1.SoLuongXN,T1.KHMau_GiaoMau,T1.ID,T1.SoPXN,T1.Month,T1.Year,S0.KHMau_GiaoMau,S0.CTXN_ID ,S0.Neg, S0.Pos, S0.Sus,T1.TenCoSoLayMau,T1.LOCCode,T1.ProvinceName,T1.TenCoSoGuiMau ", CommandType.Text);
         }
-
-
-
     }
 }

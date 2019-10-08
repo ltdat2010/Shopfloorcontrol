@@ -30,7 +30,7 @@ namespace Production.Class
 
         private bool gridViewRowClick = false;
         private string Path = Directory.GetCurrentDirectory();
-        private string filePath = @"D:\PriceList_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+        private string filePath = @"X:\PriceList_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
         /// <summary>
         /// DELEGATE
@@ -282,7 +282,13 @@ namespace Production.Class
         {
             //string filePath = @"D:\PriceList_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
             //Save current layout
-            gridView1.SaveLayoutToXml(@"D:\tempLayout.xml");
+            //CHEK PC Name
+            string PCname = System.Environment.MachineName;
+            if (PCname == "VPV-ASL-SAMPLE")
+                gridView1.SaveLayoutToXml(@"D:\SYNC_NUTRICIEL_IMG\tempLayout.xml");
+            else
+                gridView1.SaveLayoutToXml(@"X:\tempLayout.xml");
+
             //Set to visible all column
 
             //IDENTITY khi them dong moi
@@ -372,7 +378,7 @@ namespace Production.Class
             gridView1.ExportToXlsx(filePath);
 
             //Restore layout
-            gridView1.RestoreLayoutFromXml(@"D:\tempLayout.xml");
+            gridView1.RestoreLayoutFromXml(@"X:\tempLayout.xml");
 
             System.Diagnostics.Process.Start(filePath);
         }

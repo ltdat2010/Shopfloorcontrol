@@ -106,7 +106,6 @@ namespace Production.Class
                     F_GiaoMau_LAB FRM = new Class.F_GiaoMau_LAB();
                     FRM.OBJ = this.OBJ;
                     FRM.Show();
-                    
                 }
                 else
                     XtraMessageBox.Show("Vui lòng click vào đầu dòng cần giao mẫu ");
@@ -206,7 +205,7 @@ namespace Production.Class
         //}
         private void ItemClickEventHandler_Excel(object sender, EventArgs e)
         {
-            string filePath = @"D:\PNM_Created_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+            string filePath = @"X:\PNM_Created_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
             gridView1.ExportToXlsx(filePath);
         }
 

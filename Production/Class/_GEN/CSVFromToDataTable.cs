@@ -206,7 +206,7 @@ namespace Production.Class
         public void WRITE2XSLX(GridView gv)
         {
             //string path = @"C:\ProjectTesting\TwsDde.xlsm";
-            string path = @"D:\Template21Jun2018.xlsx";
+            string path = @"X:\Template21Jun2018.xlsx";
             oXL = new Microsoft.Office.Interop.Excel.Application();
             oXL.Visible = true;
             oXL.DisplayAlerts = false;

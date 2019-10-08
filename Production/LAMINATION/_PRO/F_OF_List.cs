@@ -131,8 +131,8 @@ namespace Production.Class
             btnExportToXslx.Click += (s, e) =>
             {
                 // Open the Preview window.
-                gridControl2.ExportToXlsx("D:\\Display_OF_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx");
-                XtraMessageBox.Show("Your file has been exported as the following path : D:\\Display_OF_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx");
+                gridControl2.ExportToXlsx(@"X:\\Display_OF_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx");
+                XtraMessageBox.Show("Your file has been exported as the following path : Z:\\Display_OF_" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx");
             };
 
             gridView2.CellValueChanged += (s, e) =>

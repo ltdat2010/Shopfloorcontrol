@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Production.Class._LAB.RESULT;
+using System;
 using System.Data;
-using Production.Class._LAB.RESULT;
 
 namespace Production.Class
 {
@@ -63,7 +62,7 @@ namespace Production.Class
            ",[CreatedBy]                            = N'" + OBJ.CreatedBy + "' " +
            ",[Note]                                 = N'" + OBJ.Note + "' " +
            ",[Locked]                               = '" + OBJ.Locked + "' " +
-           " WHERE [ID]                             =" + OBJ.ID , CommandType.Text);
+           " WHERE [ID]                             =" + OBJ.ID, CommandType.Text);
         }
 
         public void IBD_RESULT_Lines_LABDAO_DELETE(int ID)
@@ -104,14 +103,14 @@ namespace Production.Class
             //return Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Lines_LAB] " +
             // " WHERE [IBD_RESULT_Header_LAB_ID]=" + ID, CommandType.Text);
 
-            return Sql.ExecuteDataTable("SAP",  " SELECT T.*,S.* " +
+            return Sql.ExecuteDataTable("SAP", " SELECT T.*,S.* " +
                                                 " FROM " +
                                                 " (" +
                                                 " SELECT[tbl_IBD_RESULT_Lines_LAB].*,[tbl_IBD_RESULT_Header_LAB].KHMau_GiaoMau as IBD_Header_KHMau_GiaoMau,[tbl_IBD_RESULT_Header_LAB].CTXN_ID as IBD_Header_CTXN_ID FROM [tbl_IBD_RESULT_Lines_LAB] " +
                                                 " inner join[tbl_IBD_RESULT_Header_LAB] " +
                                                 " ON[tbl_IBD_RESULT_Lines_LAB].IBD_RESULT_Header_LAB_ID = [tbl_IBD_RESULT_Header_LAB].ID " +
                                                 " Where[tbl_IBD_RESULT_Lines_LAB].IBD_RESULT_Header_LAB_ID = " + ID +
-                                                " ) as T  " +
+                                                "  and [tbl_IBD_RESULT_Lines_LAB].Line_No <> '-' and [tbl_IBD_RESULT_Lines_LAB].Line_No <> '+'  ) as T  " +
                                                 " Inner join " +
                                                 " (" +
                                                             " Select tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_CTXN_LAB.CTXNID, tbl_KHMau_LAB.GioLayMauTuoi " +

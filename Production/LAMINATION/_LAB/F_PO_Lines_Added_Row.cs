@@ -129,10 +129,10 @@ namespace Production.Class
                 OBJ_POL.SoLuongXN = row["SoLuongXN"].ToString();
                 OBJ_POL.VAT = float.Parse(row["VAT"].ToString());
 
-                OBJ_POL.CreatedBy = row["CreatedBy"].ToString();
+                //OBJ_POL.CreatedBy = row["CreatedBy"].ToString();
                 //OBJ_POL.CreatedDate              = row["CreatedDate"].ToString();
-                OBJ_POL.Locked = row["Locked"].ToString() == "True" ? true : false; ;
-                OBJ_POL.Note = row["Note"].ToString();
+                //OBJ_POL.Locked = row["Locked"].ToString() == "True" ? true : false; ;
+                //OBJ_POL.Note = row["Note"].ToString();
 
                 //txtDonGia.Text              = (row as DataRowView)["DonGia"].ToString();
                 //txtDonGiaMuaNgoai.Text      = (row as DataRowView)["DonGiaMuaNgoai"].ToString();

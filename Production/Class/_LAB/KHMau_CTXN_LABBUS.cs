@@ -21,6 +21,11 @@ namespace Production.Class
             DAO.KHMau_CTXN_LABDAO_UPDATE_TraKetQua(OBJ);
         }
 
+        public void KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(string KHMau, int CTXNID)
+        {
+            DAO.KHMau_CTXN_LABDAO_UPDATE_GoiYCXuatHD(KHMau, CTXNID);
+        }
+
         public void KHMau_CTXN_LABDAO_DELETE(int ID)
         {
             DAO.KHMau_CTXN_LABDAO_DELETE(ID);
@@ -39,6 +44,11 @@ namespace Production.Class
         public int MAX_KHMau_CTXN_LABDAO_ID()
         {
             return DAO.MAX_KHMau_CTXN_LABDAO_ID();
+        }
+
+        public int MAX_KHMau_CTXN_LABDAO_SoLuongXN(string KHMau_BanGiao)
+        {
+            return DAO.MAX_KHMau_CTXN_LABDAO_SoLuongXN(KHMau_BanGiao);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using DevExpress.LookAndFeel;
-using System;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Production.Class
@@ -12,15 +12,29 @@ namespace Production.Class
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //2019-08-28
-            DevExpress.Skins.SkinManager.EnableFormSkins();
-            //DevExpress.UserSkins.OfficeSkins.Register();
-            //DevExpress.UserSkins.BonusSkins.Register();
-            //DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = true;            
-            //UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-             Application.Run(new frm_Main());
+            //try
+            //{
+            //    const string APPGUID = "{9F6F0AC4-B9A1-90AB-DE0F-72F04E6BDE8F}";
+            //    using (Mutex mutex = new Mutex(false, APPGUID))
+            //    {
+            //        if (!mutex.WaitOne(0, false))
+            //        {
+            //            MessageBox.Show("Already Running Application!", "An instance of the application is already running...", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //            return;
+            //        }
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    DevExpress.Skins.SkinManager.EnableFormSkins();
+                    Application.Run(new frm_Main());
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString(), "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+
+            
+            //Application.Run(new frm_Main());
         }
     }
 }

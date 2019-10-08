@@ -106,5 +106,10 @@ namespace Production.Class
         {
             DAO.PXN_HeaderDAO_UPDATE_NgayTraKetQua(SoPXN);
         }
+
+        public void PXN_HeaderDAO_UPDATE_MaCoSoLayMau(string CUSTCODE_Old, string CUSTCODE_New)
+        {
+            DAO.PXN_HeaderDAO_UPDATE_MaCoSoLayMau(CUSTCODE_Old, CUSTCODE_New);
+        }
     }
 }

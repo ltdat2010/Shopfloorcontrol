@@ -7,14 +7,17 @@ namespace Production.Class
         public KHMau_LAB()
         {
         }
+
         public int ID { set; get; }
         public string SoPXN { set; get; }
         public string KHMau { set; get; }
+
         public string KHMau_GiaoMau
         {
             set { }
             get { return KHMau.Substring(2, 1) + KHMau.Substring(KHMau.Length - 8, 8); }
         }
+
         public string KHMau_KhachHang { set; get; }
         public string SoLuongKHMau { set; get; }
         public string DonViKHMau { set; get; }
@@ -45,6 +48,5 @@ namespace Production.Class
         public string NguoiNhanBanGiaoMau { set; get; }
         public string NguoiGiaoBanGiaoMau { set; get; }
         public DateTime NgayBanGiaoMau { set; get; }
-
     }
 }

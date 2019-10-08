@@ -29,16 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_IBD_RESULT_LIST));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -81,8 +75,6 @@
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTech = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHUYETTHANHHOC_STD_VALUE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.action1 = new Production.Class.Action();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -105,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblIBDRESULTHeaderLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
@@ -206,9 +197,9 @@
             this.barEditItem2.Id = 3;
             this.barEditItem2.Name = "barEditItem2";
             this.barEditItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem1.Text = "From Date";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.barEditItem2.SuperTip = superToolTip1;
+            toolTipItem3.Text = "From Date";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.barEditItem2.SuperTip = superToolTip3;
             // 
             // repositoryItemDateEdit1
             // 
@@ -227,9 +218,9 @@
             this.barEditItem3.Id = 4;
             this.barEditItem3.Name = "barEditItem3";
             this.barEditItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem2.Text = "To Date";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.barEditItem3.SuperTip = superToolTip2;
+            toolTipItem1.Text = "To Date";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barEditItem3.SuperTip = superToolTip1;
             // 
             // repositoryItemDateEdit2
             // 
@@ -307,8 +298,6 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1032, 429);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -345,8 +334,7 @@
             this.colLocked,
             this.colNote,
             this.colTech,
-            this.colHUYETTHANHHOC_STD_VALUE_ID,
-            this.gridColumn1});
+            this.colHUYETTHANHHOC_STD_VALUE_ID});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
@@ -370,7 +358,7 @@
             this.colFileName.Name = "colFileName";
             this.colFileName.Visible = true;
             this.colFileName.VisibleIndex = 0;
-            this.colFileName.Width = 323;
+            this.colFileName.Width = 384;
             // 
             // colDate
             // 
@@ -378,7 +366,7 @@
             this.colDate.Name = "colDate";
             this.colDate.Visible = true;
             this.colDate.VisibleIndex = 1;
-            this.colDate.Width = 47;
+            this.colDate.Width = 76;
             // 
             // colTime
             // 
@@ -386,7 +374,7 @@
             this.colTime.Name = "colTime";
             this.colTime.Visible = true;
             this.colTime.VisibleIndex = 2;
-            this.colTime.Width = 52;
+            this.colTime.Width = 58;
             // 
             // colCase
             // 
@@ -394,7 +382,7 @@
             this.colCase.Name = "colCase";
             this.colCase.Visible = true;
             this.colCase.VisibleIndex = 3;
-            this.colCase.Width = 56;
+            this.colCase.Width = 63;
             // 
             // colCount
             // 
@@ -402,7 +390,7 @@
             this.colCount.Name = "colCount";
             this.colCount.Visible = true;
             this.colCount.VisibleIndex = 4;
-            this.colCount.Width = 50;
+            this.colCount.Width = 56;
             // 
             // colGMean
             // 
@@ -410,7 +398,7 @@
             this.colGMean.Name = "colGMean";
             this.colGMean.Visible = true;
             this.colGMean.VisibleIndex = 5;
-            this.colGMean.Width = 50;
+            this.colGMean.Width = 56;
             // 
             // colMean
             // 
@@ -418,7 +406,7 @@
             this.colMean.Name = "colMean";
             this.colMean.Visible = true;
             this.colMean.VisibleIndex = 6;
-            this.colMean.Width = 50;
+            this.colMean.Width = 56;
             // 
             // colSD
             // 
@@ -426,7 +414,7 @@
             this.colSD.Name = "colSD";
             this.colSD.Visible = true;
             this.colSD.VisibleIndex = 7;
-            this.colSD.Width = 50;
+            this.colSD.Width = 56;
             // 
             // colCV
             // 
@@ -434,7 +422,7 @@
             this.colCV.Name = "colCV";
             this.colCV.Visible = true;
             this.colCV.VisibleIndex = 8;
-            this.colCV.Width = 50;
+            this.colCV.Width = 56;
             // 
             // colMin
             // 
@@ -442,7 +430,7 @@
             this.colMin.Name = "colMin";
             this.colMin.Visible = true;
             this.colMin.VisibleIndex = 9;
-            this.colMin.Width = 50;
+            this.colMin.Width = 56;
             // 
             // colMax
             // 
@@ -450,7 +438,7 @@
             this.colMax.Name = "colMax";
             this.colMax.Visible = true;
             this.colMax.VisibleIndex = 10;
-            this.colMax.Width = 60;
+            this.colMax.Width = 67;
             // 
             // colCreatedDate
             // 
@@ -482,7 +470,7 @@
             this.colTech.Name = "colTech";
             this.colTech.Visible = true;
             this.colTech.VisibleIndex = 11;
-            this.colTech.Width = 56;
+            this.colTech.Width = 81;
             // 
             // colHUYETTHANHHOC_STD_VALUE_ID
             // 
@@ -490,31 +478,12 @@
             this.colHUYETTHANHHOC_STD_VALUE_ID.Name = "colHUYETTHANHHOC_STD_VALUE_ID";
             this.colHUYETTHANHHOC_STD_VALUE_ID.Width = 37;
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Report";
-            this.gridColumn1.ColumnEdit = this.repositoryItemButtonEdit1;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Width = 103;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "StandardCurve", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            
-            // 
             // action1
             // 
             this.action1.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.action1.Appearance.Options.UseForeColor = true;
             this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.action1.Location = new System.Drawing.Point(4, 4);
-            this.action1.LookAndFeel.SkinName = "Money Twins";
-            this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
             this.action1.Size = new System.Drawing.Size(1032, 39);
@@ -578,6 +547,7 @@
             this.groupControl1.Controls.Add(this.layoutControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1044, 526);
             this.groupControl1.TabIndex = 11;
@@ -617,7 +587,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblIBDRESULTHeaderLABBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
@@ -659,7 +628,6 @@
          private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private System.Windows.Forms.BindingSource tblIBDRESULTHeaderLABBindingSource;
         private SYNC_NUTRICIELDataSet sYNC_NUTRICIELDataSet;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
@@ -681,7 +649,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
         private DevExpress.XtraGrid.Columns.GridColumn colTech;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYETTHANHHOC_STD_VALUE_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private SYNC_NUTRICIELDataSetTableAdapters.tbl_IBD_RESULT_Header_LABTableAdapter tbl_IBD_RESULT_Header_LABTableAdapter;
     }
 }

@@ -63,8 +63,7 @@
     </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>SFC.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -165,8 +164,11 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -270,6 +272,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ASIALANDDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Class\_GEN\Excel.cs" />
     <Compile Include="Class\_GEN\Xml_Path.cs" />
     <Compile Include="Class\_GEN\Equation_Fomular.cs" />
     <Compile Include="Class\_GEN\Point.cs" />
@@ -763,6 +766,18 @@
     <Compile Include="LAMINATION\_LAB\F_PO_List.Designer.cs">
       <DependentUpon>F_PO_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="LAMINATION\_LAB\F_YCXuatHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_YCXuatHD.Designer.cs">
+      <DependentUpon>F_YCXuatHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Details .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_Details .Designer.cs">
+      <DependentUpon>F_PXN_Details .cs</DependentUpon>
+    </Compile>
     <Compile Include="LAMINATION\_LAB\F_PXN_Result.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -780,12 +795,6 @@
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_PXN_Details_Added_Row.Designer.cs">
       <DependentUpon>F_PXN_Details_Added_Row.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LAMINATION\_LAB\F_PXN_Details .cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LAMINATION\_LAB\F_PXN_Details .Designer.cs">
-      <DependentUpon>F_PXN_Details .cs</DependentUpon>
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_PRICELIST_Details_Added_Row.cs">
       <SubType>Form</SubType>
@@ -1035,6 +1044,20 @@
       <DesignTime>True</DesignTime>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_VN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_VN.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1104,6 +1127,62 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PGM_LAB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PGM_LAB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PO_LAB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PO_LAB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PTU_LAB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PTU_LAB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PXN_LAB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PXN_LAB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PXN_LAB_Details_Sub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PXN_LAB_Details_Sub.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PXN_LAB_DETROY_Sub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PXN_LAB_DETROY_Sub.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PXN_LAB_Received_Sub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PXN_LAB_Received_Sub.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_PXN_LAB_STORAGE_Sub.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PXN_LAB_STORAGE_Sub.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RPT\_QC\Rpt_COA_VN.cs">
       <DependentUpon>Rpt_COA_VN.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1120,20 +1199,6 @@
     </Compile>
     <Compile Include="RPT\_PRO\Rpt_InternalTransfer.cs">
       <DependentUpon>Rpt_InternalTransfer.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PTU_LAB.cs">
-      <DependentUpon>Rpt_PTU_LAB.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PO_LAB.cs">
-      <DependentUpon>Rpt_PO_LAB.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1197,48 +1262,6 @@
     </Compile>
     <Compile Include="RPT\Rpt_OF_Summary_Sub1.cs">
       <DependentUpon>Rpt_OF_Summary_Sub1.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PGM_LAB.cs">
-      <DependentUpon>Rpt_PGM_LAB.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PXN_LAB_Received_Sub.cs">
-      <DependentUpon>Rpt_PXN_LAB_Received_Sub.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PXN_LAB_STORAGE_Sub.cs">
-      <DependentUpon>Rpt_PXN_LAB_STORAGE_Sub.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PXN_LAB_DETROY_Sub.cs">
-      <DependentUpon>Rpt_PXN_LAB_DETROY_Sub.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PXN_LAB_Details_Sub.cs">
-      <DependentUpon>Rpt_PXN_LAB_Details_Sub.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="RPT\Rpt_PXN_LAB.cs">
-      <DependentUpon>Rpt_PXN_LAB.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1421,10 +1444,10 @@
     <Compile Include="frm_ChangePass.Designer.cs">
       <DependentUpon>frm_ChangePass.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Base.cs">
+    <Compile Include="LAMINATION\_GEN\_FRM\frm_Base.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Base.Designer.cs">
+    <Compile Include="LAMINATION\_GEN\_FRM\frm_Base.Designer.cs">
       <DependentUpon>frm_Base.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Loading.cs">
@@ -1913,6 +1936,12 @@
     <EmbeddedResource Include="LAMINATION\_LAB\F_PO_List.resx">
       <DependentUpon>F_PO_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_YCXuatHD.resx">
+      <DependentUpon>F_YCXuatHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Details .resx">
+      <DependentUpon>F_PXN_Details .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Result.resx">
       <DependentUpon>F_PXN_Result.cs</DependentUpon>
     </EmbeddedResource>
@@ -1921,9 +1950,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Details_Added_Row.resx">
       <DependentUpon>F_PXN_Details_Added_Row.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_Details .resx">
-      <DependentUpon>F_PXN_Details .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_PRICELIST_Details_Added_Row.resx">
       <DependentUpon>F_PRICELIST_Details_Added_Row.cs</DependentUpon>
@@ -2069,6 +2095,16 @@
       <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_EN.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_VN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_VN.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\_LAB\Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_MYCOTOXIN_RESULT_Lines_AnalysisReport_LAB_EN.cs</LastGenOutput>
@@ -2118,6 +2154,46 @@
       <LastGenOutput>Rpt_MYCOTOXIN_RESULT_LAB.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PGM_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PGM_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PO_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PO_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PTU_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PTU_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PXN_LAB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PXN_LAB_Details_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_Details_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PXN_LAB_DETROY_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_DETROY_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PXN_LAB_Received_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_Received_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_PXN_LAB_STORAGE_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PXN_LAB_STORAGE_Sub.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="RPT\_QC\Rpt_COA_VN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_COA_VN.cs</LastGenOutput>
@@ -2131,16 +2207,6 @@
     <EmbeddedResource Include="RPT\_PRO\Rpt_InternalTransfer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_InternalTransfer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PTU_LAB.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PTU_LAB.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PO_LAB.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PO_LAB.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\Rpt_Tracebility.rpt">
@@ -2186,36 +2252,6 @@
     <EmbeddedResource Include="RPT\Rpt_OF_Summary_Sub1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_OF_Summary_Sub1.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PGM_LAB.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PGM_LAB.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_Received_Sub.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PXN_LAB_Received_Sub.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_STORAGE_Sub.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PXN_LAB_STORAGE_Sub.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_DETROY_Sub.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PXN_LAB_DETROY_Sub.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PXN_LAB_Details_Sub.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PXN_LAB_Details_Sub.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RPT\Rpt_PXN_LAB.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Rpt_PXN_LAB.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\Rpt_RMUsed_Simple.rpt">
@@ -2311,7 +2347,7 @@
     <EmbeddedResource Include="frm_ChangePass.resx">
       <DependentUpon>frm_ChangePass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Base.resx">
+    <EmbeddedResource Include="LAMINATION\_GEN\_FRM\frm_Base.resx">
       <DependentUpon>frm_Base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Loading.resx">
@@ -2569,6 +2605,10 @@
   <ItemGroup>
     <Content Include="Huhtamaki Logo.ico" />
     <Content Include="if_archive_16601.ico" />
+    <Content Include="SFC.ico" />
+    <None Include="Resources\SFC.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\olmixasialand_logo.png" />
     <None Include="Resources\Viphavet_logo.png" />
     <None Include="Resources\defaultimage.png" />

@@ -4,7 +4,7 @@
     {
         public static string Create_Temp_Xml()
         {
-            string XmlSourcePath = @"D:\Temp_Xml";
+            string XmlSourcePath = @"X:\Temp_Xml";
             // If directory does not exist, create it.
             if (!System.IO.Directory.Exists(XmlSourcePath))
             {

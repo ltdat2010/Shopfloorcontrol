@@ -80,11 +80,20 @@ namespace Production.Class
 
         public void KHMau_CTXN_LABDAO_UPDATE_TraKetQua(KHMau_CTXN_LAB OBJ)
         {
-            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] SET " +           
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] SET " +
            "[DaTraKetQua]                    = 'True'" +
            //",[NgayTraKetQua]                    = CONVERT(datetime,'" + OBJ.NgayTraKetQua + "',103)" +
            ",[NgayTraKetQua]                    = CONVERT(datetime,'" + DateTime.Now + "',103)" +
            " WHERE [ID]                 =" + OBJ.ID, CommandType.Text);
+        }
+
+        public void KHMau_CTXN_LABDAO_UPDATE_GoiYCXuatHD(string KHMau, int CTXNID)
+        {
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] SET " +
+           "[GoiYCXuatHD]                    = 'True'" +
+           //",[NgayTraKetQua]                    = CONVERT(datetime,'" + OBJ.NgayTraKetQua + "',103)" +
+           ",[NgayGoiYCXuatHD]                    = CONVERT(datetime,'" + DateTime.Now + "',103)" +
+           " WHERE [KHMau]                 ='" + KHMau+ "' AND [CTXNID]="+ CTXNID, CommandType.Text);
         }
 
         public void KHMau_CTXN_LABDAO_DELETE(int ID)
@@ -109,6 +118,18 @@ namespace Production.Class
         {
             DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT MAX(ID) as ID FROM [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB]", CommandType.Text);
             return int.Parse(dt.Rows[0]["ID"].ToString());
+        }
+
+        public int MAX_KHMau_CTXN_LABDAO_SoLuongXN(string KHMau_BanGiao)
+        {
+            DataTable dt = Sql.ExecuteDataTable("SAP", " SELECT [tbl_KHMau_CTXN_LAB].[SoLuongXN]  "+
+                                                      " FROM[tbl_KHMau_LAB]  " +
+                                                      " INNER JOIN  " +
+                                                      " [tbl_KHMau_CTXN_LAB]  " +
+                                                      " ON  " +
+                                                      " [tbl_KHMau_LAB].[KHMau] =[tbl_KHMau_CTXN_LAB].[KHMau]  " +
+                                                      " where[tbl_KHMau_LAB].[KHMau_GiaoMau] = '"+ KHMau_BanGiao + "'" , CommandType.Text);
+            return int.Parse(dt.Rows[0]["SoLuongXN"].ToString());
         }
     }
 }

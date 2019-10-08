@@ -96,6 +96,7 @@ namespace Production.Class
 
                 if (isAction == "Edit")
                 {
+                    //XtraMessageBox.Show(OBJ_POH.VENDCode.ToString());
                     layoutControlGroup4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     txtSoPO.ReadOnly = true;
                     Set4Controls_Header();
@@ -174,10 +175,13 @@ namespace Production.Class
 
             lkeNhaCungCap.EditValueChanged += (s, e) =>
             {
-                DataRowView row = lkeNhaCungCap.GetSelectedDataRow() as DataRowView;
-                //OBJ_POL.CTXNDG = row["CTXNDG"].ToString();
-                OBJ_POH.VENDCode = row["VENDCode"].ToString();
-                OBJ_POH.VENDName = row["VENDName"].ToString();
+                if (isAction == "Add")
+                {
+                    DataRowView row = lkeNhaCungCap.GetSelectedDataRow() as DataRowView;
+                    //OBJ_POL.CTXNDG = row["CTXNDG"].ToString();
+                    OBJ_POH.VENDCode = row["VENDCode"].ToString();
+                    OBJ_POH.VENDName = row["VENDName"].ToString();
+                }
             };
 
             gridView1.RowClick += (s, e) =>
@@ -195,7 +199,7 @@ namespace Production.Class
             };
             txtDiscount.Leave += (s, e) =>
             {
-                XtraMessageBox.Show(gridView1.DataRowCount.ToString());
+                //XtraMessageBox.Show(gridView1.DataRowCount.ToString());
             };
 
             //Action_EndForm
@@ -419,13 +423,15 @@ namespace Production.Class
                 txtID.Text = OBJ_POH.ID.ToString();
             cmbKhoa.Text = OBJ_POH.Locked.ToString();
             txtNote.Text = OBJ_POH.Note;
-            if (txtSoPO.Text.Substring(0, 3) == "H2O")
-            {
-                lkeNhaCungCap.Text = "";
-            }
-            else if (txtSoPO.Text.Substring(0, 3) == "GEN" || txtSoPO.Text.Substring(0, 3) == "HTH" || txtSoPO.Text.Substring(0, 3) == "MDW")
-            {
-            }
+            lkeNhaCungCap.EditValue = OBJ_POH.VENDCode;
+            //if (txtSoPO.Text.Substring(0, 3) == "H2O")
+            //{
+            //    lkeNhaCungCap.Text = "";
+            //}
+            //else if (txtSoPO.Text.Substring(0, 3) == "GEN" || txtSoPO.Text.Substring(0, 3) == "HTH" || txtSoPO.Text.Substring(0, 3) == "MDW")
+            //{
+
+            //}
             dteNgayLapPO.Text = OBJ_POH.NgayLapPO.ToString().Substring(0, 10);
         }
 

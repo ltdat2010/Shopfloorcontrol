@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class._LAB.RESULT
 {
-    class HUYETTHANHHOC_STD_VALUE
+    internal class HUYETTHANHHOC_STD_VALUE
     {
         public HUYETTHANHHOC_STD_VALUE()
         {
-
         }
+
         public int ID { get; set; }
         public int CTXN_ID { get; set; }
         public string TEST_SOFTWARE_SUP_NAME { get; set; }
@@ -25,6 +22,5 @@ namespace Production.Class._LAB.RESULT
         public string CreatedBy { get; set; }
         public bool Locked { get; set; }
         public DateTime CreatedDate { get; set; }
-
     }
 }

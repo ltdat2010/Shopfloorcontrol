@@ -1,5 +1,4 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
-using DevExpress.XtraEditors;
 using System;
 using System.Data;
 using System.Drawing.Printing;
@@ -39,7 +38,7 @@ namespace Production.Class
 
         //public PO_Header OBJ = new PO_Header();
 
-        private DataTable   dt_MYCOTOXIN_RESULT_Header,
+        private DataTable dt_MYCOTOXIN_RESULT_Header,
                             dt_MYCOTOXIN_RESULT_StandardCurve,
                             dt_MYCOTOXIN_RESULT_ACR_Lines,
                             dt_MYCOTOXIN_RESULT_STD_Lines,
@@ -79,10 +78,14 @@ namespace Production.Class
                 //rpt.SetParameterValue("PicPath", "D:\\Temp_Xml\\AI_Graph.jpeg");
                 //rpt.Load(Path + "/RPT/_LAB/Rpt_AI_RESULT_LAB.rpt");
                 rpt.Load(Path + "/RPT/_LAB/Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.rpt");
-                rpt.SetParameterValue("PicPath", @"D:\Temp_Xml\AI_Graph.jpeg");
+                //CHEK PC Name
+                string PCname = System.Environment.MachineName;
+                if (PCname == "VPV-ASL-SAMPLE")
+                    rpt.SetParameterValue("PicPath", @"D:\SYNC_NUTRICIEL_IMG\Temp_Xml\AI_Graph.jpeg"); 
+                else
+                    rpt.SetParameterValue("PicPath", @"X:\Temp_Xml\AI_Graph.jpeg");
+
                 crvReport.ReportSource = rpt;
-                
-                
             };
 
             action1.Print(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Print));

@@ -29,7 +29,7 @@ namespace Production.Class
         public DataTable KHMau_LABBUS_SELECT(string SoPXN)
         {
             return DAO.KHMau_LABDAO_SELECT(SoPXN);
-        }       
+        }
 
         public DataTable KHMau_LABDAO_REPORT_RECEIPT(string SoPXN)
         {
@@ -54,6 +54,11 @@ namespace Production.Class
         public DataTable KHMau_LABDAO_REPORT_KHMAU(string SoPXN)
         {
             return DAO.KHMau_LABDAO_REPORT_DETAILS(SoPXN);
+        }
+
+        public DataTable KHMau_LABDAO_REPORT_AnalysisReport(string SoPXN, int CTXNID, string KHMau_GiaoMau)
+        {
+            return DAO.KHMau_LABDAO_REPORT_AnalysisReport(SoPXN, CTXNID, KHMau_GiaoMau);
         }
     }
 }

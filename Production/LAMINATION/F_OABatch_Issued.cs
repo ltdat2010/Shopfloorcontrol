@@ -60,7 +60,7 @@ namespace Production.Class
 
             BtnEXCEL.Click += (s, e) =>
                 {
-                    string savepath = "D:\\OABatch_Export" + DateTime.Today.ToString("yyyymmdd") + ".xlsx";
+                    string savepath = @"X:\\OABatch_Export" + DateTime.Today.ToString("yyyymmdd") + ".xlsx";
                     gridControl2.ExportToXlsx(savepath);
 
                     FileInfo fi = new FileInfo(savepath);

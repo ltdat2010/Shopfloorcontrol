@@ -1,17 +1,13 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using Microsoft.Office.Interop.Excel;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
 using Production.Class._GEN;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
-using NPOI.XSSF.UserModel;
-using NPOI.SS.UserModel;
-
-using Excel = Microsoft.Office.Interop.Excel;
-using NPOI.HSSF.UserModel;
 
 namespace Production.Class
 {
@@ -36,7 +32,7 @@ namespace Production.Class
         private MYCOTOXIN_RESULT_LinesBUS BUSLines = new MYCOTOXIN_RESULT_LinesBUS();
         private MYCOTOXIN_RESULT_StandardCurveBUS BUSSCurve = new MYCOTOXIN_RESULT_StandardCurveBUS();
         private CHITIEUXETNGHIEMBUS BUSCTXN = new CHITIEUXETNGHIEMBUS();
-        
+
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -99,7 +95,7 @@ namespace Production.Class
                     OpenFileDialog openFileDialog1 = new OpenFileDialog();
                     //Excel.Application app = new Excel.Application();
                     //Excel.Workbook wbook = null;
-                    //Worksheet wsheet = null;                    
+                    //Worksheet wsheet = null;
                     //string[] strArray = null;
 
                     //openFileDialog1.InitialDirectory = "c:\\";
@@ -130,11 +126,10 @@ namespace Production.Class
                             //writer.Flush();
                             //writer.Close();
 
-                            BinaryWriter writer = new BinaryWriter(File.OpenWrite(@"D:\Temp_Xml\AI_"+ filename + ".jpeg"));
+                            BinaryWriter writer = new BinaryWriter(File.OpenWrite(@"X:\Temp_Xml\AI_" + filename + ".jpeg"));
                             writer.Write(data);
                             writer.Flush();
                             writer.Close();
-
                         }
                         //splashScreenManager1.CloseWaitForm();
                     }
@@ -145,7 +140,7 @@ namespace Production.Class
 
             btnCalc_Log.Click += (s, e) =>
             {
-                List<string> List_Acronym = BUSLines.MYCOTOXIN_RESULT_Lines_List_Acronym(OBJHeader.ID);                
+                List<string> List_Acronym = BUSLines.MYCOTOXIN_RESULT_Lines_List_Acronym(OBJHeader.ID);
 
                 foreach (string Arc in List_Acronym)
                 {

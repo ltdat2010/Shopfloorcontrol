@@ -13,10 +13,12 @@ namespace Production.Class
         private IBD_RESULT_Header_LABBUS BUS = new IBD_RESULT_Header_LABBUS();
         public int CTXN_ID;
         public string year;
+
         //public string ToDate;
         private DataTable dt_BaoCao_HuyetThanhHoc = new DataTable();
+
         //----------------------------Report parameters declare---------------------------------------------
-        
+
         private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
         private string Path = Directory.GetCurrentDirectory();
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();

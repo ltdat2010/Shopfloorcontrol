@@ -38,6 +38,7 @@ namespace Production.Class
            " ,[NgonNgu] " +
            " ,[DichTeDan] " +
            " ,[CUSTCODE_ID] " +
+           " ,[DonViXuatHoaDon_ID] " +
            " ,[EMPCode_ID] " +
            " ,[Locked]  " +
            " ,[DaXuatHoaDon]  " +
@@ -84,6 +85,7 @@ namespace Production.Class
            "',N'" + OBJ.NgonNgu +
            "',N'" + OBJ.DichTeDan +
            "'," + OBJ.CUSTCODE_ID +
+           "," + OBJ.DonViXuatHoaDon_ID +
            "," + OBJ.EMPCode_ID +
            ",'" + OBJ.Locked +
            "',N'" + OBJ.DaXuatHoaDon +
@@ -114,7 +116,8 @@ namespace Production.Class
            ",[EmailCoSoGuiMau]      = N'" + OBJ.EmailCoSoGuiMau + "'" +
            ",[MSTCoSoGuiMau]        = N'" + OBJ.MSTCoSoGuiMau + "'" +
            ",[CoSoLayMau]           = N'" + OBJ.CoSoLayMau + "'" +
-           ",[MaCoSoLayMau]           = N'" + OBJ.MaCoSoLayMau + "'" +
+           ",[DonViXuatHoaDon_ID]   = " + OBJ.DonViXuatHoaDon_ID + 
+           ",[MaCoSoLayMau]         = N'" + OBJ.MaCoSoLayMau + "'" +
            ",[TenCoSoLayMau]        = N'" + OBJ.TenCoSoLayMau + "'" +
            ",[DCCoSoLayMau]         = N'" + OBJ.DCCoSoLayMau + "'" +
            ",[PhoneCoSoLayMau]      = N'" + OBJ.PhoneCoSoLayMau + "'" +
@@ -148,6 +151,13 @@ namespace Production.Class
            ",[NoiDungHoaDon]               = N'" + OBJ.NoiDungHoaDon + "' " +
            ",[NoiDungTraTruoc]               = N'" + OBJ.NoiDungTraTruoc + "' " +
            " WHERE [ID]             =" + OBJ.ID, CommandType.Text);
+        }
+
+        public void PXN_HeaderDAO_UPDATE_MaCoSoLayMau(string CUSTCODE_Old,string CUSTCODE_New )
+        {
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +           
+           ",[MaCoSoLayMau]           = N'" + CUSTCODE_New + "'" +
+           " WHERE [MaCoSoLayMau]             =" + CUSTCODE_Old, CommandType.Text);
         }
 
         public void PXN_HeaderDAO_UPDATE_SendMail(int ID, string SendMail)

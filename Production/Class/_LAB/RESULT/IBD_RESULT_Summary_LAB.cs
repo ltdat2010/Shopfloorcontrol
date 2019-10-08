@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class._LAB.RESULT
 {
@@ -9,8 +6,8 @@ namespace Production.Class._LAB.RESULT
     {
         public IBD_RESULT_Summary_LAB()
         {
-
         }
+
         public int ID { get; set; }
         public string Type { get; set; }
         public int IBD_RESULT_Header_LAB_ID { get; set; }

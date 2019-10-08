@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Production.RPT {
+namespace Production.RPT._LAB {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Production.RPT {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Rpt_PXN_LAB_Details_Sub : ReportClass {
+    public class Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN_ : ReportClass {
         
-        public Rpt_PXN_LAB_Details_Sub() {
+        public Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN_() {
         }
         
         public override string ResourceName {
             get {
-                return "Rpt_PXN_LAB_Details_Sub.rpt";
+                return "Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Production.RPT {
         
         public override string FullResourceName {
             get {
-                return "Production.RPT.Rpt_PXN_LAB_Details_Sub.rpt";
+                return "Production.RPT._LAB.Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .rpt";
             }
             set {
                 // Do nothing
@@ -58,7 +58,7 @@ namespace Production.RPT {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
+        public CrystalDecisions.CrystalReports.Engine.Section PageHeaderSection2 {
             get {
                 return this.ReportDefinition.Sections[1];
             }
@@ -66,7 +66,7 @@ namespace Production.RPT {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Production.RPT {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection2 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,25 @@ namespace Production.RPT {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[5];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRpt_PXN_LAB_Details_Sub : Component, ICachedReport {
+    public class CachedRpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN_ : Component, ICachedReport {
         
-        public CachedRpt_PXN_LAB_Details_Sub() {
+        public CachedRpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN_() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace Production.RPT {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Rpt_PXN_LAB_Details_Sub rpt = new Rpt_PXN_LAB_Details_Sub();
+            Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN_ rpt = new Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN_();
             rpt.Site = this.Site;
             return rpt;
         }

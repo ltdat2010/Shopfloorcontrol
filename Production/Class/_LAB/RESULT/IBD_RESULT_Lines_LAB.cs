@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Production.Class._LAB.RESULT
 {
@@ -9,8 +6,8 @@ namespace Production.Class._LAB.RESULT
     {
         public IBD_RESULT_Lines_LAB()
         {
-            
         }
+
         public int ID { get; set; }
         public int CTXN_ID { get; set; }
         public string KHMau_GiaoMau { get; set; }
@@ -27,6 +24,5 @@ namespace Production.Class._LAB.RESULT
         public string CreatedBy { get; set; }
         public bool Locked { get; set; }
         public DateTime CreatedDate { get; set; }
-
     }
 }

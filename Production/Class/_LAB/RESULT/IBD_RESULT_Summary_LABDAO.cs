@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Production.Class._LAB.RESULT;
+using System;
 using System.Data;
-using Production.Class._LAB.RESULT;
 
 namespace Production.Class
 {
@@ -18,7 +17,7 @@ namespace Production.Class
            " ,[SD] " +
            " ,[CV] " +
            " ,[Min] " +
-           " ,[Max] " +          
+           " ,[Max] " +
            " ,[CreatedDate] " +
            " ,[CreatedBy] " +
            " ,[Note] " +
@@ -31,7 +30,7 @@ namespace Production.Class
            "," + OBJ.SD +
            "," + OBJ.CV +
            "," + OBJ.Min +
-           "," + OBJ.Max +           
+           "," + OBJ.Max +
            ",Convert(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
            "',N'" + OBJ.Note +
@@ -49,7 +48,7 @@ namespace Production.Class
            ",[SD] = " + OBJ.SD +
            ",[CV]      = " + OBJ.CV +
            ",[Min]      = N'" + OBJ.Min + "'" +
-           ",[Max]      = N'" + OBJ.Max + "'" +           
+           ",[Max]      = N'" + OBJ.Max + "'" +
            ",[CreatedDate] = Convert(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy] = N'" + OBJ.CreatedBy + "' " +
            ",[Note] = N'" + OBJ.Note + "' " +
@@ -60,7 +59,7 @@ namespace Production.Class
         public void IBD_RESULT_Summary_LABDAO_DELETE(int ID)
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_IBD_RESULT_Summary_LAB] " +
-            " WHERE [ID]=" + ID , CommandType.Text);
+            " WHERE [ID]=" + ID, CommandType.Text);
         }
 
         //public List<string> MYCOTOXIN_RESULT_Lines_List_Acronym(int ID)

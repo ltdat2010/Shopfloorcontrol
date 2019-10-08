@@ -15,9 +15,10 @@ namespace Production.Class
         private UserBUS BUS = new UserBUS();
 
         private CultureInfo culture;
+
         public RijndaelManaged key = null;
 
-        private string path = @"D:\pkl.xml";
+        //private string path = @"D:\pkl"+ txtUsername.Text +".xml";
 
         public delegate void MyAdd(object sender);
 

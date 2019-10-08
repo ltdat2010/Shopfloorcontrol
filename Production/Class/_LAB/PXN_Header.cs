@@ -57,7 +57,8 @@ namespace Production.Class
             bool TraTruoc,
             DateTime NgayTraTruoc,
             float SoTienTraTruoc,
-            string NoiDungHoaDon
+            string NoiDungHoaDon,
+            int DonViXuatHoaDon_ID
 
             )
         {
@@ -116,6 +117,7 @@ namespace Production.Class
             this._SoTienTraTruoc = SoTienTraTruoc;
             this._NoiDungHoaDon = NoiDungHoaDon;
             this._NoiDungTraTruoc = NoiDungTraTruoc;
+            this._DonViXuatHoaDon_ID = DonViXuatHoaDon_ID;
         }
 
         public PXN_Header()
@@ -547,6 +549,14 @@ namespace Production.Class
         {
             get { return _NoiDungTraTruoc; }
             set { _NoiDungTraTruoc = value; }
+        }
+
+        private int _DonViXuatHoaDon_ID;
+
+        public int DonViXuatHoaDon_ID
+        {
+            get { return _DonViXuatHoaDon_ID; }
+            set { _DonViXuatHoaDon_ID = value; }
         }
     }
 }
