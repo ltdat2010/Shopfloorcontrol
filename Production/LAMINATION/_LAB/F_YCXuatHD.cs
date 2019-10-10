@@ -9,6 +9,8 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace Production.Class
@@ -28,11 +30,15 @@ namespace Production.Class
         private bool gridViewRowClick2 = false;
         private bool chkSendMail_status = false;
         private string isChanged = "";
+
         private string Path = Directory.GetCurrentDirectory();
+
+        string path = string.Empty;
+
         public int gridRow = 0;
 
         private bool Automatically = true;
-
+        public string PCname = System.Environment.MachineName;
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -80,14 +86,13 @@ namespace Production.Class
             Load += (s, e) =>
             {
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
-                this.Height = Screen.PrimaryScreen.Bounds.Height - 30;                
+                this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
-                action_EndForm2.Add_Status(true);
-                action_EndForm2.Delete_Status(true);
-                action_EndForm2.Update_Status(true);
-                action_EndForm2.Save_Status(true);
-                action_EndForm2.View_Status(false);
-                action_EndForm2.Close_Status(false);
+                if (PCname == "VPV-ASL-SAMPLE")
+                    path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                else
+                    path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                
 
                 action_EndForm3.Add_Status(false);
                 action_EndForm3.Delete_Status(false);
@@ -96,7 +101,7 @@ namespace Production.Class
                 action_EndForm3.View_Status(false);
                 action_EndForm3.Close_Status(true);
 
-                btnSendMail.Enabled = false;
+                //btnSendMail.Enabled = false;
                 //MessageBox.Show(isAction);
                 dteNgayYCXuatHD.ReadOnly = true;
                 dteNgayYCXuatHD.DateTime = DateTime.Now; 
@@ -136,189 +141,244 @@ namespace Production.Class
                 //}                
             };
 
-            
-
-                //chkSendMail.CheckStateChanged += (s, e) =>
-                //{
-                //    if (chkSendMail.CheckState == CheckState.Checked)
-                //    {
-                //        if (txtEmailCoSoGuiMau.Text.Length == 0)
-                //        {
-                //            chkSendMail_status = false;
-                //            btnSendMail.Enabled = false;
-                //            //Khong co email nhan vien gui mau thi khong cho gui
-                //            //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
-                //            XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //            args.AutoCloseOptions.Delay = 2000;
-                //            args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //            args.DefaultButtonIndex = 0;
-                //            args.Caption = "Lưu ý ";
-                //            args.Text = "Email người nhận không được bỏ trống. Thông báo này sẽ tự đóng sau 2 giây.";
-                //            args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //            XtraMessageBox.Show(args).ToString();
-                //        }
-                //        else if (gridView2.RowCount == 0)
-                //        {
-                //            chkSendMail_status = false;
-                //            btnSendMail.Enabled = false;
-                //            //Khong co email nhan vien gui mau thi khong cho gui
-                //            //MessageBox.Show("Email đã được gởi đến khách hàng.Trong trường hợp email bị lỗi bạn sẽ thấy thông báo lỗi trong mục Send của OutLook .");
-                //            XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //            args.AutoCloseOptions.Delay = 2000;
-                //            args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //            args.DefaultButtonIndex = 0;
-                //            args.Caption = "Lưu ý ";
-                //            args.Text = "Không có kí hiệu mẫu. Thông báo này sẽ tự đóng sau 2 giây.";
-                //            args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //            XtraMessageBox.Show(args).ToString();
-                //        }
-                //        else if (txtEmailCoSoGuiMau.Text.Length > 0 && gridView2.RowCount > 0)
-                //        {
-                //            chkSendMail_status = true;
-                //            btnSendMail.Enabled = true;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        chkSendMail_status = false;
-                //        btnSendMail.Enabled = false;
-                //    }
-                //};
-
-                //btnSendMail.Click += (s, e) =>
-                //{
-                //    //Kiểm tra xem user có check gửi mail không
-
-                //    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn gởi mail tới người nhận :" + txtEmailCoSoGuiMau.Text + " . Lưu ý hệ thống sẽ tiến hành gởi mail và không thể recall mail lại sau khi gởi", "Gởi mail", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //    if (dlDel == DialogResult.Yes)
-                //    {
-                //        string filename = "PhieuXetNghiem" + txtSoPXN.Text;
-                //        if (OBJ.SendMail == "0")
-                //        {
-                //            Export2Pdf(filename);
-                //            SendMail(txtEmailCoSoGuiMau.Text, "Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Mới )", filename);
-                //        }
-                //        else if (OBJ.SendMail != "0")
-                //        {
-                //            Export2Pdf(filename);
-                //            SendMail(txtEmailCoSoGuiMau.Text, "Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Cập nhật )", filename);
-                //        }
-                //    }
-                //    else
-                //    {
-                //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //        args.AutoCloseOptions.Delay = 2000;
-                //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //        args.DefaultButtonIndex = 0;
-                //        args.Caption = "Hủy mail ";
-                //        args.Text = "Mail gởi đã hủy.";
-                //        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //        XtraMessageBox.Show(args).ToString();
-                //    }
-                //};
-                //Tra ket qua cho kach hang
-                //Chi khi tat ca cac dong co gia tri cua TraKetQua = true thi moi xu ly
-            btnTraKetQua.Click += (s, e) =>
+            btnXem.Click += (s, e) =>
             {
-                string path = string.Empty;
-                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất hóa đơn cho dự liệu đã chọn bên dưới ? . " +
-                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày yêu cầu xuất hóa đơn", "Xuất hóa đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dlDel == DialogResult.Yes)
+                //string filePath = string.Empty;
+
+                //string PCname = System.Environment.MachineName;
+                //if (PCname == "VPV-ASL-SAMPLE")
+                //    filePath = @"D:\YCXuatHD_" + DateTime.Now.ToShortDateString().Replace("/","_") +".xlsx";
+                //else
+                //    filePath = @"X:\YCXuatHD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                if (cmbTuychon.SelectedText == "" || cmbTuychon.SelectedText == "Tất cả" || cmbTuychon.SelectedText == "Chưa gởi yêu cầu xuất hóa đơn")
                 {
+                    DataTable dTable = new DataTable();
+                    dTable.Columns.Add("DocDate", typeof(string));
+                    dTable.Columns.Add("SoPXN", typeof(string));
+                    dTable.Columns.Add("CUSTCODE", typeof(string));
+                    dTable.Columns.Add("CUSTNAME", typeof(string));
+                    dTable.Columns.Add("CUSTADDRESS", typeof(string));
+                    dTable.Columns.Add("TaxCode", typeof(string));
+                    dTable.Columns.Add("CUSTTYPEName", typeof(string));
+                    dTable.Columns.Add("MaCTXN", typeof(string));
+                    dTable.Columns.Add("CTXN", typeof(string));
+                    dTable.Columns.Add("DonViKHMau", typeof(string));
+                    dTable.Columns.Add("SoLuongKHMau", typeof(int));
+                    dTable.Columns.Add("DonGia", typeof(float));
+                    dTable.Columns.Add("DonGiaSauDiscount", typeof(float));
+                    dTable.Columns.Add("VAT", typeof(float));
+                    dTable.Columns.Add("DonGiaSauVAT", typeof(float));
+                    dTable.Columns.Add("ThanhTien", typeof(float));
+
+                    DataTable dTableGrp = new DataTable();
+                    dTableGrp.Columns.Add("Ngày xuất hóa đơn", typeof(string));
+                    dTableGrp.Columns.Add("Ký hiệu mẫu", typeof(string));
+                    dTableGrp.Columns.Add("Mã Đơn vị", typeof(string));
+                    dTableGrp.Columns.Add("Đơn vị", typeof(string));
+                    dTableGrp.Columns.Add("Địa chỉ", typeof(string));
+                    //dTableGrp.Columns.Add("LOCName", typeof(string));
+                    dTableGrp.Columns.Add("Mã số thuế", typeof(string));
+                    dTableGrp.Columns.Add("Người gửi mẫu", typeof(string));
+                    dTableGrp.Columns.Add("Khu vực", typeof(string));
+                    dTableGrp.Columns.Add("Note", typeof(string));
+                    dTableGrp.Columns.Add("Mã số (Code)", typeof(string));
+                    dTableGrp.Columns.Add("Tên hàng hóa, dịch vụ (Description)", typeof(string));
+                    dTableGrp.Columns.Add("ĐVT (Unit)", typeof(string));
+                    dTableGrp.Columns.Add("Số lượng (Qty) ", typeof(int));
+                    dTableGrp.Columns.Add("Giá  bán full (Chưa VAT)", typeof(float));
+                    dTableGrp.Columns.Add("Discount", typeof(float));
+                    dTableGrp.Columns.Add("Giá sau khi discount", typeof(float));
+                    dTableGrp.Columns.Add("VAT", typeof(float));
+                    dTableGrp.Columns.Add("Đơn giá sau VAT (Unit Price)", typeof(float));
+                    dTableGrp.Columns.Add("Doanh thu", typeof(float));
+                    dTableGrp.Columns.Add("Mua ngoài", typeof(string));
+                    dTableGrp.Columns.Add("Giá mua ngoài", typeof(float));
                     foreach (int i in gridView2.GetSelectedRows())
                     {
-                        //MessageBox.Show("KHMau : " + gridView2.GetRowCellValue(i, "KHMau").ToString());
-                        //MessageBox.Show("KHMau : " + gridView2.GetRowCellValue(i, "CTXNID").ToString());
-                        KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i, "KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));
+                        if(bool.Parse(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString())==false)
+                        {
+                            dTable.Rows.Add(string.Empty,
+                                        string.Empty,
+                                        gridView2.GetRowCellValue(i, "CUSTCODE").ToString(),
+                                        gridView2.GetRowCellValue(i, "CUSTNAME").ToString(),
+                                        gridView2.GetRowCellValue(i, "CUSTADDRESS").ToString(),
+                                        gridView2.GetRowCellValue(i, "TaxCode").ToString(),
+                                        gridView2.GetRowCellValue(i, "CUSTTYPEName").ToString(),
+                                        gridView2.GetRowCellValue(i, "MaCTXN").ToString(),
+                                        gridView2.GetRowCellValue(i, "CTXN").ToString(),
+                                        gridView2.GetRowCellValue(i, "DonViKHMau").ToString(),
+                                        int.Parse(gridView2.GetRowCellValue(i, "SoLuongKHMau").ToString()),
+                                        float.Parse(gridView2.GetRowCellValue(i, "DonGia").ToString()),
+                                        float.Parse(gridView2.GetRowCellValue(i, "DonGiaSauDiscount").ToString()),
+                                        float.Parse(gridView2.GetRowCellValue(i, "VAT").ToString()),
+                                        float.Parse(gridView2.GetRowCellValue(i, "DonGia").ToString()) * (1 + float.Parse(gridView2.GetRowCellValue(i, "VAT").ToString()) / 100),
+                                        float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString())
+                                        );
+                        }
+                        
                     }
-                    string PCname = System.Environment.MachineName;
-                    if (PCname == "VPV-ASL-SAMPLE")
-                        path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
-                    else
-                        path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                    var query = from t in dTable.AsEnumerable()
+                                group t by new
+                                {
+                                    DocDate = string.Empty,
+                                    SoPXN = string.Empty,
+                                    CUSTCODE = t.Field<string>("CUSTCODE"),
+                                    CUSTNAME = t.Field<string>("CUSTNAME"),
+                                    CUSTADDRESS = t.Field<string>("CUSTADDRESS"),
+                                    //LOCName = t.Field<string>("LOCName"),
+                                    TaxCode = t.Field<string>("TaxCode"),
+                                    CUSTTYPEName = t.Field<string>("CUSTTYPEName"),
+                                    CTXN = t.Field<string>("CTXN"),
+                                    MaCTXN = t.Field<string>("MaCTXN"),
+                                    DonViKHMau = t.Field<string>("DonViKHMau"),
+                                    //sumSL
+                                    DonGia = t.Field<float>("DonGia"),
+                                    DonGiaSauDiscount = t.Field<float>("DonGiaSauDiscount"),
+                                    VAT = t.Field<float>("VAT"),
+                                    DonGiaSauVAT = t.Field<float>("DonGiaSauVAT"),
+                                    //ThanhTien = t.Field<string>("ThanhTien")
+                                    //sum
+                                } into grp
+                                select new
+                                {
+                                    grp.Key.DocDate,
+                                    grp.Key.SoPXN,
+                                    grp.Key.CUSTCODE,
+                                    grp.Key.CUSTNAME,
+                                    grp.Key.CUSTADDRESS,
+                                    //grp.Key.LOCName,
+                                    grp.Key.TaxCode,
+                                    grp.Key.CUSTTYPEName,
+                                    grp.Key.CTXN,
+                                    grp.Key.MaCTXN,
+                                    grp.Key.DonViKHMau,
+                                    grp.Key.DonGia,
+                                    grp.Key.DonGiaSauDiscount,
+                                    grp.Key.VAT,
+                                    grp.Key.DonGiaSauVAT,
+                                    sumSL = grp.Sum(r => r.Field<int>("SoLuongKHMau")),
+                                    sum = grp.Sum(r => r.Field<float>("ThanhTien"))
+                                };
 
-                    gridView2.ExportToXlsx(path);
-                    System.Diagnostics.Process.Start(path);
+                    //gridControl1.DataSource = dTable;
+
+                    foreach (var grp in query)
+                    {
+                        dTableGrp.Rows.Add(grp.DocDate,
+                                            grp.SoPXN,
+                                            grp.CUSTCODE,
+                                            grp.CUSTNAME,
+                                            grp.CUSTADDRESS,
+                                            //grp.LOCName,
+                                            grp.TaxCode,
+                                            string.Empty,
+                                            string.Empty,
+                                            grp.CUSTTYPEName,
+                                            grp.CTXN,
+                                            grp.MaCTXN,
+                                            grp.DonViKHMau,
+                                            //grp.SoLuongKHMau = grp.sumSL
+                                            grp.sumSL,
+                                            grp.DonGia,
+                                            0.00,
+                                            grp.DonGiaSauDiscount,
+                                            grp.VAT,
+                                            grp.DonGiaSauVAT,
+                                            //grp.ThanhTien = grp.sum                            
+                                            grp.sum,
+                                            string.Empty,
+                                            0.00);
+                        //Response.Write(String.Format("The Sum of '{0}' is {1}", grp.Id, grp.sum));
+                    }
+                    gridControl1.DataSource = dTableGrp;
                 }
+                else
+                {
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 2000;
+                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                    args.DefaultButtonIndex = 0;
+                    args.Caption = "Không thực hiện được ";
+                    args.Text = "Dữ liệu bên trên đã tiến hành gởi xuất hóa đơn";
+                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                    XtraMessageBox.Show(args).ToString();
+                }                   
                 
+            };
+
                 
 
-                //if (txtSoPXN.Text.Substring(0, 3) == "HTH")
+            btnSendMail.Click += (s, e) =>
+            {
+                if (this.dxValidationProvider2.Validate() == true)
+                {
+                    //Kiểm tra xem user có check gửi mail không
+                    string[] _TOList = null;
+                    string[] _CCList = null;
+
+                    _TOList = txtEmailTO.Text.Split(';');
+
+                    _CCList = txtEmailCC.Text.Split(';');
+
+                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn gởi mail ? . Lưu ý hệ thống sẽ tiến hành gởi mail và không thể recall mail lại sau khi gởi", "Gởi mail", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlDel == DialogResult.Yes)
+                    {
+                        SendMail(_TOList, _CCList, "Yêu cầu xuất hóa đơn", path);
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Đã gởi mail ";
+                        args.Text = "Nội dung yêu cầu xuất hóa đơn đã gởi cho bộ phận CS.";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
+                    else
+                    {
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Hủy mail ";
+                        args.Text = "Mail gởi đã hủy.";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
+                }
+                else
+                {
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 2000;
+                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                    args.DefaultButtonIndex = 0;
+                    args.Caption = "Không có mail người nhận ";
+                    args.Text = "Mail gởi đã hủy.";
+                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                    XtraMessageBox.Show(args).ToString();
+                }
+
+            };
+            //Tra ket qua cho kach hang
+            //Chi khi tat ca cac dong co gia tri cua TraKetQua = true thi moi xu ly
+            btnTraKetQua.Click += (s, e) =>
+            {
+                //if (gridView2.GetFocusedRowCellValue("GoiYCXuatHD").ToString() == "False")
                 //{
-                //    if (gridView2.GetFocusedRowCellValue("KetQua").ToString() == "True")
-                //    {
-                //        if (gridView2.GetFocusedRowCellValue("DaTraKetQua").ToString() == "True")
-                //        {
-                //            DialogResult dlDel = XtraMessageBox.Show("In báo cáo kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm đã được trả . " +
-                //            "Hệ thống sẽ chỉ có thể xuất báo cáo dưa trên kết quả đã xuất trước đó ", "In báo cáo kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //            if (dlDel == DialogResult.Yes)
-                //            {
-                //                KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
-                //                //KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
-                //                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
-                //                FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
-                //                FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
-                //                FRM.SoPXN = this.OBJ.SoPXN;
-                //                FRM.Show();
-                //            }
-                //        }
-                //        else
-                //        {
-                //            DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn trả kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm ? . " +
-                //            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //            if (dlDel == DialogResult.Yes)
-                //            {
-                //                KHMAUCTXNOBJ.ID = int.Parse(gridView2.GetFocusedRowCellValue("KHMau_CTXN_ID").ToString());
-                //                KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_TraKetQua(KHMAUCTXNOBJ);
-                //                R_IBD_RESULT_LAB_ANALYSISREPORT FRM = new R_IBD_RESULT_LAB_ANALYSISREPORT();
-                //                FRM.CTXNID = int.Parse(gridView2.GetFocusedRowCellValue("CTXNID").ToString());
-                //                FRM.KHMau_GiaoMau = gridView2.GetFocusedRowCellValue("KHMau_GiaoMau").ToString();
-                //                FRM.SoPXN = this.OBJ.SoPXN;
-                //                FRM.Show();
-                //            }
-                //        }
-                //    }
-                //    else
-                //    {
-                //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //        args.AutoCloseOptions.Delay = 2000;
-                //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //        args.DefaultButtonIndex = 0;
-                //        args.Caption = "Trả kết quả ";
-                //        args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
-                //        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //        XtraMessageBox.Show(args).ToString();
-                //    }
-                //}
-                //else
-                //{
-                //    if (LstBool.Contains(false) != true)
-                //    {
-                //        DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn trả kết quả cho kí kiệu mẫu : " + gridView2.GetFocusedRowCellValue("KHMau").ToString() + " với chỉ tiêu xét nghiệm ? . " +
-                //            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày trả kết quả cho khách hàng", "Trả kết quả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //        if (dlDel == DialogResult.Yes)
-                //        {
-                //            BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(txtSoPXN.Text);
-                //            if (txtSoPXN.Text.Substring(0, 3) == "MDW")
-                //            {
-                //                R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT FRM = new R_MYCOTOXIN_RESULT_LAB_ANALYSISREPORT();
-                //                FRM.SoPXN = this.OBJ.SoPXN;
-                //                FRM.Show();
-                //            }
-                //        }
-                //    }
-                //    else
-                //    {
-                //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                //        args.AutoCloseOptions.Delay = 2000;
-                //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                //        args.DefaultButtonIndex = 0;
-                //        args.Caption = "Trả kết quả ";
-                //        args.Text = "Một số chỉ tiêu chưa có kết quả, vui lòng cập nhật và thử lại .";
-                //        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                //        XtraMessageBox.Show(args).ToString();
-                //    }
-                //}
+                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất hóa đơn cho dữ liệu đã chọn bên trên ? . " +
+                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày yêu cầu xuất hóa đơn", "Xuất hóa đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlDel == DialogResult.Yes)
+                    {
+                        foreach (int i in gridView2.GetSelectedRows())
+                        {
+                            KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i, "KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));
+                        }
+                        //Export
+                        gridView1.ExportToXlsx(path);
+                        System.Diagnostics.Process.Start(path);
+                    }
+                //}                  
+
+
             };
             
             gridView2.RowClick += (s, e) =>
@@ -348,161 +408,16 @@ namespace Production.Class
                 if (isAction == "Edit" || isChanged == "Changed")
                     // btnSave.Enabled = true;
                     isChanged = "Changed";
-            };
-
-            //chkGEN.CheckedChanged += (s, e) =>
-            // {
-            //     if (chkGEN.CheckState == CheckState.Checked)
-            //     {
-            //         dteNgayNhanMau.ReadOnly = false;
-            //         //TDControlsReadOnly(false);
-            //         chkH2O.CheckState = CheckState.Unchecked;
-            //         chkHTH.CheckState = CheckState.Unchecked;
-            //         chkMDW.CheckState = CheckState.Unchecked;
-            //         //cmbLoaiDV
-            //         //layoutControlItem30.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always ;
-            //         //layoutControlItem30.Text = "Loại động vật";
-            //         ////cmbMauNuoc
-            //         //layoutControlItem39.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            //         //layoutControlItem39.Text = "Mẫu nước";
-            //     }
-            //     if (isAction == "Add")
-            //     {
-            //         OBJ.LoaiXN = "GEN";
-            //         if (Automatically == true)
-            //             txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
-            //     }
-            // };           
-
-            //chkHTH.CheckedChanged += (s, e) =>
-            //{
-            //    if (chkHTH.CheckState == CheckState.Checked)
-            //    {
-            //        dteNgayNhanMau.ReadOnly = false;
-            //        //TDControlsReadOnly(false);
-            //        chkH2O.CheckState = CheckState.Unchecked;
-            //        chkGEN.CheckState = CheckState.Unchecked;
-            //        chkMDW.CheckState = CheckState.Unchecked;
-            //        ////cmbLoaiDV
-            //        //layoutControlItem30.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            //        //layoutControlItem30.Text = "Loại động vật";
-            //        ////cmbMauNuoc
-            //        //layoutControlItem39.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            //        //layoutControlItem39.Text = "Mẫu nước";
-            //    }
-
-            //    if (isAction == "Add")
-            //    {
-            //        OBJ.LoaiXN = "HTH";
-            //        if (Automatically == true)
-            //            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
-            //    }
-            //};
-
-            //chkH2O.CheckedChanged += (s, e) =>
-            //{
-            //    if (chkH2O.CheckState == CheckState.Checked)
-            //    {
-            //        dteNgayNhanMau.ReadOnly = false;
-            //        //TDControlsReadOnly(false);
-            //        chkGEN.CheckState = CheckState.Unchecked;
-            //        chkHTH.CheckState = CheckState.Unchecked;
-            //        chkMDW.CheckState = CheckState.Unchecked;
-            //        ////cmbLoaiDV
-            //        //layoutControlItem30.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            //        //layoutControlItem30.Text = "Loại động vật";
-            //        ////cmbMauNuoc
-            //        //layoutControlItem39.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            //        //layoutControlItem39.Text = "Mẫu nước";
-            //    }
-            //    if (isAction == "Add")
-            //    {
-            //        OBJ.LoaiXN = "H2O";
-            //        if (Automatically == true)
-            //            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
-            //    }
-            //};
-
-            //chkMDW.CheckedChanged += (s, e) =>
-            //{
-            //    if (chkMDW.CheckState == CheckState.Checked)
-            //    {
-            //        dteNgayNhanMau.ReadOnly = false;
-            //        //TDControlsReadOnly(false);
-
-            //        chkGEN.CheckState = CheckState.Unchecked;
-            //        chkHTH.CheckState = CheckState.Unchecked;
-            //        chkH2O.CheckState = CheckState.Unchecked;
-            //        ////cmbLoaiDV
-            //        //layoutControlItem30.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            //        //layoutControlItem30.Text = "Loại động vật";
-
-            //        ////cmbMauNuoc
-            //        //layoutControlItem39.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            //        //layoutControlItem39.Text = "Mẫu nước";
-            //    }
-            //    if (isAction == "Add")
-            //    {
-            //        OBJ.LoaiXN = "MDW";
-            //        if (Automatically == true)
-            //            txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
-            //    }
-            //};        
+            };                   
                        
             dteNgayYCXuatHD.EditValueChanged += (s, e) =>
             {
                 //dteNgayDukienTra.ReadOnly = false;
-            };            
+            };           
 
-            //Cập nhật ngày có kết quả --- Tạm chờ làm phần kết quả
-            //dteNgayCoKetQua.ButtonClick += (s, e) =>
-            //{
-            //    if (e.Button.Index == 1)
-            //    {
-            //        if (dteNgayCoKetQua.Properties.ReadOnly == false)
-            //        {
-            //            if (dteNgayCoKetQua.Text != "2019-01-01")
-            //                BUS.PXN_HeaderDAO_UPDATE_NgayCoKetQua(OBJ.ID, DateTime.Parse(dteNgayCoKetQua.Text, CultureInfo.CreateSpecificCulture("en-GB")),true);
-            //            //OBJ.NgayCoKetQua = dteNgayCoKetQua.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayCoKetQua.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            //            else
-            //            {
-            //                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            //                args.AutoCloseOptions.Delay = 2000;
-            //                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-            //                args.DefaultButtonIndex = 0;
-            //                args.Caption = "Lưu ý ";
-            //                args.Text = "Vui lòng chọn ngày có kết quả. Thông báo này sẽ tự đóng sau 2 giây.";
-            //                args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-            //                XtraMessageBox.Show(args).ToString();
-            //            }
-            //        }
-            //    }
-            //};
+            
 
-            //Cập nhật ngày đã trả kết quả --- Tạm chờ làm phần kết quả
-            //dteNgayTraKetQua.ButtonClick += (s, e) =>
-            //{
-            //    if (e.Button.Index == 1)
-            //    {
-            //        if (dteNgayTraKetQua.Properties.ReadOnly == false)
-            //        {
-            //            if (dteNgayTraKetQua.Text != "2019-01-01")
-            //                BUS.PXN_HeaderDAO_UPDATE_NgayTraKetQua(OBJ.ID, DateTime.Parse(dteNgayTraKetQua.Text, CultureInfo.CreateSpecificCulture("en-GB")),true);
-            //            //OBJ.NgayCoKetQua = dteNgayCoKetQua.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayCoKetQua.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            //            else
-            //            {
-            //                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            //                args.AutoCloseOptions.Delay = 2000;
-            //                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-            //                args.DefaultButtonIndex = 0;
-            //                args.Caption = "Lưu ý ";
-            //                args.Text = "Vui lòng chọn ngày trả kết quả. Thông báo này sẽ tự đóng sau 2 giây.";
-            //                args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-            //                XtraMessageBox.Show(args).ToString();
-            //            }
-            //        }
-            //    }
-            //};
+            
                         
 
             lkeTenCoSoLayMau.ButtonClick += (s, e) =>
@@ -520,7 +435,6 @@ namespace Production.Class
                 }
             };
             
-
             lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
             {
                 DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
@@ -534,8 +448,13 @@ namespace Production.Class
                 OBJ.DonViXuatHoaDon_ID = int.Parse(row["Id"].ToString());
                 if (OBJ.MaCoSoLayMau.Length > 0)
                 {
-                    XtraMessageBox.Show(OBJ.DonViXuatHoaDon_ID.ToString());
-                    gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB,OBJ.DonViXuatHoaDon_ID);
+                    if(cmbTuychon.SelectedText == "Đã gởi yêu cầu xuất hóa đơn")
+                    //XtraMessageBox.Show(OBJ.DonViXuatHoaDon_ID.ToString());
+                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID_DagoiYCXHD(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB,OBJ.DonViXuatHoaDon_ID);
+                    else if (cmbTuychon.SelectedText == "Chưa gởi yêu cầu xuất hóa đơn")
+                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID_ChuagoiYCXHD(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
+                    else 
+                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
                     gridView2.BestFitColumns();
                 }
                 else
@@ -549,41 +468,18 @@ namespace Production.Class
                                     args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                                     XtraMessageBox.Show(args).ToString();
                 }
-
             };
-
            
-            //Action_EndForm KHMau
-            action_EndForm2.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add_KHMau));
-            action_EndForm2.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update_KHMau));
-            action_EndForm2.Delete(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Delete_KHMau));
-            //action_EndForm2.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save_KHMau));
-            //Action_EndForm Form
-            //action_EndForm3.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add3));
-            //action_EndForm3.Update(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Update3));
             action_EndForm3.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close3));
             action_EndForm3.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save3));
 
-            // 7 Add hoặc New
-            //actionMini1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
-
-            // 8 Lưu
-            //actionMini1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
-
-            // 9 Edit hoặc Update
-            //actionMini1.Edit(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Edit));
-
-            // 10 Del
-            //actionMini1.Delete(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Delete));
-
-            // 10a View
-            //actionMini1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
-
-            // 10B Cancel
-            // actionMini1.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close));
         }
+        private void ItemClickEventHandler_Save_KHMau(object sender, ItemClickEventArgs e)
+        {
+            
 
-        private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
+        }
+            private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
         {
             Set4ObjectHeader();
             //Set4ObjectRow();
@@ -618,138 +514,17 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Delete_KHMau(object sender, ItemClickEventArgs e)
         {
-            ////throw new NotImplementedException();
-            //// 14 Khai báo state cho các nút khi nhấn nút Del
-            //state = MenuState.Delete;
-
-            //if (gridViewRowClick == true)
-            //{
-            //    //OBJ1.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
-
-            //    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xóa kí hiệu mẫu : " + KHMAUOBJ.KHMau + " ?. Lưu ý : Các chỉ tiêu xét nghiệm liên quan đến kí hiệu mẫu " + KHMAUOBJ.KHMau + " cũng sẽ bị xóa. Đồng ý xóa ? ", "Xóa kí hiệu mẫu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (dlDel == DialogResult.Yes)
-            //    {
-            //        //BUS3.KHMau_CTXN_LABDAO_DELETE_ByKHMau_CTXN_ID();
-            //        KHMauCTXNBUS.KHMau_CTXN_LABDAO_DELETE_ByKHMau(KHMAUOBJ.KHMau);
-            //        KHMauBUS.KHMau_LABBUS_DELETE(KHMAUOBJ.KHMau);
-            //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            //        args.AutoCloseOptions.Delay = 1000;
-            //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-            //        args.DefaultButtonIndex = 0;
-            //        args.Caption = "Thông báo ";
-            //        args.Text = "Đã xóa kí hiệu mẫu :" + KHMAUOBJ.KHMau + ". Thông báo này sẽ tự đóng sau 1 giây.";
-            //        args.Buttons = new DialogResult[] { DialogResult.OK };
-            //        XtraMessageBox.Show(args).ToString();
-            //    }
-            //    // 18 Load lại datasource cho grid
-
-            //    gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.SoPXN); ;
-
-            //    gridView2.BestFitColumns();
-            //    // 17 trả trạng thái cho các nút như ban đầu
-            //    state = MenuState.Full;
-            //}
-            //else
-            //    // 16 Xác nhận có muốn xoa không ?
-            //    XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ");
-            //{
-            //    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            //    args.AutoCloseOptions.Delay = 1000;
-            //    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-            //    args.DefaultButtonIndex = 0;
-            //    args.Caption = "Chú ý ";
-            //    args.Text = "Vui lòng click vào dòng cần chỉnh sửa. Thông báo này sẽ tự đóng sau 1 giây.";
-            //    args.Buttons = new DialogResult[] { DialogResult.OK };
-            //    XtraMessageBox.Show(args).ToString();
-            //}
+            
         }
 
         private void ItemClickEventHandler_Update_KHMau(object sender, ItemClickEventArgs e)
         {
-            //isAction = "Edit";
-
-            ////Set4ObjectHeader();
-
-            ////Riêng cho trường hợp tạo mới Row trên KQKN template
-            ////Truyen ID cua KQKN template cho Row
-
-            //state = MenuState.Insert;
-
-            //if (gridViewRowClick2 == true)
-            //{
-            //    Set4ObjectKHMau();
-            //    gridViewRowClick2 = false;
-            //    //Update :  DELEGATE
-            //    // Gọi form Details
-            //    // Disable form
-            //    this.Enabled = false;
-
-            //    F_KHMau_Details FRM = new F_KHMau_Details();
-            //    FRM.isAction = this.isAction;
-            //    FRM.ngaynhanmau = dteNgayYCXuatHD.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayYCXuatHD.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            //    //XtraMessageBox.Show(FRM.ngaynhanmau.ToString());
-            //    FRM.KHMAUOBJ = this.KHMAUOBJ;
-            //    FRM.myFinished += this.finished;
-            //    FRM.Show();
-            //}
-            //else
-            ////XtraMessageBox.Show("Vui lòng click vào dòng cần chỉnh sửa ", "Lỗi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //{
-            //    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            //    args.AutoCloseOptions.Delay = 3000;
-            //    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-            //    args.DefaultButtonIndex = 0;
-            //    args.Caption = "Chú ý ";
-            //    args.Text = "Vui lòng click vào dòng cần chỉnh sửa. Thông báo này sẽ tự đóng sau 3 giây.";
-            //    args.Buttons = new DialogResult[] { DialogResult.OK };
-            //    XtraMessageBox.Show(args).ToString();
-            //}
-            ////throw new NotImplementedException();
+            
         }
 
         private void ItemClickEventHandler_Add_KHMau(object sender, ItemClickEventArgs e)
         {
-            //if (this.dxValidationProvider2.Validate() == true)
-            //{
-            //    //Set4ObjectHeader();
-            //    isAction = "Add";
-            //    //NEW
-            //    Set4ObjectKHMau();
-
-            //    //Riêng cho trường hợp tạo mới Row trên KQKN template
-            //    //Truyen ID cua KQKN template cho Row
-            //    OBJ1.ID = OBJ.ID;
-
-            //    state = MenuState.Insert;
-            //    //Update :  DELEGATE
-            //    // Gọi form Details
-            //    //Disable form
-            //    this.Enabled = false;
-            //    //
-            //    F_KHMau_Details FRM = new F_KHMau_Details();
-            //    FRM.isAction = this.isAction;
-            //    FRM.ngaynhanmau = dteNgayYCXuatHD.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayYCXuatHD.Text, CultureInfo.CreateSpecificCulture("en-GB"));
-            //    FRM.KHMAUOBJ = this.KHMAUOBJ;
-            //    ;
-            //    if (gridView2.DataRowCount > 0)
-            //    {
-            //        if (int.Parse(gridView2.GetRowCellValue(gridView2.DataRowCount - 1, "KHMau").ToString().Substring(gridView2.GetRowCellValue(gridView2.DataRowCount - 1, "KHMau").ToString().Length - 2, 2)) < 9)
-            //            FRM.str_KHMau = KHMAUOBJ.SoPXN + "-0" + (int.Parse(gridView2.GetRowCellValue(gridView2.DataRowCount - 1, "KHMau").ToString().Substring(gridView2.GetRowCellValue(gridView2.DataRowCount - 1, "KHMau").ToString().Length - 2, 2)) + 1).ToString();
-            //        else
-            //            FRM.str_KHMau = KHMAUOBJ.SoPXN + "-" + (int.Parse(gridView2.GetRowCellValue(gridView2.DataRowCount - 1, "KHMau").ToString().Substring(gridView2.GetRowCellValue(gridView2.DataRowCount - 1, "KHMau").ToString().Length - 2, 2)) + 1).ToString();
-            //    }
-            //    else
-            //        FRM.str_KHMau = KHMAUOBJ.SoPXN + "-01";
-            //    FRM.myFinished += this.finished;
-            //    FRM.Show();
-            //    //throw new NotImplementedException();
-            //}
-            //else
-            //{
-            //    IList<Control> IControls = this.dxValidationProvider1.GetInvalidControls();
-            //    foreach (Control ctrl in IControls)
-            //        ctrl.Focus();
-            //}
+            
         }
 
         private void ItemClickEventHandler_Update(object sender, ItemClickEventArgs e)
@@ -1034,53 +809,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
-            xtraTabControl1.Enabled = true;
-            txtNote.ReadOnly = false;
-            cmbKhoa.ReadOnly = false;
-            //dteNgayTraKetQua.ReadOnly = false;
-            try
-            {
-                if (isAction == "Add")
-                {
-                    Set4ObjectHeader();
-                    Set4ObjectRow();
-                    BUS.PXN_HeaderBUS_INSERT(OBJ);
-                    //Gan gia tri ID moi insert vo table tbl_KQKN_Template_Hedaer cho form
-                    txtID.Text = BUS.MAX_PXN_HeaderBUS_ID().ToString();
-                    //2019-05-06
-                    //ParentResourcesId///////////////////////////////////////////////
-                    int ParentResourcesId;
-                    // Tao ResourcesId--cho Schedule
-                    RSRC.Subject = txtSoPXN.Text;
-                    RSRC.Description = txtSoPXN.Text;
-                    RSRC.CustomField1 = "LAB";
-                    RSRCBUS.Resources_INSERT(RSRC);
-                    ParentResourcesId = RSRCBUS.GET_ResourceId(RSRC.Description);
-                    RSRC.ParentId = ParentResourcesId;
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.SelectedText, dteNgayYCXuatHD.SelectedText, ParentResourcesId, "Code mẫu ( nhận mẫu )", "LAB", 1);
-                    //////////////////////////////////////////////////////////////////
-                    RSRC.Id = RSRCBUS.GET_ResourceId(RSRC.Description);
-                    //////////////////////////////////////////////////////////////////
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.EditValue.ToString(), dteNgayYCXuatHD.EditValue.ToString(), RSRC.Id, "Chuyển đến phòng XN", "LAB", 2);
-                    //////////////////////////////////////////////////////////////////
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.EditValue.ToString(), dteNgayYCXuatHD.EditValue.ToString(), RSRC.Id, "Thời gian bắt đầu XN", "LAB", 3);
-                    //////////////////////////////////////////////////////////////////
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.EditValue.ToString(), dteNgayYCXuatHD.EditValue.ToString(), RSRC.Id, "XN hoàn tất", "LAB", 4);
-                    //////////////////////////////////////////////////////////////////
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.EditValue.ToString(), dteNgayYCXuatHD.EditValue.ToString(), RSRC.Id, "Bộ phận nhận kết quả", "LAB", 5);
-                    //////////////////////////////////////////////////////////////////
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.EditValue.ToString(), dteNgayYCXuatHD.EditValue.ToString(), RSRC.Id, "Kiểm tra kết quả", "LAB", 6);
-                    //////////////////////////////////////////////////////////////////
-                    RSRCBUS.Appointments_INSERT(dteNgayYCXuatHD.EditValue.ToString(), dteNgayYCXuatHD.EditValue.ToString(), RSRC.Id, "Trả kết quả cho khách hàng", "LAB", 7);
-                    //////////////////////////////////////////////////////////////////
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            isAction = "Edit";
-            txtID.Text = BUS.PXN_HeaderDAO_ID_bySoPXN(txtSoPXN.Text).ToString();
+            
         }
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
@@ -1118,154 +847,91 @@ namespace Production.Class
             //this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
         }
 
-        public string Func_SoPXN_NPT(int SoPXN)
-        {
-            string SoPXN_Text = "";
 
-            switch (SoPXN.ToString().Length)
-            {
-                case (1):
-                    SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + "000" + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
-                    break;
-
-                case (2):
-                    SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + "00" + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
-                    break;
-
-                case (3):
-                    SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + "0" + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
-                    break;
-
-                case (4):
-                    SoPXN_Text = OBJ.LoaiXN + DateTime.Now.Year.ToString().Substring(2, 2) + BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN).ToString();
-                    break;
-            }
-            return SoPXN_Text;
-        }
-
-        private void Export2Pdf(string filename)
-        {
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-            string Path = Directory.GetCurrentDirectory();
-
-            DataTable dt_PXN_Header,
-                        dt_KHMau_Receipt,
-                        dt_KHMau_Details,
-                        dt_KHMau_STORAGE,
-                        dt_KHMau_DETROY,
-                        dt_PXN_Details = new DataTable();
-
-            //////////////////////////////////////////////
-            float TongTien = 0;
-
-            dt_PXN_Header = BUS.PXN_HeaderBUS_SELECT(OBJ.SoPXN);
-            dt_KHMau_Receipt = BUS2.KHMau_LABDAO_REPORT_RECEIPT(OBJ.SoPXN);
-            dt_KHMau_Details = BUS2.KHMau_LABDAO_REPORT_DETAILS(OBJ.SoPXN);
-            dt_KHMau_STORAGE = BUS2.KHMau_LABDAO_REPORT_STORAGE(OBJ.SoPXN);
-            dt_KHMau_DETROY = BUS2.KHMau_LABDAO_REPORT_DETROY(OBJ.SoPXN);
-            dt_PXN_Details = BUS1.PXN_DetailsBUS_SELECT(OBJ.SoPXN);
-
-            dt_PXN_Header.WriteXml(Path + "/Xml/dt_PXN_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
-            dt_PXN_Details.WriteXml(Path + "/Xml/dt_PXN_Details_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
-            dt_KHMau_Receipt.WriteXml(Path + "/Xml/dt_KHMau_Receipt.xml", System.Data.XmlWriteMode.IgnoreSchema);
-            dt_KHMau_Details.WriteXml(Path + "/Xml/dt_KHMau_Details.xml", System.Data.XmlWriteMode.IgnoreSchema);
-            dt_KHMau_STORAGE.WriteXml(Path + "/Xml/dt_KHMau_STORAGE.xml", System.Data.XmlWriteMode.IgnoreSchema);
-            dt_KHMau_DETROY.WriteXml(Path + "/Xml/dt_KHMau_DETROY.xml", System.Data.XmlWriteMode.IgnoreSchema);
-
-            //EXPORT CRYSTAL REPORT TO PDF SAVE ON DRIVER D:\MAPXN.PDF/////////////////////////////////////////
-            ReportDocument cryRpt = new ReportDocument();
-            CrystalReportViewer crystalReportViewer = new CrystalReportViewer();
-
-            cryRpt.Load(Path + "/RPT/Rpt_PXN_LAB.rpt");
-            crystalReportViewer.ReportSource = cryRpt;
-            crystalReportViewer.Refresh();
-            try
-            {
-                ExportOptions CrExportOptions;
-                DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
-                PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-                CrDiskFileDestinationOptions.DiskFileName = @"X:\\" + filename + ".pdf";
-                CrExportOptions = cryRpt.ExportOptions;
-                {
-                    CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                    CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                    CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
-                    CrExportOptions.FormatOptions = CrFormatTypeOptions;
-                }
-                cryRpt.Export();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
 
         //Send Mail
-        //private void SendMail(string receipt, string subject, string attachedfilename)
-        //{
-        //    //Send email
-        //    //SMTP
-        //    SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
-        //    SmtpServer.Port = 587;
-        //    //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
-        //    SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
+        private void SendMail(string[] TOList, string[] CCList, string subject, string attachedfilename)
+        {
+            //Send email
+            //SMTP
+            SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
+            SmtpServer.Port = 587;
+            //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
 
-        //    //SEND
-        //    try
-        //    {
-        //        MailMessage mail = new MailMessage();
-        //        //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-        //        mail.From = new MailAddress("truyen.htb@viphavet.com");
-        //        mail.To.Add("vipha.lab@viphavet.com");
-        //        mail.CC.Add("dat.lt@olmixasia.com");
-        //        mail.CC.Add("tuyet.ntb@olmixasia.com");
-        //        mail.CC.Add("thom.lt@viphavet.com");
-        //        mail.CC.Add("truyen.htb@viphavet.com");
-        //        mail.Subject = subject;//"Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Mới )";
-        //                               //1_Export to pdf
+            //SEND
+            try
+            {
+                MailMessage mail = new MailMessage();
 
-        //        //2_Attach to Email
-        //        mail.Attachments.Add(new Attachment(@"X:\\" + attachedfilename + ".pdf"));
-        //        mail.IsBodyHtml = true;
-        //        //string messageBody = "<font>Kính gửi : " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
-        //        string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
-        //        string htmlTableEnd = "</table>";
-        //        string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
-        //        string htmlHeaderRowEnd = "</tr>";
-        //        string htmlTrStart = "<tr style=\"color:#555555;\">";
-        //        string htmlTrEnd = "</tr>";
-        //        string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
-        //        string htmlTdEnd = "</td>";
-        //        messageBody += "Vipha.Lab trân trọng cảm ơn Quý Khách Hàng đã sử dụng dịch vụ xét nghiệm của chúng tôi. <br><br>";
-        //        messageBody += "Chúng tôi xin đính kèm Phiếu nhận mẫu xét nghiệm đối với các mẫu yêu cầu thử nghiệm của Quý Khách Hàng. <br><br>";
-        //        messageBody += "- Ngày nhận mẫu        : " + dteNgayNhanMau.EditValue.ToString() + " <br><br>";
-        //        //messageBody += "- Ngày trả kết quả dự kiến : " + dteNgayDukienTra.EditValue.ToString() + " <br><br>";
-        //        messageBody += "Quý Khách Hàng vui lòng kiểm tra các thông tin trên Phiếu nhận mẫu xét nghiệm và vui lòng phản hồi nếu có bất kỳ thay đổi nào trong vòng 04 giờ kể từ khi nhận email này.  <br><br>";
-        //        messageBody += "Trân trọng kính chào. <br><br>";
-        //        mail.Body = messageBody;
+                string messageBody = string.Empty;
+                //SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("truyen.htb@viphavet.com");
+                //XtraMessageBox.Show(TOList.Count<string>().ToString());
+                if (TOList.Count<string>() > 1)
+                {
+                    foreach (string _TO in TOList)
+                        mail.To.Add(_TO);
+                }
+                //XtraMessageBox.Show(CCList.Count<string>().ToString());
+                //mail.To.Add("dat.lt@olmixasia.com");
+                if(CCList.Count<string>() > 1)
+                {
+                    foreach (string _CC in CCList)
+                        mail.CC.Add(_CC);
+                }
+                
 
-        //        SmtpServer.Send(mail);
+                //mail.CC.Add("dat.lt@olmixasia.com");
+                //mail.CC.Add("tuyet.ntb@olmixasia.com");
+                //mail.CC.Add("thom.lt@viphavet.com");
+                mail.CC.Add("truyen.htb@viphavet.com");
+                mail.Subject = subject;//"Vipha.Lab : Phiếu xét nghiệm số " + txtSoPXN.Text + " ( Mới )";
+                                       //1_Export to pdf
 
-        //        //Cập nhật gởi mail
-        //        OBJ.SendMail = "1";
-        //        BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
+                //2_Attach to Email
+                //mail.Attachments.Add(new Attachment(@"X:\\" + attachedfilename + ".xlsx"));
+                mail.Attachments.Add(new Attachment(attachedfilename));
+                mail.IsBodyHtml = true;
+                //string messageBody = "<font>Kính gửi : " + lkeTenCoSoGuiMau.Text + "</font><br><br>";
+                string htmlTableStart = "<table style=\"border-collapse:collapse; text-align:center;\" >";
+                string htmlTableEnd = "</table>";
+                string htmlHeaderRowStart = "<tr style=\"background-color:#6FA1D2; color:#ffffff;\">";
+                string htmlHeaderRowEnd = "</tr>";
+                string htmlTrStart = "<tr style=\"color:#555555;\">";
+                string htmlTrEnd = "</tr>";
+                string htmlTdStart = "<td style=\" border-color:#5c87b2; border-style:solid; border-width:thin; padding: 5px;\">";
+                string htmlTdEnd = "</td>";
+                messageBody += "Anh/Chị vui lòng xuất nội dung yêu cầu xuất hóa đơn theo file đính kèm <br><br>";
+                //messageBody += "Chúng tôi xin đính kèm Phiếu nhận mẫu xét nghiệm đối với các mẫu yêu cầu thử nghiệm của Quý Khách Hàng. <br><br>";
+                //messageBody += "- Ngày nhận mẫu        : " + dteNgayNhanMau.EditValue.ToString() + " <br><br>";
+                //messageBody += "- Ngày trả kết quả dự kiến : " + dteNgayDukienTra.EditValue.ToString() + " <br><br>";
+                //messageBody += "Quý Khách Hàng vui lòng kiểm tra các thông tin trên Phiếu nhận mẫu xét nghiệm và vui lòng phản hồi nếu có bất kỳ thay đổi nào trong vòng 04 giờ kể từ khi nhận email này.  <br><br>";
+                messageBody += "Xin cảm ơn đã hỗ trợ. <br><br>";
+                mail.Body = messageBody;
 
-        //        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-        //        args.AutoCloseOptions.Delay = 1000;
-        //        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-        //        args.DefaultButtonIndex = 0;
-        //        args.Caption = "Thông báo tự đóng ";
-        //        args.Text = "Email đã được gởi đến khách hàng . Thông báo này sẽ tự đóng sau 1 giây.";
-        //        args.Buttons = new DialogResult[] { DialogResult.OK };
-        //        XtraMessageBox.Show(args).ToString();
-        //    }
-        //    catch (SmtpFailedRecipientException ex)
-        //    {
-        //        XtraMessageBox.Show(ex.FailedRecipient);
-        //        //ex.GetBaseException(); //should give you enough info.
-        //    }
-        //    Is_close = true;
-        //    this.Close();
-        //}
+                SmtpServer.Send(mail);
+
+                //Cập nhật gởi mail
+                OBJ.SendMail = "1";
+                BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
+
+                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                args.AutoCloseOptions.Delay = 1000;
+                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                args.DefaultButtonIndex = 0;
+                args.Caption = "Thông báo tự đóng ";
+                args.Text = "Email đã được gởi đến bộ phận CS . Thông báo này sẽ tự đóng sau 1 giây.";
+                args.Buttons = new DialogResult[] { DialogResult.OK };
+                XtraMessageBox.Show(args).ToString();
+            }
+            catch (SmtpFailedRecipientException ex)
+            {
+                XtraMessageBox.Show(ex.FailedRecipient);
+                //ex.GetBaseException(); //should give you enough info.
+            }
+            Is_close = true;
+            this.Close();
+        }
     }
 }

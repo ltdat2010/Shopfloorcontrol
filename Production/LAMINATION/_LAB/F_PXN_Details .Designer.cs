@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_PXN_Details));
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.chkNTP = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.tblCUSTOMERLABXuatHDBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -552,10 +552,10 @@
             this.chkPTN.Size = new System.Drawing.Size(89, 19);
             this.chkPTN.StyleController = this.layoutControl2;
             this.chkPTN.TabIndex = 4;
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.NotEquals;
-            compareAgainstControlValidationRule2.Control = this.chkNTP;
-            compareAgainstControlValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.chkPTN, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.NotEquals;
+            compareAgainstControlValidationRule1.Control = this.chkNTP;
+            compareAgainstControlValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.chkPTN, compareAgainstControlValidationRule1);
             // 
             // btnSendMail
             // 
@@ -1513,7 +1513,9 @@
             this.dteNgayDukienTra.EditValue = null;
             this.dteNgayDukienTra.Location = new System.Drawing.Point(815, 49);
             this.dteNgayDukienTra.Name = "dteNgayDukienTra";
+            this.dteNgayDukienTra.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dteNgayDukienTra.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteNgayDukienTra.Properties.Appearance.Options.UseBackColor = true;
             this.dteNgayDukienTra.Properties.Appearance.Options.UseFont = true;
             this.dteNgayDukienTra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1592,8 +1594,10 @@
             // 
             this.txtSoPXN.Location = new System.Drawing.Point(815, 73);
             this.txtSoPXN.Name = "txtSoPXN";
+            this.txtSoPXN.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtSoPXN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoPXN.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.txtSoPXN.Properties.Appearance.Options.UseBackColor = true;
             this.txtSoPXN.Properties.Appearance.Options.UseFont = true;
             this.txtSoPXN.Properties.Appearance.Options.UseForeColor = true;
             this.txtSoPXN.Properties.ReadOnly = true;
@@ -1633,6 +1637,8 @@
             this.dteNgayNhanMau.EditValue = null;
             this.dteNgayNhanMau.Location = new System.Drawing.Point(815, 25);
             this.dteNgayNhanMau.Name = "dteNgayNhanMau";
+            this.dteNgayNhanMau.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dteNgayNhanMau.Properties.Appearance.Options.UseBackColor = true;
             this.dteNgayNhanMau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteNgayNhanMau.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1665,6 +1671,8 @@
             // 
             this.lkeTenCoSoGuiMau.Location = new System.Drawing.Point(126, 97);
             this.lkeTenCoSoGuiMau.Name = "lkeTenCoSoGuiMau";
+            this.lkeTenCoSoGuiMau.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lkeTenCoSoGuiMau.Properties.Appearance.Options.UseBackColor = true;
             this.lkeTenCoSoGuiMau.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lkeTenCoSoGuiMau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
@@ -1689,9 +1697,9 @@
             this.lkeTenCoSoGuiMau.Size = new System.Drawing.Size(319, 20);
             this.lkeTenCoSoGuiMau.StyleController = this.layoutControl2;
             this.lkeTenCoSoGuiMau.TabIndex = 12;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lkeTenCoSoGuiMau, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lkeTenCoSoGuiMau, conditionValidationRule2);
             // 
             // tblEMPLOYEELABBindingSource
             // 
@@ -1702,6 +1710,8 @@
             // 
             this.lkeTenCoSoLayMau.Location = new System.Drawing.Point(605, 97);
             this.lkeTenCoSoLayMau.Name = "lkeTenCoSoLayMau";
+            this.lkeTenCoSoLayMau.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lkeTenCoSoLayMau.Properties.Appearance.Options.UseBackColor = true;
             this.lkeTenCoSoLayMau.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lkeTenCoSoLayMau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
@@ -1733,9 +1743,9 @@
             this.lkeTenCoSoLayMau.Size = new System.Drawing.Size(360, 20);
             this.lkeTenCoSoLayMau.StyleController = this.layoutControl2;
             this.lkeTenCoSoLayMau.TabIndex = 31;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lkeTenCoSoLayMau, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lkeTenCoSoLayMau, conditionValidationRule3);
             // 
             // tblCUSTOMERLABBindingSource
             // 
@@ -2442,6 +2452,8 @@
             // 
             this.lkeDonviXuatHoaDon.Location = new System.Drawing.Point(126, 121);
             this.lkeDonviXuatHoaDon.Name = "lkeDonviXuatHoaDon";
+            this.lkeDonviXuatHoaDon.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lkeDonviXuatHoaDon.Properties.Appearance.Options.UseBackColor = true;
             this.lkeDonviXuatHoaDon.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.lkeDonviXuatHoaDon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
