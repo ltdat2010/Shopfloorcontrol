@@ -195,7 +195,8 @@ namespace Production.Class
                     dTableGrp.Columns.Add("Giá mua ngoài", typeof(float));
                     foreach (int i in gridView2.GetSelectedRows())
                     {
-                        if(bool.Parse(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString())==false)
+                        //XtraMessageBox.Show(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString());
+                        if(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString() == string.Empty)
                         {
                             dTable.Rows.Add(string.Empty,
                                         string.Empty,
@@ -376,7 +377,7 @@ namespace Production.Class
                         gridView1.ExportToXlsx(path);
                         System.Diagnostics.Process.Start(path);
                     }
-                //}                  
+                //}               
 
 
             };
@@ -414,11 +415,7 @@ namespace Production.Class
             {
                 //dteNgayDukienTra.ReadOnly = false;
             };           
-
-            
-
-            
-                        
+                            
 
             lkeTenCoSoLayMau.ButtonClick += (s, e) =>
             {
@@ -434,8 +431,35 @@ namespace Production.Class
                     F_CUS_Dtl.Show();
                 }
             };
-            
-            lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
+
+            cmbTuychon.SelectedValueChanged += (s, e) =>
+            {
+                if (OBJ.MaCoSoLayMau.Length > 0)
+                {
+                    if (cmbTuychon.SelectedText == "Đã gởi yêu cầu xuất hóa đơn")
+                        //XtraMessageBox.Show(OBJ.DonViXuatHoaDon_ID.ToString());
+                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID_DagoiYCXHD(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
+                    else if (cmbTuychon.SelectedText == "Chưa gởi yêu cầu xuất hóa đơn")
+                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID_ChuagoiYCXHD(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
+                    else
+                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
+
+                    gridView2.BestFitColumns();
+                }
+                else
+                {
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 2000;
+                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                    args.DefaultButtonIndex = 0;
+                    args.Caption = "Lưu ý ";
+                    args.Text = "Không tìm thấy chỉ tiêu . Thông báo này sẽ tự đóng sau 2 giây.";
+                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                    XtraMessageBox.Show(args).ToString();
+                }
+            };
+
+                lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
             {
                 DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
                 DataRow row = rowView.Row;
@@ -446,28 +470,7 @@ namespace Production.Class
                 OBJ.MaCoSoLayMau = row["CUSTCODE"].ToString();
                 OBJ.CUSTCODE_ID = int.Parse(row["Id"].ToString());
                 OBJ.DonViXuatHoaDon_ID = int.Parse(row["Id"].ToString());
-                if (OBJ.MaCoSoLayMau.Length > 0)
-                {
-                    if(cmbTuychon.SelectedText == "Đã gởi yêu cầu xuất hóa đơn")
-                    //XtraMessageBox.Show(OBJ.DonViXuatHoaDon_ID.ToString());
-                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID_DagoiYCXHD(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB,OBJ.DonViXuatHoaDon_ID);
-                    else if (cmbTuychon.SelectedText == "Chưa gởi yêu cầu xuất hóa đơn")
-                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID_ChuagoiYCXHD(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
-                    else 
-                        gridControl2.DataSource = tbl_KHMau_LABTableAdapter.FillBy_DonViXuatHoaDon_ID(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.DonViXuatHoaDon_ID);
-                    gridView2.BestFitColumns();
-                }
-                else
-                {
-                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                                    args.AutoCloseOptions.Delay = 2000;
-                                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                                    args.DefaultButtonIndex = 0;
-                                    args.Caption = "Lưu ý ";
-                                    args.Text = "Không tìm thấy chỉ tiêu . Thông báo này sẽ tự đóng sau 2 giây.";
-                                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                                    XtraMessageBox.Show(args).ToString();
-                }
+                
             };
            
             action_EndForm3.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close3));
@@ -481,11 +484,8 @@ namespace Production.Class
         }
             private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
         {
-            Set4ObjectHeader();
-            //Set4ObjectRow();
-            //Khong cho update Header
-            //XtraMessageBox.Show(OBJ.SoPXN);
-            BUS.PXN_HeaderBUS_UPDATE(OBJ);
+            //Set4ObjectHeader();            
+            //BUS.PXN_HeaderBUS_UPDATE(OBJ);
             Is_close = true;
             //this.Close();
             //throw new NotImplementedException();

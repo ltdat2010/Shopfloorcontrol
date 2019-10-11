@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_YCXuatHD));
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbTuychon = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtEmailCC = new DevExpress.XtraEditors.TextEdit();
             this.txtEmailTO = new DevExpress.XtraEditors.TextEdit();
             this.cmbKhoa = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -139,6 +140,7 @@
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnTraKetQua = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSendMail = new DevExpress.XtraEditors.SimpleButton();
@@ -164,10 +166,9 @@
             this.tbl_CUSTOMER_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_CUSTOMER_LABTableAdapter();
             this.tbl_KHMau_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_KHMau_LABTableAdapter();
             this.dxValidationProvider2 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.cmbTuychon = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTuychon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailTO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbKhoa.Properties)).BeginInit();
@@ -218,6 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
@@ -237,8 +239,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblPXNDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTuychon.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl2
@@ -267,6 +267,20 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // cmbTuychon
+            // 
+            this.cmbTuychon.Location = new System.Drawing.Point(680, 26);
+            this.cmbTuychon.Name = "cmbTuychon";
+            this.cmbTuychon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTuychon.Properties.Items.AddRange(new object[] {
+            "Tất cả",
+            "Đã gởi yêu cầu xuất hóa đơn",
+            "Chưa gởi yêu cầu xuất hóa đơn"});
+            this.cmbTuychon.Size = new System.Drawing.Size(285, 20);
+            this.cmbTuychon.StyleController = this.layoutControl2;
+            this.cmbTuychon.TabIndex = 38;
+            // 
             // txtEmailCC
             // 
             this.txtEmailCC.Location = new System.Drawing.Point(98, 631);
@@ -286,9 +300,9 @@
             this.txtEmailTO.Size = new System.Drawing.Size(867, 20);
             this.txtEmailTO.StyleController = this.layoutControl2;
             this.txtEmailTO.TabIndex = 36;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider2.SetValidationRule(this.txtEmailTO, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider2.SetValidationRule(this.txtEmailTO, conditionValidationRule1);
             // 
             // cmbKhoa
             // 
@@ -1260,6 +1274,20 @@
             this.layoutControlItem27.TextSize = new System.Drawing.Size(25, 13);
             this.layoutControlItem27.TextToControlDistance = 5;
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.cmbTuychon;
+            this.layoutControlItem4.Location = new System.Drawing.Point(622, 24);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(345, 24);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(345, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(345, 24);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.Text = "Tùy chọn :";
+            this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlItem4.TextToControlDistance = 5;
+            // 
             // btnTraKetQua
             // 
             this.btnTraKetQua.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1484,34 +1512,6 @@
             // 
             this.tbl_KHMau_LABTableAdapter.ClearBeforeFill = true;
             // 
-            // cmbTuychon
-            // 
-            this.cmbTuychon.Location = new System.Drawing.Point(680, 26);
-            this.cmbTuychon.Name = "cmbTuychon";
-            this.cmbTuychon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbTuychon.Properties.Items.AddRange(new object[] {
-            "Tất cả",
-            "Đã gởi yêu cầu xuất hóa đơn",
-            "Chưa gởi yêu cầu xuất hóa đơn"});
-            this.cmbTuychon.Size = new System.Drawing.Size(285, 20);
-            this.cmbTuychon.StyleController = this.layoutControl2;
-            this.cmbTuychon.TabIndex = 38;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.cmbTuychon;
-            this.layoutControlItem4.Location = new System.Drawing.Point(622, 24);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(345, 24);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(345, 24);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(345, 24);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "Tùy chọn :";
-            this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(51, 13);
-            this.layoutControlItem4.TextToControlDistance = 5;
-            // 
             // F_YCXuatHD
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -1528,6 +1528,7 @@
             this.Load += new System.EventHandler(this.F_PRICELIST_Details_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTuychon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailCC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailTO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbKhoa.Properties)).EndInit();
@@ -1578,6 +1579,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
@@ -1597,8 +1599,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblPXNDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTuychon.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
