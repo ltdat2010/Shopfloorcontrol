@@ -724,6 +724,8 @@ namespace Production.Class
             {
                 DataRowView rowView = (DataRowView)lkeTenCoSoGuiMau.GetSelectedDataRow();
                 DataRow row = rowView.Row;
+                //DataRow row = (DataRow)lkeTenCoSoGuiMau.GetSelectedDataRow();
+
                 txtPhoneCoSoGuiMau.Text = row["EMPMobile"].ToString();
                 txtEmailCoSoGuiMau.Text = row["EMPEmail"].ToString();
                 /////////////////////////////////////////////////////////////////////////
@@ -737,6 +739,7 @@ namespace Production.Class
             {
                 DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
                 DataRow row = rowView.Row;
+                //DataRow row = (DataRow)lkeTenCoSoLayMau.GetSelectedDataRow();
                 txtDCCoSoLayMau.Text = row["CUSTADDRESS"].ToString();
                 txtEmailCoSoLayMau.Text = row["ContactEmail"].ToString();
                 txtPhoneCoSoLayMau.Text = row["CUSTPHONE"].ToString();
@@ -1219,6 +1222,7 @@ namespace Production.Class
             OBJ.NgayTraTruoc = dteNgayTraTruoc.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayTraTruoc.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.NgayThuTien = dteNgayThuTien.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayThuTien.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.NgayXuatHoaDon = dteNgayXuatHoaDon.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayXuatHoaDon.Text, CultureInfo.CreateSpecificCulture("en-GB"));
+            OBJ.NgayGiaoMau = DateTime.Parse("2019-01-01");
         }
 
         public void ResetControl()
@@ -1337,6 +1341,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
         {
+
         }
 
         public void finished(object sender)
@@ -1345,13 +1350,19 @@ namespace Production.Class
             //Dong form DELEGATE
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
-            //// Step 2 : Load lại data tren grid sau khi Add
-            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB' table. You can move, or remove it, as needed.
-            this.tbl_CUSTOMER_LABTableAdapter.FillByEMPCode(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB, lkeTenCoSoGuiMau.EditValue.ToString());
 
-            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB' table. You can move, or remove it, as needed.
             this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
+            //// Step 2 : Load lại data tren grid sau khi Add
+            if (frm.Name == "F_CUSTOMER_Details")
+            {
+                if (lkeTenCoSoGuiMau.EditValue.ToString() != string.Empty)
+                {
+                    this.tbl_CUSTOMER_LABTableAdapter.FillByEMPCode(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB, lkeTenCoSoGuiMau.EditValue.ToString());
+                    this.tbl_CUSTOMER_LAB_XuatHDTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD);
+                }
 
+            }
+                       
             gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
             gridView2.BestFitColumns();
 
@@ -1366,7 +1377,6 @@ namespace Production.Class
         {
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD' table. You can move, or remove it, as needed.
             this.tbl_CUSTOMER_LAB_XuatHDTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD);
-
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_KHMau_LAB' table. You can move, or remove it, as needed.
             this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.SoPXN);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB' table. You can move, or remove it, as needed.

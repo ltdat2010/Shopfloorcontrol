@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
 
 namespace Production.Class
@@ -37,21 +38,41 @@ namespace Production.Class
         {
             if (OFB.F_OF_Find(CDOF).Rows.Count <= 0)
             {
-                // Export to CSV
-                OFB.F_OF_DetailsCSV(CDOF);
+                DialogResult dlDel = XtraMessageBox.Show(" Update formular version ? " , "Formular version", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlDel == DialogResult.Yes)
+                {
+                    txtVersion.ReadOnly = false;
+                    txtVersion.Focus();
+                    simpleButton1.Enabled = false;
+                }
+                else
+                {
+                    // Export to CSV
+                    OFB.F_OF_DetailsCSV(CDOF);
 
-                //Save to OF
-                OFB.OF_INSERT(gridView1);
+                    //Save to OF
+                    OFB.OF_INSERT(gridView1);
 
-                //Save to OF_Detail
-                OFB.OF_Detail_INSERT(gridView1);
+                    //Save to OF_Detail
+                    OFB.OF_Detail_INSERT(gridView1);
 
-                MessageBox.Show("Export to OF :" + CDOF + " CSV successfully.");
+                    MessageBox.Show("Export to OF :" + CDOF + " CSV successfully.");
+                }
+                
             }
             else
                 MessageBox.Show("Warning : OF :" + CDOF + " has been exported in the past.");
 
-            this.Close();
+            //this.Close();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < gridView1.RowCount; i++)
+                gridView1.SetRowCellValue(i, "CD_VER", txtVersion.Text);
+
+            simpleButton1.Enabled = true;
+            txtVersion.ReadOnly = true;
         }
     }
 }

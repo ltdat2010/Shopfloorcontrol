@@ -9,6 +9,9 @@ namespace Production.Class
 {
     public partial class R_PXN_LAB : frm_Base
     {
+
+        //PC Name
+        public string PCname = System.Environment.MachineName;
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -41,7 +44,8 @@ namespace Production.Class
 
         //----------------------------Report parameters declare---------------------------------------------
         //string Path = "C:";
-        private string XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
+        private string XmlPath = string.Empty;
+
         private string Path = Directory.GetCurrentDirectory();
 
         private CrystalDecisions.CrystalReports.Engine.ReportDocument rpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
@@ -52,6 +56,13 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
+                //if (PCname == "VPV-ASL-SAMPLE")
+                //    path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                //else
+                //    path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+
+                XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
+
                 dt_PXN_Header = BUS.PXN_HeaderBUS_SELECT(OBJ.SoPXN);
                 dt_KHMau_Receipt = BUS2.KHMau_LABDAO_REPORT_RECEIPT(OBJ.SoPXN);
                 dt_KHMau_Details = BUS2.KHMau_LABDAO_REPORT_DETAILS(OBJ.SoPXN);
@@ -88,7 +99,7 @@ namespace Production.Class
                 PaperKind ppk = new PaperKind();
                 ppk = PaperKind.Letter;
 
-                ps.SourceName = "cassette 1";
+                //ps.SourceName = "cassette 1";
                 pd.DefaultPageSettings.PaperSource = ps;
                 pd.DefaultPageSettings.PaperSize.RawKind = (int)ppk;
                 printDialog1.Document = pd;

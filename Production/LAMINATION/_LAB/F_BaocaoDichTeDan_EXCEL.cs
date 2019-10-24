@@ -18,11 +18,17 @@ namespace Production.Class
 
             Load += (s, e) =>
                 {
+                    TenBaocao = "TONGHOP_DICHTEVUNG";
+
                     Readonly4Controls(true);
                 };
             action1.Excel(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Excel));
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
             action1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
+
+            filter_Vertical1.Find(new EventHandler(EventHandler_Find));
+            filter_Vertical1.Excel(new EventHandler(EventHandler_Excel));
+            filter_Vertical1.Exit(new EventHandler(EventHandler_Exit));
 
             chkTheoThang.CheckStateChanged += (s, e) =>
             {
@@ -64,7 +70,86 @@ namespace Production.Class
                 e.Column.BestFit();
             };
         }
+        private void EventHandler_Find(object sender, EventArgs e)
+        {
 
+            switch (filter_Vertical1.cmbOption_SelectedText.ToString())
+            {
+                case ("From...to..."):
+                    //dt = PXN_BUS.BaoCao_NhanMau_Fr_To_Date(filter_Vertical1.dteFrDateVal, filter_Vertical1.dteToDateVal);
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_mm_yy(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, filter_Vertical1.dteFrDateVal.ToString(), filter_Vertical1.dteToDateVal.ToString());
+                    break;
+                case ("Next day"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Daily(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 1);
+                    break;
+                case ("Today"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Daily(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 0);
+                    break;
+                case ("Last day"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Daily(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, -1);
+                    break;
+                case ("Next week"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Weekly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 1);
+                    break;
+                case ("This week"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Weekly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 0);
+                    break;
+                case ("Last week"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Weekly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, -1);
+                    break;
+                case ("Next month"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Monthly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 1);
+                    break;
+                case ("This month"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Monthly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 0);
+                    break;
+                case ("Last month"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Monthly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, -1);
+                    break;
+                case ("Next quater"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Quaterly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 1);
+                    break;
+                case ("This quater"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Quaterly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 0);
+                    break;
+                case ("Last quater"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Quaterly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, -1);
+                    break;
+                case ("Next year"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Yearly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 1);
+                    break;
+                case ("This year"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Yearly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, 0);
+                    break;
+                case ("Last year"):
+                    gridControl1.DataSource = baoCao_DichTeVungTableAdapter.Fill_BaoCao_DichTeVung_Yearly(sYNC_NUTRICIEL_REPORT.BaoCao_DichTeVung, -1);
+                    break;
+            }
+        }
+
+        private void EventHandler_Excel(object sender, EventArgs e)
+        {
+            try
+            {
+
+                //filename = @"X:\\" + TenBaocao + DateTime.Today.ToShortDateString().Replace("/", "_") + ".xlsx";
+                //Export excel file
+                gridControl1.ExportToXlsx(path);
+                //Open excel file
+                System.Diagnostics.Process.Start(path);
+            }
+            catch (Exception ex)
+            {
+                string _error = ex.Message;
+                MessageBox.Show(_error);
+                throw;
+            }
+        }
+
+        private void EventHandler_Exit(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void ItemClickEventHandler_Excel(object sender, EventArgs e)
         {
             try

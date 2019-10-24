@@ -108,9 +108,11 @@
             // 
             this.bar2.BarAppearance.Normal.BackColor = System.Drawing.Color.Transparent;
             this.bar2.BarAppearance.Normal.BorderColor = System.Drawing.Color.Transparent;
-            this.bar2.BarAppearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.bar2.BarAppearance.Normal.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar2.BarAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
             this.bar2.BarAppearance.Normal.Options.UseBackColor = true;
             this.bar2.BarAppearance.Normal.Options.UseBorderColor = true;
+            this.bar2.BarAppearance.Normal.Options.UseFont = true;
             this.bar2.BarAppearance.Normal.Options.UseForeColor = true;
             this.bar2.BarName = "Main menu";
             this.bar2.DockCol = 0;
@@ -196,13 +198,13 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(427, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(427, 25);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 25);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(427, 0);
             // 
@@ -210,7 +212,7 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 0);
             // 
@@ -218,7 +220,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(427, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(427, 25);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 0);
             // 
@@ -368,7 +370,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Action_Function";
-            this.Size = new System.Drawing.Size(427, 24);
+            this.Size = new System.Drawing.Size(427, 25);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

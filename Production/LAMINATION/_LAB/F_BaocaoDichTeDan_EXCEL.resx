@@ -128,7 +128,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABC
-        BAAAAk1TRnQBSQFMAgEBAgEAAfABBAHwAQQBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        BAAAAk1TRnQBSQFMAgEBAgEAAfgBBAH4AQQBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABEAMAAQEBAAEgBgABEP8A/wD/ACcAAbgB/wIAAbgB/xIAAbgB/wIAAbgB/yUAAbgBnAH/AQABuAGc
         Af+yAAG4Af8CmAHuAf8CmAHuAf8CAAG4Af8KAAG4Af8CmAHuAf8CmAHuAf8CAAG4Af8dAAG4AZwB/wGY
         Ae4BygH/AZgB7gHKAf8BAAG4AZwB/64AAbgB/wIAAeMB/wIAAeMB/wKcAfEB/wIAAbgB/wIAAbgB/wKc
@@ -153,7 +153,13 @@
     <value>93, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>41</value>
+    <value>127</value>
+  </metadata>
+  <metadata name="baoCaoDichTeVungBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>438, 56</value>
+  </metadata>
+  <metadata name="sYNC_NUTRICIEL_REPORT.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>246, 56</value>
   </metadata>
   <metadata name="tblLOCATIONLABBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>514, 17</value>
@@ -166,5 +172,11 @@
   </metadata>
   <metadata name="tbl_LOCATION_LABTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
+  </metadata>
+  <metadata name="sYNC_NUTRICIEL_REPORT.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>246, 56</value>
+  </metadata>
+  <metadata name="baoCao_DichTeVungTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>677, 56</value>
   </metadata>
 </root>

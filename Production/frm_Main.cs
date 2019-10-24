@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Production.LAMINATION._LAB;
+using System;
 using System.Data;
 using System.Net;
 using System.Windows.Forms;
@@ -820,20 +821,9 @@ namespace Production.Class
 
             //Bao cao PO
             barButtonItem73.ItemClick += (s, e) =>
-            {
-                foreach (Control x in this.gc1.Controls)
-                {
-                    if (x is DevExpress.XtraEditors.XtraUserControl)
-                        x.Dispose();
-                }
-
-                uc = new F_BaocaoPO_EXCEL();
-                uc.user = this.user;
-                uc.BringToFront();
-                uc.Visible = true;
-                uc.Enabled = true;
-                gc1.Controls.Add(uc);
-                uc.Dock = DockStyle.Fill;
+            {   
+                F_BaocaoPO_EXCEL FRM = new F_BaocaoPO_EXCEL();
+                FRM.Show();
             };
 
             //Cash for Advnaced List
@@ -918,6 +908,13 @@ namespace Production.Class
             barButtonItem77.ItemClick += (s, e) =>
             {
                 F_YCXuatHD FRM = new Class.F_YCXuatHD();
+                FRM.Show();
+            };
+
+            //barButtonItem78 -- báo cáo nhận mẫu
+            barButtonItem78.ItemClick += (s, e) =>
+            {
+                F_Baocao_NhanMau_EXCEL FRM = new F_Baocao_NhanMau_EXCEL();
                 FRM.Show();
             };
 

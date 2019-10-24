@@ -1,8 +1,16 @@
-﻿namespace Production.Class
+﻿using DevExpress.XtraLayout;
+
+namespace Production.Class
 {
     public partial class frm_Base : DevExpress.XtraEditors.XtraForm
     {
         public User user = new User();
+
+        //PC Name
+        public string PCname = System.Environment.MachineName;
+
+        //path
+        public string path = string.Empty;
 
         //CHo dãy nút Action full
         public string isAction = "";
@@ -52,8 +60,15 @@
 
         public frm_Base()
         {
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Caramel");
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             InitializeComponent();
+
+            Load += (s, e) =>
+            {
+                foreach (LayoutControl LC in this.Controls)
+                    LC.AllowCustomization = false;
+            };
+            
         }
     }
 }

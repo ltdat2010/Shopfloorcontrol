@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -39,6 +41,12 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
                 {
+
+                    if (PCname == "vpv-lab-sample")
+                        path = @"D:\PNM_Created" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                    else
+                        path = @"X:\PNM_Created" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+
                     //btnGiaoMau.Enabled = false;
                     // 1 Lấy thông tin user login
                     OBJ.CreatedBy = user.Username;
@@ -97,19 +105,82 @@ namespace Production.Class
             {
                 if (gridViewRowClick == true)
                 {
-                    //Disable
-                    this.Enabled = false;
-                    //Update 20190822
-                    //R_PGM_LAB FRM = new Class.R_PGM_LAB();
-                    //FRM.OBJ = this.OBJ;
-                    //FRM.Show();
-                    F_GiaoMau_LAB FRM = new Class.F_GiaoMau_LAB();
-                    FRM.OBJ = this.OBJ;
-                    FRM.Show();
+                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất phiếu giao mẫu cho mẫu số : " + OBJ.SoPXN + " ?. Lưu ý là tất cả thông tin bao gồm cả kết quả, liên quan đến phiếu xét nghiệm này sẽ bị xóa. Bạn chắc chắn vẫn muốn xóa ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dlDel == DialogResult.Yes)
+                    {
+                        if(gridView1.GetFocusedRowCellValue("GiaoMau").ToString() == "false")
+                            BUS.PXN_HeaderDAO_UPDATE_NgayGiaoMau(OBJ.ID, DateTime.Now, true, user.Username);
+                        //Disable
+                        this.Enabled = false;
+                        //Update 20190822
+                        //R_PGM_LAB FRM = new Class.R_PGM_LAB();
+                        //FRM.OBJ = this.OBJ;
+                        //FRM.Show();
+                        F_GiaoMau_LAB FRM = new Class.F_GiaoMau_LAB();
+                        FRM.OBJ = this.OBJ;
+                        FRM.Show();
+                    }                       
+                    
                 }
                 else
                     XtraMessageBox.Show("Vui lòng click vào đầu dòng cần giao mẫu ");
             };
+
+            //FOOTER
+            gridView1.OptionsView.ShowFooter = true;
+            gridView1.FooterPanelHeight = 70;
+
+            Color highPriority = Color.Green;
+            Color normalPriority = Color.Orange;
+            Color lowPriority = Color.Red;
+            int markWidth = 16;
+
+            // Handle this event to paint the footer panel manually
+            gridView1.CustomDrawFooter += (s, e) => {
+                int offset = 5;
+                e.DefaultDraw();
+                Color color = highPriority;
+                Rectangle markRectangle;
+                string priorityText = " - High level";
+                for (int i = 0; i < 3; i++)
+                {
+                    if (i == 1)
+                    {
+                        color = normalPriority;
+                        priorityText = " - Normal level";
+                    }
+                    else if (i == 2)
+                    {
+                        color = lowPriority;
+                        priorityText = " - Low level";
+                    }
+                    markRectangle = new Rectangle(e.Bounds.X + offset, e.Bounds.Y + offset + (markWidth + offset) * i, markWidth, markWidth);
+                    e.Cache.FillEllipse(markRectangle.X, markRectangle.Y, markRectangle.Width, markRectangle.Height, color);
+                    e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
+                    e.Appearance.Options.UseTextOptions = true;
+                    e.Appearance.DrawString(e.Cache, priorityText, new Rectangle(markRectangle.Right + offset, markRectangle.Y, e.Bounds.Width, markRectangle.Height));
+                }
+            };
+
+            gridView1.CustomDrawCell += (s, e) => {
+                e.Appearance.TextOptions.HAlignment = HorzAlignment.Center;
+                e.Appearance.Options.UseTextOptions = true;
+                e.DefaultDraw();
+                if (e.Column.FieldName == "ID")
+                {
+                    Color color;
+                    int cellValue = Convert.ToInt32(e.CellValue);
+                    if (cellValue < 3)
+                        color = highPriority;
+                    else if (cellValue > 2 && cellValue < 5)
+                        color = normalPriority;
+                    else
+                        color = lowPriority;
+                    e.Cache.FillEllipse(e.Bounds.X + 1, e.Bounds.Y + 1, markWidth, markWidth, color);
+                }
+            };
+
+
         }
 
         //public void SMTP_SEND(string parm_SmtpServer,
@@ -205,8 +276,9 @@ namespace Production.Class
         //}
         private void ItemClickEventHandler_Excel(object sender, EventArgs e)
         {
-            string filePath = @"X:\PNM_Created_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
-            gridView1.ExportToXlsx(filePath);
+
+            //string filePath = @"X:\PNM_Created_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+            gridView1.ExportToXlsx(path);
         }
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
@@ -409,6 +481,7 @@ namespace Production.Class
             //OBJ.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
             //OBJ.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
             OBJ.SendMail = gridView1.GetFocusedRowCellValue("SendMail").ToString();
+            OBJ.DonViXuatHoaDon_ID = int.Parse(gridView1.GetFocusedRowCellValue("DonViXuatHoaDon_ID").ToString());
         }
 
         public void finished(object sender)
@@ -426,5 +499,6 @@ namespace Production.Class
 
             gridView1.BestFitColumns();
         }
+
     }
 }

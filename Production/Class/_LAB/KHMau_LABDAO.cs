@@ -24,6 +24,8 @@ namespace Production.Class
            " ,[TaiLieuHuyKHMau] " +
            " ,[NhanVienHuyKHMau] " +
            " ,[TrangThaiKHMau] " +
+           " ,[LuuMau] " +
+           " ,[HuyMau] " +
            " ,[SoLuongHuyKHMau] " +
            " ,[CreatedDate] " +
            " ,[CreatedBy] " +
@@ -57,6 +59,8 @@ namespace Production.Class
            "',103),N'" + OBJ.TaiLieuHuyKHMau +
            "',N'" + OBJ.NhanVienHuyKHMau +
            "',N'" + OBJ.TrangThaiKHMau +
+           "',N'" + OBJ.LuuMau +
+           "',N'" + OBJ.HuyMau +
            "',N'" + OBJ.SoLuongHuyKHMau +
            "',CONVERT(datetime,'" + DateTime.Now +
            "',103),N'" + OBJ.CreatedBy +
@@ -98,6 +102,8 @@ namespace Production.Class
            ",[TaiLieuHuyKHMau]          =   N'" + OBJ.TaiLieuHuyKHMau + "'" +
            ",[NhanVienHuyKHMau]         =   N'" + OBJ.NhanVienHuyKHMau + "'" +
            ",[TrangThaiKHMau]           =   N'" + OBJ.TrangThaiKHMau + "'" +
+           ",[LuuMau]           =   N'" + OBJ.LuuMau + "'" +
+           ",[HuyMau]           =   N'" + OBJ.HuyMau + "'" +
            ",[SoLuongHuyKHMau]          =   N'" + OBJ.SoLuongHuyKHMau + "'" +
            ",[CreatedDate]              =   CONVERT(datetime,'" + DateTime.Now + "',103)" +
            ",[CreatedBy]                =   N'" + OBJ.CreatedBy + "' " +
@@ -155,7 +161,7 @@ namespace Production.Class
                          " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, " +
                          " tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, " +
                          " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, " +
-                         " tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN " +
+                         " tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN,tbl_KHMau_LAB.LuuMau,tbl_KHMau_LAB.HuyMau " +
                          " FROM            tbl_KHMau_LAB LEFT JOIN " +
                          " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT JOIN " +
                          " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT JOIN " +
@@ -186,12 +192,12 @@ namespace Production.Class
             //             " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, " +
             //             " tbl_KHMau_CTXN_LAB.KHMau , tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT " , CommandType.Text);
             return Sql.ExecuteDataTable("SAP", " SELECT        tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau,   " +
-                " tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau  " +
+                " tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau,tbl_KHMau_LAB.HuyMau  " +
                 " FROM            tbl_KHMau_LAB LEFT JOIN   " +
                 " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau  " +
                 " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and TrangThaiKHMau = '0'  " +
                 " GROUP BY tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN,  tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau,   " +
-                " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau   ", CommandType.Text);
+                " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau,tbl_KHMau_LAB.HuyMau   ", CommandType.Text);
         }
 
         public DataTable KHMau_LABDAO_REPORT_STORAGE(string SoPXN)
@@ -215,12 +221,12 @@ namespace Production.Class
             //             " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, " +
             //             " tbl_KHMau_CTXN_LAB.KHMau , tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT ", CommandType.Text);
             return Sql.ExecuteDataTable("SAP", " SELECT        tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau,   " +
-                " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau  " +
+                " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau,tbl_KHMau_LAB.LuuMau  " +
                 " FROM            tbl_KHMau_LAB LEFT JOIN   " +
                 " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau  " +
                 " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and TrangThaiKHMau = '0'  " +
                 " GROUP BY tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN,  tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.SoLuongKHMau,   " +
-                " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau  ", CommandType.Text);
+                " tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau,tbl_KHMau_LAB.LuuMau   ", CommandType.Text);
         }
 
         public DataTable KHMau_LABDAO_REPORT_KHMAU(string SoPXN)
@@ -231,7 +237,7 @@ namespace Production.Class
                          " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, " +
                          " tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, " +
                          " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, " +
-                         " tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT " +
+                         " tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT,tbl_KHMau_LAB.LuuMau,tbl_KHMau_LAB.HuyMau " +
                          " FROM            tbl_KHMau_LAB LEFT JOIN " +
                          " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT JOIN " +
                          " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT JOIN " +
@@ -244,8 +250,8 @@ namespace Production.Class
         {
             return Sql.ExecuteDataTable("SAP", " SELECT        tbl_KHMau_LAB.ID,tbl_KHMau_LAB.LoaiDVMauNuoc,tbl_KHMau_LAB.NgayLayMau,tbl_KHMau_LAB.LoaiMauGui,tbl_KHMau_LAB.TTMauGui,tbl_KHMau_LAB.VTLayMauDayChuong,tbl_KHMau_LAB.GioLayMauTuoi ,   " +
                 " tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, tbl_KHMau_LAB.KHMau,tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, " +
-                " tbl_LoaiDV_LAB.TenLoaiDV,tbl_LoaiMau_LAB.TenLoaiMau, " +         
-                " tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, " +
+                " tbl_LoaiDV_LAB.TenLoaiDV,tbl_LoaiMau_LAB.TenLoaiMau, " +
+                " tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau,tbl_KHMau_LAB.LuuMau,tbl_KHMau_LAB.HuyMau, " +
                          " tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, " +
                          " tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, " +
                          " tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, " +
@@ -260,5 +266,12 @@ namespace Production.Class
                          " LEFT JOIN tbl_LoaiMau_LAB ON tbl_KHMau_LAB.LoaiMauGui = tbl_LoaiMau_LAB.MaLoaiMau " +
                          " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and tbl_KHMau_CTXN_LAB.CTXNID= "+CTXNID+" and tbl_KHMau_LAB.KHMau_GiaoMau = '"+ KHMau_GiaoMau + "'", CommandType.Text);
         }
+        public DataTable KHMau_LABDAO_SELECT_KHMau(string SoPXN, string KHMau)
+        {
+            return Sql.ExecuteDataTable("SAP", " SELECT KHMau " +
+                         " FROM            tbl_KHMau_LAB  " +
+                         " WHERE tbl_KHMau_LAB.SoPXN ='" + SoPXN + "' and tbl_KHMau_LAB.KHMau <> '" + KHMau + "'", CommandType.Text);
+        }
+
     }
 }

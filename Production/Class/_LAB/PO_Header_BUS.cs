@@ -42,6 +42,31 @@ namespace Production.Class
             return DAO.PO_List_Report(Stardate, Enddate);
         }
 
+        public DataTable PO_List_Report_Daily()
+        {
+            return DAO.PO_List_Report_Daily();
+        }
+
+        public DataTable PO_List_Report_Weekly(int i)
+        {
+            return DAO.PO_List_Report_Weekly(i);
+        }
+
+        public DataTable PO_List_Report_Monthly(int i)
+        {
+            return DAO.PO_List_Report_Monthly(i);
+        }
+
+        public DataTable PO_List_Report_Quaterly(int i)
+        {
+            return DAO.PO_List_Report_Quaterly(i);
+        }
+
+        public DataTable PO_List_Report_Yearly(int i)
+        {
+            return DAO.PO_List_Report_Yearly(i);
+        }
+
         public DataTable PO_List_NotPaymented(DateTime Stardate, DateTime Enddate)
         {
             return DAO.PO_List_NotPaymented(Stardate, Enddate);

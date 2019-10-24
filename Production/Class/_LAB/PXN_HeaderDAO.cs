@@ -150,6 +150,9 @@ namespace Production.Class
            ",[SoTienTraTruoc]               = " + OBJ.SoTienTraTruoc +
            ",[NoiDungHoaDon]               = N'" + OBJ.NoiDungHoaDon + "' " +
            ",[NoiDungTraTruoc]               = N'" + OBJ.NoiDungTraTruoc + "' " +
+           ",[NgayGiaoMau]        = CONVERT(datetime,'" + OBJ.NgayGiaoMau + "',103)" +
+           ",[GiaoMau]               = N'" + OBJ.GiaoMau + "' " +
+           ",[NguoiGiaoMau]               = N'" + OBJ.NguoiGiaoMau + "' " +
            " WHERE [ID]             =" + OBJ.ID, CommandType.Text);
         }
 
@@ -180,6 +183,15 @@ namespace Production.Class
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +
            "[NgayTraKetQua]        = CONVERT(datetime,'" + NgayTraKetQua + "',103)" +
            ",[TraKetQua]               = N'" + TraKetQua + "' " +
+           " WHERE [ID]             =" + ID, CommandType.Text);
+        }
+
+        public void PXN_HeaderDAO_UPDATE_NgayGiaoMau(int ID, DateTime NgayGiaoMau, bool GiaoMau, string NguoiGiaoMau)
+        {
+            Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +
+           "[NgayGiaoMau]        = CONVERT(datetime,'" + NgayGiaoMau + "',103)" +
+           ",[GiaoMau]               = N'" + GiaoMau + "' " +
+           ",[NguoiGiaoMau]               = N'" + NguoiGiaoMau + "' " +
            " WHERE [ID]             =" + ID, CommandType.Text);
         }
 
@@ -596,5 +608,170 @@ namespace Production.Class
             //",[DaTraKetQua]        = '1' " +
            " WHERE [SoPXN]             ='" + SoPXN + "'", CommandType.Text);
         }
+
+        public DataTable BaoCao_NhanMau_Daily(int i)
+        {
+            DataTable dt = 
+                Sql.ExecuteDataTable("SAP",
+                         " SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, " +
+                         " tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, " +
+                         " tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, " +
+                         " tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, " +
+                         " tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, " +
+                         " tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, " +
+                         " tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, " +
+                         " tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, " +
+                         " tbl_KHMau_CTXN_LAB.NgayTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.DaTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.CTXNID, " +
+                         " tbl_PXN_Header.NgayNhanMau " +
+                         " FROM            tbl_KHMau_LAB " +
+                         " INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN " +
+                         " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " WHERE DateDiff(dd, getdate(), tbl_PXN_Header.NgayNhanMau) = " + i, CommandType.Text);
+            return dt;
+        }
+
+        public DataTable BaoCao_NhanMau_Weekly(int i)
+        {
+            DataTable dt =
+                Sql.ExecuteDataTable("SAP",
+                         " SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, " +
+                         " tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, " +
+                         " tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, " +
+                         " tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, " +
+                         " tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, " +
+                         " tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, " +
+                         " tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, " +
+                         " tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, " +
+                         " tbl_KHMau_CTXN_LAB.NgayTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.DaTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.CTXNID, " +
+                         " tbl_PXN_Header.NgayNhanMau " +
+                         " FROM            tbl_KHMau_LAB " +
+                         " INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN " +
+                         " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " WHERE        DateDiff(wk, getdate(), tbl_PXN_Header.NgayNhanMau) = " + i, CommandType.Text);
+            return dt;
+        }
+
+        public DataTable BaoCao_NhanMau_Monthly(int i)
+        {
+            DataTable dt =
+                Sql.ExecuteDataTable("SAP",
+                         " SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, " +
+                         " tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, " +
+                         " tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, " +
+                         " tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, " +
+                         " tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, " +
+                         " tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, " +
+                         " tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, " +
+                         " tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, " +
+                         " tbl_KHMau_CTXN_LAB.NgayTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.DaTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.CTXNID, " +
+                         " tbl_PXN_Header.NgayNhanMau " +
+                         " FROM            tbl_KHMau_LAB " +
+                         " INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN " +
+                         " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " WHERE        DateDiff(mm, getdate(), tbl_PXN_Header.NgayNhanMau) = " + i, CommandType.Text);
+            return dt;
+        }
+
+        public DataTable BaoCao_NhanMau_Quaterly(int i)
+        {
+            DataTable dt =
+                Sql.ExecuteDataTable("SAP",
+                         " SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, " +
+                         " tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, " +
+                         " tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, " +
+                         " tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, " +
+                         " tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, " +
+                         " tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, " +
+                         " tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, " +
+                         " tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, " +
+                         " tbl_KHMau_CTXN_LAB.NgayTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.DaTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.CTXNID, " +
+                         " tbl_PXN_Header.NgayNhanMau " +
+                         " FROM            tbl_KHMau_LAB " +
+                         " INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN " +
+                         " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " WHERE        DateDiff(qq, getdate(), tbl_PXN_Header.NgayNhanMau) = " + i, CommandType.Text);
+            return dt;
+        }
+
+        public DataTable BaoCao_NhanMau_Yearly(int i)
+        {
+            DataTable dt =
+                Sql.ExecuteDataTable("SAP",
+                         " SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, " +
+                         " tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, " +
+                         " tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, " +
+                         " tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, " +
+                         " tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, " +
+                         " tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, " +
+                         " tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, " +
+                         " tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, " +
+                         " tbl_KHMau_CTXN_LAB.NgayTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.DaTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.CTXNID, " +
+                         " tbl_PXN_Header.NgayNhanMau " +
+                         " FROM            tbl_KHMau_LAB " +
+                         " INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN " +
+                         " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " WHERE        DateDiff(yy, getdate(), tbl_PXN_Header.NgayNhanMau) = " + i, CommandType.Text);
+            return dt;
+        }
+
+        public DataTable BaoCao_NhanMau_Fr_To_Date(DateTime Stardate , DateTime Enddate)
+        {
+            DataTable dt =
+                Sql.ExecuteDataTable("SAP",
+                         " SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, " +
+                         " tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, " +
+                         " tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, " +
+                         " tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, " +
+                         " tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, " +
+                         " tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, " +
+                         " tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, " +
+                         " tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, " +
+                         " tbl_KHMau_CTXN_LAB.NgayTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.DaTraKetQua, " +
+                         " tbl_KHMau_CTXN_LAB.CTXNID, " +
+                         " tbl_PXN_Header.NgayNhanMau " +
+                         " FROM            tbl_KHMau_LAB " +
+                         " INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN " +
+                         " tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN " +
+                         " tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN " +
+                         " tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN " +
+                         " tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID " +
+                         " WHERE tbl_PXN_Header.NgayNhanMau >= CONVERT(datetime, '" + Stardate + "', 103) " +
+                                                " AND tbl_PXN_Header.NgayNhanMau <= CONVERT(datetime, '" + Enddate + "', 103) " , CommandType.Text);
+            return dt;
+        }
+        
+
     }
 }

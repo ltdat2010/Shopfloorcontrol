@@ -35,5 +35,7 @@ namespace Production.Class
         {
             return DAO.PXN_DetailsDAO_SELECT_ID_BY_SoPXN_CTXNID(SoPXN, CTXNID);
         }
+
+
     }
 }

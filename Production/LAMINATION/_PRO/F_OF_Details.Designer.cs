@@ -45,23 +45,30 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.txtVersion = new DevExpress.XtraEditors.TextEdit();
+            this.btnRevert = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.btnRevert = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVersion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -184,12 +191,14 @@
             this.gridView1.DetailHeight = 377;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupPanelText = "Cylinder List";
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
             this.gridView1.OptionsView.RowAutoHeight = true;
@@ -201,6 +210,7 @@
             this.CD_OF.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.CD_OF.Caption = "CD_OF";
             this.CD_OF.FieldName = "CD_OF";
+            this.CD_OF.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.CD_OF.MinWidth = 23;
             this.CD_OF.Name = "CD_OF";
             this.CD_OF.Visible = true;
@@ -211,6 +221,7 @@
             // 
             this.DT_PREV.Caption = "DT_PREV";
             this.DT_PREV.FieldName = "DT_PREV";
+            this.DT_PREV.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.DT_PREV.MinWidth = 23;
             this.DT_PREV.Name = "DT_PREV";
             this.DT_PREV.Visible = true;
@@ -221,16 +232,18 @@
             // 
             this.CD_DEPOT.Caption = "CD_DEPOT";
             this.CD_DEPOT.FieldName = "CD_DEPOT";
+            this.CD_DEPOT.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.CD_DEPOT.MinWidth = 23;
             this.CD_DEPOT.Name = "CD_DEPOT";
             this.CD_DEPOT.Visible = true;
             this.CD_DEPOT.VisibleIndex = 2;
-            this.CD_DEPOT.Width = 38;
+            this.CD_DEPOT.Width = 63;
             // 
             // CD_MAT
             // 
             this.CD_MAT.Caption = "CD_MAT";
             this.CD_MAT.FieldName = "CD_MAT";
+            this.CD_MAT.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.CD_MAT.MinWidth = 23;
             this.CD_MAT.Name = "CD_MAT";
             this.CD_MAT.Visible = true;
@@ -241,11 +254,12 @@
             // 
             this.LB_MAT.Caption = "LB_MAT";
             this.LB_MAT.FieldName = "LB_MAT";
+            this.LB_MAT.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.LB_MAT.MinWidth = 23;
             this.LB_MAT.Name = "LB_MAT";
             this.LB_MAT.Visible = true;
             this.LB_MAT.VisibleIndex = 4;
-            this.LB_MAT.Width = 76;
+            this.LB_MAT.Width = 369;
             // 
             // QT_PREV
             // 
@@ -321,14 +335,17 @@
             // 
             this.gridControl1.Location = new System.Drawing.Point(4, 4);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(1);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(842, 397);
+            this.gridControl1.Size = new System.Drawing.Size(842, 395);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton2);
+            this.layoutControl1.Controls.Add(this.txtVersion);
             this.layoutControl1.Controls.Add(this.btnRevert);
             this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.gridControl1);
@@ -340,11 +357,46 @@
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(616, 403);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(117, 38);
+            this.simpleButton2.StyleController = this.layoutControl1;
+            this.simpleButton2.TabIndex = 7;
+            this.simpleButton2.Text = "Update version";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.Location = new System.Drawing.Point(562, 403);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.Properties.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVersion.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtVersion.Properties.Appearance.Options.UseFont = true;
+            this.txtVersion.Properties.Appearance.Options.UseForeColor = true;
+            this.txtVersion.Properties.ReadOnly = true;
+            this.txtVersion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtVersion.Size = new System.Drawing.Size(50, 34);
+            this.txtVersion.StyleController = this.layoutControl1;
+            this.txtVersion.TabIndex = 6;
+            // 
+            // btnRevert
+            // 
+            this.btnRevert.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRevert.ImageOptions.Image")));
+            this.btnRevert.Location = new System.Drawing.Point(4, 403);
+            this.btnRevert.Name = "btnRevert";
+            this.btnRevert.Size = new System.Drawing.Size(75, 36);
+            this.btnRevert.StyleController = this.layoutControl1;
+            this.btnRevert.TabIndex = 5;
+            this.btnRevert.Text = "Revert";
+            // 
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton1.Location = new System.Drawing.Point(737, 405);
+            this.simpleButton1.Location = new System.Drawing.Point(737, 403);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(109, 36);
             this.simpleButton1.StyleController = this.layoutControl1;
@@ -360,7 +412,9 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.emptySpaceItem1,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlGroup1.Size = new System.Drawing.Size(850, 445);
@@ -371,55 +425,64 @@
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(846, 401);
+            this.layoutControlItem1.Size = new System.Drawing.Size(846, 399);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButton1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(733, 401);
+            this.layoutControlItem2.Location = new System.Drawing.Point(733, 399);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(113, 40);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(113, 40);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(113, 40);
+            this.layoutControlItem2.Size = new System.Drawing.Size(113, 42);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(79, 401);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(79, 399);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(654, 40);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(434, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
-            // 
-            // btnRevert
-            // 
-            this.btnRevert.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btnRevert.Location = new System.Drawing.Point(4, 405);
-            this.btnRevert.Name = "btnRevert";
-            this.btnRevert.Size = new System.Drawing.Size(75, 36);
-            this.btnRevert.StyleController = this.layoutControl1;
-            this.btnRevert.TabIndex = 5;
-            this.btnRevert.Text = "Revert";
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnRevert;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 401);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 399);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(79, 40);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(79, 40);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(79, 40);
+            this.layoutControlItem3.Size = new System.Drawing.Size(79, 42);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtVersion;
+            this.layoutControlItem4.Location = new System.Drawing.Point(513, 399);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(99, 42);
+            this.layoutControlItem4.Text = "Version :";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(42, 13);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.simpleButton2;
+            this.layoutControlItem5.Location = new System.Drawing.Point(612, 399);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(121, 42);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
             // F_OF_Details
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,11 +495,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtVersion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -466,5 +532,9 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraEditors.SimpleButton btnRevert;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.TextEdit txtVersion;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

@@ -60,5 +60,10 @@ namespace Production.Class
         {
             return DAO.KHMau_LABDAO_REPORT_AnalysisReport(SoPXN, CTXNID, KHMau_GiaoMau);
         }
+
+        public DataTable KHMau_LABDAO_SELECT_KHMau(string SoPXN, string KHMau)
+        {
+            return DAO.KHMau_LABDAO_SELECT_KHMau(SoPXN, KHMau);
+        }
     }
 }

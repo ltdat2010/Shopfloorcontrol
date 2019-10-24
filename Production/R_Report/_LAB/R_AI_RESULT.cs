@@ -80,7 +80,7 @@ namespace Production.Class
                 rpt.Load(Path + "/RPT/_LAB/Rpt_AI_RESULT_Lines_AnalysisReport_LAB_VN.rpt");
                 //CHEK PC Name
                 string PCname = System.Environment.MachineName;
-                if (PCname == "VPV-ASL-SAMPLE")
+                if (PCname == "vpv-lab-sample")
                     rpt.SetParameterValue("PicPath", @"D:\SYNC_NUTRICIEL_IMG\Temp_Xml\AI_Graph.jpeg"); 
                 else
                     rpt.SetParameterValue("PicPath", @"X:\Temp_Xml\AI_Graph.jpeg");

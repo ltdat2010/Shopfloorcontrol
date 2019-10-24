@@ -111,5 +111,40 @@ namespace Production.Class
         {
             DAO.PXN_HeaderDAO_UPDATE_MaCoSoLayMau(CUSTCODE_Old, CUSTCODE_New);
         }
+
+        public DataTable BaoCao_NhanMau_Daily(int i)
+        {
+            return DAO.BaoCao_NhanMau_Daily(i);
+        }
+
+        public DataTable BaoCao_NhanMau_Weekly(int i)
+        {
+            return DAO.BaoCao_NhanMau_Weekly(i);
+        }
+
+        public DataTable BaoCao_NhanMau_Monthly(int i)
+        {
+            return DAO.BaoCao_NhanMau_Monthly(i);
+        }
+
+        public DataTable BaoCao_NhanMau_Quaterly(int i)
+        {
+            return DAO.BaoCao_NhanMau_Quaterly(i);
+        }
+
+        public DataTable BaoCao_NhanMau_Yearly(int i)
+        {
+            return DAO.BaoCao_NhanMau_Yearly(i);
+        }
+
+        public DataTable BaoCao_NhanMau_Fr_To_Date(DateTime Stardate, DateTime Enddate)
+        {
+            return DAO.BaoCao_NhanMau_Fr_To_Date(Stardate, Enddate);
+        }
+
+        public void PXN_HeaderDAO_UPDATE_NgayGiaoMau(int ID, DateTime NgayGiaoMau, bool GiaoMau, string NguoiGiaoMau)
+        {
+            DAO.PXN_HeaderDAO_UPDATE_NgayGiaoMau(ID, NgayGiaoMau, GiaoMau, NguoiGiaoMau);
+        }
     }
 }

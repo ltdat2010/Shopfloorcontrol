@@ -14,6 +14,10 @@ namespace Production.Class
         public string str_KHMau = "";
         private bool gridViewRowClick = false;
 
+        //private string Path = Directory.GetCurrentDirectory();
+
+        private string path = string.Empty;
+
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -43,6 +47,12 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
+                if (PCname == "vpv-lab-sample")
+                    path = @"D:\Giao_Mau_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                else
+                    path = @"X:\Giao_Mau_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+
+
                 this.tbl_KHMau_LABTableAdapter.FillBy_GiaoMau_SoPXN(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, OBJ.SoPXN);
 
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
@@ -68,7 +78,14 @@ namespace Production.Class
                 FRM.Show();
             };
 
-            FormClosed += (s, e) =>
+            btnExcel.Click += (s, e) =>
+            {
+                //Export
+                gridView1.ExportToXlsx(path);
+                System.Diagnostics.Process.Start(path);
+            };
+
+                FormClosed += (s, e) =>
             {
                 Is_close = true;
             };

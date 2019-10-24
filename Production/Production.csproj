@@ -596,6 +596,30 @@
     <Compile Include="LAMINATION\F_BOM_List.Designer.cs">
       <DependentUpon>F_BOM_List.cs</DependentUpon>
     </Compile>
+    <Compile Include="LAMINATION\_GEN\_UC\Filter_Vertical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_GEN\_UC\Filter_Vertical.Designer.cs">
+      <DependentUpon>Filter_Vertical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_Details_Saochep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_KHMau_Details_Saochep.Designer.cs">
+      <DependentUpon>F_KHMau_Details_Saochep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\REPORT\F_Baocao_NhanMau_EXCEL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\REPORT\F_Baocao_NhanMau_EXCEL.Designer.cs">
+      <DependentUpon>F_Baocao_NhanMau_EXCEL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_BaocaoPO_EXCEL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_BaocaoPO_EXCEL.Designer.cs">
+      <DependentUpon>F_BaocaoPO_EXCEL.cs</DependentUpon>
+    </Compile>
     <Compile Include="LAMINATION\_LAB\F_IBD_RESULT_Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -616,14 +640,6 @@
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.Designer.cs">
       <DependentUpon>F_BaocaoDichTeDan_EXCEL.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="LAMINATION\_LAB\F_BaocaoPO_EXCEL.cs">
-      <SubType>UserControl</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="LAMINATION\_LAB\F_BaocaoPO_EXCEL.Designer.cs">
-      <DependentUpon>F_BaocaoPO_EXCEL.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_GiaoMau_LAB.cs">
@@ -1764,11 +1780,19 @@
       <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="UC_Base.cs">
+    <Compile Include="LAMINATION\_GEN\_UC\UC_Base.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Base.Designer.cs">
+    <Compile Include="LAMINATION\_GEN\_UC\UC_Base.Designer.cs">
       <DependentUpon>UC_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SYNC_NUTRICIEL_REPORT.cs">
+      <DependentUpon>SYNC_NUTRICIEL_REPORT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SYNC_NUTRICIEL_REPORT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SYNC_NUTRICIEL_REPORT.xsd</DependentUpon>
     </Compile>
     <Compile Include="VIPHAVETDataset.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1851,6 +1875,18 @@
     <EmbeddedResource Include="LAMINATION\F_BOM_List.resx">
       <DependentUpon>F_BOM_List.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_GEN\_UC\Filter_Vertical.resx">
+      <DependentUpon>Filter_Vertical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_KHMau_Details_Saochep.resx">
+      <DependentUpon>F_KHMau_Details_Saochep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\REPORT\F_Baocao_NhanMau_EXCEL.resx">
+      <DependentUpon>F_Baocao_NhanMau_EXCEL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_BaocaoPO_EXCEL.resx">
+      <DependentUpon>F_BaocaoPO_EXCEL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_IBD_RESULT_Details.resx">
       <DependentUpon>F_IBD_RESULT_Details.cs</DependentUpon>
     </EmbeddedResource>
@@ -1860,10 +1896,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_BaocaoDichTeDan_EXCEL.resx">
       <DependentUpon>F_BaocaoDichTeDan_EXCEL.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LAMINATION\_LAB\F_BaocaoPO_EXCEL.resx">
-      <DependentUpon>F_BaocaoPO_EXCEL.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_GiaoMau_LAB.resx">
@@ -2521,7 +2553,7 @@
       <DependentUpon>SplashScreen1.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Base.resx">
+    <EmbeddedResource Include="LAMINATION\_GEN\_UC\UC_Base.resx">
       <DependentUpon>UC_Base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
@@ -2589,6 +2621,17 @@
     <None Include="SYNC_NUTRICIELDataSet.xss">
       <DependentUpon>SYNC_NUTRICIELDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SYNC_NUTRICIEL_REPORT.xsc">
+      <DependentUpon>SYNC_NUTRICIEL_REPORT.xsd</DependentUpon>
+    </None>
+    <None Include="SYNC_NUTRICIEL_REPORT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SYNC_NUTRICIEL_REPORT.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SYNC_NUTRICIEL_REPORT.xss">
+      <DependentUpon>SYNC_NUTRICIEL_REPORT.xsd</DependentUpon>
     </None>
     <None Include="VIPHAVETDataset.xsc">
       <DependentUpon>VIPHAVETDataset.xsd</DependentUpon>

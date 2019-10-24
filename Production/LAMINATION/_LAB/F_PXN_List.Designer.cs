@@ -40,23 +40,60 @@
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaSoPXN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoPXN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPXNDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTenCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPhoneCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFaxCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmailCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMSTCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTenCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPhoneCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFaxCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmailCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLock = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocked = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPTNThucHien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLoaiXN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayNhanMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDCCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDCCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayDuKienTra = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgonNgu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSendMail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayCoKetQua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayTraKetQua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaCoSoGuiMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaCoSoLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSLMauGui = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDichTeDan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEMPCode_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCUSTCODE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDaXuatHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayXuatHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDaThuTien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayThuTien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoTienDaThu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoTienHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTraTruoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayTraTruoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoTienTraTruoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoiDungHoaDon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoiDungTraTruoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCoKetQua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTraKetQua = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDonViXuatHoaDon_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNguoiGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.action1 = new Production.Class.Action();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -126,9 +163,9 @@
             // btnGiaoMau
             // 
             this.btnGiaoMau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaoMau.ImageOptions.Image")));
-            this.btnGiaoMau.Location = new System.Drawing.Point(902, 498);
+            this.btnGiaoMau.Location = new System.Drawing.Point(902, 496);
             this.btnGiaoMau.Name = "btnGiaoMau";
-            this.btnGiaoMau.Size = new System.Drawing.Size(88, 36);
+            this.btnGiaoMau.Size = new System.Drawing.Size(88, 38);
             this.btnGiaoMau.StyleController = this.layoutControl2;
             this.btnGiaoMau.TabIndex = 22;
             this.btnGiaoMau.Text = "Giao mẫu";
@@ -136,9 +173,9 @@
             // btnViewProcess
             // 
             this.btnViewProcess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcess.ImageOptions.Image")));
-            this.btnViewProcess.Location = new System.Drawing.Point(994, 498);
+            this.btnViewProcess.Location = new System.Drawing.Point(994, 496);
             this.btnViewProcess.Name = "btnViewProcess";
-            this.btnViewProcess.Size = new System.Drawing.Size(106, 36);
+            this.btnViewProcess.Size = new System.Drawing.Size(106, 38);
             this.btnViewProcess.StyleController = this.layoutControl2;
             this.btnViewProcess.TabIndex = 21;
             this.btnViewProcess.Text = "View process";
@@ -146,10 +183,11 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.tblPXNHeaderBindingSource;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(4, 48);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1096, 446);
+            this.gridControl1.Size = new System.Drawing.Size(1096, 444);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -168,177 +206,400 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
-            this.colMaSoPXN,
+            this.colCreatedDate,
+            this.colSoPXN,
             this.colPXNDescription,
-            this.colCoSoGuiMau,
             this.colTenCoSoGuiMau,
+            this.colTenCoSoLayMau,
+            this.colCoSoGuiMau,
             this.colPhoneCoSoGuiMau,
             this.colFaxCoSoGuiMau,
             this.colEmailCoSoGuiMau,
             this.colMSTCoSoGuiMau,
             this.colCoSoLayMau,
-            this.colTenCoSoLayMau,
             this.colPhoneCoSoLayMau,
             this.colFaxCoSoLayMau,
             this.colEmailCoSoLayMau,
-            this.colCreatedDate,
             this.colCreatedBy,
             this.colNote,
-            this.colLock});
+            this.colLock,
+            this.colLocked,
+            this.colKHMau,
+            this.colPTNThucHien,
+            this.colLoaiXN,
+            this.colNgayNhanMau,
+            this.colDCCoSoGuiMau,
+            this.colDCCoSoLayMau,
+            this.colNgayDuKienTra,
+            this.colNgonNgu,
+            this.colSendMail,
+            this.colNgayCoKetQua,
+            this.colNgayTraKetQua,
+            this.colMaCoSoGuiMau,
+            this.colMaCoSoLayMau,
+            this.colSLMauGui,
+            this.colDichTeDan,
+            this.colEMPCode_ID,
+            this.colCUSTCODE_ID,
+            this.colDaXuatHoaDon,
+            this.colNgayXuatHoaDon,
+            this.colSoHoaDon,
+            this.colDaThuTien,
+            this.colNgayThuTien,
+            this.colSoTienDaThu,
+            this.colSoTienHoaDon,
+            this.colTraTruoc,
+            this.colNgayTraTruoc,
+            this.colSoTienTraTruoc,
+            this.colNoiDungHoaDon,
+            this.colNoiDungTraTruoc,
+            this.colCoKetQua,
+            this.colTraKetQua,
+            this.colDonViXuatHoaDon_ID,
+            this.gridColumn1,
+            this.colNgayGiaoMau,
+            this.colGiaoMau,
+            this.colNguoiGiaoMau});
             this.gridView1.DetailHeight = 377;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
-            this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
+            this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCoSoGuiMau, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colGiaoMau, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colID
             // 
             this.colID.FieldName = "ID";
-            this.colID.MinWidth = 23;
             this.colID.Name = "colID";
-            this.colID.Width = 87;
-            // 
-            // colMaSoPXN
-            // 
-            this.colMaSoPXN.Caption = "Số PXN";
-            this.colMaSoPXN.FieldName = "SoPXN";
-            this.colMaSoPXN.MinWidth = 23;
-            this.colMaSoPXN.Name = "colMaSoPXN";
-            this.colMaSoPXN.Visible = true;
-            this.colMaSoPXN.VisibleIndex = 0;
-            this.colMaSoPXN.Width = 82;
-            // 
-            // colPXNDescription
-            // 
-            this.colPXNDescription.FieldName = "PXNDescription";
-            this.colPXNDescription.MinWidth = 23;
-            this.colPXNDescription.Name = "colPXNDescription";
-            this.colPXNDescription.Width = 87;
-            // 
-            // colCoSoGuiMau
-            // 
-            this.colCoSoGuiMau.Caption = "Cơ sở gửi mẫu";
-            this.colCoSoGuiMau.FieldName = "CoSoGuiMau";
-            this.colCoSoGuiMau.MinWidth = 23;
-            this.colCoSoGuiMau.Name = "colCoSoGuiMau";
-            this.colCoSoGuiMau.Width = 100;
-            // 
-            // colTenCoSoGuiMau
-            // 
-            this.colTenCoSoGuiMau.Caption = "Tên cơ sở gửi mẫu";
-            this.colTenCoSoGuiMau.FieldName = "TenCoSoGuiMau";
-            this.colTenCoSoGuiMau.MinWidth = 23;
-            this.colTenCoSoGuiMau.Name = "colTenCoSoGuiMau";
-            this.colTenCoSoGuiMau.Visible = true;
-            this.colTenCoSoGuiMau.VisibleIndex = 2;
-            this.colTenCoSoGuiMau.Width = 123;
-            // 
-            // colPhoneCoSoGuiMau
-            // 
-            this.colPhoneCoSoGuiMau.FieldName = "PhoneCoSoGuiMau";
-            this.colPhoneCoSoGuiMau.MinWidth = 23;
-            this.colPhoneCoSoGuiMau.Name = "colPhoneCoSoGuiMau";
-            this.colPhoneCoSoGuiMau.Width = 87;
-            // 
-            // colFaxCoSoGuiMau
-            // 
-            this.colFaxCoSoGuiMau.FieldName = "FaxCoSoGuiMau";
-            this.colFaxCoSoGuiMau.MinWidth = 23;
-            this.colFaxCoSoGuiMau.Name = "colFaxCoSoGuiMau";
-            this.colFaxCoSoGuiMau.Width = 87;
-            // 
-            // colEmailCoSoGuiMau
-            // 
-            this.colEmailCoSoGuiMau.FieldName = "EmailCoSoGuiMau";
-            this.colEmailCoSoGuiMau.MinWidth = 23;
-            this.colEmailCoSoGuiMau.Name = "colEmailCoSoGuiMau";
-            this.colEmailCoSoGuiMau.Width = 87;
-            // 
-            // colMSTCoSoGuiMau
-            // 
-            this.colMSTCoSoGuiMau.FieldName = "MSTCoSoGuiMau";
-            this.colMSTCoSoGuiMau.MinWidth = 23;
-            this.colMSTCoSoGuiMau.Name = "colMSTCoSoGuiMau";
-            this.colMSTCoSoGuiMau.Width = 87;
-            // 
-            // colCoSoLayMau
-            // 
-            this.colCoSoLayMau.Caption = "Cơ sở lấy mẫu";
-            this.colCoSoLayMau.FieldName = "CoSoLayMau";
-            this.colCoSoLayMau.MinWidth = 23;
-            this.colCoSoLayMau.Name = "colCoSoLayMau";
-            this.colCoSoLayMau.Width = 189;
-            // 
-            // colTenCoSoLayMau
-            // 
-            this.colTenCoSoLayMau.Caption = "Tên cơ sở lấy mẫu";
-            this.colTenCoSoLayMau.FieldName = "TenCoSoLayMau";
-            this.colTenCoSoLayMau.MinWidth = 23;
-            this.colTenCoSoLayMau.Name = "colTenCoSoLayMau";
-            this.colTenCoSoLayMau.Visible = true;
-            this.colTenCoSoLayMau.VisibleIndex = 3;
-            this.colTenCoSoLayMau.Width = 519;
-            // 
-            // colPhoneCoSoLayMau
-            // 
-            this.colPhoneCoSoLayMau.FieldName = "PhoneCoSoLayMau";
-            this.colPhoneCoSoLayMau.MinWidth = 23;
-            this.colPhoneCoSoLayMau.Name = "colPhoneCoSoLayMau";
-            this.colPhoneCoSoLayMau.Width = 87;
-            // 
-            // colFaxCoSoLayMau
-            // 
-            this.colFaxCoSoLayMau.FieldName = "FaxCoSoLayMau";
-            this.colFaxCoSoLayMau.MinWidth = 23;
-            this.colFaxCoSoLayMau.Name = "colFaxCoSoLayMau";
-            this.colFaxCoSoLayMau.Width = 87;
-            // 
-            // colEmailCoSoLayMau
-            // 
-            this.colEmailCoSoLayMau.FieldName = "EmailCoSoLayMau";
-            this.colEmailCoSoLayMau.MinWidth = 23;
-            this.colEmailCoSoLayMau.Name = "colEmailCoSoLayMau";
-            this.colEmailCoSoLayMau.Width = 87;
             // 
             // colCreatedDate
             // 
             this.colCreatedDate.Caption = "Ngày tạo";
             this.colCreatedDate.FieldName = "CreatedDate";
-            this.colCreatedDate.MinWidth = 23;
+            this.colCreatedDate.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colCreatedDate.Name = "colCreatedDate";
             this.colCreatedDate.Visible = true;
-            this.colCreatedDate.VisibleIndex = 1;
-            this.colCreatedDate.Width = 76;
+            this.colCreatedDate.VisibleIndex = 0;
+            // 
+            // colSoPXN
+            // 
+            this.colSoPXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colSoPXN.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colSoPXN.AppearanceCell.Options.UseFont = true;
+            this.colSoPXN.AppearanceCell.Options.UseForeColor = true;
+            this.colSoPXN.Caption = "Số Phiếu nhận mẫu";
+            this.colSoPXN.FieldName = "SoPXN";
+            this.colSoPXN.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colSoPXN.Name = "colSoPXN";
+            this.colSoPXN.Visible = true;
+            this.colSoPXN.VisibleIndex = 1;
+            this.colSoPXN.Width = 85;
+            // 
+            // colPXNDescription
+            // 
+            this.colPXNDescription.Caption = "Mô tả";
+            this.colPXNDescription.FieldName = "PXNDescription";
+            this.colPXNDescription.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colPXNDescription.Name = "colPXNDescription";
+            this.colPXNDescription.Visible = true;
+            this.colPXNDescription.VisibleIndex = 2;
+            this.colPXNDescription.Width = 46;
+            // 
+            // colTenCoSoGuiMau
+            // 
+            this.colTenCoSoGuiMau.Caption = "Tên cơ sở gửi mẫu";
+            this.colTenCoSoGuiMau.FieldName = "TenCoSoGuiMau";
+            this.colTenCoSoGuiMau.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colTenCoSoGuiMau.Name = "colTenCoSoGuiMau";
+            this.colTenCoSoGuiMau.Visible = true;
+            this.colTenCoSoGuiMau.VisibleIndex = 3;
+            this.colTenCoSoGuiMau.Width = 106;
+            // 
+            // colTenCoSoLayMau
+            // 
+            this.colTenCoSoLayMau.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colTenCoSoLayMau.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colTenCoSoLayMau.AppearanceCell.Options.UseFont = true;
+            this.colTenCoSoLayMau.AppearanceCell.Options.UseForeColor = true;
+            this.colTenCoSoLayMau.Caption = "Tên cơ sở lấy mẫu";
+            this.colTenCoSoLayMau.FieldName = "TenCoSoLayMau";
+            this.colTenCoSoLayMau.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colTenCoSoLayMau.Name = "colTenCoSoLayMau";
+            this.colTenCoSoLayMau.Visible = true;
+            this.colTenCoSoLayMau.VisibleIndex = 4;
+            this.colTenCoSoLayMau.Width = 442;
+            // 
+            // colCoSoGuiMau
+            // 
+            this.colCoSoGuiMau.FieldName = "CoSoGuiMau";
+            this.colCoSoGuiMau.Name = "colCoSoGuiMau";
+            // 
+            // colPhoneCoSoGuiMau
+            // 
+            this.colPhoneCoSoGuiMau.FieldName = "PhoneCoSoGuiMau";
+            this.colPhoneCoSoGuiMau.Name = "colPhoneCoSoGuiMau";
+            // 
+            // colFaxCoSoGuiMau
+            // 
+            this.colFaxCoSoGuiMau.FieldName = "FaxCoSoGuiMau";
+            this.colFaxCoSoGuiMau.Name = "colFaxCoSoGuiMau";
+            // 
+            // colEmailCoSoGuiMau
+            // 
+            this.colEmailCoSoGuiMau.FieldName = "EmailCoSoGuiMau";
+            this.colEmailCoSoGuiMau.Name = "colEmailCoSoGuiMau";
+            // 
+            // colMSTCoSoGuiMau
+            // 
+            this.colMSTCoSoGuiMau.FieldName = "MSTCoSoGuiMau";
+            this.colMSTCoSoGuiMau.Name = "colMSTCoSoGuiMau";
+            // 
+            // colCoSoLayMau
+            // 
+            this.colCoSoLayMau.FieldName = "CoSoLayMau";
+            this.colCoSoLayMau.Name = "colCoSoLayMau";
+            // 
+            // colPhoneCoSoLayMau
+            // 
+            this.colPhoneCoSoLayMau.FieldName = "PhoneCoSoLayMau";
+            this.colPhoneCoSoLayMau.Name = "colPhoneCoSoLayMau";
+            // 
+            // colFaxCoSoLayMau
+            // 
+            this.colFaxCoSoLayMau.FieldName = "FaxCoSoLayMau";
+            this.colFaxCoSoLayMau.Name = "colFaxCoSoLayMau";
+            // 
+            // colEmailCoSoLayMau
+            // 
+            this.colEmailCoSoLayMau.FieldName = "EmailCoSoLayMau";
+            this.colEmailCoSoLayMau.Name = "colEmailCoSoLayMau";
             // 
             // colCreatedBy
             // 
             this.colCreatedBy.FieldName = "CreatedBy";
-            this.colCreatedBy.MinWidth = 23;
             this.colCreatedBy.Name = "colCreatedBy";
-            this.colCreatedBy.Width = 87;
             // 
             // colNote
             // 
             this.colNote.Caption = "Ghi chú";
             this.colNote.FieldName = "Note";
-            this.colNote.MinWidth = 23;
             this.colNote.Name = "colNote";
             this.colNote.Visible = true;
-            this.colNote.VisibleIndex = 4;
-            this.colNote.Width = 183;
+            this.colNote.VisibleIndex = 6;
+            this.colNote.Width = 234;
             // 
             // colLock
             // 
-            this.colLock.Caption = "Khóa";
             this.colLock.FieldName = "Lock";
-            this.colLock.MinWidth = 23;
             this.colLock.Name = "colLock";
-            this.colLock.Visible = true;
-            this.colLock.VisibleIndex = 5;
-            this.colLock.Width = 65;
+            // 
+            // colLocked
+            // 
+            this.colLocked.FieldName = "Locked";
+            this.colLocked.Name = "colLocked";
+            // 
+            // colKHMau
+            // 
+            this.colKHMau.FieldName = "KHMau";
+            this.colKHMau.Name = "colKHMau";
+            // 
+            // colPTNThucHien
+            // 
+            this.colPTNThucHien.Caption = "PTN thực hiện";
+            this.colPTNThucHien.FieldName = "PTNThucHien";
+            this.colPTNThucHien.Name = "colPTNThucHien";
+            this.colPTNThucHien.Visible = true;
+            this.colPTNThucHien.VisibleIndex = 7;
+            this.colPTNThucHien.Width = 49;
+            // 
+            // colLoaiXN
+            // 
+            this.colLoaiXN.FieldName = "LoaiXN";
+            this.colLoaiXN.Name = "colLoaiXN";
+            // 
+            // colNgayNhanMau
+            // 
+            this.colNgayNhanMau.FieldName = "NgayNhanMau";
+            this.colNgayNhanMau.Name = "colNgayNhanMau";
+            // 
+            // colDCCoSoGuiMau
+            // 
+            this.colDCCoSoGuiMau.FieldName = "DCCoSoGuiMau";
+            this.colDCCoSoGuiMau.Name = "colDCCoSoGuiMau";
+            // 
+            // colDCCoSoLayMau
+            // 
+            this.colDCCoSoLayMau.FieldName = "DCCoSoLayMau";
+            this.colDCCoSoLayMau.Name = "colDCCoSoLayMau";
+            // 
+            // colNgayDuKienTra
+            // 
+            this.colNgayDuKienTra.FieldName = "NgayDuKienTra";
+            this.colNgayDuKienTra.Name = "colNgayDuKienTra";
+            // 
+            // colNgonNgu
+            // 
+            this.colNgonNgu.FieldName = "NgonNgu";
+            this.colNgonNgu.Name = "colNgonNgu";
+            // 
+            // colSendMail
+            // 
+            this.colSendMail.FieldName = "SendMail";
+            this.colSendMail.Name = "colSendMail";
+            // 
+            // colNgayCoKetQua
+            // 
+            this.colNgayCoKetQua.FieldName = "NgayCoKetQua";
+            this.colNgayCoKetQua.Name = "colNgayCoKetQua";
+            // 
+            // colNgayTraKetQua
+            // 
+            this.colNgayTraKetQua.FieldName = "NgayTraKetQua";
+            this.colNgayTraKetQua.Name = "colNgayTraKetQua";
+            // 
+            // colMaCoSoGuiMau
+            // 
+            this.colMaCoSoGuiMau.FieldName = "MaCoSoGuiMau";
+            this.colMaCoSoGuiMau.Name = "colMaCoSoGuiMau";
+            // 
+            // colMaCoSoLayMau
+            // 
+            this.colMaCoSoLayMau.FieldName = "MaCoSoLayMau";
+            this.colMaCoSoLayMau.Name = "colMaCoSoLayMau";
+            // 
+            // colSLMauGui
+            // 
+            this.colSLMauGui.FieldName = "SLMauGui";
+            this.colSLMauGui.Name = "colSLMauGui";
+            // 
+            // colDichTeDan
+            // 
+            this.colDichTeDan.FieldName = "DichTeDan";
+            this.colDichTeDan.Name = "colDichTeDan";
+            // 
+            // colEMPCode_ID
+            // 
+            this.colEMPCode_ID.FieldName = "EMPCode_ID";
+            this.colEMPCode_ID.Name = "colEMPCode_ID";
+            // 
+            // colCUSTCODE_ID
+            // 
+            this.colCUSTCODE_ID.FieldName = "CUSTCODE_ID";
+            this.colCUSTCODE_ID.Name = "colCUSTCODE_ID";
+            // 
+            // colDaXuatHoaDon
+            // 
+            this.colDaXuatHoaDon.FieldName = "DaXuatHoaDon";
+            this.colDaXuatHoaDon.Name = "colDaXuatHoaDon";
+            // 
+            // colNgayXuatHoaDon
+            // 
+            this.colNgayXuatHoaDon.FieldName = "NgayXuatHoaDon";
+            this.colNgayXuatHoaDon.Name = "colNgayXuatHoaDon";
+            // 
+            // colSoHoaDon
+            // 
+            this.colSoHoaDon.FieldName = "SoHoaDon";
+            this.colSoHoaDon.Name = "colSoHoaDon";
+            // 
+            // colDaThuTien
+            // 
+            this.colDaThuTien.FieldName = "DaThuTien";
+            this.colDaThuTien.Name = "colDaThuTien";
+            // 
+            // colNgayThuTien
+            // 
+            this.colNgayThuTien.FieldName = "NgayThuTien";
+            this.colNgayThuTien.Name = "colNgayThuTien";
+            // 
+            // colSoTienDaThu
+            // 
+            this.colSoTienDaThu.FieldName = "SoTienDaThu";
+            this.colSoTienDaThu.Name = "colSoTienDaThu";
+            // 
+            // colSoTienHoaDon
+            // 
+            this.colSoTienHoaDon.FieldName = "SoTienHoaDon";
+            this.colSoTienHoaDon.Name = "colSoTienHoaDon";
+            // 
+            // colTraTruoc
+            // 
+            this.colTraTruoc.FieldName = "TraTruoc";
+            this.colTraTruoc.Name = "colTraTruoc";
+            // 
+            // colNgayTraTruoc
+            // 
+            this.colNgayTraTruoc.FieldName = "NgayTraTruoc";
+            this.colNgayTraTruoc.Name = "colNgayTraTruoc";
+            // 
+            // colSoTienTraTruoc
+            // 
+            this.colSoTienTraTruoc.FieldName = "SoTienTraTruoc";
+            this.colSoTienTraTruoc.Name = "colSoTienTraTruoc";
+            // 
+            // colNoiDungHoaDon
+            // 
+            this.colNoiDungHoaDon.FieldName = "NoiDungHoaDon";
+            this.colNoiDungHoaDon.Name = "colNoiDungHoaDon";
+            // 
+            // colNoiDungTraTruoc
+            // 
+            this.colNoiDungTraTruoc.FieldName = "NoiDungTraTruoc";
+            this.colNoiDungTraTruoc.Name = "colNoiDungTraTruoc";
+            // 
+            // colCoKetQua
+            // 
+            this.colCoKetQua.FieldName = "CoKetQua";
+            this.colCoKetQua.Name = "colCoKetQua";
+            // 
+            // colTraKetQua
+            // 
+            this.colTraKetQua.FieldName = "TraKetQua";
+            this.colTraKetQua.Name = "colTraKetQua";
+            // 
+            // colDonViXuatHoaDon_ID
+            // 
+            this.colDonViXuatHoaDon_ID.FieldName = "DonViXuatHoaDon_ID";
+            this.colDonViXuatHoaDon_ID.Name = "colDonViXuatHoaDon_ID";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.gridColumn1.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.gridColumn1.AppearanceCell.Options.UseFont = true;
+            this.gridColumn1.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumn1.Caption = "Xuất hóa đơn cho";
+            this.gridColumn1.FieldName = "CUSTNAME";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 5;
+            this.gridColumn1.Width = 443;
+            // 
+            // colNgayGiaoMau
+            // 
+            this.colNgayGiaoMau.Caption = "Ngày giao mẫu";
+            this.colNgayGiaoMau.FieldName = "NgayGiaoMau";
+            this.colNgayGiaoMau.Name = "colNgayGiaoMau";
+            this.colNgayGiaoMau.Visible = true;
+            this.colNgayGiaoMau.VisibleIndex = 9;
+            // 
+            // colGiaoMau
+            // 
+            this.colGiaoMau.Caption = "Giao mẫu";
+            this.colGiaoMau.FieldName = "GiaoMau";
+            this.colGiaoMau.Name = "colGiaoMau";
+            this.colGiaoMau.Visible = true;
+            this.colGiaoMau.VisibleIndex = 8;
+            // 
+            // colNguoiGiaoMau
+            // 
+            this.colNguoiGiaoMau.FieldName = "NguoiGiaoMau";
+            this.colNguoiGiaoMau.Name = "colNguoiGiaoMau";
             // 
             // action1
             // 
@@ -381,33 +642,33 @@
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 44);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 450);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 448);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnViewProcess;
-            this.layoutControlItem2.Location = new System.Drawing.Point(990, 494);
+            this.layoutControlItem2.Location = new System.Drawing.Point(990, 492);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(110, 40);
+            this.layoutControlItem2.Size = new System.Drawing.Size(110, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 494);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 492);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(898, 40);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(898, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnGiaoMau;
-            this.layoutControlItem3.Location = new System.Drawing.Point(898, 494);
+            this.layoutControlItem3.Location = new System.Drawing.Point(898, 492);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(92, 40);
+            this.layoutControlItem3.Size = new System.Drawing.Size(92, 42);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -479,10 +740,16 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SimpleButton btnViewProcess;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.SimpleButton btnGiaoMau;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private System.Windows.Forms.BindingSource tblPXNHeaderBindingSource;
         private SYNC_NUTRICIELDataSet sYNC_NUTRICIELDataSet;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaSoPXN;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoPXN;
         private DevExpress.XtraGrid.Columns.GridColumn colPXNDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colCoSoGuiMau;
         private DevExpress.XtraGrid.Columns.GridColumn colTenCoSoGuiMau;
@@ -495,15 +762,46 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPhoneCoSoLayMau;
         private DevExpress.XtraGrid.Columns.GridColumn colFaxCoSoLayMau;
         private DevExpress.XtraGrid.Columns.GridColumn colEmailCoSoLayMau;
-        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedBy;
         private DevExpress.XtraGrid.Columns.GridColumn colNote;
         private DevExpress.XtraGrid.Columns.GridColumn colLock;
+        private DevExpress.XtraGrid.Columns.GridColumn colLocked;
+        private DevExpress.XtraGrid.Columns.GridColumn colKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colPTNThucHien;
+        private DevExpress.XtraGrid.Columns.GridColumn colLoaiXN;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayNhanMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colDCCoSoGuiMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colDCCoSoLayMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayDuKienTra;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgonNgu;
+        private DevExpress.XtraGrid.Columns.GridColumn colSendMail;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayCoKetQua;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayTraKetQua;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaCoSoGuiMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaCoSoLayMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colSLMauGui;
+        private DevExpress.XtraGrid.Columns.GridColumn colDichTeDan;
+        private DevExpress.XtraGrid.Columns.GridColumn colEMPCode_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn colCUSTCODE_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn colDaXuatHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayXuatHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colDaThuTien;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayThuTien;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoTienDaThu;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoTienHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colTraTruoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayTraTruoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoTienTraTruoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoiDungHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoiDungTraTruoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colCoKetQua;
+        private DevExpress.XtraGrid.Columns.GridColumn colTraKetQua;
+        private DevExpress.XtraGrid.Columns.GridColumn colDonViXuatHoaDon_ID;
         private SYNC_NUTRICIELDataSetTableAdapters.tbl_PXN_HeaderTableAdapter tbl_PXN_HeaderTableAdapter;
-        private DevExpress.XtraEditors.SimpleButton btnViewProcess;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.SimpleButton btnGiaoMau;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayGiaoMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colGiaoMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNguoiGiaoMau;
     }
 }

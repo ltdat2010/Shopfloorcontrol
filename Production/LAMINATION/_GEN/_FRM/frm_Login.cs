@@ -56,6 +56,11 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
+                if (PCname == "vpv-lab-sample")
+                    path = @"D:\pkl" + txtUsername.Text + ".xml";
+                else
+                    path = @"X:\pkl" + txtUsername.Text + ".xml";
+
                 if (chkDashboard.CheckState == CheckState.Checked)
                     ischkDashBoardEnabled = true;
                 else
@@ -81,7 +86,7 @@ namespace Production.Class
                     chkMSSQL.Visible = false;
                     lblMSSQL.ForeColor = Color.Red;
                     XtraMessageBox.Show(" Lỗi kết nối tới SQL server, vui lòng liên hệ người phụ trách. ## SQl connect ERROR : " + ex1.Message);
-                    XtraMessageBox.Show(" Lỗi kết nối tới SQL server, vui lòng liên hệ người phụ trách. ## SQl connect ERROR : " + ex1.ToString());
+                    //XtraMessageBox.Show(" Lỗi kết nối tới SQL server, vui lòng liên hệ người phụ trách. ## SQl connect ERROR : " + ex1.ToString());
                     lblMSSQL.Text = "MSSQL ERROR: " + ex1.Message;
                     //XtraMessageBox.Show("## ERROR: " + ex.Message);
                     //Console.WriteLine("## ERROR: " + ex.Message);
@@ -113,10 +118,11 @@ namespace Production.Class
                 //check pkl
 
                 XmlDocument document = new XmlDocument();
-                if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
+                //if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
+                if (File.Exists(path))
                 {
                     checkEdit1.Checked = true;
-                    document.Load(@"X:\pkl" + txtUsername.Text + ".xml");
+                    document.Load(path);
                     //Decrypt(document, key);
                     //duyet qua XML
                     XmlNodeList nodes = document.DocumentElement.ChildNodes;
@@ -160,19 +166,18 @@ namespace Production.Class
                             //neu check thi save ra file pkl
                             if (checkEdit1.Checked)
                             {
-                                if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
+                                if (File.Exists(path))
                                 {
-                                    File.Delete(@"X:\pkl" + txtUsername.Text + ".xml");
+                                    File.Delete(path);
                                 }
-                                File.WriteAllText(@"X:\pkl"+ txtUsername.Text +".xml", "<xml><foo><user>" + Production.Class._GEN.EncryptKey.Encrypt(txtUsername.Text, true) + "</user> <pass>" + Production.Class._GEN.EncryptKey.Encrypt(txtPassword.Text, true) + "</pass></foo></xml>");
+                                File.WriteAllText(path, "<xml><foo><user>" + Production.Class._GEN.EncryptKey.Encrypt(txtUsername.Text, true) + "</user> <pass>" + Production.Class._GEN.EncryptKey.Encrypt(txtPassword.Text, true) + "</pass></foo></xml>");
                             }
                             //khong checked luu thi thoi khong luu ra
                             else
                             {
-                                if (File.Exists(@"X:\pkl" + txtUsername.Text + ".xml"))
-                                {
-                                    File.Delete(@"X:\pkl" + txtUsername.Text + ".xml");
-                                }
+                                if (File.Exists(path))                                
+                                    File.Delete(path);
+                                
                             }
                             ////////////////////////////////////////////////////////
                             user = user_.Login(txtUsername.Text, txtPassword.Text);
@@ -303,10 +308,6 @@ namespace Production.Class
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
             this.Visible = true;
-        }
-
-        private void frm_Login_Load(object sender, EventArgs e)
-        {
         }
     }
 }

@@ -284,7 +284,7 @@ namespace Production.Class
             //Save current layout
             //CHEK PC Name
             string PCname = System.Environment.MachineName;
-            if (PCname == "VPV-ASL-SAMPLE")
+            if (PCname == "vpv-lab-sample")
                 gridView1.SaveLayoutToXml(@"D:\SYNC_NUTRICIEL_IMG\tempLayout.xml");
             else
                 gridView1.SaveLayoutToXml(@"X:\tempLayout.xml");

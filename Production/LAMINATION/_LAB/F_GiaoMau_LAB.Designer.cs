@@ -55,6 +55,8 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tbl_KHMau_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_KHMau_LABTableAdapter();
+            this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -78,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -104,6 +107,7 @@
             // 
             // layoutControl3
             // 
+            this.layoutControl3.Controls.Add(this.btnExcel);
             this.layoutControl3.Controls.Add(this.btnPhieuGiaoMau);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(2, 2);
@@ -115,14 +119,18 @@
             // 
             // btnPhieuGiaoMau
             // 
+            this.btnPhieuGiaoMau.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhieuGiaoMau.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.btnPhieuGiaoMau.Appearance.Options.UseFont = true;
+            this.btnPhieuGiaoMau.Appearance.Options.UseForeColor = true;
             this.btnPhieuGiaoMau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuGiaoMau.ImageOptions.Image")));
-            this.btnPhieuGiaoMau.Location = new System.Drawing.Point(732, 5);
+            this.btnPhieuGiaoMau.Location = new System.Drawing.Point(746, 5);
             this.btnPhieuGiaoMau.Margin = new System.Windows.Forms.Padding(1);
             this.btnPhieuGiaoMau.Name = "btnPhieuGiaoMau";
-            this.btnPhieuGiaoMau.Size = new System.Drawing.Size(129, 39);
+            this.btnPhieuGiaoMau.Size = new System.Drawing.Size(115, 39);
             this.btnPhieuGiaoMau.StyleController = this.layoutControl3;
             this.btnPhieuGiaoMau.TabIndex = 12;
-            this.btnPhieuGiaoMau.Text = "In phiếu giao mẫu";
+            this.btnPhieuGiaoMau.Text = "Xuất PDF";
             // 
             // layoutControlGroup3
             // 
@@ -130,7 +138,8 @@
             this.layoutControlGroup3.GroupBordersVisible = false;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem2,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem4});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             this.layoutControlGroup3.Size = new System.Drawing.Size(866, 49);
@@ -141,17 +150,17 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(727, 43);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(620, 43);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnPhieuGiaoMau;
-            this.layoutControlItem2.Location = new System.Drawing.Point(727, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(133, 43);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(133, 43);
+            this.layoutControlItem2.Location = new System.Drawing.Point(741, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(119, 43);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(119, 43);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(133, 43);
+            this.layoutControlItem2.Size = new System.Drawing.Size(119, 43);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -201,47 +210,67 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colKHMau,
-            this.colSoLuongDat,
             this.colSoPXN,
+            this.colKHMau,
             this.colCTXN,
+            this.colSoLuongDat,
             this.colMaBanGiaoMau});
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // colKHMau
             // 
+            this.colKHMau.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colKHMau.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colKHMau.AppearanceCell.Options.UseFont = true;
+            this.colKHMau.AppearanceCell.Options.UseForeColor = true;
             this.colKHMau.Caption = "Kí hiệu mẫu";
             this.colKHMau.FieldName = "KHMau";
+            this.colKHMau.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colKHMau.Name = "colKHMau";
             this.colKHMau.Visible = true;
             this.colKHMau.VisibleIndex = 1;
-            this.colKHMau.Width = 160;
+            this.colKHMau.Width = 111;
             // 
             // colSoLuongDat
             // 
-            this.colSoLuongDat.FieldName = "SoLuongDat";
+            this.colSoLuongDat.Caption = "Số lượng đặt";
+            this.colSoLuongDat.FieldName = "SoLuongXN";
             this.colSoLuongDat.Name = "colSoLuongDat";
             this.colSoLuongDat.Visible = true;
             this.colSoLuongDat.VisibleIndex = 3;
-            this.colSoLuongDat.Width = 172;
+            this.colSoLuongDat.Width = 71;
             // 
             // colSoPXN
             // 
+            this.colSoPXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colSoPXN.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colSoPXN.AppearanceCell.Options.UseFont = true;
+            this.colSoPXN.AppearanceCell.Options.UseForeColor = true;
+            this.colSoPXN.Caption = "Số phiếu nhận mẫu";
             this.colSoPXN.FieldName = "SoPXN";
+            this.colSoPXN.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colSoPXN.Name = "colSoPXN";
             this.colSoPXN.Visible = true;
             this.colSoPXN.VisibleIndex = 0;
-            this.colSoPXN.Width = 156;
+            this.colSoPXN.Width = 104;
             // 
             // colCTXN
             // 
+            this.colCTXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colCTXN.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colCTXN.AppearanceCell.Options.UseFont = true;
+            this.colCTXN.AppearanceCell.Options.UseForeColor = true;
+            this.colCTXN.Caption = "Chỉ tiêu xét nghiệm";
             this.colCTXN.FieldName = "CTXN";
+            this.colCTXN.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colCTXN.Name = "colCTXN";
             this.colCTXN.Visible = true;
             this.colCTXN.VisibleIndex = 2;
-            this.colCTXN.Width = 579;
+            this.colCTXN.Width = 566;
             // 
             // colMaBanGiaoMau
             // 
@@ -249,6 +278,7 @@
             this.colMaBanGiaoMau.Name = "colMaBanGiaoMau";
             this.colMaBanGiaoMau.Visible = true;
             this.colMaBanGiaoMau.VisibleIndex = 4;
+            this.colMaBanGiaoMau.Width = 101;
             // 
             // layoutControlGroup2
             // 
@@ -304,6 +334,32 @@
             // 
             this.tbl_KHMau_LABTableAdapter.ClearBeforeFill = true;
             // 
+            // btnExcel
+            // 
+            this.btnExcel.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.btnExcel.Appearance.Options.UseFont = true;
+            this.btnExcel.Appearance.Options.UseForeColor = true;
+            this.btnExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnExcel.Location = new System.Drawing.Point(625, 5);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(117, 39);
+            this.btnExcel.StyleController = this.layoutControl3;
+            this.btnExcel.TabIndex = 13;
+            this.btnExcel.Text = "Xuất EXCEL";
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnExcel;
+            this.layoutControlItem4.Location = new System.Drawing.Point(620, 0);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(121, 43);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(121, 43);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(121, 43);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // F_GiaoMau_LAB
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -342,6 +398,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,5 +430,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMaBanGiaoMau;
         private DevExpress.XtraEditors.SimpleButton btnPhieuGiaoMau;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.SimpleButton btnExcel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

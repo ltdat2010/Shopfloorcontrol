@@ -111,7 +111,7 @@ namespace Production.Class
                 //rpt.SetParameterValue("PicPath", @"D:\Temp_Xml\AI_Graph.jpeg");
                 //CHEK PC Name
                 string PCname = System.Environment.MachineName;
-                if (PCname == "VPV-ASL-SAMPLE")
+                if (PCname == "vpv-lab-sample")
                     rpt.SetParameterValue("PicPath", @"D:\SYNC_NUTRICIEL_IMG\IMG_" + KHMau_GiaoMau + CTXNID.ToString() + ".jpeg");
                 else
                     rpt.SetParameterValue("PicPath", @"X:\IMG_" + KHMau_GiaoMau + CTXNID.ToString() + ".jpeg");

@@ -1,7 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
-using CrystalDecisions.Windows.Forms;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -33,12 +30,13 @@ namespace Production.Class
 
         private string Path = Directory.GetCurrentDirectory();
 
-        string path = string.Empty;
+        private string path = string.Empty;
 
         public int gridRow = 0;
 
         private bool Automatically = true;
-        public string PCname = System.Environment.MachineName;
+
+        //public string PCname = System.Environment.MachineName;
         /// <summary>
         /// DELEGATE
         /// </summary>
@@ -88,11 +86,10 @@ namespace Production.Class
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
                 this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
-                if (PCname == "VPV-ASL-SAMPLE")
-                    path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                if (PCname == "vpv-lab-sample")
+                    path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + OBJ.MaCoSoLayMau + ".xlsx";
                 else
-                    path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
-                
+                    path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + OBJ.MaCoSoLayMau + ".xlsx";
 
                 action_EndForm3.Add_Status(false);
                 action_EndForm3.Delete_Status(false);
@@ -104,10 +101,10 @@ namespace Production.Class
                 //btnSendMail.Enabled = false;
                 //MessageBox.Show(isAction);
                 dteNgayYCXuatHD.ReadOnly = true;
-                dteNgayYCXuatHD.DateTime = DateTime.Now; 
+                dteNgayYCXuatHD.DateTime = DateTime.Now;
 
                 if (isAction == "Edit")
-                {                    
+                {
                     //chkGEN.ReadOnly = true;
                     //chkH2O.ReadOnly = true;
                     //chkHTH.ReadOnly = true;
@@ -128,7 +125,7 @@ namespace Production.Class
                     //dteNgayTraKetQua.ReadOnly = true;
                     TDControlsReadOnly(true);
                     txtID.ReadOnly = true;
-                }                
+                }
             };
 
             gridView2.RowClick += (s, e) =>
@@ -137,8 +134,8 @@ namespace Production.Class
                 Set4ObjectKHMau();
                 //if (gridView2.GetFocusedRowCellValue("U_InvoiceNo").ToString().Length != 0)
                 //{
-                //    
-                //}                
+                //
+                //}
             };
 
             btnXem.Click += (s, e) =>
@@ -196,7 +193,7 @@ namespace Production.Class
                     foreach (int i in gridView2.GetSelectedRows())
                     {
                         //XtraMessageBox.Show(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString());
-                        if(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString() == string.Empty)
+                        if (bool.Parse(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString()) != true)
                         {
                             dTable.Rows.Add(string.Empty,
                                         string.Empty,
@@ -216,7 +213,6 @@ namespace Production.Class
                                         float.Parse(gridView2.GetRowCellValue(i, "ThanhTien").ToString())
                                         );
                         }
-                        
                     }
                     var query = from t in dTable.AsEnumerable()
                                 group t by new
@@ -285,7 +281,7 @@ namespace Production.Class
                                             grp.DonGiaSauDiscount,
                                             grp.VAT,
                                             grp.DonGiaSauVAT,
-                                            //grp.ThanhTien = grp.sum                            
+                                            //grp.ThanhTien = grp.sum
                                             grp.sum,
                                             string.Empty,
                                             0.00);
@@ -300,14 +296,11 @@ namespace Production.Class
                     args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
                     args.DefaultButtonIndex = 0;
                     args.Caption = "Không thực hiện được ";
-                    args.Text = "Dữ liệu bên trên đã tiến hành gởi xuất hóa đơn";
+                    args.Text = "Dữ liệu bên trên đã xuất hóa đơn trước đây";
                     args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                     XtraMessageBox.Show(args).ToString();
-                }                   
-                
+                }
             };
-
-                
 
             btnSendMail.Click += (s, e) =>
             {
@@ -357,7 +350,6 @@ namespace Production.Class
                     args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
                     XtraMessageBox.Show(args).ToString();
                 }
-
             };
             //Tra ket qua cho kach hang
             //Chi khi tat ca cac dong co gia tri cua TraKetQua = true thi moi xu ly
@@ -365,23 +357,23 @@ namespace Production.Class
             {
                 //if (gridView2.GetFocusedRowCellValue("GoiYCXuatHD").ToString() == "False")
                 //{
-                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất hóa đơn cho dữ liệu đã chọn bên trên ? . " +
-                            "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày yêu cầu xuất hóa đơn", "Xuất hóa đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dlDel == DialogResult.Yes)
-                    {
-                        foreach (int i in gridView2.GetSelectedRows())
-                        {
-                            KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i, "KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));
-                        }
-                        //Export
-                        gridView1.ExportToXlsx(path);
-                        System.Diagnostics.Process.Start(path);
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất hóa đơn cho dữ liệu đã chọn bên trên ? . " +
+                        "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày yêu cầu xuất hóa đơn", "Xuất hóa đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlDel == DialogResult.Yes)
+                {
+                    foreach (int i in gridView2.GetSelectedRows())
+                    {                        
+                            KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i, "KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));                     
                     }
-                //}               
+                    txtSubject.Text = "VIPHALAB : Yêu cầu xuất hóa đơn ngày "+ DateTime.Now.ToShortDateString().Replace("/", "_") + " cho khách hàng code " + OBJ.MaCoSoLayMau;
 
-
+                    //Export
+                    gridView1.ExportToXlsx(path);
+                    System.Diagnostics.Process.Start(path);
+                }
+                //}
             };
-            
+
             gridView2.RowClick += (s, e) =>
             {
                 gridViewRowClick = true;
@@ -409,13 +401,12 @@ namespace Production.Class
                 if (isAction == "Edit" || isChanged == "Changed")
                     // btnSave.Enabled = true;
                     isChanged = "Changed";
-            };                   
-                       
+            };
+
             dteNgayYCXuatHD.EditValueChanged += (s, e) =>
             {
                 //dteNgayDukienTra.ReadOnly = false;
-            };           
-                            
+            };
 
             lkeTenCoSoLayMau.ButtonClick += (s, e) =>
             {
@@ -459,32 +450,30 @@ namespace Production.Class
                 }
             };
 
-                lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
-            {
-                DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
-                DataRow row = rowView.Row;
-                txtDCCoSoLayMau.Text = row["CUSTADDRESS"].ToString();
-                txtEmailCoSoLayMau.Text = row["ContactEmail"].ToString();
-                txtPhoneCoSoLayMau.Text = row["CUSTPHONE"].ToString();
+            lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
+        {
+            DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
+            DataRow row = rowView.Row;
+            txtDCCoSoLayMau.Text = row["CUSTADDRESS"].ToString();
+            txtEmailCoSoLayMau.Text = row["ContactEmail"].ToString();
+            txtPhoneCoSoLayMau.Text = row["CUSTPHONE"].ToString();
                 //////////////////////////////////////////////////////////////////////////////////////////
-                OBJ.MaCoSoLayMau = row["CUSTCODE"].ToString();
-                OBJ.CUSTCODE_ID = int.Parse(row["Id"].ToString());
-                OBJ.DonViXuatHoaDon_ID = int.Parse(row["Id"].ToString());
-                
-            };
-           
+            OBJ.MaCoSoLayMau = row["CUSTCODE"].ToString();
+            OBJ.CUSTCODE_ID = int.Parse(row["Id"].ToString());
+            OBJ.DonViXuatHoaDon_ID = int.Parse(row["Id"].ToString());
+        };
+
             action_EndForm3.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close3));
             action_EndForm3.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save3));
-
         }
+
         private void ItemClickEventHandler_Save_KHMau(object sender, ItemClickEventArgs e)
         {
-            
-
         }
-            private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
+
+        private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
         {
-            //Set4ObjectHeader();            
+            //Set4ObjectHeader();
             //BUS.PXN_HeaderBUS_UPDATE(OBJ);
             Is_close = true;
             //this.Close();
@@ -514,17 +503,14 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Delete_KHMau(object sender, ItemClickEventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Update_KHMau(object sender, ItemClickEventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Add_KHMau(object sender, ItemClickEventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_Update(object sender, ItemClickEventArgs e)
@@ -575,7 +561,7 @@ namespace Production.Class
             //    chkH2O.CheckState = CheckState.Unchecked;
             //    chkH2O.ReadOnly = true;
             //}
-            
+
             dteNgayYCXuatHD.Text = OBJ.NgayNhanMau.ToString().Substring(0, 10);
             txtSoPXN.Text = OBJ.SoPXN;
             txtMSTCoSoGuiMau.Text = OBJ.MSTCoSoGuiMau;
@@ -609,7 +595,6 @@ namespace Production.Class
             //txtGioLayMauTuoi.Text = OBJ.GioLayMauTuoi;
             //txtKHMau.Text = OBJ.KHMau;
             //txtKhac.Text = OBJ.Khac;
-            
 
             //chkGEN
             //chkH2O
@@ -749,14 +734,14 @@ namespace Production.Class
             //if (chkPTN.CheckState == CheckState.Checked)
             //    OBJ.PTNThucHien = true;
             //else if (chkNTP.CheckState == CheckState.Checked)
-            //    OBJ.PTNThucHien = false;           
+            //    OBJ.PTNThucHien = false;
             //if (chkVN.CheckState == CheckState.Checked)
             //    OBJ.NgonNgu = "VN";
             //else if (chkEN.CheckState == CheckState.Checked)
             //    OBJ.NgonNgu = "EN";
-            
+
             OBJ.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
-            
+
             //OBJ.NgayCoKetQua = dteNgayCoKetQua.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayCoKetQua.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             //OBJ.NgayTraKetQua = dteNgayTraKetQua.Text.Length == 0 ? DateTime.Today : DateTime.Parse(dteNgayTraKetQua.Text, CultureInfo.CreateSpecificCulture("en-GB"));
         }
@@ -775,7 +760,7 @@ namespace Production.Class
             //txtID.ReadOnly = bl;
             //chkGEN.ReadOnly = bl;
             //chkH2O.ReadOnly = bl;
-            //chkHTH.ReadOnly = bl;            
+            //chkHTH.ReadOnly = bl;
             dteNgayYCXuatHD.ReadOnly = bl;
             txtSoPXN.ReadOnly = bl;
             txtMSTCoSoGuiMau.ReadOnly = bl;
@@ -809,7 +794,6 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
         {
-            
         }
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
@@ -828,13 +812,12 @@ namespace Production.Class
             frm.Close();
             //// Step 2 : Load lại data tren grid sau khi Add
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB' table. You can move, or remove it, as needed.
-            
+
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB' table. You can move, or remove it, as needed.
             //this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
 
             gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
             gridView2.BestFitColumns();
-
         }
 
         private void F_PRICELIST_Details_Load(object sender, EventArgs e)
@@ -846,8 +829,6 @@ namespace Production.Class
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB' table. You can move, or remove it, as needed.
             //this.tbl_EMPLOYEE_LABTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_EMPLOYEE_LAB);
         }
-
-
 
         //Send Mail
         private void SendMail(string[] TOList, string[] CCList, string subject, string attachedfilename)
@@ -875,12 +856,11 @@ namespace Production.Class
                 }
                 //XtraMessageBox.Show(CCList.Count<string>().ToString());
                 //mail.To.Add("dat.lt@olmixasia.com");
-                if(CCList.Count<string>() > 1)
+                if (CCList.Count<string>() > 1)
                 {
                     foreach (string _CC in CCList)
                         mail.CC.Add(_CC);
                 }
-                
 
                 //mail.CC.Add("dat.lt@olmixasia.com");
                 //mail.CC.Add("tuyet.ntb@olmixasia.com");

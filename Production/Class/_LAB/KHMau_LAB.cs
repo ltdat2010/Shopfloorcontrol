@@ -48,5 +48,7 @@ namespace Production.Class
         public string NguoiNhanBanGiaoMau { set; get; }
         public string NguoiGiaoBanGiaoMau { set; get; }
         public DateTime NgayBanGiaoMau { set; get; }
+        public bool LuuMau { set; get; }
+        public bool HuyMau { set; get; }
     }
 }

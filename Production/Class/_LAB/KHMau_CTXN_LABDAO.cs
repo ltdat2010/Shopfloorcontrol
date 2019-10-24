@@ -57,7 +57,7 @@ namespace Production.Class
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] SET " +
            "[KHMau_ID]                    = " + OBJ.KHMau_ID +
-           "[PriceList_Details_LAB_Id]                    = " + OBJ.PriceList_Details_LAB_Id +
+           ",[PriceList_Details_LAB_Id]                    = " + OBJ.PriceList_Details_LAB_Id +
            ",[CTXNID]                    = " + OBJ.CTXNID +
            ",[DonGia]                    = " + OBJ.DonGia +
            ",[DonGiaMuaNgoai]                    = " + OBJ.DonGiaMuaNgoai +

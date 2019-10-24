@@ -200,7 +200,7 @@ namespace Production.Class
                     
                     //CHEK PC Name
                     string PCname = System.Environment.MachineName;
-                    if (PCname == "VPV-ASL-SAMPLE")
+                    if (PCname == "vpv-lab-sample")
                         _iMG_FilePath = @"\\D:\SYNC_NUTRICIEL_IMG\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
                     else
                         _iMG_FilePath = @"X:\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
@@ -718,7 +718,7 @@ namespace Production.Class
             byte[] data = pic.Data;
             string path = string.Empty;
             //BinaryWriter writer = new BinaryWriter(File.OpenWrite(@"D:\Temp_Xml\IBD_IDEXX_" + filename + ".jpeg"));
-            if (PCname == "VPV-ASL-SAMPLE")
+            if (PCname == "vpv-lab-sample")
                 path = @"\\D:\SYNC_NUTRICIEL_IMG\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
             else
                 path = @"X:\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";

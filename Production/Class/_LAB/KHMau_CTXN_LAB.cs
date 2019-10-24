@@ -21,7 +21,11 @@ namespace Production.Class
         public bool Locked { get; set; }
         public float DonGia { get; set; }
         public float DonGiaMuaNgoai { get; set; }
-        public float ThanhTien { get; set; }
+        public float ThanhTien
+        {
+            get { return DonGiaSauDiscount * float.Parse(SoLuongXN); }
+            set { }
+        }
         public bool KetQua { get; set; }
         public string SoLuongDat { get; set; }
         public string SoLuongXN { get; set; }

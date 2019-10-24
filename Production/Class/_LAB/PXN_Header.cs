@@ -58,7 +58,10 @@ namespace Production.Class
             DateTime NgayTraTruoc,
             float SoTienTraTruoc,
             string NoiDungHoaDon,
-            int DonViXuatHoaDon_ID
+            int DonViXuatHoaDon_ID,
+            DateTime NgayGiaoMau,
+            string NguoiGiaoMau,
+            bool GiaoMau
 
             )
         {
@@ -118,6 +121,9 @@ namespace Production.Class
             this._NoiDungHoaDon = NoiDungHoaDon;
             this._NoiDungTraTruoc = NoiDungTraTruoc;
             this._DonViXuatHoaDon_ID = DonViXuatHoaDon_ID;
+            this._NgayGiaoMau = NgayGiaoMau;
+            this._NguoiGiaoMau = NguoiGiaoMau;
+            this._GiaoMau = GiaoMau;
         }
 
         public PXN_Header()
@@ -557,6 +563,30 @@ namespace Production.Class
         {
             get { return _DonViXuatHoaDon_ID; }
             set { _DonViXuatHoaDon_ID = value; }
+        }
+
+        private string _NguoiGiaoMau;
+
+        public string NguoiGiaoMau
+        {
+            get { return _NguoiGiaoMau; }
+            set { _NguoiGiaoMau = value; }
+        }
+
+        private DateTime _NgayGiaoMau;
+
+        public DateTime NgayGiaoMau
+        {
+            get { return _NgayGiaoMau; }
+            set { _NgayGiaoMau = value; }
+        }
+
+        private bool _GiaoMau;
+
+        public bool GiaoMau
+        {
+            get { return _GiaoMau; }
+            set { _GiaoMau = value; }
         }
     }
 }

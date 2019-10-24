@@ -86,9 +86,11 @@
             // 
             this.bar2.BarAppearance.Normal.BackColor = System.Drawing.Color.Transparent;
             this.bar2.BarAppearance.Normal.BorderColor = System.Drawing.Color.Transparent;
-            this.bar2.BarAppearance.Normal.ForeColor = System.Drawing.Color.Black;
+            this.bar2.BarAppearance.Normal.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar2.BarAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
             this.bar2.BarAppearance.Normal.Options.UseBackColor = true;
             this.bar2.BarAppearance.Normal.Options.UseBorderColor = true;
+            this.bar2.BarAppearance.Normal.Options.UseFont = true;
             this.bar2.BarAppearance.Normal.Options.UseForeColor = true;
             this.bar2.BarName = "Main menu";
             this.bar2.DockCol = 0;

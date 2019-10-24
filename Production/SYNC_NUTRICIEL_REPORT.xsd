@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SYNC_NUTRICIEL_REPORT" targetNamespace="http://tempuri.org/SYNC_NUTRICIEL_REPORT.xsd" xmlns:mstns="http://tempuri.org/SYNC_NUTRICIEL_REPORT.xsd" xmlns="http://tempuri.org/SYNC_NUTRICIEL_REPORT.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SYNC_NUTRICIELConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SYNC_NUTRICIELConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Production.Properties.Settings.GlobalReference.Default.SYNC_NUTRICIELConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BaoCao_PhieuNhanMauTableAdapter" GeneratorDataComponentClassName="BaoCao_PhieuNhanMauTableAdapter" Name="BaoCao_PhieuNhanMau" UserDataComponentName="BaoCao_PhieuNhanMauTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_NhanMau_Fr_To_Date" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData_BaoCao_NhanMau_Fr_To_Date" GeneratorSourceName="Fill_BaoCao_NhanMau_Fr_To_Date" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_NhanMau_Fr_To_Date" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData_BaoCao_NhanMau_Fr_To_Date" UserSourceName="Fill_BaoCao_NhanMau_Fr_To_Date">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue,
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung,
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, 
+                         tbl_KHMau_CTXN_LAB.NgayTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.DaTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.CTXNID, 
+                         tbl_PXN_Header.NgayNhanMau 
+                         FROM            tbl_KHMau_LAB 
+                         INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN 
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN 
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN 
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
+                         WHERE tbl_PXN_Header.NgayNhanMau &gt;= CONVERT(datetime, @Stardate, 103) 
+                                                AND tbl_PXN_Header.NgayNhanMau &lt;= CONVERT(datetime, @Enddate, 103) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Stardate" ColumnName="NgayNhanMau" DataSourceName="SYNC_NUTRICIEL.dbo.tbl_PXN_Header" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@Stardate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="NgayNhanMau" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Enddate" ColumnName="NgayNhanMau" DataSourceName="SYNC_NUTRICIEL.dbo.tbl_PXN_Header" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@Enddate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="NgayNhanMau" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="LoaiDVMauNuoc" DataSetColumn="LoaiDVMauNuoc" />
+              <Mapping SourceColumn="TenLoaiDV" DataSetColumn="TenLoaiDV" />
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="SoPXN" DataSetColumn="SoPXN" />
+              <Mapping SourceColumn="CreatedDate" DataSetColumn="CreatedDate" />
+              <Mapping SourceColumn="CreatedBy" DataSetColumn="CreatedBy" />
+              <Mapping SourceColumn="Locked" DataSetColumn="Locked" />
+              <Mapping SourceColumn="Note" DataSetColumn="Note" />
+              <Mapping SourceColumn="KHMau" DataSetColumn="KHMau" />
+              <Mapping SourceColumn="KHMau_KhachHang" DataSetColumn="KHMau_KhachHang" />
+              <Mapping SourceColumn="SoLuongKHMau" DataSetColumn="SoLuongKHMau" />
+              <Mapping SourceColumn="DonViKHMau" DataSetColumn="DonViKHMau" />
+              <Mapping SourceColumn="PhuongPhapBaoQuan" DataSetColumn="PhuongPhapBaoQuan" />
+              <Mapping SourceColumn="VitriLuuKHMau" DataSetColumn="VitriLuuKHMau" />
+              <Mapping SourceColumn="NgayLuuKHMau" DataSetColumn="NgayLuuKHMau" />
+              <Mapping SourceColumn="NhanVienLuuKHMau" DataSetColumn="NhanVienLuuKHMau" />
+              <Mapping SourceColumn="NgayHuyKHMau" DataSetColumn="NgayHuyKHMau" />
+              <Mapping SourceColumn="TaiLieuHuyKHMau" DataSetColumn="TaiLieuHuyKHMau" />
+              <Mapping SourceColumn="NhanVienHuyKHMau" DataSetColumn="NhanVienHuyKHMau" />
+              <Mapping SourceColumn="TrangThaiKHMau" DataSetColumn="TrangThaiKHMau" />
+              <Mapping SourceColumn="SoLuongHuyKHMau" DataSetColumn="SoLuongHuyKHMau" />
+              <Mapping SourceColumn="CTXN" DataSetColumn="CTXN" />
+              <Mapping SourceColumn="CTXNDG" DataSetColumn="CTXNDG" />
+              <Mapping SourceColumn="CTXNDGTA" DataSetColumn="CTXNDGTA" />
+              <Mapping SourceColumn="MinValue" DataSetColumn="MinValue" />
+              <Mapping SourceColumn="MaxValue" DataSetColumn="MaxValue" />
+              <Mapping SourceColumn="UnitValue" DataSetColumn="UnitValue" />
+              <Mapping SourceColumn="NCTXN" DataSetColumn="NCTXN" />
+              <Mapping SourceColumn="NCTXNDG" DataSetColumn="NCTXNDG" />
+              <Mapping SourceColumn="NhomChung" DataSetColumn="NhomChung" />
+              <Mapping SourceColumn="PPXN" DataSetColumn="PPXN" />
+              <Mapping SourceColumn="PPXNDG" DataSetColumn="PPXNDG" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="DonGia" DataSetColumn="DonGia" />
+              <Mapping SourceColumn="ThanhTien" DataSetColumn="ThanhTien" />
+              <Mapping SourceColumn="KetQua" DataSetColumn="KetQua" />
+              <Mapping SourceColumn="SoLuongDat" DataSetColumn="SoLuongDat" />
+              <Mapping SourceColumn="VAT" DataSetColumn="VAT" />
+              <Mapping SourceColumn="SoLuongXN" DataSetColumn="SoLuongXN" />
+              <Mapping SourceColumn="MotaMau" DataSetColumn="MotaMau" />
+              <Mapping SourceColumn="KHMau_GiaoMau" DataSetColumn="KHMau_GiaoMau" />
+              <Mapping SourceColumn="TTMauGui" DataSetColumn="TTMauGui" />
+              <Mapping SourceColumn="LoaiMauGui" DataSetColumn="LoaiMauGui" />
+              <Mapping SourceColumn="NgayLayMau" DataSetColumn="NgayLayMau" />
+              <Mapping SourceColumn="VTLayMauDayChuong" DataSetColumn="VTLayMauDayChuong" />
+              <Mapping SourceColumn="GioLayMauTuoi" DataSetColumn="GioLayMauTuoi" />
+              <Mapping SourceColumn="Khac" DataSetColumn="Khac" />
+              <Mapping SourceColumn="SoLuongKHMauKhongDat" DataSetColumn="SoLuongKHMauKhongDat" />
+              <Mapping SourceColumn="LiDoKHMauKhongDat" DataSetColumn="LiDoKHMauKhongDat" />
+              <Mapping SourceColumn="NgayTraKetQua" DataSetColumn="NgayTraKetQua" />
+              <Mapping SourceColumn="DaTraKetQua" DataSetColumn="DaTraKetQua" />
+              <Mapping SourceColumn="CTXNID" DataSetColumn="CTXNID" />
+              <Mapping SourceColumn="NgayNhanMau" DataSetColumn="NgayNhanMau" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PhieuNhamMau_Daily" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get_BaoCao_PhieuNhamMau_Daily" GeneratorSourceName="Fill_BaoCao_PhieuNhamMau_Daily" GetMethodModifier="Public" GetMethodName="Get_BaoCao_PhieuNhamMau_Daily" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Get_BaoCao_PhieuNhamMau_Daily" UserSourceName="Fill_BaoCao_PhieuNhamMau_Daily">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, 
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, 
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, 
+                         tbl_KHMau_CTXN_LAB.NgayTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.DaTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.CTXNID, 
+                         tbl_PXN_Header.NgayNhanMau 
+                         FROM            tbl_KHMau_LAB 
+                         INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN 
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN 
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN 
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
+                         WHERE  DateDiff(dd,getdate(),tbl_PXN_Header.NgayNhanMau) =  @dd</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="dd" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@dd" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PhieuNhanMau_Monthly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get_BaoCao_PhieuNhanMau_Monthly" GeneratorSourceName="Fill_BaoCao_PhieuNhanMau_Monthly" GetMethodModifier="Public" GetMethodName="Get_BaoCao_PhieuNhanMau_Monthly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Get_BaoCao_PhieuNhanMau_Monthly" UserSourceName="Fill_BaoCao_PhieuNhanMau_Monthly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, 
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, 
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, 
+                         tbl_KHMau_CTXN_LAB.NgayTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.DaTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.CTXNID, 
+                         tbl_PXN_Header.NgayNhanMau 
+                         FROM            tbl_KHMau_LAB 
+                         INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN 
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN 
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN 
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
+                         WHERE  DateDiff(mm,getdate(),tbl_PXN_Header.NgayNhanMau) =  @mm</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="mm" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@mm" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PhieuNhanMau_Quaterly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get_BaoCao_PhieuNhanMau_Quaterly" GeneratorSourceName="Fill_BaoCao_PhieuNhanMau_Quaterly" GetMethodModifier="Public" GetMethodName="Get_BaoCao_PhieuNhanMau_Quaterly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Get_BaoCao_PhieuNhanMau_Quaterly" UserSourceName="Fill_BaoCao_PhieuNhanMau_Quaterly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, 
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, 
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, 
+                         tbl_KHMau_CTXN_LAB.NgayTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.DaTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.CTXNID, 
+                         tbl_PXN_Header.NgayNhanMau 
+                         FROM            tbl_KHMau_LAB 
+                         INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN 
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN 
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN 
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
+                         WHERE  DateDiff(qq,getdate(),tbl_PXN_Header.NgayNhanMau) =  @qq</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="qq" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@qq" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PhieuNhanMau_Weekly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get_BaoCao_PhieuNhanMau_Weekly" GeneratorSourceName="Fill_BaoCao_PhieuNhanMau_Weekly" GetMethodModifier="Public" GetMethodName="Get_BaoCao_PhieuNhanMau_Weekly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Get_BaoCao_PhieuNhanMau_Weekly" UserSourceName="Fill_BaoCao_PhieuNhanMau_Weekly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, 
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, 
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, 
+                         tbl_KHMau_CTXN_LAB.NgayTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.DaTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.CTXNID, 
+                         tbl_PXN_Header.NgayNhanMau 
+                         FROM            tbl_KHMau_LAB 
+                         INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN 
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN 
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN 
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
+                         WHERE  DateDiff(wk,getdate(),tbl_PXN_Header.NgayNhanMau) =  @wk</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="wk" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@wk" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PhieuNhanMau_Yearly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Get_BaoCao_PhieuNhanMau_Yearly" GeneratorSourceName="Fill_BaoCao_PhieuNhanMau_Yearly" GetMethodModifier="Public" GetMethodName="Get_BaoCao_PhieuNhanMau_Yearly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Get_BaoCao_PhieuNhanMau_Yearly" UserSourceName="Fill_BaoCao_PhieuNhanMau_Yearly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbl_KHMau_LAB.LoaiDVMauNuoc, tbl_LoaiDV_LAB.TenLoaiDV, tbl_KHMau_LAB.ID, tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.CreatedDate, tbl_KHMau_LAB.CreatedBy, tbl_KHMau_LAB.Locked, tbl_KHMau_LAB.Note, 
+                         tbl_KHMau_LAB.KHMau, tbl_KHMau_LAB.KHMau_KhachHang, tbl_KHMau_LAB.SoLuongKHMau, tbl_KHMau_LAB.DonViKHMau, tbl_KHMau_LAB.PhuongPhapBaoQuan, tbl_KHMau_LAB.VitriLuuKHMau, 
+                         tbl_KHMau_LAB.NgayLuuKHMau, tbl_KHMau_LAB.NhanVienLuuKHMau, tbl_KHMau_LAB.NgayHuyKHMau, tbl_KHMau_LAB.TaiLieuHuyKHMau, tbl_KHMau_LAB.NhanVienHuyKHMau, tbl_KHMau_LAB.TrangThaiKHMau, 
+                         tbl_KHMau_LAB.SoLuongHuyKHMau, tbl_ChiTieuXetNghiem_LAB.CTXN, tbl_ChiTieuXetNghiem_LAB.CTXNDG, tbl_ChiTieuXetNghiem_LAB.CTXNDGTA, tbl_ChiTieuXetNghiem_LAB.MinValue, 
+                         tbl_ChiTieuXetNghiem_LAB.MaxValue, tbl_ChiTieuXetNghiem_LAB.UnitValue, tbl_NhomChiTieuXetNghiem_LAB.NCTXN, tbl_NhomChiTieuXetNghiem_LAB.NCTXNDG, tbl_NhomChiTieuXetNghiem_LAB.NhomChung, 
+                         tbl_PhuongPhapXetNghiem_LAB.PPXN, tbl_PhuongPhapXetNghiem_LAB.PPXNDG, tbl_KHMau_CTXN_LAB.KHMau AS Expr1, tbl_KHMau_CTXN_LAB.DonGia, tbl_KHMau_CTXN_LAB.ThanhTien, tbl_KHMau_CTXN_LAB.KetQua, 
+                         tbl_KHMau_CTXN_LAB.SoLuongDat, tbl_KHMau_CTXN_LAB.VAT, tbl_KHMau_CTXN_LAB.SoLuongXN, tbl_KHMau_LAB.MotaMau, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.TTMauGui, tbl_KHMau_LAB.LoaiMauGui, 
+                         tbl_KHMau_LAB.NgayLayMau, tbl_KHMau_LAB.VTLayMauDayChuong, tbl_KHMau_LAB.GioLayMauTuoi, tbl_KHMau_LAB.Khac, tbl_KHMau_LAB.SoLuongKHMauKhongDat, tbl_KHMau_LAB.LiDoKHMauKhongDat, 
+                         tbl_KHMau_CTXN_LAB.NgayTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.DaTraKetQua, 
+                         tbl_KHMau_CTXN_LAB.CTXNID, 
+                         tbl_PXN_Header.NgayNhanMau 
+                         FROM            tbl_KHMau_LAB 
+                         INNER JOIN tbl_PXN_Header ON tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN LEFT OUTER JOIN 
+                         tbl_KHMau_CTXN_LAB ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau LEFT OUTER JOIN 
+                         tbl_LoaiDV_LAB ON tbl_KHMau_LAB.LoaiDVMauNuoc = tbl_LoaiDV_LAB.MaLoaiDV LEFT OUTER JOIN 
+                         tbl_ChiTieuXetNghiem_LAB ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_NhomChiTieuXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID LEFT OUTER JOIN 
+                         tbl_PhuongPhapXetNghiem_LAB ON tbl_ChiTieuXetNghiem_LAB.PPXNID = tbl_PhuongPhapXetNghiem_LAB.ID 
+                         WHERE  DateDiff(yy,getdate(),tbl_PXN_Header.NgayNhanMau) =  @yy</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="yy" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@yy" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BaoCao_POTableAdapter" GeneratorDataComponentClassName="BaoCao_POTableAdapter" Name="BaoCao_PO" UserDataComponentName="BaoCao_POTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PO_TheoNgay" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData_BaoCao_PO_TheoNgay" GeneratorSourceName="Fill_BaoCao_PO_TheoNgay" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_PO_TheoNgay" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_PO_TheoNgay" UserSourceName="Fill_BaoCao_PO_TheoNgay">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select  
+                                                 tbl_PO_Header_LAB.SoPO as [Số PO], 
+                                                 tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], 
+                                                 tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], 
+                                                 tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP], 
+                                                 tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], 
+                                                 tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], 
+                                                 tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN], 
+                                                 tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], 
+                                                 tbl_PO_Lines_LAB.VAT as [VAT %], 
+                                                 tbl_PO_Lines_LAB.VAT as [Tiền thuế], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu], 
+                                                 tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ,
+                                                 tbl_PO_Header_LAB.Discount as [Giảm giá] 
+                                                From tbl_PO_Header_LAB 
+                                                INNER JOIN 
+                                                tbl_PO_Lines_LAB 
+                                                ON 
+                                                tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO 
+                                                INNER JOIN 
+                                                tbl_KHMau_CTXN_LAB 
+                                                ON 
+                                                tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID 
+                                                INNER JOIN 
+                                                tbl_ChiTieuXetNghiem_LAB 
+                                                ON 
+                                                tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                                                INNER JOIN 
+                                                tbl_KHMau_LAB 
+                                                ON 
+                                                tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau 
+                                                INNER JOIN 
+                                                tbl_PXN_Header 
+                                                ON 
+                                                tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN                                           
+                                                WHERE tbl_PO_Header_LAB.NgayLapPO &gt;= CONVERT(datetime, @Stardate, 103) 
+                                                AND tbl_PO_Header_LAB.NgayLapPO &lt;= CONVERT(datetime, @Enddate, 103) 
+                                                Order by tbl_PO_Header_LAB.SoPO DESC
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Stardate" ColumnName="NgayLapPO" DataSourceName="SYNC_NUTRICIEL.dbo.tbl_PO_Header_LAB" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@Stardate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Ngày PO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Enddate" ColumnName="NgayLapPO" DataSourceName="SYNC_NUTRICIEL.dbo.tbl_PO_Header_LAB" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@Enddate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Ngày PO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Số PO" DataSetColumn="Số PO" />
+              <Mapping SourceColumn="Ngày PO" DataSetColumn="Ngày PO" />
+              <Mapping SourceColumn="MÃ NHÀ CUNG CẤP" DataSetColumn="MÃ NHÀ CUNG CẤP" />
+              <Mapping SourceColumn="NHÀ CUNG CẤP" DataSetColumn="NHÀ CUNG CẤP" />
+              <Mapping SourceColumn="CODE MẪU" DataSetColumn="CODE MẪU" />
+              <Mapping SourceColumn="TÊN KHÁCH HÀNG" DataSetColumn="TÊN KHÁCH HÀNG" />
+              <Mapping SourceColumn="CODE XN" DataSetColumn="CODE XN" />
+              <Mapping SourceColumn="TÊN XÉT NGHIỆM" DataSetColumn="TÊN XÉT NGHIỆM" />
+              <Mapping SourceColumn="Đơn Giá chưa VAT" DataSetColumn="Đơn Giá chưa VAT" />
+              <Mapping SourceColumn="VAT %" DataSetColumn="VAT %" />
+              <Mapping SourceColumn="Tiền thuế" DataSetColumn="Tiền thuế" />
+              <Mapping SourceColumn="Thành tiền / mẫu" DataSetColumn="Thành tiền / mẫu" />
+              <Mapping SourceColumn="Tổng tiền" DataSetColumn="Tổng tiền" />
+              <Mapping SourceColumn="Giảm giá" DataSetColumn="Giảm giá" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PO_Daily" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_PO_Daily" GeneratorSourceName="Fill_BaoCao_PO_Daily" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_PO_Daily" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_PO_Daily" UserSourceName="Fill_BaoCao_PO_Daily">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select  
+                                                 tbl_PO_Header_LAB.SoPO as [Số PO],
+                                                 tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], 
+                                                 tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], 
+                                                 tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP],
+                                                 tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], 
+                                                 tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], 
+                                                 tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN],
+                                                 tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], 
+                                                 tbl_PO_Lines_LAB.VAT as [VAT %], 
+                                                 tbl_PO_Lines_LAB.VAT as [Tiền thuế], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu],
+                                                 tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ,
+                                                 tbl_PO_Header_LAB.Discount as [Giảm giá] 
+                                                 From tbl_PO_Header_LAB 
+                                                 INNER JOIN 
+                                                 tbl_PO_Lines_LAB 
+                                                 ON 
+                                                 tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO
+                                                 INNER JOIN 
+                                                 tbl_KHMau_CTXN_LAB 
+                                                 ON 
+                                                tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_ChiTieuXetNghiem_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_KHMau_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau 
+                                                 INNER JOIN 
+                                                 tbl_PXN_Header 
+                                                 ON 
+                                                 tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN 
+                                                 Where DateDiff(dd,tbl_PO_Header_LAB.NgayLapPO,getdate()) =  @dd
+                                                 Order by tbl_PO_Header_LAB.SoPO DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="dd" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@dd" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PO_Monthly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_PO_Monthly" GeneratorSourceName="Fill_BaoCao_PO_Monthly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_PO_Monthly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_PO_Monthly" UserSourceName="Fill_BaoCao_PO_Monthly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select  
+                                                 tbl_PO_Header_LAB.SoPO as [Số PO],
+                                                 tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], 
+                                                 tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], 
+                                                 tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP],
+                                                 tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], 
+                                                 tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], 
+                                                 tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN],
+                                                 tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], 
+                                                 tbl_PO_Lines_LAB.VAT as [VAT %], 
+                                                 tbl_PO_Lines_LAB.VAT as [Tiền thuế], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu],
+                                                 tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ,
+                                                 tbl_PO_Header_LAB.Discount as [Giảm giá] 
+                                                 From tbl_PO_Header_LAB 
+                                                 INNER JOIN 
+                                                 tbl_PO_Lines_LAB 
+                                                 ON 
+                                                 tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO
+                                                 INNER JOIN 
+                                                 tbl_KHMau_CTXN_LAB 
+                                                 ON 
+                                                tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_ChiTieuXetNghiem_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_KHMau_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau 
+                                                 INNER JOIN 
+                                                 tbl_PXN_Header 
+                                                 ON 
+                                                 tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN 
+                                                 Where DateDiff(mm,tbl_PO_Header_LAB.NgayLapPO,getdate()) =  @mm
+                                                 Order by tbl_PO_Header_LAB.SoPO DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="mm" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@mm" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PO_Quaterly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_PO_Quaterly" GeneratorSourceName="Fill_BaoCao_PO_Quaterly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_PO_Quaterly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_PO_Quaterly" UserSourceName="Fill_BaoCao_PO_Quaterly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select  
+                                                 tbl_PO_Header_LAB.SoPO as [Số PO],
+                                                 tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], 
+                                                 tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], 
+                                                 tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP],
+                                                 tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], 
+                                                 tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], 
+                                                 tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN],
+                                                 tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], 
+                                                 tbl_PO_Lines_LAB.VAT as [VAT %], 
+                                                 tbl_PO_Lines_LAB.VAT as [Tiền thuế], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu],
+                                                 tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ,
+                                                 tbl_PO_Header_LAB.Discount as [Giảm giá] 
+                                                 From tbl_PO_Header_LAB 
+                                                 INNER JOIN 
+                                                 tbl_PO_Lines_LAB 
+                                                 ON 
+                                                 tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO
+                                                 INNER JOIN 
+                                                 tbl_KHMau_CTXN_LAB 
+                                                 ON 
+                                                tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_ChiTieuXetNghiem_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_KHMau_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau 
+                                                 INNER JOIN 
+                                                 tbl_PXN_Header 
+                                                 ON 
+                                                 tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN 
+                                                 Where DateDiff(qq,tbl_PO_Header_LAB.NgayLapPO,getdate()) =  @qq
+                                                 Order by tbl_PO_Header_LAB.SoPO DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="qq" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@qq" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PO_Weekly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_PO_Weekly" GeneratorSourceName="Fill_BaoCao_PO_Weekly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_PO_Weekly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_PO_Weekly" UserSourceName="Fill_BaoCao_PO_Weekly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select  
+                                                 tbl_PO_Header_LAB.SoPO as [Số PO],
+                                                 tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], 
+                                                 tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], 
+                                                 tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP],
+                                                 tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], 
+                                                 tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], 
+                                                 tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN],
+                                                 tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], 
+                                                 tbl_PO_Lines_LAB.VAT as [VAT %], 
+                                                 tbl_PO_Lines_LAB.VAT as [Tiền thuế], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu],
+                                                 tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ,
+                                                 tbl_PO_Header_LAB.Discount as [Giảm giá] 
+                                                 From tbl_PO_Header_LAB 
+                                                 INNER JOIN 
+                                                 tbl_PO_Lines_LAB 
+                                                 ON 
+                                                 tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO
+                                                 INNER JOIN 
+                                                 tbl_KHMau_CTXN_LAB 
+                                                 ON 
+                                                tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_ChiTieuXetNghiem_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_KHMau_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau 
+                                                 INNER JOIN 
+                                                 tbl_PXN_Header 
+                                                 ON 
+                                                 tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN 
+                                                 Where DateDiff(wk,tbl_PO_Header_LAB.NgayLapPO,getdate()) =  @wk
+                                                 Order by tbl_PO_Header_LAB.SoPO DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="wk" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@wk" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_PO_Yearly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_PO_Yearly" GeneratorSourceName="Fill_BaoCao_PO_Yearly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_PO_Yearly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_PO_Yearly" UserSourceName="Fill_BaoCao_PO_Yearly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select  
+                                                 tbl_PO_Header_LAB.SoPO as [Số PO],
+                                                 tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], 
+                                                 tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], 
+                                                 tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP],
+                                                 tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], 
+                                                 tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], 
+                                                 tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN],
+                                                 tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], 
+                                                 tbl_PO_Lines_LAB.VAT as [VAT %], 
+                                                 tbl_PO_Lines_LAB.VAT as [Tiền thuế], 
+                                                 tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu],
+                                                 tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ,
+                                                 tbl_PO_Header_LAB.Discount as [Giảm giá] 
+                                                 From tbl_PO_Header_LAB 
+                                                 INNER JOIN 
+                                                 tbl_PO_Lines_LAB 
+                                                 ON 
+                                                 tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO
+                                                 INNER JOIN 
+                                                 tbl_KHMau_CTXN_LAB 
+                                                 ON 
+                                                tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_ChiTieuXetNghiem_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                                                 INNER JOIN 
+                                                 tbl_KHMau_LAB 
+                                                 ON 
+                                                 tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau 
+                                                 INNER JOIN 
+                                                 tbl_PXN_Header 
+                                                 ON 
+                                                 tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN 
+                                                 Where DateDiff(yy,tbl_PO_Header_LAB.NgayLapPO,getdate()) =  @yy
+                                                 Order by tbl_PO_Header_LAB.SoPO DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="yy" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@yy" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BaoCao_DichTeVungTableAdapter" GeneratorDataComponentClassName="BaoCao_DichTeVungTableAdapter" Name="BaoCao_DichTeVung" UserDataComponentName="BaoCao_DichTeVungTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_DichTeVung_mm_yy" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData_BaoCao_DichTeVung_mm_yy" GeneratorSourceName="Fill_BaoCao_DichTeVung_mm_yy" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_DichTeVung_mm_yy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData_BaoCao_DichTeVung_mm_yy" UserSourceName="Fill_BaoCao_DichTeVung_mm_yy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>						SELECT        
+						LEFT(tbl_PXN_Header.NgayTraKetQua,7) as ThangNam,						
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,
+						 tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,						 
+						 tbl_KHMau_LAB.DonViKHMau,
+						 SUM(CONVERT(float,tbl_KHMau_CTXN_LAB.SoLuongXN)) as SoLuongXN
+                          FROM            tbl_PXN_Header 
+                          INNER JOIN  tbl_KHMau_LAB  
+                          ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN 
+                          INNER JOIN tbl_KHMau_CTXN_LAB 
+                          ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau 
+                         INNER JOIN tbl_ChiTieuXetNghiem_LAB 
+                         ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_NhomChiTieuXetNghiem_LAB 
+                         ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_CUSTOMER_LAB
+                         ON tbl_PXN_Header.CUSTCODE_Id = tbl_CUSTOMER_LAB.Id
+                         INNER JOIN tbl_LOCATION_LAB
+                         ON tbl_CUSTOMER_LAB.LOCCode = tbl_LOCATION_LAB.LOCCode
+                         INNER JOIN tbl_EMPLOYEE_LAB
+                         ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id
+                         INNER JOIN tbl_CUSTOMERTYPE_LAB
+                         ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode                                                  
+                         WHERE RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua,7),2) = @mm
+                         AND         LEFT(tbl_PXN_Header.NgayTraKetQua,4) = @yy
+                         GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau
+						 Order by LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="mm" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@mm" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="yy" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@yy" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ThangNam" DataSetColumn="ThangNam" />
+              <Mapping SourceColumn="NCTXN" DataSetColumn="NCTXN" />
+              <Mapping SourceColumn="CTXN" DataSetColumn="CTXN" />
+              <Mapping SourceColumn="DichTeDan" DataSetColumn="DichTeDan" />
+              <Mapping SourceColumn="LOCName" DataSetColumn="LOCName" />
+              <Mapping SourceColumn="ProvinceName" DataSetColumn="ProvinceName" />
+              <Mapping SourceColumn="DonViKHMau" DataSetColumn="DonViKHMau" />
+              <Mapping SourceColumn="SoLuongXN" DataSetColumn="SoLuongXN" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_DichTeVung_Daily" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_BaoCao_DichTeVung_Daily" GeneratorSourceName="Fill_BaoCao_DichTeVung_Daily" GetMethodModifier="Public" GetMethodName="GetDataBy_BaoCao_DichTeVung_Daily" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_BaoCao_DichTeVung_Daily" UserSourceName="Fill_BaoCao_DichTeVung_Daily">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>						SELECT        
+						LEFT(tbl_PXN_Header.NgayTraKetQua,7) as ThangNam,						
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,
+						 tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,						 
+						 tbl_KHMau_LAB.DonViKHMau,
+						 SUM(CONVERT(float,tbl_KHMau_CTXN_LAB.SoLuongXN)) as SoLuongXN
+                          FROM            tbl_PXN_Header 
+                          INNER JOIN  tbl_KHMau_LAB  
+                          ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN 
+                          INNER JOIN tbl_KHMau_CTXN_LAB 
+                          ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau 
+                         INNER JOIN tbl_ChiTieuXetNghiem_LAB 
+                         ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_NhomChiTieuXetNghiem_LAB 
+                         ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_CUSTOMER_LAB
+                         ON tbl_PXN_Header.CUSTCODE_Id = tbl_CUSTOMER_LAB.Id
+                         INNER JOIN tbl_LOCATION_LAB
+                         ON tbl_CUSTOMER_LAB.LOCCode = tbl_LOCATION_LAB.LOCCode
+                         INNER JOIN tbl_EMPLOYEE_LAB
+                         ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id
+                         INNER JOIN tbl_CUSTOMERTYPE_LAB
+                         ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode                                                  
+                         WHERE DateDiff(dd,getdate(),tbl_PXN_Header.NgayTraKetQua) =  @dd
+						 --RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua,7),2) = '01'
+                         --AND         LEFT(tbl_PXN_Header.NgayTraKetQua,4) = '2019'
+                         GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau
+						 Order by LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="dd" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@dd" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_DichTeVung_Monthly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_DichTeVung_Monthly" GeneratorSourceName="Fill_BaoCao_DichTeVung_Monthly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_DichTeVung_Monthly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_DichTeVung_Monthly" UserSourceName="Fill_BaoCao_DichTeVung_Monthly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>						SELECT        
+						LEFT(tbl_PXN_Header.NgayTraKetQua,7) as ThangNam,						
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,
+						 tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,						 
+						 tbl_KHMau_LAB.DonViKHMau,
+						 SUM(CONVERT(float,tbl_KHMau_CTXN_LAB.SoLuongXN)) as SoLuongXN
+                          FROM            tbl_PXN_Header 
+                          INNER JOIN  tbl_KHMau_LAB  
+                          ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN 
+                          INNER JOIN tbl_KHMau_CTXN_LAB 
+                          ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau 
+                         INNER JOIN tbl_ChiTieuXetNghiem_LAB 
+                         ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_NhomChiTieuXetNghiem_LAB 
+                         ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_CUSTOMER_LAB
+                         ON tbl_PXN_Header.CUSTCODE_Id = tbl_CUSTOMER_LAB.Id
+                         INNER JOIN tbl_LOCATION_LAB
+                         ON tbl_CUSTOMER_LAB.LOCCode = tbl_LOCATION_LAB.LOCCode
+                         INNER JOIN tbl_EMPLOYEE_LAB
+                         ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id
+                         INNER JOIN tbl_CUSTOMERTYPE_LAB
+                         ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode                                                  
+                         WHERE DateDiff(mm,getdate(),tbl_PXN_Header.NgayTraKetQua) =  @mm
+						 --RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua,7),2) = '01'
+                         --AND         LEFT(tbl_PXN_Header.NgayTraKetQua,4) = '2019'
+                         GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau
+						 Order by LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="mm" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@mm" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_DichTeVung_Quaterly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_DichTeVung_Quaterly" GeneratorSourceName="Fill_BaoCao_DichTeVung_Quaterly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_DichTeVung_Quaterly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_DichTeVung_Quaterly" UserSourceName="Fill_BaoCao_DichTeVung_Quaterly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>						SELECT        
+						LEFT(tbl_PXN_Header.NgayTraKetQua,7) as ThangNam,						
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,
+						 tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,						 
+						 tbl_KHMau_LAB.DonViKHMau,
+						 SUM(CONVERT(float,tbl_KHMau_CTXN_LAB.SoLuongXN)) as SoLuongXN
+                          FROM            tbl_PXN_Header 
+                          INNER JOIN  tbl_KHMau_LAB  
+                          ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN 
+                          INNER JOIN tbl_KHMau_CTXN_LAB 
+                          ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau 
+                         INNER JOIN tbl_ChiTieuXetNghiem_LAB 
+                         ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_NhomChiTieuXetNghiem_LAB 
+                         ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_CUSTOMER_LAB
+                         ON tbl_PXN_Header.CUSTCODE_Id = tbl_CUSTOMER_LAB.Id
+                         INNER JOIN tbl_LOCATION_LAB
+                         ON tbl_CUSTOMER_LAB.LOCCode = tbl_LOCATION_LAB.LOCCode
+                         INNER JOIN tbl_EMPLOYEE_LAB
+                         ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id
+                         INNER JOIN tbl_CUSTOMERTYPE_LAB
+                         ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode                                                  
+                         WHERE DateDiff(qq,getdate(),tbl_PXN_Header.NgayTraKetQua) =  @qq
+						 --RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua,7),2) = '01'
+                         --AND         LEFT(tbl_PXN_Header.NgayTraKetQua,4) = '2019'
+                         GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau
+						 Order by LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="qq" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@qq" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_DichTeVung_Weekly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_DichTeVung_Weekly" GeneratorSourceName="Fill_BaoCao_DichTeVung_Weekly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_DichTeVung_Weekly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_DichTeVung_Weekly" UserSourceName="Fill_BaoCao_DichTeVung_Weekly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>						SELECT        
+						LEFT(tbl_PXN_Header.NgayTraKetQua,7) as ThangNam,						
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,
+						 tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,						 
+						 tbl_KHMau_LAB.DonViKHMau,
+						 SUM(CONVERT(float,tbl_KHMau_CTXN_LAB.SoLuongXN)) as SoLuongXN
+                          FROM            tbl_PXN_Header 
+                          INNER JOIN  tbl_KHMau_LAB  
+                          ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN 
+                          INNER JOIN tbl_KHMau_CTXN_LAB 
+                          ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau 
+                         INNER JOIN tbl_ChiTieuXetNghiem_LAB 
+                         ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_NhomChiTieuXetNghiem_LAB 
+                         ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_CUSTOMER_LAB
+                         ON tbl_PXN_Header.CUSTCODE_Id = tbl_CUSTOMER_LAB.Id
+                         INNER JOIN tbl_LOCATION_LAB
+                         ON tbl_CUSTOMER_LAB.LOCCode = tbl_LOCATION_LAB.LOCCode
+                         INNER JOIN tbl_EMPLOYEE_LAB
+                         ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id
+                         INNER JOIN tbl_CUSTOMERTYPE_LAB
+                         ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode                                                  
+                         WHERE DateDiff(wk,getdate(),tbl_PXN_Header.NgayTraKetQua) =  @wk
+						 --RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua,7),2) = '01'
+                         --AND         LEFT(tbl_PXN_Header.NgayTraKetQua,4) = '2019'
+                         GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau
+						 Order by LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="wk" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@wk" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="SYNC_NUTRICIELConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_BaoCao_DichTeVung_Yearly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData_BaoCao_DichTeVung_Yearly" GeneratorSourceName="Fill_BaoCao_DichTeVung_Yearly" GetMethodModifier="Public" GetMethodName="GetData_BaoCao_DichTeVung_Yearly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData_BaoCao_DichTeVung_Yearly" UserSourceName="Fill_BaoCao_DichTeVung_Yearly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>						SELECT        
+						LEFT(tbl_PXN_Header.NgayTraKetQua,7) as ThangNam,						
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,
+						 tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,						 
+						 tbl_KHMau_LAB.DonViKHMau,
+						 SUM(CONVERT(float,tbl_KHMau_CTXN_LAB.SoLuongXN)) as SoLuongXN
+                          FROM            tbl_PXN_Header 
+                          INNER JOIN  tbl_KHMau_LAB  
+                          ON tbl_PXN_Header.SoPXN = tbl_KHMau_LAB.SoPXN 
+                          INNER JOIN tbl_KHMau_CTXN_LAB 
+                          ON tbl_KHMau_LAB.KHMau = tbl_KHMau_CTXN_LAB.KHMau 
+                         INNER JOIN tbl_ChiTieuXetNghiem_LAB 
+                         ON tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_NhomChiTieuXetNghiem_LAB 
+                         ON tbl_ChiTieuXetNghiem_LAB.NCTXNID = tbl_NhomChiTieuXetNghiem_LAB.ID 
+                         INNER JOIN tbl_CUSTOMER_LAB
+                         ON tbl_PXN_Header.CUSTCODE_Id = tbl_CUSTOMER_LAB.Id
+                         INNER JOIN tbl_LOCATION_LAB
+                         ON tbl_CUSTOMER_LAB.LOCCode = tbl_LOCATION_LAB.LOCCode
+                         INNER JOIN tbl_EMPLOYEE_LAB
+                         ON tbl_PXN_Header.EMPCode_Id = tbl_EMPLOYEE_LAB.Id
+                         INNER JOIN tbl_CUSTOMERTYPE_LAB
+                         ON tbl_CUSTOMER_LAB.CUSTTYPECode = tbl_CUSTOMERTYPE_LAB.CUSTTYPECode                                                  
+                         WHERE DateDiff(yy,getdate(),tbl_PXN_Header.NgayTraKetQua) =  @yy
+						 --RIGHT(LEFT(tbl_PXN_Header.NgayTraKetQua,7),2) = '01'
+                         --AND         LEFT(tbl_PXN_Header.NgayTraKetQua,4) = '2019'
+                         GROUP BY LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau
+						 Order by LEFT(tbl_PXN_Header.NgayTraKetQua,7),					
+						tbl_NhomChiTieuXetNghiem_LAB.NCTXN,
+						tbl_ChiTieuXetNghiem_LAB.CTXN,
+						tbl_PXN_Header.DichTeDan,				
+						tbl_LOCATION_LAB.LOCName,
+						 tbl_CUSTOMER_LAB.ProvinceName,					 
+						 tbl_KHMau_LAB.DonViKHMau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="yy" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@yy" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SYNC_NUTRICIEL_REPORT" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SYNC_NUTRICIEL_REPORT" msprop:Generator_UserDSName="SYNC_NUTRICIEL_REPORT">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BaoCao_PhieuNhanMau" msprop:Generator_TableClassName="BaoCao_PhieuNhanMauDataTable" msprop:Generator_TableVarName="tableBaoCao_PhieuNhanMau" msprop:Generator_TablePropName="BaoCao_PhieuNhanMau" msprop:Generator_RowDeletingName="BaoCao_PhieuNhanMauRowDeleting" msprop:Generator_RowChangingName="BaoCao_PhieuNhanMauRowChanging" msprop:Generator_RowEvHandlerName="BaoCao_PhieuNhanMauRowChangeEventHandler" msprop:Generator_RowDeletedName="BaoCao_PhieuNhanMauRowDeleted" msprop:Generator_UserTableName="BaoCao_PhieuNhanMau" msprop:Generator_RowChangedName="BaoCao_PhieuNhanMauRowChanged" msprop:Generator_RowEvArgName="BaoCao_PhieuNhanMauRowChangeEvent" msprop:Generator_RowClassName="BaoCao_PhieuNhanMauRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LoaiDVMauNuoc" msprop:Generator_ColumnVarNameInTable="columnLoaiDVMauNuoc" msprop:Generator_ColumnPropNameInRow="LoaiDVMauNuoc" msprop:Generator_ColumnPropNameInTable="LoaiDVMauNuocColumn" msprop:Generator_UserColumnName="LoaiDVMauNuoc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenLoaiDV" msprop:Generator_ColumnVarNameInTable="columnTenLoaiDV" msprop:Generator_ColumnPropNameInRow="TenLoaiDV" msprop:Generator_ColumnPropNameInTable="TenLoaiDVColumn" msprop:Generator_UserColumnName="TenLoaiDV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="SoPXN" msprop:Generator_ColumnVarNameInTable="columnSoPXN" msprop:Generator_ColumnPropNameInRow="SoPXN" msprop:Generator_ColumnPropNameInTable="SoPXNColumn" msprop:Generator_UserColumnName="SoPXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreatedDate" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_UserColumnName="CreatedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCreatedBy" msprop:Generator_ColumnPropNameInRow="CreatedBy" msprop:Generator_ColumnPropNameInTable="CreatedByColumn" msprop:Generator_UserColumnName="CreatedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Locked" msprop:Generator_ColumnVarNameInTable="columnLocked" msprop:Generator_ColumnPropNameInRow="Locked" msprop:Generator_ColumnPropNameInTable="LockedColumn" msprop:Generator_UserColumnName="Locked" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KHMau" msprop:Generator_ColumnVarNameInTable="columnKHMau" msprop:Generator_ColumnPropNameInRow="KHMau" msprop:Generator_ColumnPropNameInTable="KHMauColumn" msprop:Generator_UserColumnName="KHMau">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KHMau_KhachHang" msprop:Generator_ColumnVarNameInTable="columnKHMau_KhachHang" msprop:Generator_ColumnPropNameInRow="KHMau_KhachHang" msprop:Generator_ColumnPropNameInTable="KHMau_KhachHangColumn" msprop:Generator_UserColumnName="KHMau_KhachHang" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SoLuongKHMau" msprop:Generator_ColumnVarNameInTable="columnSoLuongKHMau" msprop:Generator_ColumnPropNameInRow="SoLuongKHMau" msprop:Generator_ColumnPropNameInTable="SoLuongKHMauColumn" msprop:Generator_UserColumnName="SoLuongKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DonViKHMau" msprop:Generator_ColumnVarNameInTable="columnDonViKHMau" msprop:Generator_ColumnPropNameInRow="DonViKHMau" msprop:Generator_ColumnPropNameInTable="DonViKHMauColumn" msprop:Generator_UserColumnName="DonViKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PhuongPhapBaoQuan" msprop:Generator_ColumnVarNameInTable="columnPhuongPhapBaoQuan" msprop:Generator_ColumnPropNameInRow="PhuongPhapBaoQuan" msprop:Generator_ColumnPropNameInTable="PhuongPhapBaoQuanColumn" msprop:Generator_UserColumnName="PhuongPhapBaoQuan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VitriLuuKHMau" msprop:Generator_ColumnVarNameInTable="columnVitriLuuKHMau" msprop:Generator_ColumnPropNameInRow="VitriLuuKHMau" msprop:Generator_ColumnPropNameInTable="VitriLuuKHMauColumn" msprop:Generator_UserColumnName="VitriLuuKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayLuuKHMau" msprop:Generator_ColumnVarNameInTable="columnNgayLuuKHMau" msprop:Generator_ColumnPropNameInRow="NgayLuuKHMau" msprop:Generator_ColumnPropNameInTable="NgayLuuKHMauColumn" msprop:Generator_UserColumnName="NgayLuuKHMau" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NhanVienLuuKHMau" msprop:Generator_ColumnVarNameInTable="columnNhanVienLuuKHMau" msprop:Generator_ColumnPropNameInRow="NhanVienLuuKHMau" msprop:Generator_ColumnPropNameInTable="NhanVienLuuKHMauColumn" msprop:Generator_UserColumnName="NhanVienLuuKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayHuyKHMau" msprop:Generator_ColumnVarNameInTable="columnNgayHuyKHMau" msprop:Generator_ColumnPropNameInRow="NgayHuyKHMau" msprop:Generator_ColumnPropNameInTable="NgayHuyKHMauColumn" msprop:Generator_UserColumnName="NgayHuyKHMau" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TaiLieuHuyKHMau" msprop:Generator_ColumnVarNameInTable="columnTaiLieuHuyKHMau" msprop:Generator_ColumnPropNameInRow="TaiLieuHuyKHMau" msprop:Generator_ColumnPropNameInTable="TaiLieuHuyKHMauColumn" msprop:Generator_UserColumnName="TaiLieuHuyKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NhanVienHuyKHMau" msprop:Generator_ColumnVarNameInTable="columnNhanVienHuyKHMau" msprop:Generator_ColumnPropNameInRow="NhanVienHuyKHMau" msprop:Generator_ColumnPropNameInTable="NhanVienHuyKHMauColumn" msprop:Generator_UserColumnName="NhanVienHuyKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TrangThaiKHMau" msprop:Generator_ColumnVarNameInTable="columnTrangThaiKHMau" msprop:Generator_ColumnPropNameInRow="TrangThaiKHMau" msprop:Generator_ColumnPropNameInTable="TrangThaiKHMauColumn" msprop:Generator_UserColumnName="TrangThaiKHMau" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SoLuongHuyKHMau" msprop:Generator_ColumnVarNameInTable="columnSoLuongHuyKHMau" msprop:Generator_ColumnPropNameInRow="SoLuongHuyKHMau" msprop:Generator_ColumnPropNameInTable="SoLuongHuyKHMauColumn" msprop:Generator_UserColumnName="SoLuongHuyKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CTXN" msprop:Generator_ColumnVarNameInTable="columnCTXN" msprop:Generator_ColumnPropNameInRow="CTXN" msprop:Generator_ColumnPropNameInTable="CTXNColumn" msprop:Generator_UserColumnName="CTXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CTXNDG" msprop:Generator_ColumnVarNameInTable="columnCTXNDG" msprop:Generator_ColumnPropNameInRow="CTXNDG" msprop:Generator_ColumnPropNameInTable="CTXNDGColumn" msprop:Generator_UserColumnName="CTXNDG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CTXNDGTA" msprop:Generator_ColumnVarNameInTable="columnCTXNDGTA" msprop:Generator_ColumnPropNameInRow="CTXNDGTA" msprop:Generator_ColumnPropNameInTable="CTXNDGTAColumn" msprop:Generator_UserColumnName="CTXNDGTA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MinValue" msprop:Generator_ColumnVarNameInTable="columnMinValue" msprop:Generator_ColumnPropNameInRow="MinValue" msprop:Generator_ColumnPropNameInTable="MinValueColumn" msprop:Generator_UserColumnName="MinValue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaxValue" msprop:Generator_ColumnVarNameInTable="columnMaxValue" msprop:Generator_ColumnPropNameInRow="MaxValue" msprop:Generator_ColumnPropNameInTable="MaxValueColumn" msprop:Generator_UserColumnName="MaxValue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnitValue" msprop:Generator_ColumnVarNameInTable="columnUnitValue" msprop:Generator_ColumnPropNameInRow="UnitValue" msprop:Generator_ColumnPropNameInTable="UnitValueColumn" msprop:Generator_UserColumnName="UnitValue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NCTXN" msprop:Generator_ColumnVarNameInTable="columnNCTXN" msprop:Generator_ColumnPropNameInRow="NCTXN" msprop:Generator_ColumnPropNameInTable="NCTXNColumn" msprop:Generator_UserColumnName="NCTXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NCTXNDG" msprop:Generator_ColumnVarNameInTable="columnNCTXNDG" msprop:Generator_ColumnPropNameInRow="NCTXNDG" msprop:Generator_ColumnPropNameInTable="NCTXNDGColumn" msprop:Generator_UserColumnName="NCTXNDG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NhomChung" msprop:Generator_ColumnVarNameInTable="columnNhomChung" msprop:Generator_ColumnPropNameInRow="NhomChung" msprop:Generator_ColumnPropNameInTable="NhomChungColumn" msprop:Generator_UserColumnName="NhomChung" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PPXN" msprop:Generator_ColumnVarNameInTable="columnPPXN" msprop:Generator_ColumnPropNameInRow="PPXN" msprop:Generator_ColumnPropNameInTable="PPXNColumn" msprop:Generator_UserColumnName="PPXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PPXNDG" msprop:Generator_ColumnVarNameInTable="columnPPXNDG" msprop:Generator_ColumnPropNameInRow="PPXNDG" msprop:Generator_ColumnPropNameInTable="PPXNDGColumn" msprop:Generator_UserColumnName="PPXNDG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DonGia" msprop:Generator_ColumnVarNameInTable="columnDonGia" msprop:Generator_ColumnPropNameInRow="DonGia" msprop:Generator_ColumnPropNameInTable="DonGiaColumn" msprop:Generator_UserColumnName="DonGia" type="xs:double" minOccurs="0" />
+              <xs:element name="ThanhTien" msprop:Generator_ColumnVarNameInTable="columnThanhTien" msprop:Generator_ColumnPropNameInRow="ThanhTien" msprop:Generator_ColumnPropNameInTable="ThanhTienColumn" msprop:Generator_UserColumnName="ThanhTien" type="xs:double" minOccurs="0" />
+              <xs:element name="KetQua" msprop:Generator_ColumnVarNameInTable="columnKetQua" msprop:Generator_ColumnPropNameInRow="KetQua" msprop:Generator_ColumnPropNameInTable="KetQuaColumn" msprop:Generator_UserColumnName="KetQua" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SoLuongDat" msprop:Generator_ColumnVarNameInTable="columnSoLuongDat" msprop:Generator_ColumnPropNameInRow="SoLuongDat" msprop:Generator_ColumnPropNameInTable="SoLuongDatColumn" msprop:Generator_UserColumnName="SoLuongDat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VAT" msprop:Generator_ColumnVarNameInTable="columnVAT" msprop:Generator_ColumnPropNameInRow="VAT" msprop:Generator_ColumnPropNameInTable="VATColumn" msprop:Generator_UserColumnName="VAT" type="xs:double" minOccurs="0" />
+              <xs:element name="SoLuongXN" msprop:Generator_ColumnVarNameInTable="columnSoLuongXN" msprop:Generator_ColumnPropNameInRow="SoLuongXN" msprop:Generator_ColumnPropNameInTable="SoLuongXNColumn" msprop:Generator_UserColumnName="SoLuongXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MotaMau" msprop:Generator_ColumnVarNameInTable="columnMotaMau" msprop:Generator_ColumnPropNameInRow="MotaMau" msprop:Generator_ColumnPropNameInTable="MotaMauColumn" msprop:Generator_UserColumnName="MotaMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KHMau_GiaoMau" msprop:Generator_ColumnVarNameInTable="columnKHMau_GiaoMau" msprop:Generator_ColumnPropNameInRow="KHMau_GiaoMau" msprop:Generator_ColumnPropNameInTable="KHMau_GiaoMauColumn" msprop:Generator_UserColumnName="KHMau_GiaoMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TTMauGui" msprop:Generator_ColumnVarNameInTable="columnTTMauGui" msprop:Generator_ColumnPropNameInRow="TTMauGui" msprop:Generator_ColumnPropNameInTable="TTMauGuiColumn" msprop:Generator_UserColumnName="TTMauGui" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LoaiMauGui" msprop:Generator_ColumnVarNameInTable="columnLoaiMauGui" msprop:Generator_ColumnPropNameInRow="LoaiMauGui" msprop:Generator_ColumnPropNameInTable="LoaiMauGuiColumn" msprop:Generator_UserColumnName="LoaiMauGui" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayLayMau" msprop:Generator_ColumnVarNameInTable="columnNgayLayMau" msprop:Generator_ColumnPropNameInRow="NgayLayMau" msprop:Generator_ColumnPropNameInTable="NgayLayMauColumn" msprop:Generator_UserColumnName="NgayLayMau" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="VTLayMauDayChuong" msprop:Generator_ColumnVarNameInTable="columnVTLayMauDayChuong" msprop:Generator_ColumnPropNameInRow="VTLayMauDayChuong" msprop:Generator_ColumnPropNameInTable="VTLayMauDayChuongColumn" msprop:Generator_UserColumnName="VTLayMauDayChuong" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GioLayMauTuoi" msprop:Generator_ColumnVarNameInTable="columnGioLayMauTuoi" msprop:Generator_ColumnPropNameInRow="GioLayMauTuoi" msprop:Generator_ColumnPropNameInTable="GioLayMauTuoiColumn" msprop:Generator_UserColumnName="GioLayMauTuoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Khac" msprop:Generator_ColumnVarNameInTable="columnKhac" msprop:Generator_ColumnPropNameInRow="Khac" msprop:Generator_ColumnPropNameInTable="KhacColumn" msprop:Generator_UserColumnName="Khac" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SoLuongKHMauKhongDat" msprop:Generator_ColumnVarNameInTable="columnSoLuongKHMauKhongDat" msprop:Generator_ColumnPropNameInRow="SoLuongKHMauKhongDat" msprop:Generator_ColumnPropNameInTable="SoLuongKHMauKhongDatColumn" msprop:Generator_UserColumnName="SoLuongKHMauKhongDat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LiDoKHMauKhongDat" msprop:Generator_ColumnVarNameInTable="columnLiDoKHMauKhongDat" msprop:Generator_ColumnPropNameInRow="LiDoKHMauKhongDat" msprop:Generator_ColumnPropNameInTable="LiDoKHMauKhongDatColumn" msprop:Generator_UserColumnName="LiDoKHMauKhongDat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NgayTraKetQua" msprop:Generator_ColumnVarNameInTable="columnNgayTraKetQua" msprop:Generator_ColumnPropNameInRow="NgayTraKetQua" msprop:Generator_ColumnPropNameInTable="NgayTraKetQuaColumn" msprop:Generator_UserColumnName="NgayTraKetQua" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DaTraKetQua" msprop:Generator_ColumnVarNameInTable="columnDaTraKetQua" msprop:Generator_ColumnPropNameInRow="DaTraKetQua" msprop:Generator_ColumnPropNameInTable="DaTraKetQuaColumn" msprop:Generator_UserColumnName="DaTraKetQua" type="xs:boolean" minOccurs="0" />
+              <xs:element name="CTXNID" msprop:Generator_ColumnVarNameInTable="columnCTXNID" msprop:Generator_ColumnPropNameInRow="CTXNID" msprop:Generator_ColumnPropNameInTable="CTXNIDColumn" msprop:Generator_UserColumnName="CTXNID" type="xs:int" minOccurs="0" />
+              <xs:element name="NgayNhanMau" msprop:Generator_ColumnVarNameInTable="columnNgayNhanMau" msprop:Generator_ColumnPropNameInRow="NgayNhanMau" msprop:Generator_ColumnPropNameInTable="NgayNhanMauColumn" msprop:Generator_UserColumnName="NgayNhanMau" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BaoCao_PO" msprop:Generator_TableClassName="BaoCao_PODataTable" msprop:Generator_TableVarName="tableBaoCao_PO" msprop:Generator_RowChangedName="BaoCao_PORowChanged" msprop:Generator_TablePropName="BaoCao_PO" msprop:Generator_RowDeletingName="BaoCao_PORowDeleting" msprop:Generator_RowChangingName="BaoCao_PORowChanging" msprop:Generator_RowEvHandlerName="BaoCao_PORowChangeEventHandler" msprop:Generator_RowDeletedName="BaoCao_PORowDeleted" msprop:Generator_RowClassName="BaoCao_PORow" msprop:Generator_UserTableName="BaoCao_PO" msprop:Generator_RowEvArgName="BaoCao_PORowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Số_x0020_PO" msprop:Generator_ColumnVarNameInTable="columnSố_PO" msprop:Generator_ColumnPropNameInRow="Số_PO" msprop:Generator_ColumnPropNameInTable="Số_POColumn" msprop:Generator_UserColumnName="Số PO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ngày_x0020_PO" msprop:Generator_ColumnVarNameInTable="columnNgày_PO" msprop:Generator_ColumnPropNameInRow="Ngày_PO" msprop:Generator_ColumnPropNameInTable="Ngày_POColumn" msprop:Generator_UserColumnName="Ngày PO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MÃ_x0020_NHÀ_x0020_CUNG_x0020_CẤP" msprop:Generator_ColumnVarNameInTable="columnMÃ_NHÀ_CUNG_CẤP" msprop:Generator_ColumnPropNameInRow="MÃ_NHÀ_CUNG_CẤP" msprop:Generator_ColumnPropNameInTable="MÃ_NHÀ_CUNG_CẤPColumn" msprop:Generator_UserColumnName="MÃ NHÀ CUNG CẤP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NHÀ_x0020_CUNG_x0020_CẤP" msprop:Generator_ColumnVarNameInTable="columnNHÀ_CUNG_CẤP" msprop:Generator_ColumnPropNameInRow="NHÀ_CUNG_CẤP" msprop:Generator_ColumnPropNameInTable="NHÀ_CUNG_CẤPColumn" msprop:Generator_UserColumnName="NHÀ CUNG CẤP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE_x0020_MẪU" msprop:Generator_ColumnVarNameInTable="columnCODE_MẪU" msprop:Generator_ColumnPropNameInRow="CODE_MẪU" msprop:Generator_ColumnPropNameInTable="CODE_MẪUColumn" msprop:Generator_UserColumnName="CODE MẪU" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TÊN_x0020_KHÁCH_x0020_HÀNG" msprop:Generator_ColumnVarNameInTable="columnTÊN_KHÁCH_HÀNG" msprop:Generator_ColumnPropNameInRow="TÊN_KHÁCH_HÀNG" msprop:Generator_ColumnPropNameInTable="TÊN_KHÁCH_HÀNGColumn" msprop:Generator_UserColumnName="TÊN KHÁCH HÀNG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE_x0020_XN" msprop:Generator_ColumnVarNameInTable="columnCODE_XN" msprop:Generator_ColumnPropNameInRow="CODE_XN" msprop:Generator_ColumnPropNameInTable="CODE_XNColumn" msprop:Generator_UserColumnName="CODE XN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TÊN_x0020_XÉT_x0020_NGHIỆM" msprop:Generator_ColumnVarNameInTable="columnTÊN_XÉT_NGHIỆM" msprop:Generator_ColumnPropNameInRow="TÊN_XÉT_NGHIỆM" msprop:Generator_ColumnPropNameInTable="TÊN_XÉT_NGHIỆMColumn" msprop:Generator_UserColumnName="TÊN XÉT NGHIỆM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Đơn_x0020_Giá_x0020_chưa_x0020_VAT" msprop:Generator_ColumnVarNameInTable="columnĐơn_Giá_chưa_VAT" msprop:Generator_ColumnPropNameInRow="Đơn_Giá_chưa_VAT" msprop:Generator_ColumnPropNameInTable="Đơn_Giá_chưa_VATColumn" msprop:Generator_UserColumnName="Đơn Giá chưa VAT" type="xs:double" minOccurs="0" />
+              <xs:element name="VAT_x0020__x0025_" msprop:Generator_ColumnVarNameInTable="_columnVAT__" msprop:Generator_ColumnPropNameInRow="_VAT__" msprop:Generator_ColumnPropNameInTable="_VAT__Column" msprop:Generator_UserColumnName="VAT %" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tiền_x0020_thuế" msprop:Generator_ColumnVarNameInTable="columnTiền_thuế" msprop:Generator_ColumnPropNameInRow="Tiền_thuế" msprop:Generator_ColumnPropNameInTable="Tiền_thuếColumn" msprop:Generator_UserColumnName="Tiền thuế" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Thành_x0020_tiền_x0020__x002F__x0020_mẫu" msprop:Generator_ColumnVarNameInTable="_columnThành_tiền___mẫu" msprop:Generator_ColumnPropNameInRow="_Thành_tiền___mẫu" msprop:Generator_ColumnPropNameInTable="_Thành_tiền___mẫuColumn" msprop:Generator_UserColumnName="Thành tiền / mẫu" type="xs:double" minOccurs="0" />
+              <xs:element name="Tổng_x0020_tiền" msprop:Generator_ColumnVarNameInTable="columnTổng_tiền" msprop:Generator_ColumnPropNameInRow="Tổng_tiền" msprop:Generator_ColumnPropNameInTable="Tổng_tiềnColumn" msprop:Generator_UserColumnName="Tổng tiền" type="xs:double" minOccurs="0" />
+              <xs:element name="Giảm_x0020_giá" msprop:Generator_ColumnVarNameInTable="columnGiảm_giá" msprop:Generator_ColumnPropNameInRow="Giảm_giá" msprop:Generator_ColumnPropNameInTable="Giảm_giáColumn" msprop:Generator_UserColumnName="Giảm giá" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BaoCao_DichTeVung" msprop:Generator_TableClassName="BaoCao_DichTeVungDataTable" msprop:Generator_TableVarName="tableBaoCao_DichTeVung" msprop:Generator_RowChangedName="BaoCao_DichTeVungRowChanged" msprop:Generator_TablePropName="BaoCao_DichTeVung" msprop:Generator_RowDeletingName="BaoCao_DichTeVungRowDeleting" msprop:Generator_RowChangingName="BaoCao_DichTeVungRowChanging" msprop:Generator_RowEvHandlerName="BaoCao_DichTeVungRowChangeEventHandler" msprop:Generator_RowDeletedName="BaoCao_DichTeVungRowDeleted" msprop:Generator_RowClassName="BaoCao_DichTeVungRow" msprop:Generator_UserTableName="BaoCao_DichTeVung" msprop:Generator_RowEvArgName="BaoCao_DichTeVungRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ThangNam" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnThangNam" msprop:Generator_ColumnPropNameInRow="ThangNam" msprop:Generator_ColumnPropNameInTable="ThangNamColumn" msprop:Generator_UserColumnName="ThangNam" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NCTXN" msprop:Generator_ColumnVarNameInTable="columnNCTXN" msprop:Generator_ColumnPropNameInRow="NCTXN" msprop:Generator_ColumnPropNameInTable="NCTXNColumn" msprop:Generator_UserColumnName="NCTXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CTXN" msprop:Generator_ColumnVarNameInTable="columnCTXN" msprop:Generator_ColumnPropNameInRow="CTXN" msprop:Generator_ColumnPropNameInTable="CTXNColumn" msprop:Generator_UserColumnName="CTXN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DichTeDan" msprop:Generator_ColumnVarNameInTable="columnDichTeDan" msprop:Generator_ColumnPropNameInRow="DichTeDan" msprop:Generator_ColumnPropNameInTable="DichTeDanColumn" msprop:Generator_UserColumnName="DichTeDan" type="xs:boolean" minOccurs="0" />
+              <xs:element name="LOCName" msprop:Generator_ColumnVarNameInTable="columnLOCName" msprop:Generator_ColumnPropNameInRow="LOCName" msprop:Generator_ColumnPropNameInTable="LOCNameColumn" msprop:Generator_UserColumnName="LOCName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProvinceName" msprop:Generator_ColumnVarNameInTable="columnProvinceName" msprop:Generator_ColumnPropNameInRow="ProvinceName" msprop:Generator_ColumnPropNameInTable="ProvinceNameColumn" msprop:Generator_UserColumnName="ProvinceName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DonViKHMau" msprop:Generator_ColumnVarNameInTable="columnDonViKHMau" msprop:Generator_ColumnPropNameInRow="DonViKHMau" msprop:Generator_ColumnPropNameInTable="DonViKHMauColumn" msprop:Generator_UserColumnName="DonViKHMau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SoLuongXN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSoLuongXN" msprop:Generator_ColumnPropNameInRow="SoLuongXN" msprop:Generator_ColumnPropNameInTable="SoLuongXNColumn" msprop:Generator_UserColumnName="SoLuongXN" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

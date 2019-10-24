@@ -114,9 +114,227 @@ namespace Production.Class
                                                 " INNER JOIN " +
                                                 " tbl_PXN_Header " +
                                                 " ON " +
-                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +
+                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +                                                
                                                 " WHERE tbl_PO_Header_LAB.NgayLapPO >= CONVERT(datetime, '" + Stardate + "', 103) " +
                                                 " AND tbl_PO_Header_LAB.NgayLapPO <= CONVERT(datetime, '" + Enddate + "', 103) " +
+                                                " Order by tbl_PO_Header_LAB.SoPO DESC", CommandType.Text);
+        }
+
+        public DataTable PO_List_Report_Daily()
+        {
+            return Sql.ExecuteDataTable("SAP", "Select  " +
+                                                 " tbl_PO_Header_LAB.SoPO as [Số PO], " +
+                                                 " tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], " +
+                                                 " tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], " +
+                                                 " tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP], " +
+                                                 " tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], " +
+                                                 " tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [VAT %], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [Tiền thuế], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu], " +
+                                                 " tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ," +
+                                                 " tbl_PO_Header_LAB.Discount as [Giảm giá] " +
+                                                " From tbl_PO_Header_LAB " +
+                                                " INNER JOIN " +
+                                                " tbl_PO_Lines_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_CTXN_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_ChiTieuXetNghiem_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau " +
+                                                " INNER JOIN " +
+                                                " tbl_PXN_Header " +
+                                                " ON " +
+                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +
+                                                " WHERE tbl_PO_Header_LAB.NgayLapPO = GETDATE() " +
+                                                //" AND tbl_PO_Header_LAB.NgayLapPO <= CONVERT(datetime, '" + Enddate + "', 103) " +
+                                                " Order by tbl_PO_Header_LAB.SoPO DESC", CommandType.Text);
+        }
+
+        //Previous Week: DateDiff(wk, getdate(), datefield) = -1
+        //Current Week: DateDiff(wk, getdate(), datefield) =  0
+        //Next Week: DateDiff(wk, getdate(), datefield) =  1      
+
+        public DataTable PO_List_Report_Weekly(int i)
+        {
+            return Sql.ExecuteDataTable("SAP", "Select  " +
+                                                 " tbl_PO_Header_LAB.SoPO as [Số PO], " +
+                                                 " tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], " +
+                                                 " tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], " +
+                                                 " tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP], " +
+                                                 " tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], " +
+                                                 " tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [VAT %], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [Tiền thuế], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu], " +
+                                                 " tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ," +
+                                                 " tbl_PO_Header_LAB.Discount as [Giảm giá] " +
+                                                " From tbl_PO_Header_LAB " +
+                                                " INNER JOIN " +
+                                                " tbl_PO_Lines_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_CTXN_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_ChiTieuXetNghiem_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau " +
+                                                " INNER JOIN " +
+                                                " tbl_PXN_Header " +
+                                                " ON " +
+                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +
+                                                " Where DateDiff(wk,tbl_PO_Header_LAB.NgayLapPO,getdate()) = " + i +
+                                                " Order by tbl_PO_Header_LAB.SoPO DESC", CommandType.Text);
+        }
+
+        //Previous Month: DateDiff(mm, getdate(), datefield) = -1
+        //Current Month: DateDiff(mm, getdate(), datefield) =  0
+        //Next Month: DateDiff(mm, getdate(), datefield) =  1
+        public DataTable PO_List_Report_Monthly(int i)
+        {
+            return Sql.ExecuteDataTable("SAP", "Select  " +
+                                                 " tbl_PO_Header_LAB.SoPO as [Số PO], " +
+                                                 " tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], " +
+                                                 " tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], " +
+                                                 " tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP], " +
+                                                 " tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], " +
+                                                 " tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [VAT %], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [Tiền thuế], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu], " +
+                                                 " tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ," +
+                                                 " tbl_PO_Header_LAB.Discount as [Giảm giá] " +
+                                                " From tbl_PO_Header_LAB " +
+                                                " INNER JOIN " +
+                                                " tbl_PO_Lines_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_CTXN_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_ChiTieuXetNghiem_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau " +
+                                                " INNER JOIN " +
+                                                " tbl_PXN_Header " +
+                                                " ON " +
+                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +
+                                                " WHERE DateDiff(mm,getdate(),tbl_PO_Header_LAB.NgayLapPO) = "+ i +
+                                                " Order by tbl_PO_Header_LAB.SoPO DESC", CommandType.Text);
+        }
+
+        public DataTable PO_List_Report_Quaterly(int i)
+        {
+            return Sql.ExecuteDataTable("SAP", "Select  " +
+                                                 " tbl_PO_Header_LAB.SoPO as [Số PO], " +
+                                                 " tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], " +
+                                                 " tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], " +
+                                                 " tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP], " +
+                                                 " tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], " +
+                                                 " tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [VAT %], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [Tiền thuế], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu], " +
+                                                 " tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ," +
+                                                 " tbl_PO_Header_LAB.Discount as [Giảm giá] " +
+                                                " From tbl_PO_Header_LAB " +
+                                                " INNER JOIN " +
+                                                " tbl_PO_Lines_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_CTXN_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_ChiTieuXetNghiem_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau " +
+                                                " INNER JOIN " +
+                                                " tbl_PXN_Header " +
+                                                " ON " +
+                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +
+                                                " WHERE DateDiff(qq,getdate(),tbl_PO_Header_LAB.NgayLapPO) = " + i +
+                                                " Order by tbl_PO_Header_LAB.SoPO DESC", CommandType.Text);
+        }
+
+        public DataTable PO_List_Report_Yearly(int i)
+        {
+            return Sql.ExecuteDataTable("SAP", "Select  " +
+                                                 " tbl_PO_Header_LAB.SoPO as [Số PO], " +
+                                                 " tbl_PO_Header_LAB.NgayLapPO as [Ngày PO], " +
+                                                 " tbl_PO_Header_LAB.VENDCode as [MÃ NHÀ CUNG CẤP], " +
+                                                 " tbl_PO_Header_LAB.VENDName as [NHÀ CUNG CẤP], " +
+                                                 " tbl_KHMau_CTXN_LAB.KHMau as [CODE MẪU], " +
+                                                 " tbl_PXN_Header.TenCoSoLayMau as [TÊN KHÁCH HÀNG], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.MaCTXN as [CODE XN], " +
+                                                 " tbl_ChiTieuXetNghiem_LAB.CTXN as [TÊN XÉT NGHIỆM], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Đơn Giá chưa VAT], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [VAT %], " +
+                                                 " tbl_PO_Lines_LAB.VAT as [Tiền thuế], " +
+                                                 " tbl_PO_Lines_LAB.DonGia as [Thành tiền / mẫu], " +
+                                                 " tbl_PO_Lines_LAB.ThanhTien as [Tổng tiền] ," +
+                                                 " tbl_PO_Header_LAB.Discount as [Giảm giá] " +
+                                                " From tbl_PO_Header_LAB " +
+                                                " INNER JOIN " +
+                                                " tbl_PO_Lines_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Header_LAB.SoPO = tbl_PO_Lines_LAB.SoPO " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_CTXN_LAB " +
+                                                " ON " +
+                                                " tbl_PO_Lines_LAB.KHMau_CTXN_LAB_Id = tbl_KHMau_CTXN_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_ChiTieuXetNghiem_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.CTXNID = tbl_ChiTieuXetNghiem_LAB.ID " +
+                                                " INNER JOIN " +
+                                                " tbl_KHMau_LAB " +
+                                                " ON " +
+                                                " tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau " +
+                                                " INNER JOIN " +
+                                                " tbl_PXN_Header " +
+                                                " ON " +
+                                                " tbl_KHMau_LAB.SoPXN = tbl_PXN_Header.SoPXN " +
+                                                " WHERE DateDiff(yy,getdate(),tbl_PO_Header_LAB.NgayLapPO) = " + i +
                                                 " Order by tbl_PO_Header_LAB.SoPO DESC", CommandType.Text);
         }
 
