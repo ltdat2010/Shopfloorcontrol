@@ -79,7 +79,7 @@ namespace Production.Class
                 com.Parameters.Add(par);
             }
             content = com.CommandText.ToString();
-            System.IO.File.WriteAllText(@"D:\Exc_Non_CommandText_WriteText.txt", content);
+            //System.IO.File.WriteAllText(@"D:\Exc_Non_CommandText_WriteText.txt", content);
             //MessageBox.Show("com =" + com.CommandText.ToString());
 
             interval = com.ExecuteNonQuery();

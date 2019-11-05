@@ -59,6 +59,8 @@
             this.BtnFrd = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem11 = new DevExpress.XtraBars.BarStaticItem();
             this.BtnPrv = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem12 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem13 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,9 +96,11 @@
             this.barStaticItem10,
             this.BtnFrd,
             this.barStaticItem11,
-            this.BtnPrv});
+            this.BtnPrv,
+            this.barStaticItem12,
+            this.barStaticItem13});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 24;
+            this.barManager1.MaxItemId = 27;
             // 
             // bar2
             // 
@@ -139,7 +143,7 @@
             // 
             // BtnAdd
             // 
-            this.BtnAdd.Caption = "Tạo mới";
+            this.BtnAdd.Caption = "Tạo";
             this.BtnAdd.Id = 0;
             this.BtnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnAdd.ImageOptions.Image")));
             this.BtnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnAdd.ImageOptions.LargeImage")));
@@ -213,7 +217,7 @@
             // 
             // BtnReport
             // 
-            this.BtnReport.Caption = "Xuất EXCEL/PDF";
+            this.BtnReport.Caption = "PDF";
             this.BtnReport.Id = 10;
             this.BtnReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnReport.ImageOptions.Image")));
             this.BtnReport.Name = "BtnReport";
@@ -242,7 +246,7 @@
             // 
             // BtnExcel
             // 
-            this.BtnExcel.Caption = "Xuất Excel";
+            this.BtnExcel.Caption = "Excel";
             this.BtnExcel.Id = 14;
             this.BtnExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnExcel.ImageOptions.Image")));
             this.BtnExcel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnExcel.ImageOptions.LargeImage")));
@@ -284,7 +288,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(900, 40);
+            this.barDockControlTop.Size = new System.Drawing.Size(928, 40);
             // 
             // barDockControlBottom
             // 
@@ -292,7 +296,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 40);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(900, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(928, 0);
             // 
             // barDockControlLeft
             // 
@@ -306,7 +310,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(900, 40);
+            this.barDockControlRight.Location = new System.Drawing.Point(928, 40);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 0);
             // 
@@ -340,6 +344,18 @@
             this.BtnPrv.Name = "BtnPrv";
             this.BtnPrv.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
+            // barStaticItem12
+            // 
+            this.barStaticItem12.Caption = "barStaticItem12";
+            this.barStaticItem12.Id = 25;
+            this.barStaticItem12.Name = "barStaticItem12";
+            // 
+            // barStaticItem13
+            // 
+            this.barStaticItem13.Caption = "|";
+            this.barStaticItem13.Id = 26;
+            this.barStaticItem13.Name = "barStaticItem13";
+            // 
             // Action
             // 
             this.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -354,7 +370,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Action";
-            this.Size = new System.Drawing.Size(900, 40);
+            this.Size = new System.Drawing.Size(928, 40);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -392,5 +408,7 @@
         private DevExpress.XtraBars.BarButtonItem BtnFrd;
         private DevExpress.XtraBars.BarStaticItem barStaticItem11;
         private DevExpress.XtraBars.BarButtonItem BtnPrv;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem13;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem12;
     }
 }

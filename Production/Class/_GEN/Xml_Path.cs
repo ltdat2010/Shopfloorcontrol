@@ -11,9 +11,9 @@
             
             string XmlSourcePath = string.Empty;
 
-            if (PCname == "vpv-lab-sample")
-                XmlSourcePath = @"D:\Temp_Xml";
-            else
+            //if (PCname == "VPV-LAB-SAMPLE")
+                //XmlSourcePath = @"D:\Temp_Xml";
+            //else
                 XmlSourcePath = @"X:\Temp_Xml";
             
             // If directory does not exist, create it.

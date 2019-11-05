@@ -94,27 +94,23 @@ namespace Production.Class
                 }
             };
 
-            lkeMavung.ButtonClick += (s, e) =>
-            {
-                if (e.Button.Index == 1)
-                {
-                    //Diable form
-                    this.Enabled = false;
-                    //
-                    F_LOCATION_Details FRM = new F_LOCATION_Details();
-                    FRM.myFinished += this.finished;
-                    FRM.isAction = "Add";
-                    FRM.Show();
-                }
-            };
+            //txtMavung.ButtonClick += (s, e) =>
+            //{
+            //    if (e.Button.Index == 1)
+            //    {
+            //        //Diable form
+            //        this.Enabled = false;
+            //        //
+            //        F_LOCATION_Details FRM = new F_LOCATION_Details();
+            //        FRM.myFinished += this.finished;
+            //        FRM.isAction = "Add";
+            //        FRM.Show();
+            //    }
+            //};
 
-            cmbProvinceName.EditValueChanged += (s, e) =>
-            {
-                //XtraMessageBox.Show(cmbProvinceName.Text);
-                CUS.ProvinceName = cmbProvinceName.Text;
-            };
+            
 
-            lkeLoaiDN.EditValueChanged += (s, e) =>
+        lkeLoaiDN.EditValueChanged += (s, e) =>
         {
             //XtraMessageBox.Show("Chnageg text");
             //Bán
@@ -157,6 +153,12 @@ namespace Production.Class
                 txtTenDN.Text = row["CardName"].ToString();
                 txtDiaChiDN.Text = row["Address"].ToString();
             };
+
+            lkeProvinceName.EditValueChanged += (s, e) =>
+             {
+                 DataRowView row = lkeProvinceName.GetSelectedDataRow() as DataRowView;
+                 txtMavung.Text = row["LOCName"].ToString();                 
+             };
 
             chkKHViphaLAB.CheckedChanged += (s, e) =>
             {
@@ -259,7 +261,7 @@ namespace Production.Class
             }
             txtSdtDN.Text = CUS.CUSTPHONE;
             txtDiaChiDN.Text = CUS.CUSTADDRESS;
-            lkeMavung.EditValue = CUS.LOCCode;
+            txtMavung.Text = CUS.LOCName;
             txtMST.Text = CUS.TaxCode;
             cmbKhoa.Text = CUS.Locked.ToString();
             lkeTenNV.EditValue = CUS.EMPCode;
@@ -269,7 +271,7 @@ namespace Production.Class
             txtSdtNLH.Text = CUS.ContactNumber;
             txtEmailNLH.Text = CUS.ContactEmail;
             //XtraMessageBox.Show(CUS.ProvinceName);
-            cmbProvinceName.Text = CUS.ProvinceName;
+            lkeProvinceName.EditValue = CUS.ProvinceId;
 
             if (CUS.CUSTViphaLAB == true)
                 chkKHViphaLAB.CheckState = CheckState.Checked;
@@ -293,7 +295,7 @@ namespace Production.Class
 
             CUS.CUSTPHONE = txtSdtDN.Text;
             CUS.CUSTADDRESS = txtDiaChiDN.Text;
-            CUS.LOCCode = lkeMavung.EditValue.ToString();
+            CUS.LOCName = txtMavung.Text;
             CUS.TaxCode = txtMST.Text;
             CUS.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
             CUS.EMPCode = lkeTenNV.EditValue.ToString();
@@ -303,7 +305,8 @@ namespace Production.Class
             CUS.ContactNumber = txtSdtNLH.Text;
             CUS.ContactEmail = txtEmailNLH.Text;
             //XtraMessageBox.Show(cmbProvinceName.SelectedText);
-            CUS.ProvinceName = cmbProvinceName.Text;
+            CUS.ProvinceName = lkeProvinceName.Text;
+            CUS.ProvinceId = int.Parse(lkeProvinceName.EditValue.ToString());
             CUS.CUSTViphaLAB = chkKHViphaLAB.CheckState == CheckState.Checked ? true : false;
         }
 
@@ -324,7 +327,7 @@ namespace Production.Class
             //txtTenDN.Text = "";
             txtSdtDN.Text = "";
             txtDiaChiDN.Text = "";
-            lkeMavung.EditValue = null;
+            txtMavung.EditValue = null;
             txtMST.Text = "";
             cmbKhoa.Text = "";
             lkeTenNV.EditValue = null;
@@ -333,7 +336,7 @@ namespace Production.Class
             txtTenNLH.Text = "";
             txtSdtNLH.Text = "";
             txtEmailNLH.Text = "";
-            cmbProvinceName.Text = null;
+            lkeProvinceName.Text = null;
         }
 
         //
@@ -354,7 +357,7 @@ namespace Production.Class
             //txtTenDN.ReadOnly = bl;
             txtSdtDN.ReadOnly = bl;
             txtDiaChiDN.ReadOnly = bl;
-            lkeMavung.ReadOnly = bl;
+            txtMavung.ReadOnly = bl;
             txtMST.ReadOnly = bl;
             cmbKhoa.ReadOnly = bl;
             lkeTenNV.ReadOnly = bl;
@@ -380,11 +383,13 @@ namespace Production.Class
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMERTYPE' table. You can move, or remove it, as needed.
             this.tbl_CUSTOMERTYPETableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMERTYPE_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_LOCATION' table. You can move, or remove it, as needed.
-            this.tbl_LOCATIONTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);
+            this.tbl_ProvinceTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_Province);
         }
 
         private void F_CUSTOMER_Details_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_Province' table. You can move, or remove it, as needed.
+            this.tbl_ProvinceTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_Province);
             // TODO: This line of code loads data into the 'vIPHAVETDataset.OCRD' table. You can move, or remove it, as needed.
             this.oCRDTableAdapter.Fill(this.vIPHAVETDataset.OCRD);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_EMPLOYEE' table. You can move, or remove it, as needed.
@@ -392,7 +397,7 @@ namespace Production.Class
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_CUSTOMERTYPE' table. You can move, or remove it, as needed.
             this.tbl_CUSTOMERTYPETableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMERTYPE_LAB);
             // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_LOCATION' table. You can move, or remove it, as needed.
-            this.tbl_LOCATIONTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_LOCATION_LAB);
+            this.tbl_ProvinceTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_Province);
         }
     }
 }

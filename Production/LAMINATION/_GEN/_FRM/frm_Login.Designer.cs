@@ -77,6 +77,8 @@
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lblPCName = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkDashboard.Properties)).BeginInit();
@@ -113,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -120,7 +123,7 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(215, 275);
+            this.simpleButton1.Location = new System.Drawing.Point(215, 292);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(42, 23);
             this.simpleButton1.StyleController = this.layoutControl2;
@@ -129,6 +132,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.lblPCName);
             this.layoutControl2.Controls.Add(this.chkDashboard);
             this.layoutControl2.Controls.Add(this.lblORACLE);
             this.layoutControl2.Controls.Add(this.chkORACLE);
@@ -156,7 +160,7 @@
             // 
             // chkDashboard
             // 
-            this.chkDashboard.Location = new System.Drawing.Point(215, 348);
+            this.chkDashboard.Location = new System.Drawing.Point(215, 365);
             this.chkDashboard.Name = "chkDashboard";
             this.chkDashboard.Properties.Appearance.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkDashboard.Properties.Appearance.Options.UseFont = true;
@@ -171,7 +175,7 @@
             this.lblORACLE.Appearance.ForeColor = System.Drawing.Color.RoyalBlue;
             this.lblORACLE.Appearance.Options.UseFont = true;
             this.lblORACLE.Appearance.Options.UseForeColor = true;
-            this.lblORACLE.Location = new System.Drawing.Point(215, 325);
+            this.lblORACLE.Location = new System.Drawing.Point(215, 342);
             this.lblORACLE.Name = "lblORACLE";
             this.lblORACLE.Size = new System.Drawing.Size(441, 19);
             this.lblORACLE.StyleController = this.layoutControl2;
@@ -180,7 +184,7 @@
             // 
             // chkORACLE
             // 
-            this.chkORACLE.Location = new System.Drawing.Point(660, 325);
+            this.chkORACLE.Location = new System.Drawing.Point(660, 342);
             this.chkORACLE.Name = "chkORACLE";
             this.chkORACLE.Properties.AutoHeight = false;
             this.chkORACLE.Properties.Caption = "";
@@ -191,7 +195,7 @@
             // 
             // chkMSSQL
             // 
-            this.chkMSSQL.Location = new System.Drawing.Point(653, 302);
+            this.chkMSSQL.Location = new System.Drawing.Point(653, 319);
             this.chkMSSQL.Name = "chkMSSQL";
             this.chkMSSQL.Properties.Caption = "";
             this.chkMSSQL.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
@@ -205,7 +209,7 @@
             this.lblMSSQL.Appearance.ForeColor = System.Drawing.Color.RoyalBlue;
             this.lblMSSQL.Appearance.Options.UseFont = true;
             this.lblMSSQL.Appearance.Options.UseForeColor = true;
-            this.lblMSSQL.Location = new System.Drawing.Point(215, 302);
+            this.lblMSSQL.Location = new System.Drawing.Point(215, 319);
             this.lblMSSQL.Name = "lblMSSQL";
             this.lblMSSQL.Size = new System.Drawing.Size(434, 19);
             this.lblMSSQL.StyleController = this.layoutControl2;
@@ -244,7 +248,7 @@
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButton2.Location = new System.Drawing.Point(261, 275);
+            this.simpleButton2.Location = new System.Drawing.Point(261, 292);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(49, 23);
             this.simpleButton2.StyleController = this.layoutControl2;
@@ -253,7 +257,7 @@
             // 
             // checkEdit1
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(215, 252);
+            this.checkEdit1.Location = new System.Drawing.Point(215, 269);
             this.checkEdit1.Name = "checkEdit1";
             this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
@@ -377,7 +381,8 @@
             this.layoutControlItem8,
             this.emptySpaceItem5,
             this.emptySpaceItem6,
-            this.emptySpaceItem8});
+            this.emptySpaceItem8,
+            this.layoutControlItem17});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(893, 567);
             this.layoutControlGroup2.TextVisible = false;
@@ -418,7 +423,7 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.checkEdit1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(203, 240);
+            this.layoutControlItem9.Location = new System.Drawing.Point(203, 257);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(468, 23);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(468, 23);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -430,7 +435,7 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.simpleButton1;
-            this.layoutControlItem10.Location = new System.Drawing.Point(203, 263);
+            this.layoutControlItem10.Location = new System.Drawing.Point(203, 280);
             this.layoutControlItem10.MaxSize = new System.Drawing.Size(46, 27);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(46, 27);
             this.layoutControlItem10.Name = "layoutControlItem10";
@@ -442,7 +447,7 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.simpleButton2;
-            this.layoutControlItem11.Location = new System.Drawing.Point(249, 263);
+            this.layoutControlItem11.Location = new System.Drawing.Point(249, 280);
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(53, 27);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(53, 27);
             this.layoutControlItem11.Name = "layoutControlItem11";
@@ -454,7 +459,7 @@
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.lblMSSQL;
-            this.layoutControlItem13.Location = new System.Drawing.Point(203, 290);
+            this.layoutControlItem13.Location = new System.Drawing.Point(203, 307);
             this.layoutControlItem13.MaxSize = new System.Drawing.Size(438, 23);
             this.layoutControlItem13.MinSize = new System.Drawing.Size(438, 23);
             this.layoutControlItem13.Name = "layoutControlItem13";
@@ -466,7 +471,7 @@
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.lblORACLE;
-            this.layoutControlItem15.Location = new System.Drawing.Point(203, 313);
+            this.layoutControlItem15.Location = new System.Drawing.Point(203, 330);
             this.layoutControlItem15.MaxSize = new System.Drawing.Size(445, 23);
             this.layoutControlItem15.MinSize = new System.Drawing.Size(445, 23);
             this.layoutControlItem15.Name = "layoutControlItem15";
@@ -478,7 +483,7 @@
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.chkDashboard;
-            this.layoutControlItem16.Location = new System.Drawing.Point(203, 336);
+            this.layoutControlItem16.Location = new System.Drawing.Point(203, 353);
             this.layoutControlItem16.MaxSize = new System.Drawing.Size(468, 23);
             this.layoutControlItem16.MinSize = new System.Drawing.Size(468, 23);
             this.layoutControlItem16.Name = "layoutControlItem16";
@@ -560,15 +565,15 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 359);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 376);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(873, 188);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(873, 171);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(302, 263);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(302, 280);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(379, 27);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -576,7 +581,7 @@
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.chkORACLE;
-            this.layoutControlItem14.Location = new System.Drawing.Point(648, 313);
+            this.layoutControlItem14.Location = new System.Drawing.Point(648, 330);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(33, 23);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
@@ -585,7 +590,7 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.chkMSSQL;
-            this.layoutControlItem12.Location = new System.Drawing.Point(641, 290);
+            this.layoutControlItem12.Location = new System.Drawing.Point(641, 307);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(40, 23);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
@@ -616,7 +621,7 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(0, 255);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(203, 104);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(203, 121);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -624,7 +629,7 @@
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.Location = new System.Drawing.Point(681, 148);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(192, 211);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(192, 228);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem8
@@ -634,6 +639,24 @@
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(10, 74);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lblPCName
+            // 
+            this.lblPCName.Location = new System.Drawing.Point(215, 252);
+            this.lblPCName.Name = "lblPCName";
+            this.lblPCName.Size = new System.Drawing.Size(63, 13);
+            this.lblPCName.StyleController = this.layoutControl2;
+            this.lblPCName.TabIndex = 17;
+            this.lblPCName.Text = "labelControl1";
+            // 
+            // layoutControlItem17
+            // 
+            this.layoutControlItem17.Control = this.lblPCName;
+            this.layoutControlItem17.Location = new System.Drawing.Point(203, 240);
+            this.layoutControlItem17.Name = "layoutControlItem17";
+            this.layoutControlItem17.Size = new System.Drawing.Size(478, 17);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem17.TextVisible = false;
             // 
             // frm_Login
             // 
@@ -691,6 +714,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -737,5 +761,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
+        private DevExpress.XtraEditors.LabelControl lblPCName;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
     }
 }

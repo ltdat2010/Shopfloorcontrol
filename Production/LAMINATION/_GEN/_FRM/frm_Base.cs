@@ -5,6 +5,7 @@ namespace Production.Class
     public partial class frm_Base : DevExpress.XtraEditors.XtraForm
     {
         public User user = new User();
+        public UserBUS _userBUS = new UserBUS();
 
         //PC Name
         public string PCname = System.Environment.MachineName;

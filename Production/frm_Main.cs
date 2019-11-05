@@ -918,6 +918,31 @@ namespace Production.Class
                 FRM.Show();
             };
 
+            //barButtonItem79 -- Tỉnh
+            barButtonItem79.ItemClick += (s, e) =>
+            {
+                foreach (Control x in this.gc1.Controls)
+                {
+                    if (x is DevExpress.XtraEditors.XtraUserControl)
+                        x.Dispose();
+                }
+
+                uc = new F_Province();
+                uc.user = this.user;
+                uc.BringToFront();
+                uc.Visible = true;
+                uc.Enabled = true;
+                gc1.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
+            };
+
+            //barButtonItem80 -- Create user
+            barButtonItem80.ItemClick += (s, e) =>
+            {
+                frm_CreateUser FRM = new frm_CreateUser();
+                FRM.Show();
+            };
+
             #region action controls
 
             //Them
@@ -925,7 +950,7 @@ namespace Production.Class
             {
                 //Dis-En -able controls
                 //
-                if (user._GroupID < 4)
+                if (user.GroupID < 4)
                 {
                     barButtonItem1.Enabled = false;
                     barButtonItem2.Enabled = false;
@@ -967,7 +992,7 @@ namespace Production.Class
             {
                 //Dis-En -able controls
                 //
-                if (user._GroupID < 4)
+                if (user.GroupID < 4)
                 {
                     barButtonItem1.Enabled = false;
                     barButtonItem2.Enabled = false;
@@ -1030,7 +1055,7 @@ namespace Production.Class
             barButtonItem10.ItemClick += (s, e) =>
             {
                 //En_Dis able Controls
-                if (user._GroupID < 4)
+                if (user.GroupID < 4)
                 {
                     barButtonItem1.Enabled = false;
                     barButtonItem2.Enabled = false;
@@ -1181,7 +1206,7 @@ namespace Production.Class
             //A Trang Production -  Load dashnoard production
             //Production_ID
             //if (this.user._UserName == "dat1" || this.user._UserName == "trang")
-            if (this.user._DeptID == 5)
+            if (this.user.DeptID == 5)
             {
                 //
                 ribbonPage2.Visible = true;
@@ -1203,7 +1228,7 @@ namespace Production.Class
             }
             //QC_ID
             //else if (this.user._UserName == "dat2" || this.user._UserName == "tuyet")
-            else if (this.user._DeptID == 4)
+            else if (this.user.DeptID == 4)
             {
                 //
                 ribbonPage7.Visible = true;
@@ -1221,9 +1246,22 @@ namespace Production.Class
                 }
             }
             //LAB_ID
-            else if (user._DeptID == 7)
+            else if (user.DeptID == 7)
             {
+                //
                 ribbonPage15.Visible = true;
+                //ribbonPage3.Visible = true;
+                ////
+                //if (isDashboardEnabled == true)
+                //{
+                //    uc = new F_DashBoard_LAB();
+                //    uc.user = this.user;
+                //    uc.BringToFront();
+                //    uc.Visible = true;
+                //    uc.Enabled = true;
+                //    gc1.Controls.Add(uc);
+                //    uc.Dock = DockStyle.Fill;
+                //}
             }
 
             frm.Close();
@@ -1242,7 +1280,7 @@ namespace Production.Class
         {
             this.Enabled = status;
             user = usr;
-            switch (user._GroupID)
+            switch (user.GroupID)
             {
                 //Admin
                 case 16:

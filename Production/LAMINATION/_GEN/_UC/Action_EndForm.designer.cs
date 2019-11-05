@@ -204,7 +204,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(425, 25);
+            this.barDockControlTop.Size = new System.Drawing.Size(470, 25);
             // 
             // barDockControlBottom
             // 
@@ -212,7 +212,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 24);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(425, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(470, 0);
             // 
             // barDockControlLeft
             // 
@@ -226,7 +226,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(425, 25);
+            this.barDockControlRight.Location = new System.Drawing.Point(470, 25);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 0);
             // 
@@ -273,7 +273,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "Action_EndForm";
-            this.Size = new System.Drawing.Size(425, 24);
+            this.Size = new System.Drawing.Size(470, 24);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

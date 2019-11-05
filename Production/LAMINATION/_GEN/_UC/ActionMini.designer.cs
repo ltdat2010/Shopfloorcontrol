@@ -193,7 +193,7 @@
             // 
             // BtnReport
             // 
-            this.BtnReport.Caption = "Xuất PDF/EXCEL";
+            this.BtnReport.Caption = "PDF/EXCEL";
             this.BtnReport.Id = 10;
             this.BtnReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnReport.ImageOptions.Image")));
             this.BtnReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnReport.ImageOptions.LargeImage")));

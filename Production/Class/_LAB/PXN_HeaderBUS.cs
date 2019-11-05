@@ -17,6 +17,11 @@ namespace Production.Class
             DAO.PXN_HeaderDAO_UPDATE(OBJ);
         }
 
+        public DataTable PXN_Header_SELECT()
+        {
+            return DAO.PXN_Header_SELECT();
+        }
+
         public void PXN_HeaderDAO_UPDATE_SendMail(int ID, string SendMail)
         {
             DAO.PXN_HeaderDAO_UPDATE_SendMail(ID, SendMail);

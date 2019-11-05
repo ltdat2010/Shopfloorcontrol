@@ -31,8 +31,7 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_CUSTOMER_Details));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -46,7 +45,6 @@
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.chkKHViphaLAB = new DevExpress.XtraEditors.CheckEdit();
-            this.cmbProvinceName = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtTenDN2 = new DevExpress.XtraEditors.TextEdit();
             this.txtMaDN2 = new DevExpress.XtraEditors.TextEdit();
             this.txtNote = new DevExpress.XtraEditors.TextEdit();
@@ -66,10 +64,12 @@
             this.colCardName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lkeLoaiDN = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.tblCUSTOMERTYPEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lkeMavung = new DevExpress.XtraEditors.GridLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.lkeProvinceName = new DevExpress.XtraEditors.LookUpEdit();
+            this.tblProvinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtMavung = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -86,12 +86,13 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
             this.lkeTenNV = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.tblEMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -105,12 +106,9 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.oCRDTableAdapter = new Production.VIPHAVETDatasetTableAdapters.OCRDTableAdapter();
-            this.tblCUSTOMERTYPEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblLOCATIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblEMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_EMPLOYEETableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_EMPLOYEE_LABTableAdapter();
             this.tbl_CUSTOMERTYPETableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_CUSTOMERTYPE_LABTableAdapter();
-            this.tbl_LOCATIONTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_LOCATION_LABTableAdapter();
+            this.tbl_ProvinceTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_ProvinceTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -130,7 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkKHViphaLAB.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbProvinceName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDN2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDN2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
@@ -147,10 +144,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.vIPHAVETDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeLoaiDN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCUSTOMERTYPEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeMavung.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeProvinceName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblProvinceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMavung.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
@@ -167,12 +166,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeTenNV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEMPLOYEEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -185,9 +185,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCUSTOMERTYPEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblLOCATIONBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEMPLOYEEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -276,10 +273,10 @@
             this.layoutControl2.Controls.Add(this.txtID);
             this.layoutControl2.Controls.Add(this.lkeTenNV);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 20);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(743, 309);
+            this.layoutControl2.Size = new System.Drawing.Size(743, 311);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -305,14 +302,13 @@
             this.groupControl3.Controls.Add(this.layoutControl4);
             this.groupControl3.Location = new System.Drawing.Point(5, 53);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(733, 251);
+            this.groupControl3.Size = new System.Drawing.Size(733, 253);
             this.groupControl3.TabIndex = 16;
             this.groupControl3.Text = "Thông tin khách hàng :";
             // 
             // layoutControl4
             // 
             this.layoutControl4.Controls.Add(this.chkKHViphaLAB);
-            this.layoutControl4.Controls.Add(this.cmbProvinceName);
             this.layoutControl4.Controls.Add(this.txtTenDN2);
             this.layoutControl4.Controls.Add(this.txtMaDN2);
             this.layoutControl4.Controls.Add(this.txtNote);
@@ -326,12 +322,13 @@
             this.layoutControl4.Controls.Add(this.txtTenDN);
             this.layoutControl4.Controls.Add(this.lkeMaDN);
             this.layoutControl4.Controls.Add(this.lkeLoaiDN);
-            this.layoutControl4.Controls.Add(this.lkeMavung);
+            this.layoutControl4.Controls.Add(this.lkeProvinceName);
+            this.layoutControl4.Controls.Add(this.txtMavung);
             this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl4.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl4.Location = new System.Drawing.Point(2, 20);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.layoutControlGroup4;
-            this.layoutControl4.Size = new System.Drawing.Size(729, 227);
+            this.layoutControl4.Size = new System.Drawing.Size(729, 231);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -343,84 +340,6 @@
             this.chkKHViphaLAB.Size = new System.Drawing.Size(246, 19);
             this.chkKHViphaLAB.StyleController = this.layoutControl4;
             this.chkKHViphaLAB.TabIndex = 19;
-            // 
-            // cmbProvinceName
-            // 
-            this.cmbProvinceName.Location = new System.Drawing.Point(422, 76);
-            this.cmbProvinceName.Name = "cmbProvinceName";
-            this.cmbProvinceName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbProvinceName.Properties.Items.AddRange(new object[] {
-            "An Giang",
-            "Bà Rịa - Vũng Tàu",
-            "Bắc Giang",
-            "Bắc Kạn",
-            "Bạc Liêu",
-            "Bắc Ninh",
-            "Bến Tre",
-            "Bình Định",
-            "Bình Dương",
-            "Bình Phước",
-            "Bình Thuận",
-            "Cà Mau",
-            "Cao Bằng",
-            "Đắk Lắk",
-            "Đắk Nông",
-            "Điện Biên",
-            "Đồng Nai",
-            "Đồng Tháp",
-            "Gia Lai",
-            "Hà Giang",
-            "Hà Nam",
-            "Hà Tĩnh",
-            "Hải Dương",
-            "Hậu Giang",
-            "Hòa Bình",
-            "Hưng Yên",
-            "Khánh Hòa",
-            "Kiên Giang",
-            "Kon Tum",
-            "Lai Châu",
-            "Lâm Đồng",
-            "Lạng Sơn",
-            "Lào Cai",
-            "Long An",
-            "Nam Định",
-            "Nghệ An",
-            "Ninh Bình",
-            "Ninh Thuận",
-            "Phú Thọ",
-            "Quảng Bình",
-            "Quảng Nam",
-            "Quảng Ngãi",
-            "Quảng Ninh",
-            "Quảng Trị",
-            "Sóc Trăng",
-            "Sơn La",
-            "Tây Ninh",
-            "Thái Bình",
-            "Thái Nguyên",
-            "Thanh Hóa",
-            "Thừa Thiên Huế",
-            "Tiền Giang",
-            "Trà Vinh",
-            "Tuyên Quang",
-            "Vĩnh Long",
-            "Vĩnh Phúc",
-            "Yên Bái",
-            "Phú Yên",
-            "Cần Thơ",
-            "Đà Nẵng",
-            "Hải Phòng",
-            "Hà Nội",
-            "TP HCM"});
-            this.cmbProvinceName.Size = new System.Drawing.Size(180, 20);
-            this.cmbProvinceName.StyleController = this.layoutControl4;
-            this.cmbProvinceName.TabIndex = 18;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.cmbProvinceName, conditionValidationRule1);
             // 
             // txtTenDN2
             // 
@@ -440,7 +359,7 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(141, 173);
+            this.txtNote.Location = new System.Drawing.Point(141, 177);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(583, 20);
             this.txtNote.StyleController = this.layoutControl4;
@@ -448,7 +367,7 @@
             // 
             // cmbKhoa
             // 
-            this.cmbKhoa.Location = new System.Drawing.Point(141, 197);
+            this.cmbKhoa.Location = new System.Drawing.Point(141, 201);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -461,7 +380,7 @@
             // 
             // txtEmailNLH
             // 
-            this.txtEmailNLH.Location = new System.Drawing.Point(597, 149);
+            this.txtEmailNLH.Location = new System.Drawing.Point(597, 153);
             this.txtEmailNLH.Name = "txtEmailNLH";
             this.txtEmailNLH.Properties.Mask.EditMask = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
             this.txtEmailNLH.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -471,7 +390,7 @@
             // 
             // txtSdtNLH
             // 
-            this.txtSdtNLH.Location = new System.Drawing.Point(380, 149);
+            this.txtSdtNLH.Location = new System.Drawing.Point(380, 153);
             this.txtSdtNLH.Name = "txtSdtNLH";
             this.txtSdtNLH.Properties.Mask.EditMask = "\\d\\d\\d\\d\\-\\d\\d\\d-\\d\\d\\d";
             this.txtSdtNLH.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -481,7 +400,7 @@
             // 
             // txtTenNLH
             // 
-            this.txtTenNLH.Location = new System.Drawing.Point(141, 149);
+            this.txtTenNLH.Location = new System.Drawing.Point(141, 153);
             this.txtTenNLH.Name = "txtTenNLH";
             this.txtTenNLH.Size = new System.Drawing.Size(99, 20);
             this.txtTenNLH.StyleController = this.layoutControl4;
@@ -489,7 +408,7 @@
             // 
             // txtMST
             // 
-            this.txtMST.Location = new System.Drawing.Point(380, 125);
+            this.txtMST.Location = new System.Drawing.Point(380, 129);
             this.txtMST.Name = "txtMST";
             this.txtMST.Size = new System.Drawing.Size(344, 20);
             this.txtMST.StyleController = this.layoutControl4;
@@ -497,7 +416,7 @@
             // 
             // txtSdtDN
             // 
-            this.txtSdtDN.Location = new System.Drawing.Point(141, 125);
+            this.txtSdtDN.Location = new System.Drawing.Point(141, 129);
             this.txtSdtDN.Name = "txtSdtDN";
             this.txtSdtDN.Properties.Mask.EditMask = "\\d\\d\\d\\d\\-\\d\\d\\d-\\d\\d\\d";
             this.txtSdtDN.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -507,14 +426,14 @@
             // 
             // txtDiaChiDN
             // 
-            this.txtDiaChiDN.Location = new System.Drawing.Point(141, 101);
+            this.txtDiaChiDN.Location = new System.Drawing.Point(141, 105);
             this.txtDiaChiDN.Name = "txtDiaChiDN";
             this.txtDiaChiDN.Size = new System.Drawing.Size(583, 20);
             this.txtDiaChiDN.StyleController = this.layoutControl4;
             this.txtDiaChiDN.TabIndex = 6;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.txtDiaChiDN, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.txtDiaChiDN, conditionValidationRule1);
             // 
             // txtTenDN
             // 
@@ -601,6 +520,11 @@
             this.lkeLoaiDN.StyleController = this.layoutControl4;
             this.lkeLoaiDN.TabIndex = 10;
             // 
+            // tblCUSTOMERTYPEBindingSource
+            // 
+            this.tblCUSTOMERTYPEBindingSource.DataMember = "tbl_CUSTOMERTYPE_LAB";
+            this.tblCUSTOMERTYPEBindingSource.DataSource = this.sYNC_NUTRICIELDataSet;
+            // 
             // sYNC_NUTRICIELDataSet
             // 
             this.sYNC_NUTRICIELDataSet.DataSetName = "SYNC_NUTRICIELDataSet";
@@ -613,33 +537,54 @@
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // lkeMavung
+            // lkeProvinceName
             // 
-            this.lkeMavung.Location = new System.Drawing.Point(141, 77);
-            this.lkeMavung.Name = "lkeMavung";
-            this.lkeMavung.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-            this.lkeMavung.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)});
-            this.lkeMavung.Properties.DataSource = this.tblLOCATIONBindingSource;
-            this.lkeMavung.Properties.DisplayMember = "LOCName";
-            this.lkeMavung.Properties.NullText = "";
-            this.lkeMavung.Properties.PopupView = this.gridView2;
-            this.lkeMavung.Properties.ValueMember = "LOCCode";
-            this.lkeMavung.Size = new System.Drawing.Size(186, 20);
-            this.lkeMavung.StyleController = this.layoutControl4;
-            this.lkeMavung.TabIndex = 8;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lkeMavung, conditionValidationRule3);
+            this.lkeProvinceName.Location = new System.Drawing.Point(141, 77);
+            this.lkeProvinceName.Name = "lkeProvinceName";
+            this.lkeProvinceName.Properties.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkeProvinceName.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lkeProvinceName.Properties.Appearance.Options.UseFont = true;
+            this.lkeProvinceName.Properties.Appearance.Options.UseForeColor = true;
+            this.lkeProvinceName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeProvinceName.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 33, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LOCId", "LOCId", 40, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProvinceName", "Province Name", 81, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProvinceCode", "Province Code", 79, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CreatedDate", "Created Date", 75, DevExpress.Utils.FormatType.DateTime, "dd/MM/yyyy", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CreatedBy", "Created By", 64, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Locked", "Locked", 43, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", "Note", 33, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LOCName", "LOC Name", 60, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lkeProvinceName.Properties.DataSource = this.tblProvinceBindingSource;
+            this.lkeProvinceName.Properties.DisplayMember = "ProvinceName";
+            this.lkeProvinceName.Properties.DropDownRows = 20;
+            this.lkeProvinceName.Properties.NullText = "";
+            this.lkeProvinceName.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.ContentWidth;
+            this.lkeProvinceName.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lkeProvinceName.Properties.ValueMember = "Id";
+            this.lkeProvinceName.Size = new System.Drawing.Size(186, 24);
+            this.lkeProvinceName.StyleController = this.layoutControl4;
+            this.lkeProvinceName.TabIndex = 18;
             // 
-            // gridView2
+            // tblProvinceBindingSource
             // 
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowAutoFilterRow = true;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.tblProvinceBindingSource.DataMember = "tbl_Province";
+            this.tblProvinceBindingSource.DataSource = this.sYNC_NUTRICIELDataSet;
+            // 
+            // txtMavung
+            // 
+            this.txtMavung.Location = new System.Drawing.Point(409, 76);
+            this.txtMavung.Name = "txtMavung";
+            this.txtMavung.Properties.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMavung.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtMavung.Properties.Appearance.Options.UseFont = true;
+            this.txtMavung.Properties.Appearance.Options.UseForeColor = true;
+            this.txtMavung.Properties.ReadOnly = true;
+            this.txtMavung.Size = new System.Drawing.Size(193, 24);
+            this.txtMavung.StyleController = this.layoutControl4;
+            this.txtMavung.TabIndex = 8;
             // 
             // layoutControlGroup4
             // 
@@ -661,13 +606,13 @@
             this.layoutControlItem6,
             this.layoutControlItem23,
             this.layoutControlItem25,
-            this.layoutControlItem12,
-            this.layoutControlItem24,
             this.emptySpaceItem4,
-            this.emptySpaceItem6});
+            this.emptySpaceItem6,
+            this.layoutControlItem12,
+            this.layoutControlItem24});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(729, 227);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(729, 231);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem2
@@ -682,7 +627,7 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtDiaChiDN;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 100);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(723, 24);
             this.layoutControlItem10.Text = "Địa chỉ DN :";
@@ -691,7 +636,7 @@
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.txtMST;
-            this.layoutControlItem13.Location = new System.Drawing.Point(239, 120);
+            this.layoutControlItem13.Location = new System.Drawing.Point(239, 124);
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(484, 24);
             this.layoutControlItem13.Text = "Mã số thuế DN :";
@@ -709,7 +654,7 @@
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.txtTenNLH;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 148);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(239, 24);
             this.layoutControlItem15.Text = "Tên người liên hệ ( DN ) :";
@@ -718,7 +663,7 @@
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.txtSdtNLH;
-            this.layoutControlItem16.Location = new System.Drawing.Point(239, 144);
+            this.layoutControlItem16.Location = new System.Drawing.Point(239, 148);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(253, 24);
             this.layoutControlItem16.Text = "Số điện thoại người liên hệ :";
@@ -727,7 +672,7 @@
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.txtEmailNLH;
-            this.layoutControlItem18.Location = new System.Drawing.Point(492, 144);
+            this.layoutControlItem18.Location = new System.Drawing.Point(492, 148);
             this.layoutControlItem18.Name = "layoutControlItem18";
             this.layoutControlItem18.Size = new System.Drawing.Size(231, 24);
             this.layoutControlItem18.Text = "Email người liện hệ :";
@@ -738,7 +683,7 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.txtSdtDN;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 124);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(239, 24);
             this.layoutControlItem11.Text = "Số  điện thoại DN  :";
@@ -747,7 +692,7 @@
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.cmbKhoa;
-            this.layoutControlItem20.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 196);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.Size = new System.Drawing.Size(239, 29);
             this.layoutControlItem20.Text = "Khóa :";
@@ -756,7 +701,7 @@
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(239, 192);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(239, 196);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(484, 29);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -764,7 +709,7 @@
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.txtNote;
-            this.layoutControlItem21.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 172);
             this.layoutControlItem21.Name = "layoutControlItem21";
             this.layoutControlItem21.Size = new System.Drawing.Size(723, 24);
             this.layoutControlItem21.Text = "Ghi chú :";
@@ -812,32 +757,12 @@
             this.layoutControlItem25.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem25.TextVisible = false;
             // 
-            // layoutControlItem12
-            // 
-            this.layoutControlItem12.Control = this.lkeMavung;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(326, 24);
-            this.layoutControlItem12.Text = "Mã vùng :";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(133, 13);
-            // 
-            // layoutControlItem24
-            // 
-            this.layoutControlItem24.Control = this.cmbProvinceName;
-            this.layoutControlItem24.Location = new System.Drawing.Point(351, 71);
-            this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(250, 25);
-            this.layoutControlItem24.Text = "Tỉnh/Thành :";
-            this.layoutControlItem24.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.layoutControlItem24.TextSize = new System.Drawing.Size(61, 13);
-            this.layoutControlItem24.TextToControlDistance = 5;
-            // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(601, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(122, 96);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(122, 100);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -845,8 +770,28 @@
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.Location = new System.Drawing.Point(326, 0);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(25, 96);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(25, 100);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.txtMavung;
+            this.layoutControlItem12.Location = new System.Drawing.Point(351, 71);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(250, 29);
+            this.layoutControlItem12.Text = "Mã vùng :";
+            this.layoutControlItem12.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(48, 13);
+            this.layoutControlItem12.TextToControlDistance = 5;
+            // 
+            // layoutControlItem24
+            // 
+            this.layoutControlItem24.Control = this.lkeProvinceName;
+            this.layoutControlItem24.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem24.Name = "layoutControlItem24";
+            this.layoutControlItem24.Size = new System.Drawing.Size(326, 28);
+            this.layoutControlItem24.Text = "Tỉnh/Thành :";
+            this.layoutControlItem24.TextSize = new System.Drawing.Size(133, 13);
             // 
             // txtID
             // 
@@ -873,9 +818,14 @@
             this.lkeTenNV.Size = new System.Drawing.Size(175, 20);
             this.lkeTenNV.StyleController = this.layoutControl2;
             this.lkeTenNV.TabIndex = 17;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lkeTenNV, conditionValidationRule4);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lkeTenNV, conditionValidationRule2);
+            // 
+            // tblEMPLOYEEBindingSource
+            // 
+            this.tblEMPLOYEEBindingSource.DataMember = "tbl_EMPLOYEE_LAB";
+            this.tblEMPLOYEEBindingSource.DataSource = this.sYNC_NUTRICIELDataSet;
             // 
             // gridLookUpEdit1View
             // 
@@ -898,7 +848,7 @@
             this.layoutControlItem19});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(743, 309);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(743, 311);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
@@ -915,7 +865,7 @@
             this.layoutControlItem17.Control = this.groupControl3;
             this.layoutControlItem17.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(737, 255);
+            this.layoutControlItem17.Size = new System.Drawing.Size(737, 257);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
@@ -992,21 +942,6 @@
             // 
             this.oCRDTableAdapter.ClearBeforeFill = true;
             // 
-            // tblCUSTOMERTYPEBindingSource
-            // 
-            this.tblCUSTOMERTYPEBindingSource.DataMember = "tbl_CUSTOMERTYPE_LAB";
-            this.tblCUSTOMERTYPEBindingSource.DataSource = this.sYNC_NUTRICIELDataSet;
-            // 
-            // tblLOCATIONBindingSource
-            // 
-            this.tblLOCATIONBindingSource.DataMember = "tbl_LOCATION_LAB";
-            this.tblLOCATIONBindingSource.DataSource = this.sYNC_NUTRICIELDataSet;
-            // 
-            // tblEMPLOYEEBindingSource
-            // 
-            this.tblEMPLOYEEBindingSource.DataMember = "tbl_EMPLOYEE_LAB";
-            this.tblEMPLOYEEBindingSource.DataSource = this.sYNC_NUTRICIELDataSet;
-            // 
             // tbl_EMPLOYEETableAdapter
             // 
             this.tbl_EMPLOYEETableAdapter.ClearBeforeFill = true;
@@ -1015,19 +950,20 @@
             // 
             this.tbl_CUSTOMERTYPETableAdapter.ClearBeforeFill = true;
             // 
-            // tbl_LOCATIONTableAdapter
+            // tbl_ProvinceTableAdapter
             // 
-            this.tbl_LOCATIONTableAdapter.ClearBeforeFill = true;
+            this.tbl_ProvinceTableAdapter.ClearBeforeFill = true;
             // 
             // F_CUSTOMER_Details
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 386);
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "F_CUSTOMER_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CHI TIẾT KHÁCH HÀNG";
@@ -1052,7 +988,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkKHViphaLAB.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbProvinceName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDN2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDN2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
@@ -1069,10 +1004,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.vIPHAVETDataset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit2View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeLoaiDN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCUSTOMERTYPEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkeMavung.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeProvinceName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblProvinceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMavung.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
@@ -1089,12 +1026,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeTenNV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblEMPLOYEEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -1107,9 +1045,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCUSTOMERTYPEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblLOCATIONBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblEMPLOYEEBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1171,9 +1106,6 @@
         private DevExpress.XtraEditors.TextEdit txtMaDN2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem22;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
-        private System.Windows.Forms.BindingSource tblLOCATIONBindingSource;
-        private SYNC_NUTRICIELDataSetTableAdapters.tbl_LOCATION_LABTableAdapter tbl_LOCATIONTableAdapter;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbProvinceName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem24;
         private VIPHAVETDataset vIPHAVETDataset;
         private System.Windows.Forms.BindingSource oCRDBindingSource;
@@ -1190,9 +1122,11 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraEditors.GridLookUpEdit lkeLoaiDN;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.GridLookUpEdit lkeMavung;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private Action_EndForm action_EndForm1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem27;
+        private DevExpress.XtraEditors.LookUpEdit lkeProvinceName;
+        private System.Windows.Forms.BindingSource tblProvinceBindingSource;
+        private SYNC_NUTRICIELDataSetTableAdapters.tbl_ProvinceTableAdapter tbl_ProvinceTableAdapter;
+        private DevExpress.XtraEditors.TextEdit txtMavung;
     }
 }

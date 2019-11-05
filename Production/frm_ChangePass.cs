@@ -59,7 +59,7 @@ namespace Production.Class
                             }
                             else if (textEdit3.Text == textEdit2.Text)
                             {
-                                user._Password = textEdit3.Text;
+                                user.Password = textEdit3.Text;
                                 user_.UpdatePass(user);
                                 this.Close();
                             }

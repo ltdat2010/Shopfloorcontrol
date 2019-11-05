@@ -53,6 +53,8 @@ namespace Production.Class
            " ,[SoTienTraTruoc]  " +
            " ,[NoiDungHoaDon]  " +
            " ,[NoiDungTraTruoc]  " +
+           " ,[GiaoMau]  " +
+          " ,[NgayGiaoMau]  " +
            ") " +
      " VALUES " +
            "(N'" + OBJ.SoPXN +
@@ -100,7 +102,9 @@ namespace Production.Class
            "'," + OBJ.SoTienTraTruoc +
            ",N'" + OBJ.NoiDungHoaDon +
            "',N'" + OBJ.NoiDungTraTruoc +
-           "')", CommandType.Text);
+           "',N'" + false +
+           "',CONVERT(datetime,'01/01/2019',103)" +
+           ")", CommandType.Text);
         }
 
         public void PXN_HeaderDAO_UPDATE(PXN_Header OBJ)
@@ -154,6 +158,12 @@ namespace Production.Class
            ",[GiaoMau]               = N'" + OBJ.GiaoMau + "' " +
            ",[NguoiGiaoMau]               = N'" + OBJ.NguoiGiaoMau + "' " +
            " WHERE [ID]             =" + OBJ.ID, CommandType.Text);
+        }
+
+        public DataTable PXN_Header_SELECT()
+        {
+            DataTable dt = Sql.ExecuteDataTable("SAP", "SELECT * FROM [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] Order By CreatedDate DESC", CommandType.Text);
+            return dt;
         }
 
         public void PXN_HeaderDAO_UPDATE_MaCoSoLayMau(string CUSTCODE_Old,string CUSTCODE_New )

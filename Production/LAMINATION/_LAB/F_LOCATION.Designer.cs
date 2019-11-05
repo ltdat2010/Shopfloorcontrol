@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.SSM = new DevExpress.XtraSplashScreen.SplashScreenManager();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -56,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLOCATIONLABBindingSource)).BeginInit();
@@ -96,19 +96,19 @@
             this.layoutControl2.Controls.Add(this.gridControl1);
             this.layoutControl2.Controls.Add(this.action1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 21);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(919, 516);
+            this.layoutControl2.Size = new System.Drawing.Size(919, 517);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // dataNavigator1
             // 
             this.dataNavigator1.DataSource = this.tblLOCATIONLABBindingSource;
-            this.dataNavigator1.Location = new System.Drawing.Point(4, 493);
+            this.dataNavigator1.Location = new System.Drawing.Point(4, 494);
             this.dataNavigator1.Name = "dataNavigator1";
-            this.dataNavigator1.Size = new System.Drawing.Size(331, 19);
+            this.dataNavigator1.Size = new System.Drawing.Size(316, 19);
             this.dataNavigator1.StyleController = this.layoutControl2;
             this.dataNavigator1.TabIndex = 20;
             this.dataNavigator1.Text = "dataNavigator1";
@@ -130,7 +130,7 @@
             this.gridControl1.Location = new System.Drawing.Point(4, 50);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(911, 439);
+            this.gridControl1.Size = new System.Drawing.Size(911, 440);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -205,8 +205,6 @@
             this.action1.Appearance.Options.UseForeColor = true;
             this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.action1.Location = new System.Drawing.Point(4, 4);
-            this.action1.LookAndFeel.SkinName = "Caramel";
-            this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
             this.action1.Size = new System.Drawing.Size(911, 42);
@@ -223,7 +221,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(919, 516);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(919, 517);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem18
@@ -240,14 +238,14 @@
             this.layoutControlItem5.Control = this.gridControl1;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 46);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(915, 443);
+            this.layoutControlItem5.Size = new System.Drawing.Size(915, 444);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dataNavigator1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 489);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 490);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(915, 23);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -288,13 +286,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_LOCATION";
             this.Size = new System.Drawing.Size(931, 548);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblLOCATIONLABBindingSource)).EndInit();

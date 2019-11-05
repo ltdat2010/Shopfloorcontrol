@@ -303,9 +303,7 @@ namespace Production.Class
                     FRM.myFinished += this.finished;
                     FRM.Show();
                 }
-            };
-
-            
+            };           
 
             //Action_EndForm
             action_EndForm1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
@@ -553,9 +551,10 @@ namespace Production.Class
                     btnCopy.Enabled = true;
                 }
                     
-                isAction = "Edit";
+                
             }
             //throw new NotImplementedException();
+            isAction = "Edit";
         }
 
         private void ItemClickEventHandler_Close(object sender, ItemClickEventArgs e)

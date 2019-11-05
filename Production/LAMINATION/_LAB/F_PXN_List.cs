@@ -1,7 +1,12 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Card;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -39,9 +44,13 @@ namespace Production.Class
         public F_PXN_List()
         {
             InitializeComponent();
+
+            tbl_PXN_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PXN_Header);
+            //tbl_KHMau_CTXN_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB);
+            tbl_KHMau_LAB_ORGTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB_ORG);
+
             Load += (s, e) =>
                 {
-
                     if (PCname == "vpv-lab-sample")
                         path = @"D:\PNM_Created" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
                     else
@@ -51,12 +60,13 @@ namespace Production.Class
                     // 1 Lấy thông tin user login
                     OBJ.CreatedBy = user.Username;
 
-                    tbl_PXN_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PXN_Header);
+                    //tbl_PXN_Header_ORGTableAdapter.Fill(sYNC_NUTRICIEL_ORIGINAL_TABLE.tbl_PXN_Header_ORG);
 
-                    gridControl1.DataSource = tbl_PXN_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PXN_Header);
+                    //gridControl1.DataSource = tbl_PXN_Header_ORGTableAdapter.Fill(sYNC_NUTRICIEL_ORIGINAL_TABLE.tbl_PXN_Header_ORG);
 
-                    gridView1.BestFitColumns();
-                };
+                    gridView1.BestFitColumns();    
+                };            
+
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
 
@@ -279,6 +289,8 @@ namespace Production.Class
 
             //string filePath = @"X:\PNM_Created_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
             gridView1.ExportToXlsx(path);
+
+            System.Diagnostics.Process.Start(path);
         }
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
@@ -443,7 +455,11 @@ namespace Production.Class
         {
             this.Close();
         }
+        private void ItemClickEventHandler_Refresh(object sender, EventArgs e)
+        {
 
+            
+        }
         public void Set4Object()
         {
             OBJ.ID = int.Parse(gridView1.GetFocusedRowCellValue("ID").ToString());
@@ -481,7 +497,10 @@ namespace Production.Class
             //OBJ.Note = gridView1.GetFocusedRowCellValue("Note").ToString();
             //OBJ.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
             OBJ.SendMail = gridView1.GetFocusedRowCellValue("SendMail").ToString();
-            OBJ.DonViXuatHoaDon_ID = int.Parse(gridView1.GetFocusedRowCellValue("DonViXuatHoaDon_ID").ToString());
+            if (gridView1.GetFocusedRowCellValue("DonViXuatHoaDon_ID").ToString() == string.Empty)
+                OBJ.DonViXuatHoaDon_ID = 0;
+            else
+                OBJ.DonViXuatHoaDon_ID = int.Parse(gridView1.GetFocusedRowCellValue("DonViXuatHoaDon_ID").ToString());
         }
 
         public void finished(object sender)
@@ -494,11 +513,46 @@ namespace Production.Class
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
             frm.Close();
 
-            // Step 2 : Load lại data tren grid sau khi Add
-            gridControl1.DataSource = tbl_PXN_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PXN_Header);
+            // Step 2 : Load lại data tren grid sau khi Add        
+            sYNC_NUTRICIELDataSet.EnforceConstraints = false;
+            tbl_KHMau_LAB_ORGTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KHMau_LAB_ORG);
+
+            tbl_PXN_HeaderTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_PXN_Header);
+            //tbl_KHMau_CTXN_LABTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_KHMau_CTXN_LAB);
+            sYNC_NUTRICIELDataSet.EnforceConstraints = true;
 
             gridView1.BestFitColumns();
         }
 
+        private void cardView1_CustomDrawCardCaption_1(object sender, CardCaptionCustomDrawEventArgs e)
+        {
+            CardView view = sender as CardView;
+            bool isFocusedCard = e.RowHandle == view.FocusedRowHandle;
+            //The brush to draw the background of card captions. 
+            Brush backBrush, foreBrush;
+            Color color1 = Color.FromArgb(142, 57, 80);
+            Color color2 = Color.FromArgb(240, 140, 40);
+            Color color3 = Color.FromArgb(70, 55, 94);
+            Color color4 = Color.FromArgb(144, 84, 84);
+            if (isFocusedCard)
+            {
+                backBrush = e.Cache.GetGradientBrush(e.Bounds, color1, color2, LinearGradientMode.ForwardDiagonal);
+                foreBrush = Brushes.White;
+            }
+            else
+            {
+                backBrush = e.Cache.GetGradientBrush(e.Bounds, color3, color4, LinearGradientMode.ForwardDiagonal);
+                foreBrush = Brushes.Coral;
+            }
+            //XtraMessageBox.Show(view.GetRowCellValue(e.RowHandle, "KHMau").ToString());
+            //e.CardCaption = view.GetRowCellValue(e.RowHandle, "KHMau").ToString();
+            Rectangle r = e.Bounds;
+            r.Inflate(1, 0);
+            e.Cache.FillRectangle(backBrush, r);
+            // Draw the text. 
+            e.Appearance.DrawString(e.Cache, view.GetRowCellValue(e.RowHandle, "KHMau").ToString(), r, foreBrush);
+            // Disable default painting. 
+            e.Handled = true;
+        }
     }
 }

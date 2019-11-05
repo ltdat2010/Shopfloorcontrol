@@ -29,81 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.dashboardViewer1 = new DevExpress.DashboardWin.DashboardViewer(this.components);
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.dashboardViewer1);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(955, 509);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
             // 
             // dashboardViewer1
             // 
-            this.dashboardViewer1.DashboardSource = typeof(Production.DashBoard.Pro_Db_PXN_Finished_Today);
-            this.dashboardViewer1.DataSourceOptions.ObjectDataSourceLoadingBehavior = DevExpress.DataAccess.DocumentLoadingBehavior.LoadAsIs;
-            this.dashboardViewer1.Location = new System.Drawing.Point(4, 4);
+            this.dashboardViewer1.DashboardSource = "Production.DashBoard.Pro_Db_PXN_Created_Weekly";
+            this.dashboardViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardViewer1.Location = new System.Drawing.Point(0, 0);
             this.dashboardViewer1.Name = "dashboardViewer1";
-            this.dashboardViewer1.Size = new System.Drawing.Size(947, 501);
-            this.dashboardViewer1.TabIndex = 4;
-            this.dashboardViewer1.Load += new System.EventHandler(this.dashboardViewer1_Load);
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(955, 509);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.dashboardViewer1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(951, 505);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.dashboardViewer1.Size = new System.Drawing.Size(1114, 548);
+            this.dashboardViewer1.TabIndex = 0;
             // 
             // F_DashBoard_LAB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.Appearance.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.layoutControl1);
+            this.Controls.Add(this.dashboardViewer1);
             this.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_DashBoard_LAB";
-            this.Size = new System.Drawing.Size(955, 509);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1114, 548);
             ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.DashboardWin.DashboardViewer dashboardViewer1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }

@@ -136,6 +136,7 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dialogs.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -147,6 +148,7 @@
     <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -280,6 +282,9 @@
     <Compile Include="Class\_GEN\UserDAO.cs" />
     <Compile Include="Class\_GEN\EncryptKey.cs" />
     <Compile Include="Class\_LAB\GiaoMau.cs" />
+    <Compile Include="Class\_LAB\ProvinceBUS.cs" />
+    <Compile Include="Class\_LAB\ProvinceDAO.cs" />
+    <Compile Include="Class\_LAB\Province.cs" />
     <Compile Include="Class\_LAB\PTU_Lines_BUS.cs" />
     <Compile Include="Class\_LAB\PTU_Lines_DAO.cs" />
     <Compile Include="Class\_LAB\PTU_Header_BUS.cs" />
@@ -355,16 +360,7 @@
     <Compile Include="Class\_LAB\PXN_Result.cs" />
     <Compile Include="Class\_LAB\PXN_Details.cs" />
     <Compile Include="Class\_LAB\PXN_DetailsBUS.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_GENBUS.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_H2OBUS.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_GENDAO.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_H2ODAO.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_HTHBUS.cs" />
     <Compile Include="Class\_LAB\PXN_DetailsDAO.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_HTHDAO.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_GEN.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_H2O.cs" />
-    <Compile Include="Class\_LAB\PXN_Header_SUB_HTH.cs" />
     <Compile Include="Class\_LAB\PXN_Header.cs" />
     <Compile Include="Class\_LAB\PXN_HeaderBUS.cs" />
     <Compile Include="Class\_LAB\PXN_HeaderDAO.cs" />
@@ -467,6 +463,12 @@
     </Compile>
     <Compile Include="CustomAppointmentForm.Designer.cs">
       <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard\LAB\Pro_Db_PXN_Created_Weekly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DashBoard\LAB\Pro_Db_PXN_Created_Weekly.Designer.cs">
+      <DependentUpon>Pro_Db_PXN_Created_Weekly.cs</DependentUpon>
     </Compile>
     <Compile Include="DashBoard\QC\Pro_Db_COAThisMonth_Chart.cs">
       <SubType>Component</SubType>
@@ -607,6 +609,18 @@
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_KHMau_Details_Saochep.Designer.cs">
       <DependentUpon>F_KHMau_Details_Saochep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_Province_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_Province_Details.Designer.cs">
+      <DependentUpon>F_Province_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_List_Bk_ForNewUpdate20191024.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_PXN_List_Bk_ForNewUpdate20191024.Designer.cs">
+      <DependentUpon>F_PXN_List_Bk_ForNewUpdate20191024.cs</DependentUpon>
     </Compile>
     <Compile Include="LAMINATION\_LAB\REPORT\F_Baocao_NhanMau_EXCEL.cs">
       <SubType>Form</SubType>
@@ -925,6 +939,12 @@
     </Compile>
     <Compile Include="LAMINATION\_LAB\F_Scheduling_Details.Designer.cs">
       <DependentUpon>F_Scheduling_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_Province.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_LAB\F_Province.Designer.cs">
+      <DependentUpon>F_Province.cs</DependentUpon>
     </Compile>
     <Compile Include="LAMINATION\_QC\F_COA_Template_Header.cs">
       <SubType>Form</SubType>
@@ -1811,6 +1831,9 @@
       <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard\LAB\Pro_Db_PXN_Created_Weekly.resx">
+      <DependentUpon>Pro_Db_PXN_Created_Weekly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashBoard\QC\Pro_Db_COAThisMonth_Chart.resx">
       <DependentUpon>Pro_Db_COAThisMonth_Chart.cs</DependentUpon>
     </EmbeddedResource>
@@ -1880,6 +1903,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_KHMau_Details_Saochep.resx">
       <DependentUpon>F_KHMau_Details_Saochep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_Province_Details.resx">
+      <DependentUpon>F_Province_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_PXN_List_Bk_ForNewUpdate20191024.resx">
+      <DependentUpon>F_PXN_List_Bk_ForNewUpdate20191024.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\REPORT\F_Baocao_NhanMau_EXCEL.resx">
       <DependentUpon>F_Baocao_NhanMau_EXCEL.cs</DependentUpon>
@@ -2052,6 +2081,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_LAB\F_Scheduling_Details.resx">
       <DependentUpon>F_Scheduling_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_LAB\F_Province.resx">
+      <DependentUpon>F_Province.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_QC\F_COA_Template_Header.resx">
       <DependentUpon>F_COA_Template_Header.cs</DependentUpon>

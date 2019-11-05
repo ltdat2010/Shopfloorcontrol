@@ -1,592 +1,231 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.Windows;
 
 namespace Production.Class
 {
     public class PXN_Header
     {
-        public PXN_Header(
-            int ID,
-            string SoPXN,
-            string PXNDescription,
-            string CoSoGuiMau,
-            string MaCoSoGuiMau,
-            string TenCoSoGuiMau,
-            string DCCoSoGuiMau,
-            string PhoneCoSoGuiMau,
-            string FaxCoSoGuiMau,
-            string EmailCoSoGuiMau,
-            string MSTCoSoGuiMau,
-            string CoSoLayMau,
-            string MaCoSoLayMau,
-            string TenCoSoLayMau,
-            string DCCoSoLayMau,
-            string PhoneCoSoLayMau,
-            string FaxCoSoLayMau,
-            string EmailCoSoLayMau,
-            DateTime CreatedDate,
-            string CreatedBy,
-            string Note,
-            bool Locked,
-            DateTime NgayNhanMau,
-            DateTime NgayDuKienTra,
-            DateTime NgayCoKetQua,
-            DateTime NgayTraKetQua,
-            //DateTime NgayLayMau,
-            //string LoaiDVMauNuoc,
-            //string LoaiMauGui,
-            //string SLMauGui,
-            //string TTMauGui,
-            //string VTLayMauDayChuong,
-            //string GioLayMauTuoi,
-            string KHMau,
-            string Khac,
-            bool PTNThucHien,
-            string LoaiXN,
-            string NgonNgu,
-            string SendMail,
-            bool DichTeDan,
-            int CUSTCODE_ID,
-            int EMPCode_ID,
-            ////////////// HOA DON - THANH TOAN /////////////////
-            bool DaXuatHoaDon,
-            DateTime NgayXuatHoaDon,
-            string SoHoaDon,
-            bool DaThuTien,
-            DateTime NgayThuTien,
-            float SoTienHoaDon,
-            bool TraTruoc,
-            DateTime NgayTraTruoc,
-            float SoTienTraTruoc,
-            string NoiDungHoaDon,
-            int DonViXuatHoaDon_ID,
-            DateTime NgayGiaoMau,
-            string NguoiGiaoMau,
-            bool GiaoMau
-
-            )
-        {
-            this._ID = ID;
-            this._SoPXN = SoPXN;
-            this._PXNDescription = PXNDescription;
-            this._CoSoGuiMau = CoSoGuiMau;
-            this._MaCoSoGuiMau = MaCoSoGuiMau;
-            this._TenCoSoGuiMau = TenCoSoGuiMau;
-            this._DCCoSoGuiMau = DCCoSoGuiMau;
-            this._PhoneCoSoGuiMau = PhoneCoSoGuiMau;
-            this._FaxCoSoGuiMau = FaxCoSoGuiMau;
-            this._EmailCoSoGuiMau = EmailCoSoGuiMau;
-            this._MSTCoSoGuiMau = MSTCoSoGuiMau;
-            this._CoSoLayMau = CoSoLayMau;
-            this._MaCoSoLayMau = MaCoSoLayMau;
-            this._TenCoSoLayMau = TenCoSoLayMau;
-            this._DCCoSoLayMau = DCCoSoLayMau;
-            this._PhoneCoSoLayMau = PhoneCoSoLayMau;
-            this._FaxCoSoLayMau = FaxCoSoLayMau;
-            this._EmailCoSoLayMau = EmailCoSoLayMau;
-            this._CreatedDate = CreatedDate;
-            this._CreatedBy = CreatedBy;
-            this._Note = Note;
-            this._Locked = Locked;
-            this._SendMail = SendMail;
-            this._NgayNhanMau = NgayNhanMau;
-            this._NgayDuKienTra = NgayDuKienTra;
-            this._NgayCoKetQua = NgayCoKetQua;
-            this._NgayTraKetQua = NgayTraKetQua;
-            //this._LoaiDVMauNuoc = LoaiDVMauNuoc;
-            //this._NgayLayMau = NgayLayMau;
-            //this._LoaiMauGui = LoaiMauGui;
-            //this._SLMauGui = SLMauGui;
-            //this._TTMauGui = TTMauGui;
-            //this._VTLayMauDayChuong = VTLayMauDayChuong;
-            //this._GioLayMauTuoi = GioLayMauTuoi;
-            this._KHMau = KHMau;
-            this._Khac = Khac;
-            this._PTNThucHien = PTNThucHien;
-            this._LoaiXN = LoaiXN;
-            this._NgonNgu = NgonNgu;
-            this._DichTeDan = DichTeDan;
-            this._CUSTCODE_ID = CUSTCODE_ID;
-            this._EMPCode_ID = EMPCode_ID;
-            ////////////// HOA DON - THANH TOAN /////////////////
-            this._DaXuatHoaDon = DaXuatHoaDon;
-            this._NgayXuatHoaDon = NgayXuatHoaDon;
-            this._SoHoaDon = SoHoaDon;
-            this._DaThuTien = DaThuTien;
-            this._NgayThuTien = NgayThuTien;
-            this._SoTienDaThu = SoTienDaThu;
-            this._SoTienHoaDon = SoTienHoaDon;
-            this._TraTruoc = TraTruoc;
-            this._NgayTraTruoc = NgayTraTruoc;
-            this._SoTienTraTruoc = SoTienTraTruoc;
-            this._NoiDungHoaDon = NoiDungHoaDon;
-            this._NoiDungTraTruoc = NoiDungTraTruoc;
-            this._DonViXuatHoaDon_ID = DonViXuatHoaDon_ID;
-            this._NgayGiaoMau = NgayGiaoMau;
-            this._NguoiGiaoMau = NguoiGiaoMau;
-            this._GiaoMau = GiaoMau;
-        }
-
         public PXN_Header()
         {
+
         }
-
-        private int _ID;
-
-        public int ID
-        {
-            get { return _ID; }
-            set { _ID = value; }
-        }
-
-        private string _SoPXN;
-
-        public string SoPXN
-        {
-            get { return _SoPXN; }
-            set { _SoPXN = value; }
-        }
-
-        private string _PXNDescription;
-
-        public string PXNDescription
-        {
-            get { return _PXNDescription; }
-            set { _PXNDescription = value; }
-        }
-
-        private string _CoSoGuiMau;
-
-        public string CoSoGuiMau
-        {
-            get { return _CoSoGuiMau; }
-            set { _CoSoGuiMau = value; }
-        }
-
-        private string _MaCoSoGuiMau;
-
-        public string MaCoSoGuiMau
-        {
-            get { return _MaCoSoGuiMau; }
-            set { _MaCoSoGuiMau = value; }
-        }
-
-        private string _TenCoSoGuiMau;
-
-        public string TenCoSoGuiMau
-        {
-            get { return _TenCoSoGuiMau; }
-            set { _TenCoSoGuiMau = value; }
-        }
-
-        private string _DCCoSoGuiMau;
-
-        public string DCCoSoGuiMau
-        {
-            get { return _DCCoSoGuiMau; }
-            set { _DCCoSoGuiMau = value; }
-        }
-
-        private string _PhoneCoSoGuiMau;
-
-        public string PhoneCoSoGuiMau
-        {
-            get { return _PhoneCoSoGuiMau; }
-            set { _PhoneCoSoGuiMau = value; }
-        }
-
-        private string _FaxCoSoGuiMau;
-
-        public string FaxCoSoGuiMau
-        {
-            get { return _FaxCoSoGuiMau; }
-            set { _FaxCoSoGuiMau = value; }
-        }
-
-        private string _EmailCoSoGuiMau;
-
-        public string EmailCoSoGuiMau
-        {
-            get { return _EmailCoSoGuiMau; }
-            set { _EmailCoSoGuiMau = value; }
-        }
-
-        private string _MSTCoSoGuiMau;
-
-        public string MSTCoSoGuiMau
-        {
-            get { return _MSTCoSoGuiMau; }
-            set { _MSTCoSoGuiMau = value; }
-        }
-
-        private string _CoSoLayMau;
-
-        public string CoSoLayMau
-        {
-            get { return _CoSoLayMau; }
-            set { _CoSoLayMau = value; }
-        }
-
-        private string _MaCoSoLayMau;
-
-        public string MaCoSoLayMau
-        {
-            get { return _MaCoSoLayMau; }
-            set { _MaCoSoLayMau = value; }
-        }
-
-        private string _TenCoSoLayMau;
-
-        public string TenCoSoLayMau
-        {
-            get { return _TenCoSoLayMau; }
-            set { _TenCoSoLayMau = value; }
-        }
-
-        private string _DCCoSoLayMau;
-
-        public string DCCoSoLayMau
-        {
-            get { return _DCCoSoLayMau; }
-            set { _DCCoSoLayMau = value; }
-        }
-
-        private string _PhoneCoSoLayMau;
-
-        public string PhoneCoSoLayMau
-        {
-            get { return _PhoneCoSoLayMau; }
-            set { _PhoneCoSoLayMau = value; }
-        }
-
-        private string _FaxCoSoLayMau;
-
-        public string FaxCoSoLayMau
-        {
-            get { return _FaxCoSoLayMau; }
-            set { _FaxCoSoLayMau = value; }
-        }
-
-        private string _EmailCoSoLayMau;
-
-        public string EmailCoSoLayMau
-        {
-            get { return _EmailCoSoLayMau; }
-            set { _EmailCoSoLayMau = value; }
-        }
-
-        private DateTime _CreatedDate;
-
-        public DateTime CreatedDate
-        {
-            get { return _CreatedDate; }
-            set { _CreatedDate = value; }
-        }
-
-        private string _CreatedBy;
-
-        public string CreatedBy
-        {
-            get { return _CreatedBy; }
-            set { _CreatedBy = value; }
-        }
-
-        private bool _Locked;
-
-        public bool Locked
-        {
-            get { return _Locked; }
-            set { _Locked = value; }
-        }
-
-        private string _Note;
-
-        public string Note
-        {
-            get { return _Note; }
-            set { _Note = value; }
-        }
-
-        private DateTime _NgayNhanMau;
-
-        public DateTime NgayNhanMau
-        {
-            get { return _NgayNhanMau; }
-            set { _NgayNhanMau = value; }
-        }
-
-        private DateTime _NgayDuKienTra;
-
-        public DateTime NgayDuKienTra
-        {
-            get { return _NgayDuKienTra; }
-            set { _NgayDuKienTra = value; }
-        }
-
-        private DateTime _NgayCoKetQua;
-
-        public DateTime NgayCoKetQua
-        {
-            get { return _NgayCoKetQua; }
-            set { _NgayCoKetQua = value; }
-        }
-
-        private DateTime _NgayTraKetQua;
-
-        public DateTime NgayTraKetQua
-        {
-            get { return _NgayTraKetQua; }
-            set { _NgayTraKetQua = value; }
-        }
-
-        //private string _LoaiMauGui;
-        //public string LoaiMauGui
-        //{
-        //    get { return _LoaiMauGui; }
-        //    set { _LoaiMauGui = value; }
-        //}
-        //private string _LoaiDVMauNuoc;
-        //public string LoaiDVMauNuoc
-        //{
-        //    get { return _LoaiDVMauNuoc; }
-        //    set { _LoaiDVMauNuoc = value; }
-        //}
-
-        //private string _SLMauGui;
-        //public string SLMauGui
-        //{
-        //    get { return _SLMauGui; }
-        //    set { _SLMauGui = value; }
-        //}
-
-        //private DateTime _NgayLayMau;
-        //public DateTime NgayLayMau
-        //{
-        //    get { return _NgayLayMau; }
-        //    set { _NgayLayMau = value; }
-        //}
-        //private string _TTMauGui;
-        //public string TTMauGui
-        //{
-        //    get { return _TTMauGui; }
-        //    set { _TTMauGui = value; }
-        //}
-
-        //private string _VTLayMauDayChuong;
-        //public string VTLayMauDayChuong
-        //{
-        //    get { return _VTLayMauDayChuong; }
-        //    set { _VTLayMauDayChuong = value; }
-        //}
-
-        private string _SendMail;
-
-        public string SendMail
-        {
-            get { return _SendMail; }
-            set { _SendMail = value; }
-        }
-
-        private string _KHMau;
-
-        public string KHMau
-        {
-            get { return _KHMau; }
-            set { _KHMau = value; }
-        }
-
-        private string _Khac;
-
-        public string Khac
-        {
-            get { return _Khac; }
-            set { _Khac = value; }
-        }
-
-        private bool _PTNThucHien;
-
-        public bool PTNThucHien
-        {
-            get { return _PTNThucHien; }
-            set { _PTNThucHien = value; }
-        }
-
-        private string _LoaiXN;
-
-        public string LoaiXN
-        {
-            get { return _LoaiXN; }
-            set { _LoaiXN = value; }
-        }
-
-        private string _NgonNgu;
-
-        public string NgonNgu
-        {
-            get { return _NgonNgu; }
-            set { _NgonNgu = value; }
-        }
-
-        private bool _DichTeDan;
-
-        public bool DichTeDan
-        {
-            get { return _DichTeDan; }
-            set { _DichTeDan = value; }
-        }
-
-        private int _CUSTCODE_ID;
-
-        public int CUSTCODE_ID
-        {
-            get { return _CUSTCODE_ID; }
-            set { _CUSTCODE_ID = value; }
-        }
-
-        private int _EMPCode_ID;
-
-        public int EMPCode_ID
-        {
-            get { return _EMPCode_ID; }
-            set { _EMPCode_ID = value; }
-        }
-
+        
+        public int ID { get; set; } 
+        public string SoPXN { get; set; }
+        public string PXNDescription { get; set; }
+        public string CoSoGuiMau { get; set; }
+        public string MaCoSoGuiMau { get; set; }
+        public string TenCoSoGuiMau { get; set; }
+        public string DCCoSoGuiMau { get; set; }
+        public string PhoneCoSoGuiMau { get; set; }
+        public string FaxCoSoGuiMau { get; set; }
+        public string EmailCoSoGuiMau { get; set; }
+        public string MSTCoSoGuiMau { get; set; }
+        public string CoSoLayMau { get; set; }
+        public string MaCoSoLayMau { get; set; }
+        public string TenCoSoLayMau { get; set; }
+        public string DCCoSoLayMau { get; set; }
+        public string PhoneCoSoLayMau { get; set; }
+        public string FaxCoSoLayMau { get; set; }
+        public string EmailCoSoLayMau { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public string Note { get; set; }
+        public bool Locked { get; set; }
+        public DateTime NgayNhanMau { get; set; }
+        public DateTime NgayDuKienTra { get; set; }
+        public DateTime NgayCoKetQua { get; set; }
+        public DateTime NgayTraKetQua { get; set; }
+        //DateTime NgayLayMau,
+        //string LoaiDVMauNuoc,
+        //string LoaiMauGui,
+        //string SLMauGui,
+        //string TTMauGui,
+        //string VTLayMauDayChuong,
+        //string GioLayMauTuoi,
+        public string KHMau { get; set; }
+        public string Khac { get; set; }
+        public bool PTNThucHien { get; set; }
+        public string LoaiXN { get; set; }
+        public string NgonNgu { get; set; }
+        public string SendMail { get; set; }
+        public bool DichTeDan { get; set; }
+        public int CUSTCODE_ID { get; set; }
+        public int EMPCode_ID { get; set; }
         ////////////// HOA DON - THANH TOAN /////////////////
-        //this._DaXuatHoaDon = DaXuatHoaDon;
-        //this._NgayXuatHoaDon = NgayXuatHoaDon;
-        //this._SoHoaDon = SoHoaDon;
-        //this._DaThuTien = DaThuTien;
-        //this._NgayThuTien = NgayThuTien;
-        //this._SoTienHoaDon = SoTienHoaDon;
-        //this._TraTruoc = TraTruoc;
-        //this._NgayTraTruoc = NgayTraTruoc;
-        //this._SoTienTraTruoc = SoTienTraTruoc;
-        //this._NoiDungHoaDon = NoiDungHoaDon;
-        private bool _DaXuatHoaDon;
+        public bool DaXuatHoaDon { get; set; }
+        public DateTime NgayXuatHoaDon { get; set; }
+        public string SoHoaDon { get; set; }
+        public bool DaThuTien { get; set; }
+        public DateTime NgayThuTien { get; set; }
+        public float SoTienHoaDon { get; set; }
+        public bool TraTruoc { get; set; }
+        public DateTime NgayTraTruoc { get; set; }
+        public float SoTienTraTruoc { get; set; }
+        public float SoTienDaThu { get; set; }
+        public string NoiDungHoaDon { get; set; }
+        public string NoiDungTraTruoc { get; set; }
+        public int DonViXuatHoaDon_ID { get; set; }
+        public DateTime NgayGiaoMau { get; set; }
+        public string NguoiGiaoMau { get; set; }
+        public bool GiaoMau { get; set; }
+        public List<KHMau_LAB> KHMau_LABs { get; set; }
 
-        public bool DaXuatHoaDon
+        public PXN_Header PXN_Header_GetMasterDetailData(DataRow PXN_Header_Row, DataTable KHMau_LAB_dt)
         {
-            get { return _DaXuatHoaDon; }
-            set { _DaXuatHoaDon = value; }
+            PXN_Header _pXN_Header = new PXN_Header();
+
+            //MessageBox.Show("SoPXN : " + PXN_Header_Row["SoPXN"].ToString());
+            _pXN_Header.ID = int.Parse(PXN_Header_Row["ID"].ToString());
+            _pXN_Header.SoPXN = PXN_Header_Row["SoPXN"].ToString();
+            _pXN_Header.PXNDescription = PXN_Header_Row["PXNDescription"].ToString();
+            _pXN_Header.CoSoGuiMau = PXN_Header_Row["CoSoGuiMau"].ToString();
+            _pXN_Header.MaCoSoGuiMau = PXN_Header_Row["MaCoSoGuiMau"].ToString();
+            _pXN_Header.TenCoSoGuiMau = PXN_Header_Row["TenCoSoGuiMau"].ToString();
+            _pXN_Header.DCCoSoGuiMau = PXN_Header_Row["DCCoSoGuiMau"].ToString();
+            _pXN_Header.PhoneCoSoGuiMau = PXN_Header_Row["PhoneCoSoGuiMau"].ToString();
+            _pXN_Header.FaxCoSoGuiMau = PXN_Header_Row["FaxCoSoGuiMau"].ToString();
+            _pXN_Header.EmailCoSoGuiMau = PXN_Header_Row["EmailCoSoGuiMau"].ToString();
+            _pXN_Header.MSTCoSoGuiMau = PXN_Header_Row["MSTCoSoGuiMau"].ToString();
+            _pXN_Header.CoSoLayMau = PXN_Header_Row["CoSoLayMau"].ToString();
+            _pXN_Header.MaCoSoLayMau = PXN_Header_Row["MaCoSoLayMau"].ToString();
+            _pXN_Header.TenCoSoLayMau = PXN_Header_Row["TenCoSoLayMau"].ToString();
+            _pXN_Header.DCCoSoLayMau = PXN_Header_Row["DCCoSoLayMau"].ToString();
+            _pXN_Header.PhoneCoSoLayMau = PXN_Header_Row["PhoneCoSoLayMau"].ToString();
+            _pXN_Header.FaxCoSoLayMau = PXN_Header_Row["FaxCoSoLayMau"].ToString();
+            _pXN_Header.EmailCoSoLayMau = PXN_Header_Row["EmailCoSoLayMau"].ToString();
+            _pXN_Header.CreatedDate = DateTime.Parse(PXN_Header_Row["CreatedDate"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            _pXN_Header.CreatedBy = PXN_Header_Row["CreatedBy"].ToString();
+            _pXN_Header.Note = PXN_Header_Row["Note"].ToString();
+            _pXN_Header.Locked = PXN_Header_Row["Locked"].ToString() == "True" ? true : false;
+            if (_pXN_Header.NgayNhanMau == DateTime.MinValue)
+                _pXN_Header.NgayNhanMau = DateTime.Parse("2019-01-01");
+            else
+                DateTime.Parse(PXN_Header_Row["NgayNhanMau"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            //_pXN_Header.NgayDuKienTra = DateTime.MinValue ? DateTime.Parse("2019-01-01") : DateTime.Parse(PXN_Header_Row["NgayDuKienTra"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            // _pXN_Header.NgayCoKetQua = DateTime.MinValue ? DateTime.Parse("2019-01-01") : DateTime.Parse(PXN_Header_Row["NgayCoKetQua"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            // _pXN_Header.NgayTraKetQua = DateTime.MinValue ? DateTime.Parse("2019-01-01") : DateTime.Parse(PXN_Header_Row["NgayTraKetQua"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            _pXN_Header.KHMau = PXN_Header_Row["KHMau"].ToString();
+            //_pXN_Header.Khac = PXN_Header_Row["Khac"].ToString();
+            _pXN_Header.PTNThucHien = PXN_Header_Row["PTNThucHien"].ToString() == "True" ? true : false;
+            _pXN_Header.LoaiXN = PXN_Header_Row["LoaiXN"].ToString();
+            _pXN_Header.NgonNgu = PXN_Header_Row["NgonNgu"].ToString();
+            _pXN_Header.SendMail = PXN_Header_Row["SendMail"].ToString();
+            _pXN_Header.DichTeDan = PXN_Header_Row["DichTeDan"].ToString() == "True" ? true : false;
+            if (PXN_Header_Row["CUSTCODE_ID"].ToString() == string.Empty)
+                _pXN_Header.CUSTCODE_ID = 0;
+            else
+                _pXN_Header.CUSTCODE_ID = int.Parse(PXN_Header_Row["CUSTCODE_ID"].ToString());
+
+            if (PXN_Header_Row["EMPCode_ID"].ToString() == string.Empty)
+                _pXN_Header.EMPCode_ID = 0;
+            else
+                _pXN_Header.EMPCode_ID = int.Parse(PXN_Header_Row["EMPCode_ID"].ToString());
+
+            _pXN_Header.DaXuatHoaDon = PXN_Header_Row["DaXuatHoaDon"].ToString() == "True" ? true : false;
+
+            if (string.IsNullOrEmpty(PXN_Header_Row["NgayXuatHoaDon"].ToString()))
+                _pXN_Header.NgayXuatHoaDon = DateTime.Parse("2019-01-01");
+            else
+                _pXN_Header.NgayXuatHoaDon = DateTime.Parse(PXN_Header_Row["NgayXuatHoaDon"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            _pXN_Header.SoHoaDon = PXN_Header_Row["SoHoaDon"].ToString();
+            _pXN_Header.DaThuTien = PXN_Header_Row["DaThuTien"].ToString() == "True" ? true : false;
+
+            if (string.IsNullOrEmpty(PXN_Header_Row["NgayThuTien"].ToString()))
+                _pXN_Header.NgayThuTien = DateTime.Parse("2019-01-01");
+            else
+                _pXN_Header.NgayThuTien = DateTime.Parse(PXN_Header_Row["NgayThuTien"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            if (PXN_Header_Row["SoTienHoaDon"].ToString() == string.Empty)
+                _pXN_Header.SoTienHoaDon = 0;
+            else
+                _pXN_Header.SoTienHoaDon = float.Parse(PXN_Header_Row["SoTienHoaDon"].ToString());
+
+            _pXN_Header.TraTruoc = PXN_Header_Row["TraTruoc"].ToString() == "True" ? true : false;
+
+            if (string.IsNullOrEmpty(PXN_Header_Row["NgayTraTruoc"].ToString()))
+                _pXN_Header.NgayTraTruoc = DateTime.Parse("2019-01-01");
+            else
+                _pXN_Header.NgayTraTruoc = DateTime.Parse(PXN_Header_Row["NgayTraTruoc"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            if (PXN_Header_Row["SoTienTraTruoc"].ToString() == string.Empty)
+                _pXN_Header.SoTienTraTruoc = 0;
+            else
+                _pXN_Header.SoTienTraTruoc = float.Parse(PXN_Header_Row["SoTienTraTruoc"].ToString());
+
+            if (PXN_Header_Row["SoTienDaThu"].ToString() == string.Empty)
+                _pXN_Header.SoTienDaThu = 0;
+            else
+                _pXN_Header.SoTienDaThu = float.Parse(PXN_Header_Row["SoTienDaThu"].ToString());
+
+            _pXN_Header.NoiDungHoaDon = PXN_Header_Row["NoiDungHoaDon"].ToString();
+            _pXN_Header.NoiDungTraTruoc = PXN_Header_Row["NoiDungTraTruoc"].ToString();
+
+            if (string.IsNullOrEmpty(PXN_Header_Row["DonViXuatHoaDon_ID"].ToString()))
+                _pXN_Header.DonViXuatHoaDon_ID = 0;
+            else
+                _pXN_Header.DonViXuatHoaDon_ID = int.Parse(PXN_Header_Row["DonViXuatHoaDon_ID"].ToString());
+
+            //_pXN_Header.NgayGiaoMau = DateTime.Parse(PXN_Header_Row["NgayGiaoMau"].ToString(), CultureInfo.CreateSpecificCulture("en-GB"));
+            _pXN_Header.NguoiGiaoMau = PXN_Header_Row["NguoiGiaoMau"].ToString();
+            _pXN_Header.GiaoMau = PXN_Header_Row["GiaoMau"].ToString() == "True" ? true : false;           
+
+
+            List<KHMau_LAB> List_KHMau_LAB = new List<KHMau_LAB>();
+            foreach ( DataRow KHMau_LAB_Row in KHMau_LAB_dt.Rows)
+            {
+                //MessageBox.Show("KHMau : " + KHMau_LAB_Row["KHMau"].ToString());
+                List_KHMau_LAB.Add
+                                (
+                                new KHMau_LAB()
+                                {
+                                    //ID = int.Parse(KHMau_LAB_Row["ID"].ToString()),
+                                    //SoPXN = KHMau_LAB_Row["SoPXN"].ToString(),                                    
+                                    KHMau = KHMau_LAB_Row["KHMau"].ToString(),
+                                    //KHMau_GiaoMau = KHMau_LAB_Row["KHMau_GiaoMau"].ToString(),
+                                    //KHMau_KhachHang = KHMau_LAB_Row["KHMau_KhachHang"].ToString(),
+                                    SoLuongKHMau = KHMau_LAB_Row["SoLuongKHMau"].ToString(),
+                                    DonViKHMau = KHMau_LAB_Row["DonViKHMau"].ToString(),
+                                    //PhuongPhapBaoQuan = KHMau_LAB_Row["PhuongPhapBaoQuan"].ToString(),
+                                    //VitriLuuKHMau = KHMau_LAB_Row["VitriLuuKHMau"].ToString(),
+                                    //NgayLuuKHMau = DateTime.Parse(KHMau_LAB_Row["NgayLuuKHMau"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")),
+                                    //NhanVienLuuKHMau = KHMau_LAB_Row["NhanVienLuuKHMau"].ToString(),
+                                    //NgayHuyKHMau = DateTime.Parse(KHMau_LAB_Row["NgayHuyKHMau"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")),
+                                    //TaiLieuHuyKHMau = KHMau_LAB_Row["TaiLieuHuyKHMau"].ToString(),
+                                    //NhanVienHuyKHMau = KHMau_LAB_Row["NhanVienHuyKHMau"].ToString(),
+                                    //TrangThaiKHMau = KHMau_LAB_Row["TrangThaiKHMau"].ToString() == "True" ? true : false,
+                                    //SoLuongHuyKHMau = KHMau_LAB_Row["SoLuongHuyKHMau"].ToString(),
+                                    //CreatedDate = DateTime.Parse(KHMau_LAB_Row["CreatedDate"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")),
+                                    //CreatedBy = KHMau_LAB_Row["CreatedBy"].ToString(),
+                                    //Note = KHMau_LAB_Row["Note"].ToString(),
+                                    //Locked = KHMau_LAB_Row["Locked"].ToString() == "True" ? true : false,
+                                    NgayLayMau = DateTime.Parse(KHMau_LAB_Row["NgayLayMau"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")),
+                                    LoaiDVMauNuoc = KHMau_LAB_Row["LoaiDVMauNuoc"].ToString(),
+                                    LoaiMauGui = KHMau_LAB_Row["LoaiMauGui"].ToString(),
+                                    TTMauGui = KHMau_LAB_Row["TTMauGui"].ToString(),
+                                    VTLayMauDayChuong = KHMau_LAB_Row["VTLayMauDayChuong"].ToString(),
+                                    GioLayMauTuoi = KHMau_LAB_Row["GioLayMauTuoi"].ToString(),
+                                    Khac = KHMau_LAB_Row["Khac"].ToString(),
+                                    SoLuongKHMauKhongDat = KHMau_LAB_Row["SoLuongKHMauKhongDat"].ToString(),
+                                    LiDoKHMauKhongDat = KHMau_LAB_Row["LiDoKHMauKhongDat"].ToString(),
+                                    MotaMau = KHMau_LAB_Row["MotaMau"].ToString(),
+                                    //BanGiaoMauStatus = KHMau_LAB_Row["BanGiaoMauStatus"].ToString() == "True" ? true : false,
+                                    //NguoiNhanBanGiaoMau = KHMau_LAB_Row["NguoiNhanBanGiaoMau"].ToString(),
+                                    //NguoiGiaoBanGiaoMau = KHMau_LAB_Row["NguoiGiaoBanGiaoMau"].ToString(),
+                                    //NgayBanGiaoMau = DateTime.Parse(KHMau_LAB_Row["NgayBanGiaoMau"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")),
+                                    //LuuMau = KHMau_LAB_Row["LuuMau"].ToString() == "True" ? true : false,
+                                    //HuyMau = KHMau_LAB_Row["HuyMau"].ToString() == "True" ? true : false
+                                }
+                                );
+
+            }
+            _pXN_Header.KHMau_LABs = List_KHMau_LAB;
+
+
+            return _pXN_Header;
         }
 
-        private DateTime _NgayXuatHoaDon;
-
-        public DateTime NgayXuatHoaDon
-        {
-            get { return _NgayXuatHoaDon; }
-            set { _NgayXuatHoaDon = value; }
-        }
-
-        private string _SoHoaDon;
-
-        public string SoHoaDon
-        {
-            get { return _SoHoaDon; }
-            set { _SoHoaDon = value; }
-        }
-
-        private bool _DaThuTien;
-
-        public bool DaThuTien
-        {
-            get { return _DaThuTien; }
-            set { _DaThuTien = value; }
-        }
-
-        private DateTime _NgayThuTien;
-
-        public DateTime NgayThuTien
-        {
-            get { return _NgayThuTien; }
-            set { _NgayThuTien = value; }
-        }
-
-        private float _SoTienHoaDon;
-
-        public float SoTienHoaDon
-        {
-            get { return _SoTienHoaDon; }
-            set { _SoTienHoaDon = value; }
-        }
-
-        private bool _TraTruoc;
-
-        public bool TraTruoc
-        {
-            get { return _TraTruoc; }
-            set { _TraTruoc = value; }
-        }
-
-        private DateTime _NgayTraTruoc;
-
-        public DateTime NgayTraTruoc
-        {
-            get { return _NgayTraTruoc; }
-            set { _NgayTraTruoc = value; }
-        }
-
-        private float _SoTienDaThu;
-
-        public float SoTienDaThu
-        {
-            get { return _SoTienDaThu; }
-            set { _SoTienDaThu = value; }
-        }
-
-        private float _SoTienTraTruoc;
-
-        public float SoTienTraTruoc
-        {
-            get { return _SoTienTraTruoc; }
-            set { _SoTienTraTruoc = value; }
-        }
-
-        private string _NoiDungHoaDon;
-
-        public string NoiDungHoaDon
-        {
-            get { return _NoiDungHoaDon; }
-            set { _NoiDungHoaDon = value; }
-        }
-
-        private string _NoiDungTraTruoc;
-
-        public string NoiDungTraTruoc
-        {
-            get { return _NoiDungTraTruoc; }
-            set { _NoiDungTraTruoc = value; }
-        }
-
-        private int _DonViXuatHoaDon_ID;
-
-        public int DonViXuatHoaDon_ID
-        {
-            get { return _DonViXuatHoaDon_ID; }
-            set { _DonViXuatHoaDon_ID = value; }
-        }
-
-        private string _NguoiGiaoMau;
-
-        public string NguoiGiaoMau
-        {
-            get { return _NguoiGiaoMau; }
-            set { _NguoiGiaoMau = value; }
-        }
-
-        private DateTime _NgayGiaoMau;
-
-        public DateTime NgayGiaoMau
-        {
-            get { return _NgayGiaoMau; }
-            set { _NgayGiaoMau = value; }
-        }
-
-        private bool _GiaoMau;
-
-        public bool GiaoMau
-        {
-            get { return _GiaoMau; }
-            set { _GiaoMau = value; }
-        }
-    }
+}
 }

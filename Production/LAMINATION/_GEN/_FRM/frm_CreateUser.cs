@@ -38,6 +38,10 @@ namespace Production.Class
         public frm_CreateUser()
         {
             InitializeComponent();
+
+            this.tbl_DeptTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_Dept);
+            this.tbl_GroupTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_Group);
+
             Load += (s, e) =>
             {
                 btnSave.Enabled = false;
@@ -65,6 +69,22 @@ namespace Production.Class
                 //    }
                 //}
             };
+
+            chkUser.CheckedChanged += (s, e) =>
+            {
+                if (chkUser.CheckState == CheckState.Checked)
+                {
+                    txtUser.ReadOnly = false;
+                    txtPassword.ReadOnly = false;
+                }
+                else
+                {
+                    txtUser.ReadOnly = true;
+                    txtPassword.ReadOnly = true;
+                }
+            };
+
+
             btnSave.Click += (s, e) =>
             {
                 if (txtUser.Text != "")
@@ -94,6 +114,8 @@ namespace Production.Class
                             args.Text = " Tạo mới user thành công. Thông báo này sẽ tự đóng sau 1 giây.";
                             args.Buttons = new DialogResult[] { DialogResult.OK };
                             XtraMessageBox.Show(args).ToString();
+
+                            this.tbl_UserTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_User);
 
                             Is_login = true;
                             Is_close = true;
@@ -192,6 +214,17 @@ namespace Production.Class
                     }
                 }
             }
+        }
+
+        private void frm_CreateUser_Load(object sender, System.EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_User' table. You can move, or remove it, as needed.
+            this.tbl_UserTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_User);
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_Group' table. You can move, or remove it, as needed.
+            this.tbl_GroupTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_Group);
+            // TODO: This line of code loads data into the 'sYNC_NUTRICIELDataSet.tbl_Dept' table. You can move, or remove it, as needed.
+            this.tbl_DeptTableAdapter.Fill(this.sYNC_NUTRICIELDataSet.tbl_Dept);
+
         }
 
         //private void setLanguage(string cultureName)

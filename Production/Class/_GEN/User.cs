@@ -4,105 +4,19 @@ namespace Production.Class
 {
     public class User
     {
-        public User(
-            int ID,
-            string Username,
-            string Password,
-            string FullName,
-            string Name,
-            int GroupID,
-            int DeptID,
-            string Language,
-            string Email
-            )
-        {
-            this._ID = ID;
-            this._Username = Username;
-            this._Password = Password;
-            this._FullName = FullName;
-            this._Name = Name;
-            this._GroupID = GroupID;
-            this._DeptID = DeptID;
-            this._Language = Language;
-            this._Email = Email;
-        }
-
-        public int _ID;
-
-        public int ID
-        {
-            get { return _ID; }
-            set { _ID = value; }
-        }
-
-        public string _Username;
-
-        public string Username
-        {
-            get { return _Username; }
-            set { _Username = value; }
-        }
-
-        public string _Password;
-
-        public string Password
-        {
-            get { return _Password; }
-            set { _Password = value; }
-        }
-
-        public int _GroupID;
-
-        public int GroupID
-        {
-            get { return _GroupID; }
-            set { _GroupID = value; }
-        }
-
-        public string _FullName;
-
-        public string FullName
-        {
-            get { return _FullName; }
-            set { _FullName = value; }
-        }
-
-        public string _Name;
-
-        public string Name
-        {
-            get { return _Name; }
-            set { _Name = value; }
-        }
-
-        public string _Language;
-
-        public string Language
-        {
-            get { return _Language; }
-            set { _Language = value; }
-        }
-
-        public int _DeptID;
-
-        public int DeptID
-        {
-            get { return _DeptID; }
-            set { _DeptID = value; }
-        }
-
-        public string _Email;
-
-        public string Email
-        {
-            get { return _Email; }
-            set { _Email = value; }
-        }
-
-        //Contructor khong doi so
         public User()
         {
         }
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string FullName { get; set; }
+        public string Name { get; set; }
+        public int GroupID { get; set; }
+        public int DeptID { get; set; }
+        public string Language { get; set; }
+        public string Email { get; set; }
+
     }
 
     public class User_
@@ -115,12 +29,13 @@ namespace Production.Class
             dt = Sql.ExecuteDataTable("SAP", "Login", CommandType.StoredProcedure, "@user", usr, "@pass", pass);
             if (dt.Rows.Count > 0)
             {
-                user._Username = dt.Rows[0]["Username"].ToString();
-                user._GroupID = int.Parse(dt.Rows[0]["GroupID"].ToString());
+                user.Username = dt.Rows[0]["Username"].ToString();
+                user.GroupID = int.Parse(dt.Rows[0]["GroupID"].ToString());
                 //user._GroupName = dt.Rows[0]["GroupName"].ToString();
-                user._Language = dt.Rows[0]["Language"].ToString();
-                user._DeptID = int.Parse(dt.Rows[0]["Dept_Code"].ToString());
+                user.Language = dt.Rows[0]["Language"].ToString();
+                user.DeptID = int.Parse(dt.Rows[0]["Dept_Code"].ToString());
                 user.ID = int.Parse(dt.Rows[0]["ID"].ToString());
+                user.Email = dt.Rows[0]["Email"].ToString();
             }
             return user;
         }
@@ -142,7 +57,7 @@ namespace Production.Class
 
         public void UpdatePass(User user)
         {
-            Sql.ExecuteNonQuery("SAP", "UpdatePass", CommandType.StoredProcedure, "@Password", user._Password, "@UserName", user._Username);
+            Sql.ExecuteNonQuery("SAP", "UpdatePass", CommandType.StoredProcedure, "@Password", user.Password, "@UserName", user.Username);
         }
     }
 }

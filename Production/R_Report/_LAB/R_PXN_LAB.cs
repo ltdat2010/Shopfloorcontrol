@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using DevExpress.XtraEditors;
 using System;
 using System.Data;
 using System.Drawing.Printing;
@@ -56,12 +57,15 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
-                //if (PCname == "VPV-ASL-SAMPLE")
-                //    path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                //if (PCname == "VPV-LAB-SAMPLE")
+                    //path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
                 //else
-                //    path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+                path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
 
                 XmlPath = _GEN.Xml_Path.Create_Temp_Xml();
+
+                //XtraMessageBox.Show("XmlPath :" + XmlPath);
+                //XtraMessageBox.Show("Path :" + Path);
 
                 dt_PXN_Header = BUS.PXN_HeaderBUS_SELECT(OBJ.SoPXN);
                 dt_KHMau_Receipt = BUS2.KHMau_LABDAO_REPORT_RECEIPT(OBJ.SoPXN);

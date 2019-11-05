@@ -476,9 +476,7 @@ namespace Production.Class
                             OBJ.LoaiXN = "MDW";
                             txtSoPXN.Text = Func_SoPXN_NPT(BUS.Result_PXN_Header_SoPXN(OBJ.LoaiXN));
                         }
-
                     }
-
                 }
                 else
                 {
@@ -785,15 +783,10 @@ namespace Production.Class
         }
 
         private void ItemClickEventHandler_Close3(object sender, ItemClickEventArgs e)
-        {
-            Set4ObjectHeader();
-            //Set4ObjectRow();
-            //Khong cho update Header
-            //XtraMessageBox.Show(OBJ.SoPXN);
+        {            
+            Set4ObjectHeader();            
             BUS.PXN_HeaderBUS_UPDATE(OBJ);
             Is_close = true;
-            //this.Close();
-            //throw new NotImplementedException();
         }
 
         private void ItemClickEventHandler_Save3(object sender, ItemClickEventArgs e)
@@ -801,11 +794,8 @@ namespace Production.Class
             if (this.dxValidationProvider2.Validate() == true)
             {
                 Set4ObjectHeader();
-                //Set4ObjectRow();
                 //Khong cho update Header
-                //XtraMessageBox.Show(OBJ.Note);
                 BUS.PXN_HeaderBUS_UPDATE(OBJ);
-
                 Is_close = true;
                 //throw new NotImplementedException();
             }
@@ -819,7 +809,6 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Delete_KHMau(object sender, ItemClickEventArgs e)
         {
-            //throw new NotImplementedException();
             // 14 Khai báo state cho các nút khi nhấn nút Del
             state = MenuState.Delete;
 
@@ -1159,6 +1148,7 @@ namespace Production.Class
                     KHMAUOBJ.SoLuongKHMauKhongDat = gridView2.GetFocusedRowCellValue("SoLuongKHMauKhongDat").ToString();
                     KHMAUOBJ.LiDoKHMauKhongDat = gridView2.GetFocusedRowCellValue("LiDoKHMauKhongDat").ToString();
                     KHMAUOBJ.CreatedBy = gridView2.GetFocusedRowCellValue("CreatedBy").ToString();
+                    
                 }
             }
             //KHMAUOBJ.CreatedBy
@@ -1223,6 +1213,7 @@ namespace Production.Class
             OBJ.NgayThuTien = dteNgayThuTien.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayThuTien.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.NgayXuatHoaDon = dteNgayXuatHoaDon.Text.Length == 0 ? DateTime.Parse("2019-01-01") : DateTime.Parse(dteNgayXuatHoaDon.Text, CultureInfo.CreateSpecificCulture("en-GB"));
             OBJ.NgayGiaoMau = DateTime.Parse("2019-01-01");
+            
         }
 
         public void ResetControl()

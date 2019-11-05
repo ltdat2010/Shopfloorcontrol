@@ -260,9 +260,10 @@ namespace Production.Class
             CUS.TaxCode = gridView1.GetFocusedRowCellValue("TaxCode").ToString();
             CUS.Locked = gridView1.GetFocusedRowCellValue("Locked").ToString() == "True" ? true : false;
             CUS.ContactEmail = gridView1.GetFocusedRowCellValue("ContactEmail").ToString();
-            CUS.LOCCode = gridView1.GetFocusedRowCellValue("LOCCode").ToString();
+            CUS.LOCName = gridView1.GetFocusedRowCellValue("LOCName").ToString();
             CUS.ContactNumber = gridView1.GetFocusedRowCellValue("ContactNumber").ToString();
             CUS.ProvinceName = gridView1.GetFocusedRowCellValue("ProvinceName").ToString();
+            CUS.ProvinceId = int.Parse(gridView1.GetFocusedRowCellValue("ProvinceId").ToString());
         }
 
         public void finished(object sender)

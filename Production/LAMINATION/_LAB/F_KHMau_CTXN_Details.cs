@@ -152,7 +152,9 @@ namespace Production.Class
                             KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID;
                             KHMAUCTXNOBJ.CTXNID = int.Parse(dr["CTXNID"].ToString()); //int.Parse(txtCTXNID.Text.ToString());
                             KHMAUCTXNOBJ.SoLuongXN = txtSoLuongXN.Text; //txtSoLuongXN.Text;
-
+                            KHMAUCTXNOBJ.DaTraKetQua = false;
+                            KHMAUCTXNOBJ.GoiYCXuatHD = false;
+                            KHMAUCTXNOBJ.KetQua = false;
                             BUS2.KHMau_CTXN_LABBUS_INSERT(KHMAUCTXNOBJ);
 
                             if (float.Parse(KHMAUCTXNOBJ.SoLuongXN) >= 1)

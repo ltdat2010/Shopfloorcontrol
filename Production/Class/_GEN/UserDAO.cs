@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 
 namespace Production.Class
 {
@@ -43,6 +44,17 @@ namespace Production.Class
         {
             Sql.ExecuteNonQuery("SAP", "DELETE FROM [SYNC_NUTRICIEL].[dbo].[tbl_User] " +
                                         " WHERE [ID]=" + USR.ID, CommandType.Text);
+        }
+
+        public List<User> User_SELECT_Email()
+        {
+            List<User> _emailList = new List<User>();
+            DataTable dt = new DataTable(); 
+            dt = Sql.ExecuteDataTable("SAP", "SELECT ID,Email FROM [SYNC_NUTRICIEL].[dbo].[tbl_User] where Email is not null ", CommandType.Text);
+            foreach (DataRow dr in dt.Rows)            
+                _emailList.Add(new User() { ID = int.Parse(dr["ID"].ToString()), Email = dr["Email"].ToString() });
+                           
+            return _emailList;
         }
     }
 }

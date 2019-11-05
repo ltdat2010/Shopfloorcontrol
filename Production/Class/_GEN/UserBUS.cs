@@ -1,4 +1,6 @@
-﻿namespace Production.Class
+﻿using System.Collections.Generic;
+
+namespace Production.Class
 {
     public class UserBUS
     {
@@ -17,6 +19,11 @@
         public void User_DELETE(User USR)
         {
             DAO.User_DELETE(USR);
+        }
+
+        public List<User> User_SELECT_Email()
+        {
+            return DAO.User_SELECT_Email();
         }
     }
 }

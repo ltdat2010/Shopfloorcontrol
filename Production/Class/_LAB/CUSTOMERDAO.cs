@@ -24,7 +24,7 @@ namespace Production.Class
            " ,[ProvinceName] " +
            " ,[ContactEmail] " +
            " ,[CUSTViphaLAB] " +
-           " ,[LOCCode] )" +
+           " ,[ProvinceId] )" +
      " VALUES " +
            "('" + CUST.CUSTCODE +
            "',N'" + CUST.CUSTNAME +
@@ -42,8 +42,8 @@ namespace Production.Class
            "',N'" + CUST.ProvinceName +
            "',N'" + CUST.ContactEmail +
            "','" + CUST.CUSTViphaLAB +
-           "','" + CUST.LOCCode +
-            "')", CommandType.Text);
+           "'," + CUST.ProvinceId +
+            ")", CommandType.Text);
         }
 
         public void CUSTOMER_UPDATE(CUSTOMER CUST)
@@ -56,7 +56,7 @@ namespace Production.Class
            ",[Locked] = '" + CUST.Locked + "' " +
            ",[EMPCode] = N'" + CUST.EMPCode + "' " +
            ",[CUSTTypeCode] = N'" + CUST.CUSTTYPECode + "' " +
-           ",[LOCCode] = N'" + CUST.LOCCode + "' " +
+           ",[ProvinceId] = " + CUST.ProvinceId +
            ",[Note] = N'" + CUST.Note + "' " +
            ",[ContactName] = N'" + CUST.ContactName + "' " +
            ",[ContactNumber] = '" + CUST.ContactNumber + "' " +

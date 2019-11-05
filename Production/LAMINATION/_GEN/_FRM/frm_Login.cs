@@ -56,6 +56,8 @@ namespace Production.Class
             InitializeComponent();
             Load += (s, e) =>
             {
+                lblPCName.Text = PCname;
+
                 if (PCname == "vpv-lab-sample")
                     path = @"D:\pkl" + txtUsername.Text + ".xml";
                 else

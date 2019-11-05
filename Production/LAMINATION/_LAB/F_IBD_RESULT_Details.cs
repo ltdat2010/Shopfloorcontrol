@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using iTextSharp.text.pdf;
 using Microsoft.Office.Interop.Excel;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
@@ -10,18 +11,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
-using System.Security.Principal;
 using System.Windows.Forms;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.InteropServices;
-using System.Security;
-using System.Security.Permissions;
-using System.Security.Principal;
-using Microsoft.Win32.SafeHandles;
-using iTextSharp.text.pdf;
-using System.Drawing.Imaging;
 
 namespace Production.Class
 {
@@ -42,7 +35,7 @@ namespace Production.Class
         private IBD_RESULT_Lines_LABBUS BUSLines = new IBD_RESULT_Lines_LABBUS();
         private IBD_RESULT_Summary_LABBUS BUSSCurve = new IBD_RESULT_Summary_LABBUS();
 
-        KHMau_CTXN_LABBUS kHMau_CTXN_LABBUS = new KHMau_CTXN_LABBUS();
+        private KHMau_CTXN_LABBUS kHMau_CTXN_LABBUS = new KHMau_CTXN_LABBUS();
         private int col_max;
         private int col_min, col_title;
         private Equation_Fomular EQ = new Equation_Fomular();
@@ -124,10 +117,10 @@ namespace Production.Class
             {
                 if (dxValidationProvider1.Validate() == true)
                 {
-                    openFileDialog1.Filter = "xls files (*.xls)|*.xls";
-                    openFileDialog1.FilterIndex = 2;
+                    //openFileDialog1.Filter = "xls files (*.xls)|*.xls";
+                    //openFileDialog1.FilterIndex = 2;
                     openFileDialog1.RestoreDirectory = true;
-                    openFileDialog1.FileName = "*.xls";
+                    //openFileDialog1.FileName = "*.xls";
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         //Get the path of specified file
@@ -197,7 +190,6 @@ namespace Production.Class
                     _pDF_FilePath = openFileDialog2.FileName;
                     _pDF_FileName = openFileDialog2.SafeFileName;
 
-                    
                     //CHEK PC Name
                     string PCname = System.Environment.MachineName;
                     if (PCname == "vpv-lab-sample")
@@ -205,7 +197,7 @@ namespace Production.Class
                     else
                         _iMG_FilePath = @"X:\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
                     ExtractImagesFromPDF(_pDF_FilePath, _iMG_FilePath);
-                    
+
                     BinaryWriter writer = new BinaryWriter(File.OpenWrite(_iMG_FilePath));
                     writer.Write(_iMG_FilePath);
                     writer.Flush();
@@ -705,8 +697,6 @@ namespace Production.Class
                         BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
                     }
                     break;
-
-
             }
             //CHEK PC Name
             string PCname = System.Environment.MachineName;
@@ -766,7 +756,7 @@ namespace Production.Class
                 for (int pageNumber = 1; pageNumber <= pdf.NumberOfPages; pageNumber++)
                 {
                     //Response.Write("Page: " + pageNumber.ToString());
-                
+
                     PdfDictionary pg = pdf.GetPageN(pageNumber);
                     // recursively search pages, forms and groups for images.
                     PdfObject obj = FindImageInPDFDictionary(pg);
@@ -802,21 +792,17 @@ namespace Production.Class
                     //{
                     //    Response.Write(" Page " + pageNumber.ToString() + " has no images!");
                     //}
-
                 }
             }
             catch
             {
                 throw;
-
             }
             finally
             {
                 pdf.Close();
                 raf.Close();
-
             }
-
         }
 
         private ImageCodecInfo GetEncoder(ImageFormat format)
@@ -853,12 +839,10 @@ namespace Production.Class
                         if (PdfName.IMAGE.Equals(type))
                         {
                             return obj;
-
                         } // image inside a form
                         else if (PdfName.FORM.Equals(type))
                         {
                             return FindImageInPDFDictionary(tg);
-
                         } //image inside a group
                         else if (PdfName.GROUP.Equals(type))
                         {
@@ -868,10 +852,6 @@ namespace Production.Class
                 }
             }
             return null;
-
         }
-
     }
-
-        
-    }
+}

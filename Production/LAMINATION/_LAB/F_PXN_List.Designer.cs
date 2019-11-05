@@ -29,12 +29,44 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_PXN_List));
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.btnGiaoMau = new DevExpress.XtraEditors.SimpleButton();
-            this.btnViewProcess = new DevExpress.XtraEditors.SimpleButton();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoPXN1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedDate1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedBy1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocked1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNote1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKHMau1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMotaMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuongKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDonViKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhuongPhapBaoQuan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colVitriLuuKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayLuuKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNhanVienLuuKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayHuyKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTaiLieuHuyKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNhanVienHuyKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTrangThaiKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuongHuyKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKHMau_KhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLoaiDVMauNuoc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayLayMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLoaiMauGui = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTTMauGui = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colVTLayMauDayChuong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGioLayMauTuoi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKhac = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuongKHMauKhongDat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLiDoKHMauKhongDat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKHMau_GiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLuuMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHuyMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tblPXNHeaderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
@@ -94,6 +126,11 @@
             this.colNgayGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNguoiGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnGiaoMau = new DevExpress.XtraEditors.SimpleButton();
+            this.btnViewProcess = new DevExpress.XtraEditors.SimpleButton();
             this.action1 = new Production.Class.Action();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -104,16 +141,18 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbl_PXN_HeaderTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_PXN_HeaderTableAdapter();
+            this.tbl_KHMau_LAB_ORGTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_KHMau_LAB_ORGTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblPXNHeaderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblPXNHeaderBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -124,73 +163,314 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // gridView2
             // 
-            this.layoutControl1.Controls.Add(this.groupControl1);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1114, 548);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID1,
+            this.colSoPXN1,
+            this.colCreatedDate1,
+            this.colCreatedBy1,
+            this.colLocked1,
+            this.colNote1,
+            this.colKHMau1,
+            this.colMotaMau,
+            this.colSoLuongKHMau,
+            this.colDonViKHMau,
+            this.colPhuongPhapBaoQuan,
+            this.colVitriLuuKHMau,
+            this.colNgayLuuKHMau,
+            this.colNhanVienLuuKHMau,
+            this.colNgayHuyKHMau,
+            this.colTaiLieuHuyKHMau,
+            this.colNhanVienHuyKHMau,
+            this.colTrangThaiKHMau,
+            this.colSoLuongHuyKHMau,
+            this.colKHMau_KhachHang,
+            this.colLoaiDVMauNuoc,
+            this.colNgayLayMau,
+            this.colLoaiMauGui,
+            this.colTTMauGui,
+            this.colVTLayMauDayChuong,
+            this.colGioLayMauTuoi,
+            this.colKhac,
+            this.colSoLuongKHMauKhongDat,
+            this.colLiDoKHMauKhongDat,
+            this.colKHMau_GiaoMau,
+            this.colLuuMau,
+            this.colHuyMau,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gridView2.DetailHeight = 500;
+            this.gridView2.GridControl = this.gridControl1;
+            this.gridView2.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView2.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             // 
-            // groupControl1
+            // colID1
             // 
-            this.groupControl1.Controls.Add(this.layoutControl2);
-            this.groupControl1.Location = new System.Drawing.Point(3, 3);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(1);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(1108, 542);
-            this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "Danh sách phiếu xét nghiệm mẫu";
+            this.colID1.FieldName = "ID";
+            this.colID1.Name = "colID1";
             // 
-            // layoutControl2
+            // colSoPXN1
             // 
-            this.layoutControl2.Controls.Add(this.btnGiaoMau);
-            this.layoutControl2.Controls.Add(this.btnViewProcess);
-            this.layoutControl2.Controls.Add(this.gridControl1);
-            this.layoutControl2.Controls.Add(this.action1);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(1104, 538);
-            this.layoutControl2.TabIndex = 0;
-            this.layoutControl2.Text = "layoutControl2";
+            this.colSoPXN1.FieldName = "SoPXN";
+            this.colSoPXN1.Name = "colSoPXN1";
             // 
-            // btnGiaoMau
+            // colCreatedDate1
             // 
-            this.btnGiaoMau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaoMau.ImageOptions.Image")));
-            this.btnGiaoMau.Location = new System.Drawing.Point(902, 496);
-            this.btnGiaoMau.Name = "btnGiaoMau";
-            this.btnGiaoMau.Size = new System.Drawing.Size(88, 38);
-            this.btnGiaoMau.StyleController = this.layoutControl2;
-            this.btnGiaoMau.TabIndex = 22;
-            this.btnGiaoMau.Text = "Giao mẫu";
+            this.colCreatedDate1.FieldName = "CreatedDate";
+            this.colCreatedDate1.Name = "colCreatedDate1";
             // 
-            // btnViewProcess
+            // colCreatedBy1
             // 
-            this.btnViewProcess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcess.ImageOptions.Image")));
-            this.btnViewProcess.Location = new System.Drawing.Point(994, 496);
-            this.btnViewProcess.Name = "btnViewProcess";
-            this.btnViewProcess.Size = new System.Drawing.Size(106, 38);
-            this.btnViewProcess.StyleController = this.layoutControl2;
-            this.btnViewProcess.TabIndex = 21;
-            this.btnViewProcess.Text = "View process";
+            this.colCreatedBy1.FieldName = "CreatedBy";
+            this.colCreatedBy1.Name = "colCreatedBy1";
+            // 
+            // colLocked1
+            // 
+            this.colLocked1.FieldName = "Locked";
+            this.colLocked1.Name = "colLocked1";
+            // 
+            // colNote1
+            // 
+            this.colNote1.FieldName = "Note";
+            this.colNote1.Name = "colNote1";
+            this.colNote1.Width = 62;
+            // 
+            // colKHMau1
+            // 
+            this.colKHMau1.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.colKHMau1.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colKHMau1.AppearanceCell.Options.UseBackColor = true;
+            this.colKHMau1.AppearanceCell.Options.UseFont = true;
+            this.colKHMau1.Caption = "Kí hiệu mẫu ";
+            this.colKHMau1.FieldName = "KHMau";
+            this.colKHMau1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colKHMau1.Name = "colKHMau1";
+            this.colKHMau1.Visible = true;
+            this.colKHMau1.VisibleIndex = 0;
+            this.colKHMau1.Width = 89;
+            // 
+            // colMotaMau
+            // 
+            this.colMotaMau.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.colMotaMau.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMotaMau.AppearanceCell.Options.UseBackColor = true;
+            this.colMotaMau.AppearanceCell.Options.UseFont = true;
+            this.colMotaMau.Caption = "Mô tả mẫu";
+            this.colMotaMau.FieldName = "MotaMau";
+            this.colMotaMau.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colMotaMau.Name = "colMotaMau";
+            this.colMotaMau.Visible = true;
+            this.colMotaMau.VisibleIndex = 1;
+            this.colMotaMau.Width = 200;
+            // 
+            // colSoLuongKHMau
+            // 
+            this.colSoLuongKHMau.Caption = "Số lượng";
+            this.colSoLuongKHMau.FieldName = "SoLuongKHMau";
+            this.colSoLuongKHMau.Name = "colSoLuongKHMau";
+            this.colSoLuongKHMau.Visible = true;
+            this.colSoLuongKHMau.VisibleIndex = 3;
+            this.colSoLuongKHMau.Width = 53;
+            // 
+            // colDonViKHMau
+            // 
+            this.colDonViKHMau.Caption = "UoM";
+            this.colDonViKHMau.FieldName = "DonViKHMau";
+            this.colDonViKHMau.Name = "colDonViKHMau";
+            this.colDonViKHMau.Visible = true;
+            this.colDonViKHMau.VisibleIndex = 2;
+            this.colDonViKHMau.Width = 34;
+            // 
+            // colPhuongPhapBaoQuan
+            // 
+            this.colPhuongPhapBaoQuan.FieldName = "PhuongPhapBaoQuan";
+            this.colPhuongPhapBaoQuan.Name = "colPhuongPhapBaoQuan";
+            this.colPhuongPhapBaoQuan.Width = 61;
+            // 
+            // colVitriLuuKHMau
+            // 
+            this.colVitriLuuKHMau.FieldName = "VitriLuuKHMau";
+            this.colVitriLuuKHMau.Name = "colVitriLuuKHMau";
+            // 
+            // colNgayLuuKHMau
+            // 
+            this.colNgayLuuKHMau.FieldName = "NgayLuuKHMau";
+            this.colNgayLuuKHMau.Name = "colNgayLuuKHMau";
+            // 
+            // colNhanVienLuuKHMau
+            // 
+            this.colNhanVienLuuKHMau.FieldName = "NhanVienLuuKHMau";
+            this.colNhanVienLuuKHMau.Name = "colNhanVienLuuKHMau";
+            // 
+            // colNgayHuyKHMau
+            // 
+            this.colNgayHuyKHMau.FieldName = "NgayHuyKHMau";
+            this.colNgayHuyKHMau.Name = "colNgayHuyKHMau";
+            // 
+            // colTaiLieuHuyKHMau
+            // 
+            this.colTaiLieuHuyKHMau.FieldName = "TaiLieuHuyKHMau";
+            this.colTaiLieuHuyKHMau.Name = "colTaiLieuHuyKHMau";
+            // 
+            // colNhanVienHuyKHMau
+            // 
+            this.colNhanVienHuyKHMau.FieldName = "NhanVienHuyKHMau";
+            this.colNhanVienHuyKHMau.Name = "colNhanVienHuyKHMau";
+            // 
+            // colTrangThaiKHMau
+            // 
+            this.colTrangThaiKHMau.FieldName = "TrangThaiKHMau";
+            this.colTrangThaiKHMau.Name = "colTrangThaiKHMau";
+            // 
+            // colSoLuongHuyKHMau
+            // 
+            this.colSoLuongHuyKHMau.FieldName = "SoLuongHuyKHMau";
+            this.colSoLuongHuyKHMau.Name = "colSoLuongHuyKHMau";
+            // 
+            // colKHMau_KhachHang
+            // 
+            this.colKHMau_KhachHang.FieldName = "KHMau_KhachHang";
+            this.colKHMau_KhachHang.Name = "colKHMau_KhachHang";
+            this.colKHMau_KhachHang.Width = 61;
+            // 
+            // colLoaiDVMauNuoc
+            // 
+            this.colLoaiDVMauNuoc.Caption = "Loại động vật/ Mẫu nước";
+            this.colLoaiDVMauNuoc.FieldName = "LoaiDVMauNuoc";
+            this.colLoaiDVMauNuoc.Name = "colLoaiDVMauNuoc";
+            this.colLoaiDVMauNuoc.Visible = true;
+            this.colLoaiDVMauNuoc.VisibleIndex = 12;
+            this.colLoaiDVMauNuoc.Width = 77;
+            // 
+            // colNgayLayMau
+            // 
+            this.colNgayLayMau.Caption = "Ngày lấy mẫu";
+            this.colNgayLayMau.FieldName = "NgayLayMau";
+            this.colNgayLayMau.Name = "colNgayLayMau";
+            this.colNgayLayMau.Visible = true;
+            this.colNgayLayMau.VisibleIndex = 11;
+            this.colNgayLayMau.Width = 96;
+            // 
+            // colLoaiMauGui
+            // 
+            this.colLoaiMauGui.Caption = "Loại mẫu gửi";
+            this.colLoaiMauGui.FieldName = "LoaiMauGui";
+            this.colLoaiMauGui.Name = "colLoaiMauGui";
+            this.colLoaiMauGui.Visible = true;
+            this.colLoaiMauGui.VisibleIndex = 10;
+            this.colLoaiMauGui.Width = 66;
+            // 
+            // colTTMauGui
+            // 
+            this.colTTMauGui.Caption = "Thông tin mẫu gửi";
+            this.colTTMauGui.FieldName = "TTMauGui";
+            this.colTTMauGui.Name = "colTTMauGui";
+            this.colTTMauGui.Visible = true;
+            this.colTTMauGui.VisibleIndex = 9;
+            this.colTTMauGui.Width = 105;
+            // 
+            // colVTLayMauDayChuong
+            // 
+            this.colVTLayMauDayChuong.Caption = "Vị trí lấy mẫu/ Dãy chuồng";
+            this.colVTLayMauDayChuong.FieldName = "VTLayMauDayChuong";
+            this.colVTLayMauDayChuong.Name = "colVTLayMauDayChuong";
+            this.colVTLayMauDayChuong.Visible = true;
+            this.colVTLayMauDayChuong.VisibleIndex = 8;
+            this.colVTLayMauDayChuong.Width = 45;
+            // 
+            // colGioLayMauTuoi
+            // 
+            this.colGioLayMauTuoi.Caption = "Giờ lấy mẫu/ Tuổi";
+            this.colGioLayMauTuoi.FieldName = "GioLayMauTuoi";
+            this.colGioLayMauTuoi.Name = "colGioLayMauTuoi";
+            this.colGioLayMauTuoi.Visible = true;
+            this.colGioLayMauTuoi.VisibleIndex = 7;
+            this.colGioLayMauTuoi.Width = 39;
+            // 
+            // colKhac
+            // 
+            this.colKhac.Caption = "Khác";
+            this.colKhac.FieldName = "Khac";
+            this.colKhac.Name = "colKhac";
+            this.colKhac.Visible = true;
+            this.colKhac.VisibleIndex = 6;
+            this.colKhac.Width = 153;
+            // 
+            // colSoLuongKHMauKhongDat
+            // 
+            this.colSoLuongKHMauKhongDat.Caption = "Số lượng mẫu không đạt";
+            this.colSoLuongKHMauKhongDat.FieldName = "SoLuongKHMauKhongDat";
+            this.colSoLuongKHMauKhongDat.Name = "colSoLuongKHMauKhongDat";
+            this.colSoLuongKHMauKhongDat.Visible = true;
+            this.colSoLuongKHMauKhongDat.VisibleIndex = 5;
+            this.colSoLuongKHMauKhongDat.Width = 47;
+            // 
+            // colLiDoKHMauKhongDat
+            // 
+            this.colLiDoKHMauKhongDat.Caption = "Lí do";
+            this.colLiDoKHMauKhongDat.FieldName = "LiDoKHMauKhongDat";
+            this.colLiDoKHMauKhongDat.Name = "colLiDoKHMauKhongDat";
+            this.colLiDoKHMauKhongDat.Visible = true;
+            this.colLiDoKHMauKhongDat.VisibleIndex = 4;
+            this.colLiDoKHMauKhongDat.Width = 165;
+            // 
+            // colKHMau_GiaoMau
+            // 
+            this.colKHMau_GiaoMau.FieldName = "KHMau_GiaoMau";
+            this.colKHMau_GiaoMau.Name = "colKHMau_GiaoMau";
+            this.colKHMau_GiaoMau.Width = 85;
+            // 
+            // colLuuMau
+            // 
+            this.colLuuMau.FieldName = "LuuMau";
+            this.colLuuMau.Name = "colLuuMau";
+            // 
+            // colHuyMau
+            // 
+            this.colHuyMau.FieldName = "HuyMau";
+            this.colHuyMau.Name = "colHuyMau";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Tên loại mẫu ";
+            this.gridColumn2.FieldName = "TenLoaiMau";
+            this.gridColumn2.Name = "gridColumn2";
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Loài động vật";
+            this.gridColumn3.FieldName = "TenLoaiDV";
+            this.gridColumn3.Name = "gridColumn3";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Mẫu nước";
+            this.gridColumn4.FieldName = "TenMauNuoc";
+            this.gridColumn4.Name = "gridColumn4";
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.tblPXNHeaderBindingSource;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(4, 48);
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "KHMau List";
+            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
+            this.gridControl1.Location = new System.Drawing.Point(4, 46);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1096, 444);
+            this.gridControl1.Size = new System.Drawing.Size(1096, 446);
             this.gridControl1.TabIndex = 20;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridView1,
+            this.gridView2});
             // 
             // tblPXNHeaderBindingSource
             // 
@@ -204,6 +484,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colCreatedDate,
@@ -601,6 +883,67 @@
             this.colNguoiGiaoMau.FieldName = "NguoiGiaoMau";
             this.colNguoiGiaoMau.Name = "colNguoiGiaoMau";
             // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.groupControl1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Size = new System.Drawing.Size(1114, 548);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.layoutControl2);
+            this.groupControl1.Location = new System.Drawing.Point(3, 3);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(1);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.ShowCaption = false;
+            this.groupControl1.Size = new System.Drawing.Size(1108, 542);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Danh sách phiếu xét nghiệm mẫu";
+            // 
+            // layoutControl2
+            // 
+            this.layoutControl2.Controls.Add(this.btnGiaoMau);
+            this.layoutControl2.Controls.Add(this.btnViewProcess);
+            this.layoutControl2.Controls.Add(this.gridControl1);
+            this.layoutControl2.Controls.Add(this.action1);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup2;
+            this.layoutControl2.Size = new System.Drawing.Size(1104, 538);
+            this.layoutControl2.TabIndex = 0;
+            this.layoutControl2.Text = "layoutControl2";
+            // 
+            // btnGiaoMau
+            // 
+            this.btnGiaoMau.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGiaoMau.Appearance.Options.UseFont = true;
+            this.btnGiaoMau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaoMau.ImageOptions.Image")));
+            this.btnGiaoMau.Location = new System.Drawing.Point(868, 496);
+            this.btnGiaoMau.Name = "btnGiaoMau";
+            this.btnGiaoMau.Size = new System.Drawing.Size(100, 38);
+            this.btnGiaoMau.StyleController = this.layoutControl2;
+            this.btnGiaoMau.TabIndex = 22;
+            this.btnGiaoMau.Text = "Giao mẫu";
+            // 
+            // btnViewProcess
+            // 
+            this.btnViewProcess.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewProcess.Appearance.Options.UseFont = true;
+            this.btnViewProcess.Enabled = false;
+            this.btnViewProcess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewProcess.ImageOptions.Image")));
+            this.btnViewProcess.Location = new System.Drawing.Point(972, 496);
+            this.btnViewProcess.Name = "btnViewProcess";
+            this.btnViewProcess.Size = new System.Drawing.Size(128, 38);
+            this.btnViewProcess.StyleController = this.layoutControl2;
+            this.btnViewProcess.TabIndex = 21;
+            this.btnViewProcess.Text = "View process";
+            // 
             // action1
             // 
             this.action1.Appearance.ForeColor = System.Drawing.Color.Transparent;
@@ -609,7 +952,7 @@
             this.action1.Location = new System.Drawing.Point(4, 4);
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
-            this.action1.Size = new System.Drawing.Size(1096, 40);
+            this.action1.Size = new System.Drawing.Size(1096, 38);
             this.action1.StateMenu = Production.Class.MenuState.Empty;
             this.action1.TabIndex = 19;
             // 
@@ -633,25 +976,25 @@
             this.layoutControlItem18.Control = this.action1;
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(1100, 44);
+            this.layoutControlItem18.Size = new System.Drawing.Size(1100, 42);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 44);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 448);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1100, 450);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnViewProcess;
-            this.layoutControlItem2.Location = new System.Drawing.Point(990, 492);
+            this.layoutControlItem2.Location = new System.Drawing.Point(968, 492);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(110, 42);
+            this.layoutControlItem2.Size = new System.Drawing.Size(132, 42);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -660,15 +1003,15 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 492);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(898, 42);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(864, 42);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnGiaoMau;
-            this.layoutControlItem3.Location = new System.Drawing.Point(898, 492);
+            this.layoutControlItem3.Location = new System.Drawing.Point(864, 492);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(92, 42);
+            this.layoutControlItem3.Size = new System.Drawing.Size(104, 42);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -696,6 +1039,10 @@
             // 
             this.tbl_PXN_HeaderTableAdapter.ClearBeforeFill = true;
             // 
+            // tbl_KHMau_LAB_ORGTableAdapter
+            // 
+            this.tbl_KHMau_LAB_ORGTableAdapter.ClearBeforeFill = true;
+            // 
             // F_PXN_List
             // 
             this.Appearance.Font = new System.Drawing.Font("IBM Plex Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -705,16 +1052,17 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "F_PXN_List";
             this.Size = new System.Drawing.Size(1114, 548);
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblPXNHeaderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblPXNHeaderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sYNC_NUTRICIELDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -745,8 +1093,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.SimpleButton btnGiaoMau;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private System.Windows.Forms.BindingSource tblPXNHeaderBindingSource;
-        private SYNC_NUTRICIELDataSet sYNC_NUTRICIELDataSet;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
         private DevExpress.XtraGrid.Columns.GridColumn colSoPXN;
@@ -798,10 +1144,49 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCoKetQua;
         private DevExpress.XtraGrid.Columns.GridColumn colTraKetQua;
         private DevExpress.XtraGrid.Columns.GridColumn colDonViXuatHoaDon_ID;
-        private SYNC_NUTRICIELDataSetTableAdapters.tbl_PXN_HeaderTableAdapter tbl_PXN_HeaderTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colNgayGiaoMau;
         private DevExpress.XtraGrid.Columns.GridColumn colGiaoMau;
         private DevExpress.XtraGrid.Columns.GridColumn colNguoiGiaoMau;
+        private System.Windows.Forms.BindingSource tblPXNHeaderBindingSource;
+        private SYNC_NUTRICIELDataSet sYNC_NUTRICIELDataSet;
+        private SYNC_NUTRICIELDataSetTableAdapters.tbl_PXN_HeaderTableAdapter tbl_PXN_HeaderTableAdapter;
+        private SYNC_NUTRICIELDataSetTableAdapters.tbl_KHMau_LAB_ORGTableAdapter tbl_KHMau_LAB_ORGTableAdapter;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colID1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoPXN1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreatedBy1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLocked1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNote1;
+        private DevExpress.XtraGrid.Columns.GridColumn colKHMau1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoLuongKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colDonViKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhuongPhapBaoQuan;
+        private DevExpress.XtraGrid.Columns.GridColumn colVitriLuuKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayLuuKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNhanVienLuuKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayHuyKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colTaiLieuHuyKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colNhanVienHuyKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoLuongHuyKHMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colKHMau_KhachHang;
+        private DevExpress.XtraGrid.Columns.GridColumn colLoaiDVMauNuoc;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayLayMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colLoaiMauGui;
+        private DevExpress.XtraGrid.Columns.GridColumn colTTMauGui;
+        private DevExpress.XtraGrid.Columns.GridColumn colVTLayMauDayChuong;
+        private DevExpress.XtraGrid.Columns.GridColumn colGioLayMauTuoi;
+        private DevExpress.XtraGrid.Columns.GridColumn colKhac;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoLuongKHMauKhongDat;
+        private DevExpress.XtraGrid.Columns.GridColumn colLiDoKHMauKhongDat;
+        private DevExpress.XtraGrid.Columns.GridColumn colMotaMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colKHMau_GiaoMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colLuuMau;
+        private DevExpress.XtraGrid.Columns.GridColumn colHuyMau;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

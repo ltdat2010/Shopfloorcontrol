@@ -108,6 +108,7 @@
             // 
             this.groupControl2.Controls.Add(this.layoutControl3);
             this.groupControl2.Location = new System.Drawing.Point(4, 151);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(1);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.ShowCaption = false;
             this.groupControl2.Size = new System.Drawing.Size(499, 44);
@@ -135,6 +136,7 @@
             this.action_EndForm1.Location = new System.Drawing.Point(5, 5);
             this.action_EndForm1.LookAndFeel.SkinName = "Money Twins";
             this.action_EndForm1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.action_EndForm1.Margin = new System.Windows.Forms.Padding(0);
             this.action_EndForm1.Name = "action_EndForm1";
             this.action_EndForm1.Size = new System.Drawing.Size(485, 30);
             this.action_EndForm1.StateMenu = Production.Class.MenuState.Empty;
@@ -188,7 +190,7 @@
             // 
             this.txtNote.Location = new System.Drawing.Point(74, 53);
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(404, 20);
+            this.txtNote.Size = new System.Drawing.Size(363, 20);
             this.txtNote.StyleController = this.layoutControl2;
             this.txtNote.TabIndex = 8;
             // 
@@ -211,7 +213,7 @@
             // 
             this.txtTenKhuvuc.Location = new System.Drawing.Point(251, 29);
             this.txtTenKhuvuc.Name = "txtTenKhuvuc";
-            this.txtTenKhuvuc.Size = new System.Drawing.Size(227, 20);
+            this.txtTenKhuvuc.Size = new System.Drawing.Size(186, 20);
             this.txtTenKhuvuc.StyleController = this.layoutControl2;
             this.txtTenKhuvuc.TabIndex = 6;
             conditionValidationRule2.ErrorText = "This value is not valid";
@@ -277,7 +279,7 @@
             this.layoutControlItem5.Control = this.txtTenKhuvuc;
             this.layoutControlItem5.Location = new System.Drawing.Point(177, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(300, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(259, 24);
             this.layoutControlItem5.Text = "Tên khu vực :";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(66, 13);
             // 
@@ -295,7 +297,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(177, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(300, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(259, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -311,15 +313,15 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(123, 72);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(354, 41);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(313, 41);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(477, 0);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(436, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(12, 113);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(53, 113);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -327,7 +329,7 @@
             this.layoutControlItem2.Control = this.txtNote;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(477, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(436, 24);
             this.layoutControlItem2.Text = "Ghi chú :";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(66, 13);
             // 
@@ -363,6 +365,8 @@
             // 
             // F_LOCATION_Details
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

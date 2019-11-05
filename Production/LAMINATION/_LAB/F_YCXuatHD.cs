@@ -86,10 +86,16 @@ namespace Production.Class
                 this.Width = Screen.PrimaryScreen.Bounds.Width * 3 / 5;
                 this.Height = Screen.PrimaryScreen.Bounds.Height - 30;
 
-                if (PCname == "vpv-lab-sample")
-                    path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + OBJ.MaCoSoLayMau + ".xlsx";
-                else
-                    path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + OBJ.MaCoSoLayMau + ".xlsx";
+                
+                foreach (User _user in _userBUS.User_SELECT_Email())
+                {
+                    tkeTO.Properties.Tokens.Add(new TokenEditToken(_user.Email,_user.ID));
+                }
+
+                foreach (User _user in _userBUS.User_SELECT_Email())
+                {
+                    tkeCC.Properties.Tokens.Add(new TokenEditToken(_user.Email, _user.ID));
+                }
 
                 action_EndForm3.Add_Status(false);
                 action_EndForm3.Delete_Status(false);
@@ -196,7 +202,7 @@ namespace Production.Class
                         if (bool.Parse(gridView2.GetRowCellValue(i, "GoiYCXuatHD").ToString()) != true)
                         {
                             dTable.Rows.Add(string.Empty,
-                                        string.Empty,
+                                        gridView2.GetRowCellValue(i, "SoPXN").ToString(),
                                         gridView2.GetRowCellValue(i, "CUSTCODE").ToString(),
                                         gridView2.GetRowCellValue(i, "CUSTNAME").ToString(),
                                         gridView2.GetRowCellValue(i, "CUSTADDRESS").ToString(),
@@ -218,7 +224,7 @@ namespace Production.Class
                                 group t by new
                                 {
                                     DocDate = string.Empty,
-                                    SoPXN = string.Empty,
+                                    SoPXN = t.Field<string>("SoPXN"),
                                     CUSTCODE = t.Field<string>("CUSTCODE"),
                                     CUSTNAME = t.Field<string>("CUSTNAME"),
                                     CUSTADDRESS = t.Field<string>("CUSTADDRESS"),
@@ -239,7 +245,9 @@ namespace Production.Class
                                 select new
                                 {
                                     grp.Key.DocDate,
-                                    grp.Key.SoPXN,
+                                    //.Key.SoPXN,
+                                    //Distinc để bỏ trùng
+                                    SoPXN = string.Join(";", grp.Select(r => r.Field<string>("SoPXN")).Distinct()),
                                     grp.Key.CUSTCODE,
                                     grp.Key.CUSTNAME,
                                     grp.Key.CUSTADDRESS,
@@ -304,15 +312,33 @@ namespace Production.Class
 
             btnSendMail.Click += (s, e) =>
             {
+                List<string> _TOList = new List<string>();
+                List<string> _CCList = new List<string>();
+
+                
+
+
+                //foreach (string _email in _TOList)
+                //XtraMessageBox.Show(_email);
+
+
                 if (this.dxValidationProvider2.Validate() == true)
                 {
-                    //Kiểm tra xem user có check gửi mail không
-                    string[] _TOList = null;
-                    string[] _CCList = null;
+                    //    //Kiểm tra xem user có check gửi mail không
+                    foreach (TokenEditToken _tokenEditTokenTO in tkeTO.GetTokenList())
+                    {
+                        _TOList.Add(_tokenEditTokenTO.Description.ToString());
+                    }
 
-                    _TOList = txtEmailTO.Text.Split(';');
+                    foreach (TokenEditToken _tokenEditTokenCC in tkeCC.GetTokenList())
+                    {
+                        _CCList.Add(_tokenEditTokenCC.Description.ToString());
+                    }                   
 
-                    _CCList = txtEmailCC.Text.Split(';');
+
+                    //    _TOList = txtEmailTO.Text.Split(';');
+
+                    //    _CCList = txtEmailCC.Text.Split(';');
 
                     DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn gởi mail ? . Lưu ý hệ thống sẽ tiến hành gởi mail và không thể recall mail lại sau khi gởi", "Gởi mail", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dlDel == DialogResult.Yes)
@@ -361,10 +387,10 @@ namespace Production.Class
                         "Lưu ý hệ thống sẽ ghi nhận hôm nay là ngày yêu cầu xuất hóa đơn", "Xuất hóa đơn", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlDel == DialogResult.Yes)
                 {
-                    foreach (int i in gridView2.GetSelectedRows())
-                    {                        
-                            KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i, "KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));                     
-                    }
+                    //foreach (int i in gridView2.GetSelectedRows())
+                    //{                        
+                    //        KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i, "KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));                     
+                    //}
                     txtSubject.Text = "VIPHALAB : Yêu cầu xuất hóa đơn ngày "+ DateTime.Now.ToShortDateString().Replace("/", "_") + " cho khách hàng code " + OBJ.MaCoSoLayMau;
 
                     //Export
@@ -452,6 +478,7 @@ namespace Production.Class
 
             lkeTenCoSoLayMau.EditValueChanged += (s, e) =>
         {
+
             DataRowView rowView = (DataRowView)lkeTenCoSoLayMau.GetSelectedDataRow();
             DataRow row = rowView.Row;
             txtDCCoSoLayMau.Text = row["CUSTADDRESS"].ToString();
@@ -461,6 +488,12 @@ namespace Production.Class
             OBJ.MaCoSoLayMau = row["CUSTCODE"].ToString();
             OBJ.CUSTCODE_ID = int.Parse(row["Id"].ToString());
             OBJ.DonViXuatHoaDon_ID = int.Parse(row["Id"].ToString());
+
+            if (PCname == "vpv-lab-sample")
+                path = @"D:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + OBJ.MaCoSoLayMau + ".xlsx";
+            else
+                path = @"X:\YC_xuat_HD_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + OBJ.MaCoSoLayMau + ".xlsx";
+
         };
 
             action_EndForm3.Close(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Close3));
@@ -478,6 +511,7 @@ namespace Production.Class
             Is_close = true;
             //this.Close();
             //throw new NotImplementedException();
+            this.Close();
         }
 
         private void ItemClickEventHandler_Save3(object sender, ItemClickEventArgs e)
@@ -831,11 +865,12 @@ namespace Production.Class
         }
 
         //Send Mail
-        private void SendMail(string[] TOList, string[] CCList, string subject, string attachedfilename)
+        private void SendMail(List<string> TOList, List<string> CCList, string subject, string attachedfilename)
         {
             //Send email
             //SMTP
-            SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
+            //SmtpClient SmtpServer = new SmtpClient("mail.olmixasia.com");
+            SmtpClient SmtpServer = new SmtpClient("mail.viphavet.com");
             SmtpServer.Port = 587;
             //SmtpServer.Credentials = new System.Net.NetworkCredential("dat.lt@olmixasia.com", "QwLmn090");
             SmtpServer.Credentials = new System.Net.NetworkCredential("truyen.htb@viphavet.com", "1234Vipha");
@@ -893,8 +928,12 @@ namespace Production.Class
                 SmtpServer.Send(mail);
 
                 //Cập nhật gởi mail
-                OBJ.SendMail = "1";
-                BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
+                //OBJ.SendMail = "1";
+                //BUS.PXN_HeaderDAO_UPDATE_SendMail(OBJ.ID, OBJ.SendMail);
+                foreach (int i in gridView2.GetSelectedRows())
+                    //Cập nhật đã xuất hóa đơn                
+                    KHMauCTXNBUS.KHMau_CTXN_LABBUS_UPDATE_GoiYCXuatHD(gridView2.GetRowCellValue(i,"KHMau").ToString(), int.Parse(gridView2.GetRowCellValue(i, "CTXNID").ToString()));
+
 
                 XtraMessageBoxArgs args = new XtraMessageBoxArgs();
                 args.AutoCloseOptions.Delay = 1000;
