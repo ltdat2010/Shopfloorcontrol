@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_CHITIEUXETNGHIEM));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -35,7 +36,7 @@
             this.txtIdentity = new DevExpress.XtraEditors.TextEdit();
             this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.tblChiTieuXetNghiemLABBindingSource = new System.Windows.Forms.BindingSource();
+            this.tblChiTieuXetNghiemLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMinValue = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -199,7 +200,6 @@
             this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsClipboard.ShowProgress = DevExpress.Export.ProgressMode.Always;
             this.gridView1.OptionsNavigation.EnterMoveNextColumn = true;
-            this.gridView1.OptionsView.AllowCellMerge = true;
             this.gridView1.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
             this.gridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;

@@ -216,7 +216,16 @@ namespace Production.Class
             //              " WHERE  CD_ZONE not like 'TR%' AND MOUVEMENT.CD_LOTORG = V.NO_LOT" +
             //            ") V1" +
             //" where HISDOS.NO_LOT = V1.CD_LOTDEST  AND   REPLACE(HISDOS.CD_OF,chr(32),'')= '" + CD_OF + "'  ORDER BY HISDOS.NO_LOT, V1.CD_LOTORG,V1.NO_LOTORG", CommandType.Text);
-            dt = Oracle.ExecuteDataTable("select HISDOS.NO_LOT as NO_LOT,SUBSTR(V1.DT_MVMT,0,10) as DT_MVMT, V1.NO_LOTORG,V1.CD_MAT,V1.LB_MAT,SUM(V1.QT_PREV) as QT_PREV,SUM(V1.QT_MVMT) as QT_MVMT,V1.CD_LINC,V1.TOL_KG,V1.TOL_PER  " +
+            dt = Oracle.ExecuteDataTable("select HISDOS.NO_LOT as NO_LOT," +
+                "SUBSTR(V1.DT_MVMT,0,10) as DT_MVMT, " +
+                "V1.CD_LOTORG, "+
+                "V1.NO_LOTORG," +
+                "V1.CD_MAT," +
+                "V1.LB_MAT,SUM(V1.QT_PREV) as QT_PREV," +
+                "SUM(V1.QT_MVMT) as QT_MVMT," +
+                "V1.CD_LINC," +
+                "V1.TOL_KG," +
+                "V1.TOL_PER  " +
                                            " from HISDOS, " +
                                                          " ( " +
                                                             // " SELECT  MOUVEMENT.CD_LINC as CD_LINC,MOUVEMENT.CD_LOTDEST as CD_LOTDEST, " +
@@ -270,8 +279,9 @@ namespace Production.Class
                                                             //--CASE WHEN MOUVEMENT.CD_ZONE = 'RM WHSE' and CD_PROC <> 'Prepare' THEN 'HT1'
                                                             //--WHEN MOUVEMENT.CD_ZONE = 'RM WHSE' and CD_PROC = 'Prepare' THEN 'PRE' ELSE MOUVEMENT.CD_ZONE END as CD_ZONE,
                                                             " MOUVEMENT.DT_MVMT as DT_MVMT, " +
-                                                            //--MOUVEMENT.CD_LOTORG as CD_LOTORG,
-                                                            " SUM(MOUVEMENT.QT_PREV) as QT_PREV, " +
+                                                            //Unhidde ngay 20200302
+                                                            "MOUVEMENT.CD_LOTORG as CD_LOTORG, "+
+                                                            " MAX(MOUVEMENT.QT_PREV) as QT_PREV, " +
                                                             " MOUVEMENT.CD_MAT as CD_MAT, " +
                                                             " SUM(MOUVEMENT.QT_MVMT) as QT_MVMT, " +
                                                             " MOUVEMENT.LB_MAT as LB_MAT, " +
@@ -288,25 +298,25 @@ namespace Production.Class
                                                             " ON MOUVEMENT.CD_MAT = v2.cd_mat and mouvement.cd_linc = v2.cd_linc " +
                                                             " WHERE(MOUVEMENT.CD_MAT LIKE 'R%' OR MOUVEMENT.CD_MAT LIKE '%F_SP%')  AND MOUVEMENT.CD_ZONE NOT LIKE 'TR%' " +
                                                             " AND MOUVEMENT.CD_LINC is not null " +
-                                                            " GROUP BY " +
-                                                            " MOUVEMENT.CD_LINC, " +
-                                                            " MOUVEMENT.CD_LOTDEST, " +
+                                                            " GROUP BY MOUVEMENT.CD_LINC, MOUVEMENT.CD_LOTDEST,MOUVEMENT.CD_LOTORG, MOUVEMENT.DT_MVMT, MOUVEMENT.CD_MAT, MOUVEMENT.LB_MAT, HISTRANSLOTORG.NO_LOTORG,v2.TOL_KG, V2.TOL_PER " +
+                                                            //" MOUVEMENT.CD_LINC, " +
+                                                            //" MOUVEMENT.CD_LOTDEST, " +
                                                             //--CASE WHEN MOUVEMENT.CD_ZONE = 'RM WHSE' and CD_PROC <> 'Prepare' THEN 'HT1'
                                                             //--WHEN MOUVEMENT.CD_ZONE = 'RM WHSE' and CD_PROC = 'Prepare' THEN 'PRE' ELSE MOUVEMENT.CD_ZONE END as CD_ZONE,
-                                                            " MOUVEMENT.DT_MVMT, " +
+                                                            //" MOUVEMENT.DT_MVMT, " +
                                                             //--MOUVEMENT.CD_LOTORG,
                                                             //--SUM(MOUVEMENT.QT_PREV) as QT_PREV,
-                                                            " MOUVEMENT.CD_MAT, " +
+                                                            //" MOUVEMENT.CD_MAT, " +
                                                             //--SUM(MOUVEMENT.QT_MVMT),
-                                                            " MOUVEMENT.LB_MAT, " +
+                                                            //" MOUVEMENT.LB_MAT, " +
                                                             //" HISTRANSLOTORG.NO_LOT, " +
-                                                            " HISTRANSLOTORG.NO_LOTORG, " +
-                                                            " v2.TOL_KG, " +
-                                                            " V2.TOL_PER " +
+                                                            //" HISTRANSLOTORG.NO_LOTORG, " +
+                                                            //" v2.TOL_KG, " +
+                                                            //" V2.TOL_PER " +
                                                 ") V1 " +
                                              ////" ) V1 " +
                                              " where HISDOS.NO_LOT = V1.CD_LOTDEST  AND   REPLACE(HISDOS.CD_OF,chr(32),'')='" + CD_OF + "'" +
-                                             "GROUP By HISDOS.NO_LOT ,SUBSTR(V1.DT_MVMT,0,10) , V1.NO_LOTORG,V1.CD_MAT,V1.LB_MAT,V1.CD_LINC,V1.TOL_KG,V1.TOL_PER" +
+                                             "GROUP By HISDOS.NO_LOT ,SUBSTR(V1.DT_MVMT,0,10) ,V1.CD_LOTORG,V1.NO_LOTORG,V1.CD_MAT,V1.LB_MAT,V1.CD_LINC,V1.TOL_KG,V1.TOL_PER" +
                                              " ORDER BY HISDOS.NO_LOT, V1.NO_LOTORG", CommandType.Text);
             return dt;
         }
@@ -474,18 +484,20 @@ namespace Production.Class
            ",[LB_MAT] " +
            ",[QT_PREV] " +
            ",[QT_MVMT] " +
-           ",[CD_ZONE]) " +
+           //",[CD_ZONE]" +
+           ") " +
      " VALUES " +
            "('" + OF +
             "','" + dr["NO_LOT"].ToString() +
             "',Convert(datetime,'" + dr["DT_MVMT"].ToString() +
-            "',103),'" + dr["CD_LOTORG"].ToString() +
-            "','" + dr["NO_LOTORG"].ToString() +
+            "',103)" +
+            ",'" + dr["CD_LOTORG"].ToString() +"'"+
+            ",'" + dr["NO_LOTORG"].ToString() +
             "','" + dr["CD_MAT"].ToString() +
             "','" + dr["LB_MAT"].ToString() +
             "','" + float.Parse(dr["QT_PREV"].ToString()) +
             "','" + float.Parse(dr["QT_MVMT"].ToString()) +
-            "','" + dr["CD_ZONE"].ToString() +
+            //"','" + dr["CD_ZONE"].ToString() +
             "')", CommandType.Text);
         }
 

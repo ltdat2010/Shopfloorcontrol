@@ -126,15 +126,15 @@ namespace Production.Class
                              "VALUES" +
                                    "('" + dr["ECH_RECEPS"] +
                                    "','" + dr["ECH_RECEP"] +
-                                   "','" + DateTime.Parse(dr["DT_ENT"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
-                                   "','" + dr["CD_MAT"] +
+                                   "',Convert(datetime, '" + dr["DT_ENT"].ToString() + "',103) " +
+                                   ",'" + dr["CD_MAT"] +
                                    "','" + dr["LB_MAT"] +
                                    "','" + dr["NO_LOT"] +
                                    "'," + dr["QT_NET"] +
                                    ",'" + dr["CD_UNIT"] +
-                                   "','" + DateTime.Parse(dr["DP_PEREMP"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
+                                   "',Convert(datetime, '" + dr["DP_PEREMP"].ToString() + "',103) " +
                                    //"'," + int.Parse(dr["XHL"].ToString()) +
-                                   "')", CommandType.Text);
+                                   ")", CommandType.Text);
             }
             else
                 Sql.ExecuteNonQuery("SAP", "INSERT INTO [SYNC_NUTRICIEL].[dbo].[tbl_RECEIPT_Detail]" +
@@ -185,9 +185,9 @@ namespace Production.Class
            ")" +
      "VALUES" +
            "('" + dr["ECH_RECEPS"] +
-           "','" + DateTime.Parse(dr["DT_ENT"].ToString(), CultureInfo.CreateSpecificCulture("en-GB")) +
-           "','" + DateTime.Now.ToString() +
-           "')", CommandType.Text);
+           "',Convert(datetime, '"+dr["DT_ENT"].ToString() + "',103) " +
+           " ,Convert(datetime, '" + DateTime.Now.ToString() + "',103) " +
+           ")", CommandType.Text);
         }
     }
 }

@@ -22,9 +22,9 @@ namespace Production.Class
             return (string.IsNullOrEmpty(x.Text) ? (DateTime?)null : DateTime.Parse(x.Text));
         }
 
-        public void F_OF_List(GridControl gc1)
+        public DataTable F_OF_List()
         {
-            gc1.DataSource = OFD.OF_List();
+            return  OFD.OF_List();
         }
 
         public DataTable OF_ListBatch(string CD_OF)

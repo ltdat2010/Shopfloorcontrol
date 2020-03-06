@@ -10,9 +10,11 @@ namespace Production.Class._GEN
         {
             try
             {
+
             }
             catch (Exception ex)
             {
+
             }
             byte[] keyArray;
             byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
@@ -71,7 +73,7 @@ namespace Production.Class._GEN
             //Get your key from config file to open the lock!
             //string key = (string)settingsReader.GetValue("SecurityKey",  typeof(String));
             string key = "";
-            if (DateTime.Today <= DateTime.Parse("2020-01-08"))
+            if (DateTime.Today <= DateTime.Parse("2020-08-08"))
                 key = "a9bng36hkl";
             else
                 key = "a9bng36hk1";

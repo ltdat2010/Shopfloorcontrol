@@ -103,10 +103,10 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.tblPhuongPhapXetNghiemLABBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(4, 34);
+            this.gridControl1.Location = new System.Drawing.Point(4, 52);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1078, 462);
+            this.gridControl1.Size = new System.Drawing.Size(1078, 444);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -218,7 +218,7 @@
             this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
-            this.action1.Size = new System.Drawing.Size(1078, 26);
+            this.action1.Size = new System.Drawing.Size(1078, 44);
             this.action1.StateMenu = Production.Class.MenuState.Empty;
             this.action1.TabIndex = 19;
             // 
@@ -239,16 +239,16 @@
             this.layoutControlItem18.Control = this.action1;
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(1082, 30);
+            this.layoutControlItem18.Size = new System.Drawing.Size(1082, 48);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.gridControl1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1082, 466);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1082, 448);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 

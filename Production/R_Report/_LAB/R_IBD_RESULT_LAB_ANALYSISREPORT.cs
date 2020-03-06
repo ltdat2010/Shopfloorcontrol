@@ -1,5 +1,4 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
-using DevExpress.XtraEditors;
 using System;
 using System.Data;
 using System.Drawing.Printing;
@@ -41,7 +40,7 @@ namespace Production.Class
         private PXN_HeaderBUS BUS3 = new PXN_HeaderBUS();
         private KHMau_LABBUS kHMau_LABBUS = new KHMau_LABBUS();
 
-        private DataTable 
+        private DataTable
                     dt_PXN_Header,
                     dt_KHMau_LAB_AnalysisReport,
                     dt_IBD_RESULT_Header,
@@ -51,7 +50,7 @@ namespace Production.Class
         private DataSet ds_PXN_Header,
                     ds_KHMau_LAB_AnalysisReport,
                     ds_IBD_RESULT_Header,
-                    ds_IBD_RESULT_Lines 
+                    ds_IBD_RESULT_Lines
                     = new DataSet();
 
         //----------------------------Report parameters declare---------------------------------------------
@@ -70,11 +69,11 @@ namespace Production.Class
                 //XtraMessageBox.Show("Path"+Path);
                 //XtraMessageBox.Show("XmlPath"+XmlPath);
                 dt_PXN_Header = BUS3.PXN_HeaderBUS_SELECT(SoPXN);
-                dt_KHMau_LAB_AnalysisReport = kHMau_LABBUS.KHMau_LABDAO_REPORT_AnalysisReport(SoPXN,CTXNID,KHMau_GiaoMau);
+                dt_KHMau_LAB_AnalysisReport = kHMau_LABBUS.KHMau_LABDAO_REPORT_AnalysisReport(SoPXN, CTXNID, KHMau_GiaoMau);
                 dt_IBD_RESULT_Header = BUS2.IBD_RESULT_Header_LABDAO_SELECT(KHMau_GiaoMau, CTXNID);
                 ID = int.Parse(dt_IBD_RESULT_Header.Rows[0]["ID"].ToString());
                 dt_IBD_RESULT_Lines = BUS1.IBD_RESULT_Lines_LABDAO_SELECT(ID);
-                //Write to XML                
+                //Write to XML
 
                 dt_PXN_Header.WriteXml(XmlPath + @"\dt_PXN_Header.xml", System.Data.XmlWriteMode.IgnoreSchema);
                 //ds_PXN_Header.ReadXml(XmlPath + @"\dt_PXN_Header.xml");
@@ -92,7 +91,7 @@ namespace Production.Class
                 //dt_IBD_RESULT_Lines.ReadXml(XmlPath + @"\dt_IBD_RESULT_Lines.xml");
                 //rpt.SetDataSource(ds_PXN_Header);
 
-                ////XtraMessageBox.Show(Path.ToString());                
+                ////XtraMessageBox.Show(Path.ToString());
 
                 if (dt_PXN_Header.Rows[0]["NgonNgu"].ToString() == "EN")
                 {
@@ -100,7 +99,7 @@ namespace Production.Class
                         rpt.Load(Path + @"\RPT\_LAB/Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_EN.rpt");
                     else
                         rpt.Load(Path + @"\RPT\_LAB/Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN.rpt");
-                }                    
+                }
                 else
                 {
                     if (SN == false)
@@ -111,10 +110,10 @@ namespace Production.Class
                 //rpt.SetParameterValue("PicPath", @"D:\Temp_Xml\AI_Graph.jpeg");
                 //CHEK PC Name
                 string PCname = System.Environment.MachineName;
-                if (PCname == "vpv-lab-sample")
-                    rpt.SetParameterValue("PicPath", @"D:\SYNC_NUTRICIEL_IMG\IMG_" + KHMau_GiaoMau + CTXNID.ToString() + ".jpeg");
-                else
-                    rpt.SetParameterValue("PicPath", @"X:\IMG_" + KHMau_GiaoMau + CTXNID.ToString() + ".jpeg");
+                //if (PCname == "vpv-lab-sample")
+                //    rpt.SetParameterValue("PicPath", @"D:\SYNC_NUTRICIEL_IMG\IMG_" + KHMau_GiaoMau + CTXNID.ToString() + ".jpeg");
+                //else
+                rpt.SetParameterValue("PicPath", @"X:\Temp_Xml\IMG_" + KHMau_GiaoMau + CTXNID.ToString() + ".jpeg");
                 //rpt.SetParameterValue("PicPath", @"\\VPV-LAB-SAMPLE\SYNC_NUTRICIEL_IMG\IMG_"+ KHMau_GiaoMau + CTXNID .ToString()+ ".jpeg");
                 crvReport.ReportSource = rpt;
             };

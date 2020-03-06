@@ -9,8 +9,8 @@ namespace Production.Class
 {
     public partial class F_OF_List : UC_Base
     {
-        private OF of = new OF();
-        private OFBUS OFB = new OFBUS();
+        private OF _oF = new OF();
+        private OFBUS _oFBUS = new OFBUS();
         private COABUS COB = new COABUS();
         private CSVFromToDataTable CSV = new CSVFromToDataTable();
         private RMUSEDBUS RMB = new RMUSEDBUS();
@@ -42,8 +42,8 @@ namespace Production.Class
             InitializeComponent();
 
             Load += (s, e) =>
-            {
-                OFB.F_OF_List(gridControl1);
+            {                
+                gridControl1.DataSource = _oFBUS.F_OF_List();
                 gridView1.BestFitColumns();
 
                 //2018-09-25
@@ -53,7 +53,7 @@ namespace Production.Class
                 //gridControl2.DataSource = dt2;
                 //sYNC_NUTRICIELDataSet.tbl_OF_Finished.Clear();
                 //gridControl2.DataSource = tbl_OF_FinishedTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_OF_Finished);
-                gridControl2.DataSource = OFB.F_OF_Finished();
+                gridControl2.DataSource = _oFBUS.F_OF_Finished();
                 gridView2.BestFitColumns();
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -61,15 +61,15 @@ namespace Production.Class
                 ////gridControl2.DataSource = CSV.ConvertCsvStringToDataTable(true, @"D:\\Eresis\\EXCHANGES\\OUT\\MP_1199.CSV");
                 ////gridControl2.DataSource =CSV.OpenCsvFileAsDataTable(@"D:\\Eresis\\EXCHANGES\\OUT\\MP_1199.CSV", false);
 
-                this.repositoryItemLookUpEdit1.DataSource = OFB.CD_OF_Finished();
+                this.repositoryItemLookUpEdit1.DataSource = _oFBUS.CD_OF_Finished();
             };
 
             action1.View(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_View));
             action1.CSV(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_CSV));
             action1.Report(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Report));
-            action_Function1.PKN(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_PKN));
-            action_Function1.COA(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_COA));
-            action_Function1.TRACE(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_TRACE));
+            //action_Function1.PKN(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_PKN));
+            //action_Function1.COA(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_COA));
+            //action_Function1.TRACE(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_TRACE));
             gridView1.DoubleClick += (s, e) =>
                 {
                     ////Lưu ý phải lớn hơn 1, >0 bị lỗi
@@ -108,7 +108,7 @@ namespace Production.Class
             {
                 foreach (OF item in OFList)
                 {
-                    OFB.OF_Finished_UPDATE(
+                    _oFBUS.OF_Finished_UPDATE(
                         item.CD_OF,
                         item.TOL_QTY_PAK,
                         item.FUL_PAK_TYPE,
@@ -120,6 +120,13 @@ namespace Production.Class
                         item.REMAIN_PREV_CD_OF_QTY
                         );
                 }
+            };
+
+            btnTracertbility.Click += (s, e) =>
+            {
+                R_OF_Tracebility RTR = new R_OF_Tracebility();
+                RTR.OF = gridView2.GetFocusedRowCellValue("CD_OF").ToString();
+                RTR.Show();
             };
 
             btnPrintPreview.Click += (s, e) =>
@@ -263,33 +270,38 @@ namespace Production.Class
 
         private void repositoryItemButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            //XtraMessageBox.Show(gridView1.GetFocusedRowCellValue("CD_OF").ToString());
-            //XtraMessageBox.Show(e.Button.Caption);
             if (e.Button.Caption == "Finished")
             {
-                if (OFB.OF_Report_OFHeader_Visible(gridView1.GetFocusedRowCellValue("CD_OF").ToString()) == false)
+                if (_oFBUS.OF_Report_OFHeader_Visible(gridView1.GetFocusedRowCellValue("CD_OF").ToString()) == false)
                 {
                     if (XtraMessageBox.Show("Do you want to mark WO " + gridView1.GetFocusedRowCellValue("CD_OF").ToString() + " as finished ?. You cannot preverse the WO status after finished. Are your sure ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        //XtraMessageBox.Show(gridView1.GetFocusedRowCellValue("CD_OF").ToString());
-                        dt_OFHeader = OFB.OF_Report_OFHeader(gridView1.GetFocusedRowCellValue("CD_OF").ToString());
-                        dt_OFListBatchDetails = OFB.OF_Report_OFListBatchDetails(gridView1.GetFocusedRowCellValue("CD_OF").ToString());
+                        dt_OFHeader = _oFBUS.OF_Report_OFHeader(gridView1.GetFocusedRowCellValue("CD_OF").ToString());
+                        dt_OFListBatchDetails = _oFBUS.OF_Report_OFListBatchDetails(gridView1.GetFocusedRowCellValue("CD_OF").ToString());
 
-                        if (OFB.OF_Report_OFHeader_Visible(gridView1.GetFocusedRowCellValue("CD_OF").ToString()) == false)
+                        if (_oFBUS.OF_Report_OFHeader_Visible(gridView1.GetFocusedRowCellValue("CD_OF").ToString()) == false)
                         {
                             if (dt_OFHeader.Rows.Count > 0 && dt_OFListBatchDetails.Rows.Count > 0)
                             {
+                                //F_ReportAsFinished FRM = new F_ReportAsFinished();
+                                //FRM.CD_OF = gridView1.GetFocusedRowCellValue("CD_OF").ToString();
+                                //FRM.Show();
+
+                                //Hide tam ngay 20191206 de test call fom report as finish
+                                //Unhide ngay 20200302
                                 foreach (DataRow dr in dt_OFHeader.Rows)
                                 {
-                                    OFB.OF_Report_OFHeader_Insert(dr);
+
+                                    _oFBUS.OF_Report_OFHeader_Insert(dr);
                                 }
                                 foreach (DataRow dr in dt_OFListBatchDetails.Rows)
                                 {
-                                    OFB.OF_Report_OFListBatchDetails_Insert(gridView1.GetFocusedRowCellValue("CD_OF").ToString(), dr);
+
+                                    _oFBUS.OF_Report_OFListBatchDetails_Insert(gridView1.GetFocusedRowCellValue("CD_OF").ToString(), dr);
                                 }
-                                //sYNC_NUTRICIELDataSet.tbl_OF_Finished.Clear();
-                                //gridControl2.DataSource = tbl_OF_FinishedTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_OF_Finished);
-                                gridControl2.DataSource = OFB.F_OF_Finished();
+                                sYNC_NUTRICIELDataSet.tbl_OF_Finished.Clear();
+                                gridControl2.DataSource = tbl_OF_FinishedTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_OF_Finished);
+                                gridControl2.DataSource = _oFBUS.F_OF_Finished();
                             }
                             else
                                 XtraMessageBox.Show("The Work Order selected is invalidated or not completed. Please contact Production Dept. Thanks");

@@ -33,20 +33,22 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnPhieuGiaoMau = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tblKHMauLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sYNC_NUTRICIELDataSet = new Production.SYNC_NUTRICIELDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSoLuongDat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoPXN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKHMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCTXN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuongDat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaBanGiaoMau = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -55,8 +57,6 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tbl_KHMau_LABTableAdapter = new Production.SYNC_NUTRICIELDataSetTableAdapters.tbl_KHMau_LABTableAdapter();
-            this.btnExcel = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -66,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -80,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -116,6 +116,20 @@
             this.layoutControl3.Size = new System.Drawing.Size(866, 49);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.btnExcel.Appearance.Options.UseFont = true;
+            this.btnExcel.Appearance.Options.UseForeColor = true;
+            this.btnExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.ImageOptions.Image")));
+            this.btnExcel.Location = new System.Drawing.Point(625, 5);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(117, 39);
+            this.btnExcel.StyleController = this.layoutControl3;
+            this.btnExcel.TabIndex = 13;
+            this.btnExcel.Text = "Xuất EXCEL";
             // 
             // btnPhieuGiaoMau
             // 
@@ -165,6 +179,18 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnExcel;
+            this.layoutControlItem4.Location = new System.Drawing.Point(620, 0);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(121, 43);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(121, 43);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(121, 43);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.layoutControl2);
@@ -179,10 +205,10 @@
             // 
             this.layoutControl2.Controls.Add(this.gridControl1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 21);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(866, 606);
+            this.layoutControl2.Size = new System.Drawing.Size(866, 605);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -192,7 +218,7 @@
             this.gridControl1.Location = new System.Drawing.Point(5, 5);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(856, 596);
+            this.gridControl1.Size = new System.Drawing.Size(856, 595);
             this.gridControl1.TabIndex = 18;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -221,29 +247,6 @@
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // colKHMau
-            // 
-            this.colKHMau.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
-            this.colKHMau.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
-            this.colKHMau.AppearanceCell.Options.UseFont = true;
-            this.colKHMau.AppearanceCell.Options.UseForeColor = true;
-            this.colKHMau.Caption = "Kí hiệu mẫu";
-            this.colKHMau.FieldName = "KHMau";
-            this.colKHMau.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.colKHMau.Name = "colKHMau";
-            this.colKHMau.Visible = true;
-            this.colKHMau.VisibleIndex = 1;
-            this.colKHMau.Width = 111;
-            // 
-            // colSoLuongDat
-            // 
-            this.colSoLuongDat.Caption = "Số lượng đặt";
-            this.colSoLuongDat.FieldName = "SoLuongXN";
-            this.colSoLuongDat.Name = "colSoLuongDat";
-            this.colSoLuongDat.Visible = true;
-            this.colSoLuongDat.VisibleIndex = 3;
-            this.colSoLuongDat.Width = 71;
-            // 
             // colSoPXN
             // 
             this.colSoPXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
@@ -258,6 +261,20 @@
             this.colSoPXN.VisibleIndex = 0;
             this.colSoPXN.Width = 104;
             // 
+            // colKHMau
+            // 
+            this.colKHMau.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.colKHMau.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
+            this.colKHMau.AppearanceCell.Options.UseFont = true;
+            this.colKHMau.AppearanceCell.Options.UseForeColor = true;
+            this.colKHMau.Caption = "Kí hiệu mẫu";
+            this.colKHMau.FieldName = "KHMau";
+            this.colKHMau.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colKHMau.Name = "colKHMau";
+            this.colKHMau.Visible = true;
+            this.colKHMau.VisibleIndex = 1;
+            this.colKHMau.Width = 111;
+            // 
             // colCTXN
             // 
             this.colCTXN.AppearanceCell.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold);
@@ -271,6 +288,15 @@
             this.colCTXN.Visible = true;
             this.colCTXN.VisibleIndex = 2;
             this.colCTXN.Width = 566;
+            // 
+            // colSoLuongDat
+            // 
+            this.colSoLuongDat.Caption = "Số lượng đặt";
+            this.colSoLuongDat.FieldName = "SoLuongXN";
+            this.colSoLuongDat.Name = "colSoLuongDat";
+            this.colSoLuongDat.Visible = true;
+            this.colSoLuongDat.VisibleIndex = 3;
+            this.colSoLuongDat.Width = 71;
             // 
             // colMaBanGiaoMau
             // 
@@ -288,7 +314,7 @@
             this.layoutControlItem3});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(866, 606);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(866, 605);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
@@ -296,7 +322,7 @@
             this.layoutControlItem3.Control = this.gridControl1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(860, 600);
+            this.layoutControlItem3.Size = new System.Drawing.Size(860, 599);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -334,32 +360,6 @@
             // 
             this.tbl_KHMau_LABTableAdapter.ClearBeforeFill = true;
             // 
-            // btnExcel
-            // 
-            this.btnExcel.Appearance.Font = new System.Drawing.Font("IBM Plex Mono SemiBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.btnExcel.Appearance.Options.UseFont = true;
-            this.btnExcel.Appearance.Options.UseForeColor = true;
-            this.btnExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnExcel.Location = new System.Drawing.Point(625, 5);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(117, 39);
-            this.btnExcel.StyleController = this.layoutControl3;
-            this.btnExcel.TabIndex = 13;
-            this.btnExcel.Text = "Xuất EXCEL";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnExcel;
-            this.layoutControlItem4.Location = new System.Drawing.Point(620, 0);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(121, 43);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(121, 43);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(121, 43);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
             // F_GiaoMau_LAB
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -384,6 +384,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
@@ -398,7 +399,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -58,6 +58,24 @@ namespace Production.Class
                     txtID.ReadOnly = true;
             };
 
+            chkBan.CheckedChanged +=(s,e) =>
+                {
+                    if (chkBan.CheckState == CheckState.Checked)
+                        chkHotro.CheckState = CheckState.Unchecked;
+                    else
+                        chkHotro.CheckState = CheckState.Checked;
+
+            };
+
+            chkHotro.CheckedChanged += (s, e) =>
+            {
+                if (chkHotro.CheckState == CheckState.Checked)
+                    chkBan.CheckState = CheckState.Unchecked;
+                else
+                    chkBan.CheckState = CheckState.Checked;
+
+            };
+
             lkeTenNV.EditValueChanged += (s, e) =>
             {
                 //DataRowView row = lkeTenNV.Properties.GetDataSourceRowByKeyValue(lkeTenNV.EditValue) as DataRowView;
@@ -265,13 +283,18 @@ namespace Production.Class
             txtMST.Text = CUS.TaxCode;
             cmbKhoa.Text = CUS.Locked.ToString();
             lkeTenNV.EditValue = CUS.EMPCode;
-            lkeLoaiDN.EditValue = CUS.CUSTTYPECode;
+            //lkeLoaiDN.EditValue = CUS.CUSTTYPECode;
             txtNote.Text = CUS.Note;
             txtTenNLH.Text = CUS.ContactName;
             txtSdtNLH.Text = CUS.ContactNumber;
             txtEmailNLH.Text = CUS.ContactEmail;
             //XtraMessageBox.Show(CUS.ProvinceName);
             lkeProvinceName.EditValue = CUS.ProvinceId;
+
+            if (CUS.CUSTTYPECode == "Bán")
+                chkBan.CheckState = CheckState.Checked;
+            else if (CUS.CUSTTYPECode == "Hỗ trợ" )
+                chkHotro.CheckState = CheckState.Checked;
 
             if (CUS.CUSTViphaLAB == true)
                 chkKHViphaLAB.CheckState = CheckState.Checked;
@@ -299,7 +322,11 @@ namespace Production.Class
             CUS.TaxCode = txtMST.Text;
             CUS.Locked = cmbKhoa.SelectedText.ToString() == "True" ? true : false;
             CUS.EMPCode = lkeTenNV.EditValue.ToString();
-            CUS.CUSTTYPECode = lkeLoaiDN.EditValue.ToString();
+            if (chkBan.CheckState == CheckState.Checked)
+                CUS.CUSTTYPECode = "Bán";
+            else if (chkHotro.CheckState == CheckState.Checked)
+                CUS.CUSTTYPECode = "Hỗ trợ";
+
             CUS.Note = txtNote.Text;
             CUS.ContactName = txtTenNLH.Text;
             CUS.ContactNumber = txtSdtNLH.Text;

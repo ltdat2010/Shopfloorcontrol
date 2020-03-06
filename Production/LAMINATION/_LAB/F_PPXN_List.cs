@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace Production.Class
 
         private PhuongPhapXetNghiem OBJ = new PhuongPhapXetNghiem();
         private PhuongPhapXetNghiemBUS BUS = new PhuongPhapXetNghiemBUS();
+
+        
 
         public F_PPXN_List()
         {
@@ -28,7 +31,8 @@ namespace Production.Class
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
-
+            // 7 Add hoặc New
+            action1.Excel(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Excel));
             // 8 Lưu
             action1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
 
@@ -50,6 +54,12 @@ namespace Production.Class
             };
         }
 
+        private void ItemClickEventHandler_Excel(object sender, ItemClickEventArgs e)
+        {            
+            string path = @"D:/PhuongPhapThu" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+            gridView1.ExportToXlsx(path);            
+        }
+
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
             isAction = "Add";
@@ -66,7 +76,7 @@ namespace Production.Class
             F_LOC_Dtl.myFinished += this.finished;
             F_LOC_Dtl.Show();
         }
-
+        
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
             // 25 isEditting gan bang true

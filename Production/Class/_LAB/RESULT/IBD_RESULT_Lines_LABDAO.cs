@@ -113,7 +113,7 @@ namespace Production.Class
                                                 "  and [tbl_IBD_RESULT_Lines_LAB].Line_No <> '-' and [tbl_IBD_RESULT_Lines_LAB].Line_No <> '+'  ) as T  " +
                                                 " Inner join " +
                                                 " (" +
-                                                            " Select tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_CTXN_LAB.CTXNID, tbl_KHMau_LAB.GioLayMauTuoi " +
+                                                            " Select tbl_KHMau_LAB.SoPXN, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_CTXN_LAB.CTXNID, tbl_KHMau_LAB.GioLayMauTuoi,tbl_KHMau_LAB.VTLayMauDayChuong " +
                                                             " FROM tbl_KHMau_LAB " +
                                                             " Inner join " +
                                                             " tbl_KHMau_CTXN_LAB " +

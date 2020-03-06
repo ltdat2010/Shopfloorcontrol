@@ -148,6 +148,7 @@ namespace Production.Class
                     checkEdit1.Checked = false;
                 }
             };
+
             simpleButton1.Click += (s, e) =>
             {
                 if (txtUsername.Text != "")

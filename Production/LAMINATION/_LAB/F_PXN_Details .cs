@@ -718,6 +718,18 @@ namespace Production.Class
                 }
             };
 
+            btnAddDVXuatHD.Click += (s, e) =>
+              {                  
+                      //Disable
+                      this.Enabled = false;
+                      //
+                      F_CUSTOMER_Details F_CUS_Dtl = new Class.F_CUSTOMER_Details();
+                      F_CUS_Dtl.isAction = this.isAction;
+                      //F_CUS_Dtl.CUS = this.CUS;
+                      F_CUS_Dtl.myFinished += this.finished;
+                      F_CUS_Dtl.Show();                  
+            };
+
             lkeTenCoSoGuiMau.EditValueChanged += (s, e) =>
             {
                 DataRowView rowView = (DataRowView)lkeTenCoSoGuiMau.GetSelectedDataRow();
@@ -1266,10 +1278,12 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Add(object sender, EventArgs e)
         {
+
         }
 
         private void ItemClickEventHandler_Edit(object sender, EventArgs e)
         {
+
         }
 
         private void ItemClickEventHandler_Save(object sender, EventArgs e)
@@ -1328,6 +1342,7 @@ namespace Production.Class
 
         private void ItemClickEventHandler_View(object sender, EventArgs e)
         {
+
         }
 
         private void ItemClickEventHandler_Close(object sender, EventArgs e)
@@ -1351,8 +1366,8 @@ namespace Production.Class
                     this.tbl_CUSTOMER_LABTableAdapter.FillByEMPCode(this.sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB, lkeTenCoSoGuiMau.EditValue.ToString());
                     this.tbl_CUSTOMER_LAB_XuatHDTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD);
                 }
-
             }
+            tbl_CUSTOMER_LAB_XuatHDTableAdapter.Fill(sYNC_NUTRICIELDataSet.tbl_CUSTOMER_LAB_XuatHD);
                        
             gridControl2.DataSource = this.tbl_KHMau_LABTableAdapter.FillBy(this.sYNC_NUTRICIELDataSet.tbl_KHMau_LAB, txtSoPXN.Text);
             gridView2.BestFitColumns();

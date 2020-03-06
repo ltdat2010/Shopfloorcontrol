@@ -1201,7 +1201,28 @@ namespace Production.Class
             //Dong form login
             //var frm = (Form)sender;
             var frm = (DevExpress.XtraEditors.XtraForm)sender;
-
+            //IT
+            if (this.user.DeptID == 1)
+            {
+                //
+                ribbonPage2.Visible = true;
+                ribbonPage3.Visible = true;
+                ribbonPage4.Visible = true;
+                ribbonPage5.Visible = true;
+                ribbonPage6.Visible = true;
+                ribbonPage17.Visible = true;
+                //
+                if (isDashboardEnabled == true)
+                {
+                    uc = new F_DashBoard_Pro();
+                    uc.user = this.user;
+                    uc.BringToFront();
+                    uc.Visible = true;
+                    uc.Enabled = true;
+                    gc1.Controls.Add(uc);
+                    uc.Dock = DockStyle.Fill;
+                }
+            }
             //Kiem tra xem bo phan nao login
             //A Trang Production -  Load dashnoard production
             //Production_ID

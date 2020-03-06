@@ -63,7 +63,7 @@
             this.gridControl1.Location = new System.Drawing.Point(4, 4);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(873, 463);
+            this.gridControl1.Size = new System.Drawing.Size(1020, 501);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -182,6 +182,7 @@
             this.QT_NET,
             this.CD_UNIT,
             this.DP_PEREMP});
+            this.gridView1.DetailHeight = 377;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupPanelText = "Cylinder List";
             this.gridView1.Name = "gridView1";
@@ -200,73 +201,91 @@
             // 
             this.ECH_RECEPS.Caption = "ECH_RECEPS";
             this.ECH_RECEPS.FieldName = "ECH_RECEPS";
+            this.ECH_RECEPS.MinWidth = 23;
             this.ECH_RECEPS.Name = "ECH_RECEPS";
             this.ECH_RECEPS.Visible = true;
             this.ECH_RECEPS.VisibleIndex = 0;
+            this.ECH_RECEPS.Width = 87;
             // 
             // ECH_RECEP
             // 
             this.ECH_RECEP.Caption = "ECH_RECEP";
             this.ECH_RECEP.FieldName = "ECH_RECEP";
+            this.ECH_RECEP.MinWidth = 23;
             this.ECH_RECEP.Name = "ECH_RECEP";
             this.ECH_RECEP.Visible = true;
             this.ECH_RECEP.VisibleIndex = 1;
+            this.ECH_RECEP.Width = 87;
             // 
             // DT_ENT
             // 
             this.DT_ENT.Caption = "DT_ENT";
             this.DT_ENT.FieldName = "DT_ENT";
+            this.DT_ENT.MinWidth = 23;
             this.DT_ENT.Name = "DT_ENT";
             this.DT_ENT.Visible = true;
             this.DT_ENT.VisibleIndex = 2;
+            this.DT_ENT.Width = 87;
             // 
             // CD_MAT
             // 
             this.CD_MAT.Caption = "CD_MAT";
             this.CD_MAT.FieldName = "CD_MAT";
+            this.CD_MAT.MinWidth = 23;
             this.CD_MAT.Name = "CD_MAT";
             this.CD_MAT.Visible = true;
             this.CD_MAT.VisibleIndex = 3;
+            this.CD_MAT.Width = 87;
             // 
             // LB_MAT
             // 
             this.LB_MAT.Caption = "LB_MAT";
             this.LB_MAT.FieldName = "LB_MAT";
+            this.LB_MAT.MinWidth = 23;
             this.LB_MAT.Name = "LB_MAT";
             this.LB_MAT.Visible = true;
             this.LB_MAT.VisibleIndex = 4;
+            this.LB_MAT.Width = 87;
             // 
             // NO_LOT
             // 
             this.NO_LOT.Caption = "NO_LOT";
             this.NO_LOT.FieldName = "NO_LOT";
+            this.NO_LOT.MinWidth = 23;
             this.NO_LOT.Name = "NO_LOT";
             this.NO_LOT.Visible = true;
             this.NO_LOT.VisibleIndex = 5;
+            this.NO_LOT.Width = 87;
             // 
             // QT_NET
             // 
             this.QT_NET.Caption = "QT_NET";
             this.QT_NET.FieldName = "QT_NET";
+            this.QT_NET.MinWidth = 23;
             this.QT_NET.Name = "QT_NET";
             this.QT_NET.Visible = true;
             this.QT_NET.VisibleIndex = 6;
+            this.QT_NET.Width = 87;
             // 
             // CD_UNIT
             // 
             this.CD_UNIT.Caption = "CD_UNIT";
             this.CD_UNIT.FieldName = "CD_UNIT";
+            this.CD_UNIT.MinWidth = 23;
             this.CD_UNIT.Name = "CD_UNIT";
             this.CD_UNIT.Visible = true;
             this.CD_UNIT.VisibleIndex = 7;
+            this.CD_UNIT.Width = 87;
             // 
             // DP_PEREMP
             // 
             this.DP_PEREMP.Caption = "DP_PEREMP";
             this.DP_PEREMP.FieldName = "DP_PEREMP";
+            this.DP_PEREMP.MinWidth = 23;
             this.DP_PEREMP.Name = "DP_PEREMP";
             this.DP_PEREMP.Visible = true;
             this.DP_PEREMP.VisibleIndex = 8;
+            this.DP_PEREMP.Width = 87;
             // 
             // layoutControl1
             // 
@@ -276,7 +295,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(881, 497);
+            this.layoutControl1.Size = new System.Drawing.Size(1028, 535);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -284,9 +303,9 @@
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton1.Location = new System.Drawing.Point(784, 471);
+            this.simpleButton1.Location = new System.Drawing.Point(915, 509);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(93, 22);
+            this.simpleButton1.Size = new System.Drawing.Size(109, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Export to CSV";
@@ -300,10 +319,9 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(881, 497);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 535);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -311,38 +329,36 @@
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(877, 467);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1024, 505);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButton1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(780, 467);
+            this.layoutControlItem2.Location = new System.Drawing.Point(911, 505);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(97, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(113, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 467);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 505);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(911, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
             // 
             // F_RECEIPT_Details
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 497);
+            this.ClientSize = new System.Drawing.Size(1028, 535);
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.Name = "F_RECEIPT_Details";
             this.Text = "RECEIPT Details";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

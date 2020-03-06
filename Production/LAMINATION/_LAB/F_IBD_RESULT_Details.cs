@@ -191,11 +191,11 @@ namespace Production.Class
                     _pDF_FileName = openFileDialog2.SafeFileName;
 
                     //CHEK PC Name
-                    string PCname = System.Environment.MachineName;
-                    if (PCname == "vpv-lab-sample")
-                        _iMG_FilePath = @"\\D:\SYNC_NUTRICIEL_IMG\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
-                    else
-                        _iMG_FilePath = @"X:\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
+                    //string PCname = System.Environment.MachineName;
+                    //if (PCname == "vpv-lab-sample")
+                    //    _iMG_FilePath = @"\\D:\SYNC_NUTRICIEL_IMG\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
+                    //else
+                    _iMG_FilePath = @"X:\Temp_Xml\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
                     ExtractImagesFromPDF(_pDF_FilePath, _iMG_FilePath);
 
                     BinaryWriter writer = new BinaryWriter(File.OpenWrite(_iMG_FilePath));
@@ -349,9 +349,9 @@ namespace Production.Class
         private void SetWorksheet4OBJHeader()
         {
             IList lst_Pic;
-            //try
-            //{
+            
             DataRowView row = (DataRowView)lkedonvicungcapphanmem.GetSelectedDataRow();
+
             switch (row["TEST_SOFTWARE_SUP_NAME"].ToString())
             {
                 case "IDEXX":
@@ -430,6 +430,7 @@ namespace Production.Class
                             //BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
                         }
                         BUSLines.IBD_RESULT_Lines_LABDAO_INSERT(OBJLines);
+                        
                     }
                     break;
 
@@ -698,24 +699,43 @@ namespace Production.Class
                     }
                     break;
             }
-            //CHEK PC Name
-            string PCname = System.Environment.MachineName;
-            //IMAGE
-            lst_Pic = originalWorkbook.GetAllPictures();
-            //Step 1 : Map driver Z = \\VPV-ASL-SAMPLE\SYNC_NUTRICIEL_IMG
-            //Step 2 : As below
-            var pic = (HSSFPictureData)lst_Pic[1];
-            byte[] data = pic.Data;
-            string path = string.Empty;
-            //BinaryWriter writer = new BinaryWriter(File.OpenWrite(@"D:\Temp_Xml\IBD_IDEXX_" + filename + ".jpeg"));
-            if (PCname == "vpv-lab-sample")
-                path = @"\\D:\SYNC_NUTRICIEL_IMG\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
-            else
-                path = @"X:\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
-            BinaryWriter writer = new BinaryWriter(File.OpenWrite(path));
-            writer.Write(data);
-            writer.Flush();
-            writer.Close();
+
+            try
+            {
+
+                kHMau_CTXN_LABBUS.KHMau_CTXN_LABDAO_UPDATE_CoKetQua(OBJHeader.KHMau_GiaoMau);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            try
+            {
+                //CHEK PC Name
+                string PCname = System.Environment.MachineName;
+                //IMAGE
+                lst_Pic = originalWorkbook.GetAllPictures();
+                //Step 1 : Map driver Z = \\VPV-ASL-SAMPLE\SYNC_NUTRICIEL_IMG
+                //Step 2 : As below
+                //2019-11-05 :  var pic = (HSSFPictureData)lst_Pic[1] lỗi nhận icon              
+
+                var pic = (HSSFPictureData)lst_Pic[1];
+                byte[] data = pic.Data;
+                string path = string.Empty;
+                //BinaryWriter writer = new BinaryWriter(File.OpenWrite(@"D:\Temp_Xml\IBD_IDEXX_" + filename + ".jpeg"));
+                //if (PCname == "vpv-lab-sample")
+                //    path = @"\\D:\SYNC_NUTRICIEL_IMG\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
+                //else
+                path = @"X:\Temp_Xml\IMG_" + OBJHeader.KHMau_GiaoMau + OBJHeader.CTXN_ID.ToString() + ".jpeg";
+                BinaryWriter writer = new BinaryWriter(File.OpenWrite(path));
+                writer.Write(data);
+                writer.Flush();
+                writer.Close();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
 
             XtraMessageBoxArgs args = new XtraMessageBoxArgs();
             args.AutoCloseOptions.Delay = 1000;
@@ -778,7 +798,7 @@ namespace Production.Class
                                 // must save the file while stream is open.
                                 if (!Directory.Exists(outputPath))
                                     Directory.CreateDirectory(outputPath);
-                                string path = Path.Combine(@"X:\", String.Format(@"{0}.jpg", pageNumber));
+                                string path = Path.Combine(@"X:\Temp_Xml\", String.Format(@"{0}.jpg", pageNumber));
 
                                 XtraMessageBox.Show("path" + path);
                                 System.Drawing.Imaging.EncoderParameters parms = new System.Drawing.Imaging.EncoderParameters(1);

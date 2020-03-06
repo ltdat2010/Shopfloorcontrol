@@ -56,26 +56,48 @@ namespace Production.Class
         public void KHMau_CTXN_LABDAO_UPDATE(KHMau_CTXN_LAB OBJ)
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_KHMau_CTXN_LAB] SET " +
-           "[KHMau_ID]                    = " + OBJ.KHMau_ID +
-           ",[PriceList_Details_LAB_Id]                    = " + OBJ.PriceList_Details_LAB_Id +
-           ",[CTXNID]                    = " + OBJ.CTXNID +
-           ",[DonGia]                    = " + OBJ.DonGia +
-           ",[DonGiaMuaNgoai]                    = " + OBJ.DonGiaMuaNgoai +
-           ",[Discount]                    = " + OBJ.Discount +
-           ",[LoaiDiscount]                    = N'" + OBJ.LoaiDiscount + "'" +
-           ",[DonGiaSauDiscount]                    = " + OBJ.DonGiaSauDiscount +
-           ",[ThanhTien]                    = " + OBJ.ThanhTien +
-           ",[SoLuongDat]                    = N'" + OBJ.SoLuongDat + "'" +
-           ",[SoLuongXN]                    = N'" + OBJ.SoLuongXN + "'" +
-           ",[VAT]                    = " + OBJ.VAT +
-           ",[DaTraKetQua]                    = N'" + OBJ.DaTraKetQua + "'" +
-           ",[NgayTraKetQua]                    = CONVERT(datetime,'" + OBJ.NgayTraKetQua + "',103)" +
-           //"[NCTXNID]                    = " + OBJ.NCTXNID +
-           ",[CreatedDate]              = CONVERT(datetime,'" + DateTime.Now + "',103)" +
-           ",[CreatedBy]                = N'" + OBJ.CreatedBy + "' " +
-           ",[Note]                     = N'" + OBJ.Note + "' " +
-           ",[Locked]                   = '" + OBJ.Locked + "' " +
-           " WHERE [ID]                 =" + OBJ.ID, CommandType.Text);
+           "[KHMau_ID]                                      = " + OBJ.KHMau_ID +
+           ",[PriceList_Details_LAB_Id]                     = " + OBJ.PriceList_Details_LAB_Id +
+           ",[CTXNID]                                       = " + OBJ.CTXNID +
+           ",[DonGia]                                       = " + OBJ.DonGia +
+           ",[DonGiaMuaNgoai]                               = " + OBJ.DonGiaMuaNgoai +
+           ",[Discount]                                     = " + OBJ.Discount +
+           ",[LoaiDiscount]                                 = N'" + OBJ.LoaiDiscount + "'" +
+           ",[DonGiaSauDiscount]                            = " + OBJ.DonGiaSauDiscount +
+           ",[ThanhTien]                                    = " + OBJ.ThanhTien +
+           ",[SoLuongDat]                                   = N'" + OBJ.SoLuongDat + "'" +
+           ",[SoLuongXN]                                    = N'" + OBJ.SoLuongXN + "'" +
+           ",[VAT]                                          = " + OBJ.VAT +
+           ",[DaTraKetQua]                                  = N'" + OBJ.DaTraKetQua + "'" +
+           ",[NgayTraKetQua]                                = CONVERT(datetime,'" + OBJ.NgayTraKetQua + "',103)" +
+           //"[NCTXNID]                                     = " + OBJ.NCTXNID +
+           ",[CreatedDate]                                  = CONVERT(datetime,'" + DateTime.Now + "',103)" +
+           ",[CreatedBy]                                    = N'" + OBJ.CreatedBy + "' " +
+           ",[Note]                                         = N'" + OBJ.Note + "' " +
+           ",[Locked]                                       = N'" + OBJ.Locked + "' " +
+           " WHERE [ID]                                     = " + OBJ.ID, CommandType.Text);
+        }
+
+        public void KHMau_CTXN_LABDAO_UPDATE_CoKetQua(string KHMau_GiaoMau)
+        {
+            Sql.ExecuteNonQuery("SAP",  " Update tbl_KHMau_CTXN_LAB " +
+                                        "  Set NgayCoKetQua = T2.Date " +
+                                        "  FROM " +
+                                         "    (Select tbl_IBD_RESULT_Header_LAB.Date, T1.CTXNID, T1.KHMau_GiaoMau, T1.KHMau " +
+                                         "     from tbl_IBD_RESULT_Header_LAB " +
+                                         "                            LEFT JOIN " +
+                                         "                            (Select tbl_KHMau_CTXN_LAB.CTXNID, tbl_KHMau_LAB.KHMau_GiaoMau, tbl_KHMau_LAB.KHMau " +
+                                         "                            from tbl_KHMau_CTXN_LAB " +
+                                         "                            LEFT JOIN tbl_KHMau_LAB " +
+                                         "                             ON tbl_KHMau_CTXN_LAB.KHMau = tbl_KHMau_LAB.KHMau " +
+                                         "                            ) as T1 " +
+                                         "                            ON " +
+                                         "                            tbl_IBD_RESULT_Header_LAB.KHMau_GiaoMau = T1.KHMau_GiaoMau " +
+                                         "                            AND tbl_IBD_RESULT_Header_LAB.CTXN_ID = T1.CTXNID " +
+                                         "                            Where tbl_IBD_RESULT_Header_LAB.KHMau_GiaoMau = '" + KHMau_GiaoMau+ "'" +
+                                         "                   ) as T2 " +
+                                         " Where tbl_KHMau_CTXN_LAB.CTXNID = T2.CTXNID " +
+                                         " AND tbl_KHMau_CTXN_LAB.KHMau = T2.KHMau " , CommandType.Text);
         }
 
         public void KHMau_CTXN_LABDAO_UPDATE_TraKetQua(KHMau_CTXN_LAB OBJ)

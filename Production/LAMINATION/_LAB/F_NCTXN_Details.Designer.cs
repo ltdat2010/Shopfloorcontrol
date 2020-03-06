@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_NCTXN_Details));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -191,6 +191,7 @@
             this.groupControl1.Controls.Add(this.layoutControl2);
             this.groupControl1.Location = new System.Drawing.Point(4, 4);
             this.groupControl1.Name = "groupControl1";
+            this.groupControl1.ShowCaption = false;
             this.groupControl1.Size = new System.Drawing.Size(532, 163);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Info .";
@@ -203,10 +204,10 @@
             this.layoutControl2.Controls.Add(this.txtPPXN);
             this.layoutControl2.Controls.Add(this.txtID);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 2);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(528, 139);
+            this.layoutControl2.Size = new System.Drawing.Size(528, 159);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -230,8 +231,8 @@
             this.cmbKhoa.Size = new System.Drawing.Size(50, 20);
             this.cmbKhoa.StyleController = this.layoutControl2;
             this.cmbKhoa.TabIndex = 7;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.cmbKhoa, conditionValidationRule1);
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.cmbKhoa, conditionValidationRule4);
             // 
             // txtDienGiai
             // 
@@ -240,8 +241,8 @@
             this.txtDienGiai.Size = new System.Drawing.Size(388, 20);
             this.txtDienGiai.StyleController = this.layoutControl2;
             this.txtDienGiai.TabIndex = 6;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.txtDienGiai, conditionValidationRule2);
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.txtDienGiai, conditionValidationRule1);
             // 
             // txtPPXN
             // 
@@ -249,9 +250,9 @@
             this.txtPPXN.Name = "txtPPXN";
             this.txtPPXN.Size = new System.Drawing.Size(388, 20);
             this.txtPPXN.StyleController = this.layoutControl2;
-            this.txtPPXN.TabIndex = 5;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.txtPPXN, conditionValidationRule3);
+            this.txtPPXN.TabIndex = 4;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.txtPPXN, conditionValidationRule2);
             // 
             // txtID
             // 
@@ -260,7 +261,7 @@
             this.txtID.Properties.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(50, 20);
             this.txtID.StyleController = this.layoutControl2;
-            this.txtID.TabIndex = 4;
+            this.txtID.TabIndex = 5;
             // 
             // layoutControlGroup2
             // 
@@ -276,7 +277,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(528, 139);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(528, 159);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
@@ -287,13 +288,14 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(184, 24);
             this.layoutControlItem3.Text = "ID :";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(127, 13);
+            this.layoutControlItem3.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.cmbKhoa;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(184, 37);
+            this.layoutControlItem6.Size = new System.Drawing.Size(184, 57);
             this.layoutControlItem6.Text = "Tạm khóa :";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(127, 13);
             // 
@@ -310,7 +312,7 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(184, 96);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(338, 37);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(338, 57);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -372,16 +374,17 @@
             // 
             // F_NCTXN_Details
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 214);
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "F_NCTXN_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PHƯƠNG PHÁP XÉT NGHIỆM";
+            this.Text = "NHÓM CHỈ TIÊU XÉT NGHIỆM";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

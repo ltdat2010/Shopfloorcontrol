@@ -55,7 +55,8 @@ namespace Production.Class
 
         public void F_RECEIPT_DetailsCSV(GridView gridview1)
         {
-            CreateCSVFile(GridView2DataTable(gridview1), @"D:\\Eresis\\EXCHANGES\\IN\\RECEIPT.csv");
+            //CreateCSVFile(GridView2DataTable(gridview1), @"D:\\Eresis\\EXCHANGES\\IN\\RECEIPT.csv");
+            CreateCSVFile(GridView2DataTable(gridview1), @"D:\\RECEIPT.csv");
         }
 
         public void RECEIPT_INSERT(GridView gv1)
@@ -109,12 +110,13 @@ namespace Production.Class
 
             int iColCount = dt.Columns.Count - 1;
 
-            for (int i = 0; i < iColCount; i++)
+            for (int i = 0; i <= iColCount; i++)
             {
                 //sw.Write(dt.Columns[i]);
                 sw.Write('"' + dt.Columns[i].ToString() + '"');
-
-                if (i <= iColCount - 1)
+                //Update 20200306 de hien thi expired date theo yeu cau A Trang
+                //Them = de hien thi dau ";" o cuoi
+                if (i <= iColCount)
                 {
                     sw.Write(";");
                 }
@@ -150,7 +152,7 @@ namespace Production.Class
                 //XtraMessageBox.Show("Số XHL của cột : " + dt.Rows[j]["XHL"].ToString());
                 //if (j <= dt.Rows.Count - 1)
                 //{
-                for (int i = 0; i < iColCount; i++)
+                for (int i = 0; i <= iColCount; i++)
                 {
                     if (i == 0)
                     {
@@ -173,7 +175,9 @@ namespace Production.Class
                             sw.Write('"' + dt.Rows[j][i].ToString() + '"');
                         }
                     }
-                    if (i < iColCount)
+                    //Update 20200306 de hien thi expired date theo yeu cau A Trang
+                    //Them = de hien thi dau ";" o cuoi
+                    if (i <= iColCount)
                     {
                         sw.Write(";");
                     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DevExpress.XtraEditors;
+using System.Collections.Generic;
 
 namespace Production.Class._GEN
 {
@@ -34,6 +35,8 @@ namespace Production.Class._GEN
             double r;
             double R_SQUARE;
 
+            //XtraMessageBox.Show("alPoints : "+alPoints.Count.ToString());
+            
             for (int ctr = 0; ctr < alPoints.Count; ctr = ctr + 2)
             {
                 //int i = 0;
@@ -118,7 +121,9 @@ namespace Production.Class._GEN
             OBj.a_SLOPE = a_SLOPE;
             OBj.b_INTERCEPT = b_INTERCEPT;
             OBj.R_SQUARE = R_SQUARE;
-
+            //XtraMessageBox.Show("a_Slope :" + a_SLOPE.ToString());
+            //XtraMessageBox.Show("b_Intercept :" + b_INTERCEPT.ToString());
+            //XtraMessageBox.Show("R_Squared :" + R_SQUARE.ToString());
             //return "y = " + Math.Pow(dblR, 2).ToString() + "x" + " " + dblYintercept.ToString();
             return OBj;
         }

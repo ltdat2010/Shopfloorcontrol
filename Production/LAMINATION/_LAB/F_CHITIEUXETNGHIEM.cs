@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using System;
 using System.Data;
@@ -44,7 +45,8 @@ namespace Production.Class
                 };
             // 7 Add hoặc New
             action1.Add(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Add));
-
+            // 7 Add hoặc New
+            action1.Excel(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Excel));
             // 8 Lưu
             action1.Save(new DevExpress.XtraBars.ItemClickEventHandler(ItemClickEventHandler_Save));
 
@@ -91,6 +93,14 @@ namespace Production.Class
 
                 //Is_close = true;
             };
+        }
+
+        private void ItemClickEventHandler_Excel(object sender, ItemClickEventArgs e)
+        {
+            string date= DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+            string path = "D:/ChiTieuXetNghiem"+ DateTime.Now.ToShortDateString().Replace("/", "_") + ".xlsx";
+            XtraMessageBox.Show(date);
+            gridView1.ExportToXlsx(path);
         }
 
         public System.Data.DataTable ImportExceltoDatatable(string filepath, string sheetname)

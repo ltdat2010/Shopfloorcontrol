@@ -73,6 +73,7 @@ namespace Production.Class
             btnPhieuGiaoMau.Click += (s, e) =>
             {
                 R_PGM_LAB FRM = new Class.R_PGM_LAB();
+                OBJ.SoPXN = gridView1.GetFocusedRowCellValue("SoPXN").ToString();
                 FRM.OBJ = this.OBJ;
                 FRM.myFinished += this.finished;
                 FRM.Show();

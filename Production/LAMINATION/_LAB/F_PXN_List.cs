@@ -115,7 +115,7 @@ namespace Production.Class
             {
                 if (gridViewRowClick == true)
                 {
-                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất phiếu giao mẫu cho mẫu số : " + OBJ.SoPXN + " ?. Lưu ý là tất cả thông tin bao gồm cả kết quả, liên quan đến phiếu xét nghiệm này sẽ bị xóa. Bạn chắc chắn vẫn muốn xóa ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuất phiếu giao mẫu cho mẫu số : " + OBJ.SoPXN + " ?", "Giao mẫu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dlDel == DialogResult.Yes)
                     {
                         if(gridView1.GetFocusedRowCellValue("GiaoMau").ToString() == "false")

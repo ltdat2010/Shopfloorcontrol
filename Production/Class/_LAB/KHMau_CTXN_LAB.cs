@@ -39,5 +39,9 @@ namespace Production.Class
         public DateTime NgayTraKetQua { get; set; }
         public bool GoiYCXuatHD { get; set; }
         public DateTime NgayGoiYCXuatHD { get; set; }
+        public bool Approved { set; get; }
+        public string ApprovedBy { set; get; }
+        public bool Confirmed { set; get; }
+        public string ConfirmedBy { set; get; }
     }
 }

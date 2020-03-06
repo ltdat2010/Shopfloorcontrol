@@ -169,7 +169,7 @@ namespace Production.Class
         public void PXN_HeaderDAO_UPDATE_MaCoSoLayMau(string CUSTCODE_Old,string CUSTCODE_New )
         {
             Sql.ExecuteNonQuery("SAP", "UPDATE [SYNC_NUTRICIEL].[dbo].[tbl_PXN_Header] SET " +           
-           ",[MaCoSoLayMau]           = N'" + CUSTCODE_New + "'" +
+           "[MaCoSoLayMau]           = N'" + CUSTCODE_New + "'" +
            " WHERE [MaCoSoLayMau]             =" + CUSTCODE_Old, CommandType.Text);
         }
 

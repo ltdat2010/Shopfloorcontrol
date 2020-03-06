@@ -138,6 +138,7 @@
     <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dialogs.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -281,7 +282,8 @@
     <Compile Include="Class\_GEN\UserBUS.cs" />
     <Compile Include="Class\_GEN\UserDAO.cs" />
     <Compile Include="Class\_GEN\EncryptKey.cs" />
-    <Compile Include="Class\_LAB\GiaoMau.cs" />
+    <Compile Include="Class\_LAB\PGM.cs" />
+    <Compile Include="Class\_LAB\PGM_Details.cs" />
     <Compile Include="Class\_LAB\ProvinceBUS.cs" />
     <Compile Include="Class\_LAB\ProvinceDAO.cs" />
     <Compile Include="Class\_LAB\Province.cs" />
@@ -946,6 +948,12 @@
     <Compile Include="LAMINATION\_LAB\F_Province.Designer.cs">
       <DependentUpon>F_Province.cs</DependentUpon>
     </Compile>
+    <Compile Include="LAMINATION\_PRO\F_ReportAsFinished.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LAMINATION\_PRO\F_ReportAsFinished.Designer.cs">
+      <DependentUpon>F_ReportAsFinished.cs</DependentUpon>
+    </Compile>
     <Compile Include="LAMINATION\_QC\F_COA_Template_Header.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1086,6 +1094,12 @@
       <DependentUpon>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_VN.cs">
       <AutoGen>True</AutoGen>
@@ -2085,6 +2099,9 @@
     <EmbeddedResource Include="LAMINATION\_LAB\F_Province.resx">
       <DependentUpon>F_Province.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LAMINATION\_PRO\F_ReportAsFinished.resx">
+      <DependentUpon>F_ReportAsFinished.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LAMINATION\_QC\F_COA_Template_Header.resx">
       <DependentUpon>F_COA_Template_Header.cs</DependentUpon>
     </EmbeddedResource>
@@ -2163,6 +2180,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN .cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_EN.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT\_LAB\Rpt_IBD_RESULT_Lines_AnalysisReport_LAB_WithSN_VN.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

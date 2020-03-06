@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Columns;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -75,32 +76,62 @@ namespace Production.Class
         //Export to CSV
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            EXP_EXCEL = true;
-            //Kiem tra xu lý data truoc khi update
-            //Kiem tra ECH_RECEP bi trùng
-            if (RECEIPTB.F_RECEIPT_Find(ECHRECEPS).Rows.Count <= 0)
+            int[] selectedRowHandles = gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length > 0)
             {
-                // Save to Receipt
-                RECEIPTB.RECEIPT_INSERT(gridView1);
-
-                //Save to Receipt details
-                DataTable tmp = RECEIPTB.GridView2DataTable(gridView1);
-                RECEIPTB.RECEIPT_Detail_INSERT(tmp);
-
-                for (int i = 0; i < gridView1.DataRowCount; i++)
+                DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn xuát receipt? . Lưu ý hệ thống sẽ tiến hành gởi xuát file receipt và không thể revert sau khi gởi", "Gởi mail", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlDel == DialogResult.Yes)
                 {
-                    if (i > 0 && int.Parse(gridView1.GetRowCellValue(i, "ECH_RECEP").ToString()) <= int.Parse(gridView1.GetRowCellValue(i - 1, "ECH_RECEP").ToString()))
-                        gridView1.SetRowCellValue(i, "ECH_RECEP", int.Parse(gridView1.GetRowCellValue(i - 1, "ECH_RECEP").ToString()) + 1000);
-                    if (gridView1.GetRowCellValue(i, "LB_MAT").ToString().Length >= 25)
-                        gridView1.SetRowCellValue(i, "LB_MAT", gridView1.GetRowCellValue(i, "LB_MAT").ToString().Substring(0, 24));
-                }
-                RECEIPTB.F_RECEIPT_DetailsCSV(gridView1);
+                    EXP_EXCEL = true;
+                    //Kiem tra xu lý data truoc khi update
+                    //Kiem tra ECH_RECEP bi trùng
+                    if (RECEIPTB.F_RECEIPT_Find(ECHRECEPS).Rows.Count <= 0)
+                    {
+                        // Save to Receipt
+                        RECEIPTB.RECEIPT_INSERT(gridView1);
 
-                MessageBox.Show("RECEIPT : " + ECHRECEPS + " đã nhập vào hệ thống thành công.");
-            }
-            else
-                MessageBox.Show("Lưu ý : RECEIPT số :" + ECHRECEPS + " đã được lưu trước đây.");
-            this.Close();
+                        //Save to Receipt details
+                        DataTable tmp = RECEIPTB.GridView2DataTable(gridView1);
+                        RECEIPTB.RECEIPT_Detail_INSERT(tmp);
+
+                        foreach (int i in gridView1.GetSelectedRows())
+                        {
+                            if (i > 0 && int.Parse(gridView1.GetRowCellValue(i, "ECH_RECEP").ToString()) <= int.Parse(gridView1.GetRowCellValue(i - 1, "ECH_RECEP").ToString()))
+                                gridView1.SetRowCellValue(i, "ECH_RECEP", int.Parse(gridView1.GetRowCellValue(i - 1, "ECH_RECEP").ToString()) + 1000);
+                            if (gridView1.GetRowCellValue(i, "LB_MAT").ToString().Length >= 25)
+                                gridView1.SetRowCellValue(i, "LB_MAT", gridView1.GetRowCellValue(i, "LB_MAT").ToString().Substring(0, 24));
+                        }
+                        RECEIPTB.F_RECEIPT_DetailsCSV(gridView1);
+
+                        MessageBox.Show("RECEIPT : " + ECHRECEPS + " đã nhập vào hệ thống thành công.");
+                    }
+                    else
+                    {                        
+                        
+                        XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                        args.AutoCloseOptions.Delay = 2000;
+                        args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                        args.DefaultButtonIndex = 0;
+                        args.Caption = "Xuất file thành công";
+                        args.Text = "Lưu ý : RECEIPT số :" + ECHRECEPS + " đã được lưu trước đây.";
+                        args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                        XtraMessageBox.Show(args).ToString();
+                    }
+
+                    this.Close();
+                }
+                else
+                {
+                    XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                    args.AutoCloseOptions.Delay = 2000;
+                    args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                    args.DefaultButtonIndex = 0;
+                    args.Caption = "Hủy ";
+                    args.Text = "Hủy xuất file CSV.";
+                    args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                    XtraMessageBox.Show(args).ToString();
+                }
+            }                       
         }
 
         private void ItemClickEventHandler_COA(object sender, EventArgs e)

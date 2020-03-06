@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using DevExpress.XtraEditors;
 using System;
 using System.Data;
 using System.Drawing.Printing;
@@ -58,8 +59,9 @@ namespace Production.Class
 
                 dt_PXN_Header.WriteXml(XmlPath + "/dt_PXN_Header_LAB.xml", System.Data.XmlWriteMode.IgnoreSchema);
                 dt_KHMau_Details.WriteXml(XmlPath + "/dt_KHMau_Details.xml", System.Data.XmlWriteMode.IgnoreSchema);
-
-                rpt.Load(Path + "/RPT/Rpt_PGM_LAB.rpt");
+                //XtraMessageBox.Show(Path);
+                //Bo sung _LAB vào đường dẫn bên dưới
+                rpt.Load(Path + @"/RPT/_LAB/Rpt_PGM_LAB.rpt");
                 crvReport.ReportSource = rpt;
             };
 
@@ -81,7 +83,7 @@ namespace Production.Class
                 PaperKind pk = new PaperKind();
                 pk = PaperKind.Letter;
 
-                ps.SourceName = "cassette 1";
+                //ps.SourceName = "cassette 1";
 
                 pd.DefaultPageSettings.PaperSource = ps;
                 pd.DefaultPageSettings.PaperSize.RawKind = (int)pk;

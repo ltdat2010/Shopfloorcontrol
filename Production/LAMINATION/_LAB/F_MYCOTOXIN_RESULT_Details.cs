@@ -186,6 +186,7 @@ namespace Production.Class
             btnCalc_Log.Click += (s, e) =>
             {
                 List<string> List_Acronym = BUSLines.MYCOTOXIN_RESULT_Lines_List_Acronym(OBJHeader.ID);
+                
                 //foreach(string Arc in List_Acronym)
                 //{
                 //    double ConC_STD1 = double.Parse(gridView1.GetRowCellValue(0, "ConC").ToString());
@@ -293,6 +294,7 @@ namespace Production.Class
 
                 foreach (string Arc in List_Acronym)
                 {
+                    //XtraMessageBox.Show("1");
                     double ConC_STD1 = 0; //double.Parse(gridView1.GetRowCellValue(0, "ConC").ToString());
 
                     double OD_STD1 = 0;// double.Parse(gridView1.GetRowCellValue(0, "OD").ToString());
@@ -302,12 +304,16 @@ namespace Production.Class
                     int STD_Row_Count = 0;
 
                     List<double> Lst = new List<double>();
-                    splashScreenManager1.ShowWaitForm();
+                    //splashScreenManager1.ShowWaitForm();
+                    //XtraMessageBox.Show("End 1");
                     for (int i = 0; i < gridView1.DataRowCount; i++)
                     {
+                        //XtraMessageBox.Show("2");
+                        //XtraMessageBox.Show("i:" +i.ToString());                        
                         DataRow row = gridView1.GetDataRow(i);
                         if (row["Acronym"].ToString() == Arc)
                         {
+                            //XtraMessageBox.Show("KHMau : " + row["KHMau"].ToString());
                             if (row["KHMau"].ToString() == "STD1")
                             {
                                 ConC_STD1 = 0; //double.Parse(row["ConC"].ToString());
@@ -323,13 +329,14 @@ namespace Production.Class
                             OBJLines.Row = row["Row"].ToString();
                             OBJLines.Col = double.Parse(row["Col"].ToString());
                             OBJLines.CTXN_ID = (int)row["CTXN_ID"];
+
                             //STD
                             if (OBJLines.KHMau.Substring(0, 3) == "STD")
                             {
                                 OBJLines.OD = double.Parse(row["OD"].ToString());
                                 //--------------B/Bo-----------------------------------------------
                                 OBJLines.B_Bo = OBJLines.OD * 100 / OD_STD1;
-
+                                //XtraMessageBox.Show("OBJLines.KHMau :"+ OBJLines.KHMau);
                                 switch (OBJLines.KHMau)
                                 {
                                     case "STD1":
@@ -341,16 +348,24 @@ namespace Production.Class
                                         break;
 
                                     default:
+                                        //XtraMessageBox.Show("default");
                                         OBJLines.Conc_ng_ml = double.Parse(row["ConC"].ToString());
                                         //--------------logit(B/Bo)-----------------------------------------------
                                         OBJLines.LogitB_Bo = Math.Log10((OBJLines.B_Bo) / (B_Bo_STD1 - OBJLines.B_Bo));
+                                        
                                         //--------------Log(Conc)-----------------------------------------------
                                         OBJLines.LogConc = Math.Log10(OBJLines.Conc_ng_ml);
+                                        
                                         //---------------Equation y= ax + b-----------------------------------------
+                                        //XtraMessageBox.Show("OBJLines.LogitB_Bo :" + OBJLines.LogitB_Bo.ToString());
+                                        //XtraMessageBox.Show("OBJLines.LogConc :"+OBJLines.LogConc.ToString());
+
                                         Lst.Add(OBJLines.LogitB_Bo);
                                         Lst.Add(OBJLines.LogConc);
                                         break;
                                 }
+
+
                                 //--------------HSoPhaLoang-----------------------------------------------
                                 OBJLines.HsoPhaLoang = 1;
                                 OBJLines.Conc_ng_g = 0;
@@ -359,12 +374,21 @@ namespace Production.Class
                                 STD_Row_Count++;
                             }
                         }
+                        //XtraMessageBox.Show("End 2");
                     }
                     //XtraMessageBox.Show(B_Bo_STD1.ToString());
                     OBJSCurve.MYCOTOXIN_RESULT_Header_ID = OBJHeader.ID;
+
+                    //for (int i = 0; i < Lst.Count - 1; i++)
+                    //    XtraMessageBox.Show(Lst[i].ToString());
+
+                    //XtraMessageBox.Show("3");
                     OBJSCurve = EQ.calcValues(Arc, Lst);
+                    //XtraMessageBox.Show("End 3");
                     OBJSCurve.MYCOTOXIN_RESULT_Header_ID = OBJHeader.ID;
+                    //XtraMessageBox.Show("4");
                     BUSSCurve.MYCOTOXIN_RESULT_StandardCurve_INSERT(OBJSCurve);
+                    //XtraMessageBox.Show("End 4");
                     //i se chay tu dong STD_Row_Count+1 den het
                     //Muc dich giam thoi gian duyet va xu ly
                     for (int i = STD_Row_Count; i < gridView1.DataRowCount; i++)
@@ -444,7 +468,7 @@ namespace Production.Class
                         }
                     }
 
-                    splashScreenManager1.CloseWaitForm();
+                    //splashScreenManager1.CloseWaitForm();
                 }
 
                 //XtraMessageBoxArgs args = new XtraMessageBoxArgs();

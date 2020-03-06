@@ -96,7 +96,7 @@ namespace Production.Class
 
                     layoutControlItem33.Text = "Tuổi :";
 
-                    layoutControlItem35.Text = "Dãy chuồng :";
+                    layoutControlItem35.Text = "Tên mẫu :";
                 }
                 else if (KHMAUOBJ.SoPXN.Substring(0, 3) == "H2O")
                 {
@@ -152,57 +152,71 @@ namespace Production.Class
                     {
                         if (gridView1.RowCount > 0)
                         {
-                            for (int i = 0; i <= gridView1.RowCount - 1; i++)
+                            if (this.dxValidationProvider1.Validate() == true)
                             {
-                                DataRow dr = gridView1.GetDataRow(i);
-                                KHMAUCTXNOBJ.SoLuongXN = txtSoLuong.Text; //txtSoLuongXN.Text;
-                                KHMAUCTXNOBJ.DonGia = float.Parse(dr["DonGia"].ToString()); //float.Parse(txtDonGia.Text.ToString());
-                                KHMAUCTXNOBJ.VAT = float.Parse(dr["VAT"].ToString()); //float.Parse(txtVAT.Text.ToString());
-                                KHMAUCTXNOBJ.DonGiaMuaNgoai = float.Parse(dr["DonGiaMuaNgoai"].ToString()); //float.Parse(txtDonGiaMuaNgoai.Text.ToString());
-                                KHMAUCTXNOBJ.DonGiaSauDiscount = float.Parse(dr["DonGia"].ToString());
-                                //XtraMessageBox.Show("KHMAUCTXNOBJ.DonGiaSauDiscount "+ KHMAUCTXNOBJ.DonGiaSauDiscount.ToString());
-                                //XtraMessageBox.Show("txtSoLuong.Text " + txtSoLuong.Text);
-                                //XtraMessageBox.Show("KHMAUCTXNOBJ.VAT "+ KHMAUCTXNOBJ.VAT.ToString());
-                                if (KHMAUCTXNOBJ.DonGiaSauDiscount != 0)
-                                    KHMAUCTXNOBJ.ThanhTien = (KHMAUCTXNOBJ.DonGiaSauDiscount * float.Parse(txtSoLuong.Text) * (100 + KHMAUCTXNOBJ.VAT) / 100);//(KHMAUCTXNOBJ.DonGiaSauDiscount * float.Parse(txtSoLuongXN.Text) * (100 + KHMAUCTXNOBJ.VAT) / 100);
-                                else
-                                    KHMAUCTXNOBJ.ThanhTien = 0;
-                                KHMAUCTXNOBJ.KHMau = txtKHMau.Text; //txtKHMau.Text;
-                                KHMAUCTXNOBJ.KHMau_ID = int.Parse(txtID.Text); //int.Parse(txtID.Text);
-                                //XtraMessageBox.Show("PriceList_Details_LAB_Id" + dr["PriceList_Details_LAB_Id"].ToString());
-                                KHMAUCTXNOBJ.PriceList_Details_LAB_Id = int.Parse(dr["PriceList_Details_LAB_Id"].ToString());//int.Parse(txtPriceList_Details_LAB_Id.Text);
-                                KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID;
-                                KHMAUCTXNOBJ.CTXNID = int.Parse(dr["CTXNID"].ToString()); //int.Parse(txtCTXNID.Text.ToString());
-
-
-                                BUS2.KHMau_CTXN_LABBUS_INSERT(KHMAUCTXNOBJ);
-
-                                if (float.Parse(KHMAUCTXNOBJ.SoLuongXN) >= 1)
+                                Set4Object_Header();
+                                Set4Object_Details();
+                                BUS1.KHMau_LABBUS_UPDATE(KHMAUOBJ);
+                                ///////////////////////////////////////////
+                                for (int i = 0; i <= gridView1.RowCount - 1; i++)
                                 {
-                                    for (int j = 0; j < int.Parse(KHMAUCTXNOBJ.SoLuongXN); j++)
+                                    DataRow dr = gridView1.GetDataRow(i);
+                                    KHMAUCTXNOBJ.SoLuongXN = txtSoLuong.Text; //txtSoLuongXN.Text;
+                                    KHMAUCTXNOBJ.DonGia = float.Parse(dr["DonGia"].ToString()); //float.Parse(txtDonGia.Text.ToString());
+                                    KHMAUCTXNOBJ.VAT = float.Parse(dr["VAT"].ToString()); //float.Parse(txtVAT.Text.ToString());
+                                    KHMAUCTXNOBJ.DonGiaMuaNgoai = float.Parse(dr["DonGiaMuaNgoai"].ToString()); //float.Parse(txtDonGiaMuaNgoai.Text.ToString());
+                                    KHMAUCTXNOBJ.DonGiaSauDiscount = float.Parse(dr["DonGia"].ToString());
+                                    //XtraMessageBox.Show("KHMAUCTXNOBJ.DonGiaSauDiscount "+ KHMAUCTXNOBJ.DonGiaSauDiscount.ToString());
+                                    //XtraMessageBox.Show("txtSoLuong.Text " + txtSoLuong.Text);
+                                    //XtraMessageBox.Show("KHMAUCTXNOBJ.VAT "+ KHMAUCTXNOBJ.VAT.ToString());
+                                    if (KHMAUCTXNOBJ.DonGiaSauDiscount != 0)
+                                        KHMAUCTXNOBJ.ThanhTien = (KHMAUCTXNOBJ.DonGiaSauDiscount * float.Parse(txtSoLuong.Text) * (100 + KHMAUCTXNOBJ.VAT) / 100);//(KHMAUCTXNOBJ.DonGiaSauDiscount * float.Parse(txtSoLuongXN.Text) * (100 + KHMAUCTXNOBJ.VAT) / 100);
+                                    else
+                                        KHMAUCTXNOBJ.ThanhTien = 0;
+                                    KHMAUCTXNOBJ.KHMau = txtKHMau.Text; //txtKHMau.Text;
+                                    KHMAUCTXNOBJ.KHMau_ID = int.Parse(txtID.Text); //int.Parse(txtID.Text);
+                                                                                   //XtraMessageBox.Show("PriceList_Details_LAB_Id" + dr["PriceList_Details_LAB_Id"].ToString());
+                                    KHMAUCTXNOBJ.PriceList_Details_LAB_Id = int.Parse(dr["PriceList_Details_LAB_Id"].ToString());//int.Parse(txtPriceList_Details_LAB_Id.Text);
+                                    KHMAUCTXNOBJ.KHMau_ID = KHMAUOBJ.ID;
+                                    KHMAUCTXNOBJ.CTXNID = int.Parse(dr["CTXNID"].ToString()); //int.Parse(txtCTXNID.Text.ToString());
+
+
+                                    BUS2.KHMau_CTXN_LABBUS_INSERT(KHMAUCTXNOBJ);
+
+                                    if (float.Parse(KHMAUCTXNOBJ.SoLuongXN) >= 1)
                                     {
-                                        //KHMAUCTXNRESULT.KHMau_CTXN_ID = KHMAUCTXNOBJ.ID;
+                                        for (int j = 0; j < int.Parse(KHMAUCTXNOBJ.SoLuongXN); j++)
+                                        {
+                                            //KHMAUCTXNRESULT.KHMau_CTXN_ID = KHMAUCTXNOBJ.ID;
+                                            KHMAUCTXNRESULT.KHMau_CTXN_ID = BUS3.MAX_KHMau_CTXN_LABDAO_ID();
+                                            KHMAUCTXNRESULT.LineNo = j;
+                                            BUS3.KHMau_CTXN_LABDAO_INSERT(KHMAUCTXNRESULT);
+                                        }
+                                    }
+                                    else
+                                    {
                                         KHMAUCTXNRESULT.KHMau_CTXN_ID = BUS3.MAX_KHMau_CTXN_LABDAO_ID();
-                                        KHMAUCTXNRESULT.LineNo = j;
+                                        KHMAUCTXNRESULT.LineNo = 0;
                                         BUS3.KHMau_CTXN_LABDAO_INSERT(KHMAUCTXNRESULT);
                                     }
                                 }
-                                else
-                                {
-                                    KHMAUCTXNRESULT.KHMau_CTXN_ID = BUS3.MAX_KHMau_CTXN_LABDAO_ID();
-                                    KHMAUCTXNRESULT.LineNo = 0;
-                                    BUS3.KHMau_CTXN_LABDAO_INSERT(KHMAUCTXNRESULT);
-                                }
+                                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                                args.AutoCloseOptions.Delay = 2000;
+                                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                                args.DefaultButtonIndex = 0;
+                                args.Caption = "Sao chép thành công";
+                                args.Text = "Sao chép chỉ tiêu xét nghiệm từ kí hiệu mẫu " + lkeKHMau.SelectedText + " sang kí hiệu mẫu " + txtKHMau.Text;
+                                args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
+                                XtraMessageBox.Show(args).ToString();
+                                Is_close = true;
                             }
-                            XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-                            args.AutoCloseOptions.Delay = 2000;
-                            args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
-                            args.DefaultButtonIndex = 0;
-                            args.Caption = "Sao chép thành công";
-                            args.Text = "Sao chép chỉ tiêu xét nghiệm từ kí hiệu mẫu " + lkeKHMau.SelectedText + " sang kí hiệu mẫu " + txtKHMau.Text;
-                            args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                            XtraMessageBox.Show(args).ToString();
-                            Is_close = true;
+                            else
+                            {
+                                IList<Control> IControls = this.dxValidationProvider1.GetInvalidControls();
+                                foreach (Control ctrl in IControls)
+                                    ctrl.Focus();
+                            }
+                            
                         }
                     }
 
@@ -436,7 +450,21 @@ namespace Production.Class
 
         private void ItemClickEventHandler_Close2(object sender, ItemClickEventArgs e)
         {
-            Is_close = true;
+            DialogResult dlDel = XtraMessageBox.Show(" Bạn muốn thoát ? Kí hiệu mẫu " + lkeKHMau.SelectedText + " sẽ bị xóa ? ", "Xóa thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlDel == DialogResult.Yes)
+            {
+                BUS1.KHMau_LABBUS_DELETE(txtKHMau.Text);
+                XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+                args.AutoCloseOptions.Delay = 2000;
+                args.AutoCloseOptions.ShowTimerOnDefaultButton = true;
+                args.DefaultButtonIndex = 0;
+                args.Caption = "Thông báo tự đóng ";
+                args.Text = "Vui lòng click chọn dòng cần cập nhật. Thông báo này sẽ tự đóng sau 2 giây.";
+                args.Buttons = new DialogResult[] { DialogResult.OK };
+                XtraMessageBox.Show(args).ToString();
+                Is_close = true;
+            }
+            
         }
 
         private void ItemClickEventHandler_Update2(object sender, ItemClickEventArgs e)

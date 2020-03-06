@@ -32,6 +32,7 @@ namespace Production.Class
                 else
                     MessageBox.Show("OF :" + CDOF + " chưa xuất CSV, không cần revert");
             };
+
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

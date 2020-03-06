@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_CUSTOMER));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -138,16 +138,16 @@
             this.layoutControl2.Controls.Add(this.gridControl1);
             this.layoutControl2.Controls.Add(this.action1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 22);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 20);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(1102, 516);
+            this.layoutControl2.Size = new System.Drawing.Size(1102, 518);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // dataNavigator1
             // 
-            this.dataNavigator1.Location = new System.Drawing.Point(4, 493);
+            this.dataNavigator1.Location = new System.Drawing.Point(4, 495);
             this.dataNavigator1.Name = "dataNavigator1";
             this.dataNavigator1.Size = new System.Drawing.Size(228, 19);
             this.dataNavigator1.StyleController = this.layoutControl2;
@@ -157,15 +157,15 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.gridCUSTOMERLABBindingSource;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(4, 49);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1094, 440);
+            this.gridControl1.Size = new System.Drawing.Size(1094, 442);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -237,6 +237,7 @@
             this.colId.AppearanceCell.ForeColor = System.Drawing.Color.Blue;
             this.colId.AppearanceCell.Options.UseFont = true;
             this.colId.AppearanceCell.Options.UseForeColor = true;
+            this.colId.ColumnEdit = this.repositoryItemButtonEdit1;
             this.colId.FieldName = "Id";
             this.colId.MinWidth = 23;
             this.colId.Name = "colId";
@@ -262,6 +263,7 @@
             // 
             this.gridColumn2.Caption = "Lưu";
             this.gridColumn2.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.gridColumn2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("gridColumn2.ImageOptions.Image")));
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
@@ -271,11 +273,11 @@
             // 
             this.repositoryItemButtonEdit1.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.repositoryItemButtonEdit1.AutoHeight = false;
-            editorButtonImageOptions2.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            serializableAppearanceObject5.Options.UseImage = true;
+            editorButtonImageOptions1.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            serializableAppearanceObject1.Options.UseImage = true;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.ContextImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -562,8 +564,6 @@
             this.action1.Appearance.Options.UseForeColor = true;
             this.action1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.action1.Location = new System.Drawing.Point(4, 4);
-            this.action1.LookAndFeel.SkinName = "Caramel";
-            this.action1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.action1.Margin = new System.Windows.Forms.Padding(1);
             this.action1.Name = "action1";
             this.action1.Size = new System.Drawing.Size(1094, 41);
@@ -580,7 +580,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1102, 516);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1102, 518);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem18
@@ -597,14 +597,14 @@
             this.layoutControlItem5.Control = this.gridControl1;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 45);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1098, 444);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1098, 446);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dataNavigator1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 489);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 491);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(1098, 23);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -630,10 +630,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
-            // 
             // grid_CUSTOMER_LABTableAdapter
             // 
             this.grid_CUSTOMER_LABTableAdapter.ClearBeforeFill = true;
@@ -645,8 +641,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "F_CUSTOMER";
             this.Size = new System.Drawing.Size(1114, 548);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

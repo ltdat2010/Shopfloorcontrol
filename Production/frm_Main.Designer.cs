@@ -135,6 +135,7 @@
             this.barButtonItem81 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem82 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem83 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem80 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -158,6 +159,8 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage15 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage17 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.gc1 = new DevExpress.XtraEditors.GroupControl();
             this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
@@ -172,9 +175,6 @@
             this.ribbonPage16 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.barButtonItem50 = new DevExpress.XtraBars.BarButtonItem();
             this.Result = new DevExpress.XtraBars.BarSubItem();
-            this.ribbonPage17 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem80 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
@@ -318,7 +318,7 @@
             this.ribbon.ShowCategoryInCaption = false;
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(1278, 72);
+            this.ribbon.Size = new System.Drawing.Size(1278, 71);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
@@ -1163,6 +1163,14 @@
             this.barButtonItem83.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem83.ImageOptions.LargeImage")));
             this.barButtonItem83.Name = "barButtonItem83";
             // 
+            // barButtonItem80
+            // 
+            this.barButtonItem80.Caption = "User";
+            this.barButtonItem80.Id = 80;
+            this.barButtonItem80.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem80.ImageOptions.Image")));
+            this.barButtonItem80.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem80.ImageOptions.LargeImage")));
+            this.barButtonItem80.Name = "barButtonItem80";
+            // 
             // ribbonPageCategory1
             // 
             this.ribbonPageCategory1.Name = "ribbonPageCategory1";
@@ -1368,6 +1376,21 @@
             this.ribbonPageGroup17.Name = "ribbonPageGroup17";
             this.ribbonPageGroup17.Text = "ribbonPageGroup17";
             // 
+            // ribbonPage17
+            // 
+            this.ribbonPage17.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup18});
+            this.ribbonPage17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage17.ImageOptions.Image")));
+            this.ribbonPage17.Name = "ribbonPage17";
+            this.ribbonPage17.Text = "Admin";
+            this.ribbonPage17.Visible = false;
+            // 
+            // ribbonPageGroup18
+            // 
+            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem80);
+            this.ribbonPageGroup18.Name = "ribbonPageGroup18";
+            this.ribbonPageGroup18.Text = "ribbonPageGroup18";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem7);
@@ -1380,12 +1403,12 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem4);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3);
             this.ribbonStatusBar.ItemLinks.Add(this.labelControl5);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 415);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 412);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1278, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1278, 27);
             // 
             // gc1
             // 
@@ -1393,12 +1416,12 @@
             this.gc1.Appearance.Options.UseBackColor = true;
             this.gc1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc1.Location = new System.Drawing.Point(0, 72);
+            this.gc1.Location = new System.Drawing.Point(0, 71);
             this.gc1.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.gc1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gc1.Name = "gc1";
             this.gc1.ShowCaption = false;
-            this.gc1.Size = new System.Drawing.Size(1278, 343);
+            this.gc1.Size = new System.Drawing.Size(1278, 341);
             this.gc1.TabIndex = 0;
             // 
             // backstageViewControl1
@@ -1412,9 +1435,9 @@
             // 
             // backstageViewClientControl1
             // 
-            this.backstageViewClientControl1.Location = new System.Drawing.Point(188, 0);
+            this.backstageViewClientControl1.Location = new System.Drawing.Point(195, 0);
             this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-            this.backstageViewClientControl1.Size = new System.Drawing.Size(292, 150);
+            this.backstageViewClientControl1.Size = new System.Drawing.Size(285, 150);
             this.backstageViewClientControl1.TabIndex = 1;
             // 
             // backstageViewTabItem1
@@ -1434,9 +1457,9 @@
             // 
             // backstageViewClientControl2
             // 
-            this.backstageViewClientControl2.Location = new System.Drawing.Point(188, 0);
+            this.backstageViewClientControl2.Location = new System.Drawing.Point(195, 0);
             this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-            this.backstageViewClientControl2.Size = new System.Drawing.Size(292, 150);
+            this.backstageViewClientControl2.Size = new System.Drawing.Size(285, 150);
             this.backstageViewClientControl2.TabIndex = 1;
             // 
             // backstageViewTabItem2
@@ -1456,9 +1479,9 @@
             // 
             // backstageViewClientControl3
             // 
-            this.backstageViewClientControl3.Location = new System.Drawing.Point(188, 0);
+            this.backstageViewClientControl3.Location = new System.Drawing.Point(195, 0);
             this.backstageViewClientControl3.Name = "backstageViewClientControl3";
-            this.backstageViewClientControl3.Size = new System.Drawing.Size(292, 150);
+            this.backstageViewClientControl3.Size = new System.Drawing.Size(285, 150);
             this.backstageViewClientControl3.TabIndex = 1;
             // 
             // backstageViewTabItem3
@@ -1488,28 +1511,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem65)});
             this.Result.Name = "Result";
             // 
-            // ribbonPage17
-            // 
-            this.ribbonPage17.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup18});
-            this.ribbonPage17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage17.ImageOptions.Image")));
-            this.ribbonPage17.Name = "ribbonPage17";
-            this.ribbonPage17.Text = "Admin";
-            // 
-            // ribbonPageGroup18
-            // 
-            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem80);
-            this.ribbonPageGroup18.Name = "ribbonPageGroup18";
-            this.ribbonPageGroup18.Text = "ribbonPageGroup18";
-            // 
-            // barButtonItem80
-            // 
-            this.barButtonItem80.Caption = "User";
-            this.barButtonItem80.Id = 80;
-            this.barButtonItem80.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem80.ImageOptions.Image")));
-            this.barButtonItem80.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem80.ImageOptions.LargeImage")));
-            this.barButtonItem80.Name = "barButtonItem80";
-            // 
             // frm_Main
             // 
             this.Appearance.Options.UseFont = true;
@@ -1524,8 +1525,6 @@
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.LookAndFeel.SkinName = "Caramel";
-            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_Main";
             this.Text = ":: Shop floor control ::";
